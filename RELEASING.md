@@ -9,14 +9,14 @@
 | 源码分支 | `main` |
 | 对应版本标签 | `v0.0.5-beta.446` |
 | 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.446 |
-| APK | `JiajiaBox-0.0.5-beta-446-nowhere-mode-label.apk` |
-| APK SHA-256 | `67d65c1a3defedee1a124f30e15418c8ca8e0ebee3acf8236f0ba614b6f4a807` |
+| APK | `JiajiaBox-0.0.5-beta-446-nowhere-compat.apk` |
+| APK SHA-256 | `a7444af26a4d649ea7205cd6905bf521e9bf6e4e54591377f1f96a90d141f473` |
 | 对应源码归档 | `JiajiaBox-v0.0.5-beta.446-source.tar.gz` |
 | 校验清单 | `SHA256SUMS.txt`（含 APK 与源码归档） |
 
-本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox-Nowhere-NW3-446-mode-label/`；Nowhere 相关源码与脚本位于 `nowhere/`，内核源码位于 `native-src/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 通过 `release/` 与 Releases 附件发布。
+本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox-Nowhere-NW3-446-newhere-compat/`；Nowhere 相关源码与脚本位于 `nowhere/`，内核源码位于 `native-src/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 通过 `release/` 与 Releases 附件发布。
 
-本版在 443 Nowhere 测试包基础上修正节点类型标签：`nowhere` / `newhere` 按 `config.net` 显示 `newhere·tcp` 或 `newhere·udp`，其他自定义 sing-box 类型保持原标签。内核为 `1.14.3-Jiajia-7`，包含 Nowhere NW3 客户端出站（TCP/TLS、UDP/QUIC、Morph）。
+本版在 443 Nowhere 测试包基础上修正节点类型标签：`nowhere` / `newhere` 按 `config.net` 显示 `newhere·tcp` 或 `newhere·udp`，其他自定义 sing-box 类型保持原标签；同时让链接导入和订阅拉取兼容 `nowhere://` 与 `newhere://` 两种前缀。内核为 `1.14.3-Jiajia-7`，包含 Nowhere NW3 客户端出站（TCP/TLS、UDP/QUIC、Morph）。
 
 发布顺序：先提供本地 APK，由用户实测；用户明确同意后，再推送对应源码和成品。应用行为或 APK 有新改动时重新执行此流程。
 
@@ -74,8 +74,8 @@ python3 tools/publish_release.py \
   --commit "$(git rev-parse v0.0.5-beta.446^{commit})" \
   --title "JiajiaBox v0.0.5-beta.446 预发布版" \
   --notes-file build/release-upload-446/RELEASE_NOTES.md \
-  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-446-nowhere-mode-label.apk \
-  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-446-nowhere-mode-label.apk.sha256 \
+  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-446-nowhere-compat.apk \
+  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-446-nowhere-compat.apk.sha256 \
   --asset build/release-upload-446/JiajiaBox-v0.0.5-beta.446-source.tar.gz \
   --asset build/release-upload-446/SHA256SUMS.txt \
   --output-json build/release-upload-446/github-publish.json

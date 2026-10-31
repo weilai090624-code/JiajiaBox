@@ -6,9 +6,10 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 
 当前源码与成品对应 `0.0.5 beta`，内部版本号 `446`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
-- 成品：`release/JiajiaBox-0.0.5-beta-446-nowhere-mode-label.apk`
-- SHA-256：`67d65c1a3defedee1a124f30e15418c8ca8e0ebee3acf8236f0ba614b6f4a807`
-- 新增 Nowhere 客户端出站：支持 `nowhere://` 导入，支持 NW3 TCP/TLS 与 UDP/QUIC（含 Morph）。
+- 成品：`release/JiajiaBox-0.0.5-beta-446-nowhere-compat.apk`
+- SHA-256：`a7444af26a4d649ea7205cd6905bf521e9bf6e4e54591377f1f96a90d141f473`
+- 新增 Nowhere 客户端出站：支持 NW3 TCP/TLS 与 UDP/QUIC（含 Morph）。
+- 链接导入与订阅拉取同时兼容 `nowhere://` 和 `newhere://`。
 - 节点类型标签：`nowhere` / `newhere` 按 `net` 显示 `newhere·tcp` 或 `newhere·udp`，其他自定义 sing-box 类型保持原标签。
 - 内核版本：`1.14.3-Jiajia-7`。
 

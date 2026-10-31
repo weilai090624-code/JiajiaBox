@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /** Converts a Nowhere v3 share URL into the app's existing custom outbound bean. */
 public final class NowhereImport {
  public static boolean add(String link, ArrayList<Object> output) {
-  if (!link.startsWith("nowhere://")) return false;
+  if (!link.startsWith("nowhere://") && !link.startsWith("newhere://")) return false;
   try {
    URI uri = new URI(link);
    String host = uri.getHost();
