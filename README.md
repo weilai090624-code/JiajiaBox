@@ -4,18 +4,19 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 
 ## 最新版本
 
-当前源码与成品对应 `0.0.5 beta`，内部版本号 `446`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前源码与成品对应 `0.0.5 beta`，内部版本号 `447`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
-- 成品：`release/JiajiaBox-0.0.5-beta-446-nowhere-compat.apk`
-- SHA-256：`a7444af26a4d649ea7205cd6905bf521e9bf6e4e54591377f1f96a90d141f473`
+- 成品：`release/JiajiaBox-0.0.5-beta-447-nowhere-tcpfix.apk`
+- SHA-256：`96daa0fc110fd5cee8bac2741b796ff50fd82548fc7f911f284e6f04a0ec0f76`
 - 新增 Nowhere 客户端出站：支持 NW3 TCP/TLS 与 UDP/QUIC（含 Morph）。
 - 链接导入与订阅拉取同时兼容 `nowhere://` 和 `newhere://`。
 - 节点类型标签：`nowhere` / `newhere` 按 `net` 显示 `newhere·tcp` 或 `newhere·udp`，其他自定义 sing-box 类型保持原标签。
+- 修正 446 中 TCP/UDP 标签显示颠倒的问题。
 - 内核版本：`1.14.3-Jiajia-7`。
 
 ## 源码结构
 
-- `smali*`、`res/`、`assets/`、`AndroidManifest.xml`、`apktool.yml`：与 446 APK 对应的完整解包源码。
+- `smali*`、`res/`、`assets/`、`AndroidManifest.xml`、`apktool.yml`：与 447 APK 对应的完整解包源码。
 - `native-src/`：sing-box、libcore、libneko 与 JNI 绑定源码，包含 Nowhere NW3。
 - `nowhere/`：Nowhere 导入、测试与打包脚本，以及实现说明。
 - `addon-src/`：项目附加 Java 源码。

@@ -295,7 +295,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_67
+    if-eqz v3, :cond_67
 
     const-string v0, "newhere\u00b7udp"
 
