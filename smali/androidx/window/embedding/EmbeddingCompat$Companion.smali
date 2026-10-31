@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/window/embedding/EmbeddingCompat$Companion;-><init>()V
 
@@ -64,14 +64,14 @@
 
 # virtual methods
 .method public final embeddingComponent()Landroidx/window/extensions/embedding/ActivityEmbeddingComponent;
-    .locals 1
+    .registers 2
 
     .line 88
     invoke-virtual {p0}, Landroidx/window/embedding/EmbeddingCompat$Companion;->isEmbeddingAvailable()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 89
     invoke-static {}, Landroidx/window/extensions/WindowExtensionsProvider;->getWindowExtensions()Landroidx/window/extensions/WindowExtensions;
@@ -82,7 +82,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 90
     new-instance v0, Landroidx/window/embedding/EmptyEmbeddingComponent;
@@ -92,11 +92,11 @@
     check-cast v0, Landroidx/window/extensions/embedding/ActivityEmbeddingComponent;
 
     .line 88
-    :cond_0
-    goto :goto_0
+    :cond_17
+    goto :goto_1f
 
     .line 92
-    :cond_1
+    :cond_18
     new-instance v0, Landroidx/window/embedding/EmptyEmbeddingComponent;
 
     invoke-direct {v0}, Landroidx/window/embedding/EmptyEmbeddingComponent;-><init>()V
@@ -104,12 +104,12 @@
     check-cast v0, Landroidx/window/extensions/embedding/ActivityEmbeddingComponent;
 
     .line 88
-    :goto_0
+    :goto_1f
     return-object v0
 .end method
 
 .method public final getExtensionApiLevel()Ljava/lang/Integer;
-    .locals 4
+    .registers 5
 
     .line 56
     const-string v0, "EmbeddingCompat"
@@ -117,7 +117,7 @@
     .line 57
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_3
     invoke-static {}, Landroidx/window/extensions/WindowExtensionsProvider;->getWindowExtensions()Landroidx/window/extensions/WindowExtensions;
 
     move-result-object v2
@@ -129,14 +129,14 @@
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NoClassDefFoundError; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/NoClassDefFoundError; {:try_start_3 .. :try_end_f} :catch_1b
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_3 .. :try_end_f} :catch_10
 
-    goto :goto_0
+    goto :goto_25
 
     .line 63
-    :catch_0
+    :catch_10
     move-exception v2
 
     .line 64
@@ -153,11 +153,11 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    goto :goto_0
+    goto :goto_25
 
     .line 58
     .end local v2    # "e":Ljava/lang/UnsupportedOperationException;
-    :catch_1
+    :catch_1b
     move-exception v2
 
     .line 59
@@ -176,12 +176,12 @@
 
     .line 56
     .end local v2    # "e":Ljava/lang/NoClassDefFoundError;
-    :goto_0
+    :goto_25
     return-object v1
 .end method
 
 .method public final isEmbeddingAvailable()Z
-    .locals 4
+    .registers 5
 
     .line 72
     const-string v0, "EmbeddingCompat"
@@ -189,7 +189,7 @@
     .line 73
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_3
     invoke-static {}, Landroidx/window/extensions/WindowExtensionsProvider;->getWindowExtensions()Landroidx/window/extensions/WindowExtensions;
 
     move-result-object v2
@@ -197,20 +197,20 @@
     invoke-interface {v2}, Landroidx/window/extensions/WindowExtensions;->getActivityEmbeddingComponent()Landroidx/window/extensions/embedding/ActivityEmbeddingComponent;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoClassDefFoundError; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/NoClassDefFoundError; {:try_start_3 .. :try_end_b} :catch_18
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_3 .. :try_end_b} :catch_10
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     const/4 v0, 0x1
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
     .line 79
-    :catch_0
+    :catch_10
     move-exception v2
 
     .line 80
@@ -223,11 +223,11 @@
     invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 83
-    goto :goto_0
+    goto :goto_20
 
     .line 74
     .end local v2    # "e":Ljava/lang/UnsupportedOperationException;
-    :catch_1
+    :catch_18
     move-exception v2
 
     .line 75
@@ -244,7 +244,7 @@
 
     .line 72
     .end local v2    # "e":Ljava/lang/NoClassDefFoundError;
-    :cond_0
-    :goto_0
+    :cond_20
+    :goto_20
     return v1
 .end method

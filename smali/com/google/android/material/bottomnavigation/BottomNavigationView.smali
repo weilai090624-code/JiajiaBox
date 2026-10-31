@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 94
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 7
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -115,7 +115,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2f
 
     .line 123
     sget v1, Lcom/google/android/material/R$styleable;->BottomNavigationView_android_minHeight:I
@@ -129,27 +129,27 @@
     invoke-virtual {p0, v1}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->setMinimumHeight(I)V
 
     .line 127
-    :cond_0
+    :cond_2f
     sget v1, Lcom/google/android/material/R$styleable;->BottomNavigationView_compatShadowEnabled:I
 
     invoke-virtual {v0, v1, v2}, Landroidx/appcompat/widget/TintTypedArray;->getBoolean(IZ)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_40
 
     .line 128
     invoke-direct {p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->shouldDrawCompatibilityTopDivider()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_40
 
     .line 129
     invoke-direct {p0, p1}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->addCompatibilityTopDivider(Landroid/content/Context;)V
 
     .line 132
-    :cond_1
+    :cond_40
     invoke-virtual {v0}, Landroidx/appcompat/widget/TintTypedArray;->recycle()V
 
     .line 134
@@ -160,7 +160,7 @@
 .end method
 
 .method private addCompatibilityTopDivider(Landroid/content/Context;)V
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
 
     .line 233
@@ -210,7 +210,7 @@
 .end method
 
 .method private applyWindowInsets()V
-    .locals 1
+    .registers 2
 
     .line 138
     new-instance v0, Lcom/google/android/material/bottomnavigation/BottomNavigationView$1;
@@ -224,7 +224,7 @@
 .end method
 
 .method private makeMinHeightSpec(I)I
-    .locals 4
+    .registers 6
     .param p1, "measureSpec"    # I
 
     .line 169
@@ -240,9 +240,9 @@
 
     const/high16 v2, 0x40000000    # 2.0f
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_26
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_26
 
     .line 171
     invoke-virtual {p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->getPaddingTop()I
@@ -277,12 +277,12 @@
     return v1
 
     .line 177
-    :cond_0
+    :cond_26
     return p1
 .end method
 
 .method private shouldDrawCompatibilityTopDivider()Z
-    .locals 1
+    .registers 2
 
     .line 224
     const/4 v0, 0x0
@@ -293,7 +293,7 @@
 
 # virtual methods
 .method protected createNavigationBarMenuView(Landroid/content/Context;)Lcom/google/android/material/navigation/NavigationBarMenuView;
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 216
@@ -305,7 +305,7 @@
 .end method
 
 .method public getMaxItemCount()I
-    .locals 1
+    .registers 2
 
     .line 208
     const/4 v0, 0x5
@@ -314,7 +314,7 @@
 .end method
 
 .method public isItemHorizontalTranslationEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 203
     invoke-virtual {p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->getMenuView()Landroidx/appcompat/view/menu/MenuView;
@@ -331,7 +331,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 1
+    .registers 4
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -349,7 +349,7 @@
 .end method
 
 .method public setItemHorizontalTranslationEnabled(Z)V
-    .locals 3
+    .registers 5
     .param p1, "itemHorizontalTranslationEnabled"    # Z
 
     .line 188
@@ -365,7 +365,7 @@
 
     move-result v1
 
-    if-eq v1, p1, :cond_0
+    if-eq v1, p1, :cond_17
 
     .line 190
     invoke-virtual {v0, p1}, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->setItemHorizontalTranslationEnabled(Z)V
@@ -380,12 +380,12 @@
     invoke-virtual {v1, v2}, Lcom/google/android/material/navigation/NavigationBarPresenter;->updateMenuView(Z)V
 
     .line 193
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public setOnNavigationItemReselectedListener(Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemReselectedListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemReselectedListener;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -398,7 +398,7 @@
 .end method
 
 .method public setOnNavigationItemSelectedListener(Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemSelectedListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemSelectedListener;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation

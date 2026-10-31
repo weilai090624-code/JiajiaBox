@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIII)V
-    .locals 0
+    .registers 6
     .param p1, "holder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "fromX"    # I
     .param p3, "fromY"    # I

@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 1
+    .registers 3
     .param p1, "root"    # Ljava/io/File;
 
     const-string v0, "root"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final getRoot()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Lkotlin/io/FileTreeWalk$WalkState;->root:Ljava/io/File;

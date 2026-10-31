@@ -90,7 +90,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;
     .param p2, "context"    # Lkotlin/coroutines/CoroutineContext;
 
@@ -154,7 +154,7 @@
 
 # virtual methods
 .method public final getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 20
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfo;->context:Lkotlin/coroutines/CoroutineContext;
@@ -163,7 +163,7 @@
 .end method
 
 .method public final getCreationStackBottom$kotlinx_coroutines_core()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfo;->creationStackBottom:Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
@@ -172,7 +172,7 @@
 .end method
 
 .method public final getCreationStackTrace()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -189,7 +189,7 @@
 .end method
 
 .method public final getLastObservedFrame()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    .locals 1
+    .registers 2
 
     .line 27
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfo;->lastObservedFrame:Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
@@ -198,7 +198,7 @@
 .end method
 
 .method public final getLastObservedThread()Ljava/lang/Thread;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfo;->lastObservedThread:Ljava/lang/Thread;
@@ -207,7 +207,7 @@
 .end method
 
 .method public final getSequenceNumber()J
-    .locals 2
+    .registers 3
 
     .line 23
     iget-wide v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfo;->sequenceNumber:J
@@ -216,7 +216,7 @@
 .end method
 
 .method public final getState()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 25
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfo;->state:Ljava/lang/String;
@@ -225,7 +225,7 @@
 .end method
 
 .method public final lastObservedStackTrace()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -48,7 +48,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1918
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method static all()I
-    .locals 1
+    .registers 1
 
     .line 2021
     const/4 v0, -0x1
@@ -66,7 +66,7 @@
 .end method
 
 .method public static captionBar()I
-    .locals 1
+    .registers 1
 
     .line 1941
     const/4 v0, 0x4
@@ -75,7 +75,7 @@
 .end method
 
 .method public static displayCutout()I
-    .locals 1
+    .registers 1
 
     .line 2002
     const/16 v0, 0x80
@@ -84,7 +84,7 @@
 .end method
 
 .method public static ime()I
-    .locals 1
+    .registers 1
 
     .line 1949
     const/16 v0, 0x8
@@ -93,11 +93,11 @@
 .end method
 
 .method static indexOf(I)I
-    .locals 3
+    .registers 4
     .param p0, "type"    # I
 
     .line 2025
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_30
 
     .line 2045
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -125,75 +125,75 @@
     throw v0
 
     .line 2043
-    :sswitch_0
+    :sswitch_1d
     const/16 v0, 0x8
 
     return v0
 
     .line 2041
-    :sswitch_1
+    :sswitch_20
     const/4 v0, 0x7
 
     return v0
 
     .line 2039
-    :sswitch_2
+    :sswitch_22
     const/4 v0, 0x6
 
     return v0
 
     .line 2037
-    :sswitch_3
+    :sswitch_24
     const/4 v0, 0x5
 
     return v0
 
     .line 2035
-    :sswitch_4
+    :sswitch_26
     const/4 v0, 0x4
 
     return v0
 
     .line 2033
-    :sswitch_5
+    :sswitch_28
     const/4 v0, 0x3
 
     return v0
 
     .line 2031
-    :sswitch_6
+    :sswitch_2a
     const/4 v0, 0x2
 
     return v0
 
     .line 2029
-    :sswitch_7
+    :sswitch_2c
     const/4 v0, 0x1
 
     return v0
 
     .line 2027
-    :sswitch_8
+    :sswitch_2e
     const/4 v0, 0x0
 
     return v0
 
-    :sswitch_data_0
+    :sswitch_data_30
     .sparse-switch
-        0x1 -> :sswitch_8
-        0x2 -> :sswitch_7
-        0x4 -> :sswitch_6
-        0x8 -> :sswitch_5
-        0x10 -> :sswitch_4
-        0x20 -> :sswitch_3
-        0x40 -> :sswitch_2
-        0x80 -> :sswitch_1
-        0x100 -> :sswitch_0
+        0x1 -> :sswitch_2e
+        0x2 -> :sswitch_2c
+        0x4 -> :sswitch_2a
+        0x8 -> :sswitch_28
+        0x10 -> :sswitch_26
+        0x20 -> :sswitch_24
+        0x40 -> :sswitch_22
+        0x80 -> :sswitch_20
+        0x100 -> :sswitch_1d
     .end sparse-switch
 .end method
 
 .method public static mandatorySystemGestures()I
-    .locals 1
+    .registers 1
 
     .line 1979
     const/16 v0, 0x20
@@ -202,7 +202,7 @@
 .end method
 
 .method public static navigationBars()I
-    .locals 1
+    .registers 1
 
     .line 1933
     const/4 v0, 0x2
@@ -211,7 +211,7 @@
 .end method
 
 .method public static statusBars()I
-    .locals 1
+    .registers 1
 
     .line 1925
     const/4 v0, 0x1
@@ -220,7 +220,7 @@
 .end method
 
 .method public static systemBars()I
-    .locals 1
+    .registers 1
 
     .line 2011
     const/4 v0, 0x7
@@ -229,7 +229,7 @@
 .end method
 
 .method public static systemGestures()I
-    .locals 1
+    .registers 1
 
     .line 1971
     const/16 v0, 0x10
@@ -238,7 +238,7 @@
 .end method
 
 .method public static tappableElement()I
-    .locals 1
+    .registers 1
 
     .line 1987
     const/16 v0, 0x40

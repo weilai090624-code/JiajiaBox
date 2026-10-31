@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function2;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
 
     iput-object p2, p0, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$3;->$this_createCoroutineUnintercepted$inlined:Lkotlin/jvm/functions/Function2;
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method protected invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 211
@@ -81,7 +81,7 @@
 
     const/4 v1, 0x2
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_3a
 
     .line 219
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -98,7 +98,7 @@
     throw v0
 
     .line 218
-    :pswitch_0
+    :pswitch_12
     iput v1, p0, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$3;->label:I
 
     .line 219
@@ -106,10 +106,10 @@
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_39
 
     .line 213
-    :pswitch_1
+    :pswitch_19
     const/4 v0, 0x1
 
     iput v0, p0, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$3;->label:I
@@ -153,12 +153,12 @@
     nop
 
     .line 222
-    :goto_0
+    :goto_39
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_3a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_12
     .end packed-switch
 .end method

@@ -45,7 +45,7 @@
 
 # direct methods
 .method public static final byteBuffer(Ljava/io/InputStream;)Lcom/esotericsoftware/kryo/io/ByteBufferInput;
-    .locals 1
+    .registers 2
     .param p0, "$this$byteBuffer"    # Ljava/io/InputStream;
 
     const-string v0, "<this>"
@@ -61,7 +61,7 @@
 .end method
 
 .method public static final byteBuffer(Ljava/io/OutputStream;)Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
-    .locals 1
+    .registers 2
     .param p0, "$this$byteBuffer"    # Ljava/io/OutputStream;
 
     const-string v0, "<this>"
@@ -77,7 +77,7 @@
 .end method
 
 .method public static final marshall(Landroid/os/Parcelable;)[B
-    .locals 2
+    .registers 3
     .param p0, "$this$marshall"    # Landroid/os/Parcelable;
 
     const-string v0, "<this>"
@@ -115,7 +115,7 @@
 .end method
 
 .method public static final readStringList(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)Ljava/util/List;
-    .locals 8
+    .registers 9
     .param p0, "$this$readStringList"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -152,8 +152,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_0
+    :goto_13
+    if-ge v4, v3, :cond_22
 
     move v5, v4
 
@@ -176,10 +176,10 @@
     .end local v6    # "$i$a$-repeat-KryosKt$readStringList$1$1":I
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 19
-    :cond_0
+    :cond_22
     nop
 
     .line 15
@@ -189,7 +189,7 @@
 .end method
 
 .method public static final readStringSet(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)Ljava/util/Set;
-    .locals 8
+    .registers 9
     .param p0, "$this$readStringSet"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -224,8 +224,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_0
+    :goto_11
+    if-ge v4, v3, :cond_20
 
     move v5, v4
 
@@ -248,10 +248,10 @@
     .end local v6    # "$i$a$-repeat-KryosKt$readStringSet$1$1":I
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 27
-    :cond_0
+    :cond_20
     nop
 
     .line 23
@@ -263,7 +263,7 @@
 .end method
 
 .method public static final unmarshall([B)Landroid/os/Parcel;
-    .locals 3
+    .registers 4
     .param p0, "$this$unmarshall"    # [B
 
     const-string v0, "<this>"
@@ -295,7 +295,7 @@
 .end method
 
 .method public static final unmarshall([BLkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$unmarshall"    # [B
     .param p1, "constructor"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -338,7 +338,7 @@
 .end method
 
 .method public static final writeStringList(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$writeStringList"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .param p1, "list"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -371,12 +371,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_15
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -388,15 +388,15 @@
     invoke-virtual {p0, v1}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
 
     .end local v1    # "str":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_15
 
     .line 34
-    :cond_0
+    :cond_25
     return-void
 .end method
 
 .method public static final writeStringList(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;Ljava/util/Set;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$writeStringList"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .param p1, "list"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -429,12 +429,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_15
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -446,9 +446,9 @@
     invoke-virtual {p0, v1}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
 
     .end local v1    # "str":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_15
 
     .line 39
-    :cond_0
+    :cond_25
     return-void
 .end method

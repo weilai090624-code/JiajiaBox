@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AsyncCallable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,7 +72,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/concurrent/Callable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 .end method
 
 .method static create(Lcom/google/common/util/concurrent/AsyncCallable;)Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -121,7 +121,7 @@
 .end method
 
 .method static create(Ljava/lang/Runnable;Ljava/lang/Object;)Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
-    .locals 2
+    .registers 4
     .param p0, "runnable"    # Ljava/lang/Runnable;
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -153,7 +153,7 @@
 .end method
 
 .method static create(Ljava/util/concurrent/Callable;)Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -178,7 +178,7 @@
 
 # virtual methods
 .method protected afterDone()V
-    .locals 1
+    .registers 2
 
     .line 93
     .local p0, "this":Lcom/google/common/util/concurrent/TrustedListenableFutureTask;, "Lcom/google/common/util/concurrent/TrustedListenableFutureTask<TV;>;"
@@ -189,21 +189,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 96
     iget-object v0, p0, Lcom/google/common/util/concurrent/TrustedListenableFutureTask;->task:Lcom/google/common/util/concurrent/InterruptibleTask;
 
     .line 97
     .local v0, "localTask":Lcom/google/common/util/concurrent/InterruptibleTask;, "Lcom/google/common/util/concurrent/InterruptibleTask<*>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 98
     invoke-virtual {v0}, Lcom/google/common/util/concurrent/InterruptibleTask;->interruptTask()V
 
     .line 102
     .end local v0    # "localTask":Lcom/google/common/util/concurrent/InterruptibleTask;, "Lcom/google/common/util/concurrent/InterruptibleTask<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/TrustedListenableFutureTask;->task:Lcom/google/common/util/concurrent/InterruptibleTask;
@@ -213,7 +213,7 @@
 .end method
 
 .method protected pendingToString()Ljava/lang/String;
-    .locals 4
+    .registers 5
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -223,7 +223,7 @@
 
     .line 109
     .local v0, "localTask":Lcom/google/common/util/concurrent/InterruptibleTask;, "Lcom/google/common/util/concurrent/InterruptibleTask<*>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 110
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -267,7 +267,7 @@
     return-object v1
 
     .line 112
-    :cond_0
+    :cond_2c
     invoke-super {p0}, Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;->pendingToString()Ljava/lang/String;
 
     move-result-object v1
@@ -276,7 +276,7 @@
 .end method
 
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 80
     .local p0, "this":Lcom/google/common/util/concurrent/TrustedListenableFutureTask;, "Lcom/google/common/util/concurrent/TrustedListenableFutureTask<TV;>;"
@@ -284,13 +284,13 @@
 
     .line 81
     .local v0, "localTask":Lcom/google/common/util/concurrent/InterruptibleTask;, "Lcom/google/common/util/concurrent/InterruptibleTask<*>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 82
     invoke-virtual {v0}, Lcom/google/common/util/concurrent/InterruptibleTask;->run()V
 
     .line 88
-    :cond_0
+    :cond_7
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/google/common/util/concurrent/TrustedListenableFutureTask;->task:Lcom/google/common/util/concurrent/InterruptibleTask;

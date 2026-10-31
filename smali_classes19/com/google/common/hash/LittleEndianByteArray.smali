@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 27
     nop
@@ -34,7 +34,7 @@
 
     .line 246
     .local v0, "theGetter":Lcom/google/common/hash/LittleEndianByteArray$LittleEndianBytes;
-    :try_start_0
+    :try_start_3
     const-string v1, "os.arch"
 
     invoke-static {v1}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -49,7 +49,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_23
 
     .line 249
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
@@ -62,33 +62,33 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     .line 250
     sget-object v2, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->UNSAFE_LITTLE_ENDIAN:Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;
 
-    goto :goto_0
+    goto :goto_22
 
     .line 251
-    :cond_0
+    :cond_20
     sget-object v2, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->UNSAFE_BIG_ENDIAN:Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_3 .. :try_end_22} :catchall_24
 
-    :goto_0
+    :goto_22
     move-object v0, v2
 
     .line 255
     .end local v1    # "arch":Ljava/lang/String;
-    :cond_1
-    goto :goto_1
+    :cond_23
+    goto :goto_25
 
     .line 253
-    :catchall_0
+    :catchall_24
     move-exception v1
 
     .line 256
-    :goto_1
+    :goto_25
     sput-object v0, Lcom/google/common/hash/LittleEndianByteArray;->byteArray:Lcom/google/common/hash/LittleEndianByteArray$LittleEndianBytes;
 
     .line 257
@@ -97,7 +97,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 260
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -106,7 +106,7 @@
 .end method
 
 .method static load32([BI)I
-    .locals 2
+    .registers 4
     .param p0, "source"    # [B
     .param p1, "offset"    # I
 
@@ -149,7 +149,7 @@
 .end method
 
 .method static load64([BI)J
-    .locals 2
+    .registers 4
     .param p0, "input"    # [B
     .param p1, "offset"    # I
 
@@ -158,7 +158,7 @@
 
     add-int/lit8 v1, p1, 0x8
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_c
 
     .line 45
     sget-object v0, Lcom/google/common/hash/LittleEndianByteArray;->byteArray:Lcom/google/common/hash/LittleEndianByteArray$LittleEndianBytes;
@@ -170,7 +170,7 @@
     return-wide v0
 
     .line 43
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -179,7 +179,7 @@
 .end method
 
 .method static load64Safely([BII)J
-    .locals 8
+    .registers 11
     .param p0, "input"    # [B
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -200,8 +200,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_9
+    if-ge v3, v2, :cond_1a
 
     .line 67
     add-int v4, p1, v3
@@ -223,28 +223,28 @@
     .line 65
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 69
     .end local v3    # "i":I
-    :cond_0
+    :cond_1a
     return-wide v0
 .end method
 
 .method static store64([BIJ)V
-    .locals 2
+    .registers 6
     .param p0, "sink"    # [B
     .param p1, "offset"    # I
     .param p2, "value"    # J
 
     .line 81
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_d
 
     add-int/lit8 v0, p1, 0x8
 
     array-length v1, p0
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_d
 
     .line 83
     sget-object v0, Lcom/google/common/hash/LittleEndianByteArray;->byteArray:Lcom/google/common/hash/LittleEndianByteArray$LittleEndianBytes;
@@ -255,7 +255,7 @@
     return-void
 
     .line 81
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -264,7 +264,7 @@
 .end method
 
 .method static usingUnsafe()Z
-    .locals 1
+    .registers 1
 
     .line 107
     sget-object v0, Lcom/google/common/hash/LittleEndianByteArray;->byteArray:Lcom/google/common/hash/LittleEndianByteArray$LittleEndianBytes;

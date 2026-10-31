@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/HashBiMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 748
     .local p0, "this":Lcom/google/common/collect/HashBiMap$View;, "Lcom/google/common/collect/HashBiMap$View<TK;TV;TT;>;"
@@ -89,7 +89,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -108,7 +108,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 743
     .local p0, "this":Lcom/google/common/collect/HashBiMap$View;, "Lcom/google/common/collect/HashBiMap$View<TK;TV;TT;>;"

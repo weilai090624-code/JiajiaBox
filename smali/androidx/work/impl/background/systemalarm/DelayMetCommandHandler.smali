@@ -45,7 +45,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$82vXfMh9MXtN-tLNgTa3KWbb4VE(Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;)V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->stopWork()V
 
@@ -53,7 +53,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$r8ATJco-vysxdAeSwS9XE6krknU(Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;)V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->startWork()V
 
@@ -61,7 +61,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 55
     const-string v0, "DelayMetCommandHandler"
@@ -76,7 +76,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;ILandroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;Landroidx/work/impl/StartStopToken;)V
-    .locals 2
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "startId"    # I
     .param p3, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -177,7 +177,7 @@
 .end method
 
 .method private cleanUp()V
-    .locals 5
+    .registers 6
 
     .line 263
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mLock:Ljava/lang/Object;
@@ -185,7 +185,7 @@
     monitor-enter v0
 
     .line 265
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mWorkConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;
 
     invoke-virtual {v1}, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;->reset()V
@@ -204,7 +204,7 @@
     .line 270
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4e
 
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -212,7 +212,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4e
 
     .line 271
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -261,30 +261,30 @@
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
 
     .line 275
-    :cond_0
+    :cond_4e
     monitor-exit v0
 
     .line 276
     return-void
 
     .line 275
-    :catchall_0
+    :catchall_50
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_52
+    .catchall {:try_start_3 .. :try_end_52} :catchall_50
 
     throw v1
 .end method
 
 .method private startWork()V
-    .locals 5
+    .registers 6
 
     .line 135
     iget v0, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mCurrentState:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_46
 
     .line 136
     const/4 v0, 0x1
@@ -335,7 +335,7 @@
 
     .line 144
     .local v0, "isEnqueued":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_42
 
     .line 147
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mDispatcher:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -351,19 +351,19 @@
 
     invoke-virtual {v1, v2, v3, v4, p0}, Landroidx/work/impl/utils/WorkTimer;->startTimer(Landroidx/work/impl/model/WorkGenerationalId;JLandroidx/work/impl/utils/WorkTimer$TimeLimitExceededListener;)V
 
-    goto :goto_0
+    goto :goto_45
 
     .line 152
-    :cond_0
+    :cond_42
     invoke-direct {p0}, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->cleanUp()V
 
     .line 154
     .end local v0    # "isEnqueued":Z
-    :goto_0
-    goto :goto_1
+    :goto_45
+    goto :goto_64
 
     .line 155
-    :cond_1
+    :cond_46
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
@@ -393,12 +393,12 @@
     invoke-virtual {v0, v1, v2}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 157
-    :goto_1
+    :goto_64
     return-void
 .end method
 
 .method private stopWork()V
-    .locals 7
+    .registers 8
 
     .line 229
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mWorkGenerationalId:Landroidx/work/impl/model/WorkGenerationalId;
@@ -413,7 +413,7 @@
 
     const/4 v2, 0x2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_ad
 
     .line 231
     iput v2, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mCurrentState:I
@@ -485,7 +485,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_8a
 
     .line 241
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -545,10 +545,10 @@
 
     .line 247
     .end local v2    # "reschedule":Landroid/content/Intent;
-    goto :goto_0
+    goto :goto_ac
 
     .line 248
-    :cond_0
+    :cond_8a
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v2
@@ -583,11 +583,11 @@
 
     .line 251
     .end local v1    # "stopWork":Landroid/content/Intent;
-    :goto_0
-    goto :goto_1
+    :goto_ac
+    goto :goto_c9
 
     .line 252
-    :cond_1
+    :cond_ad
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
@@ -615,14 +615,14 @@
     invoke-virtual {v1, v2, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 254
-    :goto_1
+    :goto_c9
     return-void
 .end method
 
 
 # virtual methods
 .method handleProcessWork()V
-    .locals 6
+    .registers 7
 
     .line 194
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mWorkGenerationalId:Landroidx/work/impl/model/WorkGenerationalId;
@@ -739,7 +739,7 @@
 
     .line 207
     .local v1, "workSpec":Landroidx/work/impl/model/WorkSpec;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_79
 
     .line 208
     iget-object v2, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mSerialExecutor:Ljava/util/concurrent/Executor;
@@ -754,7 +754,7 @@
     return-void
 
     .line 214
-    :cond_0
+    :cond_79
     invoke-virtual {v1}, Landroidx/work/impl/model/WorkSpec;->hasConstraints()Z
 
     move-result v2
@@ -764,7 +764,7 @@
     .line 216
     iget-boolean v2, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mHasConstraints:Z
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_a7
 
     .line 217
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -800,10 +800,10 @@
 
     invoke-virtual {p0, v2}, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->onAllConstraintsMet(Ljava/util/List;)V
 
-    goto :goto_0
+    goto :goto_b0
 
     .line 221
-    :cond_1
+    :cond_a7
     iget-object v2, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mWorkConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;
 
     invoke-static {v1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
@@ -813,12 +813,12 @@
     invoke-virtual {v2, v3}, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;->replace(Ljava/lang/Iterable;)V
 
     .line 223
-    :goto_0
+    :goto_b0
     return-void
 .end method
 
 .method public onAllConstraintsMet(Ljava/util/List;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -843,12 +843,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -868,7 +868,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_27
 
     .line 128
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mSerialExecutor:Ljava/util/concurrent/Executor;
@@ -884,16 +884,16 @@
 
     .line 131
     .end local v1    # "spec":Landroidx/work/impl/model/WorkSpec;
-    :cond_0
-    goto :goto_0
+    :cond_27
+    goto :goto_4
 
     .line 132
-    :cond_1
+    :cond_28
     return-void
 .end method
 
 .method public onAllConstraintsNotMet(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -927,7 +927,7 @@
 .end method
 
 .method onExecuted(Z)V
-    .locals 5
+    .registers 7
     .param p1, "needsReschedule"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -981,7 +981,7 @@
     invoke-direct {p0}, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->cleanUp()V
 
     .line 162
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_43
 
     .line 165
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mContext:Landroid/content/Context;
@@ -1008,10 +1008,10 @@
 
     .line 171
     .end local v0    # "reschedule":Landroid/content/Intent;
-    :cond_0
+    :cond_43
     iget-boolean v0, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mHasConstraints:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5b
 
     .line 175
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->mContext:Landroid/content/Context;
@@ -1036,12 +1036,12 @@
 
     .line 179
     .end local v0    # "intent":Landroid/content/Intent;
-    :cond_1
+    :cond_5b
     return-void
 .end method
 
 .method public onTimeLimitExceeded(Landroidx/work/impl/model/WorkGenerationalId;)V
-    .locals 4
+    .registers 6
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/SortedMap;Ljava/util/SortedMap;Ljava/util/SortedMap;Ljava/util/SortedMap;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public bridge synthetic entriesDiffering()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 710
     .local p0, "this":Lcom/google/common/collect/Maps$SortedMapDifferenceImpl;, "Lcom/google/common/collect/Maps$SortedMapDifferenceImpl<TK;TV;>;"
@@ -77,7 +77,7 @@
 .end method
 
 .method public entriesDiffering()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -100,7 +100,7 @@
 .end method
 
 .method public bridge synthetic entriesInCommon()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 710
     .local p0, "this":Lcom/google/common/collect/Maps$SortedMapDifferenceImpl;, "Lcom/google/common/collect/Maps$SortedMapDifferenceImpl<TK;TV;>;"
@@ -112,7 +112,7 @@
 .end method
 
 .method public entriesInCommon()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -133,7 +133,7 @@
 .end method
 
 .method public bridge synthetic entriesOnlyOnLeft()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 710
     .local p0, "this":Lcom/google/common/collect/Maps$SortedMapDifferenceImpl;, "Lcom/google/common/collect/Maps$SortedMapDifferenceImpl<TK;TV;>;"
@@ -145,7 +145,7 @@
 .end method
 
 .method public entriesOnlyOnLeft()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -166,7 +166,7 @@
 .end method
 
 .method public bridge synthetic entriesOnlyOnRight()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 710
     .local p0, "this":Lcom/google/common/collect/Maps$SortedMapDifferenceImpl;, "Lcom/google/common/collect/Maps$SortedMapDifferenceImpl<TK;TV;>;"
@@ -178,7 +178,7 @@
 .end method
 
 .method public entriesOnlyOnRight()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

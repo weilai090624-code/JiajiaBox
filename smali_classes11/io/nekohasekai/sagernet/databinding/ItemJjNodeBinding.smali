@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/LinearLayout;Landroid/widget/TextView;)V
-    .locals 0
+    .registers 8
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "itemJjCheck"    # Landroid/widget/ImageView;
     .param p3, "itemJjEmblem"    # Landroid/widget/TextView;
@@ -82,7 +82,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/ItemJjNodeBinding;
-    .locals 17
+    .registers 18
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -108,7 +108,7 @@
 
     .line 82
     .local v2, "itemJjCheck":Landroid/widget/ImageView;
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_55
 
     .line 86
     const v1, 0x7f0a0166
@@ -124,7 +124,7 @@
 
     .line 88
     .local v11, "itemJjEmblem":Landroid/widget/TextView;
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_54
 
     .line 92
     const v1, 0x7f0a0167
@@ -140,7 +140,7 @@
 
     .line 94
     .local v12, "itemJjName":Landroid/widget/TextView;
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_53
 
     .line 98
     const v1, 0x7f0a0168
@@ -156,7 +156,7 @@
 
     .line 100
     .local v13, "itemJjPing":Landroid/widget/TextView;
-    if-eqz v13, :cond_1
+    if-eqz v13, :cond_52
 
     .line 104
     move-object v14, v0
@@ -178,7 +178,7 @@
 
     .line 108
     .local v15, "itemJjSubtitle":Landroid/widget/TextView;
-    if-eqz v15, :cond_0
+    if-eqz v15, :cond_51
 
     .line 112
     new-instance v16, Lio/nekohasekai/sagernet/databinding/ItemJjNodeBinding;
@@ -206,33 +206,33 @@
     return-object v16
 
     .line 109
-    :cond_0
-    goto :goto_0
+    :cond_51
+    goto :goto_56
 
     .line 101
     .end local v14    # "itemJjRoot":Landroid/widget/LinearLayout;
     .end local v15    # "itemJjSubtitle":Landroid/widget/TextView;
-    :cond_1
-    goto :goto_0
+    :cond_52
+    goto :goto_56
 
     .line 95
     .end local v13    # "itemJjPing":Landroid/widget/TextView;
-    :cond_2
-    goto :goto_0
+    :cond_53
+    goto :goto_56
 
     .line 89
     .end local v12    # "itemJjName":Landroid/widget/TextView;
-    :cond_3
-    goto :goto_0
+    :cond_54
+    goto :goto_56
 
     .line 83
     .end local v11    # "itemJjEmblem":Landroid/widget/TextView;
-    :cond_4
+    :cond_55
     nop
 
     .line 115
     .end local v2    # "itemJjCheck":Landroid/widget/ImageView;
-    :goto_0
+    :goto_56
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -257,7 +257,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/ItemJjNodeBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -281,7 +281,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/ItemJjNodeBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -309,13 +309,13 @@
 
     .line 68
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 69
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 71
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/ItemJjNodeBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/ItemJjNodeBinding;
 
     move-result-object v1
@@ -326,7 +326,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/ItemJjNodeBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -337,7 +337,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/ItemJjNodeBinding;->rootView:Landroid/widget/LinearLayout;

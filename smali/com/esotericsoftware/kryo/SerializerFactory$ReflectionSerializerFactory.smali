@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,7 +59,7 @@
 .end method
 
 .method public static newSerializer(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
-    .locals 6
+    .registers 9
     .param p0, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "type"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
@@ -83,7 +83,7 @@
 
     const/4 v2, 0x2
 
-    :try_start_0
+    :try_start_3
     new-array v3, v2, [Ljava/lang/Class;
 
     const-class v4, Lcom/esotericsoftware/kryo/Kryo;
@@ -109,25 +109,25 @@
     move-result-object v2
 
     check-cast v2, Lcom/esotericsoftware/kryo/Serializer;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_3 .. :try_end_1d} :catch_20
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_1d} :catch_1e
 
     return-object v2
 
     .line 84
-    :catch_0
+    :catch_1e
     move-exception v0
 
-    goto :goto_0
+    goto :goto_54
 
     .line 73
-    :catch_1
+    :catch_20
     move-exception v2
 
     .line 75
     .local v2, "ex1":Ljava/lang/NoSuchMethodException;
-    :try_start_1
+    :try_start_21
     new-array v3, v0, [Ljava/lang/Class;
 
     const-class v4, Lcom/esotericsoftware/kryo/Kryo;
@@ -147,19 +147,19 @@
     move-result-object v3
 
     check-cast v3, Lcom/esotericsoftware/kryo/Serializer;
-    :try_end_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_35
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_21 .. :try_end_35} :catch_36
+    .catch Ljava/lang/Exception; {:try_start_21 .. :try_end_35} :catch_1e
 
     return-object v3
 
     .line 76
-    :catch_2
+    :catch_36
     move-exception v3
 
     .line 78
     .local v3, "ex2":Ljava/lang/NoSuchMethodException;
-    :try_start_2
+    :try_start_37
     new-array v4, v0, [Ljava/lang/Class;
 
     const-class v5, Ljava/lang/Class;
@@ -179,26 +179,26 @@
     move-result-object v0
 
     check-cast v0, Lcom/esotericsoftware/kryo/Serializer;
-    :try_end_2
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_2} :catch_3
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_4b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_37 .. :try_end_4b} :catch_4c
+    .catch Ljava/lang/Exception; {:try_start_37 .. :try_end_4b} :catch_1e
 
     return-object v0
 
     .line 79
-    :catch_3
+    :catch_4c
     move-exception v0
 
     .line 80
     .local v0, "ex3":Ljava/lang/NoSuchMethodException;
-    :try_start_3
+    :try_start_4d
     invoke-virtual {p1}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/esotericsoftware/kryo/Serializer;
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_53
+    .catch Ljava/lang/Exception; {:try_start_4d .. :try_end_53} :catch_1e
 
     return-object v1
 
@@ -206,7 +206,7 @@
     .end local v2    # "ex1":Ljava/lang/NoSuchMethodException;
     .end local v3    # "ex2":Ljava/lang/NoSuchMethodException;
     .local v0, "ex":Ljava/lang/Exception;
-    :goto_0
+    :goto_54
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -254,7 +254,7 @@
 
 # virtual methods
 .method public newSerializer(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
-    .locals 1
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "type"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;

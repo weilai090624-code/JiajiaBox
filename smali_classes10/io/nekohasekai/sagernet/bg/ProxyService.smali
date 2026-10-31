@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 9
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public acquireWakeLock()V
-    .locals 3
+    .registers 4
 
     .line 20
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -138,7 +138,7 @@
 .end method
 
 .method public canReloadSelector()Z
-    .locals 1
+    .registers 2
 
     .line 9
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/BaseService$Interface$DefaultImpls;->canReloadSelector(Lio/nekohasekai/sagernet/bg/BaseService$Interface;)Z
@@ -149,7 +149,7 @@
 .end method
 
 .method public createNotification(Ljava/lang/String;)Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    .locals 4
+    .registers 6
     .param p1, "profileName"    # Ljava/lang/String;
 
     const-string v0, "profileName"
@@ -173,7 +173,7 @@
 .end method
 
 .method public getData()Lio/nekohasekai/sagernet/bg/BaseService$Data;
-    .locals 1
+    .registers 2
 
     .line 10
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/ProxyService;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
@@ -182,7 +182,7 @@
 .end method
 
 .method public getTag()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 11
     const-string v0, "SagerNetProxyService"
@@ -191,7 +191,7 @@
 .end method
 
 .method public getUpstreamInterfaceName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 16
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/ProxyService;->upstreamInterfaceName:Ljava/lang/String;
@@ -200,7 +200,7 @@
 .end method
 
 .method public getWakeLock()Landroid/os/PowerManager$WakeLock;
-    .locals 1
+    .registers 2
 
     .line 15
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/ProxyService;->wakeLock:Landroid/os/PowerManager$WakeLock;
@@ -209,7 +209,7 @@
 .end method
 
 .method public killProcesses()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/BaseService$Interface$DefaultImpls;->killProcesses(Lio/nekohasekai/sagernet/bg/BaseService$Interface;)V
@@ -218,7 +218,7 @@
 .end method
 
 .method public lateInit(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -240,7 +240,7 @@
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 1
+    .registers 3
     .param p1, "intent"    # Landroid/content/Intent;
 
     const-string v0, "intent"
@@ -256,7 +256,7 @@
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .locals 1
+    .registers 5
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "flags"    # I
     .param p3, "startId"    # I
@@ -270,7 +270,7 @@
 .end method
 
 .method public persistStats()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/BaseService$Interface$DefaultImpls;->persistStats(Lio/nekohasekai/sagernet/bg/BaseService$Interface;)V
@@ -279,7 +279,7 @@
 .end method
 
 .method public preInit(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -301,7 +301,7 @@
 .end method
 
 .method public reload()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/BaseService$Interface$DefaultImpls;->reload(Lio/nekohasekai/sagernet/bg/BaseService$Interface;)V
@@ -310,7 +310,7 @@
 .end method
 
 .method public setUpstreamInterfaceName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 16
@@ -320,7 +320,7 @@
 .end method
 
 .method public setWakeLock(Landroid/os/PowerManager$WakeLock;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroid/os/PowerManager$WakeLock;
 
     .line 15
@@ -330,7 +330,7 @@
 .end method
 
 .method public startProcesses(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -352,7 +352,7 @@
 .end method
 
 .method public startRunner()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/BaseService$Interface$DefaultImpls;->startRunner(Lio/nekohasekai/sagernet/bg/BaseService$Interface;)V
@@ -361,7 +361,7 @@
 .end method
 
 .method public stopRunner(ZLjava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "restart"    # Z
     .param p2, "msg"    # Ljava/lang/String;
 

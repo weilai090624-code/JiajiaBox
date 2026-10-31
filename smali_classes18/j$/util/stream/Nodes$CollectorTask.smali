@@ -76,7 +76,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Nodes$CollectorTask;Lj$/util/Spliterator;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -115,7 +115,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Ljava/util/function/LongFunction;Ljava/util/function/BinaryOperator;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -156,7 +156,7 @@
 
 # virtual methods
 .method protected doLeaf()Lj$/util/stream/Node;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT_NODE;"
@@ -201,7 +201,7 @@
 .end method
 
 .method protected bridge synthetic doLeaf()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 2157
     .local p0, "this":Lj$/util/stream/Nodes$CollectorTask;, "Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;"
@@ -213,7 +213,7 @@
 .end method
 
 .method protected bridge synthetic makeChild(Lj$/util/Spliterator;)Lj$/util/stream/AbstractTask;
-    .locals 0
+    .registers 2
 
     .line 2157
     .local p0, "this":Lj$/util/stream/Nodes$CollectorTask;, "Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;"
@@ -225,7 +225,7 @@
 .end method
 
 .method protected makeChild(Lj$/util/Spliterator;)Lj$/util/stream/Nodes$CollectorTask;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -249,7 +249,7 @@
 .end method
 
 .method public onCompletion(Ljava/util/concurrent/CountedCompleter;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -265,7 +265,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     .line 2197
     iget-object v0, p0, Lj$/util/stream/Nodes$CollectorTask;->concFactory:Ljava/util/function/BinaryOperator;
@@ -299,7 +299,7 @@
     invoke-virtual {p0, v0}, Lj$/util/stream/Nodes$CollectorTask;->setLocalResult(Ljava/lang/Object;)V
 
     .line 2198
-    :cond_0
+    :cond_25
     invoke-super {p0, p1}, Lj$/util/stream/AbstractTask;->onCompletion(Ljava/util/concurrent/CountedCompleter;)V
 
     .line 2199

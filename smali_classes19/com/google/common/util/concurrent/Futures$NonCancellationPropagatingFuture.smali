@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method protected afterDone()V
-    .locals 1
+    .registers 2
 
     .line 788
     .local p0, "this":Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;, "Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture<TV;>;"
@@ -81,7 +81,7 @@
 .end method
 
 .method protected pendingToString()Ljava/lang/String;
-    .locals 4
+    .registers 5
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -91,7 +91,7 @@
 
     .line 780
     .local v0, "localDelegate":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 781
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -135,14 +135,14 @@
     return-object v1
 
     .line 783
-    :cond_0
+    :cond_2c
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 770
     .local p0, "this":Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;, "Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture<TV;>;"
@@ -150,12 +150,12 @@
 
     .line 771
     .local v0, "localDelegate":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 772
     invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
 
     .line 774
-    :cond_0
+    :cond_7
     return-void
 .end method

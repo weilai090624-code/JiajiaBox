@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/activity/Api26Impl;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 95
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public final setPipParamsSourceRectHint(Landroid/app/Activity;Landroid/graphics/Rect;)V
-    .locals 1
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "hint"    # Landroid/graphics/Rect;
 

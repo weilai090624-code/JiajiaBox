@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method public static quantize([I[II)Ljava/util/Map;
-    .locals 34
+    .registers 37
     .param p0, "inputPixels"    # [I
     .param p1, "startingClusters"    # [I
     .param p2, "maxColors"    # I
@@ -78,12 +78,12 @@
     const/4 v7, 0x0
 
     .local v7, "i":I
-    :goto_0
+    :goto_16
     array-length v8, v0
 
     const/4 v9, 0x1
 
-    if-ge v7, v8, :cond_1
+    if-ge v7, v8, :cond_51
 
     .line 85
     aget v8, v0, v7
@@ -102,7 +102,7 @@
 
     .line 87
     .local v10, "pixelCount":Ljava/lang/Integer;
-    if-nez v10, :cond_0
+    if-nez v10, :cond_3e
 
     .line 88
     invoke-interface {v5, v8}, Lcom/google/android/material/color/utilities/PointProvider;->fromInt(I)[D
@@ -128,10 +128,10 @@
 
     invoke-interface {v2, v11, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_4e
 
     .line 94
-    :cond_0
+    :cond_3e
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v11
@@ -151,14 +151,14 @@
     .line 84
     .end local v8    # "inputPixel":I
     .end local v10    # "pixelCount":Ljava/lang/Integer;
-    :goto_1
+    :goto_4e
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 98
     .end local v7    # "i":I
-    :cond_1
+    :cond_51
     new-array v7, v6, [I
 
     .line 99
@@ -166,8 +166,8 @@
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_2
-    if-ge v8, v6, :cond_2
+    :goto_54
+    if-ge v8, v6, :cond_6b
 
     .line 100
     aget v10, v4, v8
@@ -197,11 +197,11 @@
     .end local v11    # "count":I
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_2
+    goto :goto_54
 
     .line 105
     .end local v8    # "i":I
-    :cond_2
+    :cond_6b
     move/from16 v8, p2
 
     invoke-static {v8, v6}, Ljava/lang/Math;->min(II)I
@@ -212,7 +212,7 @@
     .local v10, "clusterCount":I
     array-length v11, v1
 
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_79
 
     .line 107
     array-length v11, v1
@@ -222,7 +222,7 @@
     move-result v10
 
     .line 110
-    :cond_3
+    :cond_79
     new-array v11, v10, [[D
 
     .line 111
@@ -234,10 +234,10 @@
     const/4 v13, 0x0
 
     .local v13, "i":I
-    :goto_3
+    :goto_7d
     array-length v14, v1
 
-    if-ge v13, v14, :cond_4
+    if-ge v13, v14, :cond_8d
 
     .line 113
     aget v14, v1, v13
@@ -254,31 +254,31 @@
     .line 112
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_3
+    goto :goto_7d
 
     .line 117
     .end local v13    # "i":I
-    :cond_4
+    :cond_8d
     sub-int v13, v10, v12
 
     .line 118
     .local v13, "additionalClustersNeeded":I
-    if-lez v13, :cond_5
+    if-lez v13, :cond_97
 
     .line 119
     const/4 v14, 0x0
 
     .local v14, "i":I
-    :goto_4
-    if-ge v14, v13, :cond_5
+    :goto_92
+    if-ge v14, v13, :cond_97
 
     add-int/lit8 v14, v14, 0x1
 
-    goto :goto_4
+    goto :goto_92
 
     .line 122
     .end local v14    # "i":I
-    :cond_5
+    :cond_97
     new-array v14, v6, [I
 
     .line 123
@@ -286,8 +286,8 @@
     const/4 v15, 0x0
 
     .local v15, "i":I
-    :goto_5
-    if-ge v15, v6, :cond_6
+    :goto_9a
+    if-ge v15, v6, :cond_b1
 
     .line 124
     invoke-static {}, Ljava/lang/Math;->random()D
@@ -313,11 +313,11 @@
 
     move-object/from16 v1, p1
 
-    goto :goto_5
+    goto :goto_9a
 
     .line 127
     .end local v15    # "i":I
-    :cond_6
+    :cond_b1
     new-array v0, v10, [[I
 
     .line 128
@@ -325,8 +325,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_6
-    if-ge v1, v10, :cond_7
+    :goto_b4
+    if-ge v1, v10, :cond_bd
 
     .line 129
     new-array v15, v10, [I
@@ -336,11 +336,11 @@
     .line 128
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_6
+    goto :goto_b4
 
     .line 132
     .end local v1    # "i":I
-    :cond_7
+    :cond_bd
     new-array v1, v10, [[Lcom/google/android/material/color/utilities/QuantizerWsmeans$Distance;
 
     .line 133
@@ -348,8 +348,8 @@
     const/4 v15, 0x0
 
     .restart local v15    # "i":I
-    :goto_7
-    if-ge v15, v10, :cond_9
+    :goto_c0
+    if-ge v15, v10, :cond_d9
 
     .line 134
     new-array v9, v10, [Lcom/google/android/material/color/utilities/QuantizerWsmeans$Distance;
@@ -360,8 +360,8 @@
     const/4 v9, 0x0
 
     .local v9, "j":I
-    :goto_8
-    if-ge v9, v10, :cond_8
+    :goto_c7
+    if-ge v9, v10, :cond_d5
 
     .line 136
     aget-object v17, v1, v15
@@ -375,20 +375,20 @@
     .line 135
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_8
+    goto :goto_c7
 
     .line 133
     .end local v9    # "j":I
-    :cond_8
+    :cond_d5
     add-int/lit8 v15, v15, 0x1
 
     const/4 v9, 0x1
 
-    goto :goto_7
+    goto :goto_c0
 
     .line 140
     .end local v15    # "i":I
-    :cond_9
+    :cond_d9
     new-array v9, v10, [I
 
     .line 141
@@ -396,21 +396,21 @@
     const/4 v15, 0x0
 
     .local v15, "iteration":I
-    :goto_9
+    :goto_dc
     move-object/from16 v17, v2
 
     .end local v2    # "pixelToCount":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     .local v17, "pixelToCount":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     const/16 v2, 0xa
 
-    if-ge v15, v2, :cond_16
+    if-ge v15, v2, :cond_29c
 
     .line 142
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_a
-    if-ge v2, v10, :cond_c
+    :goto_e3
+    if-ge v2, v10, :cond_13e
 
     .line 143
     add-int/lit8 v18, v2, 0x1
@@ -421,8 +421,8 @@
 
     .local v4, "j":I
     .local v19, "pixels":[I
-    :goto_b
-    if-ge v4, v10, :cond_a
+    :goto_eb
+    if-ge v4, v10, :cond_11a
 
     .line 144
     aget-object v8, v11, v2
@@ -480,13 +480,13 @@
 
     move/from16 v13, v20
 
-    goto :goto_b
+    goto :goto_eb
 
     .end local v18    # "clustersCreated":I
     .end local v20    # "additionalClustersNeeded":I
     .local v12, "clustersCreated":I
     .restart local v13    # "additionalClustersNeeded":I
-    :cond_a
+    :cond_11a
     move/from16 v18, v12
 
     move/from16 v20, v13
@@ -505,8 +505,8 @@
     const/4 v4, 0x0
 
     .restart local v4    # "j":I
-    :goto_c
-    if-ge v4, v10, :cond_b
+    :goto_124
+    if-ge v4, v10, :cond_133
 
     .line 152
     aget-object v8, v0, v2
@@ -522,11 +522,11 @@
     .line 151
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_c
+    goto :goto_124
 
     .line 142
     .end local v4    # "j":I
-    :cond_b
+    :cond_133
     add-int/lit8 v2, v2, 0x1
 
     move/from16 v8, p2
@@ -537,7 +537,7 @@
 
     move/from16 v13, v20
 
-    goto :goto_a
+    goto :goto_e3
 
     .end local v18    # "clustersCreated":I
     .end local v19    # "pixels":[I
@@ -545,7 +545,7 @@
     .local v4, "pixels":[I
     .restart local v12    # "clustersCreated":I
     .restart local v13    # "additionalClustersNeeded":I
-    :cond_c
+    :cond_13e
     move-object/from16 v19, v4
 
     move/from16 v18, v12
@@ -567,8 +567,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_d
-    if-ge v4, v6, :cond_11
+    :goto_146
+    if-ge v4, v6, :cond_1be
 
     .line 158
     aget-object v8, v3, v4
@@ -615,8 +615,8 @@
     .local v13, "j":I
     .local v25, "indexMatrix":[[I
     .local v26, "previousCluster":[D
-    :goto_e
-    if-ge v13, v10, :cond_f
+    :goto_164
+    if-ge v13, v10, :cond_191
 
     .line 166
     aget-object v27, v1, v12
@@ -643,13 +643,13 @@
 
     cmpl-double v1, v6, v30
 
-    if-ltz v1, :cond_d
+    if-ltz v1, :cond_17b
 
     .line 167
-    goto :goto_f
+    goto :goto_188
 
     .line 169
-    :cond_d
+    :cond_17b
     aget-object v1, v11, v13
 
     invoke-interface {v5, v8, v1}, Lcom/google/android/material/color/utilities/PointProvider;->distance([D[D)D
@@ -660,7 +660,7 @@
     .local v6, "distance":D
     cmpg-double v1, v6, v23
 
-    if-gez v1, :cond_e
+    if-gez v1, :cond_188
 
     .line 171
     move-wide/from16 v23, v6
@@ -670,8 +670,8 @@
 
     .line 165
     .end local v6    # "distance":D
-    :cond_e
-    :goto_f
+    :cond_188
+    :goto_188
     add-int/lit8 v13, v13, 0x1
 
     move/from16 v6, v27
@@ -680,7 +680,7 @@
 
     move-object/from16 v7, v29
 
-    goto :goto_e
+    goto :goto_164
 
     .end local v27    # "pointCount":I
     .end local v28    # "distanceToIndexMatrix":[[Lcom/google/android/material/color/utilities/QuantizerWsmeans$Distance;
@@ -688,7 +688,7 @@
     .restart local v1    # "distanceToIndexMatrix":[[Lcom/google/android/material/color/utilities/QuantizerWsmeans$Distance;
     .local v6, "pointCount":I
     .restart local v7    # "counts":[I
-    :cond_f
+    :cond_191
     move-object/from16 v28, v1
 
     move/from16 v27, v6
@@ -705,7 +705,7 @@
     .restart local v29    # "counts":[I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_10
+    if-eq v0, v1, :cond_1b3
 
     .line 176
     nop
@@ -731,7 +731,7 @@
 
     cmpl-double v1, v6, v30
 
-    if-lez v1, :cond_10
+    if-lez v1, :cond_1b3
 
     .line 179
     add-int/lit8 v2, v2, 0x1
@@ -747,7 +747,7 @@
     .end local v21    # "previousDistance":D
     .end local v23    # "minimumDistance":D
     .end local v26    # "previousCluster":[D
-    :cond_10
+    :cond_1b3
     add-int/lit8 v4, v4, 0x1
 
     move-object/from16 v0, v25
@@ -758,7 +758,7 @@
 
     move-object/from16 v7, v29
 
-    goto :goto_d
+    goto :goto_146
 
     .end local v25    # "indexMatrix":[[I
     .end local v27    # "pointCount":I
@@ -768,7 +768,7 @@
     .restart local v1    # "distanceToIndexMatrix":[[Lcom/google/android/material/color/utilities/QuantizerWsmeans$Distance;
     .local v6, "pointCount":I
     .restart local v7    # "counts":[I
-    :cond_11
+    :cond_1be
     move-object/from16 v25, v0
 
     move-object/from16 v28, v1
@@ -787,9 +787,9 @@
     .restart local v27    # "pointCount":I
     .restart local v28    # "distanceToIndexMatrix":[[Lcom/google/android/material/color/utilities/QuantizerWsmeans$Distance;
     .restart local v29    # "counts":[I
-    if-nez v2, :cond_12
+    if-nez v2, :cond_1d4
 
-    if-eqz v15, :cond_12
+    if-eqz v15, :cond_1d4
 
     .line 186
     move-object/from16 v26, v3
@@ -800,10 +800,10 @@
 
     move/from16 v12, v27
 
-    goto/16 :goto_13
+    goto/16 :goto_2b1
 
     .line 189
-    :cond_12
+    :cond_1d4
     new-array v0, v10, [D
 
     .line 190
@@ -824,12 +824,12 @@
     const/4 v7, 0x0
 
     .local v7, "i":I
-    :goto_10
+    :goto_1df
     move/from16 v12, v27
 
     .end local v27    # "pointCount":I
     .local v12, "pointCount":I
-    if-ge v7, v12, :cond_13
+    if-ge v7, v12, :cond_22a
 
     .line 194
     aget v13, v14, v7
@@ -933,7 +933,7 @@
 
     .end local v31    # "i":I
     .restart local v7    # "i":I
-    goto :goto_10
+    goto :goto_1df
 
     .end local v23    # "clusterIndices":[I
     .end local v24    # "iteration":I
@@ -943,7 +943,7 @@
     .restart local v3    # "points":[[D
     .restart local v14    # "clusterIndices":[I
     .restart local v15    # "iteration":I
-    :cond_13
+    :cond_22a
     move/from16 v27, v2
 
     move-object/from16 v26, v3
@@ -967,22 +967,22 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_11
-    if-ge v2, v10, :cond_15
+    :goto_235
+    if-ge v2, v10, :cond_27b
 
     .line 204
     aget v3, v9, v2
 
     .line 205
     .local v3, "count":I
-    if-nez v3, :cond_14
+    if-nez v3, :cond_24f
 
     .line 206
     const/4 v6, 0x3
 
     new-array v6, v6, [D
 
-    fill-array-data v6, :array_0
+    fill-array-data v6, :array_2e4
 
     aput-object v6, v11, v2
 
@@ -1001,10 +1001,10 @@
 
     const/16 v22, 0x2
 
-    goto :goto_12
+    goto :goto_272
 
     .line 209
-    :cond_14
+    :cond_24f
     aget-wide v6, v0, v2
 
     int-to-double v13, v3
@@ -1070,7 +1070,7 @@
     .end local v3    # "count":I
     .end local v6    # "a":D
     .end local v13    # "b":D
-    :goto_12
+    :goto_272
     add-int/lit8 v2, v2, 0x1
 
     move-object v0, v8
@@ -1081,7 +1081,7 @@
 
     move-object/from16 v4, v31
 
-    goto :goto_11
+    goto :goto_235
 
     .end local v8    # "componentASums":[D
     .end local v15    # "componentBSums":[D
@@ -1091,7 +1091,7 @@
     .restart local v1    # "componentBSums":[D
     .restart local v4    # "componentCSums":[D
     .restart local v5    # "pointProvider":Lcom/google/android/material/color/utilities/PointProvider;
-    :cond_15
+    :cond_27b
     move-object v8, v0
 
     move-object v15, v1
@@ -1136,7 +1136,7 @@
 
     .end local v24    # "iteration":I
     .local v15, "iteration":I
-    goto/16 :goto_9
+    goto/16 :goto_dc
 
     .end local v18    # "clustersCreated":I
     .end local v19    # "pixels":[I
@@ -1157,7 +1157,7 @@
     .local v12, "clustersCreated":I
     .local v13, "additionalClustersNeeded":I
     .restart local v14    # "clusterIndices":[I
-    :cond_16
+    :cond_29c
     move-object/from16 v25, v0
 
     move-object/from16 v28, v1
@@ -1201,7 +1201,7 @@
     .restart local v26    # "points":[[D
     .restart local v28    # "distanceToIndexMatrix":[[Lcom/google/android/material/color/utilities/QuantizerWsmeans$Distance;
     .restart local v29    # "counts":[I
-    :goto_13
+    :goto_2b1
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -1211,23 +1211,23 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_14
-    if-ge v1, v10, :cond_19
+    :goto_2b7
+    if-ge v1, v10, :cond_2e3
 
     .line 220
     aget v2, v9, v1
 
     .line 221
     .local v2, "count":I
-    if-nez v2, :cond_17
+    if-nez v2, :cond_2c0
 
     .line 222
     move-object/from16 v4, v21
 
-    goto :goto_15
+    goto :goto_2de
 
     .line 225
-    :cond_17
+    :cond_2c0
     aget-object v3, v11, v1
 
     move-object/from16 v4, v21
@@ -1248,13 +1248,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_18
+    if-eqz v5, :cond_2d3
 
     .line 227
-    goto :goto_15
+    goto :goto_2de
 
     .line 230
-    :cond_18
+    :cond_2d3
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
@@ -1268,21 +1268,21 @@
     .line 219
     .end local v2    # "count":I
     .end local v3    # "possibleNewCluster":I
-    :goto_15
+    :goto_2de
     add-int/lit8 v1, v1, 0x1
 
     move-object/from16 v21, v4
 
-    goto :goto_14
+    goto :goto_2b7
 
     .line 233
     .end local v1    # "i":I
     .end local v4    # "pointProvider":Lcom/google/android/material/color/utilities/PointProvider;
     .restart local v21    # "pointProvider":Lcom/google/android/material/color/utilities/PointProvider;
-    :cond_19
+    :cond_2e3
     return-object v0
 
-    :array_0
+    :array_2e4
     .array-data 8
         0x0
         0x0

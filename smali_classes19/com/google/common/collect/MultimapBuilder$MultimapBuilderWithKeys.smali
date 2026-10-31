@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 283
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys<TK0;>;"
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public arrayListValues()Lcom/google/common/collect/MultimapBuilder$ListMultimapBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -64,7 +64,7 @@
 .end method
 
 .method public arrayListValues(I)Lcom/google/common/collect/MultimapBuilder$ListMultimapBuilder;
-    .locals 1
+    .registers 3
     .param p1, "expectedValuesPerKey"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -105,7 +105,7 @@
 .end method
 
 .method public enumSetValues(Ljava/lang/Class;)Lcom/google/common/collect/MultimapBuilder$SetMultimapBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V0:",
@@ -134,7 +134,7 @@
 .end method
 
 .method public hashSetValues()Lcom/google/common/collect/MultimapBuilder$SetMultimapBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -157,7 +157,7 @@
 .end method
 
 .method public hashSetValues(I)Lcom/google/common/collect/MultimapBuilder$SetMultimapBuilder;
-    .locals 1
+    .registers 3
     .param p1, "expectedValuesPerKey"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -184,7 +184,7 @@
 .end method
 
 .method public linkedHashSetValues()Lcom/google/common/collect/MultimapBuilder$SetMultimapBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -207,7 +207,7 @@
 .end method
 
 .method public linkedHashSetValues(I)Lcom/google/common/collect/MultimapBuilder$SetMultimapBuilder;
-    .locals 1
+    .registers 3
     .param p1, "expectedValuesPerKey"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -234,7 +234,7 @@
 .end method
 
 .method public linkedListValues()Lcom/google/common/collect/MultimapBuilder$ListMultimapBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -255,7 +255,7 @@
 .end method
 
 .method public treeSetValues()Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -280,7 +280,7 @@
 .end method
 
 .method public treeSetValues(Ljava/util/Comparator;)Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V0:",

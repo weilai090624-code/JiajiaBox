@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/timepicker/ClockHandView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/timepicker/ClockHandView;
 
     .line 172
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 175

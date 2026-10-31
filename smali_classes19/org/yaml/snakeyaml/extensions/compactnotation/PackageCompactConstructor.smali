@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "packageName"    # Ljava/lang/String;
 
     .line 21
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method protected getClassForName(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,10 +50,10 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_27
 
     .line 29
-    :try_start_0
+    :try_start_8
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -81,8 +81,8 @@
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_8 .. :try_end_25} :catch_26
 
     .line 30
     .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
@@ -90,11 +90,11 @@
 
     .line 31
     .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :catch_0
+    :catch_26
     move-exception v0
 
     .line 35
-    :cond_0
+    :cond_27
     invoke-super {p0, p1}, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;->getClassForName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0

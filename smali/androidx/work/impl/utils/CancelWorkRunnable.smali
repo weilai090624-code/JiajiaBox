@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method public static forAll(Landroidx/work/impl/WorkManagerImpl;)Landroidx/work/impl/utils/CancelWorkRunnable;
-    .locals 1
+    .registers 2
     .param p0, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -48,7 +48,7 @@
 .end method
 
 .method public static forId(Ljava/util/UUID;Landroidx/work/impl/WorkManagerImpl;)Landroidx/work/impl/utils/CancelWorkRunnable;
-    .locals 1
+    .registers 3
     .param p0, "id"    # Ljava/util/UUID;
     .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -71,7 +71,7 @@
 .end method
 
 .method public static forName(Ljava/lang/String;Landroidx/work/impl/WorkManagerImpl;Z)Landroidx/work/impl/utils/CancelWorkRunnable;
-    .locals 1
+    .registers 4
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .param p2, "allowReschedule"    # Z
@@ -97,7 +97,7 @@
 .end method
 
 .method public static forTag(Ljava/lang/String;Landroidx/work/impl/WorkManagerImpl;)Landroidx/work/impl/utils/CancelWorkRunnable;
-    .locals 1
+    .registers 3
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -120,7 +120,7 @@
 .end method
 
 .method private iterativelyCancelWorkAndDependents(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;)V
-    .locals 6
+    .registers 9
     .param p1, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
     .param p2, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -156,12 +156,12 @@
     invoke-virtual {v2, p2}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
     .line 96
-    :goto_0
+    :goto_10
     invoke-virtual {v2}, Ljava/util/LinkedList;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_35
 
     .line 97
     invoke-virtual {v2}, Ljava/util/LinkedList;->remove()Ljava/lang/Object;
@@ -180,11 +180,11 @@
     .local v4, "state":Landroidx/work/WorkInfo$State;
     sget-object v5, Landroidx/work/WorkInfo$State;->SUCCEEDED:Landroidx/work/WorkInfo$State;
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_2d
 
     sget-object v5, Landroidx/work/WorkInfo$State;->FAILED:Landroidx/work/WorkInfo$State;
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_2d
 
     .line 101
     sget-object v5, Landroidx/work/WorkInfo$State;->CANCELLED:Landroidx/work/WorkInfo$State;
@@ -192,7 +192,7 @@
     invoke-interface {v0, v5, v3}, Landroidx/work/impl/model/WorkSpecDao;->setState(Landroidx/work/WorkInfo$State;Ljava/lang/String;)I
 
     .line 103
-    :cond_0
+    :cond_2d
     invoke-interface {v1, v3}, Landroidx/work/impl/model/DependencyDao;->getDependentWorkIds(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v5
@@ -202,17 +202,17 @@
     .line 104
     .end local v3    # "id":Ljava/lang/String;
     .end local v4    # "state":Landroidx/work/WorkInfo$State;
-    goto :goto_0
+    goto :goto_10
 
     .line 105
-    :cond_1
+    :cond_35
     return-void
 .end method
 
 
 # virtual methods
 .method cancel(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .param p2, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -251,12 +251,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_16
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -270,15 +270,15 @@
 
     .line 79
     .end local v2    # "scheduler":Landroidx/work/impl/Scheduler;
-    goto :goto_0
+    goto :goto_16
 
     .line 80
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 .method public getOperation()Landroidx/work/Operation;
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Landroidx/work/impl/utils/CancelWorkRunnable;->mOperation:Landroidx/work/impl/OperationImpl;
@@ -287,7 +287,7 @@
 .end method
 
 .method reschedulePendingWorkers(Landroidx/work/impl/WorkManagerImpl;)V
-    .locals 3
+    .registers 5
     .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -324,7 +324,7 @@
 .end method
 
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 62
     :try_start_0
@@ -336,14 +336,14 @@
     sget-object v1, Landroidx/work/Operation;->SUCCESS:Landroidx/work/Operation$State$SUCCESS;
 
     invoke-virtual {v0, v1}, Landroidx/work/impl/OperationImpl;->markState(Landroidx/work/Operation$State;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_0 .. :try_end_a} :catchall_b
 
     .line 66
-    goto :goto_0
+    goto :goto_16
 
     .line 64
-    :catchall_0
+    :catchall_b
     move-exception v0
 
     .line 65
@@ -358,7 +358,7 @@
 
     .line 67
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_16
     return-void
 .end method
 

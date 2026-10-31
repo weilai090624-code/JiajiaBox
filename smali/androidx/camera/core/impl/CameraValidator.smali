@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 .end method
 
 .method public static validateCameras(Landroid/content/Context;Landroidx/camera/core/impl/CameraRepository;Landroidx/camera/core/CameraSelector;)V
-    .locals 6
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "cameraRepository"    # Landroidx/camera/core/impl/CameraRepository;
     .param p2, "availableCamerasSelector"    # Landroidx/camera/core/CameraSelector;
@@ -57,30 +57,30 @@
     .local v0, "lensFacing":Ljava/lang/Integer;
     const-string v1, "CameraValidator"
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_19
 
     .line 58
-    :try_start_0
+    :try_start_5
     invoke-virtual {p2}, Landroidx/camera/core/CameraSelector;->getLensFacing()Ljava/lang/Integer;
 
     move-result-object v2
 
     move-object v0, v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_19
 
     .line 59
     const-string v2, "No lens facing info in the availableCamerasSelector, don\'t verify the camera lens facing."
 
     invoke-static {v1, v2}, Landroidx/camera/core/Logger;->w(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/IllegalStateException; {:try_start_5 .. :try_end_11} :catch_12
 
     .line 61
     return-void
 
     .line 63
-    :catch_0
+    :catch_12
     move-exception v2
 
     .line 64
@@ -94,7 +94,7 @@
 
     .line 67
     .end local v2    # "e":Ljava/lang/IllegalStateException;
-    :cond_0
+    :cond_19
     nop
 
     .line 69
@@ -137,17 +137,17 @@
 
     .line 75
     .local v2, "pm":Landroid/content/pm/PackageManager;
-    :try_start_1
+    :try_start_40
     const-string v3, "android.hardware.camera"
 
     invoke-virtual {v2, v3}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_5a
 
     .line 76
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_51
 
     .line 77
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -156,10 +156,10 @@
 
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5a
 
     .line 80
-    :cond_1
+    :cond_51
     sget-object v3, Landroidx/camera/core/CameraSelector;->DEFAULT_BACK_CAMERA:Landroidx/camera/core/CameraSelector;
 
     invoke-virtual {p1}, Landroidx/camera/core/impl/CameraRepository;->getCameras()Ljava/util/LinkedHashSet;
@@ -169,27 +169,27 @@
     invoke-virtual {v3, v4}, Landroidx/camera/core/CameraSelector;->select(Ljava/util/LinkedHashSet;)Landroidx/camera/core/impl/CameraInternal;
 
     .line 83
-    :cond_2
+    :cond_5a
     const-string v3, "android.hardware.camera.front"
 
     invoke-virtual {v2, v3}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_73
 
     .line 84
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_6a
 
     .line 85
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_73
 
     .line 88
-    :cond_3
+    :cond_6a
     sget-object v3, Landroidx/camera/core/CameraSelector;->DEFAULT_FRONT_CAMERA:Landroidx/camera/core/CameraSelector;
 
     invoke-virtual {p1}, Landroidx/camera/core/impl/CameraRepository;->getCameras()Ljava/util/LinkedHashSet;
@@ -197,18 +197,18 @@
     move-result-object v4
 
     invoke-virtual {v3, v4}, Landroidx/camera/core/CameraSelector;->select(Ljava/util/LinkedHashSet;)Landroidx/camera/core/impl/CameraInternal;
-    :try_end_1
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_73
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_40 .. :try_end_73} :catch_75
 
     .line 95
-    :cond_4
+    :cond_73
     nop
 
     .line 96
     return-void
 
     .line 91
-    :catch_1
+    :catch_75
     move-exception v3
 
     .line 92

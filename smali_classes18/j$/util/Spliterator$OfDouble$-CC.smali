@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$forEachRemaining(Lj$/util/Spliterator$OfDouble;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lj$/util/Spliterator$OfDouble;
 
     .line 778
@@ -17,14 +17,14 @@
 .end method
 
 .method public static $default$forEachRemaining(Lj$/util/Spliterator$OfDouble;Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Lj$/util/Spliterator$OfDouble;
 
     .line 827
     .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     instance-of v0, p1, Ljava/util/function/DoubleConsumer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 828
     move-object v0, p1
@@ -33,13 +33,13 @@
 
     invoke-interface {p0, v0}, Lj$/util/Spliterator$OfDouble;->forEachRemaining(Ljava/util/function/DoubleConsumer;)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 831
-    :cond_0
+    :cond_b
     sget-boolean v0, Lj$/util/Tripwire;->ENABLED:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 832
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -51,7 +51,7 @@
     invoke-static {v0, v1}, Lj$/util/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 834
-    :cond_1
+    :cond_18
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Lj$/util/PrimitiveIterator$OfDouble$$ExternalSyntheticLambda0;
@@ -61,12 +61,12 @@
     invoke-interface {p0, v0}, Lj$/util/Spliterator$OfDouble;->forEachRemaining(Ljava/util/function/DoubleConsumer;)V
 
     .line 836
-    :goto_0
+    :goto_23
     return-void
 .end method
 
 .method public static $default$forEachRemaining(Lj$/util/Spliterator$OfDouble;Ljava/util/function/DoubleConsumer;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/util/Spliterator$OfDouble;
     .param p1, "action"    # Ljava/util/function/DoubleConsumer;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static bridge synthetic $default$tryAdvance(Lj$/util/Spliterator$OfDouble;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lj$/util/Spliterator$OfDouble;
 
     .line 778
@@ -97,14 +97,14 @@
 .end method
 
 .method public static $default$tryAdvance(Lj$/util/Spliterator$OfDouble;Ljava/util/function/Consumer;)Z
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Lj$/util/Spliterator$OfDouble;
 
     .line 803
     .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     instance-of v0, p1, Ljava/util/function/DoubleConsumer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 804
     move-object v0, p1
@@ -118,10 +118,10 @@
     return v0
 
     .line 807
-    :cond_0
+    :cond_c
     sget-boolean v0, Lj$/util/Tripwire;->ENABLED:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 808
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -133,7 +133,7 @@
     invoke-static {v0, v1}, Lj$/util/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 810
-    :cond_1
+    :cond_19
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Lj$/util/PrimitiveIterator$OfDouble$$ExternalSyntheticLambda0;
@@ -148,7 +148,7 @@
 .end method
 
 .method public static bridge synthetic $default$trySplit(Lj$/util/Spliterator$OfDouble;)Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/Spliterator$OfDouble;
 
     .line 778
@@ -160,7 +160,7 @@
 .end method
 
 .method public static bridge synthetic $default$trySplit(Lj$/util/Spliterator$OfDouble;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/Spliterator$OfDouble;
 
     .line 778

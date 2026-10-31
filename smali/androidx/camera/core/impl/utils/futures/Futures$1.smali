@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/arch/core/util/Function;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0

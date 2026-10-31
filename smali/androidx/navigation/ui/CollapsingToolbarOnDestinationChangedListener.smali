@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/appbar/CollapsingToolbarLayout;Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/ui/AppBarConfiguration;)V
-    .locals 2
+    .registers 6
     .param p1, "collapsingToolbarLayout"    # Lcom/google/android/material/appbar/CollapsingToolbarLayout;
     .param p2, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
     .param p3, "configuration"    # Landroidx/navigation/ui/AppBarConfiguration;
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public onDestinationChanged(Landroidx/navigation/NavController;Landroidx/navigation/NavDestination;Landroid/os/Bundle;)V
-    .locals 3
+    .registers 7
     .param p1, "controller"    # Landroidx/navigation/NavController;
     .param p2, "destination"    # Landroidx/navigation/NavDestination;
     .param p3, "arguments"    # Landroid/os/Bundle;
@@ -156,22 +156,22 @@
 
     .line 51
     .local v1, "toolbar":Landroidx/appcompat/widget/Toolbar;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1f
 
-    goto :goto_0
+    goto :goto_23
 
     .line 55
-    :cond_0
+    :cond_1f
     invoke-super {p0, p1, p2, p3}, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->onDestinationChanged(Landroidx/navigation/NavController;Landroidx/navigation/NavDestination;Landroid/os/Bundle;)V
 
     .line 56
     return-void
 
     .line 52
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     move-object v2, p0
 
     check-cast v2, Landroidx/navigation/NavController$OnDestinationChangedListener;
@@ -183,7 +183,7 @@
 .end method
 
 .method protected setNavigationIcon(Landroid/graphics/drawable/Drawable;I)V
-    .locals 3
+    .registers 6
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "contentDescription"    # I
 
@@ -198,34 +198,34 @@
 
     .line 67
     .local v0, "toolbar":Landroidx/appcompat/widget/Toolbar;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 68
-    if-nez p1, :cond_0
+    if-nez p1, :cond_14
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/Toolbar;->getNavigationIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
     .line 69
     .local v1, "useTransition":Z
-    :goto_0
+    :goto_15
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/Toolbar;->setNavigationIcon(Landroid/graphics/drawable/Drawable;)V
 
     .line 70
     invoke-virtual {v0, p2}, Landroidx/appcompat/widget/Toolbar;->setNavigationContentDescription(I)V
 
     .line 71
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     .line 72
     move-object v2, v0
@@ -236,12 +236,12 @@
 
     .line 75
     .end local v1    # "useTransition":Z
-    :cond_1
+    :cond_23
     return-void
 .end method
 
 .method protected setTitle(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 59
@@ -255,12 +255,12 @@
 
     .line 60
     .local v0, "collapsingToolbarLayout":Lcom/google/android/material/appbar/CollapsingToolbarLayout;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 61
     invoke-virtual {v0, p1}, Lcom/google/android/material/appbar/CollapsingToolbarLayout;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 63
-    :cond_0
+    :cond_d
     return-void
 .end method

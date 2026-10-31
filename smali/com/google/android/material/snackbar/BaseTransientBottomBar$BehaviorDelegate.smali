@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/behavior/SwipeDismissBehavior;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public canSwipeDismissView(Landroid/view/View;)Z
-    .locals 1
+    .registers 3
     .param p1, "child"    # Landroid/view/View;
 
     .line 1427
@@ -65,7 +65,7 @@
 .end method
 
 .method public onInterceptTouchEvent(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)V
-    .locals 2
+    .registers 6
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "event"    # Landroid/view/MotionEvent;
@@ -75,13 +75,13 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2c
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_7
+    goto :goto_2b
 
     .line 1442
-    :pswitch_1
+    :pswitch_8
     invoke-static {}, Lcom/google/android/material/snackbar/SnackbarManager;->getInstance()Lcom/google/android/material/snackbar/SnackbarManager;
 
     move-result-object v0
@@ -91,10 +91,10 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/snackbar/SnackbarManager;->restoreTimeoutIfPaused(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V
 
     .line 1443
-    goto :goto_0
+    goto :goto_2b
 
     .line 1436
-    :pswitch_2
+    :pswitch_12
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
@@ -111,7 +111,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 1437
     invoke-static {}, Lcom/google/android/material/snackbar/SnackbarManager;->getInstance()Lcom/google/android/material/snackbar/SnackbarManager;
@@ -123,21 +123,21 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/snackbar/SnackbarManager;->pauseTimeout(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V
 
     .line 1447
-    :cond_0
-    :goto_0
+    :cond_2b
+    :goto_2b
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_12
+        :pswitch_8
+        :pswitch_7
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method public setBaseTransientBottomBar(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

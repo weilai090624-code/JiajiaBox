@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Landroidx/transition/Transition;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method private captureValues(Landroidx/transition/TransitionValues;)V
-    .locals 4
+    .registers 6
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 48
@@ -26,7 +26,7 @@
 
     instance-of v0, v0, Landroid/widget/TextView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 49
     iget-object v0, p1, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
@@ -51,14 +51,14 @@
 
     .line 52
     .end local v0    # "textview":Landroid/widget/TextView;
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 
 # virtual methods
 .method public captureEndValues(Landroidx/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 44
@@ -69,7 +69,7 @@
 .end method
 
 .method public captureStartValues(Landroidx/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 39
@@ -80,7 +80,7 @@
 .end method
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 8
+    .registers 12
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "startValues"    # Landroidx/transition/TransitionValues;
     .param p3, "endValues"    # Landroidx/transition/TransitionValues;
@@ -88,26 +88,26 @@
     .line 59
     const/4 v0, 0x0
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_5d
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_5d
 
     iget-object v1, p2, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
 
     instance-of v1, v1, Landroid/widget/TextView;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5d
 
     iget-object v1, p3, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
 
     instance-of v1, v1, Landroid/widget/TextView;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 65
-    :cond_0
+    :cond_12
     iget-object v1, p3, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
 
     check-cast v1, Landroid/widget/TextView;
@@ -130,7 +130,7 @@
 
     const/high16 v6, 0x3f800000    # 1.0f
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2f
 
     invoke-interface {v2, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -142,19 +142,19 @@
 
     move-result v5
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_1
+    :cond_2f
     const/high16 v5, 0x3f800000    # 1.0f
 
     .line 71
     .local v5, "startSize":F
-    :goto_0
+    :goto_31
     invoke-interface {v3, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_41
 
     invoke-interface {v3, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -166,20 +166,20 @@
 
     move-result v6
 
-    :cond_2
+    :cond_41
     move v4, v6
 
     .line 72
     .local v4, "endSize":F
     cmpl-float v6, v5, v4
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_47
 
     .line 73
     return-object v0
 
     .line 76
-    :cond_3
+    :cond_47
     const/4 v0, 0x2
 
     new-array v0, v0, [F
@@ -214,7 +214,7 @@
     .end local v3    # "endVals":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     .end local v4    # "endSize":F
     .end local v5    # "startSize":F
-    :cond_4
-    :goto_1
+    :cond_5d
+    :goto_5d
     return-object v0
 .end method

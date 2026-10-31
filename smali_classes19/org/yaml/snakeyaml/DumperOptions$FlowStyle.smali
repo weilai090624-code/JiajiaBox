@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 85
     new-instance v0, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
@@ -100,7 +100,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/Boolean;)V
-    .locals 0
+    .registers 4
     .param p3, "flowStyle"    # Ljava/lang/Boolean;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -121,38 +121,38 @@
 .end method
 
 .method public static fromBoolean(Ljava/lang/Boolean;)Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
-    .locals 1
+    .registers 2
     .param p0, "flowStyle"    # Ljava/lang/Boolean;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 100
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->AUTO:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->FLOW:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_1
+    :cond_e
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->BLOCK:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
-    :goto_0
+    :goto_10
     return-object v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 84
@@ -168,7 +168,7 @@
 .end method
 
 .method public static values()[Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
-    .locals 1
+    .registers 1
 
     .line 84
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->$VALUES:[Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
@@ -185,7 +185,7 @@
 
 # virtual methods
 .method public getStyleBoolean()Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
 
     .line 106
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->styleBoolean:Ljava/lang/Boolean;
@@ -194,7 +194,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 111
     new-instance v0, Ljava/lang/StringBuilder;

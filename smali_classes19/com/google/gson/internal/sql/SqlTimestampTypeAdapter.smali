@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 15
     new-instance v0, Lcom/google/gson/internal/sql/SqlTimestampTypeAdapter$1;
@@ -44,7 +44,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/gson/TypeAdapter;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,7 +66,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/gson/TypeAdapter;Lcom/google/gson/internal/sql/SqlTimestampTypeAdapter$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/gson/TypeAdapter;
     .param p2, "x1"    # Lcom/google/gson/internal/sql/SqlTimestampTypeAdapter$1;
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -95,7 +95,7 @@
 .end method
 
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/sql/Timestamp;
-    .locals 4
+    .registers 6
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -114,7 +114,7 @@
 
     .line 36
     .local v0, "date":Ljava/util/Date;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     new-instance v1, Ljava/sql/Timestamp;
 
@@ -124,17 +124,17 @@
 
     invoke-direct {v1, v2, v3}, Ljava/sql/Timestamp;-><init>(J)V
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_15
     return-object v1
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -150,7 +150,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/sql/Timestamp;)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .param p2, "value"    # Ljava/sql/Timestamp;
     .annotation system Ldalvik/annotation/Throws;

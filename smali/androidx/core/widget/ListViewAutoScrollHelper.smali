@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/ListView;)V
-    .locals 0
+    .registers 2
     .param p1, "target"    # Landroid/widget/ListView;
 
     .line 33
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public canTargetScrollHorizontally(I)Z
-    .locals 1
+    .registers 3
     .param p1, "direction"    # I
 
     .line 46
@@ -35,7 +35,7 @@
 .end method
 
 .method public canTargetScrollVertically(I)Z
-    .locals 9
+    .registers 11
     .param p1, "direction"    # I
 
     .line 51
@@ -51,13 +51,13 @@
     .local v1, "itemCount":I
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     .line 54
     return v2
 
     .line 57
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Landroid/widget/ListView;->getChildCount()I
 
     move-result v3
@@ -74,10 +74,10 @@
 
     .line 61
     .local v5, "lastPosition":I
-    if-lez p1, :cond_2
+    if-lez p1, :cond_2a
 
     .line 63
-    if-lt v5, v1, :cond_4
+    if-lt v5, v1, :cond_3a
 
     .line 64
     add-int/lit8 v6, v3, -0x1
@@ -96,22 +96,22 @@
 
     move-result v8
 
-    if-gt v7, v8, :cond_1
+    if-gt v7, v8, :cond_29
 
     .line 66
     return v2
 
     .line 68
     .end local v6    # "lastView":Landroid/view/View;
-    :cond_1
-    goto :goto_0
+    :cond_29
+    goto :goto_3a
 
     .line 69
-    :cond_2
-    if-gez p1, :cond_5
+    :cond_2a
+    if-gez p1, :cond_3c
 
     .line 71
-    if-gtz v4, :cond_4
+    if-gtz v4, :cond_3a
 
     .line 72
     invoke-virtual {v0, v2}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
@@ -124,30 +124,30 @@
 
     move-result v7
 
-    if-ltz v7, :cond_3
+    if-ltz v7, :cond_39
 
     .line 74
     return v2
 
     .line 76
     .end local v6    # "firstView":Landroid/view/View;
-    :cond_3
+    :cond_39
     nop
 
     .line 83
-    :cond_4
-    :goto_0
+    :cond_3a
+    :goto_3a
     const/4 v2, 0x1
 
     return v2
 
     .line 80
-    :cond_5
+    :cond_3c
     return v2
 .end method
 
 .method public scrollTargetBy(II)V
-    .locals 1
+    .registers 4
     .param p1, "deltaX"    # I
     .param p2, "deltaY"    # I
 

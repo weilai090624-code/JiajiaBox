@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Połączenie przychodzące</string>
     <string name="call_notification_ongoing_text">Trwa połączenie</string>
     <string name="call_notification_screening_text">Filtruję połączenie przychodzące</string>
-    <string name="character_counter_content_description" formatted="false">%1$d z %2$d znaków</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Przekroczono limit znaków (%1$d z %2$d)</string>
+    <string name="character_counter_content_description">%1$d z %2$d znaków</string>
+    <string name="character_counter_overflowed_content_description">Przekroczono limit znaków (%1$d z %2$d)</string>
     <string name="clear_text_end_icon_content_description">Wyczyść tekst</string>
     <string name="copy">Kopiuj</string>
     <string name="copy_toast_msg">Link skopiowany do schowka</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Poza zakresem: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Data rozpoczęcia – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – data zakończenia</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
     <string name="mtrl_picker_range_header_title">Wybierz zakres</string>
     <string name="mtrl_picker_range_header_unselected">Data rozpoczęcia – data zakończenia</string>
     <string name="mtrl_picker_save">Zapisz</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">Skopiowano „%1$s” do schowka.</string>
     <string name="search_menu_title">Szukaj</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">WYŁ.</string>
     <string name="v7_preference_on">WŁ.</string>
 </resources>

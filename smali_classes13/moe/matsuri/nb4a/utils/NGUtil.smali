@@ -72,7 +72,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lmoe/matsuri/nb4a/utils/NGUtil;
 
@@ -84,7 +84,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -93,7 +93,7 @@
 .end method
 
 .method private final isCoreDNSAddress(Ljava/lang/String;)Z
-    .locals 4
+    .registers 6
     .param p1, "s"    # Ljava/lang/String;
 
     .line 179
@@ -109,7 +109,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     const-string v0, "tcp"
 
@@ -117,7 +117,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     const-string v0, "quic"
 
@@ -125,19 +125,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
-    :cond_0
+    :cond_1b
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_1c
     return v1
 .end method
 
 
 # virtual methods
 .method public final arrayFind([Ljava/lang/String;Ljava/lang/String;)I
-    .locals 3
+    .registers 6
     .param p1, "array"    # [Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -155,8 +155,8 @@
     .local v0, "i":I
     array-length v1, p1
 
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_c
+    if-ge v0, v1, :cond_1a
 
     .line 34
     aget-object v2, p1, v0
@@ -165,27 +165,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     .line 35
     return v0
 
     .line 33
-    :cond_0
+    :cond_17
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 38
     .end local v0    # "i":I
-    :cond_1
+    :cond_1a
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public final decode(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "text"    # Ljava/lang/String;
 
     const-string v0, "text"
@@ -197,7 +197,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 238
     .local v0, "it":Ljava/lang/String;
@@ -210,7 +210,7 @@
     .line 84
     .end local v0    # "it":Ljava/lang/String;
     .end local v1    # "$i$a$-let-NGUtil$decode$1":I
-    :cond_0
+    :cond_d
     move-object v0, p1
 
     check-cast v0, Ljava/lang/CharSequence;
@@ -227,7 +227,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     .line 86
     const/4 v0, 0x1
@@ -244,7 +244,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     .line 238
     .restart local v0    # "it":Ljava/lang/String;
@@ -257,14 +257,14 @@
     .line 88
     .end local v0    # "it":Ljava/lang/String;
     .end local v1    # "$i$a$-let-NGUtil$decode$2":I
-    :cond_1
+    :cond_2c
     const-string v0, ""
 
     return-object v0
 .end method
 
 .method public final encode(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "text"    # Ljava/lang/String;
 
     const-string v0, "text"
@@ -275,7 +275,7 @@
     nop
 
     .line 110
-    :try_start_0
+    :try_start_6
     const-string v0, "UTF-8"
 
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
@@ -299,13 +299,13 @@
     invoke-static {v0, v1}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_1f} :catch_20
 
-    goto :goto_0
+    goto :goto_27
 
     .line 111
-    :catch_0
+    :catch_20
     move-exception v0
 
     .line 112
@@ -319,12 +319,12 @@
 
     .line 109
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_27
     return-object v0
 .end method
 
 .method public final getClipboard(Landroid/content/Context;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -335,7 +335,7 @@
     nop
 
     .line 58
-    :try_start_0
+    :try_start_6
     const-string v0, "clipboard"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -354,7 +354,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     const/4 v2, 0x0
 
@@ -362,29 +362,29 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     invoke-virtual {v1}, Landroid/content/ClipData$Item;->getText()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_25
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_26
     invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_2a} :catch_2b
 
     .end local v0    # "cmb":Landroid/content/ClipboardManager;
-    goto :goto_1
+    goto :goto_31
 
     .line 60
-    :catch_0
+    :catch_2b
     move-exception v0
 
     .line 61
@@ -396,12 +396,12 @@
 
     .line 57
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_31
     return-object v1
 .end method
 
 .method public final getEditable(Ljava/lang/String;)Landroid/text/Editable;
-    .locals 2
+    .registers 4
     .param p1, "text"    # Ljava/lang/String;
 
     const-string v0, "text"
@@ -429,13 +429,13 @@
 .end method
 
 .method public final getUuid()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 191
     nop
 
     .line 192
-    :try_start_0
+    :try_start_1
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
     move-result-object v0
@@ -461,13 +461,13 @@
     invoke-static/range {v1 .. v6}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_19} :catch_1a
 
-    goto :goto_0
+    goto :goto_21
 
     .line 193
-    :catch_0
+    :catch_1a
     move-exception v0
 
     .line 194
@@ -481,12 +481,12 @@
 
     .line 191
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_21
     return-object v0
 .end method
 
 .method public final isIpAddress(Ljava/lang/String;)Z
-    .locals 13
+    .registers 15
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -503,7 +503,7 @@
     .local v0, "addr":Ljava/lang/String;
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_8
     move-object v2, v0
 
     check-cast v2, Ljava/lang/CharSequence;
@@ -514,17 +514,17 @@
 
     const/4 v3, 0x1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_0
-    if-nez v2, :cond_7
+    :goto_15
+    if-nez v2, :cond_f0
 
     move-object v2, v0
 
@@ -534,12 +534,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_22
 
-    goto/16 :goto_2
+    goto/16 :goto_f0
 
     .line 127
-    :cond_1
+    :cond_22
     move-object v4, v0
 
     check-cast v4, Ljava/lang/CharSequence;
@@ -560,7 +560,7 @@
 
     const/4 v4, 0x2
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_5f
 
     .line 128
     move-object v5, v0
@@ -595,7 +595,7 @@
 
     move-result v5
 
-    if-ne v5, v4, :cond_2
+    if-ne v5, v4, :cond_5f
 
     invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -607,7 +607,7 @@
 
     move-result v5
 
-    if-lez v5, :cond_2
+    if-lez v5, :cond_5f
 
     .line 130
     invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -620,7 +620,7 @@
 
     .line 136
     .end local v2    # "arr":Ljava/util/List;
-    :cond_2
+    :cond_5f
     const-string v2, "::ffff:"
 
     const/4 v5, 0x0
@@ -631,7 +631,7 @@
 
     const/16 v6, 0x2e
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_7a
 
     move-object v2, v0
 
@@ -641,7 +641,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_7a
 
     .line 137
     const/4 v2, 0x7
@@ -652,17 +652,17 @@
 
     move-object v0, v2
 
-    goto :goto_1
+    goto :goto_9d
 
     .line 138
-    :cond_3
+    :cond_7a
     const-string v2, "[::ffff:"
 
     invoke-static {v0, v2, v1, v4, v5}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_9d
 
     move-object v2, v0
 
@@ -672,7 +672,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_9d
 
     .line 139
     const/16 v2, 0x8
@@ -698,8 +698,8 @@
     move-object v0, v2
 
     .line 143
-    :cond_4
-    :goto_1
+    :cond_9d
+    :goto_9d
     move-object v7, v0
 
     check-cast v7, Ljava/lang/CharSequence;
@@ -751,7 +751,7 @@
 
     const/4 v4, 0x4
 
-    if-ne v3, v4, :cond_6
+    if-ne v3, v4, :cond_eb
 
     .line 145
     const/4 v3, 0x3
@@ -776,7 +776,7 @@
 
     move-result v3
 
-    if-lez v3, :cond_5
+    if-lez v3, :cond_e6
 
     .line 146
     move-object v4, v0
@@ -808,7 +808,7 @@
     move-object v0, v3
 
     .line 148
-    :cond_5
+    :cond_e6
     invoke-virtual {p0, v0}, Lmoe/matsuri/nb4a/utils/NGUtil;->isIpv4Address(Ljava/lang/String;)Z
 
     move-result v1
@@ -816,24 +816,24 @@
     return v1
 
     .line 152
-    :cond_6
+    :cond_eb
     invoke-virtual {p0, v0}, Lmoe/matsuri/nb4a/utils/NGUtil;->isIpv6Address(Ljava/lang/String;)Z
 
     move-result v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_ef
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_ef} :catch_f1
 
     return v1
 
     .line 124
     .end local v2    # "octets":[Ljava/lang/String;
-    :cond_7
-    :goto_2
+    :cond_f0
+    :goto_f0
     return v1
 
     .line 153
     .end local v0    # "addr":Ljava/lang/String;
-    :catch_0
+    :catch_f1
     move-exception v0
 
     .line 154
@@ -845,7 +845,7 @@
 .end method
 
 .method public final isIpv4Address(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -873,7 +873,7 @@
 .end method
 
 .method public final isIpv6Address(Ljava/lang/String;)Z
-    .locals 8
+    .registers 10
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -903,7 +903,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_42
 
     move-object v2, v0
 
@@ -923,7 +923,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_42
 
     .line 171
     const/4 v1, 0x1
@@ -966,7 +966,7 @@
     move-result-object v0
 
     .line 174
-    :cond_0
+    :cond_42
     new-instance v1, Lkotlin/text/Regex;
 
     const-string v2, "^((?:[0-9A-Fa-f]{1,4}))?((?::[0-9A-Fa-f]{1,4}))*::((?:[0-9A-Fa-f]{1,4}))?((?::[0-9A-Fa-f]{1,4}))*|((?:[0-9A-Fa-f]{1,4}))((?::[0-9A-Fa-f]{1,4})){7}$"
@@ -987,7 +987,7 @@
 .end method
 
 .method public final isPureIpAddress(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -999,31 +999,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     invoke-virtual {p0, p1}, Lmoe/matsuri/nb4a/utils/NGUtil;->isIpv6Address(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_15
     return v0
 .end method
 
 .method public final openUri(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "uriString"    # Ljava/lang/String;
 
@@ -1055,7 +1055,7 @@
 .end method
 
 .method public final packagePath(Landroid/content/Context;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -1098,7 +1098,7 @@
 .end method
 
 .method public final parseInt(Ljava/lang/String;)I
-    .locals 2
+    .registers 4
     .param p1, "str"    # Ljava/lang/String;
 
     const-string v0, "str"
@@ -1109,17 +1109,17 @@
     nop
 
     .line 46
-    :try_start_0
+    :try_start_6
     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_11
 
     .line 47
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 48
@@ -1133,12 +1133,12 @@
 
     .line 45
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public final readTextFromAssets(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "fileName"    # Ljava/lang/String;
 
@@ -1173,13 +1173,13 @@
 
     instance-of v0, v2, Ljava/io/BufferedReader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     check-cast v2, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_0
+    :cond_27
     new-instance v0, Ljava/io/BufferedReader;
 
     const/16 v1, 0x2000
@@ -1188,10 +1188,10 @@
 
     move-object v2, v0
 
-    :goto_0
+    :goto_2f
     check-cast v2, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_31
     move-object v0, v2
 
     check-cast v0, Ljava/io/BufferedReader;
@@ -1208,8 +1208,8 @@
     invoke-static {v3}, Lkotlin/io/TextStreamsKt;->readText(Ljava/io/Reader;)Ljava/lang/String;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3c
+    .catchall {:try_start_31 .. :try_end_3c} :catchall_42
 
     .line 231
     .end local v0    # "it":Ljava/io/BufferedReader;
@@ -1226,19 +1226,19 @@
 
     .line 231
     .end local v0    # "content":Ljava/lang/String;
-    :catchall_0
+    :catchall_42
     move-exception v0
 
     .end local p1    # "context":Landroid/content/Context;
     .end local p2    # "fileName":Ljava/lang/String;
-    :try_start_1
+    :try_start_43
     throw v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_44
+    .catchall {:try_start_43 .. :try_end_44} :catchall_44
 
     .restart local p1    # "context":Landroid/content/Context;
     .restart local p2    # "fileName":Ljava/lang/String;
-    :catchall_1
+    :catchall_44
     move-exception v1
 
     invoke-static {v2, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -1247,7 +1247,7 @@
 .end method
 
 .method public final setClipboard(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "content"    # Ljava/lang/String;
 
@@ -1263,7 +1263,7 @@
     nop
 
     .line 71
-    :try_start_0
+    :try_start_b
     const-string v0, "clipboard"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1291,15 +1291,15 @@
     .line 73
     .local v1, "clipData":Landroid/content/ClipData;
     invoke-virtual {v0, v1}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_23
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_23} :catch_24
 
     .end local v0    # "cmb":Landroid/content/ClipboardManager;
     .end local v1    # "clipData":Landroid/content/ClipData;
-    goto :goto_0
+    goto :goto_28
 
     .line 74
-    :catch_0
+    :catch_24
     move-exception v0
 
     .line 75
@@ -1308,12 +1308,12 @@
 
     .line 77
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_28
     return-void
 .end method
 
 .method public final tryDecodeBase64(Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p1, "text"    # Ljava/lang/String;
 
     const-string v0, "forName(...)"
@@ -1332,7 +1332,7 @@
     .line 93
     const/4 v3, 0x2
 
-    :try_start_0
+    :try_start_d
     invoke-static {p1, v3}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
 
     move-result-object v3
@@ -1348,13 +1348,13 @@
     new-instance v5, Ljava/lang/String;
 
     invoke-direct {v5, v3, v4}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_20
+    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_20} :catch_21
 
     return-object v5
 
     .line 94
-    :catch_0
+    :catch_21
     move-exception v3
 
     .line 95
@@ -1388,7 +1388,7 @@
     .line 98
     const/16 v3, 0xa
 
-    :try_start_1
+    :try_start_3d
     invoke-static {p1, v3}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
 
     move-result-object v3
@@ -1404,13 +1404,13 @@
     new-instance v0, Ljava/lang/String;
 
     invoke-direct {v0, v3, v1}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_50
+    .catch Ljava/lang/Exception; {:try_start_3d .. :try_end_50} :catch_51
 
     return-object v0
 
     .line 99
-    :catch_1
+    :catch_51
     move-exception v0
 
     .line 100
@@ -1445,7 +1445,7 @@
 .end method
 
 .method public final urlDecode(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "url"    # Ljava/lang/String;
 
     const-string v0, "url"
@@ -1456,19 +1456,19 @@
     nop
 
     .line 201
-    :try_start_0
+    :try_start_6
     const-string v0, "UTF-8"
 
     invoke-static {p1, v0}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_c} :catch_d
 
-    goto :goto_0
+    goto :goto_f
 
     .line 202
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 203
@@ -1477,12 +1477,12 @@
 
     .line 200
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method public final urlEncode(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "url"    # Ljava/lang/String;
 
     const-string v0, "url"
@@ -1493,19 +1493,19 @@
     nop
 
     .line 209
-    :try_start_0
+    :try_start_6
     const-string v0, "UTF-8"
 
     invoke-static {p1, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_c} :catch_d
 
-    goto :goto_0
+    goto :goto_12
 
     .line 210
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 211
@@ -1517,6 +1517,6 @@
 
     .line 208
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_12
     return-object v0
 .end method

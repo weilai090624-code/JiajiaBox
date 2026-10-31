@@ -86,7 +86,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/activity/result/contract/ActivityResultContracts$RequestMultiplePermissions$Companion;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 129
     invoke-direct {p0}, Landroidx/activity/result/contract/ActivityResultContract;-><init>()V
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public bridge synthetic createIntent(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -129,7 +129,7 @@
 .end method
 
 .method public createIntent(Landroid/content/Context;[Ljava/lang/String;)Landroid/content/Intent;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # [Ljava/lang/String;
 
@@ -152,7 +152,7 @@
 .end method
 
 .method public bridge synthetic getSynchronousResult(Landroid/content/Context;Ljava/lang/Object;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public getSynchronousResult(Landroid/content/Context;[Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 16
+    .registers 19
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -206,17 +206,17 @@
 
     const/4 v4, 0x1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_16
+    if-eqz v2, :cond_22
 
     .line 177
     new-instance v2, Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
@@ -230,7 +230,7 @@
     return-object v2
 
     .line 180
-    :cond_1
+    :cond_22
     move-object/from16 v2, p2
 
     .local v2, "$this$all$iv":[Ljava/lang/Object;
@@ -242,8 +242,8 @@
 
     const/4 v7, 0x0
 
-    :goto_1
-    if-ge v7, v6, :cond_4
+    :goto_27
+    if-ge v7, v6, :cond_3e
 
     aget-object v8, v2, v7
 
@@ -259,42 +259,42 @@
 
     move-result v11
 
-    if-nez v11, :cond_2
+    if-nez v11, :cond_35
 
     const/4 v11, 0x1
 
-    goto :goto_2
+    goto :goto_36
 
-    :cond_2
+    :cond_35
     const/4 v11, 0x0
 
     .line 182
-    :goto_2
+    :goto_36
     nop
 
     .line 963
     .end local v9    # "permission":Ljava/lang/String;
     .end local v10    # "$i$a$-all-ActivityResultContracts$RequestMultiplePermissions$getSynchronousResult$allGranted$1":I
-    if-nez v11, :cond_3
+    if-nez v11, :cond_3b
 
     const/4 v2, 0x0
 
-    goto :goto_3
+    goto :goto_3f
 
     .end local v8    # "element$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_3b
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_27
 
     .line 964
-    :cond_4
+    :cond_3e
     const/4 v2, 0x1
 
     .line 180
     .end local v2    # "$this$all$iv":[Ljava/lang/Object;
     .end local v5    # "$i$f$all":I
-    :goto_3
+    :goto_3f
     nop
 
     .line 179
@@ -302,7 +302,7 @@
 
     .line 184
     .local v2, "allGranted":Z
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7f
 
     .line 185
     move-object/from16 v5, p2
@@ -342,8 +342,8 @@
     .local v10, "$i$f$associateTo":I
     array-length v11, v9
 
-    :goto_4
-    if-ge v3, v11, :cond_5
+    :goto_5b
+    if-ge v3, v11, :cond_77
 
     aget-object v12, v9, v3
 
@@ -381,10 +381,10 @@
     .end local v12    # "element$iv$iv":Ljava/lang/Object;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_4
+    goto :goto_5b
 
     .line 970
-    :cond_5
+    :cond_77
     nop
 
     .line 966
@@ -401,19 +401,19 @@
 
     invoke-direct {v3, v8}, Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;-><init>(Ljava/lang/Object;)V
 
-    goto :goto_5
+    goto :goto_80
 
     .line 186
-    :cond_6
+    :cond_7f
     const/4 v3, 0x0
 
     .line 184
-    :goto_5
+    :goto_80
     return-object v3
 .end method
 
 .method public bridge synthetic parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -426,7 +426,7 @@
 .end method
 
 .method public parseResult(ILandroid/content/Intent;)Ljava/util/Map;
-    .locals 16
+    .registers 19
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
@@ -448,7 +448,7 @@
 
     move/from16 v2, p1
 
-    if-eq v2, v1, :cond_0
+    if-eq v2, v1, :cond_c
 
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
@@ -457,8 +457,8 @@
     return-object v1
 
     .line 191
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_c
+    if-nez v0, :cond_13
 
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
@@ -467,7 +467,7 @@
     return-object v1
 
     .line 192
-    :cond_1
+    :cond_13
     const-string v1, "androidx.activity.result.contract.extra.PERMISSIONS"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
@@ -484,14 +484,14 @@
 
     .line 194
     .local v3, "grantResults":[I
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_62
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_24
 
-    goto :goto_2
+    goto :goto_62
 
     .line 196
-    :cond_2
+    :cond_24
     move-object v4, v3
 
     .local v4, "$this$map$iv":[I
@@ -521,8 +521,8 @@
 
     const/4 v11, 0x0
 
-    :goto_0
-    if-ge v11, v9, :cond_4
+    :goto_33
+    if-ge v11, v9, :cond_48
 
     aget v12, v7, v11
 
@@ -535,18 +535,18 @@
 
     .line 196
     .local v14, "$i$a$-map-ActivityResultContracts$RequestMultiplePermissions$parseResult$grantState$1":I
-    if-nez v13, :cond_3
+    if-nez v13, :cond_3d
 
     const/4 v15, 0x1
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_3
+    :cond_3d
     const/4 v15, 0x0
 
     .end local v13    # "result":I
     .end local v14    # "$i$a$-map-ActivityResultContracts$RequestMultiplePermissions$parseResult$grantState$1":I
-    :goto_1
+    :goto_3e
     invoke-static {v15}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v13
@@ -558,10 +558,10 @@
     .end local v12    # "item$iv$iv":I
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 974
-    :cond_4
+    :cond_48
     nop
 
     .end local v6    # "destination$iv$iv":Ljava/util/Collection;
@@ -606,8 +606,8 @@
 
     .line 194
     .end local v4    # "grantState":Ljava/util/List;
-    :cond_5
-    :goto_2
+    :cond_62
+    :goto_62
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
     move-result-object v4

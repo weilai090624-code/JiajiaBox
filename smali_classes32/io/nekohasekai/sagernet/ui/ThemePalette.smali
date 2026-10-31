@@ -4,11 +4,11 @@
 
 
 # static fields
-.field public static final CARD_RADIUS:I = 0x16
+.field public static final CARD_RADIUS:I = 0x14
 
-.field public static final CELL_RADIUS:I = 0x10
+.field public static final CELL_RADIUS:I = 0xe
 
-.field public static final PANEL_RADIUS:I = 0x1a
+.field public static final PANEL_RADIUS:I = 0x16
 
 
 # direct methods
@@ -56,7 +56,7 @@
     return p0
 
     :cond_a
-    const p0, -0x151815
+    const p0, -0x171b16
 
     return p0
 .end method
@@ -158,7 +158,7 @@
     return p0
 
     :cond_a
-    const p0, -0x878c83
+    const p0, -0x90968c
 
     return p0
 .end method

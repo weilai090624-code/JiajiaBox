@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "plugin"    # Ljava/lang/String;
 
     const-string v0, "plugin"
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public getLocalizedMessage()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 18
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -100,7 +100,7 @@
 .end method
 
 .method public final getPlugin()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 15
     iget-object v0, p0, Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException;->plugin:Ljava/lang/String;

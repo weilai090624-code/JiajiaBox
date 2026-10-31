@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 224
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,12 +41,12 @@
 .end method
 
 .method public static getInstance()Landroidx/preference/EditTextPreference$SimpleSummaryProvider;
-    .locals 1
+    .registers 1
 
     .line 235
     sget-object v0, Landroidx/preference/EditTextPreference$SimpleSummaryProvider;->sSimpleSummaryProvider:Landroidx/preference/EditTextPreference$SimpleSummaryProvider;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 236
     new-instance v0, Landroidx/preference/EditTextPreference$SimpleSummaryProvider;
@@ -56,7 +56,7 @@
     sput-object v0, Landroidx/preference/EditTextPreference$SimpleSummaryProvider;->sSimpleSummaryProvider:Landroidx/preference/EditTextPreference$SimpleSummaryProvider;
 
     .line 238
-    :cond_0
+    :cond_b
     sget-object v0, Landroidx/preference/EditTextPreference$SimpleSummaryProvider;->sSimpleSummaryProvider:Landroidx/preference/EditTextPreference$SimpleSummaryProvider;
 
     return-object v0
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public provideSummary(Landroidx/preference/EditTextPreference;)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 4
     .param p1, "preference"    # Landroidx/preference/EditTextPreference;
 
     .line 244
@@ -77,7 +77,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 245
     invoke-virtual {p1}, Landroidx/preference/EditTextPreference;->getContext()Landroid/content/Context;
@@ -93,7 +93,7 @@
     return-object v0
 
     .line 247
-    :cond_0
+    :cond_15
     invoke-virtual {p1}, Landroidx/preference/EditTextPreference;->getText()Ljava/lang/String;
 
     move-result-object v0
@@ -102,7 +102,7 @@
 .end method
 
 .method public bridge synthetic provideSummary(Landroidx/preference/Preference;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 2
 
     .line 220
     check-cast p1, Landroidx/preference/EditTextPreference;

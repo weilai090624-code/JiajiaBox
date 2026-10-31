@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Z)V
-    .locals 2
+    .registers 4
     .param p1, "growing"    # Z
 
     .line 33
@@ -45,7 +45,7 @@
 .end method
 
 .method private static createPrimaryAnimatorProvider(Z)Lcom/google/android/material/transition/ScaleProvider;
-    .locals 2
+    .registers 3
     .param p0, "growing"    # Z
 
     .line 42
@@ -67,7 +67,7 @@
 .end method
 
 .method private static createSecondaryAnimatorProvider()Lcom/google/android/material/transition/VisibilityAnimatorProvider;
-    .locals 1
+    .registers 1
 
     .line 49
     new-instance v0, Lcom/google/android/material/transition/FadeProvider;
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public bridge synthetic addAdditionalAnimatorProvider(Lcom/google/android/material/transition/VisibilityAnimatorProvider;)V
-    .locals 0
+    .registers 2
 
     .line 26
     invoke-super {p0, p1}, Lcom/google/android/material/transition/MaterialVisibility;->addAdditionalAnimatorProvider(Lcom/google/android/material/transition/VisibilityAnimatorProvider;)V
@@ -89,7 +89,7 @@
 .end method
 
 .method public bridge synthetic clearAdditionalAnimatorProvider()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-super {p0}, Lcom/google/android/material/transition/MaterialVisibility;->clearAdditionalAnimatorProvider()V
@@ -98,7 +98,7 @@
 .end method
 
 .method public bridge synthetic getPrimaryAnimatorProvider()Lcom/google/android/material/transition/VisibilityAnimatorProvider;
-    .locals 1
+    .registers 2
 
     .line 26
     invoke-super {p0}, Lcom/google/android/material/transition/MaterialVisibility;->getPrimaryAnimatorProvider()Lcom/google/android/material/transition/VisibilityAnimatorProvider;
@@ -109,7 +109,7 @@
 .end method
 
 .method public bridge synthetic getSecondaryAnimatorProvider()Lcom/google/android/material/transition/VisibilityAnimatorProvider;
-    .locals 1
+    .registers 2
 
     .line 26
     invoke-super {p0}, Lcom/google/android/material/transition/MaterialVisibility;->getSecondaryAnimatorProvider()Lcom/google/android/material/transition/VisibilityAnimatorProvider;
@@ -120,7 +120,7 @@
 .end method
 
 .method public isGrowing()Z
-    .locals 1
+    .registers 2
 
     .line 38
     iget-boolean v0, p0, Lcom/google/android/material/transition/MaterialElevationScale;->growing:Z
@@ -129,7 +129,7 @@
 .end method
 
 .method public bridge synthetic onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 0
+    .registers 5
 
     .line 26
     invoke-super {p0, p1, p2, p3, p4}, Lcom/google/android/material/transition/MaterialVisibility;->onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 0
+    .registers 5
 
     .line 26
     invoke-super {p0, p1, p2, p3, p4}, Lcom/google/android/material/transition/MaterialVisibility;->onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
@@ -151,7 +151,7 @@
 .end method
 
 .method public bridge synthetic removeAdditionalAnimatorProvider(Lcom/google/android/material/transition/VisibilityAnimatorProvider;)Z
-    .locals 0
+    .registers 2
 
     .line 26
     invoke-super {p0, p1}, Lcom/google/android/material/transition/MaterialVisibility;->removeAdditionalAnimatorProvider(Lcom/google/android/material/transition/VisibilityAnimatorProvider;)Z
@@ -162,7 +162,7 @@
 .end method
 
 .method public bridge synthetic setSecondaryAnimatorProvider(Lcom/google/android/material/transition/VisibilityAnimatorProvider;)V
-    .locals 0
+    .registers 2
 
     .line 26
     invoke-super {p0, p1}, Lcom/google/android/material/transition/MaterialVisibility;->setSecondaryAnimatorProvider(Lcom/google/android/material/transition/VisibilityAnimatorProvider;)V

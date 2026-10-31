@@ -4,7 +4,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -12,7 +12,7 @@
 .end method
 
 .method public static from(Lj$/time/ZonedDateTime;)Ljava/util/GregorianCalendar;
-    .locals 5
+    .registers 6
     .param p0, "zdt"    # Lj$/time/ZonedDateTime;
 
     .line 3289
@@ -49,7 +49,7 @@
     invoke-virtual {v0, v1}, Ljava/util/GregorianCalendar;->setMinimalDaysInFirstWeek(I)V
 
     .line 3294
-    :try_start_0
+    :try_start_1f
     invoke-virtual {p0}, Lj$/time/ZonedDateTime;->toEpochSecond()J
 
     move-result-wide v1
@@ -75,8 +75,8 @@
     move-result-wide v1
 
     invoke-virtual {v0, v1, v2}, Ljava/util/GregorianCalendar;->setTimeInMillis(J)V
-    :try_end_0
-    .catch Ljava/lang/ArithmeticException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_37
+    .catch Ljava/lang/ArithmeticException; {:try_start_1f .. :try_end_37} :catch_39
 
     .line 3298
     nop
@@ -85,7 +85,7 @@
     return-object v0
 
     .line 3296
-    :catch_0
+    :catch_39
     move-exception v1
 
     .line 3297
@@ -98,7 +98,7 @@
 .end method
 
 .method public static toZonedDateTime(Ljava/util/GregorianCalendar;)Lj$/time/ZonedDateTime;
-    .locals 2
+    .registers 3
     .param p0, "this"    # Ljava/util/GregorianCalendar;
 
     .line 3259

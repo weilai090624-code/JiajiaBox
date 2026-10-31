@@ -32,7 +32,7 @@
 
 # direct methods
 .method public varargs constructor <init>(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
-    .locals 4
+    .registers 8
     .param p1, "ownerType"    # Ljava/lang/reflect/Type;
     .param p2, "rawType"    # Ljava/lang/reflect/Type;
     .param p3, "typeArguments"    # [Ljava/lang/reflect/Type;
@@ -43,7 +43,7 @@
     .line 491
     instance-of v0, p2, Ljava/lang/Class;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_28
 
     .line 492
     move-object v0, p2
@@ -64,55 +64,55 @@
 
     const/4 v3, 0x1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1f
 
     .line 494
     invoke-virtual {v0}, Ljava/lang/Class;->getEnclosingClass()Ljava/lang/Class;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1d
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1d
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     const/4 v1, 0x1
 
     .line 495
     .local v1, "isStaticOrTopLevelClass":Z
-    :goto_1
-    if-nez p1, :cond_2
+    :goto_20
+    if-nez p1, :cond_24
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_25
 
-    :cond_2
+    :cond_24
     const/4 v2, 0x1
 
-    :cond_3
+    :cond_25
     invoke-static {v2}, Lcom/google/gson/internal/$Gson$Preconditions;->checkArgument(Z)V
 
     .line 498
     .end local v0    # "rawTypeAsClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v1    # "isStaticOrTopLevelClass":Z
-    :cond_4
-    if-nez p1, :cond_5
+    :cond_28
+    if-nez p1, :cond_2c
 
     const/4 v0, 0x0
 
-    goto :goto_2
+    goto :goto_30
 
-    :cond_5
+    :cond_2c
     invoke-static {p1}, Lcom/google/gson/internal/$Gson$Types;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object v0
 
-    :goto_2
+    :goto_30
     iput-object v0, p0, Lcom/google/gson/internal/$Gson$Types$ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
 
     .line 499
@@ -140,8 +140,8 @@
     array-length v1, v1
 
     .local v1, "length":I
-    :goto_3
-    if-ge v0, v1, :cond_6
+    :goto_44
+    if-ge v0, v1, :cond_63
 
     .line 502
     iget-object v2, p0, Lcom/google/gson/internal/$Gson$Types$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
@@ -173,25 +173,25 @@
     .line 501
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_44
 
     .line 506
     .end local v0    # "t":I
     .end local v1    # "length":I
-    :cond_6
+    :cond_63
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 521
     instance-of v0, p1, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     move-object v0, p1
 
@@ -202,22 +202,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     .line 521
-    :goto_0
+    :goto_10
     return v0
 .end method
 
 .method public getActualTypeArguments()[Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 509
     iget-object v0, p0, Lcom/google/gson/internal/$Gson$Types$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
@@ -232,7 +232,7 @@
 .end method
 
 .method public getOwnerType()Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 517
     iget-object v0, p0, Lcom/google/gson/internal/$Gson$Types$ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
@@ -241,7 +241,7 @@
 .end method
 
 .method public getRawType()Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 513
     iget-object v0, p0, Lcom/google/gson/internal/$Gson$Types$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
@@ -250,7 +250,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 526
     iget-object v0, p0, Lcom/google/gson/internal/$Gson$Types$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
@@ -282,7 +282,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 532
     iget-object v0, p0, Lcom/google/gson/internal/$Gson$Types$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
@@ -291,7 +291,7 @@
 
     .line 533
     .local v0, "length":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 534
     iget-object v1, p0, Lcom/google/gson/internal/$Gson$Types$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
@@ -303,7 +303,7 @@
     return-object v1
 
     .line 537
-    :cond_0
+    :cond_c
     new-instance v1, Ljava/lang/StringBuilder;
 
     add-int/lit8 v2, v0, 0x1
@@ -346,8 +346,8 @@
     const/4 v2, 0x1
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_32
+    if-ge v2, v0, :cond_48
 
     .line 540
     const-string v3, ", "
@@ -369,11 +369,11 @@
     .line 539
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_32
 
     .line 542
     .end local v2    # "i":I
-    :cond_1
+    :cond_48
     const-string v2, ">"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

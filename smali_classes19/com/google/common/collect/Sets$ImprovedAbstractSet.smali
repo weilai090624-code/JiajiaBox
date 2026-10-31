@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 76
     .local p0, "this":Lcom/google/common/collect/Sets$ImprovedAbstractSet;, "Lcom/google/common/collect/Sets$ImprovedAbstractSet<TE;>;"
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,7 +58,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/WorkSpecDao_Impl;Landroidx/room/RoomDatabase;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/model/WorkSpecDao_Impl;
     .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public createQuery()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 245
     const-string v0, "DELETE FROM workspec WHERE id=?"

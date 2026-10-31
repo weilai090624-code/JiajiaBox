@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 135
     .local p0, "this":Lcom/google/common/reflect/Types$ClassOwnership$1LocalClass;, "Lcom/google/common/reflect/Types$ClassOwnership$1LocalClass<TT;>;"

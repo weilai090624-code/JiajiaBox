@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/activity/SystemBarStyle$Companion;-><init>()V
 
@@ -64,12 +64,12 @@
 .end method
 
 .method public static synthetic auto$default(Landroidx/activity/SystemBarStyle$Companion;IILkotlin/jvm/functions/Function1;ILjava/lang/Object;)Landroidx/activity/SystemBarStyle;
-    .locals 0
+    .registers 6
 
     .line 139
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_8
 
     .line 142
     sget-object p3, Landroidx/activity/SystemBarStyle$Companion$auto$1;->INSTANCE:Landroidx/activity/SystemBarStyle$Companion$auto$1;
@@ -77,7 +77,7 @@
     check-cast p3, Lkotlin/jvm/functions/Function1;
 
     .line 139
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1, p2, p3}, Landroidx/activity/SystemBarStyle$Companion;->auto(IILkotlin/jvm/functions/Function1;)Landroidx/activity/SystemBarStyle;
 
     move-result-object p0
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public final auto(II)Landroidx/activity/SystemBarStyle;
-    .locals 6
+    .registers 9
     .param p1, "lightScrim"    # I
     .param p2, "darkScrim"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -115,7 +115,7 @@
 .end method
 
 .method public final auto(IILkotlin/jvm/functions/Function1;)Landroidx/activity/SystemBarStyle;
-    .locals 7
+    .registers 11
     .param p1, "lightScrim"    # I
     .param p2, "darkScrim"    # I
     .param p3, "detectDarkMode"    # Lkotlin/jvm/functions/Function1;
@@ -172,7 +172,7 @@
 .end method
 
 .method public final dark(I)Landroidx/activity/SystemBarStyle;
-    .locals 7
+    .registers 9
     .param p1, "scrim"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -213,7 +213,7 @@
 .end method
 
 .method public final light(II)Landroidx/activity/SystemBarStyle;
-    .locals 7
+    .registers 10
     .param p1, "scrim"    # I
     .param p2, "darkScrim"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;

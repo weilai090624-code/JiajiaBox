@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method private static getLegacyControlPoint([Ljava/lang/String;I)F
-    .locals 4
+    .registers 6
     .param p0, "controlPoints"    # [Ljava/lang/String;
     .param p1, "index"    # I
 
@@ -41,19 +41,19 @@
 
     cmpg-float v1, v0, v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_12
 
     const/high16 v1, 0x3f800000    # 1.0f
 
     cmpl-float v1, v0, v1
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_12
 
     .line 135
     return v0
 
     .line 131
-    :cond_0
+    :cond_12
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -80,7 +80,7 @@
 .end method
 
 .method private static getLegacyEasingContent(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "easingString"    # Ljava/lang/String;
     .param p1, "easingType"    # Ljava/lang/String;
 
@@ -122,7 +122,7 @@
 .end method
 
 .method private static getLegacyThemeInterpolator(Ljava/lang/String;)Landroid/animation/TimeInterpolator;
-    .locals 7
+    .registers 8
     .param p0, "easingString"    # Ljava/lang/String;
 
     .line 89
@@ -132,7 +132,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_49
 
     .line 90
     invoke-static {p0, v0}, Lcom/google/android/material/motion/MotionUtils;->getLegacyEasingContent(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -153,7 +153,7 @@
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_2f
 
     .line 99
     const/4 v2, 0x0
@@ -199,7 +199,7 @@
     .end local v3    # "controlY1":F
     .end local v4    # "controlX2":F
     .end local v5    # "controlY2":F
-    :cond_0
+    :cond_2f
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -229,14 +229,14 @@
     .line 104
     .end local v0    # "controlPointsString":Ljava/lang/String;
     .end local v1    # "controlPoints":[Ljava/lang/String;
-    :cond_1
+    :cond_49
     const-string v0, "path"
 
     invoke-static {p0, v0}, Lcom/google/android/material/motion/MotionUtils;->isLegacyEasingType(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5e
 
     .line 105
     invoke-static {p0, v0}, Lcom/google/android/material/motion/MotionUtils;->getLegacyEasingContent(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -257,7 +257,7 @@
 
     .line 108
     .end local v0    # "path":Ljava/lang/String;
-    :cond_2
+    :cond_5e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -284,7 +284,7 @@
 .end method
 
 .method private static isLegacyEasingAttribute(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "easingString"    # Ljava/lang/String;
 
     .line 113
@@ -294,7 +294,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 114
     const-string v0, "path"
@@ -303,26 +303,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v0, 0x1
 
     .line 113
-    :goto_1
+    :goto_14
     return v0
 .end method
 
 .method private static isLegacyEasingType(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p0, "easingString"    # Ljava/lang/String;
     .param p1, "easingType"    # Ljava/lang/String;
 
@@ -349,7 +349,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 119
     const-string v0, ")"
@@ -358,22 +358,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     const/4 v0, 0x0
 
     .line 118
-    :goto_0
+    :goto_24
     return v0
 .end method
 
 .method public static resolveThemeDuration(Landroid/content/Context;II)I
-    .locals 1
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attrResId"    # I
     .param p2, "defaultDuration"    # I
@@ -387,7 +387,7 @@
 .end method
 
 .method public static resolveThemeInterpolator(Landroid/content/Context;ILandroid/animation/TimeInterpolator;)Landroid/animation/TimeInterpolator;
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attrResId"    # I
     .param p2, "defaultInterpolator"    # Landroid/animation/TimeInterpolator;
@@ -409,18 +409,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     .line 70
     return-object p2
 
     .line 73
-    :cond_0
+    :cond_11
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_2e
 
     .line 80
     iget-object v1, v0, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
@@ -435,7 +435,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     .line 82
     invoke-static {v1}, Lcom/google/android/material/motion/MotionUtils;->getLegacyThemeInterpolator(Ljava/lang/String;)Landroid/animation/TimeInterpolator;
@@ -445,7 +445,7 @@
     return-object v2
 
     .line 85
-    :cond_1
+    :cond_27
     iget v2, v0, Landroid/util/TypedValue;->resourceId:I
 
     invoke-static {p0, v2}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
@@ -456,7 +456,7 @@
 
     .line 74
     .end local v1    # "easingString":Ljava/lang/String;
-    :cond_2
+    :cond_2e
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Motion easing theme attribute must be an @interpolator resource for ?attr/motionEasing*Interpolator attributes or a string for ?attr/motionEasing* attributes."

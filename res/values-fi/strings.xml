@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Saapuva puhelu</string>
     <string name="call_notification_ongoing_text">Käynnissä oleva puhelu</string>
     <string name="call_notification_screening_text">Seulotaan saapuvaa puhelua</string>
-    <string name="character_counter_content_description" formatted="false">%1$d/%2$d merkkiä kirjoitettu</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Merkkiraja ylitetty: %1$d/%2$d</string>
+    <string name="character_counter_content_description">%1$d/%2$d merkkiä kirjoitettu</string>
+    <string name="character_counter_overflowed_content_description">Merkkiraja ylitetty: %1$d/%2$d</string>
     <string name="clear_text_end_icon_content_description">Tyhjennä teksti</string>
     <string name="copy">Kopioi</string>
     <string name="copy_toast_msg">Linkki kopioitu leikepöydälle</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Aikavälin ulkop.: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Alkamispäivä – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – päättymispäivä</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Valitse jakso</string>
     <string name="mtrl_picker_range_header_unselected">Alkamispäivä – päättymispäivä</string>
     <string name="mtrl_picker_save">Tallenna</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">%1$s kopioitiin leikepöydälle.</string>
     <string name="search_menu_title">Haku</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">POIS KÄYTÖSTÄ</string>
     <string name="v7_preference_on">KÄYTÖSSÄ</string>
 </resources>

@@ -79,7 +79,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/String;Ljava/util/List;I)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
     .param p3, "p3"    # Ljava/lang/Object;
@@ -142,7 +142,7 @@
 .end method
 
 .method public final invoke(IILjava/util/List;)V
-    .locals 18
+    .registers 22
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
     .param p3, "resultColumnsSublist"    # Ljava/util/List;
@@ -191,8 +191,8 @@
 
     const/4 v8, 0x0
 
-    :goto_0
-    if-ge v8, v7, :cond_3
+    :goto_18
+    if-ge v8, v7, :cond_5b
 
     aget-object v9, v5, v8
 
@@ -218,12 +218,12 @@
 
     move-result-object v14
 
-    :goto_1
+    :goto_26
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v15
 
-    if-eqz v15, :cond_1
+    if-eqz v15, :cond_44
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -251,31 +251,31 @@
     .line 257
     .end local v1    # "resultColumnName":Ljava/lang/String;
     .end local v17    # "$i$a$-firstOrNull-AmbiguousColumnResolver$resolve$1$1$resultIndices$1$resultColumn$1":I
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_41
 
-    goto :goto_2
+    goto :goto_45
 
-    :cond_0
+    :cond_41
     move-object/from16 v1, p3
 
-    goto :goto_1
+    goto :goto_26
 
     .line 258
     .end local v15    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_44
     const/4 v15, 0x0
 
     .line 103
     .end local v12    # "$this$firstOrNull$iv":Ljava/lang/Iterable;
     .end local v13    # "$i$f$firstOrNull":I
-    :goto_2
+    :goto_45
     move-object v1, v15
 
     check-cast v1, Landroidx/room/AmbiguousColumnResolver$ResultColumn;
 
     .line 107
     .local v1, "resultColumn":Landroidx/room/AmbiguousColumnResolver$ResultColumn;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5a
 
     invoke-virtual {v1}, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->getIndex()I
 
@@ -297,14 +297,14 @@
 
     move-object/from16 v1, p3
 
-    goto :goto_0
+    goto :goto_18
 
     .line 107
     .restart local v1    # "resultColumn":Landroidx/room/AmbiguousColumnResolver$ResultColumn;
     .restart local v9    # "item$iv$iv":Ljava/lang/Object;
     .restart local v10    # "mappingColumnName":Ljava/lang/String;
     .restart local v11    # "$i$a$-map-AmbiguousColumnResolver$resolve$1$1$resultIndices$1":I
-    :cond_2
+    :cond_5a
     return-void
 
     .line 259
@@ -312,7 +312,7 @@
     .end local v9    # "item$iv$iv":Ljava/lang/Object;
     .end local v10    # "mappingColumnName":Ljava/lang/String;
     .end local v11    # "$i$a$-map-AmbiguousColumnResolver$resolve$1$1$resultIndices$1":I
-    :cond_3
+    :cond_5b
     nop
 
     .end local v4    # "destination$iv$iv":Ljava/util/Collection;

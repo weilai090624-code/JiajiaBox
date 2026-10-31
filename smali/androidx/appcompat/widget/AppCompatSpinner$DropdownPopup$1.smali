@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;Landroidx/appcompat/widget/AppCompatSpinner;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
 
     .line 981
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 3
+    .registers 9
     .param p2, "v"    # Landroid/view/View;
     .param p3, "position"    # I
     .param p4, "id"    # J
@@ -72,7 +72,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 986
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup$1;->this$1:Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
@@ -91,7 +91,7 @@
     invoke-virtual {v0, p2, p3, v1, v2}, Landroidx/appcompat/widget/AppCompatSpinner;->performItemClick(Landroid/view/View;IJ)Z
 
     .line 989
-    :cond_0
+    :cond_20
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup$1;->this$1:Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;->dismiss()V

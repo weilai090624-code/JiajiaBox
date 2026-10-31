@@ -110,7 +110,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 22
+    .registers 22
 
     .line 271
     const-string v20, "offset"

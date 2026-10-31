@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/io/Output;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "bufferSize"    # I
 
     .line 40
@@ -26,7 +26,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "outputStream"    # Ljava/io/OutputStream;
 
     .line 45
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;I)V
-    .locals 0
+    .registers 3
     .param p1, "outputStream"    # Ljava/io/OutputStream;
     .param p2, "bufferSize"    # I
 
@@ -49,7 +49,7 @@
 .end method
 
 .method private writeChunkSize()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -65,7 +65,7 @@
     .local v0, "size":I
     sget-boolean v1, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -98,7 +98,7 @@
     invoke-static {v2, v1}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 69
-    :cond_0
+    :cond_28
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/OutputChunked;->getOutputStream()Ljava/io/OutputStream;
 
     move-result-object v1
@@ -107,7 +107,7 @@
     .local v1, "outputStream":Ljava/io/OutputStream;
     and-int/lit8 v2, v0, -0x80
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_34
 
     .line 71
     invoke-virtual {v1, v0}, Ljava/io/OutputStream;->write(I)V
@@ -116,7 +116,7 @@
     return-void
 
     .line 74
-    :cond_1
+    :cond_34
     and-int/lit8 v2, v0, 0x7f
 
     or-int/lit16 v2, v2, 0x80
@@ -129,7 +129,7 @@
     .line 76
     and-int/lit8 v2, v0, -0x80
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_45
 
     .line 77
     invoke-virtual {v1, v0}, Ljava/io/OutputStream;->write(I)V
@@ -138,7 +138,7 @@
     return-void
 
     .line 80
-    :cond_2
+    :cond_45
     and-int/lit8 v2, v0, 0x7f
 
     or-int/lit16 v2, v2, 0x80
@@ -151,7 +151,7 @@
     .line 82
     and-int/lit8 v2, v0, -0x80
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_56
 
     .line 83
     invoke-virtual {v1, v0}, Ljava/io/OutputStream;->write(I)V
@@ -160,7 +160,7 @@
     return-void
 
     .line 86
-    :cond_3
+    :cond_56
     and-int/lit8 v2, v0, 0x7f
 
     or-int/lit16 v2, v2, 0x80
@@ -173,7 +173,7 @@
     .line 88
     and-int/lit8 v2, v0, -0x80
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_67
 
     .line 89
     invoke-virtual {v1, v0}, Ljava/io/OutputStream;->write(I)V
@@ -182,7 +182,7 @@
     return-void
 
     .line 92
-    :cond_4
+    :cond_67
     and-int/lit8 v2, v0, 0x7f
 
     or-int/lit16 v2, v2, 0x80
@@ -202,7 +202,7 @@
 
 # virtual methods
 .method public endChunk()V
-    .locals 2
+    .registers 3
 
     .line 99
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/OutputChunked;->flush()V
@@ -210,7 +210,7 @@
     .line 100
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const-string v0, "kryo"
 
@@ -219,8 +219,8 @@
     invoke-static {v0, v1}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 102
-    :cond_0
-    :try_start_0
+    :cond_e
+    :try_start_e
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/OutputChunked;->getOutputStream()Ljava/io/OutputStream;
 
     move-result-object v0
@@ -228,8 +228,8 @@
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write(I)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/io/IOException; {:try_start_e .. :try_end_16} :catch_18
 
     .line 105
     nop
@@ -238,7 +238,7 @@
     return-void
 
     .line 103
-    :catch_0
+    :catch_18
     move-exception v0
 
     .line 104
@@ -251,7 +251,7 @@
 .end method
 
 .method public flush()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -263,22 +263,22 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_14
 
     .line 56
-    :try_start_0
+    :try_start_6
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/io/OutputChunked;->writeChunkSize()V
 
     .line 57
     invoke-super {p0}, Lcom/esotericsoftware/kryo/io/Output;->flush()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_c} :catch_d
 
     .line 60
-    goto :goto_0
+    goto :goto_17
 
     .line 58
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 59
@@ -291,10 +291,10 @@
 
     .line 62
     .end local v0    # "ex":Ljava/io/IOException;
-    :cond_0
+    :cond_14
     invoke-super {p0}, Lcom/esotericsoftware/kryo/io/Output;->flush()V
 
     .line 64
-    :goto_0
+    :goto_17
     return-void
 .end method

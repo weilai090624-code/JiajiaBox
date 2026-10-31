@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/InputStream;Lorg/ini4j/spi/HandlerBase;Ljava/lang/String;Lorg/ini4j/Config;)V
-    .locals 2
+    .registers 7
     .param p1, "input"    # Ljava/io/InputStream;
     .param p2, "handler"    # Lorg/ini4j/spi/HandlerBase;
     .param p3, "comments"    # Ljava/lang/String;
@@ -51,7 +51,7 @@
 .end method
 
 .method constructor <init>(Ljava/io/Reader;Lorg/ini4j/spi/HandlerBase;Ljava/lang/String;Lorg/ini4j/Config;)V
-    .locals 1
+    .registers 6
     .param p1, "input"    # Ljava/io/Reader;
     .param p2, "handler"    # Lorg/ini4j/spi/HandlerBase;
     .param p3, "comments"    # Ljava/lang/String;
@@ -81,7 +81,7 @@
 .end method
 
 .method constructor <init>(Ljava/net/URL;Lorg/ini4j/spi/HandlerBase;Ljava/lang/String;Lorg/ini4j/Config;)V
-    .locals 3
+    .registers 8
     .param p1, "input"    # Ljava/net/URL;
     .param p2, "handler"    # Lorg/ini4j/spi/HandlerBase;
     .param p3, "comments"    # Ljava/lang/String;
@@ -115,7 +115,7 @@
 .end method
 
 .method private close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -132,7 +132,7 @@
 .end method
 
 .method private countEndingEscapes(Ljava/lang/String;)I
-    .locals 4
+    .registers 6
     .param p1, "line"    # Ljava/lang/String;
 
     .line 103
@@ -147,8 +147,8 @@
     add-int/lit8 v1, v1, -0x1
 
     .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
+    :goto_7
+    if-ltz v1, :cond_16
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
@@ -156,7 +156,7 @@
 
     const/16 v3, 0x5c
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_16
 
     .line 107
     add-int/lit8 v0, v0, 0x1
@@ -164,16 +164,16 @@
     .line 105
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 110
     .end local v1    # "i":I
-    :cond_0
+    :cond_16
     return v0
 .end method
 
 .method private handleComment(Ljava/lang/StringBuilder;)V
-    .locals 2
+    .registers 4
     .param p1, "buff"    # Ljava/lang/StringBuilder;
 
     .line 115
@@ -181,7 +181,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 117
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->length()I
@@ -211,12 +211,12 @@
     invoke-virtual {p1, v0, v1}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
     .line 121
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method private handleInclude(Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p1, "input"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -235,7 +235,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_86
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -243,7 +243,7 @@
 
     const/4 v2, 0x2
 
-    if-le v1, v2, :cond_4
+    if-le v1, v2, :cond_86
 
     const/4 v1, 0x0
 
@@ -253,7 +253,7 @@
 
     const/16 v3, 0x3c
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_86
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -269,7 +269,7 @@
 
     const/16 v4, 0x3e
 
-    if-ne v2, v4, :cond_4
+    if-ne v2, v4, :cond_86
 
     .line 129
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -293,14 +293,14 @@
 
     const/16 v4, 0x3f
 
-    if-ne v2, v4, :cond_0
+    if-ne v2, v4, :cond_3d
 
     const/4 v1, 0x1
 
     .line 132
     .local v1, "optional":Z
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_3d
+    if-eqz v1, :cond_47
 
     .line 134
     invoke-virtual {v0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -312,18 +312,18 @@
     move-result-object v0
 
     .line 137
-    :cond_1
+    :cond_47
     iget-object v2, p0, Lorg/ini4j/spi/IniSource;->_base:Ljava/net/URL;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_51
 
     new-instance v2, Ljava/net/URL;
 
     invoke-direct {v2, v0}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_58
 
-    :cond_2
+    :cond_51
     new-instance v2, Ljava/net/URL;
 
     iget-object v3, p0, Lorg/ini4j/spi/IniSource;->_base:Ljava/net/URL;
@@ -332,11 +332,11 @@
 
     .line 139
     .local v2, "loc":Ljava/net/URL;
-    :goto_0
-    if-eqz v1, :cond_3
+    :goto_58
+    if-eqz v1, :cond_75
 
     .line 143
-    :try_start_0
+    :try_start_5a
     new-instance v3, Lorg/ini4j/spi/IniSource;
 
     iget-object v4, p0, Lorg/ini4j/spi/IniSource;->_handler:Lorg/ini4j/spi/HandlerBase;
@@ -348,14 +348,14 @@
     invoke-direct {v3, v2, v4, v5, v6}, Lorg/ini4j/spi/IniSource;-><init>(Ljava/net/URL;Lorg/ini4j/spi/HandlerBase;Ljava/lang/String;Lorg/ini4j/Config;)V
 
     iput-object v3, p0, Lorg/ini4j/spi/IniSource;->_chain:Lorg/ini4j/spi/IniSource;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_67
+    .catch Ljava/io/IOException; {:try_start_5a .. :try_end_67} :catch_6e
+    .catchall {:try_start_5a .. :try_end_67} :catchall_68
 
-    goto :goto_1
+    goto :goto_6f
 
     .line 151
-    :catchall_0
+    :catchall_68
     move-exception v3
 
     invoke-virtual {p0}, Lorg/ini4j/spi/IniSource;->readLine()Ljava/lang/String;
@@ -365,11 +365,11 @@
     throw v3
 
     .line 145
-    :catch_0
+    :catch_6e
     move-exception v3
 
     .line 151
-    :goto_1
+    :goto_6f
     invoke-virtual {p0}, Lorg/ini4j/spi/IniSource;->readLine()Ljava/lang/String;
 
     move-result-object v0
@@ -378,10 +378,10 @@
     nop
 
     .line 151
-    goto :goto_2
+    goto :goto_86
 
     .line 156
-    :cond_3
+    :cond_75
     new-instance v3, Lorg/ini4j/spi/IniSource;
 
     iget-object v4, p0, Lorg/ini4j/spi/IniSource;->_handler:Lorg/ini4j/spi/HandlerBase;
@@ -402,13 +402,13 @@
     .line 161
     .end local v1    # "optional":Z
     .end local v2    # "loc":Ljava/net/URL;
-    :cond_4
-    :goto_2
+    :cond_86
+    :goto_86
     return-object v0
 .end method
 
 .method private readLineLocal()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -422,26 +422,26 @@
 
     .line 168
     .local v0, "line":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 170
     invoke-direct {p0}, Lorg/ini4j/spi/IniSource;->close()V
 
-    goto :goto_0
+    goto :goto_e
 
     .line 174
-    :cond_0
+    :cond_a
     invoke-direct {p0, v0}, Lorg/ini4j/spi/IniSource;->handleInclude(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 177
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method private readLineSkipComments()Ljava/lang/String;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -468,8 +468,8 @@
     move-result-object v2
 
     .local v2, "line":Ljava/lang/String;
-    :goto_0
-    if-eqz v2, :cond_4
+    :goto_10
+    if-eqz v2, :cond_73
 
     .line 188
     invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -481,15 +481,15 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_20
 
     .line 191
     invoke-direct {p0, v0}, Lorg/ini4j/spi/IniSource;->handleComment(Ljava/lang/StringBuilder;)V
 
-    goto :goto_1
+    goto :goto_64
 
     .line 193
-    :cond_0
+    :cond_20
     iget-object v3, p0, Lorg/ini4j/spi/IniSource;->_commentChars:Ljava/lang/String;
 
     const/4 v4, 0x0
@@ -504,13 +504,13 @@
 
     const/4 v5, 0x1
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_45
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_45
 
     .line 195
     invoke-virtual {v2, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -528,10 +528,10 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_64
 
     .line 200
-    :cond_1
+    :cond_45
     invoke-direct {p0, v0}, Lorg/ini4j/spi/IniSource;->handleComment(Ljava/lang/StringBuilder;)V
 
     .line 201
@@ -541,7 +541,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_6b
 
     invoke-direct {p0, v2}, Lorg/ini4j/spi/IniSource;->countEndingEscapes(Ljava/lang/String;)I
 
@@ -549,12 +549,12 @@
 
     and-int/2addr v3, v5
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_58
 
-    goto :goto_2
+    goto :goto_6b
 
     .line 209
-    :cond_2
+    :cond_58
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -568,18 +568,18 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     .line 186
-    :goto_1
+    :goto_64
     iget-object v3, p0, Lorg/ini4j/spi/IniSource;->_reader:Ljava/io/LineNumberReader;
 
     invoke-virtual {v3}, Ljava/io/LineNumberReader;->readLine()Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_10
 
     .line 203
-    :cond_3
-    :goto_2
+    :cond_6b
+    :goto_6b
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 204
@@ -591,32 +591,32 @@
     nop
 
     .line 214
-    :cond_4
-    if-nez v2, :cond_5
+    :cond_73
+    if-nez v2, :cond_7e
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_7e
 
     .line 216
     invoke-direct {p0, v0}, Lorg/ini4j/spi/IniSource;->handleComment(Ljava/lang/StringBuilder;)V
 
     .line 219
-    :cond_5
+    :cond_7e
     return-object v2
 .end method
 
 
 # virtual methods
 .method getLineNumber()I
-    .locals 1
+    .registers 2
 
     .line 63
     iget-object v0, p0, Lorg/ini4j/spi/IniSource;->_chain:Lorg/ini4j/spi/IniSource;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 65
     iget-object v0, p0, Lorg/ini4j/spi/IniSource;->_reader:Ljava/io/LineNumberReader;
@@ -626,11 +626,11 @@
     move-result v0
 
     .local v0, "ret":I
-    goto :goto_0
+    goto :goto_11
 
     .line 69
     .end local v0    # "ret":I
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lorg/ini4j/spi/IniSource;->_chain:Lorg/ini4j/spi/IniSource;
 
     invoke-virtual {v0}, Lorg/ini4j/spi/IniSource;->getLineNumber()I
@@ -639,12 +639,12 @@
 
     .line 72
     .restart local v0    # "ret":I
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method readLine()Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -654,7 +654,7 @@
     .line 79
     iget-object v0, p0, Lorg/ini4j/spi/IniSource;->_chain:Lorg/ini4j/spi/IniSource;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 81
     invoke-direct {p0}, Lorg/ini4j/spi/IniSource;->readLineLocal()Ljava/lang/String;
@@ -662,11 +662,11 @@
     move-result-object v0
 
     .local v0, "line":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_18
 
     .line 85
     .end local v0    # "line":Ljava/lang/String;
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lorg/ini4j/spi/IniSource;->_chain:Lorg/ini4j/spi/IniSource;
 
     invoke-virtual {v0}, Lorg/ini4j/spi/IniSource;->readLine()Ljava/lang/String;
@@ -675,7 +675,7 @@
 
     .line 86
     .restart local v0    # "line":Ljava/lang/String;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 88
     const/4 v1, 0x0
@@ -688,7 +688,7 @@
     move-result-object v0
 
     .line 93
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     return-object v0
 .end method

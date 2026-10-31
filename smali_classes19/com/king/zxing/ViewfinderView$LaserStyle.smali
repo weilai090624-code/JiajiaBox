@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 197
     new-instance v0, Lcom/king/zxing/ViewfinderView$LaserStyle;
@@ -94,7 +94,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .param p3, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -113,7 +113,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/king/zxing/ViewfinderView$LaserStyle;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/king/zxing/ViewfinderView$LaserStyle;
 
     .line 196
@@ -123,7 +123,7 @@
 .end method
 
 .method static synthetic access$200(I)Lcom/king/zxing/ViewfinderView$LaserStyle;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # I
 
     .line 196
@@ -135,7 +135,7 @@
 .end method
 
 .method private static getFromInt(I)Lcom/king/zxing/ViewfinderView$LaserStyle;
-    .locals 5
+    .registers 6
     .param p0, "value"    # I
 
     .line 204
@@ -147,8 +147,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_6
+    if-ge v2, v1, :cond_12
 
     aget-object v3, v0, v2
 
@@ -156,27 +156,27 @@
     .local v3, "style":Lcom/king/zxing/ViewfinderView$LaserStyle;
     iget v4, v3, Lcom/king/zxing/ViewfinderView$LaserStyle;->mValue:I
 
-    if-ne v4, p0, :cond_0
+    if-ne v4, p0, :cond_f
 
     .line 206
     return-object v3
 
     .line 204
     .end local v3    # "style":Lcom/king/zxing/ViewfinderView$LaserStyle;
-    :cond_0
+    :cond_f
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 209
-    :cond_1
+    :cond_12
     sget-object v0, Lcom/king/zxing/ViewfinderView$LaserStyle;->LINE:Lcom/king/zxing/ViewfinderView$LaserStyle;
 
     return-object v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/king/zxing/ViewfinderView$LaserStyle;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 196
@@ -192,7 +192,7 @@
 .end method
 
 .method public static values()[Lcom/king/zxing/ViewfinderView$LaserStyle;
-    .locals 1
+    .registers 1
 
     .line 196
     sget-object v0, Lcom/king/zxing/ViewfinderView$LaserStyle;->$VALUES:[Lcom/king/zxing/ViewfinderView$LaserStyle;

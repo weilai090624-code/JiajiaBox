@@ -62,7 +62,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$FZWr2PGmP3sgXLCiri-DCcePXSs(Ljava/lang/Runnable;Landroidx/room/TransactionExecutor;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/room/TransactionExecutor;->execute$lambda$1$lambda$0(Ljava/lang/Runnable;Landroidx/room/TransactionExecutor;)V
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
 
     const-string v0, "executor"
@@ -101,7 +101,7 @@
 .end method
 
 .method private static final execute$lambda$1$lambda$0(Ljava/lang/Runnable;Landroidx/room/TransactionExecutor;)V
-    .locals 1
+    .registers 3
     .param p0, "$command"    # Ljava/lang/Runnable;
     .param p1, "this$0"    # Landroidx/room/TransactionExecutor;
 
@@ -117,10 +117,10 @@
     nop
 
     .line 36
-    :try_start_0
+    :try_start_c
     invoke-interface {p0}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_c .. :try_end_f} :catchall_14
 
     .line 38
     invoke-virtual {p1}, Landroidx/room/TransactionExecutor;->scheduleNext()V
@@ -132,7 +132,7 @@
     return-void
 
     .line 38
-    :catchall_0
+    :catchall_14
     move-exception v0
 
     invoke-virtual {p1}, Landroidx/room/TransactionExecutor;->scheduleNext()V
@@ -143,7 +143,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 4
+    .registers 6
     .param p1, "command"    # Ljava/lang/Runnable;
 
     const-string v0, "command"
@@ -159,7 +159,7 @@
 
     .line 34
     .local v1, "$i$a$-synchronized-TransactionExecutor$execute$1":I
-    :try_start_0
+    :try_start_9
     iget-object v2, p0, Landroidx/room/TransactionExecutor;->tasks:Ljava/util/ArrayDeque;
 
     new-instance v3, Landroidx/room/TransactionExecutor$$ExternalSyntheticLambda0;
@@ -171,19 +171,19 @@
     .line 41
     iget-object v2, p0, Landroidx/room/TransactionExecutor;->active:Ljava/lang/Runnable;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     .line 42
     invoke-virtual {p0}, Landroidx/room/TransactionExecutor;->scheduleNext()V
 
     .line 44
-    :cond_0
+    :cond_1a
     nop
 
     .end local v1    # "$i$a$-synchronized-TransactionExecutor$execute$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_9 .. :try_end_1d} :catchall_1f
 
     .line 33
     monitor-exit v0
@@ -192,7 +192,7 @@
     return-void
 
     .line 33
-    :catchall_0
+    :catchall_1f
     move-exception v1
 
     monitor-exit v0
@@ -201,7 +201,7 @@
 .end method
 
 .method public final scheduleNext()V
-    .locals 5
+    .registers 6
 
     .line 48
     iget-object v0, p0, Landroidx/room/TransactionExecutor;->syncLock:Ljava/lang/Object;
@@ -212,7 +212,7 @@
 
     .line 49
     .local v1, "$i$a$-synchronized-TransactionExecutor$scheduleNext$1":I
-    :try_start_0
+    :try_start_4
     iget-object v2, p0, Landroidx/room/TransactionExecutor;->tasks:Ljava/util/ArrayDeque;
 
     invoke-virtual {v2}, Ljava/util/ArrayDeque;->poll()Ljava/lang/Object;
@@ -233,7 +233,7 @@
 
     .end local v3    # "it":Ljava/lang/Runnable;
     .end local v4    # "$i$a$-also-TransactionExecutor$scheduleNext$1$1":I
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 50
     iget-object v2, p0, Landroidx/room/TransactionExecutor;->executor:Ljava/util/concurrent/Executor;
@@ -243,13 +243,13 @@
     invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     .line 52
-    :cond_0
+    :cond_19
     nop
 
     .end local v1    # "$i$a$-synchronized-TransactionExecutor$scheduleNext$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_4 .. :try_end_1c} :catchall_1e
 
     .line 48
     monitor-exit v0
@@ -258,7 +258,7 @@
     return-void
 
     .line 48
-    :catchall_0
+    :catchall_1e
     move-exception v1
 
     monitor-exit v0

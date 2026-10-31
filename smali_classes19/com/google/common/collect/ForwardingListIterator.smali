@@ -25,7 +25,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     .local p0, "this":Lcom/google/common/collect/ForwardingListIterator;, "Lcom/google/common/collect/ForwardingListIterator<TE;>;"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -62,7 +62,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/collect/ForwardingListIterator;, "Lcom/google/common/collect/ForwardingListIterator<TE;>;"
@@ -74,7 +74,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/collect/ForwardingListIterator;, "Lcom/google/common/collect/ForwardingListIterator<TE;>;"
@@ -96,7 +96,7 @@
 .end method
 
 .method public hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 57
     .local p0, "this":Lcom/google/common/collect/ForwardingListIterator;, "Lcom/google/common/collect/ForwardingListIterator<TE;>;"
@@ -112,7 +112,7 @@
 .end method
 
 .method public nextIndex()I
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ForwardingListIterator;, "Lcom/google/common/collect/ForwardingListIterator<TE;>;"
@@ -128,7 +128,7 @@
 .end method
 
 .method public previous()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -152,7 +152,7 @@
 .end method
 
 .method public previousIndex()I
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/ForwardingListIterator;, "Lcom/google/common/collect/ForwardingListIterator<TE;>;"
@@ -168,7 +168,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
     .line 1345
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public applyTransformation(FLandroid/view/animation/Transformation;)V
-    .locals 5
+    .registers 8
     .param p1, "interpolatedTime"    # F
     .param p2, "t"    # Landroid/view/animation/Transformation;
 
@@ -43,7 +43,7 @@
 
     iget-boolean v0, v0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mUsingCustomStart:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 1350
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$6;->this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
@@ -61,18 +61,18 @@
     sub-int/2addr v0, v1
 
     .local v0, "endTarget":I
-    goto :goto_0
+    goto :goto_18
 
     .line 1352
     .end local v0    # "endTarget":I
-    :cond_0
+    :cond_14
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$6;->this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
     iget v0, v0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mSpinnerOffsetEnd:I
 
     .line 1354
     .restart local v0    # "endTarget":I
-    :goto_0
+    :goto_18
     iget-object v1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$6;->this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
     iget v1, v1, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mFrom:I

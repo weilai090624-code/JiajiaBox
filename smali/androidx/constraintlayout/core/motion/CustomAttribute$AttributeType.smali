@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     .line 52
     new-instance v0, Landroidx/constraintlayout/core/motion/CustomAttribute$AttributeType;
@@ -177,7 +177,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -191,7 +191,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/constraintlayout/core/motion/CustomAttribute$AttributeType;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 51
@@ -207,7 +207,7 @@
 .end method
 
 .method public static values()[Landroidx/constraintlayout/core/motion/CustomAttribute$AttributeType;
-    .locals 1
+    .registers 1
 
     .line 51
     sget-object v0, Landroidx/constraintlayout/core/motion/CustomAttribute$AttributeType;->$VALUES:[Landroidx/constraintlayout/core/motion/CustomAttribute$AttributeType;

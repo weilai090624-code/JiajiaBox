@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 470
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 470
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$1;->initialValue()Ljava/util/ArrayList;
@@ -47,7 +47,7 @@
 .end method
 
 .method protected initialValue()Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

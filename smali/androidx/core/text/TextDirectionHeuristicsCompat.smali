@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 33
     new-instance v0, Landroidx/core/text/TextDirectionHeuristicsCompat$TextDirectionHeuristicInternal;
@@ -96,7 +96,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 257
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -105,11 +105,11 @@
 .end method
 
 .method static isRtlText(I)I
-    .locals 1
+    .registers 2
     .param p0, "directionality"    # I
 
     .line 79
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_a
 
     .line 86
     const/4 v0, 0x2
@@ -117,33 +117,33 @@
     return v0
 
     .line 84
-    :pswitch_0
+    :pswitch_5
     const/4 v0, 0x0
 
     return v0
 
     .line 81
-    :pswitch_1
+    :pswitch_7
     const/4 v0, 0x1
 
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_7
+        :pswitch_5
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method static isRtlTextOrFormat(I)I
-    .locals 1
+    .registers 2
     .param p0, "directionality"    # I
 
     .line 91
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_a
 
     .line 102
     const/4 v0, 0x2
@@ -151,27 +151,27 @@
     return v0
 
     .line 100
-    :sswitch_0
+    :sswitch_5
     const/4 v0, 0x0
 
     return v0
 
     .line 95
-    :sswitch_1
+    :sswitch_7
     const/4 v0, 0x1
 
     return v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_a
     .sparse-switch
-        0x0 -> :sswitch_1
-        0x1 -> :sswitch_0
-        0x2 -> :sswitch_0
-        0xe -> :sswitch_1
-        0xf -> :sswitch_1
-        0x10 -> :sswitch_0
-        0x11 -> :sswitch_0
+        0x0 -> :sswitch_7
+        0x1 -> :sswitch_5
+        0x2 -> :sswitch_5
+        0xe -> :sswitch_7
+        0xf -> :sswitch_7
+        0x10 -> :sswitch_5
+        0x11 -> :sswitch_5
     .end sparse-switch
 .end method

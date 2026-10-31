@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/function/Function;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 .end method
 
 .method private flipStream(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)TR;"
@@ -75,7 +75,7 @@
     .line 42
     .local p0, "this":Lj$/util/stream/FlatMapApiFlips$FunctionStreamWrapper;, "Ljava/util/stream/FlatMapApiFlips$FunctionStreamWrapper<TT;TR;>;"
     .local p1, "maybeStream":Ljava/lang/Object;, "TR;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 43
     const/4 v0, 0x0
@@ -83,10 +83,10 @@
     return-object v0
 
     .line 46
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lj$/util/stream/Stream;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 47
     move-object v0, p1
@@ -100,10 +100,10 @@
     return-object v0
 
     .line 49
-    :cond_1
+    :cond_10
     instance-of v0, p1, Ljava/util/stream/Stream;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1c
 
     .line 50
     move-object v0, p1
@@ -117,10 +117,10 @@
     return-object v0
 
     .line 53
-    :cond_2
+    :cond_1c
     instance-of v0, p1, Lj$/util/stream/IntStream;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_28
 
     .line 54
     move-object v0, p1
@@ -134,10 +134,10 @@
     return-object v0
 
     .line 56
-    :cond_3
+    :cond_28
     instance-of v0, p1, Ljava/util/stream/IntStream;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_34
 
     .line 57
     move-object v0, p1
@@ -151,10 +151,10 @@
     return-object v0
 
     .line 60
-    :cond_4
+    :cond_34
     instance-of v0, p1, Lj$/util/stream/DoubleStream;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_40
 
     .line 61
     move-object v0, p1
@@ -170,10 +170,10 @@
     return-object v0
 
     .line 64
-    :cond_5
+    :cond_40
     instance-of v0, p1, Ljava/util/stream/DoubleStream;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4c
 
     .line 65
     move-object v0, p1
@@ -189,10 +189,10 @@
     return-object v0
 
     .line 69
-    :cond_6
+    :cond_4c
     instance-of v0, p1, Lj$/util/stream/LongStream;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_58
 
     .line 70
     move-object v0, p1
@@ -208,10 +208,10 @@
     return-object v0
 
     .line 73
-    :cond_7
+    :cond_58
     instance-of v0, p1, Ljava/util/stream/LongStream;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_64
 
     .line 74
     move-object v0, p1
@@ -225,7 +225,7 @@
     return-object v0
 
     .line 77
-    :cond_8
+    :cond_64
     const-string v0, "java.util.stream.*Stream"
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -242,7 +242,7 @@
 
 # virtual methods
 .method public synthetic andThen(Ljava/util/function/Function;)Ljava/util/function/Function;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Function$-CC;->$default$andThen(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/function/Function;
 
@@ -252,7 +252,7 @@
 .end method
 
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TR;"
@@ -276,7 +276,7 @@
 .end method
 
 .method public synthetic compose(Ljava/util/function/Function;)Ljava/util/function/Function;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Function$-CC;->$default$compose(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/function/Function;
 

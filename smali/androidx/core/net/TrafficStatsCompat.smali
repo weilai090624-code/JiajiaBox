@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 170
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public static clearThreadStatsTag()V
-    .locals 0
+    .registers 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public static getThreadStatsTag()I
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public static incrementOperationCount(I)V
-    .locals 0
+    .registers 1
     .param p0, "operationCount"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -60,7 +60,7 @@
 .end method
 
 .method public static incrementOperationCount(II)V
-    .locals 0
+    .registers 2
     .param p0, "tag"    # I
     .param p1, "operationCount"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -74,7 +74,7 @@
 .end method
 
 .method public static setThreadStatsTag(I)V
-    .locals 0
+    .registers 1
     .param p0, "tag"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -87,7 +87,7 @@
 .end method
 
 .method public static tagDatagramSocket(Ljava/net/DatagramSocket;)V
-    .locals 3
+    .registers 4
     .param p0, "socket"    # Ljava/net/DatagramSocket;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -100,15 +100,15 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 141
     invoke-static {p0}, Landroidx/core/net/TrafficStatsCompat$Api24Impl;->tagDatagramSocket(Ljava/net/DatagramSocket;)V
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 143
-    :cond_0
+    :cond_a
     invoke-static {p0}, Landroid/os/ParcelFileDescriptor;->fromDatagramSocket(Ljava/net/DatagramSocket;)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v0
@@ -130,12 +130,12 @@
 
     .line 151
     .end local v0    # "pfd":Landroid/os/ParcelFileDescriptor;
-    :goto_0
+    :goto_1d
     return-void
 .end method
 
 .method public static tagSocket(Ljava/net/Socket;)V
-    .locals 0
+    .registers 1
     .param p0, "socket"    # Ljava/net/Socket;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -154,7 +154,7 @@
 .end method
 
 .method public static untagDatagramSocket(Ljava/net/DatagramSocket;)V
-    .locals 3
+    .registers 4
     .param p0, "socket"    # Ljava/net/DatagramSocket;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -167,15 +167,15 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 158
     invoke-static {p0}, Landroidx/core/net/TrafficStatsCompat$Api24Impl;->untagDatagramSocket(Ljava/net/DatagramSocket;)V
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 160
-    :cond_0
+    :cond_a
     invoke-static {p0}, Landroid/os/ParcelFileDescriptor;->fromDatagramSocket(Ljava/net/DatagramSocket;)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v0
@@ -197,12 +197,12 @@
 
     .line 168
     .end local v0    # "pfd":Landroid/os/ParcelFileDescriptor;
-    :goto_0
+    :goto_1d
     return-void
 .end method
 
 .method public static untagSocket(Ljava/net/Socket;)V
-    .locals 0
+    .registers 1
     .param p0, "socket"    # Ljava/net/Socket;
     .annotation system Ldalvik/annotation/Throws;
         value = {

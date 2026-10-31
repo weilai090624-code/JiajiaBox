@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/view/menu/MenuItemWrapperICS;Landroid/view/MenuItem$OnActionExpandListener;)V
-    .locals 0
+    .registers 3
     .param p2, "object"    # Landroid/view/MenuItem$OnActionExpandListener;
 
     .line 414
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onMenuItemActionCollapse(Landroid/view/MenuItem;)Z
-    .locals 2
+    .registers 4
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 425
@@ -63,7 +63,7 @@
 .end method
 
 .method public onMenuItemActionExpand(Landroid/view/MenuItem;)Z
-    .locals 2
+    .registers 4
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 420

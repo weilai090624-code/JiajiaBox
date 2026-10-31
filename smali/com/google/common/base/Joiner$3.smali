@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 500
     iput-object p1, p0, Lcom/google/common/base/Joiner$3;->val$rest:[Ljava/lang/Object;
@@ -49,13 +49,13 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
     .line 509
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_10
 
     .line 515
     iget-object v0, p0, Lcom/google/common/base/Joiner$3;->val$rest:[Ljava/lang/Object;
@@ -67,26 +67,26 @@
     return-object v0
 
     .line 513
-    :pswitch_0
+    :pswitch_a
     iget-object v0, p0, Lcom/google/common/base/Joiner$3;->val$second:Ljava/lang/Object;
 
     return-object v0
 
     .line 511
-    :pswitch_1
+    :pswitch_d
     iget-object v0, p0, Lcom/google/common/base/Joiner$3;->val$first:Ljava/lang/Object;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_10
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_d
+        :pswitch_a
     .end packed-switch
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 503
     iget-object v0, p0, Lcom/google/common/base/Joiner$3;->val$rest:[Ljava/lang/Object;

@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeTraverser;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 140
     .local p0, "this":Lcom/google/common/collect/TreeTraverser$PreOrderIterator;, "Lcom/google/common/collect/TreeTraverser<TT;>.PreOrderIterator;"
@@ -94,7 +94,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -127,7 +127,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     .line 148
     iget-object v2, p0, Lcom/google/common/collect/TreeTraverser$PreOrderIterator;->stack:Ljava/util/Deque;
@@ -135,7 +135,7 @@
     invoke-interface {v2}, Ljava/util/Deque;->removeLast()Ljava/lang/Object;
 
     .line 150
-    :cond_0
+    :cond_1b
     iget-object v2, p0, Lcom/google/common/collect/TreeTraverser$PreOrderIterator;->this$0:Lcom/google/common/collect/TreeTraverser;
 
     invoke-virtual {v2, v1}, Lcom/google/common/collect/TreeTraverser;->children(Ljava/lang/Object;)Ljava/lang/Iterable;
@@ -152,7 +152,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_30
 
     .line 152
     iget-object v3, p0, Lcom/google/common/collect/TreeTraverser$PreOrderIterator;->stack:Ljava/util/Deque;
@@ -160,6 +160,6 @@
     invoke-interface {v3, v2}, Ljava/util/Deque;->addLast(Ljava/lang/Object;)V
 
     .line 154
-    :cond_1
+    :cond_30
     return-object v1
 .end method

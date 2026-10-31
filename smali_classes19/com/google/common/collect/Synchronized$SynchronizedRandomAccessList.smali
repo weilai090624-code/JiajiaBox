@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation

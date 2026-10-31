@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 7
     invoke-direct {p0}, Landroidx/appcompat/app/AppCompatActivity;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .registers 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 10
@@ -53,7 +53,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     const-string v1, "sendLog"
 
@@ -61,7 +61,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .local v0, "$this$onCreate_u24lambda_u240":Ljava/lang/String;
     const/4 v1, 0x0
@@ -82,7 +82,7 @@
     .line 13
     .end local v0    # "$this$onCreate_u24lambda_u240":Ljava/lang/String;
     .end local v1    # "$i$a$-apply-BlankActivity$onCreate$1":I
-    :cond_0
+    :cond_1b
     nop
 
     .line 17

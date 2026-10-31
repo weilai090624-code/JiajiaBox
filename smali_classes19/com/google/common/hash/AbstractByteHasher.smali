@@ -14,7 +14,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 36
     invoke-direct {p0}, Lcom/google/common/hash/AbstractHasher;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method private update(I)Lcom/google/common/hash/Hasher;
-    .locals 2
+    .registers 4
     .param p1, "bytes"    # I
 
     .line 69
@@ -52,8 +52,8 @@
     const/4 v1, 0x0
 
     invoke-virtual {p0, v0, v1, p1}, Lcom/google/common/hash/AbstractByteHasher;->update([BII)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_0 .. :try_end_a} :catchall_11
 
     .line 71
     iget-object v0, p0, Lcom/google/common/hash/AbstractByteHasher;->scratch:Ljava/nio/ByteBuffer;
@@ -67,7 +67,7 @@
     return-object p0
 
     .line 71
-    :catchall_0
+    :catchall_11
     move-exception v0
 
     iget-object v1, p0, Lcom/google/common/hash/AbstractByteHasher;->scratch:Ljava/nio/ByteBuffer;
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public putByte(B)Lcom/google/common/hash/Hasher;
-    .locals 0
+    .registers 2
     .param p1, "b"    # B
 
     .line 78
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge synthetic putByte(B)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
 
     .line 34
     invoke-virtual {p0, p1}, Lcom/google/common/hash/AbstractByteHasher;->putByte(B)Lcom/google/common/hash/Hasher;
@@ -103,7 +103,7 @@
 .end method
 
 .method public putBytes(Ljava/nio/ByteBuffer;)Lcom/google/common/hash/Hasher;
-    .locals 0
+    .registers 2
     .param p1, "bytes"    # Ljava/nio/ByteBuffer;
 
     .line 98
@@ -114,7 +114,7 @@
 .end method
 
 .method public putBytes([B)Lcom/google/common/hash/Hasher;
-    .locals 0
+    .registers 2
     .param p1, "bytes"    # [B
 
     .line 84
@@ -128,7 +128,7 @@
 .end method
 
 .method public putBytes([BII)Lcom/google/common/hash/Hasher;
-    .locals 2
+    .registers 6
     .param p1, "bytes"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -148,7 +148,7 @@
 .end method
 
 .method public bridge synthetic putBytes(Ljava/nio/ByteBuffer;)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
 
     .line 34
     invoke-virtual {p0, p1}, Lcom/google/common/hash/AbstractByteHasher;->putBytes(Ljava/nio/ByteBuffer;)Lcom/google/common/hash/Hasher;
@@ -159,7 +159,7 @@
 .end method
 
 .method public bridge synthetic putBytes([B)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
 
     .line 34
     invoke-virtual {p0, p1}, Lcom/google/common/hash/AbstractByteHasher;->putBytes([B)Lcom/google/common/hash/Hasher;
@@ -170,7 +170,7 @@
 .end method
 
 .method public bridge synthetic putBytes([BII)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 4
 
     .line 34
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/common/hash/AbstractByteHasher;->putBytes([BII)Lcom/google/common/hash/Hasher;
@@ -181,7 +181,7 @@
 .end method
 
 .method public putChar(C)Lcom/google/common/hash/Hasher;
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
 
     .line 122
@@ -200,7 +200,7 @@
 .end method
 
 .method public bridge synthetic putChar(C)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
 
     .line 34
     invoke-virtual {p0, p1}, Lcom/google/common/hash/AbstractByteHasher;->putChar(C)Lcom/google/common/hash/Hasher;
@@ -211,7 +211,7 @@
 .end method
 
 .method public putInt(I)Lcom/google/common/hash/Hasher;
-    .locals 1
+    .registers 3
     .param p1, "i"    # I
 
     .line 110
@@ -230,7 +230,7 @@
 .end method
 
 .method public bridge synthetic putInt(I)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
 
     .line 34
     invoke-virtual {p0, p1}, Lcom/google/common/hash/AbstractByteHasher;->putInt(I)Lcom/google/common/hash/Hasher;
@@ -241,7 +241,7 @@
 .end method
 
 .method public putLong(J)Lcom/google/common/hash/Hasher;
-    .locals 1
+    .registers 4
     .param p1, "l"    # J
 
     .line 116
@@ -260,7 +260,7 @@
 .end method
 
 .method public bridge synthetic putLong(J)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 3
 
     .line 34
     invoke-virtual {p0, p1, p2}, Lcom/google/common/hash/AbstractByteHasher;->putLong(J)Lcom/google/common/hash/Hasher;
@@ -271,7 +271,7 @@
 .end method
 
 .method public putShort(S)Lcom/google/common/hash/Hasher;
-    .locals 1
+    .registers 3
     .param p1, "s"    # S
 
     .line 104
@@ -290,7 +290,7 @@
 .end method
 
 .method public bridge synthetic putShort(S)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
 
     .line 34
     invoke-virtual {p0, p1}, Lcom/google/common/hash/AbstractByteHasher;->putShort(S)Lcom/google/common/hash/Hasher;
@@ -304,7 +304,7 @@
 .end method
 
 .method protected update(Ljava/nio/ByteBuffer;)V
-    .locals 3
+    .registers 5
     .param p1, "b"    # Ljava/nio/ByteBuffer;
 
     .line 56
@@ -312,7 +312,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 57
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
@@ -342,17 +342,17 @@
 
     invoke-static {p1, v0}, Lcom/google/common/hash/Java8Compatibility;->position(Ljava/nio/Buffer;I)V
 
-    goto :goto_1
+    goto :goto_32
 
     .line 60
-    :cond_0
+    :cond_22
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v0
 
     .local v0, "remaining":I
-    :goto_0
-    if-lez v0, :cond_1
+    :goto_26
+    if-lez v0, :cond_32
 
     .line 61
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->get()B
@@ -364,17 +364,17 @@
     .line 60
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 64
     .end local v0    # "remaining":I
-    :cond_1
-    :goto_1
+    :cond_32
+    :goto_32
     return-void
 .end method
 
 .method protected update([B)V
-    .locals 2
+    .registers 4
     .param p1, "b"    # [B
 
     .line 44
@@ -389,7 +389,7 @@
 .end method
 
 .method protected update([BII)V
-    .locals 2
+    .registers 6
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -398,10 +398,10 @@
     move v0, p2
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     add-int v1, p2, p3
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_d
 
     .line 50
     aget-byte v1, p1, v0
@@ -411,10 +411,10 @@
     .line 49
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 52
     .end local v0    # "i":I
-    :cond_0
+    :cond_d
     return-void
 .end method

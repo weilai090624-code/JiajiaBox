@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public final onBindEditText(Landroid/widget/EditText;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-static {p1}, Lio/nekohasekai/sagernet/widget/LinkOrContentPreference;->$r8$lambda$OJmq5J7N8UpwJkkeaJ7qn4cer_I(Landroid/widget/EditText;)V

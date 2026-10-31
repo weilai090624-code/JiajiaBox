@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Comparable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)V"
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method canonical(Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,25 +75,25 @@
 
     .line 468
     .local v0, "next":Ljava/lang/Comparable;, "TC;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-static {v0}, Lcom/google/common/collect/Cut$AboveValue;->belowValue(Ljava/lang/Comparable;)Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     invoke-static {}, Lcom/google/common/collect/Cut;->aboveAll()Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     return-object v1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 398
     .local p0, "this":Lcom/google/common/collect/Cut$AboveValue;, "Lcom/google/common/collect/Cut$AboveValue<TC;>;"
@@ -107,7 +107,7 @@
 .end method
 
 .method describeAsLowerBound(Ljava/lang/StringBuilder;)V
-    .locals 2
+    .registers 4
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .line 446
@@ -127,7 +127,7 @@
 .end method
 
 .method describeAsUpperBound(Ljava/lang/StringBuilder;)V
-    .locals 2
+    .registers 4
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .line 451
@@ -147,7 +147,7 @@
 .end method
 
 .method greatestValueBelow(Lcom/google/common/collect/DiscreteDomain;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -165,7 +165,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 473
     .local p0, "this":Lcom/google/common/collect/Cut$AboveValue;, "Lcom/google/common/collect/Cut$AboveValue<TC;>;"
@@ -181,7 +181,7 @@
 .end method
 
 .method isLessThan(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)Z"
@@ -197,21 +197,21 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method leastValueAbove(Lcom/google/common/collect/DiscreteDomain;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -236,7 +236,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 478
     .local p0, "this":Lcom/google/common/collect/Cut$AboveValue;, "Lcom/google/common/collect/Cut$AboveValue<TC;>;"
@@ -284,7 +284,7 @@
 .end method
 
 .method typeAsLowerBound()Lcom/google/common/collect/BoundType;
-    .locals 1
+    .registers 2
 
     .line 410
     .local p0, "this":Lcom/google/common/collect/Cut$AboveValue;, "Lcom/google/common/collect/Cut$AboveValue<TC;>;"
@@ -294,7 +294,7 @@
 .end method
 
 .method typeAsUpperBound()Lcom/google/common/collect/BoundType;
-    .locals 1
+    .registers 2
 
     .line 415
     .local p0, "this":Lcom/google/common/collect/Cut$AboveValue;, "Lcom/google/common/collect/Cut$AboveValue<TC;>;"
@@ -304,7 +304,7 @@
 .end method
 
 .method withLowerBoundType(Lcom/google/common/collect/BoundType;Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
-    .locals 2
+    .registers 5
     .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -328,7 +328,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
     .line 427
     new-instance v0, Ljava/lang/AssertionError;
@@ -338,11 +338,11 @@
     throw v0
 
     .line 422
-    :pswitch_0
+    :pswitch_11
     return-object p0
 
     .line 424
-    :pswitch_1
+    :pswitch_12
     iget-object v0, p0, Lcom/google/common/collect/Cut$AboveValue;->endpoint:Ljava/lang/Comparable;
 
     invoke-virtual {p2, v0}, Lcom/google/common/collect/DiscreteDomain;->next(Ljava/lang/Comparable;)Ljava/lang/Comparable;
@@ -351,31 +351,31 @@
 
     .line 425
     .local v0, "next":Ljava/lang/Comparable;, "TC;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     invoke-static {}, Lcom/google/common/collect/Cut;->belowAll()Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_1f
     invoke-static {v0}, Lcom/google/common/collect/Cut$AboveValue;->belowValue(Ljava/lang/Comparable;)Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
-    :goto_0
+    :goto_23
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_12
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method withUpperBoundType(Lcom/google/common/collect/BoundType;Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
-    .locals 2
+    .registers 5
     .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -399,7 +399,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
     .line 440
     new-instance v0, Ljava/lang/AssertionError;
@@ -409,7 +409,7 @@
     throw v0
 
     .line 435
-    :pswitch_0
+    :pswitch_11
     iget-object v0, p0, Lcom/google/common/collect/Cut$AboveValue;->endpoint:Ljava/lang/Comparable;
 
     invoke-virtual {p2, v0}, Lcom/google/common/collect/DiscreteDomain;->next(Ljava/lang/Comparable;)Ljava/lang/Comparable;
@@ -418,30 +418,30 @@
 
     .line 436
     .local v0, "next":Ljava/lang/Comparable;, "TC;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     invoke-static {}, Lcom/google/common/collect/Cut;->aboveAll()Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_1e
     invoke-static {v0}, Lcom/google/common/collect/Cut$AboveValue;->belowValue(Ljava/lang/Comparable;)Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
-    :goto_0
+    :goto_22
     return-object v1
 
     .line 438
     .end local v0    # "next":Ljava/lang/Comparable;, "TC;"
-    :pswitch_1
+    :pswitch_23
     return-object p0
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_23
+        :pswitch_11
     .end packed-switch
 .end method

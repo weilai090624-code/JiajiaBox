@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 100
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static compositeColors(Landroid/graphics/Color;Landroid/graphics/Color;)Landroid/graphics/Color;
-    .locals 9
+    .registers 11
     .param p0, "foreground"    # Landroid/graphics/Color;
     .param p1, "background"    # Landroid/graphics/Color;
 
@@ -43,7 +43,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_6d
 
     .line 112
     invoke-virtual {p1}, Landroid/graphics/Color;->getColorSpace()Landroid/graphics/ColorSpace;
@@ -58,15 +58,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 113
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_26
 
     .line 114
-    :cond_0
+    :cond_1e
     invoke-virtual {p1}, Landroid/graphics/Color;->getColorSpace()Landroid/graphics/ColorSpace;
 
     move-result-object v0
@@ -75,7 +75,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_26
     nop
 
     .line 116
@@ -129,7 +129,7 @@
 
     cmpl-float v6, v6, v7
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_53
 
     .line 132
     aget v6, v2, v5
@@ -142,12 +142,12 @@
     div-float/2addr v4, v6
 
     .line 137
-    :cond_1
+    :cond_53
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_1
-    if-ge v6, v5, :cond_2
+    :goto_54
+    if-ge v6, v5, :cond_64
 
     .line 138
     aget v7, v1, v6
@@ -165,11 +165,11 @@
     .line 137
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_54
 
     .line 141
     .end local v6    # "i":I
-    :cond_2
+    :cond_64
     invoke-virtual {p1}, Landroid/graphics/Color;->getColorSpace()Landroid/graphics/ColorSpace;
 
     move-result-object v6
@@ -187,7 +187,7 @@
     .end local v3    # "sa":F
     .end local v4    # "da":F
     .end local v5    # "ai":I
-    :cond_3
+    :cond_6d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method public static addDefaultSerializers(Lcom/esotericsoftware/kryo/Kryo;)V
-    .locals 2
+    .registers 3
     .param p0, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
 
     .line 51
@@ -45,7 +45,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     const-class v0, Lj$/time/Duration;
 
@@ -54,14 +54,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 52
-    :cond_0
+    :cond_f
     const-string v0, "java.time.Instant"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     const-class v0, Lj$/time/Instant;
 
@@ -70,14 +70,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 53
-    :cond_1
+    :cond_1e
     const-string v0, "java.time.LocalDate"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     const-class v0, Lj$/time/LocalDate;
 
@@ -86,14 +86,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 54
-    :cond_2
+    :cond_2d
     const-string v0, "java.time.LocalTime"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3c
 
     const-class v0, Lj$/time/LocalTime;
 
@@ -102,14 +102,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 55
-    :cond_3
+    :cond_3c
     const-string v0, "java.time.LocalDateTime"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_4b
 
     .line 56
     const-class v0, Lj$/time/LocalDateTime;
@@ -119,14 +119,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 57
-    :cond_4
+    :cond_4b
     const-string v0, "java.time.ZoneOffset"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_5a
 
     const-class v0, Lj$/time/ZoneOffset;
 
@@ -135,14 +135,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 58
-    :cond_5
+    :cond_5a
     const-string v0, "java.time.ZoneId"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_69
 
     const-class v0, Lj$/time/ZoneId;
 
@@ -151,14 +151,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 59
-    :cond_6
+    :cond_69
     const-string v0, "java.time.OffsetTime"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_78
 
     const-class v0, Lj$/time/OffsetTime;
 
@@ -167,14 +167,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 60
-    :cond_7
+    :cond_78
     const-string v0, "java.time.OffsetDateTime"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_87
 
     .line 61
     const-class v0, Lj$/time/OffsetDateTime;
@@ -184,14 +184,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 62
-    :cond_8
+    :cond_87
     const-string v0, "java.time.ZonedDateTime"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_96
 
     .line 63
     const-class v0, Lj$/time/ZonedDateTime;
@@ -201,14 +201,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 64
-    :cond_9
+    :cond_96
     const-string v0, "java.time.Year"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_a5
 
     const-class v0, Lj$/time/Year;
 
@@ -217,14 +217,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 65
-    :cond_a
+    :cond_a5
     const-string v0, "java.time.YearMonth"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_b4
 
     const-class v0, Lj$/time/YearMonth;
 
@@ -233,14 +233,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 66
-    :cond_b
+    :cond_b4
     const-string v0, "java.time.MonthDay"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_c3
 
     const-class v0, Lj$/time/MonthDay;
 
@@ -249,14 +249,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 67
-    :cond_c
+    :cond_c3
     const-string v0, "java.time.Period"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_d2
 
     const-class v0, Lj$/time/Period;
 
@@ -265,6 +265,6 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 68
-    :cond_d
+    :cond_d2
     return-void
 .end method

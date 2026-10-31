@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ScrollingTabContainerView;)V
-    .locals 0
+    .registers 2
 
     .line 557
     iput-object p1, p0, Landroidx/appcompat/widget/ScrollingTabContainerView$TabClickListener;->this$0:Landroidx/appcompat/widget/ScrollingTabContainerView;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
 
     .line 562
@@ -67,8 +67,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_13
+    if-ge v2, v1, :cond_28
 
     .line 566
     iget-object v3, p0, Landroidx/appcompat/widget/ScrollingTabContainerView$TabClickListener;->this$0:Landroidx/appcompat/widget/ScrollingTabContainerView;
@@ -81,26 +81,26 @@
 
     .line 567
     .local v3, "child":Landroid/view/View;
-    if-ne v3, p1, :cond_0
+    if-ne v3, p1, :cond_21
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_22
     invoke-virtual {v3, v4}, Landroid/view/View;->setSelected(Z)V
 
     .line 565
     .end local v3    # "child":Landroid/view/View;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 569
     .end local v2    # "i":I
-    :cond_1
+    :cond_28
     return-void
 .end method

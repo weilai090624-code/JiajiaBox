@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;)V
-    .locals 0
+    .registers 4
     .param p1, "node1"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
     .param p2, "node2"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
     .param p3, "conflictingStackTrace"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$1;)V
-    .locals 0
+    .registers 5
     .param p1, "x0"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
     .param p3, "x2"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public getConflictingStackTrace()Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;
-    .locals 1
+    .registers 2
 
     .line 550
     iget-object v0, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$PotentialDeadlockException;->conflictingStackTrace:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;
@@ -63,7 +63,7 @@
 .end method
 
 .method public getMessage()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 560
     new-instance v0, Ljava/lang/StringBuilder;
@@ -85,8 +85,8 @@
     iget-object v1, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$PotentialDeadlockException;->conflictingStackTrace:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;
 
     .local v1, "t":Ljava/lang/Throwable;
-    :goto_0
-    if-eqz v1, :cond_0
+    :goto_11
+    if-eqz v1, :cond_25
 
     .line 562
     const-string v2, ", "
@@ -106,11 +106,11 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 564
     .end local v1    # "t":Ljava/lang/Throwable;
-    :cond_0
+    :cond_25
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

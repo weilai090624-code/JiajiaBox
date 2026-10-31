@@ -66,7 +66,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 44
     new-instance v0, Ljava/lang/Object;
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 71
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
@@ -94,7 +94,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "initialCapacity"    # I
 
     .line 77
@@ -108,7 +108,7 @@
 .end method
 
 .method public constructor <init>(IF)V
-    .locals 3
+    .registers 6
     .param p1, "initialCapacity"    # I
     .param p2, "loadFactor"    # F
 
@@ -121,13 +121,13 @@
 
     cmpg-float v0, p2, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_30
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v0, p2, v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_30
 
     .line 86
     iput p2, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->loadFactor:F
@@ -178,7 +178,7 @@
 
     .line 85
     .end local v0    # "tableSize":I
-    :cond_0
+    :cond_30
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -205,7 +205,7 @@
 .end method
 
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/ObjectMap;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -267,18 +267,18 @@
 .end method
 
 .method public static nextPowerOfTwo(I)I
-    .locals 1
+    .registers 2
     .param p0, "value"    # I
 
     .line 434
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 435
-    :cond_0
+    :cond_4
     add-int/lit8 p0, p0, -0x1
 
     .line 436
@@ -313,7 +313,7 @@
 .end method
 
 .method private putResize(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
@@ -334,10 +334,10 @@
 
     .line 166
     .local v1, "i":I
-    :goto_0
+    :goto_6
     aget-object v2, v0, v1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_11
 
     .line 167
     aput-object p1, v0, v1
@@ -351,23 +351,23 @@
     return-void
 
     .line 165
-    :cond_0
+    :cond_11
     add-int/lit8 v2, v1, 0x1
 
     iget v3, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->mask:I
 
     and-int v1, v2, v3
 
-    goto :goto_0
+    goto :goto_6
 .end method
 
 .method public static tableSize(IF)I
-    .locals 4
+    .registers 6
     .param p0, "capacity"    # I
     .param p1, "loadFactor"    # F
 
     .line 427
-    if-ltz p0, :cond_1
+    if-ltz p0, :cond_31
 
     .line 428
     int-to-float v0, p0
@@ -396,13 +396,13 @@
     .local v0, "tableSize":I
     const/high16 v1, 0x40000000    # 2.0f
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_18
 
     .line 430
     return v0
 
     .line 429
-    :cond_0
+    :cond_18
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -429,7 +429,7 @@
 
     .line 427
     .end local v0    # "tableSize":I
-    :cond_1
+    :cond_31
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -456,7 +456,7 @@
 .end method
 
 .method private toString(Ljava/lang/String;Z)Ljava/lang/String;
-    .locals 9
+    .registers 12
     .param p1, "separator"    # Ljava/lang/String;
     .param p2, "braces"    # Z
 
@@ -464,22 +464,22 @@
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
     iget v0, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->size:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_d
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     const-string/jumbo v0, "{}"
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     const-string v0, ""
 
-    :goto_0
+    :goto_c
     return-object v0
 
     .line 380
-    :cond_1
+    :cond_d
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x20
@@ -488,14 +488,14 @@
 
     .line 381
     .local v0, "buffer":Ljava/lang/StringBuilder;
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1b
 
     const/16 v1, 0x7b
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 382
-    :cond_2
+    :cond_1b
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->keyTable:[Ljava/lang/Object;
 
     .line 383
@@ -508,7 +508,7 @@
 
     .line 385
     .local v3, "i":I
-    :goto_1
+    :goto_20
     add-int/lit8 v4, v3, -0x1
 
     .end local v3    # "i":I
@@ -517,31 +517,31 @@
 
     const-string v6, "(this)"
 
-    if-lez v3, :cond_6
+    if-lez v3, :cond_44
 
     .line 386
     aget-object v3, v1, v4
 
     .line 387
     .local v3, "key":Ljava/lang/Object;, "TK;"
-    if-nez v3, :cond_3
+    if-nez v3, :cond_2e
 
     move v3, v4
 
-    goto :goto_1
+    goto :goto_20
 
     .line 388
-    :cond_3
-    if-ne v3, p0, :cond_4
+    :cond_2e
+    if-ne v3, p0, :cond_32
 
     move-object v7, v6
 
-    goto :goto_2
+    goto :goto_33
 
-    :cond_4
+    :cond_32
     move-object v7, v3
 
-    :goto_2
+    :goto_33
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 389
@@ -552,16 +552,16 @@
 
     .line 391
     .local v7, "value":Ljava/lang/Object;, "TV;"
-    if-ne v7, p0, :cond_5
+    if-ne v7, p0, :cond_3f
 
     move-object v8, v6
 
-    goto :goto_3
+    goto :goto_40
 
-    :cond_5
+    :cond_3f
     move-object v8, v7
 
-    :goto_3
+    :goto_40
     invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 392
@@ -570,38 +570,38 @@
     .line 394
     .end local v3    # "key":Ljava/lang/Object;, "TK;"
     .end local v7    # "value":Ljava/lang/Object;, "TV;"
-    :cond_6
-    :goto_4
+    :cond_44
+    :goto_44
     add-int/lit8 v3, v4, -0x1
 
     .end local v4    # "i":I
     .local v3, "i":I
-    if-lez v4, :cond_a
+    if-lez v4, :cond_68
 
     .line 395
     aget-object v4, v1, v3
 
     .line 396
     .local v4, "key":Ljava/lang/Object;, "TK;"
-    if-nez v4, :cond_7
+    if-nez v4, :cond_4d
 
-    goto :goto_7
+    goto :goto_66
 
     .line 397
-    :cond_7
+    :cond_4d
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 398
-    if-ne v4, p0, :cond_8
+    if-ne v4, p0, :cond_54
 
     move-object v7, v6
 
-    goto :goto_5
+    goto :goto_55
 
-    :cond_8
+    :cond_54
     move-object v7, v4
 
-    :goto_5
+    :goto_55
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 399
@@ -612,16 +612,16 @@
 
     .line 401
     .restart local v7    # "value":Ljava/lang/Object;, "TV;"
-    if-ne v7, p0, :cond_9
+    if-ne v7, p0, :cond_61
 
     move-object v8, v6
 
-    goto :goto_6
+    goto :goto_62
 
-    :cond_9
+    :cond_61
     move-object v8, v7
 
-    :goto_6
+    :goto_62
     invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 402
@@ -630,21 +630,21 @@
     nop
 
     .line 394
-    :goto_7
+    :goto_66
     move v4, v3
 
-    goto :goto_4
+    goto :goto_44
 
     .line 403
-    :cond_a
-    if-eqz p2, :cond_b
+    :cond_68
+    if-eqz p2, :cond_6f
 
     const/16 v4, 0x7d
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 404
-    :cond_b
+    :cond_6f
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -655,18 +655,18 @@
 
 # virtual methods
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 241
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
     iget v0, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->size:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 242
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->size:I
@@ -688,7 +688,7 @@
 .end method
 
 .method public clear(I)V
-    .locals 2
+    .registers 4
     .param p1, "maximumCapacity"    # I
 
     .line 231
@@ -705,7 +705,7 @@
 
     array-length v1, v1
 
-    if-gt v1, v0, :cond_0
+    if-gt v1, v0, :cond_f
 
     .line 233
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/ObjectMap;->clear()V
@@ -714,7 +714,7 @@
     return-void
 
     .line 236
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
     iput v1, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->size:I
@@ -727,7 +727,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)Z"
@@ -741,21 +741,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public containsValue(Ljava/lang/Object;Z)Z
-    .locals 5
+    .registers 8
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "identity"    # Z
 
@@ -767,7 +767,7 @@
     .local v0, "valueTable":[Ljava/lang/Object;, "[TV;"
     const/4 v1, 0x1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_18
 
     .line 254
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->keyTable:[Ljava/lang/Object;
@@ -779,34 +779,34 @@
     sub-int/2addr v3, v1
 
     .local v3, "i":I
-    :goto_0
-    if-ltz v3, :cond_1
+    :goto_9
+    if-ltz v3, :cond_17
 
     .line 256
     aget-object v4, v2, v3
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_14
 
     aget-object v4, v0, v3
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_14
 
     return v1
 
     .line 255
-    :cond_0
+    :cond_14
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 257
     .end local v2    # "keyTable":[Ljava/lang/Object;, "[TK;"
     .end local v3    # "i":I
-    :cond_1
-    goto :goto_3
+    :cond_17
+    goto :goto_37
 
-    :cond_2
-    if-eqz p2, :cond_5
+    :cond_18
+    if-eqz p2, :cond_27
 
     .line 258
     array-length v2, v0
@@ -814,35 +814,35 @@
     sub-int/2addr v2, v1
 
     .local v2, "i":I
-    :goto_1
-    if-ltz v2, :cond_4
+    :goto_1c
+    if-ltz v2, :cond_26
 
     .line 259
     aget-object v3, v0, v2
 
-    if-ne v3, p1, :cond_3
+    if-ne v3, p1, :cond_23
 
     return v1
 
     .line 258
-    :cond_3
+    :cond_23
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_1
+    goto :goto_1c
 
     .end local v2    # "i":I
-    :cond_4
-    goto :goto_3
+    :cond_26
+    goto :goto_37
 
     .line 261
-    :cond_5
+    :cond_27
     array-length v2, v0
 
     sub-int/2addr v2, v1
 
     .restart local v2    # "i":I
-    :goto_2
-    if-ltz v2, :cond_7
+    :goto_29
+    if-ltz v2, :cond_37
 
     .line 262
     aget-object v3, v0, v2
@@ -851,27 +851,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_34
 
     return v1
 
     .line 261
-    :cond_6
+    :cond_34
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_2
+    goto :goto_29
 
     .line 264
     .end local v2    # "i":I
-    :cond_7
-    :goto_3
+    :cond_37
+    :goto_37
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public ensureCapacity(I)V
-    .locals 2
+    .registers 4
     .param p1, "additionalCapacity"    # I
 
     .line 295
@@ -892,17 +892,17 @@
 
     array-length v1, v1
 
-    if-ge v1, v0, :cond_0
+    if-ge v1, v0, :cond_11
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/util/ObjectMap;->resize(I)V
 
     .line 297
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public entries()Lcom/esotericsoftware/kryo/util/ObjectMap$Entries;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -921,29 +921,29 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 10
+    .registers 12
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 335
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 336
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/esotericsoftware/kryo/util/ObjectMap;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 337
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/esotericsoftware/kryo/util/ObjectMap;
@@ -954,12 +954,12 @@
 
     iget v4, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->size:I
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_14
 
     return v2
 
     .line 339
-    :cond_2
+    :cond_14
     iget-object v3, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->keyTable:[Ljava/lang/Object;
 
     .line 340
@@ -974,22 +974,22 @@
     array-length v6, v3
 
     .local v6, "n":I
-    :goto_0
-    if-ge v5, v6, :cond_5
+    :goto_1a
+    if-ge v5, v6, :cond_3b
 
     .line 342
     aget-object v7, v3, v5
 
     .line 343
     .local v7, "key":Ljava/lang/Object;, "TK;"
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_38
 
     .line 344
     aget-object v8, v4, v5
 
     .line 345
     .local v8, "value":Ljava/lang/Object;, "TV;"
-    if-nez v8, :cond_3
+    if-nez v8, :cond_2d
 
     .line 346
     sget-object v9, Lcom/esotericsoftware/kryo/util/ObjectMap;->dummy:Ljava/lang/Object;
@@ -998,12 +998,12 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_38
 
     return v2
 
     .line 348
-    :cond_3
+    :cond_2d
     invoke-virtual {v1, v7}, Lcom/esotericsoftware/kryo/util/ObjectMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v9
@@ -1012,49 +1012,49 @@
 
     move-result v9
 
-    if-nez v9, :cond_4
+    if-nez v9, :cond_38
 
     return v2
 
     .line 341
     .end local v7    # "key":Ljava/lang/Object;, "TK;"
     .end local v8    # "value":Ljava/lang/Object;, "TV;"
-    :cond_4
+    :cond_38
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 352
     .end local v5    # "i":I
     .end local v6    # "n":I
-    :cond_5
+    :cond_3b
     return v0
 .end method
 
 .method public equalsIdentity(Ljava/lang/Object;)Z
-    .locals 10
+    .registers 12
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 357
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 358
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/esotericsoftware/kryo/util/ObjectMap;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 359
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/esotericsoftware/kryo/util/ObjectMap;
@@ -1065,12 +1065,12 @@
 
     iget v4, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->size:I
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_14
 
     return v2
 
     .line 361
-    :cond_2
+    :cond_14
     iget-object v3, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->keyTable:[Ljava/lang/Object;
 
     .line 362
@@ -1085,15 +1085,15 @@
     array-length v6, v3
 
     .local v6, "n":I
-    :goto_0
-    if-ge v5, v6, :cond_4
+    :goto_1a
+    if-ge v5, v6, :cond_2e
 
     .line 364
     aget-object v7, v3, v5
 
     .line 365
     .local v7, "key":Ljava/lang/Object;, "TK;"
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_2b
 
     aget-object v8, v4, v5
 
@@ -1103,26 +1103,26 @@
 
     move-result-object v9
 
-    if-eq v8, v9, :cond_3
+    if-eq v8, v9, :cond_2b
 
     return v2
 
     .line 363
     .end local v7    # "key":Ljava/lang/Object;, "TK;"
-    :cond_3
+    :cond_2b
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 367
     .end local v5    # "i":I
     .end local v6    # "n":I
-    :cond_4
+    :cond_2e
     return v0
 .end method
 
 .method public findKey(Ljava/lang/Object;Z)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "identity"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -1139,7 +1139,7 @@
 
     .line 278
     .local v0, "valueTable":[Ljava/lang/Object;, "[TV;"
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1a
 
     .line 279
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->keyTable:[Ljava/lang/Object;
@@ -1151,36 +1151,36 @@
     add-int/lit8 v2, v2, -0x1
 
     .local v2, "i":I
-    :goto_0
-    if-ltz v2, :cond_1
+    :goto_9
+    if-ltz v2, :cond_19
 
     .line 281
     aget-object v3, v1, v2
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_16
 
     aget-object v3, v0, v2
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_16
 
     aget-object v3, v1, v2
 
     return-object v3
 
     .line 280
-    :cond_0
+    :cond_16
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 282
     .end local v1    # "keyTable":[Ljava/lang/Object;, "[TK;"
     .end local v2    # "i":I
-    :cond_1
-    goto :goto_3
+    :cond_19
+    goto :goto_43
 
-    :cond_2
-    if-eqz p2, :cond_5
+    :cond_1a
+    if-eqz p2, :cond_2e
 
     .line 283
     array-length v1, v0
@@ -1188,13 +1188,13 @@
     add-int/lit8 v1, v1, -0x1
 
     .local v1, "i":I
-    :goto_1
-    if-ltz v1, :cond_4
+    :goto_1f
+    if-ltz v1, :cond_2d
 
     .line 284
     aget-object v2, v0, v1
 
-    if-ne v2, p1, :cond_3
+    if-ne v2, p1, :cond_2a
 
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->keyTable:[Ljava/lang/Object;
 
@@ -1203,24 +1203,24 @@
     return-object v2
 
     .line 283
-    :cond_3
+    :cond_2a
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .end local v1    # "i":I
-    :cond_4
-    goto :goto_3
+    :cond_2d
+    goto :goto_43
 
     .line 286
-    :cond_5
+    :cond_2e
     array-length v1, v0
 
     add-int/lit8 v1, v1, -0x1
 
     .restart local v1    # "i":I
-    :goto_2
-    if-ltz v1, :cond_7
+    :goto_31
+    if-ltz v1, :cond_43
 
     .line 287
     aget-object v2, v0, v1
@@ -1229,7 +1229,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_40
 
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->keyTable:[Ljava/lang/Object;
 
@@ -1238,22 +1238,22 @@
     return-object v2
 
     .line 286
-    :cond_6
+    :cond_40
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_2
+    goto :goto_31
 
     .line 289
     .end local v1    # "i":I
-    :cond_7
-    :goto_3
+    :cond_43
+    :goto_43
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TK;>(TT;)TV;"
@@ -1269,23 +1269,23 @@
 
     .line 178
     .local v0, "i":I
-    if-gez v0, :cond_0
+    if-gez v0, :cond_8
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_8
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->valueTable:[Ljava/lang/Object;
 
     aget-object v1, v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -1302,23 +1302,23 @@
 
     .line 184
     .local v0, "i":I
-    if-gez v0, :cond_0
+    if-gez v0, :cond_8
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_8
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->valueTable:[Ljava/lang/Object;
 
     aget-object v1, v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public hashCode()I
-    .locals 8
+    .registers 9
 
     .line 320
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
@@ -1340,15 +1340,15 @@
     array-length v4, v1
 
     .local v4, "n":I
-    :goto_0
-    if-ge v3, v4, :cond_1
+    :goto_8
+    if-ge v3, v4, :cond_1f
 
     .line 324
     aget-object v5, v1, v3
 
     .line 325
     .local v5, "key":Ljava/lang/Object;, "TK;"
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1c
 
     .line 326
     invoke-virtual {v5}, Ljava/lang/Object;->hashCode()I
@@ -1362,7 +1362,7 @@
 
     .line 328
     .local v6, "value":Ljava/lang/Object;, "TV;"
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1c
 
     invoke-virtual {v6}, Ljava/lang/Object;->hashCode()I
 
@@ -1373,40 +1373,40 @@
     .line 323
     .end local v5    # "key":Ljava/lang/Object;, "TK;"
     .end local v6    # "value":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_1c
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 331
     .end local v3    # "i":I
     .end local v4    # "n":I
-    :cond_1
+    :cond_1f
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 217
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
     iget v0, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->size:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public iterator()Lcom/esotericsoftware/kryo/util/ObjectMap$Entries;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1425,7 +1425,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
@@ -1437,7 +1437,7 @@
 .end method
 
 .method public keys()Lcom/esotericsoftware/kryo/util/ObjectMap$Keys;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1456,7 +1456,7 @@
 .end method
 
 .method locateKey(Ljava/lang/Object;)I
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)I"
@@ -1466,7 +1466,7 @@
     .line 126
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
     .local p1, "key":Ljava/lang/Object;, "TK;"
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1e
 
     .line 127
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->keyTable:[Ljava/lang/Object;
@@ -1479,12 +1479,12 @@
 
     .line 129
     .local v1, "i":I
-    :goto_0
+    :goto_8
     aget-object v2, v0, v1
 
     .line 130
     .local v2, "other":Ljava/lang/Object;, "TK;"
-    if-nez v2, :cond_0
+    if-nez v2, :cond_10
 
     add-int/lit8 v3, v1, 0x1
 
@@ -1493,30 +1493,30 @@
     return v3
 
     .line 131
-    :cond_0
+    :cond_10
     invoke-virtual {v2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_17
 
     return v1
 
     .line 128
     .end local v2    # "other":Ljava/lang/Object;, "TK;"
-    :cond_1
+    :cond_17
     add-int/lit8 v2, v1, 0x1
 
     iget v3, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->mask:I
 
     and-int v1, v2, v3
 
-    goto :goto_0
+    goto :goto_8
 
     .line 126
     .end local v0    # "keyTable":[Ljava/lang/Object;, "[TK;"
     .end local v1    # "i":I
-    :cond_2
+    :cond_1e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "key cannot be null."
@@ -1527,27 +1527,27 @@
 .end method
 
 .method public notEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 212
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
     iget v0, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->size:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method protected place(Ljava/lang/Object;)I
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)I"
@@ -1577,7 +1577,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -1594,7 +1594,7 @@
 
     .line 139
     .local v0, "i":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_f
 
     .line 140
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->valueTable:[Ljava/lang/Object;
@@ -1612,7 +1612,7 @@
 
     .line 144
     .end local v1    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_f
     add-int/lit8 v1, v0, 0x1
 
     neg-int v0, v1
@@ -1636,7 +1636,7 @@
 
     iget v2, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->threshold:I
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_2c
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->keyTable:[Ljava/lang/Object;
 
@@ -1647,14 +1647,14 @@
     invoke-virtual {p0, v1}, Lcom/esotericsoftware/kryo/util/ObjectMap;->resize(I)V
 
     .line 148
-    :cond_1
+    :cond_2c
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public putAll(Lcom/esotericsoftware/kryo/util/ObjectMap;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1685,36 +1685,36 @@
     array-length v3, v0
 
     .local v3, "n":I
-    :goto_0
-    if-ge v2, v3, :cond_1
+    :goto_b
+    if-ge v2, v3, :cond_19
 
     .line 157
     aget-object v4, v0, v2
 
     .line 158
     .local v4, "key":Ljava/lang/Object;, "TK;"
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_16
 
     aget-object v5, v1, v2
 
     invoke-virtual {p0, v4, v5}, Lcom/esotericsoftware/kryo/util/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 156
-    :cond_0
+    :cond_16
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 160
     .end local v2    # "i":I
     .end local v3    # "n":I
     .end local v4    # "key":Ljava/lang/Object;, "TK;"
-    :cond_1
+    :cond_19
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 10
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -1732,12 +1732,12 @@
     .local v0, "i":I
     const/4 v1, 0x0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_8
 
     return-object v1
 
     .line 191
-    :cond_0
+    :cond_8
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->keyTable:[Ljava/lang/Object;
 
     .line 192
@@ -1759,12 +1759,12 @@
 
     .line 195
     .local v6, "next":I
-    :goto_0
+    :goto_13
     aget-object v7, v2, v6
 
     move-object p1, v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_30
 
     .line 196
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/util/ObjectMap;->place(Ljava/lang/Object;)I
@@ -1781,7 +1781,7 @@
 
     and-int/2addr v9, v5
 
-    if-le v8, v9, :cond_1
+    if-le v8, v9, :cond_2b
 
     .line 198
     aput-object p1, v2, v0
@@ -1795,17 +1795,17 @@
     move v0, v6
 
     .line 202
-    :cond_1
+    :cond_2b
     add-int/lit8 v8, v6, 0x1
 
     and-int v6, v8, v5
 
     .line 203
     .end local v7    # "placement":I
-    goto :goto_0
+    goto :goto_13
 
     .line 204
-    :cond_2
+    :cond_30
     aput-object v1, v2, v0
 
     .line 205
@@ -1823,7 +1823,7 @@
 .end method
 
 .method final resize(I)V
-    .locals 6
+    .registers 8
     .param p1, "newSize"    # I
 
     .line 300
@@ -1881,21 +1881,21 @@
     .line 311
     iget v3, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->size:I
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_37
 
     .line 312
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v0, :cond_1
+    :goto_29
+    if-ge v3, v0, :cond_37
 
     .line 313
     aget-object v4, v1, v3
 
     .line 314
     .local v4, "key":Ljava/lang/Object;, "TK;"
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_34
 
     aget-object v5, v2, v3
 
@@ -1903,24 +1903,24 @@
 
     .line 312
     .end local v4    # "key":Ljava/lang/Object;, "TK;"
-    :cond_0
+    :cond_34
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_29
 
     .line 317
     .end local v3    # "i":I
-    :cond_1
+    :cond_37
     return-void
 .end method
 
 .method public shrink(I)V
-    .locals 3
+    .registers 5
     .param p1, "maximumCapacity"    # I
 
     .line 224
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_11
 
     .line 225
     iget v0, p0, Lcom/esotericsoftware/kryo/util/ObjectMap;->loadFactor:F
@@ -1935,17 +1935,17 @@
 
     array-length v1, v1
 
-    if-le v1, v0, :cond_0
+    if-le v1, v0, :cond_10
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/util/ObjectMap;->resize(I)V
 
     .line 227
-    :cond_0
+    :cond_10
     return-void
 
     .line 224
     .end local v0    # "tableSize":I
-    :cond_1
+    :cond_11
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1972,7 +1972,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 375
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectMap;, "Lcom/esotericsoftware/kryo/util/ObjectMap<TK;TV;>;"
@@ -1988,7 +1988,7 @@
 .end method
 
 .method public toString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "separator"    # Ljava/lang/String;
 
     .line 371
@@ -2003,7 +2003,7 @@
 .end method
 
 .method public values()Lcom/esotericsoftware/kryo/util/ObjectMap$Values;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

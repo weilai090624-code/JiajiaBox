@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/android/StandardAndroidSocketAdapter$Companion;-><init>()V
 
@@ -56,16 +56,16 @@
 .end method
 
 .method public static synthetic buildIfSupported$default(Lokhttp3/internal/platform/android/StandardAndroidSocketAdapter$Companion;Ljava/lang/String;ILjava/lang/Object;)Lokhttp3/internal/platform/android/SocketAdapter;
-    .locals 0
+    .registers 4
 
     .line 52
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const-string p1, "com.android.org.conscrypt"
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1}, Lokhttp3/internal/platform/android/StandardAndroidSocketAdapter$Companion;->buildIfSupported(Ljava/lang/String;)Lokhttp3/internal/platform/android/SocketAdapter;
 
     move-result-object p0
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final buildIfSupported(Ljava/lang/String;)Lokhttp3/internal/platform/android/SocketAdapter;
-    .locals 5
+    .registers 7
     .param p1, "packageName"    # Ljava/lang/String;
 
     const-string v0, "packageName"
@@ -87,7 +87,7 @@
     nop
 
     .line 54
-    :try_start_0
+    :try_start_6
     const-string v0, ".OpenSSLSocketImpl"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -98,7 +98,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3e
 
     .line 56
     .local v0, "sslSocketClass":Ljava/lang/Class;
@@ -112,7 +112,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_36
 
     .line 55
     nop
@@ -144,11 +144,11 @@
     .end local v2    # "paramsClass":Ljava/lang/Class;
     check-cast v3, Lokhttp3/internal/platform/android/SocketAdapter;
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 56
     .restart local v0    # "sslSocketClass":Ljava/lang/Class;
-    :cond_0
+    :cond_36
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "null cannot be cast to non-null type java.lang.Class<in javax.net.ssl.SSLSocketFactory>"
@@ -161,7 +161,7 @@
     .line 54
     .end local v0    # "sslSocketClass":Ljava/lang/Class;
     .restart local p1    # "packageName":Ljava/lang/String;
-    :cond_1
+    :cond_3e
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type java.lang.Class<in javax.net.ssl.SSLSocket>"
@@ -170,12 +170,12 @@
 
     .end local p1    # "packageName":Ljava/lang/String;
     throw v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_46
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_46} :catch_46
 
     .line 60
     .restart local p1    # "packageName":Ljava/lang/String;
-    :catch_0
+    :catch_46
     move-exception v0
 
     .line 61
@@ -205,6 +205,6 @@
 
     .line 53
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_5a
     return-object v3
 .end method

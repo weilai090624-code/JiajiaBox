@@ -19,7 +19,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 8
+    .registers 13
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -132,7 +132,7 @@
 .end method
 
 .method private loadIndicatorColors(Landroid/content/Context;Landroid/content/res/TypedArray;)V
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "typedArray"    # Landroid/content/res/TypedArray;
 
@@ -145,7 +145,7 @@
 
     const/4 v1, -0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 124
     sget v0, Lcom/google/android/material/R$attr;->colorPrimary:I
@@ -164,7 +164,7 @@
     return-void
 
     .line 128
-    :cond_0
+    :cond_16
     sget v0, Lcom/google/android/material/R$styleable;->BaseProgressIndicator_indicatorColor:I
 
     .line 129
@@ -178,7 +178,7 @@
 
     const/4 v3, 0x1
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_2e
 
     .line 132
     sget v2, Lcom/google/android/material/R$styleable;->BaseProgressIndicator_indicatorColor:I
@@ -198,7 +198,7 @@
     return-void
 
     .line 137
-    :cond_1
+    :cond_2e
     nop
 
     .line 139
@@ -225,13 +225,13 @@
 
     array-length v1, v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_45
 
     .line 146
     return-void
 
     .line 143
-    :cond_2
+    :cond_45
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "indicatorColors cannot be empty when indicatorColor is not used."
@@ -242,7 +242,7 @@
 .end method
 
 .method private loadTrackColor(Landroid/content/Context;Landroid/content/res/TypedArray;)V
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "typedArray"    # Landroid/content/res/TypedArray;
 
@@ -253,7 +253,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 158
     sget v0, Lcom/google/android/material/R$styleable;->BaseProgressIndicator_trackColor:I
@@ -270,7 +270,7 @@
     return-void
 
     .line 162
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;->indicatorColors:[I
 
     const/4 v1, 0x0
@@ -333,40 +333,40 @@
 
 # virtual methods
 .method public isHideAnimationEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 178
     iget v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;->hideAnimationBehavior:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public isShowAnimationEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 174
     iget v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;->showAnimationBehavior:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 

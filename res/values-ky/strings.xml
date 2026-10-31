@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Кирүүчү чалуу</string>
     <string name="call_notification_ongoing_text">Учурдагы чалуу</string>
     <string name="call_notification_screening_text">Кирүүчү чалууну иргөө</string>
-    <string name="character_counter_content_description" formatted="false">%2$d ичинен %1$d символ киргизилди</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Символдордун саны коюлган %2$d чегинен %1$d символго ашып кетти</string>
+    <string name="character_counter_content_description">%2$d ичинен %1$d символ киргизилди</string>
+    <string name="character_counter_overflowed_content_description">Символдордун саны коюлган %2$d чегинен %1$d символго ашып кетти</string>
     <string name="clear_text_end_icon_content_description">Текстти тазалоо</string>
     <string name="copy">Көчүрүү</string>
     <string name="copy_toast_msg">Шилтеме буферге көчүрүлдү</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Диапазондон тышкары: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Баштоо күнү – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Аяктоо күнү</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Даталар диапазонун тандоо</string>
     <string name="mtrl_picker_range_header_unselected">Баштоо күнү – Аяктоо күнү</string>
     <string name="mtrl_picker_save">Сактоо</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" алмашуу буферине көчүрүлдү.</string>
     <string name="search_menu_title">Издөө</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ӨЧҮК</string>
     <string name="v7_preference_on">КҮЙҮК</string>
 </resources>

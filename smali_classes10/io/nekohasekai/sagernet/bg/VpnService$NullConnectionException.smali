@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/nekohasekai/sagernet/bg/VpnService;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/bg/VpnService;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public getLocalizedMessage()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 86
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/VpnService$NullConnectionException;->this$0:Lio/nekohasekai/sagernet/bg/VpnService;

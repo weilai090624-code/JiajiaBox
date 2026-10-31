@@ -30,7 +30,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 63
     .local p0, "this":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<TK;TV;>;"
@@ -40,7 +40,7 @@
 .end method
 
 .method public static asyncReloading(Lcom/google/common/cache/CacheLoader;Ljava/util/concurrent/Executor;)Lcom/google/common/cache/CacheLoader;
-    .locals 1
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
     .end annotation
@@ -77,7 +77,7 @@
 .end method
 
 .method public static from(Lcom/google/common/base/Function;)Lcom/google/common/cache/CacheLoader;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
     .end annotation
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public static from(Lcom/google/common/base/Supplier;)Lcom/google/common/cache/CacheLoader;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
     .end annotation
 
@@ -148,7 +148,7 @@
 .end method
 
 .method public loadAll(Ljava/lang/Iterable;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,7 +176,7 @@
 .end method
 
 .method public reload(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)",

@@ -61,7 +61,7 @@
 
 # direct methods
 .method public static final contains(Landroidx/collection/LongSparseArray;J)Z
-    .locals 2
+    .registers 5
     .param p0, "$receiver"    # Landroidx/collection/LongSparseArray;
     .param p1, "key"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -90,7 +90,7 @@
 .end method
 
 .method public static final forEach(Landroidx/collection/LongSparseArray;Lkotlin/jvm/functions/Function2;)V
-    .locals 5
+    .registers 7
     .param p0, "$receiver"    # Landroidx/collection/LongSparseArray;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -127,8 +127,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_10
+    if-ge v2, v1, :cond_25
 
     .line 57
     .local v2, "index":I
@@ -152,15 +152,15 @@
     .end local v2    # "index":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 59
-    :cond_0
+    :cond_25
     return-void
 .end method
 
 .method public static final getOrDefault(Landroidx/collection/LongSparseArray;JLjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "$receiver"    # Landroidx/collection/LongSparseArray;
     .param p1, "key"    # J
     .param p3, "defaultValue"    # Ljava/lang/Object;
@@ -190,7 +190,7 @@
 .end method
 
 .method public static final getOrElse(Landroidx/collection/LongSparseArray;JLkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "$receiver"    # Landroidx/collection/LongSparseArray;
     .param p1, "key"    # J
     .param p3, "defaultValue"    # Lkotlin/jvm/functions/Function0;
@@ -222,21 +222,21 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_12
     invoke-interface {p3}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
+    :goto_16
     return-object v1
 .end method
 
 .method public static final getSize(Landroidx/collection/LongSparseArray;)I
-    .locals 2
+    .registers 3
     .param p0, "$receiver"    # Landroidx/collection/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -264,7 +264,7 @@
 .end method
 
 .method public static final isNotEmpty(Landroidx/collection/LongSparseArray;)Z
-    .locals 2
+    .registers 3
     .param p0, "$receiver"    # Landroidx/collection/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -294,7 +294,7 @@
 .end method
 
 .method public static final keyIterator(Landroidx/collection/LongSparseArray;)Lkotlin/collections/LongIterator;
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Landroidx/collection/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -323,7 +323,7 @@
 .end method
 
 .method public static final plus(Landroidx/collection/LongSparseArray;Landroidx/collection/LongSparseArray;)Landroidx/collection/LongSparseArray;
-    .locals 3
+    .registers 5
     .param p0, "$receiver"    # Landroidx/collection/LongSparseArray;
     .param p1, "other"    # Landroidx/collection/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -375,7 +375,7 @@
 .end method
 
 .method public static final remove(Landroidx/collection/LongSparseArray;JLjava/lang/Object;)Z
-    .locals 1
+    .registers 5
     .param p0, "$receiver"    # Landroidx/collection/LongSparseArray;
     .param p1, "key"    # J
     .param p3, "value"    # Ljava/lang/Object;
@@ -406,7 +406,7 @@
 .end method
 
 .method public static final set(Landroidx/collection/LongSparseArray;JLjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p0, "$receiver"    # Landroidx/collection/LongSparseArray;
     .param p1, "key"    # J
     .param p3, "value"    # Ljava/lang/Object;
@@ -434,7 +434,7 @@
 .end method
 
 .method public static final valueIterator(Landroidx/collection/LongSparseArray;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Landroidx/collection/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {

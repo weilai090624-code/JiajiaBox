@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Sink;Ljava/util/Comparator;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     .line 335
     .local p0, "this":Lj$/util/stream/SortedOps$AbstractRefSortingSink;, "Ljava/util/stream/SortedOps$AbstractRefSortingSink<TT;>;"

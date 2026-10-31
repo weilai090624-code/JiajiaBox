@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/core/widgets/analyzer/WidgetGroup;Landroidx/constraintlayout/core/widgets/ConstraintWidget;Landroidx/constraintlayout/core/LinearSystem;I)V
-    .locals 1
+    .registers 6
     .param p1, "this$0"    # Landroidx/constraintlayout/core/widgets/analyzer/WidgetGroup;
     .param p2, "widget"    # Landroidx/constraintlayout/core/widgets/ConstraintWidget;
     .param p3, "system"    # Landroidx/constraintlayout/core/LinearSystem;
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public apply()V
-    .locals 8
+    .registers 9
 
     .line 246
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/analyzer/WidgetGroup$MeasureResult;->widgetRef:Ljava/lang/ref/WeakReference;
@@ -128,7 +128,7 @@
 
     .line 247
     .local v0, "widget":Landroidx/constraintlayout/core/widgets/ConstraintWidget;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 248
     iget v2, p0, Landroidx/constraintlayout/core/widgets/analyzer/WidgetGroup$MeasureResult;->left:I
@@ -148,6 +148,6 @@
     invoke-virtual/range {v1 .. v7}, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->setFinalFrame(IIIIII)V
 
     .line 250
-    :cond_0
+    :cond_1a
     return-void
 .end method

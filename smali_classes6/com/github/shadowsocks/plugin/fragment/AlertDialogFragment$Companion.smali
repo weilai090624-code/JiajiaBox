@@ -53,7 +53,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$WXDDuy3WZUoQEST-1Dr8ZSzRvdU(Lkotlin/jvm/functions/Function2;Ljava/lang/String;Landroid/os/Bundle;)Lkotlin/Unit;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment$Companion;->setResultListener$lambda$0(Lkotlin/jvm/functions/Function2;Ljava/lang/String;Landroid/os/Bundle;)Lkotlin/Unit;
 
@@ -63,7 +63,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,7 +72,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment$Companion;-><init>()V
 
@@ -80,7 +80,7 @@
 .end method
 
 .method private static final setResultListener$lambda$0(Lkotlin/jvm/functions/Function2;Ljava/lang/String;Landroid/os/Bundle;)Lkotlin/Unit;
-    .locals 1
+    .registers 4
     .param p0, "$listener"    # Lkotlin/jvm/functions/Function2;
     .param p2, "bundle"    # Landroid/os/Bundle;
 
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public final setResultListener(Landroidx/fragment/app/Fragment;Ljava/lang/String;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 5
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "requestKey"    # Ljava/lang/String;
     .param p3, "listener"    # Lkotlin/jvm/functions/Function2;
@@ -166,7 +166,7 @@
 .end method
 
 .method public final synthetic setResultListener(Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function2;)V
-    .locals 3
+    .registers 6
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "listener"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;

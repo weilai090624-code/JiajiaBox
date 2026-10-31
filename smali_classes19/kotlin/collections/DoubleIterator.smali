@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public final next()Ljava/lang/Double;
-    .locals 2
+    .registers 3
 
     .line 61
     invoke-virtual {p0}, Lkotlin/collections/DoubleIterator;->nextDouble()D
@@ -70,7 +70,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 60
     invoke-virtual {p0}, Lkotlin/collections/DoubleIterator;->nextDouble()D
@@ -88,7 +88,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

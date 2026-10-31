@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method forceIntersection()Z
-    .locals 1
+    .registers 2
 
     .line 73
     const/4 v0, 0x0
@@ -25,7 +25,7 @@
 .end method
 
 .method public getEdgePath(FFFLcom/google/android/material/shape/ShapePath;)V
-    .locals 1
+    .registers 6
     .param p1, "length"    # F
     .param p2, "center"    # F
     .param p3, "interpolation"    # F
@@ -41,7 +41,7 @@
 .end method
 
 .method public getEdgePath(FFLcom/google/android/material/shape/ShapePath;)V
-    .locals 1
+    .registers 5
     .param p1, "length"    # F
     .param p2, "interpolation"    # F
     .param p3, "shapePath"    # Lcom/google/android/material/shape/ShapePath;

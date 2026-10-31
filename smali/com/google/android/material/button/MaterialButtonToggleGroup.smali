@@ -75,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 143
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_MaterialButtonToggleGroup:I
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 180
@@ -99,7 +99,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -251,7 +251,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/button/MaterialButtonToggleGroup;Landroid/view/View;)I
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/google/android/material/button/MaterialButtonToggleGroup;
     .param p1, "x1"    # Landroid/view/View;
 
@@ -264,7 +264,7 @@
 .end method
 
 .method private adjustChildMarginsAndUpdateLayout()V
-    .locals 8
+    .registers 9
 
     .line 504
     invoke-direct {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getFirstVisibleChildIndex()I
@@ -275,22 +275,22 @@
     .local v0, "firstVisibleChildIndex":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 506
     return-void
 
     .line 509
-    :cond_0
+    :cond_8
     add-int/lit8 v1, v0, 0x1
 
     .local v1, "i":I
-    :goto_0
+    :goto_a
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildCount()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_4a
 
     .line 511
     invoke-direct {p0, v1}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildButton(I)Lcom/google/android/material/button/MaterialButton;
@@ -336,7 +336,7 @@
 
     const/4 v7, 0x0
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_3c
 
     .line 520
     invoke-static {v5, v7}, Landroidx/core/view/MarginLayoutParamsCompat;->setMarginEnd(Landroid/view/ViewGroup$MarginLayoutParams;I)V
@@ -349,10 +349,10 @@
     .line 522
     iput v7, v5, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
-    goto :goto_1
+    goto :goto_44
 
     .line 524
-    :cond_1
+    :cond_3c
     iput v7, v5, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
 
     .line 525
@@ -364,7 +364,7 @@
     invoke-static {v5, v7}, Landroidx/core/view/MarginLayoutParamsCompat;->setMarginStart(Landroid/view/ViewGroup$MarginLayoutParams;I)V
 
     .line 529
-    :goto_1
+    :goto_44
     invoke-virtual {v2, v5}, Lcom/google/android/material/button/MaterialButton;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 509
@@ -374,11 +374,11 @@
     .end local v5    # "params":Landroid/widget/LinearLayout$LayoutParams;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 532
     .end local v1    # "i":I
-    :cond_2
+    :cond_4a
     invoke-direct {p0, v0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->resetChildMargins(I)V
 
     .line 533
@@ -386,7 +386,7 @@
 .end method
 
 .method private buildLayoutParams(Landroid/view/View;)Landroid/widget/LinearLayout$LayoutParams;
-    .locals 4
+    .registers 6
     .param p1, "child"    # Landroid/view/View;
 
     .line 736
@@ -398,7 +398,7 @@
     .local v0, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     instance-of v1, v0, Landroid/widget/LinearLayout$LayoutParams;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 738
     move-object v1, v0
@@ -408,7 +408,7 @@
     return-object v1
 
     .line 741
-    :cond_0
+    :cond_c
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
     iget v2, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
@@ -421,14 +421,14 @@
 .end method
 
 .method private checkInternal(IZ)V
-    .locals 3
+    .registers 6
     .param p1, "buttonId"    # I
     .param p2, "checked"    # Z
 
     .line 668
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1c
 
     .line 669
     new-instance v0, Ljava/lang/StringBuilder;
@@ -457,7 +457,7 @@
     return-void
 
     .line 672
-    :cond_0
+    :cond_1c
     new-instance v0, Ljava/util/HashSet;
 
     iget-object v1, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->checkedIds:Ljava/util/Set;
@@ -466,7 +466,7 @@
 
     .line 673
     .local v0, "checkedIds":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_44
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -476,35 +476,35 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_44
 
     .line 674
     iget-boolean v1, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->singleSelection:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3c
 
     invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3c
 
     .line 675
     invoke-interface {v0}, Ljava/util/Set;->clear()V
 
     .line 677
-    :cond_1
+    :cond_3c
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_62
 
     .line 678
-    :cond_2
-    if-nez p2, :cond_5
+    :cond_44
+    if-nez p2, :cond_66
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -514,12 +514,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_66
 
     .line 680
     iget-boolean v1, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->selectionRequired:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5b
 
     invoke-interface {v0}, Ljava/util/Set;->size()I
 
@@ -527,10 +527,10 @@
 
     const/4 v2, 0x1
 
-    if-le v1, v2, :cond_4
+    if-le v1, v2, :cond_62
 
     .line 681
-    :cond_3
+    :cond_5b
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -538,20 +538,20 @@
     invoke-interface {v0, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     .line 687
-    :cond_4
-    :goto_0
+    :cond_62
+    :goto_62
     invoke-direct {p0, v0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->updateCheckedIds(Ljava/util/Set;)V
 
     .line 688
     return-void
 
     .line 685
-    :cond_5
+    :cond_66
     return-void
 .end method
 
 .method private dispatchOnButtonChecked(IZ)V
-    .locals 2
+    .registers 5
     .param p1, "buttonId"    # I
     .param p2, "checked"    # Z
 
@@ -562,12 +562,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -581,15 +581,15 @@
 
     .line 706
     .end local v1    # "listener":Lcom/google/android/material/button/MaterialButtonToggleGroup$OnButtonCheckedListener;
-    goto :goto_0
+    goto :goto_6
 
     .line 707
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method private getChildButton(I)Lcom/google/android/material/button/MaterialButton;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 536
@@ -603,7 +603,7 @@
 .end method
 
 .method private getFirstVisibleChildIndex()I
-    .locals 3
+    .registers 4
 
     .line 579
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildCount()I
@@ -615,35 +615,35 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_5
+    if-ge v1, v0, :cond_11
 
     .line 581
     invoke-direct {p0, v1}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->isChildVisible(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     .line 582
     return v1
 
     .line 580
-    :cond_0
+    :cond_e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 586
     .end local v1    # "i":I
-    :cond_1
+    :cond_11
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method private getIndexWithinVisibleButtons(Landroid/view/View;)I
-    .locals 4
+    .registers 6
     .param p1, "child"    # Landroid/view/View;
 
     .line 616
@@ -651,13 +651,13 @@
 
     const/4 v1, -0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 617
     return v1
 
     .line 619
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
     .line 620
@@ -665,56 +665,56 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_8
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildCount()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_28
 
     .line 621
     invoke-virtual {p0, v2}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
-    if-ne v3, p1, :cond_1
+    if-ne v3, p1, :cond_15
 
     .line 622
     return v0
 
     .line 624
-    :cond_1
+    :cond_15
     invoke-virtual {p0, v2}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
     instance-of v3, v3, Lcom/google/android/material/button/MaterialButton;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_25
 
     invoke-direct {p0, v2}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->isChildVisible(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_25
 
     .line 625
     add-int/lit8 v0, v0, 0x1
 
     .line 620
-    :cond_2
+    :cond_25
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 628
     .end local v2    # "i":I
-    :cond_3
+    :cond_28
     return v1
 .end method
 
 .method private getLastVisibleChildIndex()I
-    .locals 3
+    .registers 4
 
     .line 590
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildCount()I
@@ -726,35 +726,35 @@
     add-int/lit8 v1, v0, -0x1
 
     .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_1
+    :goto_6
+    if-ltz v1, :cond_12
 
     .line 592
     invoke-direct {p0, v1}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->isChildVisible(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_f
 
     .line 593
     return v1
 
     .line 591
-    :cond_0
+    :cond_f
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 597
     .end local v1    # "i":I
-    :cond_1
+    :cond_12
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method private getNewCornerData(III)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
-    .locals 3
+    .registers 7
     .param p1, "index"    # I
     .param p2, "firstVisibleChildIndex"    # I
     .param p3, "lastVisibleChildIndex"    # I
@@ -770,78 +770,78 @@
 
     .line 637
     .local v0, "cornerData":Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
-    if-ne p2, p3, :cond_0
+    if-ne p2, p3, :cond_b
 
     .line 638
     return-object v0
 
     .line 641
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getOrientation()I
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_13
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v1, 0x0
 
     .line 642
     .local v1, "isHorizontal":Z
-    :goto_0
-    if-ne p1, p2, :cond_3
+    :goto_14
+    if-ne p1, p2, :cond_22
 
     .line 643
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1d
 
     invoke-static {v0, p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;->start(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;Landroid/view/View;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_21
 
-    :cond_2
+    :cond_1d
     invoke-static {v0}, Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;->top(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     move-result-object v2
 
-    :goto_1
+    :goto_21
     return-object v2
 
     .line 646
-    :cond_3
-    if-ne p1, p3, :cond_5
+    :cond_22
+    if-ne p1, p3, :cond_30
 
     .line 647
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2b
 
     invoke-static {v0, p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;->end(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;Landroid/view/View;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     move-result-object v2
 
-    goto :goto_2
+    goto :goto_2f
 
-    :cond_4
+    :cond_2b
     invoke-static {v0}, Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;->bottom(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     move-result-object v2
 
-    :goto_2
+    :goto_2f
     return-object v2
 
     .line 650
-    :cond_5
+    :cond_30
     const/4 v2, 0x0
 
     return-object v2
 .end method
 
 .method private getVisibleButtonCount()I
-    .locals 3
+    .registers 4
 
     .line 606
     const/4 v0, 0x0
@@ -851,12 +851,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildCount()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_1b
 
     .line 608
     invoke-virtual {p0, v1}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildAt(I)Landroid/view/View;
@@ -865,31 +865,31 @@
 
     instance-of v2, v2, Lcom/google/android/material/button/MaterialButton;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     invoke-direct {p0, v1}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->isChildVisible(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     .line 609
     add-int/lit8 v0, v0, 0x1
 
     .line 607
-    :cond_0
+    :cond_18
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 612
     .end local v1    # "i":I
-    :cond_1
+    :cond_1b
     return v0
 .end method
 
 .method private isChildVisible(I)Z
-    .locals 3
+    .registers 5
     .param p1, "i"    # I
 
     .line 601
@@ -905,21 +905,21 @@
 
     const/16 v2, 0x8
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_f
     return v1
 .end method
 
 .method private resetChildMargins(I)V
-    .locals 5
+    .registers 7
     .param p1, "childIndex"    # I
 
     .line 540
@@ -927,16 +927,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 544
-    :cond_0
+    :cond_a
     invoke-direct {p0, p1}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildButton(I)Lcom/google/android/material/button/MaterialButton;
 
     move-result-object v0
@@ -959,7 +959,7 @@
 
     const/4 v4, 0x0
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_21
 
     .line 547
     iput v4, v1, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
@@ -971,7 +971,7 @@
     return-void
 
     .line 552
-    :cond_1
+    :cond_21
     invoke-static {v1, v4}, Landroidx/core/view/MarginLayoutParamsCompat;->setMarginEnd(Landroid/view/ViewGroup$MarginLayoutParams;I)V
 
     .line 553
@@ -989,13 +989,13 @@
     .line 541
     .end local v0    # "currentButton":Lcom/google/android/material/button/MaterialButton;
     .end local v1    # "params":Landroid/widget/LinearLayout$LayoutParams;
-    :cond_2
-    :goto_0
+    :cond_2c
+    :goto_2c
     return-void
 .end method
 
 .method private setCheckedStateForView(IZ)V
-    .locals 2
+    .registers 5
     .param p1, "viewId"    # I
     .param p2, "checked"    # Z
 
@@ -1008,7 +1008,7 @@
     .local v0, "checkedView":Landroid/view/View;
     instance-of v1, v0, Lcom/google/android/material/button/MaterialButton;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 486
     const/4 v1, 0x1
@@ -1028,12 +1028,12 @@
     iput-boolean v1, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->skipCheckedStateTracker:Z
 
     .line 490
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method private setGeneratedIdIfNeeded(Lcom/google/android/material/button/MaterialButton;)V
-    .locals 2
+    .registers 4
     .param p1, "materialButton"    # Lcom/google/android/material/button/MaterialButton;
 
     .line 711
@@ -1043,7 +1043,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 712
     invoke-static {}, Landroidx/core/view/ViewCompat;->generateViewId()I
@@ -1053,12 +1053,12 @@
     invoke-virtual {p1, v0}, Lcom/google/android/material/button/MaterialButton;->setId(I)V
 
     .line 714
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method private setupButtonChild(Lcom/google/android/material/button/MaterialButton;)V
-    .locals 2
+    .registers 4
     .param p1, "buttonChild"    # Lcom/google/android/material/button/MaterialButton;
 
     .line 724
@@ -1087,12 +1087,12 @@
 .end method
 
 .method private static updateBuilderWithCornerData(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)V
-    .locals 2
+    .registers 4
     .param p0, "shapeAppearanceModelBuilder"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
     .param p1, "cornerData"    # Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     .line 655
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 656
     const/4 v0, 0x0
@@ -1103,7 +1103,7 @@
     return-void
 
     .line 660
-    :cond_0
+    :cond_7
     iget-object v0, p1, Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;->topLeft:Lcom/google/android/material/shape/CornerSize;
 
     .line 661
@@ -1135,7 +1135,7 @@
 .end method
 
 .method private updateCheckedIds(Ljava/util/Set;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1161,12 +1161,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_a
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildCount()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_43
 
     .line 694
     invoke-direct {p0, v1}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildButton(I)Lcom/google/android/material/button/MaterialButton;
@@ -1206,7 +1206,7 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_40
 
     .line 697
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1221,14 +1221,14 @@
 
     .line 693
     .end local v2    # "buttonId":I
-    :cond_0
+    :cond_40
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 700
     .end local v1    # "i":I
-    :cond_1
+    :cond_43
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->invalidate()V
 
     .line 701
@@ -1236,7 +1236,7 @@
 .end method
 
 .method private updateChildOrder()V
-    .locals 5
+    .registers 6
 
     .line 759
     new-instance v0, Ljava/util/TreeMap;
@@ -1256,8 +1256,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_c
+    if-ge v2, v1, :cond_1c
 
     .line 762
     invoke-direct {p0, v2}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildButton(I)Lcom/google/android/material/button/MaterialButton;
@@ -1273,11 +1273,11 @@
     .line 761
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 765
     .end local v2    # "i":I
-    :cond_0
+    :cond_1c
     invoke-interface {v0}, Ljava/util/SortedMap;->values()Ljava/util/Collection;
 
     move-result-object v2
@@ -1301,7 +1301,7 @@
 
 # virtual methods
 .method public addOnButtonCheckedListener(Lcom/google/android/material/button/MaterialButtonToggleGroup$OnButtonCheckedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/button/MaterialButtonToggleGroup$OnButtonCheckedListener;
 
     .line 410
@@ -1314,7 +1314,7 @@
 .end method
 
 .method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
-    .locals 8
+    .registers 12
     .param p1, "child"    # Landroid/view/View;
     .param p2, "index"    # I
     .param p3, "params"    # Landroid/view/ViewGroup$LayoutParams;
@@ -1322,7 +1322,7 @@
     .line 230
     instance-of v0, p1, Lcom/google/android/material/button/MaterialButton;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 231
     const-string v0, "MButtonToggleGroup"
@@ -1335,7 +1335,7 @@
     return-void
 
     .line 235
-    :cond_0
+    :cond_c
     invoke-super {p0, p1, p2, p3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
     .line 236
@@ -1416,7 +1416,7 @@
 .end method
 
 .method public check(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 327
@@ -1429,7 +1429,7 @@
 .end method
 
 .method public clearChecked()V
-    .locals 1
+    .registers 2
 
     .line 353
     new-instance v0, Ljava/util/HashSet;
@@ -1443,7 +1443,7 @@
 .end method
 
 .method public clearOnButtonCheckedListeners()V
-    .locals 1
+    .registers 2
 
     .line 425
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->onButtonCheckedListeners:Ljava/util/LinkedHashSet;
@@ -1455,7 +1455,7 @@
 .end method
 
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 220
@@ -1469,12 +1469,12 @@
 .end method
 
 .method public getCheckedButtonId()I
-    .locals 1
+    .registers 2
 
     .line 372
     iget-boolean v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->singleSelection:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->checkedIds:Ljava/util/Set;
 
@@ -1482,7 +1482,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->checkedIds:Ljava/util/Set;
 
@@ -1500,17 +1500,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_1e
     return v0
 .end method
 
 .method public getCheckedButtonIds()Ljava/util/List;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1530,12 +1530,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildCount()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2a
 
     .line 391
     invoke-direct {p0, v1}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildButton(I)Lcom/google/android/material/button/MaterialButton;
@@ -1558,7 +1558,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_27
 
     .line 393
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1569,37 +1569,37 @@
 
     .line 390
     .end local v2    # "childId":I
-    :cond_0
+    :cond_27
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 397
     .end local v1    # "i":I
-    :cond_1
+    :cond_2a
     return-object v0
 .end method
 
 .method protected getChildDrawingOrder(II)I
-    .locals 2
+    .registers 5
     .param p1, "childCount"    # I
     .param p2, "i"    # I
 
     .line 750
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->childOrder:[Ljava/lang/Integer;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->childOrder:[Ljava/lang/Integer;
 
     array-length v0, v0
 
-    if-lt p2, v0, :cond_0
+    if-lt p2, v0, :cond_a
 
-    goto :goto_0
+    goto :goto_13
 
     .line 755
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->childOrder:[Ljava/lang/Integer;
 
     aget-object v0, v0, p2
@@ -1611,8 +1611,8 @@
     return v0
 
     .line 751
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const-string v0, "MButtonToggleGroup"
 
     const-string v1, "Child order wasn\'t updated"
@@ -1624,7 +1624,7 @@
 .end method
 
 .method public isSelectionRequired()Z
-    .locals 1
+    .registers 2
 
     .line 468
     iget-boolean v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->selectionRequired:Z
@@ -1633,7 +1633,7 @@
 .end method
 
 .method public isSingleSelection()Z
-    .locals 1
+    .registers 2
 
     .line 435
     iget-boolean v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->singleSelection:Z
@@ -1642,20 +1642,20 @@
 .end method
 
 .method onButtonCheckedStateChanged(Lcom/google/android/material/button/MaterialButton;Z)V
-    .locals 1
+    .registers 4
     .param p1, "button"    # Lcom/google/android/material/button/MaterialButton;
     .param p2, "isChecked"    # Z
 
     .line 770
     iget-boolean v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->skipCheckedStateTracker:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 771
     return-void
 
     .line 773
-    :cond_0
+    :cond_5
     invoke-virtual {p1}, Lcom/google/android/material/button/MaterialButton;->getId()I
 
     move-result v0
@@ -1667,7 +1667,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .registers 3
 
     .line 212
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
@@ -1677,7 +1677,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_15
 
     .line 214
     iget v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->defaultCheckId:I
@@ -1693,12 +1693,12 @@
     invoke-direct {p0, v0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->updateCheckedIds(Ljava/util/Set;)V
 
     .line 216
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 5
+    .registers 7
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 302
@@ -1725,19 +1725,19 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     .line 310
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 311
-    :cond_0
+    :cond_15
     const/4 v2, 0x2
 
     .line 305
-    :goto_0
+    :goto_16
     const/4 v4, 0x0
 
     invoke-static {v3, v1, v4, v2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionInfoCompat;->obtain(IIZI)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionInfoCompat;
@@ -1752,7 +1752,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 0
+    .registers 3
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -1770,7 +1770,7 @@
 .end method
 
 .method public onViewRemoved(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "child"    # Landroid/view/View;
 
     .line 277
@@ -1779,7 +1779,7 @@
     .line 279
     instance-of v0, p1, Lcom/google/android/material/button/MaterialButton;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 280
     move-object v0, p1
@@ -1791,14 +1791,14 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/button/MaterialButton;->setOnPressedChangeListenerInternal(Lcom/google/android/material/button/MaterialButton$OnPressedChangeListener;)V
 
     .line 283
-    :cond_0
+    :cond_e
     invoke-virtual {p0, p1}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->indexOfChild(Landroid/view/View;)I
 
     move-result v0
 
     .line 284
     .local v0, "indexOfChild":I
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_19
 
     .line 285
     iget-object v1, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->originalCornerData:Ljava/util/List;
@@ -1806,7 +1806,7 @@
     invoke-interface {v1, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 288
-    :cond_1
+    :cond_19
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->updateChildShapes()V
 
     .line 289
@@ -1817,7 +1817,7 @@
 .end method
 
 .method public removeOnButtonCheckedListener(Lcom/google/android/material/button/MaterialButtonToggleGroup$OnButtonCheckedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/button/MaterialButtonToggleGroup$OnButtonCheckedListener;
 
     .line 420
@@ -1830,7 +1830,7 @@
 .end method
 
 .method public setEnabled(Z)V
-    .locals 2
+    .registers 4
     .param p1, "enabled"    # Z
 
     .line 783
@@ -1840,12 +1840,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_4
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildCount()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_14
 
     .line 786
     invoke-direct {p0, v0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildButton(I)Lcom/google/android/material/button/MaterialButton;
@@ -1860,16 +1860,16 @@
     .end local v1    # "childButton":Lcom/google/android/material/button/MaterialButton;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 789
     .end local v0    # "i":I
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public setSelectionRequired(Z)V
-    .locals 0
+    .registers 2
     .param p1, "selectionRequired"    # Z
 
     .line 459
@@ -1880,7 +1880,7 @@
 .end method
 
 .method public setSingleSelection(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 480
@@ -1899,13 +1899,13 @@
 .end method
 
 .method public setSingleSelection(Z)V
-    .locals 1
+    .registers 3
     .param p1, "singleSelection"    # Z
 
     .line 447
     iget-boolean v0, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->singleSelection:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 448
     iput-boolean p1, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup;->singleSelection:Z
@@ -1914,12 +1914,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->clearChecked()V
 
     .line 451
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public uncheck(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 340
@@ -1932,7 +1932,7 @@
 .end method
 
 .method updateChildShapes()V
-    .locals 8
+    .registers 9
 
     .line 561
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildCount()I
@@ -1956,8 +1956,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v0, :cond_1
+    :goto_d
+    if-ge v3, v0, :cond_35
 
     .line 565
     invoke-direct {p0, v3}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->getChildButton(I)Lcom/google/android/material/button/MaterialButton;
@@ -1972,13 +1972,13 @@
 
     const/16 v6, 0x8
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v6, :cond_1c
 
     .line 567
-    goto :goto_1
+    goto :goto_32
 
     .line 570
-    :cond_0
+    :cond_1c
     invoke-virtual {v4}, Lcom/google/android/material/button/MaterialButton;->getShapeAppearanceModel()Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     move-result-object v5
@@ -2008,13 +2008,13 @@
     .end local v4    # "button":Lcom/google/android/material/button/MaterialButton;
     .end local v5    # "builder":Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
     .end local v6    # "newCornerData":Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
-    :goto_1
+    :goto_32
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 576
     .end local v3    # "i":I
-    :cond_1
+    :cond_35
     return-void
 .end method

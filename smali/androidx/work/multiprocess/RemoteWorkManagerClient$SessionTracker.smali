@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 554
     const-string v0, "SessionHandler"
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/multiprocess/RemoteWorkManagerClient;)V
-    .locals 0
+    .registers 2
     .param p1, "client"    # Landroidx/work/multiprocess/RemoteWorkManagerClient;
 
     .line 557
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 9
+    .registers 10
 
     .line 563
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient$SessionTracker;->mClient:Landroidx/work/multiprocess/RemoteWorkManagerClient;
@@ -78,7 +78,7 @@
     monitor-enter v2
 
     .line 565
-    :try_start_0
+    :try_start_d
     iget-object v3, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient$SessionTracker;->mClient:Landroidx/work/multiprocess/RemoteWorkManagerClient;
 
     invoke-virtual {v3}, Landroidx/work/multiprocess/RemoteWorkManagerClient;->getSessionIndex()J
@@ -95,12 +95,12 @@
 
     .line 569
     .local v5, "currentSession":Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_42
 
     .line 570
     cmp-long v6, v0, v3
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_37
 
     .line 571
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -125,10 +125,10 @@
     .line 574
     invoke-virtual {v5}, Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;->onBindingDied()V
 
-    goto :goto_0
+    goto :goto_42
 
     .line 576
-    :cond_0
+    :cond_37
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v6
@@ -142,20 +142,20 @@
     .line 579
     .end local v3    # "sessionIndex":J
     .end local v5    # "currentSession":Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;
-    :cond_1
-    :goto_0
+    :cond_42
+    :goto_42
     monitor-exit v2
 
     .line 580
     return-void
 
     .line 579
-    :catchall_0
+    :catchall_44
     move-exception v3
 
     monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_46
+    .catchall {:try_start_d .. :try_end_46} :catchall_44
 
     throw v3
 .end method

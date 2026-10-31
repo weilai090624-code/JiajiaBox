@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/BaseGraph;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -80,13 +80,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 56
     return v1
 
     .line 58
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lcom/google/common/graph/EndpointPair;
@@ -101,20 +101,20 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4f
 
     .line 61
     invoke-virtual {v0}, Lcom/google/common/graph/EndpointPair;->isOrdered()Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_19
 
     .line 62
     return v1
 
     .line 65
-    :cond_1
+    :cond_19
     invoke-virtual {v0}, Lcom/google/common/graph/EndpointPair;->source()Ljava/lang/Object;
 
     move-result-object v2
@@ -133,7 +133,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_37
 
     iget-object v5, p0, Lcom/google/common/graph/IncidentEdgeSet;->graph:Lcom/google/common/graph/BaseGraph;
 
@@ -147,9 +147,9 @@
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_4d
 
-    :cond_2
+    :cond_37
     iget-object v5, p0, Lcom/google/common/graph/IncidentEdgeSet;->node:Ljava/lang/Object;
 
     .line 68
@@ -157,7 +157,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_4e
 
     iget-object v5, p0, Lcom/google/common/graph/IncidentEdgeSet;->graph:Lcom/google/common/graph/BaseGraph;
 
@@ -171,30 +171,30 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_4e
 
-    :cond_3
+    :cond_4d
     const/4 v1, 0x1
 
     .line 67
-    :cond_4
+    :cond_4e
     return v1
 
     .line 70
     .end local v2    # "source":Ljava/lang/Object;
     .end local v4    # "target":Ljava/lang/Object;
-    :cond_5
+    :cond_4f
     invoke-virtual {v0}, Lcom/google/common/graph/EndpointPair;->isOrdered()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_56
 
     .line 71
     return v1
 
     .line 73
-    :cond_6
+    :cond_56
     iget-object v2, p0, Lcom/google/common/graph/IncidentEdgeSet;->graph:Lcom/google/common/graph/BaseGraph;
 
     iget-object v4, p0, Lcom/google/common/graph/IncidentEdgeSet;->node:Ljava/lang/Object;
@@ -223,15 +223,15 @@
 
     move-result v6
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_74
 
     invoke-interface {v2, v4}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-nez v6, :cond_8
+    if-nez v6, :cond_82
 
-    :cond_7
+    :cond_74
     iget-object v6, p0, Lcom/google/common/graph/IncidentEdgeSet;->node:Ljava/lang/Object;
 
     .line 78
@@ -239,24 +239,24 @@
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_83
 
     invoke-interface {v2, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_83
 
-    :cond_8
+    :cond_82
     const/4 v1, 0x1
 
     .line 77
-    :cond_9
+    :cond_83
     return v1
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -272,7 +272,7 @@
 .end method
 
 .method public size()I
-    .locals 3
+    .registers 4
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/IncidentEdgeSet;, "Lcom/google/common/graph/IncidentEdgeSet<TN;>;"
@@ -282,7 +282,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 45
     iget-object v0, p0, Lcom/google/common/graph/IncidentEdgeSet;->graph:Lcom/google/common/graph/BaseGraph;
@@ -325,7 +325,7 @@
     return v0
 
     .line 49
-    :cond_0
+    :cond_29
     iget-object v0, p0, Lcom/google/common/graph/IncidentEdgeSet;->graph:Lcom/google/common/graph/BaseGraph;
 
     iget-object v1, p0, Lcom/google/common/graph/IncidentEdgeSet;->node:Ljava/lang/Object;

@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/connection/RealConnectionPool;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "$receiver"    # Lokhttp3/internal/connection/RealConnectionPool;
     .param p2, "$super_call_param$1"    # Ljava/lang/String;
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public runOnce()J
-    .locals 3
+    .registers 4
 
     .line 44
     iget-object v0, p0, Lokhttp3/internal/connection/RealConnectionPool$cleanupTask$1;->this$0:Lokhttp3/internal/connection/RealConnectionPool;

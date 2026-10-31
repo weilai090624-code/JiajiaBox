@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 7
+    .registers 8
 
     const/16 v5, 0xf
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(IIFI)V
-    .locals 0
+    .registers 5
     .param p1, "minWidth"    # I
     .param p2, "minSmallestWidth"    # I
     .param p3, "splitRatio"    # F
@@ -113,47 +113,47 @@
 .end method
 
 .method public synthetic constructor <init>(IIFIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 1
+    .registers 8
 
     .line 38
     and-int/lit8 p6, p5, 0x1
 
     const/4 v0, 0x0
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_6
 
     .line 45
     const/4 p1, 0x0
 
     .line 38
-    :cond_0
+    :cond_6
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_b
 
     .line 54
     const/4 p2, 0x0
 
     .line 38
-    :cond_1
+    :cond_b
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_11
 
     .line 60
     const/high16 p3, 0x3f000000    # 0.5f
 
     .line 38
-    :cond_2
+    :cond_11
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_16
 
     .line 66
     const/4 p4, 0x3
 
     .line 38
-    :cond_3
+    :cond_16
     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/window/embedding/SplitRule;-><init>(IIFI)V
 
     .line 117
@@ -163,7 +163,7 @@
 
 # virtual methods
 .method public final checkParentMetrics(Landroid/view/WindowMetrics;)Z
-    .locals 6
+    .registers 8
     .param p1, "parentMetrics"    # Landroid/view/WindowMetrics;
 
     const-string v0, "parentMetrics"
@@ -177,13 +177,13 @@
 
     const/4 v2, 0x0
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_d
 
     .line 79
     return v2
 
     .line 81
-    :cond_0
+    :cond_d
     sget-object v0, Landroidx/window/embedding/SplitRule$Api30Impl;->INSTANCE:Landroidx/window/embedding/SplitRule$Api30Impl;
 
     invoke-virtual {v0, p1}, Landroidx/window/embedding/SplitRule$Api30Impl;->getBounds(Landroid/view/WindowMetrics;)Landroid/graphics/Rect;
@@ -196,7 +196,7 @@
 
     const/4 v3, 0x1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_23
 
     invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
 
@@ -204,25 +204,25 @@
 
     iget v4, p0, Landroidx/window/embedding/SplitRule;->minWidth:I
 
-    if-lt v1, v4, :cond_1
+    if-lt v1, v4, :cond_21
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_21
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_2
-    :goto_0
+    :cond_23
+    :goto_23
     const/4 v1, 0x1
 
     .line 84
     .local v1, "validMinWidth":Z
-    :goto_1
+    :goto_24
     iget v4, p0, Landroidx/window/embedding/SplitRule;->minSmallestWidth:I
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_3b
 
     .line 85
     invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
@@ -239,58 +239,58 @@
 
     iget v5, p0, Landroidx/window/embedding/SplitRule;->minSmallestWidth:I
 
-    if-lt v4, v5, :cond_3
+    if-lt v4, v5, :cond_39
 
-    goto :goto_2
+    goto :goto_3b
 
-    :cond_3
+    :cond_39
     const/4 v4, 0x0
 
-    goto :goto_3
+    goto :goto_3c
 
-    :cond_4
-    :goto_2
+    :cond_3b
+    :goto_3b
     const/4 v4, 0x1
 
     .line 83
-    :goto_3
+    :goto_3c
     nop
 
     .line 87
     .local v4, "validSmallestMinWidth":Z
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_42
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_42
 
     const/4 v2, 0x1
 
-    :cond_5
+    :cond_42
     return v2
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 99
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 100
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/window/embedding/SplitRule;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 102
-    :cond_1
+    :cond_a
     iget v1, p0, Landroidx/window/embedding/SplitRule;->minWidth:I
 
     move-object v3, p1
@@ -299,12 +299,12 @@
 
     iget v3, v3, Landroidx/window/embedding/SplitRule;->minWidth:I
 
-    if-eq v1, v3, :cond_2
+    if-eq v1, v3, :cond_14
 
     return v2
 
     .line 103
-    :cond_2
+    :cond_14
     iget v1, p0, Landroidx/window/embedding/SplitRule;->minSmallestWidth:I
 
     move-object v3, p1
@@ -313,12 +313,12 @@
 
     iget v3, v3, Landroidx/window/embedding/SplitRule;->minSmallestWidth:I
 
-    if-eq v1, v3, :cond_3
+    if-eq v1, v3, :cond_1e
 
     return v2
 
     .line 104
-    :cond_3
+    :cond_1e
     iget v1, p0, Landroidx/window/embedding/SplitRule;->splitRatio:F
 
     move-object v3, p1
@@ -329,22 +329,22 @@
 
     cmpg-float v1, v1, v3
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_2b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_4
+    :cond_2b
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_5
+    :goto_2c
+    if-nez v1, :cond_2f
 
     return v2
 
     .line 105
-    :cond_5
+    :cond_2f
     iget v1, p0, Landroidx/window/embedding/SplitRule;->layoutDirection:I
 
     move-object v3, p1
@@ -353,17 +353,17 @@
 
     iget v3, v3, Landroidx/window/embedding/SplitRule;->layoutDirection:I
 
-    if-eq v1, v3, :cond_6
+    if-eq v1, v3, :cond_39
 
     return v2
 
     .line 107
-    :cond_6
+    :cond_39
     return v0
 .end method
 
 .method public final getLayoutDirection()I
-    .locals 1
+    .registers 2
 
     .line 66
     iget v0, p0, Landroidx/window/embedding/SplitRule;->layoutDirection:I
@@ -372,7 +372,7 @@
 .end method
 
 .method public final getMinSmallestWidth()I
-    .locals 1
+    .registers 2
 
     .line 54
     iget v0, p0, Landroidx/window/embedding/SplitRule;->minSmallestWidth:I
@@ -381,7 +381,7 @@
 .end method
 
 .method public final getMinWidth()I
-    .locals 1
+    .registers 2
 
     .line 45
     iget v0, p0, Landroidx/window/embedding/SplitRule;->minWidth:I
@@ -390,7 +390,7 @@
 .end method
 
 .method public final getSplitRatio()F
-    .locals 1
+    .registers 2
 
     .line 60
     iget v0, p0, Landroidx/window/embedding/SplitRule;->splitRatio:F
@@ -399,7 +399,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 111
     iget v0, p0, Landroidx/window/embedding/SplitRule;->minWidth:I

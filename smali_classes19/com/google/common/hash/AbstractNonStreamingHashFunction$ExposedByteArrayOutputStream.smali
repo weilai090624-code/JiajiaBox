@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "expectedInputSize"    # I
 
     .line 114
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method byteArray()[B
-    .locals 1
+    .registers 2
 
     .line 127
     iget-object v0, p0, Lcom/google/common/hash/AbstractNonStreamingHashFunction$ExposedByteArrayOutputStream;->buf:[B
@@ -38,7 +38,7 @@
 .end method
 
 .method length()I
-    .locals 1
+    .registers 2
 
     .line 131
     iget v0, p0, Lcom/google/common/hash/AbstractNonStreamingHashFunction$ExposedByteArrayOutputStream;->count:I
@@ -47,7 +47,7 @@
 .end method
 
 .method write(Ljava/nio/ByteBuffer;)V
-    .locals 3
+    .registers 5
     .param p1, "input"    # Ljava/nio/ByteBuffer;
 
     .line 118
@@ -65,7 +65,7 @@
 
     array-length v2, v2
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_17
 
     .line 120
     iget-object v1, p0, Lcom/google/common/hash/AbstractNonStreamingHashFunction$ExposedByteArrayOutputStream;->buf:[B
@@ -81,7 +81,7 @@
     iput-object v1, p0, Lcom/google/common/hash/AbstractNonStreamingHashFunction$ExposedByteArrayOutputStream;->buf:[B
 
     .line 122
-    :cond_0
+    :cond_17
     iget-object v1, p0, Lcom/google/common/hash/AbstractNonStreamingHashFunction$ExposedByteArrayOutputStream;->buf:[B
 
     iget v2, p0, Lcom/google/common/hash/AbstractNonStreamingHashFunction$ExposedByteArrayOutputStream;->count:I

@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Constructor;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,7 +59,7 @@
 .end method
 
 .method private mayNeedHiddenThis()Z
-    .locals 4
+    .registers 5
 
     .line 492
     .local p0, "this":Lcom/google/common/reflect/Invokable$ConstructorInvokable;, "Lcom/google/common/reflect/Invokable$ConstructorInvokable<TT;>;"
@@ -77,20 +77,20 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     .line 495
     return v2
 
     .line 497
-    :cond_0
+    :cond_e
     invoke-virtual {v0}, Ljava/lang/Class;->getEnclosingMethod()Ljava/lang/reflect/Method;
 
     move-result-object v1
 
     .line 498
     .local v1, "enclosingMethod":Ljava/lang/reflect/Method;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     .line 500
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->getModifiers()I
@@ -106,12 +106,12 @@
     return v2
 
     .line 508
-    :cond_1
+    :cond_1e
     invoke-virtual {v0}, Ljava/lang/Class;->getEnclosingClass()Ljava/lang/Class;
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_2f
 
     .line 509
     invoke-virtual {v0}, Ljava/lang/Class;->getModifiers()I
@@ -122,22 +122,22 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_2f
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_2
+    :cond_2f
     const/4 v2, 0x0
 
     .line 508
-    :goto_0
+    :goto_30
     return v2
 .end method
 
 
 # virtual methods
 .method getGenericExceptionTypes()[Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 452
     .local p0, "this":Lcom/google/common/reflect/Invokable$ConstructorInvokable;, "Lcom/google/common/reflect/Invokable$ConstructorInvokable<TT;>;"
@@ -151,7 +151,7 @@
 .end method
 
 .method getGenericParameterTypes()[Ljava/lang/reflect/Type;
-    .locals 4
+    .registers 5
 
     .line 438
     .local p0, "this":Lcom/google/common/reflect/Invokable$ConstructorInvokable;, "Lcom/google/common/reflect/Invokable$ConstructorInvokable<TT;>;"
@@ -165,13 +165,13 @@
     .local v0, "types":[Ljava/lang/reflect/Type;
     array-length v1, v0
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_2f
 
     invoke-direct {p0}, Lcom/google/common/reflect/Invokable$ConstructorInvokable;->mayNeedHiddenThis()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2f
 
     .line 440
     iget-object v1, p0, Lcom/google/common/reflect/Invokable$ConstructorInvokable;->constructor:Ljava/lang/reflect/Constructor;
@@ -186,7 +186,7 @@
 
     array-length v3, v1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_2f
 
     const/4 v2, 0x0
 
@@ -201,7 +201,7 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_2f
 
     .line 444
     const/4 v2, 0x1
@@ -218,12 +218,12 @@
 
     .line 447
     .end local v1    # "rawParamTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
-    :cond_0
+    :cond_2f
     return-object v0
 .end method
 
 .method getGenericReturnType()Ljava/lang/reflect/Type;
-    .locals 3
+    .registers 4
 
     .line 427
     .local p0, "this":Lcom/google/common/reflect/Invokable$ConstructorInvokable;, "Lcom/google/common/reflect/Invokable$ConstructorInvokable<TT;>;"
@@ -241,7 +241,7 @@
     .local v1, "typeParams":[Ljava/lang/reflect/TypeVariable;, "[Ljava/lang/reflect/TypeVariable<*>;"
     array-length v2, v1
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_10
 
     .line 430
     invoke-static {v0, v1}, Lcom/google/common/reflect/Types;->newParameterizedType(Ljava/lang/Class;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/ParameterizedType;
@@ -251,12 +251,12 @@
     return-object v2
 
     .line 432
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 .method final getParameterAnnotations()[[Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 2
 
     .line 457
     .local p0, "this":Lcom/google/common/reflect/Invokable$ConstructorInvokable;, "Lcom/google/common/reflect/Invokable$ConstructorInvokable<TT;>;"
@@ -270,7 +270,7 @@
 .end method
 
 .method public final getTypeParameters()[Ljava/lang/reflect/TypeVariable;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()[",
@@ -327,7 +327,7 @@
 .end method
 
 .method final invokeInternal(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "receiver"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -348,13 +348,13 @@
     invoke-virtual {v0, p2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object v0
 
     .line 416
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 417
@@ -401,7 +401,7 @@
 .end method
 
 .method public final isOverridable()Z
-    .locals 1
+    .registers 2
 
     .line 483
     .local p0, "this":Lcom/google/common/reflect/Invokable$ConstructorInvokable;, "Lcom/google/common/reflect/Invokable$ConstructorInvokable<TT;>;"
@@ -411,7 +411,7 @@
 .end method
 
 .method public final isVarArgs()Z
-    .locals 1
+    .registers 2
 
     .line 488
     .local p0, "this":Lcom/google/common/reflect/Invokable$ConstructorInvokable;, "Lcom/google/common/reflect/Invokable$ConstructorInvokable<TT;>;"

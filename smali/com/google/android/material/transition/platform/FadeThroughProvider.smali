@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method private static createFadeThroughAnimator(Landroid/view/View;FFFFF)Landroid/animation/Animator;
-    .locals 8
+    .registers 14
     .param p0, "view"    # Landroid/view/View;
     .param p1, "startValue"    # F
     .param p2, "endValue"    # F
@@ -43,7 +43,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_22
 
     invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -81,7 +81,7 @@
 
     nop
 
-    :array_0
+    :array_22
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public createAppear(Landroid/view/ViewGroup;Landroid/view/View;)Landroid/animation/Animator;
-    .locals 7
+    .registers 10
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
 
@@ -104,15 +104,15 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     const/high16 v3, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_e
     invoke-virtual {p2}, Landroid/view/View;->getAlpha()F
 
     move-result v0
@@ -121,7 +121,7 @@
 
     .line 71
     .local v3, "originalAlpha":F
-    :goto_0
+    :goto_13
     iget v4, p0, Lcom/google/android/material/transition/platform/FadeThroughProvider;->progressThreshold:F
 
     const/high16 v5, 0x3f800000    # 1.0f
@@ -140,7 +140,7 @@
 .end method
 
 .method public createDisappear(Landroid/view/ViewGroup;Landroid/view/View;)Landroid/animation/Animator;
-    .locals 7
+    .registers 10
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
 
@@ -153,15 +153,15 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     const/high16 v2, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_e
     invoke-virtual {p2}, Landroid/view/View;->getAlpha()F
 
     move-result v0
@@ -170,7 +170,7 @@
 
     .line 84
     .local v2, "originalAlpha":F
-    :goto_0
+    :goto_13
     const/4 v4, 0x0
 
     iget v5, p0, Lcom/google/android/material/transition/platform/FadeThroughProvider;->progressThreshold:F
@@ -189,7 +189,7 @@
 .end method
 
 .method public getProgressThreshold()F
-    .locals 1
+    .registers 2
 
     .line 54
     iget v0, p0, Lcom/google/android/material/transition/platform/FadeThroughProvider;->progressThreshold:F
@@ -198,7 +198,7 @@
 .end method
 
 .method public setProgressThreshold(F)V
-    .locals 0
+    .registers 2
     .param p1, "progressThreshold"    # F
 
     .line 64

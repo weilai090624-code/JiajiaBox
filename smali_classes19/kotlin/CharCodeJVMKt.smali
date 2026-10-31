@@ -29,7 +29,7 @@
 
 # direct methods
 .method private static final Char-xj2QHRw(S)C
-    .locals 1
+    .registers 2
     .param p0, "code"    # S
 
     .line 17

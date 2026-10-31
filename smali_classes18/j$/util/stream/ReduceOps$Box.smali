@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 872
     .local p0, "this":Lj$/util/stream/ReduceOps$Box;, "Ljava/util/stream/ReduceOps$Box<TU;>;"
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TU;"

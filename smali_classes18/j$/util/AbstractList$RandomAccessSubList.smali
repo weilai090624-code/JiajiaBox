@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/AbstractList$RandomAccessSubList;II)V
-    .locals 0
+    .registers 4
     .param p2, "fromIndex"    # I
     .param p3, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -51,7 +51,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/AbstractList;II)V
-    .locals 0
+    .registers 4
     .param p2, "fromIndex"    # I
     .param p3, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public subList(II)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;

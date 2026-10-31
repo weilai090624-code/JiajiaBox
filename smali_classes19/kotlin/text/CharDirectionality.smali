@@ -129,7 +129,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lkotlin/text/CharDirectionality;
-    .locals 3
+    .registers 3
 
     const/16 v0, 0x14
 
@@ -259,7 +259,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 19
     new-instance v0, Lkotlin/text/CharDirectionality;
@@ -522,7 +522,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .param p3, "value"    # I
@@ -541,7 +541,7 @@
 .end method
 
 .method public static final synthetic access$getDirectionalityMap$delegate$cp()Lkotlin/Lazy;
-    .locals 1
+    .registers 1
 
     .line 13
     sget-object v0, Lkotlin/text/CharDirectionality;->directionalityMap$delegate:Lkotlin/Lazy;
@@ -550,7 +550,7 @@
 .end method
 
 .method public static getEntries()Lkotlin/enums/EnumEntries;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -566,7 +566,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lkotlin/text/CharDirectionality;
-    .locals 1
+    .registers 2
 
     const-class v0, Lkotlin/text/CharDirectionality;
 
@@ -580,7 +580,7 @@
 .end method
 
 .method public static values()[Lkotlin/text/CharDirectionality;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lkotlin/text/CharDirectionality;->$VALUES:[Lkotlin/text/CharDirectionality;
 
@@ -596,7 +596,7 @@
 
 # virtual methods
 .method public final getValue()I
-    .locals 1
+    .registers 2
 
     .line 13
     iget v0, p0, Lkotlin/text/CharDirectionality;->value:I

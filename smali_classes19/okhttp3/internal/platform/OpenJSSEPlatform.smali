@@ -67,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lokhttp3/internal/platform/OpenJSSEPlatform$Companion;
 
@@ -83,7 +83,7 @@
     .line 91
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_a
     const-string v1, "org.openjsse.net.ssl.OpenJSSE"
 
     sget-object v2, Lokhttp3/internal/platform/OpenJSSEPlatform;->Companion:Lokhttp3/internal/platform/OpenJSSEPlatform$Companion;
@@ -97,16 +97,16 @@
     move-result-object v2
 
     invoke-static {v1, v0, v2}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_a .. :try_end_19} :catch_1b
 
     .line 93
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 94
-    :catch_0
+    :catch_1b
     move-exception v1
 
     .line 95
@@ -115,14 +115,14 @@
 
     .line 89
     .end local v1    # "_":Ljava/lang/ClassNotFoundException;
-    :goto_0
+    :goto_1d
     sput-boolean v0, Lokhttp3/internal/platform/OpenJSSEPlatform;->isSupported:Z
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform;-><init>()V
@@ -141,7 +141,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/OpenJSSEPlatform;-><init>()V
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public static final synthetic access$isSupported$cp()Z
-    .locals 1
+    .registers 1
 
     .line 33
     sget-boolean v0, Lokhttp3/internal/platform/OpenJSSEPlatform;->isSupported:Z
@@ -160,7 +160,7 @@
 
 # virtual methods
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 7
+    .registers 11
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -186,7 +186,7 @@
     .line 62
     instance-of v0, p1, Lorg/openjsse/javax/net/ssl/SSLSocket;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_44
 
     .line 63
     move-object v0, p1
@@ -201,7 +201,7 @@
     .local v0, "sslParameters":Ljavax/net/ssl/SSLParameters;
     instance-of v1, v0, Lorg/openjsse/javax/net/ssl/SSLParameters;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_47
 
     .line 67
     sget-object v1, Lokhttp3/internal/platform/Platform;->Companion:Lokhttp3/internal/platform/Platform$Companion;
@@ -237,7 +237,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_3c
 
     .end local v3    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v4    # "$i$f$toTypedArray":I
@@ -256,7 +256,7 @@
 
     .end local v0    # "sslParameters":Ljavax/net/ssl/SSLParameters;
     .end local v1    # "names":Ljava/util/List;
-    goto :goto_0
+    goto :goto_47
 
     .line 103
     .restart local v0    # "sslParameters":Ljavax/net/ssl/SSLParameters;
@@ -264,7 +264,7 @@
     .restart local v3    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v4    # "$i$f$toTypedArray":I
     .restart local v5    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_0
+    :cond_3c
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v6, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -279,17 +279,17 @@
     .end local v3    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v4    # "$i$f$toTypedArray":I
     .end local v5    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_1
+    :cond_44
     invoke-super {p0, p1, p2, p3}, Lokhttp3/internal/platform/Platform;->configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
 
     .line 75
-    :cond_2
-    :goto_0
+    :cond_47
+    :goto_47
     return-void
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -299,7 +299,7 @@
     .line 78
     instance-of v0, p1, Lorg/openjsse/javax/net/ssl/SSLSocket;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     .line 79
     move-object v0, p1
@@ -312,48 +312,48 @@
 
     .line 81
     .local v0, "protocol":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_14
     const-string v1, ""
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_1a
+    if-eqz v1, :cond_1f
 
     const/4 v1, 0x0
 
     move-object v0, v1
 
-    goto :goto_1
+    goto :goto_25
 
     .line 82
-    :cond_1
+    :cond_1f
     nop
 
     .end local v0    # "protocol":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_25
 
     .line 85
-    :cond_2
+    :cond_21
     invoke-super {p0, p1}, Lokhttp3/internal/platform/Platform;->getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 86
-    :goto_1
+    :goto_25
     return-object v0
 .end method
 
 .method public newSSLContext()Ljavax/net/ssl/SSLContext;
-    .locals 2
+    .registers 3
 
     .line 40
     const-string v0, "TLSv1.3"
@@ -372,7 +372,7 @@
 .end method
 
 .method public platformTrustManager()Ljavax/net/ssl/X509TrustManager;
-    .locals 5
+    .registers 6
 
     .line 44
     invoke-static {}, Ljavax/net/ssl/TrustManagerFactory;->getDefaultAlgorithm()Ljava/lang/String;
@@ -411,32 +411,32 @@
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_0
+    if-ne v2, v4, :cond_24
 
     aget-object v2, v1, v3
 
     instance-of v2, v2, Ljavax/net/ssl/X509TrustManager;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_24
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_24
     const/4 v4, 0x0
 
-    :goto_0
-    if-eqz v4, :cond_2
+    :goto_25
+    if-eqz v4, :cond_36
 
     .line 50
     aget-object v2, v1, v3
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2e
 
     check-cast v2, Ljavax/net/ssl/X509TrustManager;
 
     return-object v2
 
-    :cond_1
+    :cond_2e
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v3, "null cannot be cast to non-null type javax.net.ssl.X509TrustManager"
@@ -446,7 +446,7 @@
     throw v2
 
     .line 47
-    :cond_2
+    :cond_36
     const/4 v2, 0x0
 
     .line 48
@@ -481,7 +481,7 @@
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 2
+    .registers 4
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     const-string v0, "sslSocketFactory"

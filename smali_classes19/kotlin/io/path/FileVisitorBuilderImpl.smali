@@ -118,7 +118,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -128,18 +128,18 @@
 .end method
 
 .method private final checkIsNotBuilt()V
-    .locals 2
+    .registers 3
 
     .line 93
     iget-boolean v0, p0, Lkotlin/io/path/FileVisitorBuilderImpl;->isBuilt:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 94
     return-void
 
     .line 93
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "This builder was already built"
@@ -150,18 +150,18 @@
 .end method
 
 .method private final checkNotDefined(Ljava/lang/Object;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "function"    # Ljava/lang/Object;
     .param p2, "name"    # Ljava/lang/String;
 
     .line 97
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 98
     return-void
 
     .line 97
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -190,7 +190,7 @@
 
 # virtual methods
 .method public final build()Ljava/nio/file/FileVisitor;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -227,7 +227,7 @@
 .end method
 
 .method public onPostVisitDirectory(Lkotlin/jvm/functions/Function2;)V
-    .locals 2
+    .registers 4
     .param p1, "function"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -265,7 +265,7 @@
 .end method
 
 .method public onPreVisitDirectory(Lkotlin/jvm/functions/Function2;)V
-    .locals 2
+    .registers 4
     .param p1, "function"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -303,7 +303,7 @@
 .end method
 
 .method public onVisitFile(Lkotlin/jvm/functions/Function2;)V
-    .locals 2
+    .registers 4
     .param p1, "function"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -341,7 +341,7 @@
 .end method
 
 .method public onVisitFileFailed(Lkotlin/jvm/functions/Function2;)V
-    .locals 2
+    .registers 4
     .param p1, "function"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {

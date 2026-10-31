@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/function/BinaryOperator;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/stream/Collectors$$ExternalSyntheticLambda82;->f$0:Ljava/util/function/BinaryOperator;
 

@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/function/BinaryOperator;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public synthetic accept(D)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;D)V
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public synthetic accept(I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;I)V
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public synthetic accept(J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;J)V
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public accept(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -98,7 +98,7 @@
     .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lj$/util/stream/ReduceOps$2ReducingSink;->empty:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 120
     const/4 v0, 0x0
@@ -108,10 +108,10 @@
     .line 121
     iput-object p1, p0, Lj$/util/stream/ReduceOps$2ReducingSink;->state:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 123
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lj$/util/stream/ReduceOps$2ReducingSink;->val$operator:Ljava/util/function/BinaryOperator;
 
     iget-object v1, p0, Lj$/util/stream/ReduceOps$2ReducingSink;->state:Ljava/lang/Object;
@@ -123,12 +123,12 @@
     iput-object v0, p0, Lj$/util/stream/ReduceOps$2ReducingSink;->state:Ljava/lang/Object;
 
     .line 125
-    :goto_0
+    :goto_14
     return-void
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 1
+    .registers 4
     .param p1, "size"    # J
 
     .line 113
@@ -156,7 +156,7 @@
 .end method
 
 .method public synthetic cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$cancellationRequested(Lj$/util/stream/Sink;)Z
 
@@ -166,13 +166,13 @@
 .end method
 
 .method public combine(Lj$/util/stream/ReduceOps$2ReducingSink;)V
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lj$/util/stream/ReduceOps$2ReducingSink;
 
     .line 134
     iget-boolean v0, p1, Lj$/util/stream/ReduceOps$2ReducingSink;->empty:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 135
     iget-object v0, p1, Lj$/util/stream/ReduceOps$2ReducingSink;->state:Ljava/lang/Object;
@@ -180,12 +180,12 @@
     invoke-virtual {p0, v0}, Lj$/util/stream/ReduceOps$2ReducingSink;->accept(Ljava/lang/Object;)V
 
     .line 136
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public bridge synthetic combine(Lj$/util/stream/ReduceOps$AccumulatingSink;)V
-    .locals 0
+    .registers 2
 
     .line 107
     check-cast p1, Lj$/util/stream/ReduceOps$2ReducingSink;
@@ -196,7 +196,7 @@
 .end method
 
 .method public synthetic end()V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$end(Lj$/util/stream/Sink;)V
 
@@ -204,7 +204,7 @@
 .end method
 
 .method public get()Lj$/util/Optional;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -216,27 +216,27 @@
     .line 129
     iget-boolean v0, p0, Lj$/util/stream/ReduceOps$2ReducingSink;->empty:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-static {}, Lj$/util/Optional;->empty()Lj$/util/Optional;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lj$/util/stream/ReduceOps$2ReducingSink;->state:Ljava/lang/Object;
 
     invoke-static {v0}, Lj$/util/Optional;->of(Ljava/lang/Object;)Lj$/util/Optional;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 107
     invoke-virtual {p0}, Lj$/util/stream/ReduceOps$2ReducingSink;->get()Lj$/util/Optional;

@@ -64,7 +64,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$5KA3WpdV7dHJ4vBxy8q-RnCMB98(Ljava/util/Map$Entry;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/group/GroupInterfaceAdapter;->onUpdateSuccess$lambda$2(Ljava/util/Map$Entry;)Ljava/lang/CharSequence;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/ThemedActivity;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Lio/nekohasekai/sagernet/ui/ThemedActivity;
 
     const-string v0, "context"
@@ -90,7 +90,7 @@
 .end method
 
 .method private static final onUpdateSuccess$lambda$2(Ljava/util/Map$Entry;)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 3
     .param p0, "it"    # Ljava/util/Map$Entry;
 
     const-string v0, "it"
@@ -110,15 +110,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     invoke-interface {p0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_3b
 
-    :cond_0
+    :cond_18
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -153,7 +153,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_3b
     check-cast v0, Ljava/lang/CharSequence;
 
     return-object v0
@@ -162,7 +162,7 @@
 
 # virtual methods
 .method public alert(Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -219,27 +219,27 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_26
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_0
+    :cond_26
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_2d
 
     return-object v0
 
-    :cond_1
+    :cond_2d
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method public confirm(Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -296,16 +296,16 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_26
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_0
+    :cond_26
     return-object v0
 .end method
 
 .method public final getContext()Lio/nekohasekai/sagernet/ui/ThemedActivity;
-    .locals 1
+    .registers 2
 
     .line 14
     iget-object v0, p0, Lio/nekohasekai/sagernet/group/GroupInterfaceAdapter;->context:Lio/nekohasekai/sagernet/ui/ThemedActivity;
@@ -314,7 +314,7 @@
 .end method
 
 .method public onUpdateFailure(Lio/nekohasekai/sagernet/database/ProxyGroup;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -348,11 +348,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     return-object v0
 
-    :cond_0
+    :cond_13
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 88
@@ -360,7 +360,7 @@
 .end method
 
 .method public onUpdateSuccess(Lio/nekohasekai/sagernet/database/ProxyGroup;ILjava/util/List;Ljava/util/Map;Ljava/util/List;Ljava/util/List;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 20
+    .registers 29
     .param p1, "group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "changed"    # I
     .param p3, "added"    # Ljava/util/List;
@@ -404,16 +404,16 @@
 
     const/4 v3, 0x0
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_32
 
     invoke-interface/range {p6 .. p6}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_32
 
     .line 39
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_2f
 
     iget-object v4, v0, Lio/nekohasekai/sagernet/group/GroupInterfaceAdapter;->context:Lio/nekohasekai/sagernet/ui/ThemedActivity;
 
@@ -449,13 +449,13 @@
     invoke-virtual {v1}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
     .line 82
-    :cond_0
+    :cond_2f
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 45
-    :cond_1
+    :cond_32
     iget-object v4, v0, Lio/nekohasekai/sagernet/group/GroupInterfaceAdapter;->context:Lio/nekohasekai/sagernet/ui/ThemedActivity;
 
     iget-object v5, v0, Lio/nekohasekai/sagernet/group/GroupInterfaceAdapter;->context:Lio/nekohasekai/sagernet/ui/ThemedActivity;
@@ -515,7 +515,7 @@
 
     const-string v6, "\n"
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_a9
 
     .line 49
     new-instance v4, Ljava/lang/StringBuilder;
@@ -583,12 +583,12 @@
     iput-object v4, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 53
-    :cond_2
+    :cond_a9
     invoke-interface/range {p4 .. p4}, Ljava/util/Map;->isEmpty()Z
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_11d
 
     .line 54
     new-instance v4, Ljava/lang/StringBuilder;
@@ -639,12 +639,12 @@
 
     move-result-object v13
 
-    :goto_0
+    :goto_d6
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_ea
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -668,11 +668,11 @@
     .end local v16    # "$i$a$-map-GroupInterfaceAdapter$onUpdateSuccess$2":I
     invoke-interface {v10, v15}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_d6
 
     .line 106
     .end local v14    # "item$iv$iv":Ljava/util/Map$Entry;
-    :cond_3
+    :cond_ea
     nop
 
     .end local v10    # "destination$iv$iv":Ljava/util/Collection;
@@ -738,7 +738,7 @@
     iput-object v4, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 59
-    :cond_4
+    :cond_11d
     move-object/from16 v4, p5
 
     check-cast v4, Ljava/util/Collection;
@@ -747,7 +747,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_161
 
     .line 60
     new-instance v4, Ljava/lang/StringBuilder;
@@ -815,7 +815,7 @@
     iput-object v4, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 64
-    :cond_5
+    :cond_161
     move-object/from16 v4, p6
 
     check-cast v4, Ljava/util/Collection;
@@ -824,7 +824,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_1a5
 
     .line 65
     new-instance v4, Ljava/lang/StringBuilder;
@@ -892,7 +892,7 @@
     iput-object v2, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 70
-    :cond_6
+    :cond_1a5
     new-instance v2, Lio/nekohasekai/sagernet/group/GroupInterfaceAdapter$onUpdateSuccess$4;
 
     const/4 v3, 0x0
@@ -913,11 +913,11 @@
 
     move-result-object v5
 
-    if-ne v2, v5, :cond_7
+    if-ne v2, v5, :cond_1bc
 
     return-object v2
 
-    :cond_7
+    :cond_1bc
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 82

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableSortedSet;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public ceiling(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -90,7 +90,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -108,7 +108,7 @@
 .end method
 
 .method createDescendingSet()Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -129,7 +129,7 @@
 .end method
 
 .method public descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -150,7 +150,7 @@
 .end method
 
 .method public bridge synthetic descendingIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedSet;, "Lcom/google/common/collect/DescendingImmutableSortedSet<TE;>;"
@@ -162,7 +162,7 @@
 .end method
 
 .method public descendingSet()Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -179,7 +179,7 @@
 .end method
 
 .method public bridge synthetic descendingSet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedSet;, "Lcom/google/common/collect/DescendingImmutableSortedSet<TE;>;"
@@ -191,7 +191,7 @@
 .end method
 
 .method public floor(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -214,7 +214,7 @@
 .end method
 
 .method headSetImpl(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 4
     .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -241,7 +241,7 @@
 .end method
 
 .method public higher(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -264,7 +264,7 @@
 .end method
 
 .method indexOf(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -282,13 +282,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     .line 114
     return v0
 
     .line 116
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingImmutableSortedSet;->size()I
 
     move-result v1
@@ -301,7 +301,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 122
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedSet;, "Lcom/google/common/collect/DescendingImmutableSortedSet<TE;>;"
@@ -315,7 +315,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -336,7 +336,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedSet;, "Lcom/google/common/collect/DescendingImmutableSortedSet<TE;>;"
@@ -348,7 +348,7 @@
 .end method
 
 .method public lower(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -371,7 +371,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedSet;, "Lcom/google/common/collect/DescendingImmutableSortedSet<TE;>;"
@@ -385,7 +385,7 @@
 .end method
 
 .method subSetImpl(Ljava/lang/Object;ZLjava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 6
     .param p2, "fromInclusive"    # Z
     .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -414,7 +414,7 @@
 .end method
 
 .method tailSetImpl(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 4
     .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {

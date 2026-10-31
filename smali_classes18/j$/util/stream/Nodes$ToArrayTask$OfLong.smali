@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(Lj$/util/stream/Node$OfLong;[JI)V
-    .locals 1
+    .registers 5
     .param p1, "node"    # Lj$/util/stream/Node$OfLong;
     .param p2, "array"    # [J
     .param p3, "offset"    # I
@@ -43,7 +43,7 @@
 .end method
 
 .method synthetic constructor <init>(Lj$/util/stream/Node$OfLong;[JILj$/util/stream/Nodes-IA;)V
-    .locals 0
+    .registers 5
 
     invoke-direct {p0, p1, p2, p3}, Lj$/util/stream/Nodes$ToArrayTask$OfLong;-><init>(Lj$/util/stream/Node$OfLong;[JI)V
 

@@ -8,7 +8,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 .end method
 
 .method private static encodeASCIIDigits(CC)C
-    .locals 3
+    .registers 5
     .param p0, "digit1"    # C
     .param p1, "digit2"    # C
 
@@ -26,13 +26,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-static {p1}, Lcom/google/zxing/datamatrix/encoder/HighLevelEncoder;->isDigit(C)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 76
     add-int/lit8 v0, p0, -0x30
@@ -51,7 +51,7 @@
     return v0
 
     .line 79
-    :cond_0
+    :cond_17
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public encode(Lcom/google/zxing/datamatrix/encoder/EncoderContext;)V
-    .locals 6
+    .registers 8
     .param p1, "context"    # Lcom/google/zxing/datamatrix/encoder/EncoderContext;
 
     .line 29
@@ -99,7 +99,7 @@
 
     const/4 v2, 0x2
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v2, :cond_30
 
     .line 31
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->getMessage()Ljava/lang/String;
@@ -142,7 +142,7 @@
     return-void
 
     .line 35
-    :cond_0
+    :cond_30
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->getCurrentChar()C
 
     move-result v0
@@ -173,10 +173,10 @@
 
     move-result v5
 
-    if-eq v3, v5, :cond_1
+    if-eq v3, v5, :cond_8d
 
     .line 38
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_b2
 
     .line 60
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -196,7 +196,7 @@
     throw v1
 
     .line 40
-    :pswitch_0
+    :pswitch_5d
     const/16 v1, 0xe7
 
     invoke-virtual {p1, v1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->writeCodeword(C)V
@@ -210,7 +210,7 @@
     return-void
 
     .line 56
-    :pswitch_1
+    :pswitch_67
     const/16 v1, 0xf0
 
     invoke-virtual {p1, v1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->writeCodeword(C)V
@@ -224,7 +224,7 @@
     return-void
 
     .line 48
-    :pswitch_2
+    :pswitch_71
     const/16 v1, 0xee
 
     invoke-virtual {p1, v1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->writeCodeword(C)V
@@ -238,7 +238,7 @@
     return-void
 
     .line 52
-    :pswitch_3
+    :pswitch_7b
     const/16 v1, 0xef
 
     invoke-virtual {p1, v1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->writeCodeword(C)V
@@ -250,7 +250,7 @@
     return-void
 
     .line 44
-    :pswitch_4
+    :pswitch_84
     const/16 v2, 0xe6
 
     invoke-virtual {p1, v2}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->writeCodeword(C)V
@@ -262,12 +262,12 @@
     return-void
 
     .line 62
-    :cond_1
+    :cond_8d
     invoke-static {v0}, Lcom/google/zxing/datamatrix/encoder/HighLevelEncoder;->isExtendedASCII(C)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_a5
 
     .line 63
     const/16 v2, 0xeb
@@ -293,7 +293,7 @@
     return-void
 
     .line 67
-    :cond_2
+    :cond_a5
     add-int/lit8 v2, v0, 0x1
 
     int-to-char v2, v2
@@ -314,18 +314,18 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_b2
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_84
+        :pswitch_7b
+        :pswitch_71
+        :pswitch_67
+        :pswitch_5d
     .end packed-switch
 .end method
 
 .method public getEncodingMode()I
-    .locals 1
+    .registers 2
 
     .line 23
     const/4 v0, 0x0

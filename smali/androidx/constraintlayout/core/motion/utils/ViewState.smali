@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public getState(Landroidx/constraintlayout/core/motion/MotionWidget;)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroidx/constraintlayout/core/motion/MotionWidget;
 
     .line 25
@@ -75,7 +75,7 @@
 .end method
 
 .method public height()I
-    .locals 2
+    .registers 3
 
     .line 37
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/ViewState;->bottom:I
@@ -88,7 +88,7 @@
 .end method
 
 .method public width()I
-    .locals 2
+    .registers 3
 
     .line 33
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/ViewState;->right:I

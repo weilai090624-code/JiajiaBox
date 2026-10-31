@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/collection/ArraySet;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/collection/ArraySet;
 
     .line 635
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method protected colClear()V
-    .locals 1
+    .registers 2
 
     .line 678
     .local p0, "this":Landroidx/collection/ArraySet$1;, "Landroidx/collection/ArraySet$1;"
@@ -55,7 +55,7 @@
 .end method
 
 .method protected colGetEntry(II)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "offset"    # I
 
@@ -71,7 +71,7 @@
 .end method
 
 .method protected colGetMap()Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -92,7 +92,7 @@
 .end method
 
 .method protected colGetSize()I
-    .locals 1
+    .registers 2
 
     .line 638
     .local p0, "this":Landroidx/collection/ArraySet$1;, "Landroidx/collection/ArraySet$1;"
@@ -104,7 +104,7 @@
 .end method
 
 .method protected colIndexOfKey(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 648
@@ -119,7 +119,7 @@
 .end method
 
 .method protected colIndexOfValue(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 653
@@ -134,7 +134,7 @@
 .end method
 
 .method protected colPut(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TE;)V"
@@ -154,7 +154,7 @@
 .end method
 
 .method protected colRemoveAt(I)V
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 673
@@ -168,7 +168,7 @@
 .end method
 
 .method protected colSetValue(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

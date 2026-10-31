@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "wrappedCallback"    # Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public onCaptureBufferLost(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/view/Surface;J)V
-    .locals 9
+    .registers 15
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "target"    # Landroid/view/Surface;
@@ -98,7 +98,7 @@
 .end method
 
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
-    .locals 2
+    .registers 6
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "result"    # Landroid/hardware/camera2/TotalCaptureResult;
@@ -129,7 +129,7 @@
 .end method
 
 .method public onCaptureFailed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureFailure;)V
-    .locals 2
+    .registers 6
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "failure"    # Landroid/hardware/camera2/CaptureFailure;
@@ -160,7 +160,7 @@
 .end method
 
 .method public onCaptureProgressed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
-    .locals 2
+    .registers 6
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "partialResult"    # Landroid/hardware/camera2/CaptureResult;
@@ -191,7 +191,7 @@
 .end method
 
 .method public onCaptureSequenceAborted(Landroid/hardware/camera2/CameraCaptureSession;I)V
-    .locals 2
+    .registers 5
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "sequenceId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -219,7 +219,7 @@
 .end method
 
 .method public onCaptureSequenceCompleted(Landroid/hardware/camera2/CameraCaptureSession;IJ)V
-    .locals 8
+    .registers 13
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "sequenceId"    # I
     .param p3, "frameNumber"    # J
@@ -260,7 +260,7 @@
 .end method
 
 .method public onCaptureStarted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;JJ)V
-    .locals 11
+    .registers 18
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "timestamp"    # J

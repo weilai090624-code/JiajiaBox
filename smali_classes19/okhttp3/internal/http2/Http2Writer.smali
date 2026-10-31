@@ -115,7 +115,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/http2/Http2Writer$Companion;
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>(Lokio/BufferedSink;Z)V
-    .locals 7
+    .registers 10
     .param p1, "sink"    # Lokio/BufferedSink;
     .param p2, "client"    # Z
 
@@ -195,7 +195,7 @@
 .end method
 
 .method private final writeContinuationFrames(IJ)V
-    .locals 8
+    .registers 12
     .param p1, "streamId"    # I
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -209,12 +209,12 @@
 
     .line 276
     .local v0, "byteCount":J
-    :goto_0
+    :goto_1
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_27
 
     .line 277
     iget v4, p0, Lokhttp3/internal/http2/Http2Writer;->maxFrameSize:I
@@ -244,17 +244,17 @@
     .line 283
     cmp-long v7, v0, v2
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_19
 
     const/4 v2, 0x4
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v2, 0x0
 
     .line 279
-    :goto_1
+    :goto_1a
     const/16 v3, 0x9
 
     invoke-virtual {p0, p1, v6, v3, v2}, Lokhttp3/internal/http2/Http2Writer;->frameHeader(IIII)V
@@ -267,17 +267,17 @@
     invoke-interface {v2, v3, v4, v5}, Lokio/BufferedSink;->write(Lokio/Buffer;J)V
 
     .end local v4    # "length":J
-    goto :goto_0
+    goto :goto_1
 
     .line 287
-    :cond_1
+    :cond_27
     return-void
 .end method
 
 
 # virtual methods
 .method public final declared-synchronized applyAndAckSettings(Lokhttp3/internal/http2/Settings;)V
-    .locals 3
+    .registers 5
     .param p1, "peerSettings"    # Lokhttp3/internal/http2/Settings;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -287,7 +287,7 @@
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "peerSettings"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -295,7 +295,7 @@
     .line 68
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_34
 
     .line 69
     iget v0, p0, Lokhttp3/internal/http2/Http2Writer;->maxFrameSize:I
@@ -313,7 +313,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_22
 
     .line 71
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->hpackWriter:Lokhttp3/internal/http2/Hpack$Writer;
@@ -326,7 +326,7 @@
 
     .line 73
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :cond_0
+    :cond_22
     nop
 
     .line 74
@@ -354,8 +354,8 @@
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
 
     invoke-interface {v0}, Lokio/BufferedSink;->flush()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_32
+    .catchall {:try_start_1 .. :try_end_32} :catchall_3c
 
     .line 80
     monitor-exit p0
@@ -363,8 +363,8 @@
     return-void
 
     .line 68
-    :cond_1
-    :try_start_1
+    :cond_34
+    :try_start_34
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -375,18 +375,18 @@
 
     .line 67
     .end local p1    # "peerSettings":Lokhttp3/internal/http2/Settings;
-    :catchall_0
+    :catchall_3c
     move-exception p1
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3e
+    .catchall {:try_start_34 .. :try_end_3e} :catchall_3c
 
     throw p1
 .end method
 
 .method public declared-synchronized close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -398,15 +398,15 @@
     .line 269
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_2
     iput-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
     .line 270
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
 
     invoke-interface {v0}, Lokio/BufferedSink;->close()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_2 .. :try_end_9} :catchall_b
 
     .line 271
     monitor-exit p0
@@ -415,19 +415,19 @@
 
     .line 268
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :catchall_0
+    :catchall_b
     move-exception v0
 
-    :try_start_1
+    :try_start_c
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_d
+    .catchall {:try_start_c .. :try_end_d} :catchall_b
 
     throw v0
 .end method
 
 .method public final declared-synchronized connectionPreface()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -437,25 +437,25 @@
     monitor-enter p0
 
     .line 56
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3b
 
     .line 57
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->client:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_43
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     monitor-exit p0
 
     return-void
 
     .line 58
-    :cond_0
-    :try_start_1
+    :cond_b
+    :try_start_b
     sget-object v0, Lokhttp3/internal/http2/Http2Writer;->logger:Ljava/util/logging/Logger;
 
     sget-object v1, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
@@ -464,7 +464,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 59
     sget-object v0, Lokhttp3/internal/http2/Http2Writer;->logger:Ljava/util/logging/Logger;
@@ -493,7 +493,7 @@
 
     .line 61
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :cond_1
+    :cond_2d
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
 
     sget-object v1, Lokhttp3/internal/http2/Http2;->CONNECTION_PREFACE:Lokio/ByteString;
@@ -504,8 +504,8 @@
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
 
     invoke-interface {v0}, Lokio/BufferedSink;->flush()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_39
+    .catchall {:try_start_b .. :try_end_39} :catchall_43
 
     .line 63
     monitor-exit p0
@@ -513,8 +513,8 @@
     return-void
 
     .line 56
-    :cond_2
-    :try_start_2
+    :cond_3b
+    :try_start_3b
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -524,18 +524,18 @@
     throw v0
 
     .line 55
-    :catchall_0
+    :catchall_43
     move-exception v0
 
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_45
+    .catchall {:try_start_3b .. :try_end_45} :catchall_43
 
     throw v0
 .end method
 
 .method public final declared-synchronized data(ZILokio/Buffer;I)V
-    .locals 2
+    .registers 7
     .param p1, "outFinished"    # Z
     .param p2, "streamId"    # I
     .param p3, "source"    # Lokio/Buffer;
@@ -549,25 +549,25 @@
     monitor-enter p0
 
     .line 150
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     .line 151
     const/4 v0, 0x0
 
     .line 152
     .local v0, "flags":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     or-int/lit8 v0, v0, 0x1
 
     .line 153
-    :cond_0
+    :cond_a
     invoke-virtual {p0, p2, v0, p3, p4}, Lokhttp3/internal/http2/Http2Writer;->dataFrame(IILokio/Buffer;I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_1 .. :try_end_d} :catchall_17
 
     .line 154
     monitor-exit p0
@@ -577,8 +577,8 @@
     .line 150
     .end local v0    # "flags":I
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :cond_1
-    :try_start_1
+    :cond_f
+    :try_start_f
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -592,18 +592,18 @@
     .end local p2    # "streamId":I
     .end local p3    # "source":Lokio/Buffer;
     .end local p4    # "byteCount":I
-    :catchall_0
+    :catchall_17
     move-exception p1
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_19
+    .catchall {:try_start_f .. :try_end_19} :catchall_17
 
     throw p1
 .end method
 
 .method public final dataFrame(IILokio/Buffer;I)V
-    .locals 3
+    .registers 8
     .param p1, "streamId"    # I
     .param p2, "flags"    # I
     .param p3, "buffer"    # Lokio/Buffer;
@@ -635,7 +635,7 @@
     invoke-virtual {p0, p1, p4, v0, p2}, Lokhttp3/internal/http2/Http2Writer;->frameHeader(IIII)V
 
     .line 164
-    if-lez p4, :cond_0
+    if-lez p4, :cond_14
 
     .line 165
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
@@ -647,12 +647,12 @@
     invoke-interface {v0, p3, v1, v2}, Lokio/BufferedSink;->write(Lokio/Buffer;J)V
 
     .line 167
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public final declared-synchronized flush()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -662,17 +662,17 @@
     monitor-enter p0
 
     .line 119
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 120
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
 
     invoke-interface {v0}, Lokio/BufferedSink;->flush()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_1 .. :try_end_a} :catchall_14
 
     .line 121
     monitor-exit p0
@@ -681,8 +681,8 @@
 
     .line 119
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :cond_0
-    :try_start_1
+    :cond_c
+    :try_start_c
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -692,18 +692,18 @@
     throw v0
 
     .line 118
-    :catchall_0
+    :catchall_14
     move-exception v0
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_16
+    .catchall {:try_start_c .. :try_end_16} :catchall_14
 
     throw v0
 .end method
 
 .method public final frameHeader(IIII)V
-    .locals 7
+    .registers 12
     .param p1, "streamId"    # I
     .param p2, "length"    # I
     .param p3, "type"    # I
@@ -723,7 +723,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     sget-object v0, Lokhttp3/internal/http2/Http2Writer;->logger:Ljava/util/logging/Logger;
 
@@ -746,39 +746,39 @@
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->fine(Ljava/lang/String;)V
 
     .line 259
-    :cond_0
+    :cond_1a
     iget v0, p0, Lokhttp3/internal/http2/Http2Writer;->maxFrameSize:I
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    if-gt p2, v0, :cond_1
+    if-gt p2, v0, :cond_22
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_22
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_4
+    :goto_23
+    if-eqz v0, :cond_62
 
     .line 260
     const/high16 v0, -0x80000000
 
     and-int/2addr v0, p1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2b
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_2
+    :cond_2b
     const/4 v1, 0x0
 
-    :goto_1
-    if-eqz v1, :cond_3
+    :goto_2c
+    if-eqz v1, :cond_4b
 
     .line 261
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
@@ -812,7 +812,7 @@
     return-void
 
     .line 318
-    :cond_3
+    :cond_4b
     const/4 v0, 0x0
 
     .line 260
@@ -841,7 +841,7 @@
     throw v1
 
     .line 318
-    :cond_4
+    :cond_62
     const/4 v0, 0x0
 
     .line 259
@@ -891,7 +891,7 @@
 .end method
 
 .method public final getHpackWriter()Lokhttp3/internal/http2/Hpack$Writer;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->hpackWriter:Lokhttp3/internal/http2/Hpack$Writer;
@@ -900,7 +900,7 @@
 .end method
 
 .method public final declared-synchronized goAway(ILokhttp3/internal/http2/ErrorCode;[B)V
-    .locals 4
+    .registers 8
     .param p1, "lastGoodStreamId"    # I
     .param p2, "errorCode"    # Lokhttp3/internal/http2/ErrorCode;
     .param p3, "debugData"    # [B
@@ -912,7 +912,7 @@
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "errorCode"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -924,7 +924,7 @@
     .line 220
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_58
 
     .line 221
     invoke-virtual {p2}, Lokhttp3/internal/http2/ErrorCode;->getHttpCode()I
@@ -937,17 +937,17 @@
 
     const/4 v3, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_1b
+    if-eqz v0, :cond_49
 
     .line 222
     nop
@@ -988,15 +988,15 @@
     .line 230
     array-length v0, p3
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3a
 
-    goto :goto_1
+    goto :goto_3b
 
-    :cond_1
+    :cond_3a
     const/4 v2, 0x0
 
-    :goto_1
-    if-nez v2, :cond_2
+    :goto_3b
+    if-nez v2, :cond_42
 
     .line 231
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
@@ -1005,12 +1005,12 @@
 
     .line 233
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :cond_2
+    :cond_42
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
 
     invoke-interface {v0}, Lokio/BufferedSink;->flush()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_47
+    .catchall {:try_start_1 .. :try_end_47} :catchall_60
 
     .line 234
     monitor-exit p0
@@ -1018,12 +1018,12 @@
     return-void
 
     .line 318
-    :cond_3
+    :cond_49
     const/4 v0, 0x0
 
     .line 221
     .local v0, "$i$a$-require-Http2Writer$goAway$1":I
-    :try_start_1
+    :try_start_4a
     const-string v1, "errorCode.httpCode == -1"
 
     .end local v0    # "$i$a$-require-Http2Writer$goAway$1":I
@@ -1040,7 +1040,7 @@
     throw v0
 
     .line 220
-    :cond_4
+    :cond_58
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -1053,18 +1053,18 @@
     .end local p1    # "lastGoodStreamId":I
     .end local p2    # "errorCode":Lokhttp3/internal/http2/ErrorCode;
     .end local p3    # "debugData":[B
-    :catchall_0
+    :catchall_60
     move-exception p1
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_62
+    .catchall {:try_start_4a .. :try_end_62} :catchall_60
 
     throw p1
 .end method
 
 .method public final declared-synchronized headers(ZILjava/util/List;)V
-    .locals 7
+    .registers 11
     .param p1, "outFinished"    # Z
     .param p2, "streamId"    # I
     .param p3, "headerBlock"    # Ljava/util/List;
@@ -1085,7 +1085,7 @@
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "headerBlock"
 
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1093,7 +1093,7 @@
     .line 295
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_42
 
     .line 296
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->hpackWriter:Lokhttp3/internal/http2/Hpack$Writer;
@@ -1121,24 +1121,24 @@
     .local v2, "length":J
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_22
 
     const/4 v4, 0x4
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v4, 0x0
 
     .line 301
     .local v4, "flags":I
-    :goto_0
-    if-eqz p1, :cond_1
+    :goto_23
+    if-eqz p1, :cond_27
 
     or-int/lit8 v4, v4, 0x1
 
     .line 302
-    :cond_1
+    :cond_27
     nop
 
     .line 303
@@ -1168,17 +1168,17 @@
     .line 310
     cmp-long v5, v0, v2
 
-    if-lez v5, :cond_2
+    if-lez v5, :cond_40
 
     sub-long v5, v0, v2
 
     invoke-direct {p0, p2, v5, v6}, Lokhttp3/internal/http2/Http2Writer;->writeContinuationFrames(IJ)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_40
+    .catchall {:try_start_1 .. :try_end_40} :catchall_4a
 
     .line 311
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :cond_2
+    :cond_40
     monitor-exit p0
 
     return-void
@@ -1187,8 +1187,8 @@
     .end local v0    # "byteCount":J
     .end local v2    # "length":J
     .end local v4    # "flags":I
-    :cond_3
-    :try_start_1
+    :cond_42
+    :try_start_42
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -1201,18 +1201,18 @@
     .end local p1    # "outFinished":Z
     .end local p2    # "streamId":I
     .end local p3    # "headerBlock":Ljava/util/List;
-    :catchall_0
+    :catchall_4a
     move-exception p1
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_4c
+    .catchall {:try_start_42 .. :try_end_4c} :catchall_4a
 
     throw p1
 .end method
 
 .method public final maxDataLength()I
-    .locals 1
+    .registers 2
 
     .line 139
     iget v0, p0, Lokhttp3/internal/http2/Http2Writer;->maxFrameSize:I
@@ -1221,7 +1221,7 @@
 .end method
 
 .method public final declared-synchronized ping(ZII)V
-    .locals 4
+    .registers 8
     .param p1, "ack"    # Z
     .param p2, "payload1"    # I
     .param p3, "payload2"    # I
@@ -1234,10 +1234,10 @@
     monitor-enter p0
 
     .line 198
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_26
 
     .line 199
     nop
@@ -1254,17 +1254,17 @@
     .line 203
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
     .line 199
-    :goto_0
+    :goto_f
     const/16 v2, 0x8
 
     const/4 v3, 0x6
@@ -1285,8 +1285,8 @@
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
 
     invoke-interface {v0}, Lokio/BufferedSink;->flush()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_1 .. :try_end_24} :catchall_2e
 
     .line 208
     monitor-exit p0
@@ -1295,8 +1295,8 @@
 
     .line 198
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :cond_1
-    :try_start_1
+    :cond_26
+    :try_start_26
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -1309,18 +1309,18 @@
     .end local p1    # "ack":Z
     .end local p2    # "payload1":I
     .end local p3    # "payload2":I
-    :catchall_0
+    :catchall_2e
     move-exception p1
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_30
+    .catchall {:try_start_26 .. :try_end_30} :catchall_2e
 
     throw p1
 .end method
 
 .method public final declared-synchronized pushPromise(IILjava/util/List;)V
-    .locals 7
+    .registers 11
     .param p1, "streamId"    # I
     .param p2, "promisedStreamId"    # I
     .param p3, "requestHeaders"    # Ljava/util/List;
@@ -1341,7 +1341,7 @@
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "requestHeaders"
 
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1349,7 +1349,7 @@
     .line 100
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4f
 
     .line 101
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->hpackWriter:Lokhttp3/internal/http2/Hpack$Writer;
@@ -1397,17 +1397,17 @@
 
     cmp-long v6, v0, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_2c
 
     const/4 v4, 0x4
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_2c
     const/4 v4, 0x0
 
     .line 105
-    :goto_0
+    :goto_2d
     const/4 v5, 0x5
 
     invoke-virtual {p0, p1, v2, v5, v4}, Lokhttp3/internal/http2/Http2Writer;->frameHeader(IIII)V
@@ -1435,19 +1435,19 @@
 
     cmp-long v2, v0, v4
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_4d
 
     int-to-long v4, v3
 
     sub-long v4, v0, v4
 
     invoke-direct {p0, p1, v4, v5}, Lokhttp3/internal/http2/Http2Writer;->writeContinuationFrames(IJ)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4d
+    .catchall {:try_start_1 .. :try_end_4d} :catchall_57
 
     .line 115
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :cond_1
+    :cond_4d
     monitor-exit p0
 
     return-void
@@ -1455,8 +1455,8 @@
     .line 100
     .end local v0    # "byteCount":J
     .end local v3    # "length":I
-    :cond_2
-    :try_start_1
+    :cond_4f
+    :try_start_4f
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -1469,18 +1469,18 @@
     .end local p1    # "streamId":I
     .end local p2    # "promisedStreamId":I
     .end local p3    # "requestHeaders":Ljava/util/List;
-    :catchall_0
+    :catchall_57
     move-exception p1
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_59
+    .catchall {:try_start_4f .. :try_end_59} :catchall_57
 
     throw p1
 .end method
 
 .method public final declared-synchronized rstStream(ILokhttp3/internal/http2/ErrorCode;)V
-    .locals 3
+    .registers 6
     .param p1, "streamId"    # I
     .param p2, "errorCode"    # Lokhttp3/internal/http2/ErrorCode;
     .annotation system Ldalvik/annotation/Throws;
@@ -1491,7 +1491,7 @@
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "errorCode"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1499,7 +1499,7 @@
     .line 125
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3f
 
     .line 126
     invoke-virtual {p2}, Lokhttp3/internal/http2/ErrorCode;->getHttpCode()I
@@ -1510,17 +1510,17 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_15
+    if-eqz v0, :cond_31
 
     .line 128
     nop
@@ -1557,8 +1557,8 @@
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
 
     invoke-interface {v0}, Lokio/BufferedSink;->flush()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2f
+    .catchall {:try_start_1 .. :try_end_2f} :catchall_47
 
     .line 136
     monitor-exit p0
@@ -1567,8 +1567,8 @@
 
     .line 126
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :cond_1
-    :try_start_1
+    :cond_31
+    :try_start_31
     const-string v0, "Failed requirement."
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -1584,7 +1584,7 @@
     throw v1
 
     .line 125
-    :cond_2
+    :cond_3f
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -1596,18 +1596,18 @@
     .line 124
     .end local p1    # "streamId":I
     .end local p2    # "errorCode":Lokhttp3/internal/http2/ErrorCode;
-    :catchall_0
+    :catchall_47
     move-exception p1
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_49
+    .catchall {:try_start_31 .. :try_end_49} :catchall_47
 
     throw p1
 .end method
 
 .method public final declared-synchronized settings(Lokhttp3/internal/http2/Settings;)V
-    .locals 6
+    .registers 8
     .param p1, "settings"    # Lokhttp3/internal/http2/Settings;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1617,7 +1617,7 @@
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "settings"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1625,7 +1625,7 @@
     .line 172
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_46
 
     .line 173
     nop
@@ -1656,7 +1656,7 @@
     .line 179
     nop
 
-    :cond_0
+    :cond_1a
     move v0, v2
 
     .local v0, "i":I
@@ -1667,31 +1667,31 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_24
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 181
-    :cond_1
-    sparse-switch v0, :sswitch_data_0
+    :cond_24
+    sparse-switch v0, :sswitch_data_52
 
     .line 184
     move v3, v0
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 183
-    :sswitch_0
+    :sswitch_29
     const/4 v3, 0x4
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 182
-    :sswitch_1
+    :sswitch_2b
     const/4 v3, 0x3
 
     .line 181
-    :goto_0
+    :goto_2c
     nop
 
     .line 186
@@ -1711,18 +1711,18 @@
 
     .line 179
     .end local v3    # "id":I
-    :goto_1
+    :goto_3b
     const/16 v3, 0xa
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_1a
 
     .line 189
     .end local v0    # "i":I
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
 
     invoke-interface {v0}, Lokio/BufferedSink;->flush()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_44
+    .catchall {:try_start_1 .. :try_end_44} :catchall_4e
 
     .line 190
     monitor-exit p0
@@ -1731,8 +1731,8 @@
 
     .line 172
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :cond_2
-    :try_start_1
+    :cond_46
+    :try_start_46
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -1743,26 +1743,26 @@
 
     .line 171
     .end local p1    # "settings":Lokhttp3/internal/http2/Settings;
-    :catchall_0
+    :catchall_4e
     move-exception p1
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_50
+    .catchall {:try_start_46 .. :try_end_50} :catchall_4e
 
     throw p1
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_52
     .sparse-switch
-        0x4 -> :sswitch_1
-        0x7 -> :sswitch_0
+        0x4 -> :sswitch_2b
+        0x7 -> :sswitch_29
     .end sparse-switch
 .end method
 
 .method public final declared-synchronized windowUpdate(IJ)V
-    .locals 4
+    .registers 8
     .param p1, "streamId"    # I
     .param p2, "windowSizeIncrement"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -1774,10 +1774,10 @@
     monitor-enter p0
 
     .line 242
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_47
 
     .line 243
     const-wide/16 v0, 0x0
@@ -1786,23 +1786,23 @@
 
     cmp-long v3, p2, v0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_15
 
     const-wide/32 v0, 0x7fffffff
 
     cmp-long v3, p2, v0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_16
+    if-eqz v0, :cond_30
 
     .line 246
     nop
@@ -1837,8 +1837,8 @@
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->sink:Lokio/BufferedSink;
 
     invoke-interface {v0}, Lokio/BufferedSink;->flush()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_1 .. :try_end_2e} :catchall_4f
 
     .line 254
     monitor-exit p0
@@ -1847,12 +1847,12 @@
 
     .line 243
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Writer;
-    :cond_1
+    :cond_30
     const/4 v0, 0x0
 
     .line 244
     .local v0, "$i$a$-require-Http2Writer$windowUpdate$1":I
-    :try_start_1
+    :try_start_31
     const-string v1, "windowSizeIncrement == 0 || windowSizeIncrement > 0x7fffffffL: "
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -1878,7 +1878,7 @@
     throw v0
 
     .line 242
-    :cond_2
+    :cond_47
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -1890,12 +1890,12 @@
     .line 241
     .end local p1    # "streamId":I
     .end local p2    # "windowSizeIncrement":J
-    :catchall_0
+    :catchall_4f
     move-exception p1
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_51
+    .catchall {:try_start_31 .. :try_end_51} :catchall_4f
 
     throw p1
 .end method

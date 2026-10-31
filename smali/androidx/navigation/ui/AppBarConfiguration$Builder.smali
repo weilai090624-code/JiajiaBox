@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/Menu;)V
-    .locals 5
+    .registers 7
     .param p1, "topLevelMenu"    # Landroid/view/Menu;
 
     const-string/jumbo v0, "topLevelMenu"
@@ -104,8 +104,8 @@
     const/4 v1, 0x0
 
     .local v1, "index":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_17
+    if-ge v1, v0, :cond_2d
 
     .line 116
     invoke-interface {p1, v1}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
@@ -130,16 +130,16 @@
     .end local v2    # "item":Landroid/view/MenuItem;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 119
     .end local v1    # "index":I
-    :cond_0
+    :cond_2d
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/navigation/NavGraph;)V
-    .locals 2
+    .registers 4
     .param p1, "navGraph"    # Landroidx/navigation/NavGraph;
 
     const-string v0, "navGraph"
@@ -182,7 +182,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Set;)V
-    .locals 2
+    .registers 4
     .param p1, "topLevelDestinationIds"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -223,7 +223,7 @@
 .end method
 
 .method public varargs constructor <init>([I)V
-    .locals 5
+    .registers 7
     .param p1, "topLevelDestinationIds"    # [I
 
     const-string/jumbo v0, "topLevelDestinationIds"
@@ -247,8 +247,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_14
+    if-ge v1, v0, :cond_24
 
     aget v2, p1, v1
 
@@ -265,18 +265,18 @@
     .line 130
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 133
     .end local v2    # "destinationId":I
-    :cond_0
+    :cond_24
     return-void
 .end method
 
 
 # virtual methods
 .method public final build()Landroidx/navigation/ui/AppBarConfiguration;
-    .locals 5
+    .registers 6
 
     .line 196
     new-instance v0, Landroidx/navigation/ui/AppBarConfiguration;
@@ -299,7 +299,7 @@
 .end method
 
 .method public final setDrawerLayout(Landroidx/drawerlayout/widget/DrawerLayout;)Landroidx/navigation/ui/AppBarConfiguration$Builder;
-    .locals 1
+    .registers 3
     .param p1, "drawerLayout"    # Landroidx/drawerlayout/widget/DrawerLayout;
     .annotation runtime Lkotlin/Deprecated;
         message = "Use {@link #setOpenableLayout(Openable)}."
@@ -317,7 +317,7 @@
 .end method
 
 .method public final setFallbackOnNavigateUpListener(Landroidx/navigation/ui/AppBarConfiguration$OnNavigateUpListener;)Landroidx/navigation/ui/AppBarConfiguration$Builder;
-    .locals 0
+    .registers 2
     .param p1, "fallbackOnNavigateUpListener"    # Landroidx/navigation/ui/AppBarConfiguration$OnNavigateUpListener;
 
     .line 184
@@ -328,7 +328,7 @@
 .end method
 
 .method public final setOpenableLayout(Landroidx/customview/widget/Openable;)Landroidx/navigation/ui/AppBarConfiguration$Builder;
-    .locals 0
+    .registers 2
     .param p1, "openableLayout"    # Landroidx/customview/widget/Openable;
 
     .line 167

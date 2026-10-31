@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/DiscreteDomain;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,7 +57,7 @@
 .end method
 
 .method public static builder()Lcom/google/common/collect/ImmutableSortedSet$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -80,7 +80,7 @@
 .end method
 
 .method public static closed(II)Lcom/google/common/collect/ContiguousSet;
-    .locals 2
+    .registers 4
     .param p0, "lower"    # I
     .param p1, "upper"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -117,7 +117,7 @@
 .end method
 
 .method public static closed(JJ)Lcom/google/common/collect/ContiguousSet;
-    .locals 2
+    .registers 6
     .param p0, "lower"    # J
     .param p2, "upper"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -154,7 +154,7 @@
 .end method
 
 .method public static closedOpen(II)Lcom/google/common/collect/ContiguousSet;
-    .locals 2
+    .registers 4
     .param p0, "lower"    # I
     .param p1, "upper"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -191,7 +191,7 @@
 .end method
 
 .method public static closedOpen(JJ)Lcom/google/common/collect/ContiguousSet;
-    .locals 2
+    .registers 6
     .param p0, "lower"    # J
     .param p2, "upper"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -228,7 +228,7 @@
 .end method
 
 .method public static create(Lcom/google/common/collect/Range;Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/ContiguousSet;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -256,12 +256,12 @@
 
     .line 69
     .local v0, "effectiveRange":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    :try_start_0
+    :try_start_7
     invoke-virtual {p0}, Lcom/google/common/collect/Range;->hasLowerBound()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
     .line 70
     invoke-virtual {p1}, Lcom/google/common/collect/DiscreteDomain;->minValue()Ljava/lang/Comparable;
@@ -279,12 +279,12 @@
     move-object v0, v1
 
     .line 72
-    :cond_0
+    :cond_1a
     invoke-virtual {p0}, Lcom/google/common/collect/Range;->hasUpperBound()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2d
 
     .line 73
     invoke-virtual {p1}, Lcom/google/common/collect/DiscreteDomain;->maxValue()Ljava/lang/Comparable;
@@ -298,13 +298,13 @@
     invoke-virtual {v0, v1}, Lcom/google/common/collect/Range;->intersection(Lcom/google/common/collect/Range;)Lcom/google/common/collect/Range;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2c
+    .catch Ljava/util/NoSuchElementException; {:try_start_7 .. :try_end_2c} :catch_66
 
     move-object v0, v1
 
     .line 77
-    :cond_1
+    :cond_2d
     nop
 
     .line 80
@@ -312,17 +312,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_36
 
     .line 81
     const/4 v1, 0x1
 
     .local v1, "empty":Z
-    goto :goto_1
+    goto :goto_58
 
     .line 87
     .end local v1    # "empty":Z
-    :cond_2
+    :cond_36
     iget-object v1, p0, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
     invoke-virtual {v1, p1}, Lcom/google/common/collect/Cut;->leastValueAbove(Lcom/google/common/collect/DiscreteDomain;)Ljava/lang/Comparable;
@@ -355,44 +355,44 @@
 
     move-result v3
 
-    if-lez v3, :cond_3
+    if-lez v3, :cond_56
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_57
 
-    :cond_3
+    :cond_56
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_57
     move v1, v3
 
     .line 93
     .end local v2    # "beforeUpper":Ljava/lang/Comparable;, "TC;"
     .local v1, "empty":Z
-    :goto_1
-    if-eqz v1, :cond_4
+    :goto_58
+    if-eqz v1, :cond_60
 
     .line 94
     new-instance v2, Lcom/google/common/collect/EmptyContiguousSet;
 
     invoke-direct {v2, p1}, Lcom/google/common/collect/EmptyContiguousSet;-><init>(Lcom/google/common/collect/DiscreteDomain;)V
 
-    goto :goto_2
+    goto :goto_65
 
     .line 95
-    :cond_4
+    :cond_60
     new-instance v2, Lcom/google/common/collect/RegularContiguousSet;
 
     invoke-direct {v2, v0, p1}, Lcom/google/common/collect/RegularContiguousSet;-><init>(Lcom/google/common/collect/Range;Lcom/google/common/collect/DiscreteDomain;)V
 
     .line 93
-    :goto_2
+    :goto_65
     return-object v2
 
     .line 75
     .end local v1    # "empty":Z
-    :catch_0
+    :catch_66
     move-exception v1
 
     .line 76
@@ -407,7 +407,7 @@
 
 # virtual methods
 .method createDescendingSet()Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -426,7 +426,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Comparable;)Lcom/google/common/collect/ContiguousSet;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)",
@@ -454,7 +454,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Comparable;Z)Lcom/google/common/collect/ContiguousSet;
-    .locals 1
+    .registers 4
     .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -481,7 +481,7 @@
 .end method
 
 .method public bridge synthetic headSet(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 2
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -495,7 +495,7 @@
 .end method
 
 .method public bridge synthetic headSet(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 3
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -509,7 +509,7 @@
 .end method
 
 .method public bridge synthetic headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 0
+    .registers 3
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -523,7 +523,7 @@
 .end method
 
 .method public bridge synthetic headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 2
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -547,7 +547,7 @@
 .end method
 
 .method bridge synthetic headSetImpl(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 3
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -596,7 +596,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/ContiguousSet;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;TC;)",
@@ -627,16 +627,16 @@
 
     const/4 v2, 0x0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 174
@@ -648,7 +648,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Comparable;ZLjava/lang/Comparable;Z)Lcom/google/common/collect/ContiguousSet;
-    .locals 1
+    .registers 6
     .param p2, "fromInclusive"    # Z
     .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -677,16 +677,16 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 185
@@ -698,7 +698,7 @@
 .end method
 
 .method public bridge synthetic subSet(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 3
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -714,7 +714,7 @@
 .end method
 
 .method public bridge synthetic subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 5
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -730,7 +730,7 @@
 .end method
 
 .method public bridge synthetic subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 0
+    .registers 5
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -746,7 +746,7 @@
 .end method
 
 .method public bridge synthetic subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 3
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -772,7 +772,7 @@
 .end method
 
 .method bridge synthetic subSetImpl(Ljava/lang/Object;ZLjava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 5
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -788,7 +788,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Comparable;)Lcom/google/common/collect/ContiguousSet;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)",
@@ -816,7 +816,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Comparable;Z)Lcom/google/common/collect/ContiguousSet;
-    .locals 1
+    .registers 4
     .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -843,7 +843,7 @@
 .end method
 
 .method public bridge synthetic tailSet(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 2
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -857,7 +857,7 @@
 .end method
 
 .method public bridge synthetic tailSet(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 3
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -871,7 +871,7 @@
 .end method
 
 .method public bridge synthetic tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 0
+    .registers 3
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -885,7 +885,7 @@
 .end method
 
 .method public bridge synthetic tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 2
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -909,7 +909,7 @@
 .end method
 
 .method bridge synthetic tailSetImpl(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 3
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"
@@ -923,7 +923,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 251
     .local p0, "this":Lcom/google/common/collect/ContiguousSet;, "Lcom/google/common/collect/ContiguousSet<TC;>;"

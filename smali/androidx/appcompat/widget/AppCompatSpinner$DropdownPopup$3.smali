@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
 
     .line 1092
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onDismiss()V
-    .locals 2
+    .registers 3
 
     .line 1095
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup$3;->this$1:Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
@@ -54,7 +54,7 @@
 
     .line 1096
     .local v0, "vto":Landroid/view/ViewTreeObserver;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 1097
     iget-object v1, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup$3;->val$layoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
@@ -62,6 +62,6 @@
     invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->removeGlobalOnLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     .line 1099
-    :cond_0
+    :cond_f
     return-void
 .end method

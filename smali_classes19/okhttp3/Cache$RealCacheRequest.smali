@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/Cache;Lokhttp3/internal/cache/DiskLruCache$Editor;)V
-    .locals 3
+    .registers 6
     .param p1, "this$0"    # Lokhttp3/Cache;
     .param p2, "editor"    # Lokhttp3/internal/cache/DiskLruCache$Editor;
     .annotation system Ldalvik/annotation/Signature;
@@ -126,7 +126,7 @@
 .end method
 
 .method public static final synthetic access$getEditor$p(Lokhttp3/Cache$RealCacheRequest;)Lokhttp3/internal/cache/DiskLruCache$Editor;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/Cache$RealCacheRequest;
 
     .line 399
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method public abort()V
-    .locals 5
+    .registers 6
 
     .line 422
     iget-object v0, p0, Lokhttp3/Cache$RealCacheRequest;->this$0:Lokhttp3/Cache;
@@ -151,14 +151,14 @@
 
     .line 423
     .local v2, "$i$a$-synchronized-Cache$RealCacheRequest$abort$1":I
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Lokhttp3/Cache$RealCacheRequest;->getDone()Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_6 .. :try_end_a} :catchall_2b
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_e
 
     .end local v2    # "$i$a$-synchronized-Cache$RealCacheRequest$abort$1":I
     monitor-exit v0
@@ -167,10 +167,10 @@
 
     .line 424
     .restart local v2    # "$i$a$-synchronized-Cache$RealCacheRequest$abort$1":I
-    :cond_0
+    :cond_e
     const/4 v3, 0x1
 
-    :try_start_1
+    :try_start_f
     invoke-virtual {p0, v3}, Lokhttp3/Cache$RealCacheRequest;->setDone(Z)V
 
     .line 425
@@ -181,8 +181,8 @@
     add-int/2addr v4, v3
 
     invoke-virtual {v1, v4}, Lokhttp3/Cache;->setWriteAbortCount$okhttp(I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_f .. :try_end_1a} :catchall_2b
 
     .line 422
     .end local v2    # "$i$a$-synchronized-Cache$RealCacheRequest$abort$1":I
@@ -199,25 +199,25 @@
     nop
 
     .line 429
-    :try_start_2
+    :try_start_23
     iget-object v0, p0, Lokhttp3/Cache$RealCacheRequest;->editor:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->abort()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_28
+    .catch Ljava/io/IOException; {:try_start_23 .. :try_end_28} :catch_29
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 430
-    :catch_0
+    :catch_29
     move-exception v0
 
     .line 432
-    :goto_0
+    :goto_2a
     return-void
 
     .line 422
-    :catchall_0
+    :catchall_2b
     move-exception v1
 
     monitor-exit v0
@@ -226,7 +226,7 @@
 .end method
 
 .method public body()Lokio/Sink;
-    .locals 1
+    .registers 2
 
     .line 434
     iget-object v0, p0, Lokhttp3/Cache$RealCacheRequest;->body:Lokio/Sink;
@@ -235,7 +235,7 @@
 .end method
 
 .method public final getDone()Z
-    .locals 1
+    .registers 2
 
     .line 404
     iget-boolean v0, p0, Lokhttp3/Cache$RealCacheRequest;->done:Z
@@ -244,7 +244,7 @@
 .end method
 
 .method public final setDone(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 404

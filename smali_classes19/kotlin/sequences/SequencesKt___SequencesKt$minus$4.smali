@@ -67,7 +67,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/Sequence;Lkotlin/sequences/Sequence;)V
-    .locals 0
+    .registers 3
     .param p1, "$elements"    # Lkotlin/sequences/Sequence;
     .param p2, "$receiver"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -115,7 +115,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 2680
     iget-object v1, p0, Lkotlin/sequences/SequencesKt___SequencesKt$minus$4;->$this_minus:Lkotlin/sequences/Sequence;
@@ -127,7 +127,7 @@
     return-object v1
 
     .line 2682
-    :cond_0
+    :cond_13
     iget-object v1, p0, Lkotlin/sequences/SequencesKt___SequencesKt$minus$4;->$this_minus:Lkotlin/sequences/Sequence;
 
     new-instance v2, Lkotlin/sequences/SequencesKt___SequencesKt$minus$4$iterator$1;

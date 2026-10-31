@@ -50,7 +50,7 @@
 
 # direct methods
 .method private static final dispatcherFailure(Lkotlin/coroutines/Continuation;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p0, "completion"    # Lkotlin/coroutines/Continuation;
     .param p1, "e"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
@@ -81,7 +81,7 @@
 .end method
 
 .method private static final runSafely(Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function0;)V
-    .locals 2
+    .registers 4
     .param p0, "completion"    # Lkotlin/coroutines/Continuation;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -102,15 +102,15 @@
     nop
 
     .line 50
-    :try_start_0
+    :try_start_2
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catchall {:try_start_2 .. :try_end_5} :catchall_6
 
-    goto :goto_0
+    goto :goto_a
 
     .line 51
-    :catchall_0
+    :catchall_6
     move-exception v1
 
     .line 52
@@ -119,12 +119,12 @@
 
     .line 54
     .end local v1    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_a
     return-void
 .end method
 
 .method public static final startCoroutineCancellable(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/Continuation;)V
-    .locals 6
+    .registers 8
     .param p0, "$this$startCoroutineCancellable"    # Lkotlin/coroutines/Continuation;
     .param p1, "fatalCompletion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -151,7 +151,7 @@
 
     .line 39
     .local v1, "$i$a$-runSafely-CancellableKt$startCoroutineCancellable$3":I
-    :try_start_0
+    :try_start_3
     invoke-static {p0}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
     move-result-object v2
@@ -169,18 +169,18 @@
     const/4 v5, 0x0
 
     invoke-static {v2, v3, v5, v4, v5}, Lkotlinx/coroutines/internal/DispatchedContinuationKt;->resumeCancellableWith$default(Lkotlin/coroutines/Continuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_3 .. :try_end_14} :catchall_16
 
     .line 40
     nop
 
     .line 82
     .end local v1    # "$i$a$-runSafely-CancellableKt$startCoroutineCancellable$3":I
-    goto :goto_0
+    goto :goto_1a
 
     .line 83
-    :catchall_0
+    :catchall_16
     move-exception v1
 
     .line 84
@@ -189,7 +189,7 @@
 
     .line 86
     .end local v1    # "e$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_1a
     nop
 
     .line 40
@@ -198,7 +198,7 @@
 .end method
 
 .method public static final startCoroutineCancellable(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)V
-    .locals 6
+    .registers 8
     .param p0, "$this$startCoroutineCancellable"    # Lkotlin/jvm/functions/Function1;
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -229,7 +229,7 @@
 
     .line 18
     .local v1, "$i$a$-runSafely-CancellableKt$startCoroutineCancellable$1":I
-    :try_start_0
+    :try_start_3
     invoke-static {p0, p1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->createCoroutineUnintercepted(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
     move-result-object v2
@@ -251,18 +251,18 @@
     const/4 v5, 0x0
 
     invoke-static {v2, v3, v5, v4, v5}, Lkotlinx/coroutines/internal/DispatchedContinuationKt;->resumeCancellableWith$default(Lkotlin/coroutines/Continuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_3 .. :try_end_18} :catchall_1a
 
     .line 19
     nop
 
     .line 70
     .end local v1    # "$i$a$-runSafely-CancellableKt$startCoroutineCancellable$1":I
-    goto :goto_0
+    goto :goto_1e
 
     .line 71
-    :catchall_0
+    :catchall_1a
     move-exception v1
 
     .line 72
@@ -271,7 +271,7 @@
 
     .line 74
     .end local v1    # "e$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_1e
     nop
 
     .line 19
@@ -280,7 +280,7 @@
 .end method
 
 .method public static final startCoroutineCancellable(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 8
     .param p0, "$this$startCoroutineCancellable"    # Lkotlin/jvm/functions/Function2;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "completion"    # Lkotlin/coroutines/Continuation;
@@ -320,7 +320,7 @@
 
     .line 30
     .local v1, "$i$a$-runSafely-CancellableKt$startCoroutineCancellable$2":I
-    :try_start_0
+    :try_start_3
     invoke-static {p0, p1, p2}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->createCoroutineUnintercepted(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
     move-result-object v2
@@ -338,18 +338,18 @@
     move-result-object v3
 
     invoke-static {v2, v3, p3}, Lkotlinx/coroutines/internal/DispatchedContinuationKt;->resumeCancellableWith(Lkotlin/coroutines/Continuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_3 .. :try_end_16} :catchall_18
 
     .line 31
     nop
 
     .line 76
     .end local v1    # "$i$a$-runSafely-CancellableKt$startCoroutineCancellable$2":I
-    goto :goto_0
+    goto :goto_1c
 
     .line 77
-    :catchall_0
+    :catchall_18
     move-exception v1
 
     .line 78
@@ -358,7 +358,7 @@
 
     .line 80
     .end local v1    # "e$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_1c
     nop
 
     .line 31
@@ -367,18 +367,18 @@
 .end method
 
 .method public static synthetic startCoroutineCancellable$default(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 6
 
     .line 25
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 27
     const/4 p3, 0x0
 
     .line 25
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlinx/coroutines/intrinsics/CancellableKt;->startCoroutineCancellable(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;)V
 
     return-void

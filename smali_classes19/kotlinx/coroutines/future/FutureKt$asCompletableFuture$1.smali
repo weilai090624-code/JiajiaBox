@@ -70,7 +70,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/CompletableFuture;Lkotlinx/coroutines/Deferred;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 77
@@ -111,14 +111,14 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "it"    # Ljava/lang/Throwable;
 
     .line 78
     nop
 
     .line 79
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lkotlinx/coroutines/future/FutureKt$asCompletableFuture$1;->$future:Ljava/util/concurrent/CompletableFuture;
 
     iget-object v1, p0, Lkotlinx/coroutines/future/FutureKt$asCompletableFuture$1;->$this_asCompletableFuture:Lkotlinx/coroutines/Deferred;
@@ -128,13 +128,13 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_1 .. :try_end_c} :catchall_d
 
-    goto :goto_0
+    goto :goto_13
 
     .line 80
-    :catchall_0
+    :catchall_d
     move-exception v0
 
     .line 81
@@ -145,6 +145,6 @@
 
     .line 83
     .end local v0    # "t":Ljava/lang/Throwable;
-    :goto_0
+    :goto_13
     return-void
 .end method

@@ -12,7 +12,8 @@ if [ -n "$assembly_source" ]; then
         if [ "$previous" = "-o" ]; then assembly_output="$argument"; fi
         previous="$argument"
     done
-    /data/data/com.termux/files/usr/bin/clang-21 -fintegrated-cc1 -x c -E "$assembly_source" -o "$assembly_output.s" || exit
+    "${CLANG:-clang}" -fintegrated-cc1 -x c -E "$assembly_source" -o "$assembly_output.s" || exit
     exec /usr/bin/aarch64-linux-gnu-as "$assembly_output.s" -o "$assembly_output"
 fi
-exec /data/data/com.termux/files/usr/bin/clang-21 -fintegrated-cc1 "$@"
+clang_bin="${CLANG:-clang}"
+exec "$clang_bin" -fintegrated-cc1 "$@"

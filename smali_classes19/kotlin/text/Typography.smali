@@ -158,7 +158,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/text/Typography;
 
@@ -170,7 +170,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -179,13 +179,13 @@
 .end method
 
 .method public static synthetic getLeftGuillemet$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getLeftGuillemete$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "This constant has a typo in the name. Use leftGuillemet instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -202,13 +202,13 @@
 .end method
 
 .method public static synthetic getRightGuillemet$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getRightGuillemete$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "This constant has a typo in the name. Use rightGuillemet instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;

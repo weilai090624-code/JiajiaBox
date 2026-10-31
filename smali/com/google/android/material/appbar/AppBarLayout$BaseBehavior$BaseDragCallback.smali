@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1452
     .local p0, "this":Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$BaseDragCallback;, "Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$BaseDragCallback<TT;>;"

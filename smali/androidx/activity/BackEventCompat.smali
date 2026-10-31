@@ -71,7 +71,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/activity/BackEventCompat$Companion;
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>(FFFI)V
-    .locals 0
+    .registers 5
     .param p1, "touchX"    # F
     .param p2, "touchY"    # F
     .param p3, "progress"    # F
@@ -111,7 +111,7 @@
 .end method
 
 .method public constructor <init>(Landroid/window/BackEvent;)V
-    .locals 4
+    .registers 6
     .param p1, "backEvent"    # Landroid/window/BackEvent;
 
     const-string v0, "backEvent"
@@ -159,7 +159,7 @@
 
 # virtual methods
 .method public final getProgress()F
-    .locals 1
+    .registers 2
 
     .line 42
     iget v0, p0, Landroidx/activity/BackEventCompat;->progress:F
@@ -168,7 +168,7 @@
 .end method
 
 .method public final getSwipeEdge()I
-    .locals 1
+    .registers 2
 
     .line 44
     iget v0, p0, Landroidx/activity/BackEventCompat;->swipeEdge:I
@@ -177,7 +177,7 @@
 .end method
 
 .method public final getTouchX()F
-    .locals 1
+    .registers 2
 
     .line 35
     iget v0, p0, Landroidx/activity/BackEventCompat;->touchX:F
@@ -186,7 +186,7 @@
 .end method
 
 .method public final getTouchY()F
-    .locals 1
+    .registers 2
 
     .line 40
     iget v0, p0, Landroidx/activity/BackEventCompat;->touchY:F
@@ -195,14 +195,14 @@
 .end method
 
 .method public final toBackEvent()Landroid/window/BackEvent;
-    .locals 5
+    .registers 6
 
     .line 72
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_15
 
     .line 73
     sget-object v0, Landroidx/activity/Api34Impl;->INSTANCE:Landroidx/activity/Api34Impl;
@@ -222,7 +222,7 @@
     return-object v0
 
     .line 75
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "This method is only supported on API level 34+"
@@ -233,7 +233,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 80
     new-instance v0, Ljava/lang/StringBuilder;

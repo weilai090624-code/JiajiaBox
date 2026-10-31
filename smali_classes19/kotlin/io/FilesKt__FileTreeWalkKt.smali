@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/io/FilesKt__FileReadWriteKt;-><init>()V
 
@@ -39,7 +39,7 @@
 .end method
 
 .method public static final walk(Ljava/io/File;Lkotlin/io/FileWalkDirection;)Lkotlin/io/FileTreeWalk;
-    .locals 1
+    .registers 3
     .param p0, "$this$walk"    # Ljava/io/File;
     .param p1, "direction"    # Lkotlin/io/FileWalkDirection;
 
@@ -60,16 +60,16 @@
 .end method
 
 .method public static synthetic walk$default(Ljava/io/File;Lkotlin/io/FileWalkDirection;ILjava/lang/Object;)Lkotlin/io/FileTreeWalk;
-    .locals 0
+    .registers 4
 
     .line 259
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Lkotlin/io/FileWalkDirection;->TOP_DOWN:Lkotlin/io/FileWalkDirection;
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1}, Lkotlin/io/FilesKt;->walk(Ljava/io/File;Lkotlin/io/FileWalkDirection;)Lkotlin/io/FileTreeWalk;
 
     move-result-object p0
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final walkBottomUp(Ljava/io/File;)Lkotlin/io/FileTreeWalk;
-    .locals 1
+    .registers 2
     .param p0, "$this$walkBottomUp"    # Ljava/io/File;
 
     const-string v0, "<this>"
@@ -96,7 +96,7 @@
 .end method
 
 .method public static final walkTopDown(Ljava/io/File;)Lkotlin/io/FileTreeWalk;
-    .locals 1
+    .registers 2
     .param p0, "$this$walkTopDown"    # Ljava/io/File;
 
     const-string v0, "<this>"

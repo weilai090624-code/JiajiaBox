@@ -68,7 +68,7 @@
 
 # direct methods
 .method public static final checkUIntRangeBounds-J1ME1BU(II)V
-    .locals 3
+    .registers 5
     .param p0, "from"    # I
     .param p1, "until"    # I
 
@@ -77,22 +77,22 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_9
+    if-eqz v0, :cond_c
 
     return-void
 
     .line 156
-    :cond_1
+    :cond_c
     const/4 v0, 0x0
 
     .line 153
@@ -122,7 +122,7 @@
 .end method
 
 .method public static final checkULongRangeBounds-eb3DHEI(JJ)V
-    .locals 3
+    .registers 7
     .param p0, "from"    # J
     .param p2, "until"    # J
 
@@ -131,22 +131,22 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_9
+    if-eqz v0, :cond_c
 
     return-void
 
     .line 156
-    :cond_1
+    :cond_c
     const/4 v0, 0x0
 
     .line 154
@@ -176,7 +176,7 @@
 .end method
 
 .method public static final nextUBytes(Lkotlin/random/Random;I)[B
-    .locals 1
+    .registers 3
     .param p0, "$this$nextUBytes"    # Lkotlin/random/Random;
     .param p1, "size"    # I
 
@@ -197,7 +197,7 @@
 .end method
 
 .method public static final nextUBytes-EVgfTAA(Lkotlin/random/Random;[B)[B
-    .locals 1
+    .registers 3
     .param p0, "$this$nextUBytes_u2dEVgfTAA"    # Lkotlin/random/Random;
     .param p1, "array"    # [B
 
@@ -217,7 +217,7 @@
 .end method
 
 .method public static final nextUBytes-Wvrt4B4(Lkotlin/random/Random;[BII)[B
-    .locals 1
+    .registers 5
     .param p0, "$this$nextUBytes_u2dWvrt4B4"    # Lkotlin/random/Random;
     .param p1, "array"    # [B
     .param p2, "fromIndex"    # I
@@ -239,25 +239,25 @@
 .end method
 
 .method public static synthetic nextUBytes-Wvrt4B4$default(Lkotlin/random/Random;[BIIILjava/lang/Object;)[B
-    .locals 0
+    .registers 6
 
     .line 147
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     invoke-static {p1}, Lkotlin/UByteArray;->getSize-impl([B)I
 
     move-result p3
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lkotlin/random/URandomKt;->nextUBytes-Wvrt4B4(Lkotlin/random/Random;[BII)[B
 
     move-result-object p0
@@ -266,7 +266,7 @@
 .end method
 
 .method public static final nextUInt(Lkotlin/random/Random;)I
-    .locals 1
+    .registers 2
     .param p0, "$this$nextUInt"    # Lkotlin/random/Random;
 
     const-string v0, "<this>"
@@ -286,7 +286,7 @@
 .end method
 
 .method public static final nextUInt(Lkotlin/random/Random;Lkotlin/ranges/UIntRange;)I
-    .locals 3
+    .registers 5
     .param p0, "$this$nextUInt"    # Lkotlin/random/Random;
     .param p1, "range"    # Lkotlin/ranges/UIntRange;
 
@@ -306,7 +306,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_58
 
     .line 60
     invoke-virtual {p1}, Lkotlin/ranges/UIntRange;->getLast-pVg5ArA()I
@@ -319,7 +319,7 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_2f
 
     invoke-virtual {p1}, Lkotlin/ranges/UIntRange;->getFirst-pVg5ArA()I
 
@@ -339,10 +339,10 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_57
 
     .line 61
-    :cond_0
+    :cond_2f
     invoke-virtual {p1}, Lkotlin/ranges/UIntRange;->getFirst-pVg5ArA()I
 
     move-result v0
@@ -353,7 +353,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_53
 
     invoke-virtual {p1}, Lkotlin/ranges/UIntRange;->getFirst-pVg5ArA()I
 
@@ -379,20 +379,20 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_57
 
     .line 62
-    :cond_1
+    :cond_53
     invoke-static {p0}, Lkotlin/random/URandomKt;->nextUInt(Lkotlin/random/Random;)I
 
     move-result v0
 
     .line 63
-    :goto_0
+    :goto_57
     return v0
 
     .line 59
-    :cond_2
+    :cond_58
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -419,7 +419,7 @@
 .end method
 
 .method public static final nextUInt-a8DCA5k(Lkotlin/random/Random;II)I
-    .locals 4
+    .registers 7
     .param p0, "$this$nextUInt_u2da8DCA5k"    # Lkotlin/random/Random;
     .param p1, "from"    # I
     .param p2, "until"    # I
@@ -458,7 +458,7 @@
 .end method
 
 .method public static final nextUInt-qCasIEU(Lkotlin/random/Random;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$nextUInt_u2dqCasIEU"    # Lkotlin/random/Random;
     .param p1, "until"    # I
 
@@ -477,7 +477,7 @@
 .end method
 
 .method public static final nextULong(Lkotlin/random/Random;)J
-    .locals 2
+    .registers 3
     .param p0, "$this$nextULong"    # Lkotlin/random/Random;
 
     const-string v0, "<this>"
@@ -497,7 +497,7 @@
 .end method
 
 .method public static final nextULong(Lkotlin/random/Random;Lkotlin/ranges/ULongRange;)J
-    .locals 10
+    .registers 12
     .param p0, "$this$nextULong"    # Lkotlin/random/Random;
     .param p1, "range"    # Lkotlin/ranges/ULongRange;
 
@@ -517,7 +517,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_6f
 
     .line 116
     invoke-virtual {p1}, Lkotlin/ranges/ULongRange;->getLast-s-VKNKU()J
@@ -534,7 +534,7 @@
 
     const/4 v3, 0x1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_3c
 
     invoke-virtual {p1}, Lkotlin/ranges/ULongRange;->getFirst-s-VKNKU()J
 
@@ -562,10 +562,10 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_6e
 
     .line 117
-    :cond_0
+    :cond_3c
     invoke-virtual {p1}, Lkotlin/ranges/ULongRange;->getFirst-s-VKNKU()J
 
     move-result-wide v4
@@ -576,7 +576,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_6a
 
     invoke-virtual {p1}, Lkotlin/ranges/ULongRange;->getFirst-s-VKNKU()J
 
@@ -614,20 +614,20 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_6e
 
     .line 118
-    :cond_1
+    :cond_6a
     invoke-static {p0}, Lkotlin/random/URandomKt;->nextULong(Lkotlin/random/Random;)J
 
     move-result-wide v0
 
     .line 119
-    :goto_0
+    :goto_6e
     return-wide v0
 
     .line 115
-    :cond_2
+    :cond_6f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -654,7 +654,7 @@
 .end method
 
 .method public static final nextULong-V1Xi4fY(Lkotlin/random/Random;J)J
-    .locals 2
+    .registers 5
     .param p0, "$this$nextULong_u2dV1Xi4fY"    # Lkotlin/random/Random;
     .param p1, "until"    # J
 
@@ -673,7 +673,7 @@
 .end method
 
 .method public static final nextULong-jmpaW-c(Lkotlin/random/Random;JJ)J
-    .locals 8
+    .registers 13
     .param p0, "$this$nextULong_u2djmpaW_u2dc"    # Lkotlin/random/Random;
     .param p1, "from"    # J
     .param p3, "until"    # J

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 604
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static addPerson(Landroid/app/Notification$Builder;Ljava/lang/String;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "uri"    # Ljava/lang/String;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static setCategory(Landroid/app/Notification$Builder;Ljava/lang/String;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "category"    # Ljava/lang/String;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method static setColor(Landroid/app/Notification$Builder;I)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "argb"    # I
 
@@ -64,7 +64,7 @@
 .end method
 
 .method static setPublicVersion(Landroid/app/Notification$Builder;Landroid/app/Notification;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "n"    # Landroid/app/Notification;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method static setSound(Landroid/app/Notification$Builder;Landroid/net/Uri;Ljava/lang/Object;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 4
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "sound"    # Landroid/net/Uri;
     .param p2, "audioAttributes"    # Ljava/lang/Object;
@@ -95,7 +95,7 @@
 .end method
 
 .method static setVisibility(Landroid/app/Notification$Builder;I)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "visibility"    # I
 

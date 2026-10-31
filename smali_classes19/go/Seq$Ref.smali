@@ -24,13 +24,13 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
 
     .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 135
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_d
 
     .line 138
     iput p1, p0, Lgo/Seq$Ref;->refnum:I
@@ -47,7 +47,7 @@
     return-void
 
     .line 136
-    :cond_0
+    :cond_d
     new-instance p2, Ljava/lang/RuntimeException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -74,7 +74,7 @@
 .end method
 
 .method static synthetic access$100(Lgo/Seq$Ref;)I
-    .locals 0
+    .registers 1
 
     .line 127
     iget p0, p0, Lgo/Seq$Ref;->refcnt:I
@@ -83,7 +83,7 @@
 .end method
 
 .method static synthetic access$110(Lgo/Seq$Ref;)I
-    .locals 2
+    .registers 3
 
     .line 127
     iget v0, p0, Lgo/Seq$Ref;->refcnt:I
@@ -98,14 +98,14 @@
 
 # virtual methods
 .method inc()V
-    .locals 3
+    .registers 4
 
     .line 145
     iget v0, p0, Lgo/Seq$Ref;->refcnt:I
 
     const v1, 0x7fffffff
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
     .line 148
     iget v0, p0, Lgo/Seq$Ref;->refcnt:I
@@ -118,7 +118,7 @@
     return-void
 
     .line 146
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;

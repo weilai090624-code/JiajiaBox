@@ -37,7 +37,7 @@
 
 # direct methods
 .method private static final CancellationException(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/util/concurrent/CancellationException;
-    .locals 3
+    .registers 5
     .param p0, "message"    # Ljava/lang/String;
     .param p1, "cause"    # Ljava/lang/Throwable;
 
@@ -62,24 +62,24 @@
 .end method
 
 .method private static final CancellationException(Ljava/lang/Throwable;)Ljava/util/concurrent/CancellationException;
-    .locals 3
+    .registers 4
     .param p0, "cause"    # Ljava/lang/Throwable;
 
     .line 21
     new-instance v0, Ljava/util/concurrent/CancellationException;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     invoke-virtual {p0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     invoke-direct {v0, v1}, Ljava/util/concurrent/CancellationException;-><init>(Ljava/lang/String;)V
 
     move-object v1, v0
@@ -98,7 +98,7 @@
 .end method
 
 .method public static synthetic CancellationException$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

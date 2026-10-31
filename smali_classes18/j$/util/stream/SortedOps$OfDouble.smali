@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public opEvaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Ljava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -89,7 +89,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 274
     const/4 v0, 0x0
@@ -101,7 +101,7 @@
     return-object v0
 
     .line 277
-    :cond_0
+    :cond_12
     const/4 v0, 0x1
 
     invoke-virtual {p1, p2, v0, p3}, Lj$/util/stream/PipelineHelper;->evaluate(Lj$/util/Spliterator;ZLjava/util/function/IntFunction;)Lj$/util/stream/Node;
@@ -131,7 +131,7 @@
 .end method
 
 .method public opWrapSink(ILj$/util/stream/Sink;)Lj$/util/stream/Sink;
-    .locals 1
+    .registers 4
     .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -156,20 +156,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 262
     return-object p2
 
     .line 263
-    :cond_0
+    :cond_c
     sget-object v0, Lj$/util/stream/StreamOpFlag;->SIZED:Lj$/util/stream/StreamOpFlag;
 
     invoke-virtual {v0, p1}, Lj$/util/stream/StreamOpFlag;->isKnown(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 264
     new-instance v0, Lj$/util/stream/SortedOps$SizedDoubleSortingSink;
@@ -179,7 +179,7 @@
     return-object v0
 
     .line 266
-    :cond_1
+    :cond_1a
     new-instance v0, Lj$/util/stream/SortedOps$DoubleSortingSink;
 
     invoke-direct {v0, p2}, Lj$/util/stream/SortedOps$DoubleSortingSink;-><init>(Lj$/util/stream/Sink;)V

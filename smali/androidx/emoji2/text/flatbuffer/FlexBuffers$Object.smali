@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)V
-    .locals 0
+    .registers 4
     .param p1, "buff"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p2, "end"    # I
     .param p3, "byteWidth"    # I
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 645
     new-instance v0, Ljava/lang/StringBuilder;

@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/window/layout/WindowInfoTrackerImpl$Companion;
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/window/layout/WindowMetricsCalculator;Landroidx/window/layout/WindowBackend;)V
-    .locals 1
+    .registers 4
     .param p1, "windowMetricsCalculator"    # Landroidx/window/layout/WindowMetricsCalculator;
     .param p2, "windowBackend"    # Landroidx/window/layout/WindowBackend;
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public static final synthetic access$getWindowBackend$p(Landroidx/window/layout/WindowInfoTrackerImpl;)Landroidx/window/layout/WindowBackend;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/window/layout/WindowInfoTrackerImpl;
 
     .line 34
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public windowLayoutInfo(Landroid/app/Activity;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -74,7 +74,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlinx/coroutines/CoroutineId$Key;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(J)V
-    .locals 1
+    .registers 4
     .param p1, "id"    # J
 
     .line 289
@@ -106,15 +106,15 @@
 .end method
 
 .method public static synthetic copy$default(Lkotlinx/coroutines/CoroutineId;JILjava/lang/Object;)Lkotlinx/coroutines/CoroutineId;
-    .locals 0
+    .registers 5
 
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     iget-wide p1, p0, Lkotlinx/coroutines/CoroutineId;->id:J
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1, p2}, Lkotlinx/coroutines/CoroutineId;->copy(J)Lkotlinx/coroutines/CoroutineId;
 
     move-result-object p0
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public final component1()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lkotlinx/coroutines/CoroutineId;->id:J
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public final copy(J)Lkotlinx/coroutines/CoroutineId;
-    .locals 1
+    .registers 4
 
     new-instance v0, Lkotlinx/coroutines/CoroutineId;
 
@@ -143,24 +143,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlinx/coroutines/CoroutineId;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lkotlinx/coroutines/CoroutineId;
@@ -171,16 +171,16 @@
 
     cmp-long v1, v3, v5
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_16
 
     return v2
 
-    :cond_2
+    :cond_16
     return v0
 .end method
 
 .method public final getId()J
-    .locals 2
+    .registers 3
 
     .line 288
     iget-wide v0, p0, Lkotlinx/coroutines/CoroutineId;->id:J
@@ -189,7 +189,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lkotlinx/coroutines/CoroutineId;->id:J
 
@@ -201,7 +201,7 @@
 .end method
 
 .method public bridge synthetic restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "oldState"    # Ljava/lang/Object;
 
@@ -216,7 +216,7 @@
 .end method
 
 .method public restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "oldState"    # Ljava/lang/String;
 
@@ -232,7 +232,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 292
     new-instance v0, Ljava/lang/StringBuilder;
@@ -265,7 +265,7 @@
 .end method
 
 .method public bridge synthetic updateThreadContext(Lkotlin/coroutines/CoroutineContext;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 284
@@ -277,7 +277,7 @@
 .end method
 
 .method public updateThreadContext(Lkotlin/coroutines/CoroutineContext;)Ljava/lang/String;
-    .locals 10
+    .registers 12
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 295
@@ -291,20 +291,20 @@
 
     check-cast v0, Lkotlinx/coroutines/CoroutineName;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Lkotlinx/coroutines/CoroutineName;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
-    :cond_0
+    :cond_12
     const-string v0, "coroutine"
 
     .line 296
     .local v0, "coroutineName":Ljava/lang/String;
-    :cond_1
+    :cond_14
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v1
@@ -339,14 +339,14 @@
     move-result v3
 
     .line 299
-    if-gez v3, :cond_2
+    if-gez v3, :cond_30
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v3
 
     .line 300
-    :cond_2
+    :cond_30
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v4

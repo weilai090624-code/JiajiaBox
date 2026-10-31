@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multimap;Lcom/google/common/collect/Maps$EntryTransformer;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 1416
     .local p0, "this":Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap;, "Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap<TK;TV1;TV2;>;"
@@ -105,7 +105,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -123,7 +123,7 @@
 .end method
 
 .method createAsMap()Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -156,7 +156,7 @@
 .end method
 
 .method createEntries()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -176,7 +176,7 @@
 .end method
 
 .method createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -197,7 +197,7 @@
 .end method
 
 .method createKeys()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -218,7 +218,7 @@
 .end method
 
 .method createValues()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -251,7 +251,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -289,7 +289,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -319,7 +319,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 1442
     .local p0, "this":Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap;, "Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap<TK;TV1;TV2;>;"
@@ -333,7 +333,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -360,7 +360,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/Multimap;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -380,7 +380,7 @@
 .end method
 
 .method public putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -405,7 +405,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -429,7 +429,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -460,7 +460,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -487,7 +487,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1489
     .local p0, "this":Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap;, "Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap<TK;TV1;TV2;>;"
@@ -501,7 +501,7 @@
 .end method
 
 .method transform(Ljava/lang/Object;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -530,7 +530,7 @@
     .local v0, "function":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<-TV1;TV2;>;"
     instance-of v1, p2, Ljava/util/List;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 1396
     move-object v1, p2
@@ -544,7 +544,7 @@
     return-object v1
 
     .line 1398
-    :cond_0
+    :cond_12
     invoke-static {p2, v0}, Lcom/google/common/collect/Collections2;->transform(Ljava/util/Collection;Lcom/google/common/base/Function;)Ljava/util/Collection;
 
     move-result-object v1

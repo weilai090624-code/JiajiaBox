@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/EnumMap;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,7 +70,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/EnumMap;Lcom/google/common/collect/ImmutableEnumMap$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/util/EnumMap;
     .param p2, "x1"    # Lcom/google/common/collect/ImmutableEnumMap$1;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method static asImmutable(Ljava/util/EnumMap;)Lcom/google/common/collect/ImmutableMap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -103,7 +103,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2c
 
     .line 44
     new-instance v0, Lcom/google/common/collect/ImmutableEnumMap;
@@ -113,7 +113,7 @@
     return-object v0
 
     .line 41
-    :pswitch_0
+    :pswitch_d
     invoke-virtual {p0}, Ljava/util/EnumMap;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -144,7 +144,7 @@
 
     .line 39
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :pswitch_1
+    :pswitch_26
     invoke-static {}, Lcom/google/common/collect/ImmutableMap;->of()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
@@ -153,17 +153,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_26
+        :pswitch_d
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -181,7 +181,7 @@
 .end method
 
 .method entryIterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -211,7 +211,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -219,7 +219,7 @@
 
     .line 78
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumMap;, "Lcom/google/common/collect/ImmutableEnumMap<TK;TV;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 79
     const/4 v0, 0x1
@@ -227,10 +227,10 @@
     return v0
 
     .line 81
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/collect/ImmutableEnumMap;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     .line 82
     move-object v0, p1
@@ -240,7 +240,7 @@
     iget-object p1, v0, Lcom/google/common/collect/ImmutableEnumMap;->delegate:Ljava/util/EnumMap;
 
     .line 84
-    :cond_1
+    :cond_d
     iget-object v0, p0, Lcom/google/common/collect/ImmutableEnumMap;->delegate:Ljava/util/EnumMap;
 
     invoke-virtual {v0, p1}, Ljava/util/EnumMap;->equals(Ljava/lang/Object;)Z
@@ -251,7 +251,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -279,7 +279,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 94
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumMap;, "Lcom/google/common/collect/ImmutableEnumMap<TK;TV;>;"
@@ -289,7 +289,7 @@
 .end method
 
 .method keyIterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -318,7 +318,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumMap;, "Lcom/google/common/collect/ImmutableEnumMap<TK;TV;>;"
@@ -332,7 +332,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 100
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumMap;, "Lcom/google/common/collect/ImmutableEnumMap<TK;TV;>;"

@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public static final getOrImplicitDefaultNullable(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p0, "$this$getOrImplicitDefault"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -72,7 +72,7 @@
     .line 21
     instance-of v0, p0, Lkotlin/collections/MapWithDefault;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 22
     move-object v0, p0
@@ -86,7 +86,7 @@
     return-object v0
 
     .line 24
-    :cond_0
+    :cond_11
     move-object v0, p0
 
     .local v0, "$this$getOrElseNullable$iv":Ljava/util/Map;
@@ -100,18 +100,18 @@
 
     .line 106
     .local v2, "value$iv":Ljava/lang/Object;
-    if-nez v2, :cond_2
+    if-nez v2, :cond_40
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_20
 
-    goto :goto_0
+    goto :goto_40
 
     .line 107
-    :cond_1
+    :cond_20
     const/4 v3, 0x0
 
     .line 24
@@ -148,8 +148,8 @@
 
     .line 110
     .end local v3    # "$i$a$-getOrElseNullable-MapsKt__MapWithDefaultKt$getOrImplicitDefault$1":I
-    :cond_2
-    :goto_0
+    :cond_40
+    :goto_40
     nop
 
     .line 24
@@ -160,7 +160,7 @@
 .end method
 
 .method public static final withDefault(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p0, "$this$withDefault"    # Ljava/util/Map;
     .param p1, "defaultValue"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -193,7 +193,7 @@
     .line 37
     instance-of v0, p0, Lkotlin/collections/MapWithDefault;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     move-object v0, p0
 
@@ -207,10 +207,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_22
 
     .line 38
-    :cond_0
+    :cond_1b
     new-instance v0, Lkotlin/collections/MapWithDefaultImpl;
 
     invoke-direct {v0, p0, p1}, Lkotlin/collections/MapWithDefaultImpl;-><init>(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)V
@@ -218,12 +218,12 @@
     check-cast v0, Ljava/util/Map;
 
     .line 39
-    :goto_0
+    :goto_22
     return-object v0
 .end method
 
 .method public static final withDefaultMutable(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p0, "$this$withDefault"    # Ljava/util/Map;
     .param p1, "defaultValue"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -256,7 +256,7 @@
     .line 52
     instance-of v0, p0, Lkotlin/collections/MutableMapWithDefault;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     move-object v0, p0
 
@@ -270,10 +270,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_22
 
     .line 53
-    :cond_0
+    :cond_1b
     new-instance v0, Lkotlin/collections/MutableMapWithDefaultImpl;
 
     invoke-direct {v0, p0, p1}, Lkotlin/collections/MutableMapWithDefaultImpl;-><init>(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)V
@@ -281,6 +281,6 @@
     check-cast v0, Ljava/util/Map;
 
     .line 54
-    :goto_0
+    :goto_22
     return-object v0
 .end method

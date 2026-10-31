@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public static createComboCallback(Ljava/util/List;)Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -50,7 +50,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 52
     invoke-static {}, Landroidx/camera/camera2/internal/CameraCaptureSessionStateCallbacks;->createNoOpCallback()Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
@@ -60,14 +60,14 @@
     return-object v0
 
     .line 53
-    :cond_0
+    :cond_b
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v0
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1a
 
     .line 54
     const/4 v0, 0x0
@@ -81,7 +81,7 @@
     return-object v0
 
     .line 56
-    :cond_1
+    :cond_1a
     new-instance v0, Landroidx/camera/camera2/internal/CameraCaptureSessionStateCallbacks$ComboSessionStateCallback;
 
     invoke-direct {v0, p0}, Landroidx/camera/camera2/internal/CameraCaptureSessionStateCallbacks$ComboSessionStateCallback;-><init>(Ljava/util/List;)V
@@ -90,7 +90,7 @@
 .end method
 
 .method public static varargs createComboCallback([Landroid/hardware/camera2/CameraCaptureSession$StateCallback;)Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
-    .locals 1
+    .registers 2
     .param p0, "callbacks"    # [Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -114,7 +114,7 @@
 .end method
 
 .method public static createNoOpCallback()Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
-    .locals 1
+    .registers 1
 
     .line 42
     new-instance v0, Landroidx/camera/camera2/internal/CameraCaptureSessionStateCallbacks$NoOpSessionStateCallback;

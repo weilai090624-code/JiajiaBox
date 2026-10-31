@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/loader/content/ModernAsyncTask;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/loader/content/ModernAsyncTask;
 
     .line 133
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public call()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TResult;"
@@ -72,7 +72,7 @@
     .local v0, "result":Ljava/lang/Object;, "TResult;"
     const/16 v2, 0xa
 
-    :try_start_0
+    :try_start_b
     invoke-static {v2}, Landroid/os/Process;->setThreadPriority(I)V
 
     .line 141
@@ -88,8 +88,8 @@
 
     .line 142
     invoke-static {}, Landroid/os/Binder;->flushPendingCommands()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_b .. :try_end_1a} :catchall_21
 
     .line 147
     iget-object v1, p0, Landroidx/loader/content/ModernAsyncTask$2;->this$0:Landroidx/loader/content/ModernAsyncTask;
@@ -103,12 +103,12 @@
     return-object v0
 
     .line 143
-    :catchall_0
+    :catchall_21
     move-exception v2
 
     .line 144
     .local v2, "tr":Ljava/lang/Throwable;
-    :try_start_1
+    :try_start_22
     iget-object v3, p0, Landroidx/loader/content/ModernAsyncTask$2;->this$0:Landroidx/loader/content/ModernAsyncTask;
 
     iget-object v3, v3, Landroidx/loader/content/ModernAsyncTask;->mCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -120,13 +120,13 @@
 
     .end local v0    # "result":Ljava/lang/Object;, "TResult;"
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2b
+    .catchall {:try_start_22 .. :try_end_2b} :catchall_2b
 
     .line 147
     .end local v2    # "tr":Ljava/lang/Throwable;
     .restart local v0    # "result":Ljava/lang/Object;, "TResult;"
-    :catchall_1
+    :catchall_2b
     move-exception v1
 
     iget-object v2, p0, Landroidx/loader/content/ModernAsyncTask$2;->this$0:Landroidx/loader/content/ModernAsyncTask;

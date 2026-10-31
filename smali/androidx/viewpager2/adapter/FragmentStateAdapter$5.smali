@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/adapter/FragmentStateAdapter;Landroid/os/Handler;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/viewpager2/adapter/FragmentStateAdapter;
 
     .line 584
@@ -45,14 +45,14 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
     .line 588
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_12
 
     .line 589
     iget-object v0, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$5;->val$handler:Landroid/os/Handler;
@@ -69,6 +69,6 @@
     invoke-virtual {v0, p0}, Landroidx/lifecycle/Lifecycle;->removeObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     .line 592
-    :cond_0
+    :cond_12
     return-void
 .end method

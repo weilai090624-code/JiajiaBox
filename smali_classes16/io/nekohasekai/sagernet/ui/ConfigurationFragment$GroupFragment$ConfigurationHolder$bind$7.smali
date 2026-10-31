@@ -74,7 +74,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,7 +102,7 @@
 .end method
 
 .method public static final synthetic access$invokeSuspend$showShare(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;Landroid/view/View;)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$7;->invokeSuspend$showShare(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;Landroid/view/View;)V
 
@@ -110,7 +110,7 @@
 .end method
 
 .method private static final invokeSuspend$showShare(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;Landroid/view/View;)V
-    .locals 4
+    .registers 8
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
     .param p1, "$proxyEntity"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "this$1"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;
@@ -151,7 +151,7 @@
 
     const v3, 0x7f0a0055
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_4e
 
     .line 1656
     invoke-virtual {v0}, Landroidx/appcompat/widget/PopupMenu;->getMenu()Landroid/view/Menu;
@@ -166,14 +166,14 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_38
 
     const v3, 0x7f0a0084
 
     invoke-interface {v1, v3}, Landroid/view/SubMenu;->removeItem(I)V
 
     .line 1657
-    :cond_0
+    :cond_38
     invoke-virtual {v0}, Landroidx/appcompat/widget/PopupMenu;->getMenu()Landroid/view/Menu;
 
     move-result-object v1
@@ -186,7 +186,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_62
 
     .line 1658
     nop
@@ -196,15 +196,15 @@
 
     invoke-interface {v1, v2}, Landroid/view/SubMenu;->removeItem(I)V
 
-    goto :goto_0
+    goto :goto_62
 
     .line 1662
-    :cond_1
+    :cond_4e
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->haveLink()Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_62
 
     .line 1663
     invoke-virtual {v0}, Landroidx/appcompat/widget/PopupMenu;->getMenu()Landroid/view/Menu;
@@ -221,13 +221,13 @@
     invoke-interface {v1, v2}, Landroid/view/Menu;->removeItem(I)V
 
     .line 1668
-    :cond_2
-    :goto_0
+    :cond_62
+    :goto_62
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getNekoBean()Lmoe/matsuri/nb4a/proxy/neko/NekoBean;
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_72
 
     .line 1669
     invoke-virtual {v0}, Landroidx/appcompat/widget/PopupMenu;->getMenu()Landroid/view/Menu;
@@ -239,7 +239,7 @@
     invoke-interface {v1, v2}, Landroid/view/Menu;->removeItem(I)V
 
     .line 1672
-    :cond_3
+    :cond_72
     move-object v1, p2
 
     check-cast v1, Landroidx/appcompat/widget/PopupMenu$OnMenuItemClickListener;
@@ -256,7 +256,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -285,7 +285,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -299,7 +299,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -328,7 +328,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 10
+    .registers 12
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -339,7 +339,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_b0
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -350,18 +350,18 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_ac
 
-    :pswitch_1
+    :pswitch_17
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_4
+    goto :goto_80
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_1b
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 1641
@@ -372,22 +372,22 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2b
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getId()J
 
     move-result-wide v3
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_2b
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/DataStore;->getSelectedProxy()J
 
     move-result-wide v3
 
-    :goto_0
+    :goto_31
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$7;->$proxyEntity:Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getId()J
@@ -400,19 +400,19 @@
 
     cmp-long v8, v3, v5
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_3f
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_40
 
-    :cond_1
+    :cond_3f
     const/4 v3, 0x0
 
     .line 1643
     .local v3, "selected":Z
-    :goto_1
-    if-eqz v3, :cond_2
+    :goto_40
+    if-eqz v3, :cond_60
 
     sget-object v4, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -424,7 +424,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_60
 
     sget-object v4, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -440,17 +440,17 @@
 
     cmp-long v6, v4, v8
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_60
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_61
 
-    :cond_2
+    :cond_60
     const/4 v4, 0x0
 
     .line 1642
-    :goto_2
+    :goto_61
     nop
 
     .line 1644
@@ -459,25 +459,25 @@
 
     iget-object v6, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$7;->this$1:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_6a
 
     const/4 v4, 0x1
 
-    goto :goto_3
+    goto :goto_6b
 
-    :cond_3
+    :cond_6a
     const/4 v4, 0x0
 
     .end local v4    # "started":Z
-    :goto_3
-    if-eqz v3, :cond_4
+    :goto_6b
+    if-eqz v3, :cond_6f
 
     const/4 v1, 0x1
 
     nop
 
     .end local v3    # "selected":Z
-    :cond_4
+    :cond_6f
     invoke-direct {v5, v6, v4, v1, v2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$7$1;-><init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;ZZLkotlin/coroutines/Continuation;)V
 
     check-cast v5, Lkotlin/jvm/functions/Function2;
@@ -492,21 +492,21 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_5
+    if-ne v1, v0, :cond_80
 
     .line 1640
     return-object v0
 
     .line 1676
-    :cond_5
-    :goto_4
+    :cond_80
+    :goto_80
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$7;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getSelect()Z
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_ad
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$7;->$proxyEntity:Lio/nekohasekai/sagernet/database/ProxyEntity;
 
@@ -516,7 +516,7 @@
 
     const/16 v3, 0x8
 
-    if-eq v1, v3, :cond_7
+    if-eq v1, v3, :cond_ad
 
     .line 1677
     new-instance v1, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$7$2;
@@ -543,25 +543,25 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_6
+    if-ne v1, v0, :cond_ac
 
     .line 1640
     return-object v0
 
     .line 1688
-    :cond_6
-    :goto_5
+    :cond_ac
+    :goto_ac
     nop
 
-    :cond_7
+    :cond_ad
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_b0
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_17
+        :pswitch_12
     .end packed-switch
 .end method

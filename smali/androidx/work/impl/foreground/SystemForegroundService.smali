@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 47
     const-string v0, "SystemFgService"
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Landroidx/lifecycle/LifecycleService;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 44
     sget-object v0, Landroidx/work/impl/foreground/SystemForegroundService;->TAG:Ljava/lang/String;
@@ -71,7 +71,7 @@
 .end method
 
 .method public static getInstance()Landroidx/work/impl/foreground/SystemForegroundService;
-    .locals 1
+    .registers 1
 
     .line 168
     sget-object v0, Landroidx/work/impl/foreground/SystemForegroundService;->sForegroundService:Landroidx/work/impl/foreground/SystemForegroundService;
@@ -80,7 +80,7 @@
 .end method
 
 .method private initializeDispatcher()V
-    .locals 2
+    .registers 3
 
     .line 98
     new-instance v0, Landroid/os/Handler;
@@ -134,7 +134,7 @@
 
 # virtual methods
 .method public cancelNotification(I)V
-    .locals 2
+    .registers 4
     .param p1, "notificationId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -159,7 +159,7 @@
 .end method
 
 .method public notify(ILandroid/app/Notification;)V
-    .locals 2
+    .registers 5
     .param p1, "notificationId"    # I
     .param p2, "notification"    # Landroid/app/Notification;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -187,7 +187,7 @@
 .end method
 
 .method public onCreate()V
-    .locals 0
+    .registers 1
 
     .line 62
     invoke-super {p0}, Landroidx/lifecycle/LifecycleService;->onCreate()V
@@ -203,7 +203,7 @@
 .end method
 
 .method public onDestroy()V
-    .locals 1
+    .registers 2
 
     .line 92
     invoke-super {p0}, Landroidx/lifecycle/LifecycleService;->onDestroy()V
@@ -218,7 +218,7 @@
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .locals 3
+    .registers 7
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "flags"    # I
     .param p3, "startId"    # I
@@ -241,7 +241,7 @@
     .line 70
     iget-boolean v0, p0, Landroidx/work/impl/foreground/SystemForegroundService;->mIsShutdown:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 71
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -268,8 +268,8 @@
     iput-boolean v0, p0, Landroidx/work/impl/foreground/SystemForegroundService;->mIsShutdown:Z
 
     .line 82
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_1d
+    if-eqz p1, :cond_24
 
     .line 83
     iget-object v0, p0, Landroidx/work/impl/foreground/SystemForegroundService;->mDispatcher:Landroidx/work/impl/foreground/SystemForegroundDispatcher;
@@ -277,14 +277,14 @@
     invoke-virtual {v0, p1}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->onStartCommand(Landroid/content/Intent;)V
 
     .line 87
-    :cond_1
+    :cond_24
     const/4 v0, 0x3
 
     return v0
 .end method
 
 .method public startForeground(IILandroid/app/Notification;)V
-    .locals 2
+    .registers 6
     .param p1, "notificationId"    # I
     .param p2, "notificationType"    # I
     .param p3, "notification"    # Landroid/app/Notification;
@@ -315,7 +315,7 @@
 .end method
 
 .method public stop()V
-    .locals 4
+    .registers 5
 
     .line 109
     const/4 v0, 0x1
@@ -338,13 +338,13 @@
 
     const/16 v2, 0x1a
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_17
 
     .line 114
     invoke-virtual {p0, v0}, Landroidx/work/impl/foreground/SystemForegroundService;->stopForeground(Z)V
 
     .line 116
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
     sput-object v0, Landroidx/work/impl/foreground/SystemForegroundService;->sForegroundService:Landroidx/work/impl/foreground/SystemForegroundService;

@@ -63,7 +63,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/function/Supplier;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 541
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DelegatingSpliterator;, "Ljava/util/stream/StreamSpliterators$DelegatingSpliterator<TT;TT_SPLITR;>;"
@@ -105,7 +105,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 2
+    .registers 3
 
     .line 536
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DelegatingSpliterator;, "Ljava/util/stream/StreamSpliterators$DelegatingSpliterator<TT;TT_SPLITR;>;"
@@ -121,7 +121,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -144,7 +144,7 @@
 .end method
 
 .method get()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT_SP",
@@ -156,7 +156,7 @@
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DelegatingSpliterator;, "Ljava/util/stream/StreamSpliterators$DelegatingSpliterator<TT;TT_SPLITR;>;"
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$DelegatingSpliterator;->s:Lj$/util/Spliterator;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 513
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$DelegatingSpliterator;->supplier:Ljava/util/function/Supplier;
@@ -170,14 +170,14 @@
     iput-object v0, p0, Lj$/util/stream/StreamSpliterators$DelegatingSpliterator;->s:Lj$/util/Spliterator;
 
     .line 515
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$DelegatingSpliterator;->s:Lj$/util/Spliterator;
 
     return-object v0
 .end method
 
 .method public getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -200,7 +200,7 @@
 .end method
 
 .method public getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     .line 551
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DelegatingSpliterator;, "Ljava/util/stream/StreamSpliterators$DelegatingSpliterator<TT;TT_SPLITR;>;"
@@ -216,7 +216,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -226,7 +226,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 556
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DelegatingSpliterator;, "Ljava/util/stream/StreamSpliterators$DelegatingSpliterator<TT;TT_SPLITR;>;"
@@ -274,7 +274,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -298,7 +298,7 @@
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT_SP",

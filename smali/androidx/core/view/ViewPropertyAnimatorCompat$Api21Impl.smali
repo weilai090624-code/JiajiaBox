@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 727
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static translationZ(Landroid/view/ViewPropertyAnimator;F)Landroid/view/ViewPropertyAnimator;
-    .locals 1
+    .registers 3
     .param p0, "viewPropertyAnimator"    # Landroid/view/ViewPropertyAnimator;
     .param p1, "value"    # F
 
@@ -39,7 +39,7 @@
 .end method
 
 .method static translationZBy(Landroid/view/ViewPropertyAnimator;F)Landroid/view/ViewPropertyAnimator;
-    .locals 1
+    .registers 3
     .param p0, "viewPropertyAnimator"    # Landroid/view/ViewPropertyAnimator;
     .param p1, "value"    # F
 
@@ -52,7 +52,7 @@
 .end method
 
 .method static z(Landroid/view/ViewPropertyAnimator;F)Landroid/view/ViewPropertyAnimator;
-    .locals 1
+    .registers 3
     .param p0, "viewPropertyAnimator"    # Landroid/view/ViewPropertyAnimator;
     .param p1, "value"    # F
 
@@ -65,7 +65,7 @@
 .end method
 
 .method static zBy(Landroid/view/ViewPropertyAnimator;F)Landroid/view/ViewPropertyAnimator;
-    .locals 1
+    .registers 3
     .param p0, "viewPropertyAnimator"    # Landroid/view/ViewPropertyAnimator;
     .param p1, "value"    # F
 

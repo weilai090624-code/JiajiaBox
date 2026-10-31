@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Splitter$4;Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/base/Splitter$4;
     .param p2, "splitter"    # Lcom/google/common/base/Splitter;
     .param p3, "toSplit"    # Ljava/lang/CharSequence;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public separatorEnd(I)I
-    .locals 0
+    .registers 2
     .param p1, "separatorPosition"    # I
 
     .line 297
@@ -44,7 +44,7 @@
 .end method
 
 .method public separatorStart(I)I
-    .locals 2
+    .registers 4
     .param p1, "start"    # I
 
     .line 291
@@ -62,15 +62,15 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_f
 
     move v1, v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, -0x1
 
-    :goto_0
+    :goto_10
     return v1
 .end method

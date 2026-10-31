@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "violationMessage"    # Ljava/lang/String;
 
@@ -56,18 +56,18 @@
 .end method
 
 .method public synthetic constructor <init>(Landroidx/fragment/app/Fragment;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 22
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 27
     const/4 p2, 0x0
 
     .line 22
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Landroidx/fragment/app/strictmode/Violation;-><init>(Landroidx/fragment/app/Fragment;Ljava/lang/String;)V
 
     .line 28
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public final getFragment()Landroidx/fragment/app/Fragment;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Landroidx/fragment/app/strictmode/Violation;->fragment:Landroidx/fragment/app/Fragment;

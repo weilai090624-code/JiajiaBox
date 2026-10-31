@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/util/Rational;I)V
-    .locals 1
+    .registers 4
     .param p1, "aspectRatio"    # Landroid/util/Rational;
     .param p2, "rotation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public build()Landroidx/camera/core/ViewPort;
-    .locals 5
+    .registers 6
 
     .line 292
     iget-object v0, p0, Landroidx/camera/core/ViewPort$Builder;->mAspectRatio:Landroid/util/Rational;
@@ -98,7 +98,7 @@
 .end method
 
 .method public setLayoutDirection(I)Landroidx/camera/core/ViewPort$Builder;
-    .locals 0
+    .registers 2
     .param p1, "layoutDirection"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -117,7 +117,7 @@
 .end method
 
 .method public setScaleType(I)Landroidx/camera/core/ViewPort$Builder;
-    .locals 0
+    .registers 2
     .param p1, "scaleType"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

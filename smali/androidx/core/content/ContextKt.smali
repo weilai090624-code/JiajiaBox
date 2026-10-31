@@ -42,7 +42,7 @@
 
 # direct methods
 .method public static final synthetic getSystemService(Landroid/content/Context;)Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .param p0, "$this$getSystemService"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final withStyledAttributes(Landroid/content/Context;I[ILkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 6
     .param p0, "$this$withStyledAttributes"    # Landroid/content/Context;
     .param p1, "resourceId"    # I
     .param p2, "attrs"    # [I
@@ -113,7 +113,7 @@
 .end method
 
 .method public static final withStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[IIILkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 8
     .param p0, "$this$withStyledAttributes"    # Landroid/content/Context;
     .param p1, "set"    # Landroid/util/AttributeSet;
     .param p2, "attrs"    # [I
@@ -151,7 +151,7 @@
 .end method
 
 .method public static synthetic withStyledAttributes$default(Landroid/content/Context;Landroid/util/AttributeSet;[IIILkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 8
     .param p0, "$this$withStyledAttributes_u24default"    # Landroid/content/Context;
     .param p1, "set"    # Landroid/util/AttributeSet;
     .param p2, "attrs"    # [I
@@ -162,31 +162,31 @@
     .line 52
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_5
 
     .line 53
     const/4 p1, 0x0
 
     .line 52
-    :cond_0
+    :cond_5
     and-int/lit8 p7, p6, 0x4
 
-    if-eqz p7, :cond_1
+    if-eqz p7, :cond_a
 
     .line 55
     const/4 p3, 0x0
 
     .line 52
-    :cond_1
+    :cond_a
     and-int/lit8 p6, p6, 0x8
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_f
 
     .line 56
     const/4 p4, 0x0
 
     .line 52
-    :cond_2
+    :cond_f
     const/4 p6, 0x0
 
     .line 59

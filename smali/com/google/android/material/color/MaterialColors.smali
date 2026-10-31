@@ -33,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 .end method
 
 .method public static compositeARGBWithAlpha(II)I
-    .locals 1
+    .registers 3
     .param p0, "originalARGB"    # I
     .param p1, "alpha"    # I
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public static getColor(Landroid/content/Context;II)I
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "colorAttributeResId"    # I
     .param p2, "defaultValue"    # I
@@ -79,7 +79,7 @@
 
     .line 111
     .local v0, "typedValue":Landroid/util/TypedValue;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 112
     invoke-static {p0, v0}, Lcom/google/android/material/color/MaterialColors;->resolveColor(Landroid/content/Context;Landroid/util/TypedValue;)I
@@ -89,12 +89,12 @@
     return v1
 
     .line 114
-    :cond_0
+    :cond_b
     return p2
 .end method
 
 .method public static getColor(Landroid/content/Context;ILjava/lang/String;)I
-    .locals 1
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "colorAttributeResId"    # I
     .param p2, "errorMessageComponent"    # Ljava/lang/String;
@@ -116,7 +116,7 @@
 .end method
 
 .method public static getColor(Landroid/view/View;I)I
-    .locals 2
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "colorAttributeResId"    # I
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public static getColor(Landroid/view/View;II)I
-    .locals 1
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "colorAttributeResId"    # I
     .param p2, "defaultValue"    # I
@@ -160,7 +160,7 @@
 .end method
 
 .method private static getColorRole(II)I
-    .locals 3
+    .registers 5
     .param p0, "color"    # I
     .param p1, "tone"    # I
 
@@ -184,14 +184,14 @@
 .end method
 
 .method public static getColorRoles(IZ)Lcom/google/android/material/color/ColorRoles;
-    .locals 5
+    .registers 7
     .param p0, "color"    # I
     .param p1, "isLightTheme"    # Z
 
     .line 288
     const/16 v0, 0x5a
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_20
 
     .line 289
     new-instance v1, Lcom/google/android/material/color/ColorRoles;
@@ -224,10 +224,10 @@
 
     invoke-direct {v1, v2, v3, v0, v4}, Lcom/google/android/material/color/ColorRoles;-><init>(IIII)V
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 294
-    :cond_0
+    :cond_20
     new-instance v1, Lcom/google/android/material/color/ColorRoles;
 
     .line 295
@@ -259,12 +259,12 @@
     invoke-direct {v1, v2, v3, v4, v0}, Lcom/google/android/material/color/ColorRoles;-><init>(IIII)V
 
     .line 288
-    :goto_0
+    :goto_3b
     return-object v1
 .end method
 
 .method public static getColorRoles(Landroid/content/Context;I)Lcom/google/android/material/color/ColorRoles;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "color"    # I
 
@@ -287,7 +287,7 @@
 .end method
 
 .method public static getColorStateList(Landroid/content/Context;ILandroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "colorAttributeResId"    # I
     .param p2, "defaultValue"    # Landroid/content/res/ColorStateList;
@@ -303,7 +303,7 @@
 
     .line 129
     .local v1, "typedValue":Landroid/util/TypedValue;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     .line 130
     invoke-static {p0, v1}, Lcom/google/android/material/color/MaterialColors;->resolveColorStateList(Landroid/content/Context;Landroid/util/TypedValue;)Landroid/content/res/ColorStateList;
@@ -311,22 +311,22 @@
     move-result-object v0
 
     .line 132
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_b
+    if-nez v0, :cond_f
 
     move-object v2, p2
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     move-object v2, v0
 
-    :goto_0
+    :goto_10
     return-object v2
 .end method
 
 .method public static getColorStateListOrNull(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "colorAttributeResId"    # I
 
@@ -339,16 +339,16 @@
     .local v0, "typedValue":Landroid/util/TypedValue;
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 144
     return-object v1
 
     .line 145
-    :cond_0
+    :cond_8
     iget v2, v0, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_13
 
     .line 146
     iget v1, v0, Landroid/util/TypedValue;->resourceId:I
@@ -360,10 +360,10 @@
     return-object v1
 
     .line 147
-    :cond_1
+    :cond_13
     iget v2, v0, Landroid/util/TypedValue;->data:I
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1e
 
     .line 148
     iget v1, v0, Landroid/util/TypedValue;->data:I
@@ -375,12 +375,12 @@
     return-object v1
 
     .line 150
-    :cond_2
+    :cond_1e
     return-object v1
 .end method
 
 .method public static harmonize(II)I
-    .locals 1
+    .registers 3
     .param p0, "colorToHarmonize"    # I
     .param p1, "colorToHarmonizeWith"    # I
 
@@ -393,7 +393,7 @@
 .end method
 
 .method public static harmonizeWithPrimary(Landroid/content/Context;I)I
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "colorToHarmonize"    # I
 
@@ -420,11 +420,11 @@
 .end method
 
 .method public static isColorLight(I)Z
-    .locals 5
+    .registers 6
     .param p0, "color"    # I
 
     .line 239
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     invoke-static {p0}, Landroidx/core/graphics/ColorUtils;->calculateLuminance(I)D
 
@@ -434,21 +434,21 @@
 
     cmpl-double v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public static layer(II)I
-    .locals 1
+    .registers 3
     .param p0, "backgroundColor"    # I
     .param p1, "overlayColor"    # I
 
@@ -461,7 +461,7 @@
 .end method
 
 .method public static layer(IIF)I
-    .locals 3
+    .registers 6
     .param p0, "backgroundColor"    # I
     .param p1, "overlayColor"    # I
     .param p2, "overlayAlpha"    # F
@@ -495,7 +495,7 @@
 .end method
 
 .method public static layer(Landroid/view/View;II)I
-    .locals 1
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "backgroundColorAttributeResId"    # I
     .param p2, "overlayColorAttributeResId"    # I
@@ -511,7 +511,7 @@
 .end method
 
 .method public static layer(Landroid/view/View;IIF)I
-    .locals 3
+    .registers 7
     .param p0, "view"    # Landroid/view/View;
     .param p1, "backgroundColorAttributeResId"    # I
     .param p2, "overlayColorAttributeResId"    # I
@@ -538,14 +538,14 @@
 .end method
 
 .method private static resolveColor(Landroid/content/Context;Landroid/util/TypedValue;)I
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "typedValue"    # Landroid/util/TypedValue;
 
     .line 154
     iget v0, p1, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 156
     iget v0, p1, Landroid/util/TypedValue;->resourceId:I
@@ -557,21 +557,21 @@
     return v0
 
     .line 159
-    :cond_0
+    :cond_b
     iget v0, p1, Landroid/util/TypedValue;->data:I
 
     return v0
 .end method
 
 .method private static resolveColorStateList(Landroid/content/Context;Landroid/util/TypedValue;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "typedValue"    # Landroid/util/TypedValue;
 
     .line 165
     iget v0, p1, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 166
     iget v0, p1, Landroid/util/TypedValue;->resourceId:I
@@ -583,7 +583,7 @@
     return-object v0
 
     .line 168
-    :cond_0
+    :cond_b
     iget v0, p1, Landroid/util/TypedValue;->data:I
 
     invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;

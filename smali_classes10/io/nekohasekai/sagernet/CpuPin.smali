@@ -75,7 +75,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$-sD95Engc3WbCsY7JncJGeVQxTo(Lkotlin/jvm/internal/Ref$IntRef;Landroid/os/Handler;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/CpuPin;->scheduleRenderThreadPin$lambda$2(Lkotlin/jvm/internal/Ref$IntRef;Landroid/os/Handler;)V
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$SExbsk0lHpJ_SOtwn_CRWqZfVG4(Lkotlin/jvm/internal/Ref$IntRef;Landroid/os/Handler;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/CpuPin;->scheduleRenderThreadPin$attempt$lambda$1(Lkotlin/jvm/internal/Ref$IntRef;Landroid/os/Handler;)V
 
@@ -91,7 +91,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     const-string v0, "toString(...)"
 
@@ -110,7 +110,7 @@
     nop
 
     .line 41
-    :try_start_0
+    :try_start_d
     const-string v2, "cpupin"
 
     invoke-static {v2}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
@@ -124,13 +124,13 @@
 
     .line 43
     .local v2, "clusters":[J
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_7f
 
     array-length v3, v2
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_7f
 
     .line 44
     const/4 v3, 0x0
@@ -153,17 +153,17 @@
 
     cmp-long v9, v5, v7
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_37
 
     sget-wide v5, Lio/nekohasekai/sagernet/CpuPin;->bigMask:J
 
     cmp-long v9, v5, v7
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_37
 
     const/4 v3, 0x1
 
-    :cond_0
+    :cond_37
     sput-boolean v3, Lio/nekohasekai/sagernet/CpuPin;->separated:Z
 
     .line 47
@@ -231,14 +231,14 @@
 
     .line 48
     invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_78
+    .catchall {:try_start_d .. :try_end_78} :catchall_79
 
-    goto :goto_0
+    goto :goto_7f
 
     .line 54
     .end local v2    # "clusters":[J
-    :catchall_0
+    :catchall_79
     move-exception v0
 
     .line 55
@@ -249,13 +249,13 @@
 
     .line 57
     .end local v0    # "t":Ljava/lang/Throwable;
-    :cond_1
-    :goto_0
+    :cond_7f
+    :goto_7f
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -264,7 +264,7 @@
 .end method
 
 .method private final apply(IJ)Z
-    .locals 4
+    .registers 8
     .param p1, "tid"    # I
     .param p2, "mask"    # J
 
@@ -273,19 +273,19 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3c
 
     const-wide/16 v2, 0x0
 
     cmp-long v0, p2, v2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 64
-    :cond_0
-    :try_start_0
+    :cond_c
+    :try_start_c
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -311,12 +311,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_c .. :try_end_1e} :catchall_1f
 
-    goto :goto_0
+    goto :goto_2a
 
-    :catchall_0
+    :catchall_1f
     move-exception v0
 
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -329,7 +329,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_2a
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -338,11 +338,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     move-object v0, v1
 
-    :cond_1
+    :cond_35
     check-cast v0, Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -352,13 +352,13 @@
     return v0
 
     .line 63
-    :cond_2
-    :goto_1
+    :cond_3c
+    :goto_3c
     return v1
 .end method
 
 .method private final findThreadId(Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 13
+    .registers 15
     .param p1, "name"    # Ljava/lang/String;
 
     .line 127
@@ -367,7 +367,7 @@
     .line 128
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_2
     new-instance v1, Ljava/io/File;
 
     const-string v2, "/proc/self/task"
@@ -378,7 +378,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_69
 
     .local v1, "$this$forEach$iv":[Ljava/lang/Object;
     const/4 v2, 0x0
@@ -389,8 +389,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_5
+    :goto_12
+    if-ge v4, v3, :cond_68
 
     aget-object v5, v1, v4
 
@@ -414,7 +414,7 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_64
 
     invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
 
@@ -445,16 +445,16 @@
 
     .end local v10    # "it":Ljava/io/File;
     .end local v11    # "$i$a$-takeIf-CpuPin$findThreadId$1$comm$1":I
-    if-eqz v12, :cond_0
+    if-eqz v12, :cond_3c
 
-    goto :goto_1
+    goto :goto_3d
 
-    :cond_0
+    :cond_3c
     move-object v9, v0
 
     .line 131
-    :goto_1
-    if-eqz v9, :cond_1
+    :goto_3d
+    if-eqz v9, :cond_52
 
     .line 130
     nop
@@ -466,7 +466,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_52
 
     .line 130
     check-cast v9, Ljava/lang/CharSequence;
@@ -479,19 +479,19 @@
 
     move-result-object v9
 
-    goto :goto_2
+    goto :goto_53
 
     .line 131
-    :cond_1
+    :cond_52
     move-object v9, v0
 
-    :goto_2
-    if-nez v9, :cond_2
+    :goto_53
+    if-nez v9, :cond_57
 
     const-string v9, ""
 
     .line 130
-    :cond_2
+    :cond_57
     nop
 
     .line 132
@@ -500,18 +500,18 @@
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_63
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_62
+    .catchall {:try_start_2 .. :try_end_62} :catchall_6a
 
     return-object v0
 
     .line 133
-    :cond_3
+    :cond_63
     nop
 
     .line 155
@@ -519,26 +519,26 @@
     .end local v7    # "$i$a$-forEach-CpuPin$findThreadId$1":I
     .end local v8    # "tid":I
     .end local v9    # "comm":Ljava/lang/String;
-    :cond_4
+    :cond_64
     nop
 
     .end local v5    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 156
-    :cond_5
+    :cond_68
     nop
 
     .line 134
     .end local v1    # "$this$forEach$iv":[Ljava/lang/Object;
     .end local v2    # "$i$f$forEach":I
-    :cond_6
-    goto :goto_3
+    :cond_69
+    goto :goto_6c
 
     .line 135
-    :catchall_0
+    :catchall_6a
     move-exception v1
 
     .line 136
@@ -547,12 +547,12 @@
 
     .line 127
     .end local v1    # "<unused var>":Ljava/lang/Throwable;
-    :goto_3
+    :goto_6c
     return-object v0
 .end method
 
 .method private final listThreadIds()Ljava/util/List;
-    .locals 16
+    .registers 17
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -566,7 +566,7 @@
     nop
 
     .line 118
-    :try_start_0
+    :try_start_1
     new-instance v0, Ljava/io/File;
 
     const-string v1, "/proc/self/task"
@@ -578,7 +578,7 @@
     move-result-object v0
 
     .line 119
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_45
 
     .line 118
     nop
@@ -616,8 +616,8 @@
 
     const/4 v8, 0x0
 
-    :goto_0
-    if-ge v8, v7, :cond_1
+    :goto_1e
+    if-ge v8, v7, :cond_3e
 
     aget-object v9, v5, v8
 
@@ -651,7 +651,7 @@
     .line 150
     .end local v12    # "it":Ljava/io/File;
     .end local v13    # "$i$a$-mapNotNull-CpuPin$listThreadIds$1":I
-    if-eqz v14, :cond_0
+    if-eqz v14, :cond_3a
 
     move-object v12, v14
 
@@ -668,16 +668,16 @@
     .end local v11    # "$i$a$-forEach-ArraysKt___ArraysKt$mapNotNullTo$1$iv$iv":I
     .end local v12    # "it$iv$iv":Ljava/lang/Object;
     .end local v13    # "$i$a$-let-ArraysKt___ArraysKt$mapNotNullTo$1$1$iv$iv":I
-    :cond_0
+    :cond_3a
     nop
 
     .end local v9    # "element$iv$iv$iv":Ljava/lang/Object;
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 153
-    :cond_1
+    :cond_3e
     nop
 
     .line 154
@@ -699,21 +699,21 @@
     nop
 
     .line 118
-    goto :goto_1
+    goto :goto_49
 
     .line 120
-    :cond_2
+    :cond_45
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_49
+    .catchall {:try_start_1 .. :try_end_49} :catchall_4a
 
-    :goto_1
-    goto :goto_2
+    :goto_49
+    goto :goto_4f
 
     .line 121
-    :catchall_0
+    :catchall_4a
     move-exception v0
 
     .line 122
@@ -724,7 +724,7 @@
 
     .line 117
     .end local v0    # "<unused var>":Ljava/lang/Throwable;
-    :goto_2
+    :goto_4f
     return-object v2
 .end method
 
@@ -735,7 +735,7 @@
 .end method
 
 .method private static final scheduleRenderThreadPin$attempt(Lkotlin/jvm/internal/Ref$IntRef;Landroid/os/Handler;)V
-    .locals 3
+    .registers 5
     .param p0, "tries"    # Lkotlin/jvm/internal/Ref$IntRef;
     .param p1, "handler"    # Landroid/os/Handler;
 
@@ -746,12 +746,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     return-void
 
     .line 110
-    :cond_0
+    :cond_9
     iget v0, p0, Lkotlin/jvm/internal/Ref$IntRef;->element:I
 
     add-int/lit8 v0, v0, 0x1
@@ -763,7 +763,7 @@
 
     const/16 v1, 0x1e
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1f
 
     new-instance v0, Lio/nekohasekai/sagernet/CpuPin$$ExternalSyntheticLambda1;
 
@@ -774,12 +774,12 @@
     invoke-virtual {p1, v0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 112
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 .method private static final scheduleRenderThreadPin$attempt$lambda$1(Lkotlin/jvm/internal/Ref$IntRef;Landroid/os/Handler;)V
-    .locals 0
+    .registers 2
     .param p0, "$tries"    # Lkotlin/jvm/internal/Ref$IntRef;
     .param p1, "$handler"    # Landroid/os/Handler;
 
@@ -790,7 +790,7 @@
 .end method
 
 .method private static final scheduleRenderThreadPin$lambda$2(Lkotlin/jvm/internal/Ref$IntRef;Landroid/os/Handler;)V
-    .locals 0
+    .registers 2
     .param p0, "$tries"    # Lkotlin/jvm/internal/Ref$IntRef;
     .param p1, "$handler"    # Landroid/os/Handler;
 
@@ -803,7 +803,7 @@
 
 # virtual methods
 .method public final getAvailable()Z
-    .locals 1
+    .registers 2
 
     .line 28
     sget-boolean v0, Lio/nekohasekai/sagernet/CpuPin;->available:Z
@@ -812,7 +812,7 @@
 .end method
 
 .method public final getSeparated()Z
-    .locals 1
+    .registers 2
 
     .line 32
     sget-boolean v0, Lio/nekohasekai/sagernet/CpuPin;->separated:Z
@@ -821,19 +821,19 @@
 .end method
 
 .method public final pinAllCurrentToLittle()Z
-    .locals 5
+    .registers 6
 
     .line 83
     sget-boolean v0, Lio/nekohasekai/sagernet/CpuPin;->separated:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
     .line 84
-    :cond_0
+    :cond_6
     const/4 v0, 0x1
 
     .line 85
@@ -846,13 +846,13 @@
 
     move-result-object v1
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_29
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -872,20 +872,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_f
 
     const/4 v0, 0x0
 
     .end local v2    # "tid":I
-    goto :goto_0
+    goto :goto_f
 
     .line 88
-    :cond_2
+    :cond_29
     return v0
 .end method
 
 .method public final pinCurrentToBig()Z
-    .locals 3
+    .registers 4
 
     .line 69
     invoke-static {}, Landroid/os/Process;->myTid()I
@@ -902,7 +902,7 @@
     .local v0, "ok":Z
     sget-boolean v1, Lio/nekohasekai/sagernet/CpuPin;->available:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -927,12 +927,12 @@
     invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 71
-    :cond_0
+    :cond_26
     return v0
 .end method
 
 .method public final pinCurrentToLittle()Z
-    .locals 3
+    .registers 4
 
     .line 76
     invoke-static {}, Landroid/os/Process;->myTid()I
@@ -949,7 +949,7 @@
     .local v0, "ok":Z
     sget-boolean v1, Lio/nekohasekai/sagernet/CpuPin;->available:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -974,31 +974,31 @@
     invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 78
-    :cond_0
+    :cond_26
     return v0
 .end method
 
 .method public final pinRenderThreadNow()Z
-    .locals 4
+    .registers 5
 
     .line 93
     sget-boolean v0, Lio/nekohasekai/sagernet/CpuPin;->separated:Z
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 94
-    :cond_0
+    :cond_6
     const-string v0, "RenderThread"
 
     invoke-direct {p0, v0}, Lio/nekohasekai/sagernet/CpuPin;->findThreadId(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3b
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -1052,22 +1052,22 @@
     .line 94
     .end local v0    # "tid":I
     .end local v1    # "ok":Z
-    :cond_1
+    :cond_3b
     return v1
 .end method
 
 .method public final scheduleRenderThreadPin()V
-    .locals 5
+    .registers 6
 
     .line 105
     sget-boolean v0, Lio/nekohasekai/sagernet/CpuPin;->separated:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 106
-    :cond_0
+    :cond_5
     new-instance v0, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;

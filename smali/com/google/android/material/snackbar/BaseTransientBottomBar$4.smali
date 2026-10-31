@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 410
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
     .param p1, "host"    # Landroid/view/View;
     .param p2, "action"    # I
     .param p3, "args"    # Landroid/os/Bundle;
@@ -67,7 +67,7 @@
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar$4;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar$4;"
     const/high16 v0, 0x100000
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_b
 
     .line 422
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$4;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
@@ -80,7 +80,7 @@
     return v0
 
     .line 425
-    :cond_0
+    :cond_b
     invoke-super {p0, p1, p2, p3}, Landroidx/core/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
 
     move-result v0

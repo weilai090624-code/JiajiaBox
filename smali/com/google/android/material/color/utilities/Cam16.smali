@@ -31,22 +31,22 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 44
     const/4 v0, 0x3
 
     new-array v1, v0, [D
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_38
 
     new-array v2, v0, [D
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_48
 
     new-array v3, v0, [D
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_58
 
     new-array v4, v0, [[D
 
@@ -67,15 +67,15 @@
     .line 51
     new-array v3, v0, [D
 
-    fill-array-data v3, :array_3
+    fill-array-data v3, :array_68
 
     new-array v4, v0, [D
 
-    fill-array-data v4, :array_4
+    fill-array-data v4, :array_78
 
     new-array v6, v0, [D
 
-    fill-array-data v6, :array_5
+    fill-array-data v6, :array_88
 
     new-array v0, v0, [[D
 
@@ -91,42 +91,42 @@
 
     nop
 
-    :array_0
+    :array_38
     .array-data 8
         0x3fd9aeb3dd11be6eL    # 0.401288
         0x3fe4ce379b77c02bL    # 0.650173
         -0x4055a6e75ff609ddL    # -0.051461
     .end array-data
 
-    :array_1
+    :array_48
     .array-data 8
         -0x402ffb9bed30f063L    # -0.250268
         0x3ff345479d4d8341L    # 1.204414
         0x3fa77a2cecc814d7L    # 0.045854
     .end array-data
 
-    :array_2
+    :array_58
     .array-data 8
         -0x409ef8055fbb517aL    # -0.002079
         0x3fa9103c8e25c811L    # 0.048952
         0x3fee800431bde82dL    # 0.953127
     .end array-data
 
-    :array_3
+    :array_68
     .array-data 8
         0x3ffdcb079afef467L    # 1.8620678
         -0x400fd1e697792de9L    # -1.0112547
         0x3fc3188d6a8c3ae1L    # 0.14918678
     .end array-data
 
-    :array_4
+    :array_78
     .array-data 8
         0x3fd8cd3c1de87346L    # 0.38752654
         0x3fe3e2e5bddf7419L    # 0.62144744
         -0x407d9f0ccb1490dcL    # -0.00897398
     .end array-data
 
-    :array_5
+    :array_88
     .array-data 8
         -0x406fc73eee525892L    # -0.0158415
         -0x405e8770215031c7L    # -0.03412294
@@ -135,7 +135,7 @@
 .end method
 
 .method private constructor <init>(DDDDDDDDD)V
-    .locals 15
+    .registers 34
     .param p1, "hue"    # D
     .param p3, "chroma"    # D
     .param p5, "j"    # D
@@ -201,7 +201,7 @@
 .end method
 
 .method public static fromInt(I)Lcom/google/android/material/color/utilities/Cam16;
-    .locals 1
+    .registers 2
     .param p0, "argb"    # I
 
     .line 189
@@ -215,7 +215,7 @@
 .end method
 
 .method static fromIntInViewingConditions(ILcom/google/android/material/color/utilities/ViewingConditions;)Lcom/google/android/material/color/utilities/Cam16;
-    .locals 106
+    .registers 108
     .param p0, "argb"    # I
     .param p1, "viewingConditions"    # Lcom/google/android/material/color/utilities/ViewingConditions;
 
@@ -638,27 +638,27 @@
 
     cmpg-double v60, v54, v56
 
-    if-gez v60, :cond_0
+    if-gez v60, :cond_180
 
     .line 247
     add-double v56, v54, v58
 
-    goto :goto_0
+    goto :goto_189
 
     .line 248
-    :cond_0
+    :cond_180
     cmpl-double v56, v54, v58
 
-    if-ltz v56, :cond_1
+    if-ltz v56, :cond_187
 
     sub-double v56, v54, v58
 
-    goto :goto_0
+    goto :goto_189
 
-    :cond_1
+    :cond_187
     move-wide/from16 v56, v54
 
-    :goto_0
+    :goto_189
     nop
 
     .line 249
@@ -756,18 +756,18 @@
 
     cmpg-double v64, v56, v62
 
-    if-gez v64, :cond_2
+    if-gez v64, :cond_1da
 
     add-double v58, v56, v58
 
-    goto :goto_1
+    goto :goto_1dc
 
-    :cond_2
+    :cond_1da
     move-wide/from16 v58, v56
 
     .line 269
     .local v58, "huePrime":D
-    :goto_1
+    :goto_1dc
     invoke-static/range {v58 .. v59}, Ljava/lang/Math;->toRadians(D)D
 
     move-result-wide v62
@@ -984,7 +984,7 @@
 .end method
 
 .method static fromJch(DDD)Lcom/google/android/material/color/utilities/Cam16;
-    .locals 7
+    .registers 13
     .param p0, "j"    # D
     .param p2, "c"    # D
     .param p4, "h"    # D
@@ -1006,7 +1006,7 @@
 .end method
 
 .method private static fromJchInViewingConditions(DDDLcom/google/android/material/color/utilities/ViewingConditions;)Lcom/google/android/material/color/utilities/Cam16;
-    .locals 38
+    .registers 45
     .param p0, "j"    # D
     .param p2, "c"    # D
     .param p4, "h"    # D
@@ -1178,7 +1178,7 @@
 .end method
 
 .method public static fromUcs(DDD)Lcom/google/android/material/color/utilities/Cam16;
-    .locals 7
+    .registers 13
     .param p0, "jstar"    # D
     .param p2, "astar"    # D
     .param p4, "bstar"    # D
@@ -1200,7 +1200,7 @@
 .end method
 
 .method public static fromUcsInViewingConditions(DDDLcom/google/android/material/color/utilities/ViewingConditions;)Lcom/google/android/material/color/utilities/Cam16;
-    .locals 19
+    .registers 26
     .param p0, "jstar"    # D
     .param p2, "astar"    # D
     .param p4, "bstar"    # D
@@ -1251,7 +1251,7 @@
 
     cmpg-double v12, v6, v8
 
-    if-gez v12, :cond_0
+    if-gez v12, :cond_33
 
     .line 357
     const-wide v8, 0x4076800000000000L    # 360.0
@@ -1260,16 +1260,16 @@
 
     move-wide v15, v6
 
-    goto :goto_0
+    goto :goto_34
 
     .line 356
-    :cond_0
+    :cond_33
     move-wide v15, v6
 
     .line 359
     .end local v6    # "h":D
     .local v15, "h":D
-    :goto_0
+    :goto_34
     const-wide/high16 v6, 0x4059000000000000L    # 100.0
 
     sub-double v6, p0, v6
@@ -1304,7 +1304,7 @@
 
 # virtual methods
 .method distance(Lcom/google/android/material/color/utilities/Cam16;)D
-    .locals 12
+    .registers 14
     .param p1, "other"    # Lcom/google/android/material/color/utilities/Cam16;
 
     .line 76
@@ -1376,7 +1376,7 @@
 .end method
 
 .method public getAstar()D
-    .locals 2
+    .registers 3
 
     .line 137
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Cam16;->astar:D
@@ -1385,7 +1385,7 @@
 .end method
 
 .method public getBstar()D
-    .locals 2
+    .registers 3
 
     .line 142
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Cam16;->bstar:D
@@ -1394,7 +1394,7 @@
 .end method
 
 .method public getChroma()D
-    .locals 2
+    .registers 3
 
     .line 91
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Cam16;->chroma:D
@@ -1403,7 +1403,7 @@
 .end method
 
 .method public getHue()D
-    .locals 2
+    .registers 3
 
     .line 86
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Cam16;->hue:D
@@ -1412,7 +1412,7 @@
 .end method
 
 .method public getJ()D
-    .locals 2
+    .registers 3
 
     .line 96
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Cam16;->j:D
@@ -1421,7 +1421,7 @@
 .end method
 
 .method public getJstar()D
-    .locals 2
+    .registers 3
 
     .line 132
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Cam16;->jstar:D
@@ -1430,7 +1430,7 @@
 .end method
 
 .method public getM()D
-    .locals 2
+    .registers 3
 
     .line 117
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Cam16;->m:D
@@ -1439,7 +1439,7 @@
 .end method
 
 .method public getQ()D
-    .locals 2
+    .registers 3
 
     .line 107
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Cam16;->q:D
@@ -1448,7 +1448,7 @@
 .end method
 
 .method public getS()D
-    .locals 2
+    .registers 3
 
     .line 127
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Cam16;->s:D
@@ -1457,7 +1457,7 @@
 .end method
 
 .method public toInt()I
-    .locals 1
+    .registers 2
 
     .line 368
     sget-object v0, Lcom/google/android/material/color/utilities/ViewingConditions;->DEFAULT:Lcom/google/android/material/color/utilities/ViewingConditions;
@@ -1470,7 +1470,7 @@
 .end method
 
 .method viewed(Lcom/google/android/material/color/utilities/ViewingConditions;)I
-    .locals 63
+    .registers 65
     .param p1, "viewingConditions"    # Lcom/google/android/material/color/utilities/ViewingConditions;
 
     .line 379
@@ -1484,7 +1484,7 @@
 
     cmpl-double v6, v0, v4
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_24
 
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/color/utilities/Cam16;->getJ()D
 
@@ -1492,11 +1492,11 @@
 
     cmpl-double v6, v0, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_15
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_15
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/color/utilities/Cam16;->getChroma()D
 
     move-result-wide v0
@@ -1513,15 +1513,15 @@
 
     div-double/2addr v0, v6
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     move-wide v0, v4
 
     .line 381
     .local v0, "alpha":D
-    :goto_1
+    :goto_25
     nop
 
     .line 383

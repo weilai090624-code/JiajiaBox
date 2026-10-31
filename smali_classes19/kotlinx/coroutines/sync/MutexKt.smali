@@ -62,7 +62,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 300
     new-instance v0, Lkotlinx/coroutines/internal/Symbol;
@@ -86,7 +86,7 @@
 .end method
 
 .method public static final Mutex(Z)Lkotlinx/coroutines/sync/Mutex;
-    .locals 1
+    .registers 2
     .param p0, "locked"    # Z
 
     .line 109
@@ -100,16 +100,16 @@
 .end method
 
 .method public static synthetic Mutex$default(ZILjava/lang/Object;)Lkotlinx/coroutines/sync/Mutex;
-    .locals 0
+    .registers 3
 
     .line 108
     and-int/lit8 p1, p1, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     const/4 p0, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0}, Lkotlinx/coroutines/sync/MutexKt;->Mutex(Z)Lkotlinx/coroutines/sync/Mutex;
 
     move-result-object p0
@@ -118,7 +118,7 @@
 .end method
 
 .method public static final synthetic access$getNO_OWNER$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/sync/MutexKt;->NO_OWNER:Lkotlinx/coroutines/internal/Symbol;
@@ -127,7 +127,7 @@
 .end method
 
 .method public static final synthetic access$getON_LOCK_ALREADY_LOCKED_BY_OWNER$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/sync/MutexKt;->ON_LOCK_ALREADY_LOCKED_BY_OWNER:Lkotlinx/coroutines/internal/Symbol;
@@ -136,7 +136,7 @@
 .end method
 
 .method public static final withLock(Lkotlinx/coroutines/sync/Mutex;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -154,7 +154,7 @@
 
     instance-of v0, p3, Lkotlinx/coroutines/sync/MutexKt$withLock$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p3
 
@@ -166,7 +166,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p3, v0, Lkotlinx/coroutines/sync/MutexKt$withLock$1;->label:I
 
@@ -174,14 +174,14 @@
 
     iput p3, v0, Lkotlinx/coroutines/sync/MutexKt$withLock$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/sync/MutexKt$withLock$1;
 
     invoke-direct {v0, p3}, Lkotlinx/coroutines/sync/MutexKt$withLock$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p3, v0
 
     .local p3, "$continuation":Lkotlin/coroutines/Continuation;
@@ -195,7 +195,7 @@
     .line 120
     iget v2, p3, Lkotlinx/coroutines/sync/MutexKt$withLock$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_64
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p3    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -209,7 +209,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p3    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p0, 0x0
 
     .local p0, "$i$f$withLock":I
@@ -228,13 +228,13 @@
     .local v1, "$this$withLock":Lkotlinx/coroutines/sync/Mutex;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_56
 
     .end local v1    # "$this$withLock":Lkotlinx/coroutines/sync/Mutex;
     .end local p0    # "$i$f$withLock":I
     .end local p1    # "action":Lkotlin/jvm/functions/Function0;
     .end local p2    # "owner":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_3c
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .local p0, "$this$withLock":Lkotlinx/coroutines/sync/Mutex;
@@ -261,13 +261,13 @@
 
     move-result-object v3
 
-    if-ne v3, v1, :cond_1
+    if-ne v3, v1, :cond_51
 
     .line 120
     return-object v1
 
     .line 125
-    :cond_1
+    :cond_51
     move-object v1, p0
 
     move p0, v2
@@ -284,16 +284,16 @@
     .local p0, "$i$f$withLock":I
     .local p1, "action":Lkotlin/jvm/functions/Function0;
     .local p2, "owner":Ljava/lang/Object;
-    :goto_1
+    :goto_56
     nop
 
     .line 127
-    :try_start_0
+    :try_start_57
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5b
+    .catchall {:try_start_57 .. :try_end_5b} :catchall_5f
 
     .line 129
     .end local p1    # "action":Lkotlin/jvm/functions/Function0;
@@ -307,22 +307,22 @@
     .line 129
     .restart local v1    # "$this$withLock":Lkotlinx/coroutines/sync/Mutex;
     .restart local p2    # "owner":Ljava/lang/Object;
-    :catchall_0
+    :catchall_5f
     move-exception p1
 
     invoke-interface {v1, p2}, Lkotlinx/coroutines/sync/Mutex;->unlock(Ljava/lang/Object;)V
 
     throw p1
 
-    :pswitch_data_0
+    :pswitch_data_64
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3c
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method private static final withLock$$forInline(Lkotlinx/coroutines/sync/Mutex;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "$this$withLock"    # Lkotlinx/coroutines/sync/Mutex;
     .param p1, "owner"    # Ljava/lang/Object;
     .param p2, "action"    # Lkotlin/jvm/functions/Function0;
@@ -355,12 +355,12 @@
     nop
 
     .line 127
-    :try_start_0
+    :try_start_6
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_6 .. :try_end_a} :catchall_e
 
     .line 129
     invoke-interface {p0, p1}, Lkotlinx/coroutines/sync/Mutex;->unlock(Ljava/lang/Object;)V
@@ -369,7 +369,7 @@
     return-object v1
 
     .line 129
-    :catchall_0
+    :catchall_e
     move-exception v1
 
     invoke-interface {p0, p1}, Lkotlinx/coroutines/sync/Mutex;->unlock(Ljava/lang/Object;)V
@@ -378,7 +378,7 @@
 .end method
 
 .method public static synthetic withLock$default(Lkotlinx/coroutines/sync/Mutex;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 6
     .param p0, "$this$withLock_u24default"    # Lkotlinx/coroutines/sync/Mutex;
     .param p1, "owner"    # Ljava/lang/Object;
     .param p2, "action"    # Lkotlin/jvm/functions/Function0;
@@ -387,11 +387,11 @@
     .line 120
     and-int/lit8 p4, p4, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     const/4 p4, 0x0
 
     .line 121
@@ -405,12 +405,12 @@
     nop
 
     .line 127
-    :try_start_0
+    :try_start_b
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object p5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_b .. :try_end_f} :catchall_13
 
     .line 129
     invoke-interface {p0, p1}, Lkotlinx/coroutines/sync/Mutex;->unlock(Ljava/lang/Object;)V
@@ -419,7 +419,7 @@
     return-object p5
 
     .line 129
-    :catchall_0
+    :catchall_13
     move-exception p5
 
     invoke-interface {p0, p1}, Lkotlinx/coroutines/sync/Mutex;->unlock(Ljava/lang/Object;)V

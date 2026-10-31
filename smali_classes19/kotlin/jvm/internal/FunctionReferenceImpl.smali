@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 7
+    .registers 13
     .param p1, "arity"    # I
     .param p2, "owner"    # Ljava/lang/Class;
     .param p3, "name"    # Ljava/lang/String;
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/Object;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 0
+    .registers 7
     .param p1, "arity"    # I
     .param p2, "receiver"    # Ljava/lang/Object;
     .param p3, "owner"    # Ljava/lang/Class;
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(ILkotlin/reflect/KDeclarationContainer;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 7
+    .registers 12
     .param p1, "arity"    # I
     .param p2, "owner"    # Lkotlin/reflect/KDeclarationContainer;
     .param p3, "name"    # Ljava/lang/String;

@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public areNotificationsEnabled(Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 1
+    .registers 3
     .param p1, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -45,7 +45,7 @@
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 43
     const/4 v0, 0x0
@@ -54,7 +54,7 @@
 .end method
 
 .method public cancelNotification(Landroid/os/Bundle;)V
-    .locals 0
+    .registers 2
     .param p1, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -67,7 +67,7 @@
 .end method
 
 .method public extraCommand(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/IBinder;)Landroid/os/Bundle;
-    .locals 1
+    .registers 5
     .param p1, "commandName"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
     .param p3, "callback"    # Landroid/os/IBinder;
@@ -84,7 +84,7 @@
 .end method
 
 .method public getActiveNotifications()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -98,7 +98,7 @@
 .end method
 
 .method public getSmallIconBitmap()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -112,7 +112,7 @@
 .end method
 
 .method public getSmallIconId()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -126,7 +126,7 @@
 .end method
 
 .method public notifyNotificationWithChannel(Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 1
+    .registers 3
     .param p1, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {

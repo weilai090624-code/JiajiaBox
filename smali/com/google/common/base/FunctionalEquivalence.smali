@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Function;Lcom/google/common/base/Equivalence;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method protected doEquivalent(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;TF;)Z"
@@ -125,7 +125,7 @@
 .end method
 
 .method protected doHash(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;)I"
@@ -151,7 +151,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -161,18 +161,18 @@
     .local p0, "this":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<TF;TT;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 59
     return v0
 
     .line 61
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/base/FunctionalEquivalence;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_23
 
     .line 62
     move-object v1, p1
@@ -189,7 +189,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_21
 
     iget-object v3, p0, Lcom/google/common/base/FunctionalEquivalence;->resultEquivalence:Lcom/google/common/base/Equivalence;
 
@@ -199,24 +199,24 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_21
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_22
     return v0
 
     .line 65
     .end local v1    # "that":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<**>;"
-    :cond_2
+    :cond_23
     return v2
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 70
     .local p0, "this":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<TF;TT;>;"
@@ -244,7 +244,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 75
     .local p0, "this":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<TF;TT;>;"

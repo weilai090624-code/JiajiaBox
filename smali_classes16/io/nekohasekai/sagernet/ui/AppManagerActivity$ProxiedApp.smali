@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageManager;Landroid/content/pm/ApplicationInfo;Ljava/lang/String;)V
-    .locals 2
+    .registers 6
     .param p1, "pm"    # Landroid/content/pm/PackageManager;
     .param p2, "appInfo"    # Landroid/content/pm/ApplicationInfo;
     .param p3, "packageName"    # Ljava/lang/String;
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public final getIcon()Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 3
 
     .line 67
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;->appInfo:Landroid/content/pm/ApplicationInfo;
@@ -139,7 +139,7 @@
 .end method
 
 .method public final getName()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;->name:Ljava/lang/CharSequence;
@@ -148,7 +148,7 @@
 .end method
 
 .method public final getPackageName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;->packageName:Ljava/lang/String;
@@ -157,7 +157,7 @@
 .end method
 
 .method public final getSys()Z
-    .locals 2
+    .registers 3
 
     .line 69
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;->appInfo:Landroid/content/pm/ApplicationInfo;
@@ -168,19 +168,19 @@
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method public final getUid()I
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;->appInfo:Landroid/content/pm/ApplicationInfo;

@@ -72,7 +72,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback$Companion;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "version"    # I
 
     .line 110
@@ -100,7 +100,7 @@
 .end method
 
 .method private final deleteDatabaseFile(Ljava/lang/String;)V
-    .locals 13
+    .registers 15
     .param p1, "fileName"    # Ljava/lang/String;
 
     .line 250
@@ -112,7 +112,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_83
 
     .line 251
     move-object v0, p1
@@ -147,24 +147,24 @@
 
     .line 435
     .local v7, "startFound$iv$iv":Z
-    :goto_0
+    :goto_16
     const/4 v8, 0x0
 
-    if-gt v5, v6, :cond_5
+    if-gt v5, v6, :cond_3f
 
     .line 436
-    if-nez v7, :cond_0
+    if-nez v7, :cond_1d
 
     move v9, v5
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     move v9, v6
 
     .line 437
     .local v9, "index$iv$iv":I
-    :goto_1
+    :goto_1e
     invoke-interface {v3, v9}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v10
@@ -180,47 +180,47 @@
 
     move-result v12
 
-    if-gtz v12, :cond_1
+    if-gtz v12, :cond_2d
 
     const/4 v10, 0x1
 
-    goto :goto_2
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     const/4 v10, 0x0
 
     .line 437
     .end local v10    # "it":C
     .end local v11    # "$i$a$-trim-SupportSQLiteOpenHelper$Callback$deleteDatabaseFile$1":I
-    :goto_2
+    :goto_2e
     nop
 
     .line 439
     .local v10, "match$iv$iv":Z
-    if-nez v7, :cond_3
+    if-nez v7, :cond_38
 
     .line 440
-    if-nez v10, :cond_2
+    if-nez v10, :cond_35
 
     .line 441
     const/4 v7, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_2
+    :cond_35
     add-int/lit8 v5, v5, 0x1
 
     .line 443
-    goto :goto_0
+    goto :goto_16
 
     .line 445
-    :cond_3
-    if-nez v10, :cond_4
+    :cond_38
+    if-nez v10, :cond_3b
 
     .line 446
-    goto :goto_3
+    goto :goto_3f
 
-    :cond_4
+    :cond_3b
     add-int/lit8 v6, v6, -0x1
 
     .line 448
@@ -228,11 +228,11 @@
 
     .end local v9    # "index$iv$iv":I
     .end local v10    # "match$iv$iv":Z
-    goto :goto_0
+    goto :goto_16
 
     .line 452
-    :cond_5
-    :goto_3
+    :cond_3f
+    :goto_3f
     add-int/lit8 v9, v6, 0x1
 
     invoke-interface {v3, v5, v9}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -258,20 +258,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_52
 
-    goto :goto_4
+    goto :goto_53
 
-    :cond_6
+    :cond_52
     const/4 v1, 0x0
 
-    :goto_4
-    if-eqz v1, :cond_7
+    :goto_53
+    if-eqz v1, :cond_56
 
-    goto :goto_6
+    goto :goto_83
 
     .line 255
-    :cond_7
+    :cond_56
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -301,19 +301,19 @@
     nop
 
     .line 258
-    :try_start_0
+    :try_start_70
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     invoke-static {v0}, Landroidx/sqlite/db/SupportSQLiteCompat$Api16Impl;->deleteDatabase(Ljava/io/File;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_78
+    .catch Ljava/lang/Exception; {:try_start_70 .. :try_end_78} :catch_79
 
-    goto :goto_5
+    goto :goto_82
 
     .line 269
-    :catch_0
+    :catch_79
     move-exception v0
 
     .line 271
@@ -328,19 +328,19 @@
 
     .line 273
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_5
+    :goto_82
     return-void
 
     .line 253
-    :cond_8
-    :goto_6
+    :cond_83
+    :goto_83
     return-void
 .end method
 
 
 # virtual methods
 .method public onConfigure(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -352,7 +352,7 @@
 .end method
 
 .method public onCorruption(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 10
+    .registers 12
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "p.second"
@@ -395,14 +395,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_36
 
     .line 222
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->getPath()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_35
 
     .line 427
     .local v0, "it":Ljava/lang/String;
@@ -415,11 +415,11 @@
     .line 223
     .end local v0    # "it":Ljava/lang/String;
     .end local v1    # "$i$a$-let-SupportSQLiteOpenHelper$Callback$onCorruption$1":I
-    :cond_0
+    :cond_35
     return-void
 
     .line 225
-    :cond_1
+    :cond_36
     const/4 v1, 0x0
 
     .line 226
@@ -430,44 +430,44 @@
     nop
 
     .line 230
-    :try_start_0
+    :try_start_39
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->getAttachedDbs()Ljava/util/List;
 
     move-result-object v2
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3d
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_39 .. :try_end_3d} :catch_41
+    .catchall {:try_start_39 .. :try_end_3d} :catchall_3f
 
     move-object v1, v2
 
-    goto :goto_0
+    goto :goto_42
 
     .line 243
-    :catchall_0
+    :catchall_3f
     move-exception v2
 
-    goto :goto_1
+    goto :goto_47
 
     .line 231
-    :catch_0
+    :catch_41
     move-exception v2
 
     .line 234
-    :goto_0
+    :goto_42
     nop
 
     .line 235
-    :try_start_1
+    :try_start_43
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->close()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_46
+    .catch Ljava/io/IOException; {:try_start_43 .. :try_end_46} :catch_79
+    .catchall {:try_start_43 .. :try_end_46} :catchall_3f
 
-    goto :goto_4
+    goto :goto_7a
 
     .line 243
-    :goto_1
-    if-eqz v1, :cond_3
+    :goto_47
+    if-eqz v1, :cond_6e
 
     move-object v3, v1
 
@@ -482,12 +482,12 @@
 
     move-result-object v5
 
-    :goto_2
+    :goto_51
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_6c
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -520,24 +520,24 @@
     nop
 
     .end local v6    # "element$iv":Ljava/lang/Object;
-    goto :goto_2
+    goto :goto_51
 
     .line 429
-    :cond_2
+    :cond_6c
     nop
 
     .line 243
     .end local v3    # "$this$forEach$iv":Ljava/lang/Iterable;
     .end local v4    # "$i$f$forEach":I
-    goto :goto_3
+    goto :goto_78
 
     .line 245
-    :cond_3
+    :cond_6e
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->getPath()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_78
 
     .line 427
     .restart local v0    # "it":Ljava/lang/String;
@@ -549,17 +549,17 @@
 
     .end local v0    # "it":Ljava/lang/String;
     .end local v3    # "$i$a$-let-SupportSQLiteOpenHelper$Callback$onCorruption$3":I
-    :cond_4
-    :goto_3
+    :cond_78
+    :goto_78
     throw v2
 
     .line 236
-    :catch_1
+    :catch_79
     move-exception v2
 
     .line 243
-    :goto_4
-    if-eqz v1, :cond_6
+    :goto_7a
+    if-eqz v1, :cond_a1
 
     move-object v2, v1
 
@@ -574,12 +574,12 @@
 
     move-result-object v4
 
-    :goto_5
+    :goto_84
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_9f
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -612,24 +612,24 @@
     nop
 
     .end local v5    # "element$iv":Ljava/lang/Object;
-    goto :goto_5
+    goto :goto_84
 
     .line 429
-    :cond_5
+    :cond_9f
     nop
 
     .line 243
     .end local v2    # "$this$forEach$iv":Ljava/lang/Iterable;
     .end local v3    # "$i$f$forEach":I
-    goto :goto_6
+    goto :goto_ab
 
     .line 245
-    :cond_6
+    :cond_a1
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->getPath()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_ab
 
     .line 427
     .restart local v0    # "it":Ljava/lang/String;
@@ -642,8 +642,8 @@
     .line 246
     .end local v0    # "it":Ljava/lang/String;
     .end local v2    # "$i$a$-let-SupportSQLiteOpenHelper$Callback$onCorruption$3":I
-    :cond_7
-    :goto_6
+    :cond_ab
+    :goto_ab
     nop
 
     .line 247
@@ -654,7 +654,7 @@
 .end method
 
 .method public onDowngrade(Landroidx/sqlite/db/SupportSQLiteDatabase;II)V
-    .locals 3
+    .registers 7
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p2, "oldVersion"    # I
     .param p3, "newVersion"    # I
@@ -702,7 +702,7 @@
 .end method
 
 .method public onOpen(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"

@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 .end method
 
 .method public static parse(Lcom/google/gson/stream/JsonReader;)Lcom/google/gson/JsonElement;
-    .locals 3
+    .registers 4
     .param p0, "reader"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -40,7 +40,7 @@
 
     .line 46
     .local v0, "isEmpty":Z
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     .line 47
@@ -54,16 +54,16 @@
     move-result-object v1
 
     check-cast v1, Lcom/google/gson/JsonElement;
-    :try_end_0
-    .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Lcom/google/gson/stream/MalformedJsonException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/io/EOFException; {:try_start_1 .. :try_end_d} :catch_23
+    .catch Lcom/google/gson/stream/MalformedJsonException; {:try_start_1 .. :try_end_d} :catch_1c
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_d} :catch_15
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_d} :catch_e
 
     return-object v1
 
     .line 63
-    :catch_0
+    :catch_e
     move-exception v1
 
     .line 64
@@ -76,7 +76,7 @@
 
     .line 61
     .end local v1    # "e":Ljava/lang/NumberFormatException;
-    :catch_1
+    :catch_15
     move-exception v1
 
     .line 62
@@ -89,7 +89,7 @@
 
     .line 59
     .end local v1    # "e":Ljava/io/IOException;
-    :catch_2
+    :catch_1c
     move-exception v1
 
     .line 60
@@ -102,12 +102,12 @@
 
     .line 49
     .end local v1    # "e":Lcom/google/gson/stream/MalformedJsonException;
-    :catch_3
+    :catch_23
     move-exception v1
 
     .line 54
     .local v1, "e":Ljava/io/EOFException;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 55
     sget-object v2, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
@@ -115,7 +115,7 @@
     return-object v2
 
     .line 58
-    :cond_0
+    :cond_29
     new-instance v2, Lcom/google/gson/JsonSyntaxException;
 
     invoke-direct {v2, v1}, Lcom/google/gson/JsonSyntaxException;-><init>(Ljava/lang/Throwable;)V
@@ -124,7 +124,7 @@
 .end method
 
 .method public static write(Lcom/google/gson/JsonElement;Lcom/google/gson/stream/JsonWriter;)V
-    .locals 1
+    .registers 3
     .param p0, "element"    # Lcom/google/gson/JsonElement;
     .param p1, "writer"    # Lcom/google/gson/stream/JsonWriter;
     .annotation system Ldalvik/annotation/Throws;
@@ -143,25 +143,25 @@
 .end method
 
 .method public static writerForAppendable(Ljava/lang/Appendable;)Ljava/io/Writer;
-    .locals 1
+    .registers 2
     .param p0, "appendable"    # Ljava/lang/Appendable;
 
     .line 76
     instance-of v0, p0, Ljava/io/Writer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     move-object v0, p0
 
     check-cast v0, Ljava/io/Writer;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/gson/internal/Streams$AppendableWriter;
 
     invoke-direct {v0, p0}, Lcom/google/gson/internal/Streams$AppendableWriter;-><init>(Ljava/lang/Appendable;)V
 
-    :goto_0
+    :goto_d
     return-object v0
 .end method

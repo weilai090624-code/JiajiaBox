@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Supplier;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public get()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/base/ParametricNullness;
     .end annotation
 
@@ -94,7 +94,7 @@
     monitor-enter v0
 
     .line 349
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/base/Suppliers$ThreadSafeSupplier;->delegate:Lcom/google/common/base/Supplier;
 
     invoke-interface {v1}, Lcom/google/common/base/Supplier;->get()Ljava/lang/Object;
@@ -106,18 +106,18 @@
     return-object v1
 
     .line 350
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 355
     .local p0, "this":Lcom/google/common/base/Suppliers$ThreadSafeSupplier;, "Lcom/google/common/base/Suppliers$ThreadSafeSupplier<TT;>;"

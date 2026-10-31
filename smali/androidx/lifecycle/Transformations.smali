@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final distinctUntilChanged(Landroidx/lifecycle/LiveData;)Landroidx/lifecycle/LiveData;
-    .locals 4
+    .registers 5
     .param p0, "$this$distinctUntilChanged"    # Landroidx/lifecycle/LiveData;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,7 +74,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     .line 182
     invoke-virtual {p0}, Landroidx/lifecycle/LiveData;->getValue()Ljava/lang/Object;
@@ -89,7 +89,7 @@
     iput-boolean v2, v1, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
 
     .line 185
-    :cond_0
+    :cond_22
     new-instance v2, Landroidx/lifecycle/Transformations$distinctUntilChanged$1;
 
     invoke-direct {v2, v0, v1}, Landroidx/lifecycle/Transformations$distinctUntilChanged$1;-><init>(Landroidx/lifecycle/MediatorLiveData;Lkotlin/jvm/internal/Ref$BooleanRef;)V
@@ -113,7 +113,7 @@
 .end method
 
 .method public static final synthetic map(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;)Landroidx/lifecycle/LiveData;
-    .locals 3
+    .registers 5
     .param p0, "$this$map"    # Landroidx/lifecycle/LiveData;
     .param p1, "mapFunction"    # Landroidx/arch/core/util/Function;
     .annotation runtime Lkotlin/Deprecated;
@@ -159,7 +159,7 @@
 .end method
 
 .method public static final map(Landroidx/lifecycle/LiveData;Lkotlin/jvm/functions/Function1;)Landroidx/lifecycle/LiveData;
-    .locals 3
+    .registers 5
     .param p0, "$this$map"    # Landroidx/lifecycle/LiveData;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -216,7 +216,7 @@
 .end method
 
 .method public static final synthetic switchMap(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;)Landroidx/lifecycle/LiveData;
-    .locals 2
+    .registers 4
     .param p0, "$this$switchMap"    # Landroidx/lifecycle/LiveData;
     .param p1, "switchMapFunction"    # Landroidx/arch/core/util/Function;
     .annotation runtime Lkotlin/Deprecated;
@@ -256,7 +256,7 @@
 .end method
 
 .method public static final switchMap(Landroidx/lifecycle/LiveData;Lkotlin/jvm/functions/Function1;)Landroidx/lifecycle/LiveData;
-    .locals 2
+    .registers 4
     .param p0, "$this$switchMap"    # Landroidx/lifecycle/LiveData;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;

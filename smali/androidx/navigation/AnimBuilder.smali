@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 171
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public final getEnter()I
-    .locals 1
+    .registers 2
 
     .line 180
     iget v0, p0, Landroidx/navigation/AnimBuilder;->enter:I
@@ -89,7 +89,7 @@
 .end method
 
 .method public final getExit()I
-    .locals 1
+    .registers 2
 
     .line 189
     iget v0, p0, Landroidx/navigation/AnimBuilder;->exit:I
@@ -98,7 +98,7 @@
 .end method
 
 .method public final getPopEnter()I
-    .locals 1
+    .registers 2
 
     .line 199
     iget v0, p0, Landroidx/navigation/AnimBuilder;->popEnter:I
@@ -107,7 +107,7 @@
 .end method
 
 .method public final getPopExit()I
-    .locals 1
+    .registers 2
 
     .line 209
     iget v0, p0, Landroidx/navigation/AnimBuilder;->popExit:I
@@ -116,7 +116,7 @@
 .end method
 
 .method public final setEnter(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 180
@@ -126,7 +126,7 @@
 .end method
 
 .method public final setExit(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 189
@@ -136,7 +136,7 @@
 .end method
 
 .method public final setPopEnter(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 199
@@ -146,7 +146,7 @@
 .end method
 
 .method public final setPopExit(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 209

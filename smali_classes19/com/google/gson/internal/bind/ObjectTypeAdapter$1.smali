@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/ToNumberStrategy;)V
-    .locals 0
+    .registers 2
 
     .line 54
     iput-object p1, p0, Lcom/google/gson/internal/bind/ObjectTypeAdapter$1;->val$toNumberStrategy:Lcom/google/gson/ToNumberStrategy;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 3
+    .registers 6
     .param p1, "gson"    # Lcom/google/gson/Gson;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -61,7 +61,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 58
     new-instance v0, Lcom/google/gson/internal/bind/ObjectTypeAdapter;
@@ -73,6 +73,6 @@
     return-object v0
 
     .line 60
-    :cond_0
+    :cond_11
     return-object v2
 .end method

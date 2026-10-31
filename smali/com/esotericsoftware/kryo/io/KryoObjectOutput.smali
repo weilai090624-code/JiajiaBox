@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;)V
-    .locals 0
+    .registers 3
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
 
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -46,7 +46,7 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -63,7 +63,7 @@
 .end method
 
 .method public writeObject(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {

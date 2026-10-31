@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 620
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static addResultsToIntent(Ljava/lang/Object;Landroid/content/Intent;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
     .param p0, "remoteInputs"    # Ljava/lang/Object;
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "results"    # Landroid/os/Bundle;
@@ -43,7 +43,7 @@
 .end method
 
 .method public static fromCompat(Landroidx/core/app/RemoteInput;)Landroid/app/RemoteInput;
-    .locals 5
+    .registers 6
     .param p0, "src"    # Landroidx/core/app/RemoteInput;
 
     .line 658
@@ -98,7 +98,7 @@
 
     const/16 v2, 0x1a
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_4a
 
     .line 665
     invoke-virtual {p0}, Landroidx/core/app/RemoteInput;->getAllowedDataTypes()Ljava/util/Set;
@@ -107,19 +107,19 @@
 
     .line 666
     .local v1, "allowedDataTypes":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4a
 
     .line 667
     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_0
+    :goto_39
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_4a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -135,16 +135,16 @@
 
     .line 669
     .end local v3    # "allowedDataType":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_39
 
     .line 672
     .end local v1    # "allowedDataTypes":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    :cond_0
+    :cond_4a
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1d
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_57
 
     .line 673
     invoke-virtual {p0}, Landroidx/core/app/RemoteInput;->getEditChoicesBeforeSending()I
@@ -154,7 +154,7 @@
     invoke-static {v0, v1}, Landroidx/core/app/RemoteInput$Api29Impl;->setEditChoicesBeforeSending(Landroid/app/RemoteInput$Builder;I)Landroid/app/RemoteInput$Builder;
 
     .line 675
-    :cond_1
+    :cond_57
     invoke-virtual {v0}, Landroid/app/RemoteInput$Builder;->build()Landroid/app/RemoteInput;
 
     move-result-object v1
@@ -163,7 +163,7 @@
 .end method
 
 .method static fromPlatform(Ljava/lang/Object;)Landroidx/core/app/RemoteInput;
-    .locals 6
+    .registers 7
     .param p0, "srcObj"    # Ljava/lang/Object;
 
     .line 636
@@ -224,7 +224,7 @@
 
     const/16 v3, 0x1a
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_4d
 
     .line 644
     invoke-static {v0}, Landroidx/core/app/RemoteInput$Api26Impl;->getAllowedDataTypes(Ljava/lang/Object;)Ljava/util/Set;
@@ -233,19 +233,19 @@
 
     .line 645
     .local v2, "allowedDataTypes":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_4d
 
     .line 646
     invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_0
+    :goto_3c
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_4d
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -261,16 +261,16 @@
 
     .line 648
     .end local v4    # "allowedDataType":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_3c
 
     .line 651
     .end local v2    # "allowedDataTypes":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    :cond_0
+    :cond_4d
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x1d
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_5a
 
     .line 652
     invoke-static {v0}, Landroidx/core/app/RemoteInput$Api29Impl;->getEditChoicesBeforeSending(Ljava/lang/Object;)I
@@ -280,7 +280,7 @@
     invoke-virtual {v1, v2}, Landroidx/core/app/RemoteInput$Builder;->setEditChoicesBeforeSending(I)Landroidx/core/app/RemoteInput$Builder;
 
     .line 654
-    :cond_1
+    :cond_5a
     invoke-virtual {v1}, Landroidx/core/app/RemoteInput$Builder;->build()Landroidx/core/app/RemoteInput;
 
     move-result-object v2
@@ -289,7 +289,7 @@
 .end method
 
 .method static getResultsFromIntent(Landroid/content/Intent;)Landroid/os/Bundle;
-    .locals 1
+    .registers 2
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 626

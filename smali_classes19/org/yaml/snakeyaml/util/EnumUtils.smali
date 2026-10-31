@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static findEnumInsensitiveCase(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
-    .locals 5
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -43,8 +43,8 @@
     const/4 v2, 0x0
 
     .local v2, "i$":I
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_8
+    if-ge v2, v1, :cond_1a
 
     aget-object v3, v0, v2
 
@@ -58,23 +58,23 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_17
 
     .line 32
     return-object v3
 
     .line 30
     .end local v3    # "constant":Ljava/lang/Enum;, "TT;"
-    :cond_0
+    :cond_17
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 35
     .end local v0    # "arr$":[Ljava/lang/Enum;
     .end local v1    # "len$":I
     .end local v2    # "i$":I
-    :cond_1
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;

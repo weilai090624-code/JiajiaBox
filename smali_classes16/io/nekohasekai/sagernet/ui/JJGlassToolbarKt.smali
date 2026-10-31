@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static final synthetic access$findActivity(Landroid/content/Context;)Landroid/app/Activity;
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Landroid/content/Context;
 
     .line 1
@@ -38,7 +38,7 @@
 .end method
 
 .method private static final findActivity(Landroid/content/Context;)Landroid/app/Activity;
-    .locals 3
+    .registers 4
     .param p0, "$this$findActivity"    # Landroid/content/Context;
 
     .line 242
@@ -46,7 +46,7 @@
 
     .line 243
     .local v0, "ctx":Landroid/content/Context;
-    :goto_0
+    :goto_1
     nop
 
     .line 244
@@ -55,7 +55,7 @@
     .line 245
     instance-of v1, v0, Landroid/app/Activity;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     move-object v1, v0
 
@@ -64,12 +64,12 @@
     return-object v1
 
     .line 246
-    :cond_0
+    :cond_b
     instance-of v1, v0, Landroid/content/ContextWrapper;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1c
 
     .line 247
     move-object v1, v0
@@ -82,18 +82,18 @@
 
     .line 248
     .local v1, "base":Landroid/content/Context;
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_1a
 
     return-object v2
 
     .line 249
-    :cond_1
+    :cond_1a
     move-object v0, v1
 
     .end local v1    # "base":Landroid/content/Context;
-    goto :goto_0
+    goto :goto_1
 
     .line 251
-    :cond_2
+    :cond_1c
     return-object v2
 .end method

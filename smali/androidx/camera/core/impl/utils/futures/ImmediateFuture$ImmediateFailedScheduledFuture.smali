@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -75,7 +75,7 @@
 .end method
 
 .method public compareTo(Ljava/util/concurrent/Delayed;)I
-    .locals 1
+    .registers 3
     .param p1, "delayed"    # Ljava/util/concurrent/Delayed;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -94,7 +94,7 @@
 .end method
 
 .method public getDelay(Ljava/util/concurrent/TimeUnit;)J
-    .locals 2
+    .registers 4
     .param p1, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

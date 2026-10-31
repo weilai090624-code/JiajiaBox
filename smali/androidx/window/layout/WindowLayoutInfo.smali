@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "displayFeatures"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -79,19 +79,19 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 54
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 55
-    :cond_0
-    if-eqz p1, :cond_2
+    :cond_4
+    if-eqz p1, :cond_21
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -105,12 +105,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
-    goto :goto_0
+    goto :goto_21
 
     .line 56
-    :cond_1
+    :cond_15
     move-object v0, p1
 
     check-cast v0, Landroidx/window/layout/WindowLayoutInfo;
@@ -129,15 +129,15 @@
 
     .line 55
     .end local v0    # "that":Landroidx/window/layout/WindowLayoutInfo;
-    :cond_2
-    :goto_0
+    :cond_21
+    :goto_21
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public final getDisplayFeatures()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -154,7 +154,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 61
     iget-object v0, p0, Landroidx/window/layout/WindowLayoutInfo;->displayFeatures:Ljava/util/List;
@@ -167,7 +167,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 10
+    .registers 11
 
     .line 46
     iget-object v0, p0, Landroidx/window/layout/WindowLayoutInfo;->displayFeatures:Ljava/util/List;

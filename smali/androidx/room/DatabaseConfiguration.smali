@@ -157,7 +157,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Landroidx/room/RoomDatabase$MigrationContainer;Ljava/util/List;ZLandroidx/room/RoomDatabase$JournalMode;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Landroid/content/Intent;ZZLjava/util/Set;Ljava/lang/String;Ljava/io/File;Ljava/util/concurrent/Callable;Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;Ljava/util/List;Ljava/util/List;)V
-    .locals 16
+    .registers 36
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "sqliteOpenHelperFactory"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
@@ -348,16 +348,16 @@
     .line 127
     iget-object v1, v0, Landroidx/room/DatabaseConfiguration;->multiInstanceInvalidationServiceIntent:Landroid/content/Intent;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_82
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_83
 
-    :cond_0
+    :cond_82
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_83
     iput-boolean v1, v0, Landroidx/room/DatabaseConfiguration;->multiInstanceInvalidation:Z
 
     .line 35
@@ -365,7 +365,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Landroidx/room/RoomDatabase$MigrationContainer;Ljava/util/List;ZLandroidx/room/RoomDatabase$JournalMode;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;ZZZLjava/util/Set;)V
-    .locals 21
+    .registers 35
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "sqliteOpenHelperFactory"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
@@ -445,7 +445,7 @@
     invoke-static {v8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 241
-    if-eqz p10, :cond_0
+    if-eqz p10, :cond_38
 
     new-instance v0, Landroid/content/Intent;
 
@@ -457,16 +457,16 @@
 
     move-object/from16 v20, v0
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 244
-    :cond_0
+    :cond_38
     const/4 v0, 0x0
 
     move-object/from16 v20, v0
 
     .line 241
-    :goto_0
+    :goto_3b
     nop
 
     .line 252
@@ -583,7 +583,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Landroidx/room/RoomDatabase$MigrationContainer;Ljava/util/List;ZLandroidx/room/RoomDatabase$JournalMode;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;ZZZLjava/util/Set;Ljava/lang/String;Ljava/io/File;)V
-    .locals 21
+    .registers 37
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "sqliteOpenHelperFactory"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
@@ -668,7 +668,7 @@
     invoke-static {v10, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 313
-    if-eqz p10, :cond_0
+    if-eqz p10, :cond_38
 
     new-instance v0, Landroid/content/Intent;
 
@@ -680,16 +680,16 @@
 
     move-object/from16 v20, v0
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 316
-    :cond_0
+    :cond_38
     const/4 v0, 0x0
 
     move-object/from16 v20, v0
 
     .line 313
-    :goto_0
+    :goto_3b
     nop
 
     .line 324
@@ -806,7 +806,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Landroidx/room/RoomDatabase$MigrationContainer;Ljava/util/List;ZLandroidx/room/RoomDatabase$JournalMode;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;ZZZLjava/util/Set;Ljava/lang/String;Ljava/io/File;Ljava/util/concurrent/Callable;)V
-    .locals 20
+    .registers 37
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "sqliteOpenHelperFactory"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
@@ -894,7 +894,7 @@
     invoke-static {v10, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 388
-    if-eqz p10, :cond_0
+    if-eqz p10, :cond_38
 
     new-instance v0, Landroid/content/Intent;
 
@@ -906,16 +906,16 @@
 
     move-object/from16 v16, v0
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 391
-    :cond_0
+    :cond_38
     const/4 v0, 0x0
 
     move-object/from16 v16, v0
 
     .line 388
-    :goto_0
+    :goto_3b
     nop
 
     .line 399
@@ -1032,7 +1032,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Landroidx/room/RoomDatabase$MigrationContainer;Ljava/util/List;ZLandroidx/room/RoomDatabase$JournalMode;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;ZZZLjava/util/Set;Ljava/lang/String;Ljava/io/File;Ljava/util/concurrent/Callable;Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;)V
-    .locals 20
+    .registers 38
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "sqliteOpenHelperFactory"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
@@ -1123,7 +1123,7 @@
     invoke-static {v10, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 466
-    if-eqz p10, :cond_0
+    if-eqz p10, :cond_38
 
     new-instance v0, Landroid/content/Intent;
 
@@ -1135,16 +1135,16 @@
 
     move-object/from16 v16, v0
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 469
-    :cond_0
+    :cond_38
     const/4 v0, 0x0
 
     move-object/from16 v16, v0
 
     .line 466
-    :goto_0
+    :goto_3b
     nop
 
     .line 477
@@ -1261,7 +1261,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Landroidx/room/RoomDatabase$MigrationContainer;Ljava/util/List;ZLandroidx/room/RoomDatabase$JournalMode;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;ZZZLjava/util/Set;Ljava/lang/String;Ljava/io/File;Ljava/util/concurrent/Callable;Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;Ljava/util/List;)V
-    .locals 20
+    .registers 39
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "sqliteOpenHelperFactory"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
@@ -1362,7 +1362,7 @@
     invoke-static {v9, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 546
-    if-eqz p10, :cond_0
+    if-eqz p10, :cond_40
 
     new-instance v0, Landroid/content/Intent;
 
@@ -1374,16 +1374,16 @@
 
     move-object/from16 v16, v0
 
-    goto :goto_0
+    goto :goto_43
 
     .line 549
-    :cond_0
+    :cond_40
     const/4 v0, 0x0
 
     move-object/from16 v16, v0
 
     .line 546
-    :goto_0
+    :goto_43
     nop
 
     .line 558
@@ -1497,7 +1497,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Landroidx/room/RoomDatabase$MigrationContainer;Ljava/util/List;ZLandroidx/room/RoomDatabase$JournalMode;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;ZZZLjava/util/Set;Ljava/lang/String;Ljava/io/File;Ljava/util/concurrent/Callable;Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;Ljava/util/List;Ljava/util/List;)V
-    .locals 20
+    .registers 40
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "sqliteOpenHelperFactory"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
@@ -1609,7 +1609,7 @@
     invoke-static {v8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 628
-    if-eqz p10, :cond_0
+    if-eqz p10, :cond_47
 
     new-instance v0, Landroid/content/Intent;
 
@@ -1621,16 +1621,16 @@
 
     move-object/from16 v16, v0
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 631
-    :cond_0
+    :cond_47
     const/4 v0, 0x0
 
     move-object/from16 v16, v0
 
     .line 628
-    :goto_0
+    :goto_4a
     nop
 
     .line 618
@@ -1741,7 +1741,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Landroidx/room/RoomDatabase$MigrationContainer;Ljava/util/List;ZLandroidx/room/RoomDatabase$JournalMode;Ljava/util/concurrent/Executor;ZLjava/util/Set;)V
-    .locals 20
+    .registers 31
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "sqliteOpenHelperFactory"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
@@ -1928,7 +1928,7 @@
 
 # virtual methods
 .method public isMigrationRequired(II)Z
-    .locals 5
+    .registers 8
     .param p1, "fromVersion"    # I
     .param p2, "toVersion"    # I
 
@@ -1937,36 +1937,36 @@
 
     const/4 v1, 0x0
 
-    if-le p1, p2, :cond_0
+    if-le p1, p2, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x0
 
     .line 670
     .local v2, "isDowngrade":Z
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_7
+    if-eqz v2, :cond_e
 
     iget-boolean v3, p0, Landroidx/room/DatabaseConfiguration;->allowDestructiveMigrationOnDowngrade:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_e
 
     .line 671
     return v1
 
     .line 676
-    :cond_1
+    :cond_e
     iget-boolean v3, p0, Landroidx/room/DatabaseConfiguration;->requireMigration:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_23
 
     iget-object v3, p0, Landroidx/room/DatabaseConfiguration;->migrationNotRequiredFrom:Ljava/util/Set;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_22
 
     .line 677
     iget-object v3, p0, Landroidx/room/DatabaseConfiguration;->migrationNotRequiredFrom:Ljava/util/Set;
@@ -1979,21 +1979,21 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_23
 
-    :cond_2
-    goto :goto_1
+    :cond_22
+    goto :goto_24
 
-    :cond_3
+    :cond_23
     const/4 v0, 0x0
 
     .line 676
-    :goto_1
+    :goto_24
     return v0
 .end method
 
 .method public isMigrationRequiredFrom(I)Z
-    .locals 1
+    .registers 3
     .param p1, "version"    # I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use [isMigrationRequired(int, int)] which takes\n      [allowDestructiveMigrationOnDowngrade] into account."

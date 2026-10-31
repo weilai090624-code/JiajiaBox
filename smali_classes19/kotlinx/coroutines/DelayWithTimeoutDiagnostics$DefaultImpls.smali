@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static delay(Lkotlinx/coroutines/DelayWithTimeoutDiagnostics;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "$this"    # Lkotlinx/coroutines/DelayWithTimeoutDiagnostics;
     .param p1, "time"    # J
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -61,18 +61,18 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     return-object v0
 
-    :cond_0
+    :cond_e
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method public static invokeOnTimeout(Lkotlinx/coroutines/DelayWithTimeoutDiagnostics;JLjava/lang/Runnable;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/DisposableHandle;
-    .locals 1
+    .registers 6
     .param p0, "$this"    # Lkotlinx/coroutines/DelayWithTimeoutDiagnostics;
     .param p1, "timeMillis"    # J
     .param p3, "block"    # Ljava/lang/Runnable;

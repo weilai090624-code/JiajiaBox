@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 33
     const/4 v0, 0x0
@@ -78,7 +78,7 @@
 .end method
 
 .method constructor <init>([Ljava/lang/Object;I[Ljava/lang/Object;II)V
-    .locals 0
+    .registers 6
     .param p1, "elements"    # [Ljava/lang/Object;
     .param p2, "hashCode"    # I
     .param p3, "table"    # [Ljava/lang/Object;
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -125,23 +125,23 @@
     .local v0, "table":[Ljava/lang/Object;
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_20
 
     array-length v2, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_9
 
-    goto :goto_1
+    goto :goto_20
 
     .line 61
-    :cond_0
+    :cond_9
     invoke-static {p1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v2
 
     .line 62
     .local v2, "i":I
-    :goto_0
+    :goto_d
     iget v3, p0, Lcom/google/common/collect/RegularImmutableSet;->mask:I
 
     and-int/2addr v2, v3
@@ -151,18 +151,18 @@
 
     .line 64
     .local v3, "candidate":Ljava/lang/Object;
-    if-nez v3, :cond_1
+    if-nez v3, :cond_15
 
     .line 65
     return v1
 
     .line 66
-    :cond_1
+    :cond_15
     invoke-virtual {v3, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1d
 
     .line 67
     const/4 v1, 0x1
@@ -171,20 +171,20 @@
 
     .line 61
     .end local v3    # "candidate":Ljava/lang/Object;
-    :cond_2
+    :cond_1d
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 59
     .end local v2    # "i":I
-    :cond_3
-    :goto_1
+    :cond_20
+    :goto_20
     return v1
 .end method
 
 .method copyIntoArray([Ljava/lang/Object;I)I
-    .locals 3
+    .registers 6
     .param p1, "dst"    # [Ljava/lang/Object;
     .param p2, "offset"    # I
 
@@ -207,7 +207,7 @@
 .end method
 
 .method createAsList()Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -230,7 +230,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 116
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSet;, "Lcom/google/common/collect/RegularImmutableSet<TE;>;"
@@ -240,7 +240,7 @@
 .end method
 
 .method internalArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 85
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSet;, "Lcom/google/common/collect/RegularImmutableSet<TE;>;"
@@ -250,7 +250,7 @@
 .end method
 
 .method internalArrayEnd()I
-    .locals 1
+    .registers 2
 
     .line 95
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSet;, "Lcom/google/common/collect/RegularImmutableSet<TE;>;"
@@ -260,7 +260,7 @@
 .end method
 
 .method internalArrayStart()I
-    .locals 1
+    .registers 2
 
     .line 90
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSet;, "Lcom/google/common/collect/RegularImmutableSet<TE;>;"
@@ -270,7 +270,7 @@
 .end method
 
 .method isHashCodeFast()Z
-    .locals 1
+    .registers 2
 
     .line 121
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSet;, "Lcom/google/common/collect/RegularImmutableSet<TE;>;"
@@ -280,7 +280,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 111
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSet;, "Lcom/google/common/collect/RegularImmutableSet<TE;>;"
@@ -290,7 +290,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -313,7 +313,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 29
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSet;, "Lcom/google/common/collect/RegularImmutableSet<TE;>;"
@@ -325,7 +325,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSet;, "Lcom/google/common/collect/RegularImmutableSet<TE;>;"

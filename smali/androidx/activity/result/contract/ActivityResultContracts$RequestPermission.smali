@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 202
     invoke-direct {p0}, Landroidx/activity/result/contract/ActivityResultContract;-><init>()V
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public bridge synthetic createIntent(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public createIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/String;
 
@@ -117,7 +117,7 @@
 .end method
 
 .method public bridge synthetic getSynchronousResult(Landroid/content/Context;Ljava/lang/Object;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -134,7 +134,7 @@
 .end method
 
 .method public getSynchronousResult(Landroid/content/Context;Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -164,22 +164,22 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     .line 220
-    :goto_0
+    :goto_14
     nop
 
     .line 223
     .local v0, "granted":Z
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 224
     new-instance v2, Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
@@ -190,35 +190,35 @@
 
     invoke-direct {v2, v1}, Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;-><init>(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_22
 
     .line 227
-    :cond_1
+    :cond_21
     const/4 v2, 0x0
 
     .line 223
-    :goto_1
+    :goto_22
     return-object v2
 .end method
 
 .method public parseResult(ILandroid/content/Intent;)Ljava/lang/Boolean;
-    .locals 10
+    .registers 13
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 
     .line 209
     const/4 v0, 0x0
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_31
 
     const/4 v1, -0x1
 
-    if-eq p1, v1, :cond_0
+    if-eq p1, v1, :cond_7
 
-    goto :goto_3
+    goto :goto_31
 
     .line 211
-    :cond_0
+    :cond_7
     const-string v1, "androidx.activity.result.contract.extra.PERMISSION_GRANT_RESULTS"
 
     invoke-virtual {p2, v1}, Landroid/content/Intent;->getIntArrayExtra(Ljava/lang/String;)[I
@@ -230,7 +230,7 @@
 
     .line 212
     .local v1, "grantResults":[I
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2c
 
     move-object v2, v1
 
@@ -243,10 +243,10 @@
 
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_14
     const/4 v6, 0x1
 
-    if-ge v5, v4, :cond_3
+    if-ge v5, v4, :cond_27
 
     aget v7, v2, v5
 
@@ -258,47 +258,47 @@
 
     .line 212
     .local v9, "$i$a$-any-ActivityResultContracts$RequestPermission$parseResult$1":I
-    if-nez v8, :cond_1
+    if-nez v8, :cond_1f
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     const/4 v8, 0x0
 
     .line 963
     .end local v8    # "result":I
     .end local v9    # "$i$a$-any-ActivityResultContracts$RequestPermission$parseResult$1":I
-    :goto_1
-    if-eqz v8, :cond_2
+    :goto_20
+    if-eqz v8, :cond_24
 
     const/4 v2, 0x1
 
-    goto :goto_2
+    goto :goto_28
 
     .end local v7    # "element$iv":I
-    :cond_2
+    :cond_24
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 964
-    :cond_3
+    :cond_27
     const/4 v2, 0x0
 
     .line 213
     .end local v2    # "$this$any$iv":[I
     .end local v3    # "$i$f$any":I
-    :goto_2
+    :goto_28
     nop
 
     .line 212
-    if-ne v2, v6, :cond_4
+    if-ne v2, v6, :cond_2c
 
     const/4 v0, 0x1
 
-    :cond_4
+    :cond_2c
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -307,8 +307,8 @@
 
     .line 209
     .end local v1    # "grantResults":[I
-    :cond_5
-    :goto_3
+    :cond_31
+    :goto_31
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -317,7 +317,7 @@
 .end method
 
 .method public bridge synthetic parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 

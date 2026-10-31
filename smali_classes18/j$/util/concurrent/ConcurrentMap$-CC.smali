@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$compute(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "_this"    # Ljava/util/concurrent/ConcurrentMap;
 
     .line 418
@@ -13,67 +13,67 @@
     .local p2, "remappingFunction":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<-TK;-TV;+TV;>;"
     nop
 
-    :cond_0
+    :cond_1
     invoke-interface {p0, p1}, Ljava/util/concurrent/ConcurrentMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 421
     .local v0, "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_1
+    :cond_5
     invoke-interface {p2, p1, v0}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 422
     .local v1, "newValue":Ljava/lang/Object;, "TV;"
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_1c
 
     .line 423
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_14
 
     .line 424
     invoke-interface {p0, p1, v0, v1}, Ljava/util/concurrent/ConcurrentMap;->replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     .line 425
     return-object v1
 
     .line 427
-    :cond_2
+    :cond_14
     invoke-interface {p0, p1, v1}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v0, v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_5
 
     .line 428
     return-object v1
 
     .line 430
-    :cond_3
-    if-eqz v0, :cond_4
+    :cond_1c
+    if-eqz v0, :cond_24
 
     invoke-interface {p0, p1, v0}, Ljava/util/concurrent/ConcurrentMap;->remove(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     .line 431
-    :cond_4
+    :cond_24
     const/4 v2, 0x0
 
     return-object v2
 .end method
 
 .method public static $default$computeIfAbsent(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "_this"    # Ljava/util/concurrent/ConcurrentMap;
 
     .line 327
@@ -89,7 +89,7 @@
     move-object v1, v0
 
     .local v1, "oldValue":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 330
     invoke-interface {p2, p1}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
@@ -99,7 +99,7 @@
     move-object v2, v0
 
     .local v2, "newValue":Ljava/lang/Object;, "TV;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 331
     invoke-interface {p0, p1, v2}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -108,23 +108,23 @@
 
     move-object v1, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 332
-    goto :goto_0
+    goto :goto_1a
 
     .line 333
     .end local v2    # "newValue":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_19
     move-object v2, v1
 
     .line 329
-    :goto_0
+    :goto_1a
     return-object v2
 .end method
 
 .method public static $default$computeIfPresent(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "_this"    # Ljava/util/concurrent/ConcurrentMap;
 
     .line 369
@@ -133,7 +133,7 @@
     invoke-static {p2}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 370
-    :goto_0
+    :goto_3
     invoke-interface {p0, p1}, Ljava/util/concurrent/ConcurrentMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -141,7 +141,7 @@
     move-object v1, v0
 
     .local v1, "oldValue":Ljava/lang/Object;, "TV;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1f
 
     .line 371
     invoke-interface {p2, p1, v1}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -150,44 +150,44 @@
 
     .line 372
     .local v0, "newValue":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 373
     invoke-interface {p0, p1, v1}, Ljava/util/concurrent/ConcurrentMap;->remove(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1e
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 374
-    :cond_0
+    :cond_17
     invoke-interface {p0, p1, v1, v0}, Ljava/util/concurrent/ConcurrentMap;->replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1e
 
     .line 375
-    :goto_1
+    :goto_1d
     return-object v0
 
     .line 376
     .end local v0    # "newValue":Ljava/lang/Object;, "TV;"
-    :cond_1
-    goto :goto_0
+    :cond_1e
+    goto :goto_3
 
     .line 377
     .end local v1    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_2
+    :cond_1f
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public static $default$forEach(Ljava/util/concurrent/ConcurrentMap;Ljava/util/function/BiConsumer;)V
-    .locals 4
+    .registers 6
     .param p0, "_this"    # Ljava/util/concurrent/ConcurrentMap;
 
     .line 111
@@ -203,12 +203,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -218,7 +218,7 @@
 
     .line 116
     .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :try_start_0
+    :try_start_17
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -228,8 +228,8 @@
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Ljava/lang/IllegalStateException; {:try_start_17 .. :try_end_1f} :catch_24
 
     .line 121
     .local v3, "v":Ljava/lang/Object;, "TV;"
@@ -242,26 +242,26 @@
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     .end local v2    # "k":Ljava/lang/Object;, "TK;"
     .end local v3    # "v":Ljava/lang/Object;, "TV;"
-    goto :goto_0
+    goto :goto_b
 
     .line 118
     .restart local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :catch_0
+    :catch_24
     move-exception v2
 
     .line 120
     .local v2, "ise":Ljava/lang/IllegalStateException;
-    goto :goto_0
+    goto :goto_b
 
     .line 124
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     .end local v2    # "ise":Ljava/lang/IllegalStateException;
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 .method public static $default$getOrDefault(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "_this"    # Ljava/util/concurrent/ConcurrentMap;
     .param p1, "key"    # Ljava/lang/Object;
 
@@ -274,21 +274,21 @@
     move-object v1, v0
 
     .local v1, "v":Ljava/lang/Object;, "TV;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     move-object v0, p2
 
-    :goto_0
+    :goto_a
     return-object v0
 .end method
 
 .method public static $default$merge(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .param p0, "_this"    # Ljava/util/concurrent/ConcurrentMap;
 
     .line 477
@@ -301,15 +301,15 @@
     invoke-static {p2}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 480
-    :cond_0
+    :cond_6
     invoke-interface {p0, p1}, Ljava/util/concurrent/ConcurrentMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 483
     .local v0, "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_1
-    if-eqz v0, :cond_3
+    :cond_a
+    if-eqz v0, :cond_21
 
     .line 484
     invoke-interface {p3, v0, p2}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -318,25 +318,25 @@
 
     .line 485
     .local v1, "newValue":Ljava/lang/Object;, "TV;"
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_19
 
     .line 486
     invoke-interface {p0, p1, v0, v1}, Ljava/util/concurrent/ConcurrentMap;->replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_6
 
     .line 487
     return-object v1
 
     .line 488
-    :cond_2
+    :cond_19
     invoke-interface {p0, p1, v0}, Ljava/util/concurrent/ConcurrentMap;->remove(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_6
 
     .line 489
     const/4 v2, 0x0
@@ -345,21 +345,21 @@
 
     .line 493
     .end local v1    # "newValue":Ljava/lang/Object;, "TV;"
-    :cond_3
+    :cond_21
     invoke-interface {p0, p1, p2}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     move-object v0, v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 494
     return-object p2
 .end method
 
 .method public static $default$replaceAll(Ljava/util/concurrent/ConcurrentMap;Ljava/util/function/BiFunction;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/concurrent/ConcurrentMap;
 
     .line 286
@@ -378,7 +378,7 @@
 .end method
 
 .method public static synthetic $private$lambda$replaceAll$0(Ljava/util/concurrent/ConcurrentMap;Ljava/util/function/BiFunction;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "_this"    # Ljava/util/concurrent/ConcurrentMap;
     .param p1, "function"    # Ljava/util/function/BiFunction;
     .param p2, "k"    # Ljava/lang/Object;
@@ -387,7 +387,7 @@
     .line 288
     nop
 
-    :cond_0
+    :cond_1
     invoke-interface {p1, p2, p3}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -396,7 +396,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 290
     invoke-interface {p0, p2}, Ljava/util/concurrent/ConcurrentMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -405,12 +405,12 @@
 
     move-object p3, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     .line 292
     nop
 
     .line 295
-    :cond_1
+    :cond_13
     return-void
 .end method

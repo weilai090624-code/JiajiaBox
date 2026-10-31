@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 39
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public addSubMenu(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;
-    .locals 3
+    .registers 8
     .param p1, "group"    # I
     .param p2, "id"    # I
     .param p3, "categoryOrder"    # I

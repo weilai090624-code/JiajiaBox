@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+    .registers 5
     .param p1, "fadeOutDrawable"    # Landroid/graphics/drawable/Drawable;
     .param p2, "fadeInDrawable"    # Landroid/graphics/drawable/Drawable;
 
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 1
+    .registers 3
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 54
@@ -91,7 +91,7 @@
 .end method
 
 .method public getIntrinsicHeight()I
-    .locals 2
+    .registers 3
 
     .line 72
     iget-object v0, p0, Lcom/google/android/material/internal/FadeThroughDrawable;->fadeOutDrawable:Landroid/graphics/drawable/Drawable;
@@ -114,7 +114,7 @@
 .end method
 
 .method public getIntrinsicWidth()I
-    .locals 2
+    .registers 3
 
     .line 67
     iget-object v0, p0, Lcom/google/android/material/internal/FadeThroughDrawable;->fadeOutDrawable:Landroid/graphics/drawable/Drawable;
@@ -137,7 +137,7 @@
 .end method
 
 .method public getMinimumHeight()I
-    .locals 2
+    .registers 3
 
     .line 82
     iget-object v0, p0, Lcom/google/android/material/internal/FadeThroughDrawable;->fadeOutDrawable:Landroid/graphics/drawable/Drawable;
@@ -160,7 +160,7 @@
 .end method
 
 .method public getMinimumWidth()I
-    .locals 2
+    .registers 3
 
     .line 77
     iget-object v0, p0, Lcom/google/android/material/internal/FadeThroughDrawable;->fadeOutDrawable:Landroid/graphics/drawable/Drawable;
@@ -183,7 +183,7 @@
 .end method
 
 .method public getOpacity()I
-    .locals 1
+    .registers 2
 
     .line 106
     const/4 v0, -0x3
@@ -192,7 +192,7 @@
 .end method
 
 .method public isStateful()Z
-    .locals 1
+    .registers 2
 
     .line 111
     iget-object v0, p0, Lcom/google/android/material/internal/FadeThroughDrawable;->fadeOutDrawable:Landroid/graphics/drawable/Drawable;
@@ -201,7 +201,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object v0, p0, Lcom/google/android/material/internal/FadeThroughDrawable;->fadeInDrawable:Landroid/graphics/drawable/Drawable;
 
@@ -209,25 +209,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_14
     return v0
 .end method
 
 .method public setAlpha(I)V
-    .locals 3
+    .registers 5
     .param p1, "alpha"    # I
 
     .line 87
@@ -239,7 +239,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_14
 
     .line 88
     iget-object v0, p0, Lcom/google/android/material/internal/FadeThroughDrawable;->fadeOutDrawable:Landroid/graphics/drawable/Drawable;
@@ -251,10 +251,10 @@
 
     invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 91
-    :cond_0
+    :cond_14
     iget-object v0, p0, Lcom/google/android/material/internal/FadeThroughDrawable;->fadeOutDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
@@ -265,7 +265,7 @@
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
     .line 94
-    :goto_0
+    :goto_1e
     invoke-virtual {p0}, Lcom/google/android/material/internal/FadeThroughDrawable;->invalidateSelf()V
 
     .line 95
@@ -273,7 +273,7 @@
 .end method
 
 .method public setBounds(IIII)V
-    .locals 1
+    .registers 6
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -297,7 +297,7 @@
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 1
+    .registers 3
     .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
 
     .line 99
@@ -318,7 +318,7 @@
 .end method
 
 .method public setProgress(F)V
-    .locals 4
+    .registers 6
     .param p1, "progress"    # F
 
     .line 123
@@ -326,7 +326,7 @@
 
     cmpl-float v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 124
     iput p1, p0, Lcom/google/android/material/internal/FadeThroughDrawable;->progress:F
@@ -372,12 +372,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/internal/FadeThroughDrawable;->invalidateSelf()V
 
     .line 132
-    :cond_0
+    :cond_2c
     return-void
 .end method
 
 .method public setState([I)Z
-    .locals 3
+    .registers 5
     .param p1, "stateSet"    # [I
 
     .line 116
@@ -397,21 +397,21 @@
 
     .line 118
     .local v1, "fadeInDrawableState":Z
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_14
     return v2
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeRangeSet;)V
-    .locals 1
+    .registers 3
 
     .line 662
     .local p0, "this":Lcom/google/common/collect/TreeRangeSet$Complement;, "Lcom/google/common/collect/TreeRangeSet<TC;>.Complement;"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public add(Lcom/google/common/collect/Range;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,7 +72,7 @@
 .end method
 
 .method public complement()Lcom/google/common/collect/RangeSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -89,7 +89,7 @@
 .end method
 
 .method public contains(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)Z"
@@ -111,7 +111,7 @@
 .end method
 
 .method public remove(Lcom/google/common/collect/Range;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

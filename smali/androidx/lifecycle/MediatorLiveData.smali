@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 76
     .local p0, "this":Landroidx/lifecycle/MediatorLiveData;, "Landroidx/lifecycle/MediatorLiveData<TT;>;"
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public addSource(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -98,7 +98,7 @@
     .local p0, "this":Landroidx/lifecycle/MediatorLiveData;, "Landroidx/lifecycle/MediatorLiveData<TT;>;"
     .local p1, "source":Landroidx/lifecycle/LiveData;, "Landroidx/lifecycle/LiveData<TS;>;"
     .local p2, "onChanged":Landroidx/lifecycle/Observer;, "Landroidx/lifecycle/Observer<-TS;>;"
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_2b
 
     .line 105
     new-instance v0, Landroidx/lifecycle/MediatorLiveData$Source;
@@ -117,16 +117,16 @@
 
     .line 107
     .local v1, "existing":Landroidx/lifecycle/MediatorLiveData$Source;, "Landroidx/lifecycle/MediatorLiveData$Source<*>;"
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     iget-object v2, v1, Landroidx/lifecycle/MediatorLiveData$Source;->mObserver:Landroidx/lifecycle/Observer;
 
-    if-ne v2, p2, :cond_0
+    if-ne v2, p2, :cond_16
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 108
-    :cond_0
+    :cond_16
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "This source was already added with the different observer"
@@ -136,32 +136,32 @@
     throw v2
 
     .line 111
-    :cond_1
-    :goto_0
-    if-eqz v1, :cond_2
+    :cond_1e
+    :goto_1e
+    if-eqz v1, :cond_21
 
     .line 112
     return-void
 
     .line 114
-    :cond_2
+    :cond_21
     invoke-virtual {p0}, Landroidx/lifecycle/MediatorLiveData;->hasActiveObservers()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2a
 
     .line 115
     invoke-virtual {v0}, Landroidx/lifecycle/MediatorLiveData$Source;->plug()V
 
     .line 117
-    :cond_3
+    :cond_2a
     return-void
 
     .line 103
     .end local v0    # "e":Landroidx/lifecycle/MediatorLiveData$Source;, "Landroidx/lifecycle/MediatorLiveData$Source<TS;>;"
     .end local v1    # "existing":Landroidx/lifecycle/MediatorLiveData$Source;, "Landroidx/lifecycle/MediatorLiveData$Source<*>;"
-    :cond_4
+    :cond_2b
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "source cannot be null"
@@ -172,7 +172,7 @@
 .end method
 
 .method protected onActive()V
-    .locals 3
+    .registers 4
 
     .line 136
     .local p0, "this":Landroidx/lifecycle/MediatorLiveData;, "Landroidx/lifecycle/MediatorLiveData<TT;>;"
@@ -182,12 +182,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -207,15 +207,15 @@
 
     .line 138
     .end local v1    # "source":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroidx/lifecycle/LiveData<*>;Landroidx/lifecycle/MediatorLiveData$Source<*>;>;"
-    goto :goto_0
+    goto :goto_6
 
     .line 139
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method protected onInactive()V
-    .locals 3
+    .registers 4
 
     .line 144
     .local p0, "this":Landroidx/lifecycle/MediatorLiveData;, "Landroidx/lifecycle/MediatorLiveData<TT;>;"
@@ -225,12 +225,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -250,15 +250,15 @@
 
     .line 146
     .end local v1    # "source":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroidx/lifecycle/LiveData<*>;Landroidx/lifecycle/MediatorLiveData$Source<*>;>;"
-    goto :goto_0
+    goto :goto_6
 
     .line 147
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method public removeSource(Landroidx/lifecycle/LiveData;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -282,12 +282,12 @@
 
     .line 128
     .local v0, "source":Landroidx/lifecycle/MediatorLiveData$Source;, "Landroidx/lifecycle/MediatorLiveData$Source<*>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 129
     invoke-virtual {v0}, Landroidx/lifecycle/MediatorLiveData$Source;->unplug()V
 
     .line 131
-    :cond_0
+    :cond_d
     return-void
 .end method

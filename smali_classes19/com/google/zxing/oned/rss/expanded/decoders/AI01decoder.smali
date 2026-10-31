@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/zxing/common/BitArray;)V
-    .locals 0
+    .registers 2
     .param p1, "information"    # Lcom/google/zxing/common/BitArray;
 
     .line 40
@@ -20,7 +20,7 @@
 .end method
 
 .method private static appendCheckDigit(Ljava/lang/StringBuilder;I)V
-    .locals 4
+    .registers 6
     .param p0, "buf"    # Ljava/lang/StringBuilder;
     .param p1, "currentPos"    # I
 
@@ -32,10 +32,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     const/16 v2, 0xd
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_1a
 
     .line 69
     add-int v2, v1, p1
@@ -50,27 +50,27 @@
     .local v2, "digit":I
     and-int/lit8 v3, v1, 0x1
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_15
 
     mul-int/lit8 v3, v2, 0x3
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     move v3, v2
 
-    :goto_1
+    :goto_16
     add-int/2addr v0, v3
 
     .line 68
     .end local v2    # "digit":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 73
     .end local v1    # "i":I
-    :cond_1
+    :cond_1a
     rem-int/lit8 v1, v0, 0xa
 
     const/16 v2, 0xa
@@ -80,13 +80,13 @@
     .line 74
     move v0, v1
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_24
 
     .line 75
     const/4 v0, 0x0
 
     .line 78
-    :cond_2
+    :cond_24
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 79
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method final encodeCompressedGtin(Ljava/lang/StringBuilder;I)V
-    .locals 2
+    .registers 5
     .param p1, "buf"    # Ljava/lang/StringBuilder;
     .param p2, "currentPos"    # I
 
@@ -124,7 +124,7 @@
 .end method
 
 .method final encodeCompressedGtinWithoutAI(Ljava/lang/StringBuilder;II)V
-    .locals 5
+    .registers 9
     .param p1, "buf"    # Ljava/lang/StringBuilder;
     .param p2, "currentPos"    # I
     .param p3, "initialBufferPosition"    # I
@@ -135,10 +135,10 @@
     .local v0, "i":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_2
     const/4 v2, 0x4
 
-    if-ge v0, v2, :cond_2
+    if-ge v0, v2, :cond_29
 
     .line 53
     invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/decoders/AI01decoder;->getGeneralDecoder()Lcom/google/zxing/oned/rss/expanded/decoders/GeneralAppIdDecoder;
@@ -163,33 +163,33 @@
 
     const/16 v3, 0x30
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1c
 
     .line 55
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 57
-    :cond_0
+    :cond_1c
     div-int/lit8 v2, v1, 0xa
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_23
 
     .line 58
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 60
-    :cond_1
+    :cond_23
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 52
     .end local v1    # "currentBlock":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 63
     .end local v0    # "i":I
-    :cond_2
+    :cond_29
     invoke-static {p1, p3}, Lcom/google/zxing/oned/rss/expanded/decoders/AI01decoder;->appendCheckDigit(Ljava/lang/StringBuilder;I)V
 
     .line 64

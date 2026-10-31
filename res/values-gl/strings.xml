@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Chamada entrante</string>
     <string name="call_notification_ongoing_text">Chamada en curso</string>
     <string name="call_notification_screening_text">Filtrando chamada entrante</string>
-    <string name="character_counter_content_description" formatted="false">Introducíronse %1$d caracteres de %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Introducíronse %1$d caracteres, pero o límite é de %2$d</string>
+    <string name="character_counter_content_description">Introducíronse %1$d caracteres de %2$d</string>
+    <string name="character_counter_overflowed_content_description">Introducíronse %1$d caracteres, pero o límite é de %2$d</string>
     <string name="clear_text_end_icon_content_description">Borra texto</string>
     <string name="copy">Copiar</string>
     <string name="copy_toast_msg">Copiouse a ligazón no portapapeis</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Só se admiten datas do intervalo: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Data de inicio - %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s - data de finalización</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
     <string name="mtrl_picker_range_header_title">Selecciona un intervalo de datas</string>
     <string name="mtrl_picker_range_header_unselected">Data de inicio - data de finalización</string>
     <string name="mtrl_picker_save">Gardar</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">Copiouse \"%1$s\" no portapapeis.</string>
     <string name="search_menu_title">Buscar</string>
     <string name="status_bar_notification_info_overflow">>999</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">DESACTIVADO</string>
     <string name="v7_preference_on">ACTIVADO</string>
 </resources>

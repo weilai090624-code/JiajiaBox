@@ -42,7 +42,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/EnumSet;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,7 +64,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/EnumSet;Lcom/google/common/collect/ImmutableEnumSet$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/util/EnumSet;
     .param p2, "x1"    # Lcom/google/common/collect/ImmutableEnumSet$1;
 
@@ -76,7 +76,7 @@
 .end method
 
 .method static asImmutable(Ljava/util/EnumSet;)Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .param p0, "set"    # Ljava/util/EnumSet;
 
     .line 37
@@ -84,7 +84,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1c
 
     .line 43
     new-instance v0, Lcom/google/common/collect/ImmutableEnumSet;
@@ -94,7 +94,7 @@
     return-object v0
 
     .line 41
-    :pswitch_0
+    :pswitch_d
     invoke-static {p0}, Lcom/google/common/collect/Iterables;->getOnlyElement(Ljava/lang/Iterable;)Ljava/lang/Object;
 
     move-result-object v0
@@ -106,7 +106,7 @@
     return-object v0
 
     .line 39
-    :pswitch_1
+    :pswitch_16
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
@@ -115,17 +115,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_d
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -143,7 +143,7 @@
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -157,7 +157,7 @@
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     instance-of v0, p1, Lcom/google/common/collect/ImmutableEnumSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 84
     move-object v0, p1
@@ -167,7 +167,7 @@
     iget-object p1, v0, Lcom/google/common/collect/ImmutableEnumSet;->delegate:Ljava/util/EnumSet;
 
     .line 86
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/google/common/collect/ImmutableEnumSet;->delegate:Ljava/util/EnumSet;
 
     invoke-virtual {v0, p1}, Ljava/util/EnumSet;->containsAll(Ljava/util/Collection;)Z
@@ -178,7 +178,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -186,7 +186,7 @@
 
     .line 96
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumSet;, "Lcom/google/common/collect/ImmutableEnumSet<TE;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 97
     const/4 v0, 0x1
@@ -194,10 +194,10 @@
     return v0
 
     .line 99
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/collect/ImmutableEnumSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     .line 100
     move-object v0, p1
@@ -207,7 +207,7 @@
     iget-object p1, v0, Lcom/google/common/collect/ImmutableEnumSet;->delegate:Ljava/util/EnumSet;
 
     .line 102
-    :cond_1
+    :cond_d
     iget-object v0, p0, Lcom/google/common/collect/ImmutableEnumSet;->delegate:Ljava/util/EnumSet;
 
     invoke-virtual {v0, p1}, Ljava/util/EnumSet;->equals(Ljava/lang/Object;)Z
@@ -218,7 +218,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 114
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumSet;, "Lcom/google/common/collect/ImmutableEnumSet<TE;>;"
@@ -226,7 +226,7 @@
 
     .line 115
     .local v0, "result":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableEnumSet;->delegate:Ljava/util/EnumSet;
 
@@ -236,17 +236,17 @@
 
     iput v1, p0, Lcom/google/common/collect/ImmutableEnumSet;->hashCode:I
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move v1, v0
 
-    :goto_0
+    :goto_e
     return v1
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 91
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumSet;, "Lcom/google/common/collect/ImmutableEnumSet<TE;>;"
@@ -260,7 +260,7 @@
 .end method
 
 .method isHashCodeFast()Z
-    .locals 1
+    .registers 2
 
     .line 107
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumSet;, "Lcom/google/common/collect/ImmutableEnumSet<TE;>;"
@@ -270,7 +270,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 63
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumSet;, "Lcom/google/common/collect/ImmutableEnumSet<TE;>;"
@@ -280,7 +280,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -305,7 +305,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 31
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumSet;, "Lcom/google/common/collect/ImmutableEnumSet<TE;>;"
@@ -317,7 +317,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 73
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumSet;, "Lcom/google/common/collect/ImmutableEnumSet<TE;>;"
@@ -331,7 +331,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 120
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumSet;, "Lcom/google/common/collect/ImmutableEnumSet<TE;>;"
@@ -345,7 +345,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 126
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumSet;, "Lcom/google/common/collect/ImmutableEnumSet<TE;>;"

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager/widget/ViewPager;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/viewpager/widget/ViewPager;
 
     .line 428
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 7
+    .registers 10
     .param p1, "v"    # Landroid/view/View;
     .param p2, "originalInsets"    # Landroidx/core/view/WindowInsetsCompat;
 
@@ -64,13 +64,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 439
     return-object v0
 
     .line 449
-    :cond_0
+    :cond_c
     iget-object v1, p0, Landroidx/viewpager/widget/ViewPager$4;->mTempRect:Landroid/graphics/Rect;
 
     .line 450
@@ -113,8 +113,8 @@
     move-result v3
 
     .local v3, "count":I
-    :goto_0
-    if-ge v2, v3, :cond_1
+    :goto_2d
+    if-ge v2, v3, :cond_6c
 
     .line 456
     iget-object v4, p0, Landroidx/viewpager/widget/ViewPager$4;->this$0:Landroidx/viewpager/widget/ViewPager;
@@ -185,12 +185,12 @@
     .end local v4    # "childInsets":Landroidx/core/view/WindowInsetsCompat;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 471
     .end local v2    # "i":I
     .end local v3    # "count":I
-    :cond_1
+    :cond_6c
     iget v2, v1, Landroid/graphics/Rect;->left:I
 
     iget v3, v1, Landroid/graphics/Rect;->top:I

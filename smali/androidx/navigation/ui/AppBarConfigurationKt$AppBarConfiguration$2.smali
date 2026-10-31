@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/navigation/ui/AppBarConfigurationKt$AppBarConfiguration$2;
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public final invoke()Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
 
     .line 249
     const/4 v0, 0x0
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 249
     invoke-virtual {p0}, Landroidx/navigation/ui/AppBarConfigurationKt$AppBarConfiguration$2;->invoke()Ljava/lang/Boolean;

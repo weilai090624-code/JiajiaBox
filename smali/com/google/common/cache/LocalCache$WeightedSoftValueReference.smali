@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;Lcom/google/common/cache/ReferenceEntry;I)V
-    .locals 0
+    .registers 5
     .param p4, "weight"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public copyFor(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;Lcom/google/common/cache/ReferenceEntry;)Lcom/google/common/cache/LocalCache$ValueReference;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,7 +89,7 @@
 .end method
 
 .method public getWeight()I
-    .locals 1
+    .registers 2
 
     .line 1618
     .local p0, "this":Lcom/google/common/cache/LocalCache$WeightedSoftValueReference;, "Lcom/google/common/cache/LocalCache$WeightedSoftValueReference<TK;TV;>;"

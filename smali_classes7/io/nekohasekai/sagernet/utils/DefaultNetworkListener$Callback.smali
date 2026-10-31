@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$Callback;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 89
     invoke-direct {p0}, Landroid/net/ConnectivityManager$NetworkCallback;-><init>()V
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public onAvailable(Landroid/net/Network;)V
-    .locals 3
+    .registers 5
     .param p1, "network"    # Landroid/net/Network;
 
     const-string v0, "network"
@@ -95,7 +95,7 @@
 .end method
 
 .method public onCapabilitiesChanged(Landroid/net/Network;Landroid/net/NetworkCapabilities;)V
-    .locals 3
+    .registers 6
     .param p1, "network"    # Landroid/net/Network;
     .param p2, "networkCapabilities"    # Landroid/net/NetworkCapabilities;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public onLost(Landroid/net/Network;)V
-    .locals 3
+    .registers 5
     .param p1, "network"    # Landroid/net/Network;
 
     const-string v0, "network"

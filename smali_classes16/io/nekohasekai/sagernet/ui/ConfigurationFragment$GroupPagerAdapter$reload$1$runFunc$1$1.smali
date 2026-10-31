@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 7
+    .registers 9
 
     const-class v3, Landroidx/fragment/app/FragmentActivity;
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 961
@@ -79,7 +79,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Ljava/lang/Runnable;
 
     .line 961

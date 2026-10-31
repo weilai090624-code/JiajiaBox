@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/reflect/TypeToken$TypeCollector;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method getInterfaces(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -85,7 +85,7 @@
 .end method
 
 .method getRawType(Ljava/lang/Object;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -107,7 +107,7 @@
 .end method
 
 .method getSuperclass(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"

@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(F)V
-    .locals 0
+    .registers 2
     .param p1, "lf"    # F
 
     .line 1385

@@ -33,7 +33,7 @@
 
 # direct methods
 .method public static final synthetic enumEntries()Lkotlin/enums/EnumEntries;
-    .locals 4
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -60,7 +60,7 @@
 .end method
 
 .method public static final enumEntries(Lkotlin/jvm/functions/Function0;)Lkotlin/enums/EnumEntries;
-    .locals 2
+    .registers 3
     .param p0, "entriesProvider"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -95,7 +95,7 @@
 .end method
 
 .method public static final enumEntries([Ljava/lang/Enum;)Lkotlin/enums/EnumEntries;
-    .locals 1
+    .registers 2
     .param p0, "entries"    # [Ljava/lang/Enum;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;)V
-    .locals 0
+    .registers 2
     .param p1, "constructorConstructor"    # Lcom/google/gson/internal/ConstructorConstructor;
 
     .line 39
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 6
+    .registers 9
     .param p1, "gson"    # Lcom/google/gson/Gson;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -71,7 +71,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
     .line 49
     const/4 v2, 0x0
@@ -79,7 +79,7 @@
     return-object v2
 
     .line 52
-    :cond_0
+    :cond_12
     invoke-static {v0, v1}, Lcom/google/gson/internal/$Gson$Types;->getCollectionElementType(Ljava/lang/reflect/Type;Ljava/lang/Class;)Ljava/lang/reflect/Type;
 
     move-result-object v2

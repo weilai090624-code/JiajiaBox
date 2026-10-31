@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "distinctElements"    # I
 
     .line 73
@@ -32,7 +32,7 @@
 .end method
 
 .method public static create()Lcom/google/common/collect/LinkedHashMultiset;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -54,7 +54,7 @@
 .end method
 
 .method public static create(I)Lcom/google/common/collect/LinkedHashMultiset;
-    .locals 1
+    .registers 2
     .param p0, "distinctElements"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -75,7 +75,7 @@
 .end method
 
 .method public static create(Ljava/lang/Iterable;)Lcom/google/common/collect/LinkedHashMultiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public bridge synthetic contains(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -125,7 +125,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 37
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultiset;, "Lcom/google/common/collect/LinkedHashMultiset<TE;>;"
@@ -137,7 +137,7 @@
 .end method
 
 .method public bridge synthetic entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 37
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultiset;, "Lcom/google/common/collect/LinkedHashMultiset<TE;>;"
@@ -149,7 +149,7 @@
 .end method
 
 .method public bridge synthetic isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 37
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultiset;, "Lcom/google/common/collect/LinkedHashMultiset<TE;>;"
@@ -161,7 +161,7 @@
 .end method
 
 .method newBackingMap(I)Lcom/google/common/collect/ObjectCountHashMap;
-    .locals 1
+    .registers 3
     .param p1, "distinctElements"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

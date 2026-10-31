@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 52
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 7
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 8
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 119
@@ -148,11 +148,11 @@
     .local v1, "height":I
     iget-object v2, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->insets:Landroid/graphics/Rect;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_a4
 
     iget-object v2, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->insetForeground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_a4
 
     .line 124
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -180,7 +180,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3e
 
     .line 129
     iget-object v3, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->tempRect:Landroid/graphics/Rect;
@@ -204,10 +204,10 @@
     invoke-virtual {v3, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 135
-    :cond_0
+    :cond_3e
     iget-boolean v3, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->drawBottomInsetForeground:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_59
 
     .line 136
     iget-object v3, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->tempRect:Landroid/graphics/Rect;
@@ -233,10 +233,10 @@
     invoke-virtual {v3, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 142
-    :cond_1
+    :cond_59
     iget-boolean v3, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->drawLeftInsetForeground:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_7c
 
     .line 143
     iget-object v3, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->tempRect:Landroid/graphics/Rect;
@@ -270,10 +270,10 @@
     invoke-virtual {v3, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 149
-    :cond_2
+    :cond_7c
     iget-boolean v3, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->drawRightInsetForeground:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_a1
 
     .line 150
     iget-object v3, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->tempRect:Landroid/graphics/Rect;
@@ -309,17 +309,17 @@
     invoke-virtual {v3, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 155
-    :cond_3
+    :cond_a1
     invoke-virtual {p1, v2}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     .line 157
     .end local v2    # "sc":I
-    :cond_4
+    :cond_a4
     return-void
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 1
+    .registers 2
 
     .line 161
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
@@ -327,7 +327,7 @@
     .line 162
     iget-object v0, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->insetForeground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 163
     iget-object v0, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->insetForeground:Landroid/graphics/drawable/Drawable;
@@ -335,12 +335,12 @@
     invoke-virtual {v0, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
     .line 165
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 2
+    .registers 3
 
     .line 169
     invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
@@ -348,7 +348,7 @@
     .line 170
     iget-object v0, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->insetForeground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 171
     iget-object v0, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->insetForeground:Landroid/graphics/drawable/Drawable;
@@ -358,12 +358,12 @@
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
     .line 173
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method protected onInsetsChanged(Landroidx/core/view/WindowInsetsCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "insets"    # Landroidx/core/view/WindowInsetsCompat;
 
     .line 175
@@ -371,7 +371,7 @@
 .end method
 
 .method public setDrawBottomInsetForeground(Z)V
-    .locals 0
+    .registers 2
     .param p1, "drawBottomInsetForeground"    # Z
 
     .line 106
@@ -382,7 +382,7 @@
 .end method
 
 .method public setDrawLeftInsetForeground(Z)V
-    .locals 0
+    .registers 2
     .param p1, "drawLeftInsetForeground"    # Z
 
     .line 110
@@ -393,7 +393,7 @@
 .end method
 
 .method public setDrawRightInsetForeground(Z)V
-    .locals 0
+    .registers 2
     .param p1, "drawRightInsetForeground"    # Z
 
     .line 114
@@ -404,7 +404,7 @@
 .end method
 
 .method public setDrawTopInsetForeground(Z)V
-    .locals 0
+    .registers 2
     .param p1, "drawTopInsetForeground"    # Z
 
     .line 102
@@ -415,7 +415,7 @@
 .end method
 
 .method public setScrimInsetForeground(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 98

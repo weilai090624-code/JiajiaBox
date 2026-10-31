@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 145
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public getGoneY(Landroid/view/ViewGroup;Landroid/view/View;)F
-    .locals 2
+    .registers 5
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
 

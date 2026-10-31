@@ -69,7 +69,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/CoroutineWorker;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -118,7 +118,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,7 +161,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -170,7 +170,7 @@
     .line 66
     iget v1, p0, Landroidx/work/CoroutineWorker$startWork$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_54
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -180,32 +180,32 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Landroidx/work/CoroutineWorker$startWork$1;
     .local p1, "$result":Ljava/lang/Object;
-    :try_start_0
+    :try_start_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_12 .. :try_end_15} :catchall_18
 
     move-object v1, v0
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_30
 
     .line 70
-    :catchall_0
+    :catchall_18
     move-exception v1
 
-    goto :goto_1
+    goto :goto_46
 
     .line 66
     .end local v0    # "this":Landroidx/work/CoroutineWorker$startWork$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1a
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -216,7 +216,7 @@
     nop
 
     .line 68
-    :try_start_1
+    :try_start_1f
     iget-object v2, v1, Landroidx/work/CoroutineWorker$startWork$1;->this$0:Landroidx/work/CoroutineWorker;
 
     move-object v3, v1
@@ -230,16 +230,16 @@
     invoke-virtual {v2, v3}, Landroidx/work/CoroutineWorker;->doWork(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    :try_end_2b
+    .catchall {:try_start_1f .. :try_end_2b} :catchall_42
 
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_2e
 
     .line 66
     return-object v0
 
     .line 68
-    :cond_0
+    :cond_2e
     move-object v0, p1
 
     move-object p1, v2
@@ -247,8 +247,8 @@
     .line 66
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
-    :try_start_2
+    :goto_30
+    :try_start_30
     check-cast p1, Landroidx/work/ListenableWorker$Result;
 
     .line 69
@@ -260,14 +260,14 @@
     move-result-object v2
 
     invoke-virtual {v2, p1}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_3b
+    .catchall {:try_start_30 .. :try_end_3b} :catchall_3c
 
-    goto :goto_2
+    goto :goto_51
 
     .line 70
     .end local p1    # "result":Landroidx/work/ListenableWorker$Result;
-    :catchall_1
+    :catchall_3c
     move-exception p1
 
     move-object v5, v1
@@ -278,11 +278,11 @@
 
     move-object v0, v5
 
-    goto :goto_1
+    goto :goto_46
 
     .end local v0    # "$result":Ljava/lang/Object;
     .local p1, "$result":Ljava/lang/Object;
-    :catchall_2
+    :catchall_42
     move-exception v0
 
     move-object v5, v1
@@ -294,7 +294,7 @@
     .line 71
     .local v0, "this":Landroidx/work/CoroutineWorker$startWork$1;
     .local v1, "t":Ljava/lang/Throwable;
-    :goto_1
+    :goto_46
     iget-object v2, v0, Landroidx/work/CoroutineWorker$startWork$1;->this$0:Landroidx/work/CoroutineWorker;
 
     invoke-virtual {v2}, Landroidx/work/CoroutineWorker;->getFuture$work_runtime_ktx_release()Landroidx/work/impl/utils/futures/SettableFuture;
@@ -311,14 +311,14 @@
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
     .local v1, "this":Landroidx/work/CoroutineWorker$startWork$1;
-    :goto_2
+    :goto_51
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_54
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_11
     .end packed-switch
 .end method

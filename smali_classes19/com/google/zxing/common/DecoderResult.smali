@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>([BLjava/lang/String;Ljava/util/List;Ljava/lang/String;)V
-    .locals 7
+    .registers 12
     .param p1, "rawBytes"    # [B
     .param p2, "text"    # Ljava/lang/String;
     .param p4, "ecLevel"    # Ljava/lang/String;
@@ -72,7 +72,7 @@
 .end method
 
 .method public constructor <init>([BLjava/lang/String;Ljava/util/List;Ljava/lang/String;II)V
-    .locals 1
+    .registers 8
     .param p1, "rawBytes"    # [B
     .param p2, "text"    # Ljava/lang/String;
     .param p4, "ecLevel"    # Ljava/lang/String;
@@ -97,18 +97,18 @@
     iput-object p1, p0, Lcom/google/zxing/common/DecoderResult;->rawBytes:[B
 
     .line 55
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_9
     array-length v0, p1
 
     mul-int/lit8 v0, v0, 0x8
 
-    :goto_0
+    :goto_c
     iput v0, p0, Lcom/google/zxing/common/DecoderResult;->numBits:I
 
     .line 56
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public getByteSegments()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -149,7 +149,7 @@
 .end method
 
 .method public getECLevel()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 104
     iget-object v0, p0, Lcom/google/zxing/common/DecoderResult;->ecLevel:Ljava/lang/String;
@@ -158,7 +158,7 @@
 .end method
 
 .method public getErasures()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 122
     iget-object v0, p0, Lcom/google/zxing/common/DecoderResult;->erasures:Ljava/lang/Integer;
@@ -167,7 +167,7 @@
 .end method
 
 .method public getErrorsCorrected()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 111
     iget-object v0, p0, Lcom/google/zxing/common/DecoderResult;->errorsCorrected:Ljava/lang/Integer;
@@ -176,7 +176,7 @@
 .end method
 
 .method public getNumBits()I
-    .locals 1
+    .registers 2
 
     .line 75
     iget v0, p0, Lcom/google/zxing/common/DecoderResult;->numBits:I
@@ -185,7 +185,7 @@
 .end method
 
 .method public getOther()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 133
     iget-object v0, p0, Lcom/google/zxing/common/DecoderResult;->other:Ljava/lang/Object;
@@ -194,7 +194,7 @@
 .end method
 
 .method public getRawBytes()[B
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Lcom/google/zxing/common/DecoderResult;->rawBytes:[B
@@ -203,7 +203,7 @@
 .end method
 
 .method public getStructuredAppendParity()I
-    .locals 1
+    .registers 2
 
     .line 145
     iget v0, p0, Lcom/google/zxing/common/DecoderResult;->structuredAppendParity:I
@@ -212,7 +212,7 @@
 .end method
 
 .method public getStructuredAppendSequenceNumber()I
-    .locals 1
+    .registers 2
 
     .line 149
     iget v0, p0, Lcom/google/zxing/common/DecoderResult;->structuredAppendSequenceNumber:I
@@ -221,7 +221,7 @@
 .end method
 
 .method public getText()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 90
     iget-object v0, p0, Lcom/google/zxing/common/DecoderResult;->text:Ljava/lang/String;
@@ -230,29 +230,29 @@
 .end method
 
 .method public hasStructuredAppend()Z
-    .locals 1
+    .registers 2
 
     .line 141
     iget v0, p0, Lcom/google/zxing/common/DecoderResult;->structuredAppendParity:I
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_a
 
     iget v0, p0, Lcom/google/zxing/common/DecoderResult;->structuredAppendSequenceNumber:I
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_a
 
     const/4 v0, 0x1
 
     return v0
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public setErasures(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p1, "erasures"    # Ljava/lang/Integer;
 
     .line 126
@@ -263,7 +263,7 @@
 .end method
 
 .method public setErrorsCorrected(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p1, "errorsCorrected"    # Ljava/lang/Integer;
 
     .line 115
@@ -274,7 +274,7 @@
 .end method
 
 .method public setNumBits(I)V
-    .locals 0
+    .registers 2
     .param p1, "numBits"    # I
 
     .line 83
@@ -285,7 +285,7 @@
 .end method
 
 .method public setOther(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 137

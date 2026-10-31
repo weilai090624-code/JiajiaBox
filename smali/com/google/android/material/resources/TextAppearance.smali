@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "id"    # I
 
@@ -245,7 +245,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/resources/TextAppearance;)Landroid/graphics/Typeface;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/resources/TextAppearance;
 
     .line 48
@@ -255,7 +255,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/android/material/resources/TextAppearance;Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/resources/TextAppearance;
     .param p1, "x1"    # Landroid/graphics/Typeface;
 
@@ -266,7 +266,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/google/android/material/resources/TextAppearance;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/resources/TextAppearance;
     .param p1, "x1"    # Z
 
@@ -277,16 +277,16 @@
 .end method
 
 .method private createFallbackFont()V
-    .locals 2
+    .registers 3
 
     .line 269
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->fontFamily:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 270
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->fontFamily:Ljava/lang/String;
@@ -300,43 +300,43 @@
     iput-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
 
     .line 274
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_39
 
     .line 275
     iget v0, p0, Lcom/google/android/material/resources/TextAppearance;->typeface:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_3a
 
     .line 286
     sget-object v0, Landroid/graphics/Typeface;->DEFAULT:Landroid/graphics/Typeface;
 
     iput-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 283
-    :pswitch_0
+    :pswitch_20
     sget-object v0, Landroid/graphics/Typeface;->MONOSPACE:Landroid/graphics/Typeface;
 
     iput-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
 
     .line 284
-    goto :goto_0
+    goto :goto_2f
 
     .line 280
-    :pswitch_1
+    :pswitch_25
     sget-object v0, Landroid/graphics/Typeface;->SERIF:Landroid/graphics/Typeface;
 
     iput-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
 
     .line 281
-    goto :goto_0
+    goto :goto_2f
 
     .line 277
-    :pswitch_2
+    :pswitch_2a
     sget-object v0, Landroid/graphics/Typeface;->SANS_SERIF:Landroid/graphics/Typeface;
 
     iput-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
@@ -345,7 +345,7 @@
     nop
 
     .line 289
-    :goto_0
+    :goto_2f
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
 
     iget v1, p0, Lcom/google/android/material/resources/TextAppearance;->textStyle:I
@@ -357,19 +357,19 @@
     iput-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
 
     .line 291
-    :cond_1
+    :cond_39
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_3a
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2a
+        :pswitch_25
+        :pswitch_20
     .end packed-switch
 .end method
 
 .method private shouldLoadFontSynchronously(Landroid/content/Context;)Z
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 379
@@ -379,16 +379,16 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 380
     return v1
 
     .line 383
-    :cond_0
+    :cond_8
     iget v0, p0, Lcom/google/android/material/resources/TextAppearance;->fontFamilyResourceId:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 384
     iget v0, p0, Lcom/google/android/material/resources/TextAppearance;->fontFamilyResourceId:I
@@ -397,32 +397,32 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 385
-    :cond_1
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     nop
 
     .line 386
     .local v0, "typeface":Landroid/graphics/Typeface;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_18
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_2
+    :cond_18
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_19
     return v1
 .end method
 
 
 # virtual methods
 .method public getFallbackFont()Landroid/graphics/Typeface;
-    .locals 1
+    .registers 2
 
     .line 263
     invoke-direct {p0}, Lcom/google/android/material/resources/TextAppearance;->createFallbackFont()V
@@ -434,13 +434,13 @@
 .end method
 
 .method public getFont(Landroid/content/Context;)Landroid/graphics/Typeface;
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     .line 132
     iget-boolean v0, p0, Lcom/google/android/material/resources/TextAppearance;->fontResolved:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 133
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
@@ -448,15 +448,15 @@
     return-object v0
 
     .line 137
-    :cond_0
+    :cond_7
     invoke-virtual {p1}, Landroid/content/Context;->isRestricted()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_44
 
     .line 139
-    :try_start_0
+    :try_start_d
     iget v0, p0, Lcom/google/android/material/resources/TextAppearance;->fontFamilyResourceId:I
 
     invoke-static {p1, v0}, Landroidx/core/content/res/ResourcesCompat;->getFont(Landroid/content/Context;I)Landroid/graphics/Typeface;
@@ -468,7 +468,7 @@
     .line 140
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_43
 
     .line 141
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
@@ -480,15 +480,15 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
-    :try_end_0
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_23
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_d .. :try_end_23} :catch_42
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_d .. :try_end_23} :catch_40
+    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_23} :catch_24
 
-    goto :goto_0
+    goto :goto_43
 
     .line 145
-    :catch_0
+    :catch_24
     move-exception v0
 
     .line 146
@@ -517,26 +517,26 @@
 
     invoke-static {v2, v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1
+    goto :goto_44
 
     .line 143
     .end local v0    # "e":Ljava/lang/Exception;
-    :catch_1
+    :catch_40
     move-exception v0
 
-    goto :goto_0
+    goto :goto_43
 
-    :catch_2
+    :catch_42
     move-exception v0
 
     .line 147
-    :cond_1
-    :goto_0
+    :cond_43
+    :goto_43
     nop
 
     .line 151
-    :cond_2
-    :goto_1
+    :cond_44
+    :goto_44
     invoke-direct {p0}, Lcom/google/android/material/resources/TextAppearance;->createFallbackFont()V
 
     .line 152
@@ -551,7 +551,7 @@
 .end method
 
 .method public getFontAsync(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "textPaint"    # Landroid/text/TextPaint;
     .param p3, "callback"    # Lcom/google/android/material/resources/TextAppearanceFontCallback;
@@ -575,7 +575,7 @@
 .end method
 
 .method public getFontAsync(Landroid/content/Context;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "callback"    # Lcom/google/android/material/resources/TextAppearanceFontCallback;
 
@@ -584,33 +584,33 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 173
     invoke-virtual {p0, p1}, Lcom/google/android/material/resources/TextAppearance;->getFont(Landroid/content/Context;)Landroid/graphics/Typeface;
 
-    goto :goto_0
+    goto :goto_d
 
     .line 176
-    :cond_0
+    :cond_a
     invoke-direct {p0}, Lcom/google/android/material/resources/TextAppearance;->createFallbackFont()V
 
     .line 179
-    :goto_0
+    :goto_d
     iget v0, p0, Lcom/google/android/material/resources/TextAppearance;->fontFamilyResourceId:I
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 181
     iput-boolean v1, p0, Lcom/google/android/material/resources/TextAppearance;->fontResolved:Z
 
     .line 184
-    :cond_1
+    :cond_14
     iget-boolean v0, p0, Lcom/google/android/material/resources/TextAppearance;->fontResolved:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1e
 
     .line 185
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
@@ -621,8 +621,8 @@
     return-void
 
     .line 191
-    :cond_2
-    :try_start_0
+    :cond_1e
+    :try_start_1e
     iget v0, p0, Lcom/google/android/material/resources/TextAppearance;->fontFamilyResourceId:I
 
     new-instance v2, Lcom/google/android/material/resources/TextAppearance$1;
@@ -632,14 +632,14 @@
     const/4 v3, 0x0
 
     invoke-static {p1, v0, v2, v3}, Landroidx/core/content/res/ResourcesCompat;->getFont(Landroid/content/Context;ILandroidx/core/content/res/ResourcesCompat$FontCallback;Landroid/os/Handler;)V
-    :try_end_0
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1e .. :try_end_29} :catch_4c
+    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_29} :catch_2a
 
-    goto :goto_1
+    goto :goto_52
 
     .line 213
-    :catch_0
+    :catch_2a
     move-exception v0
 
     .line 214
@@ -676,11 +676,11 @@
 
     invoke-virtual {p2, v1}, Lcom/google/android/material/resources/TextAppearanceFontCallback;->onFontRetrievalFailed(I)V
 
-    goto :goto_2
+    goto :goto_53
 
     .line 209
     .end local v0    # "e":Ljava/lang/Exception;
-    :catch_1
+    :catch_4c
     move-exception v0
 
     .line 211
@@ -692,16 +692,16 @@
 
     .line 217
     .end local v0    # "e":Landroid/content/res/Resources$NotFoundException;
-    :goto_1
+    :goto_52
     nop
 
     .line 218
-    :goto_2
+    :goto_53
     return-void
 .end method
 
 .method public getTextColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 363
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->textColor:Landroid/content/res/ColorStateList;
@@ -710,7 +710,7 @@
 .end method
 
 .method public getTextSize()F
-    .locals 1
+    .registers 2
 
     .line 371
     iget v0, p0, Lcom/google/android/material/resources/TextAppearance;->textSize:F
@@ -719,7 +719,7 @@
 .end method
 
 .method public setTextColor(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1, "textColor"    # Landroid/content/res/ColorStateList;
 
     .line 367
@@ -730,7 +730,7 @@
 .end method
 
 .method public setTextSize(F)V
-    .locals 0
+    .registers 2
     .param p1, "textSize"    # F
 
     .line 375
@@ -741,7 +741,7 @@
 .end method
 
 .method public updateDrawState(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V
-    .locals 6
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "textPaint"    # Landroid/text/TextPaint;
     .param p3, "callback"    # Lcom/google/android/material/resources/TextAppearanceFontCallback;
@@ -755,7 +755,7 @@
     .line 306
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->textColor:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 307
     iget-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->textColor:Landroid/content/res/ColorStateList;
@@ -772,14 +772,14 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_19
 
     .line 308
-    :cond_0
+    :cond_17
     const/high16 v0, -0x1000000
 
     .line 305
-    :goto_0
+    :goto_19
     invoke-virtual {p2, v0}, Landroid/text/TextPaint;->setColor(I)V
 
     .line 309
@@ -792,7 +792,7 @@
     .line 313
     iget-object v3, p0, Lcom/google/android/material/resources/TextAppearance;->shadowColor:Landroid/content/res/ColorStateList;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_35
 
     .line 314
     iget-object v3, p0, Lcom/google/android/material/resources/TextAppearance;->shadowColor:Landroid/content/res/ColorStateList;
@@ -809,14 +809,14 @@
 
     move-result v3
 
-    goto :goto_1
+    goto :goto_36
 
     .line 315
-    :cond_1
+    :cond_35
     const/4 v3, 0x0
 
     .line 309
-    :goto_1
+    :goto_36
     invoke-virtual {p2, v0, v1, v2, v3}, Landroid/text/TextPaint;->setShadowLayer(FFFI)V
 
     .line 316
@@ -824,7 +824,7 @@
 .end method
 
 .method public updateMeasureState(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "textPaint"    # Landroid/text/TextPaint;
     .param p3, "callback"    # Lcom/google/android/material/resources/TextAppearanceFontCallback;
@@ -834,7 +834,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 329
     invoke-virtual {p0, p1}, Lcom/google/android/material/resources/TextAppearance;->getFont(Landroid/content/Context;)Landroid/graphics/Typeface;
@@ -843,19 +843,19 @@
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/google/android/material/resources/TextAppearance;->updateTextPaintMeasureState(Landroid/content/Context;Landroid/text/TextPaint;Landroid/graphics/Typeface;)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 331
-    :cond_0
+    :cond_e
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/material/resources/TextAppearance;->getFontAsync(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V
 
     .line 333
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public updateTextPaintMeasureState(Landroid/content/Context;Landroid/text/TextPaint;Landroid/graphics/Typeface;)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "textPaint"    # Landroid/text/TextPaint;
     .param p3, "typeface"    # Landroid/graphics/Typeface;
@@ -867,13 +867,13 @@
 
     .line 343
     .local v0, "boldTypeface":Landroid/graphics/Typeface;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 344
     move-object p3, v0
 
     .line 346
-    :cond_0
+    :cond_7
     invoke-virtual {p2, p3}, Landroid/text/TextPaint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
     .line 348
@@ -891,31 +891,31 @@
     .local v1, "fake":I
     and-int/lit8 v2, v1, 0x1
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_18
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_19
     invoke-virtual {p2, v2}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
 
     .line 350
     and-int/lit8 v2, v1, 0x2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_23
 
     const/high16 v2, -0x41800000    # -0.25f
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_2
+    :cond_23
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_24
     invoke-virtual {p2, v2}, Landroid/text/TextPaint;->setTextSkewX(F)V
 
     .line 352
@@ -929,7 +929,7 @@
     .line 355
     iget-boolean v2, p0, Lcom/google/android/material/resources/TextAppearance;->hasLetterSpacing:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_36
 
     .line 356
     iget v2, p0, Lcom/google/android/material/resources/TextAppearance;->letterSpacing:F
@@ -937,6 +937,6 @@
     invoke-virtual {p2, v2}, Landroid/text/TextPaint;->setLetterSpacing(F)V
 
     .line 359
-    :cond_3
+    :cond_36
     return-void
 .end method

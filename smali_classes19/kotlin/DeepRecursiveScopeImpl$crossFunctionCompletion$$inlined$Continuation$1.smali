@@ -69,7 +69,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/DeepRecursiveScopeImpl;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 5
     .param p1, "$context"    # Lkotlin/coroutines/CoroutineContext;
 
     iput-object p1, p0, Lkotlin/DeepRecursiveScopeImpl$crossFunctionCompletion$$inlined$Continuation$1;->$context:Lkotlin/coroutines/CoroutineContext;
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Lkotlin/DeepRecursiveScopeImpl$crossFunctionCompletion$$inlined$Continuation$1;->$context:Lkotlin/coroutines/CoroutineContext;
@@ -98,7 +98,7 @@
 .end method
 
 .method public resumeWith(Ljava/lang/Object;)V
-    .locals 4
+    .registers 6
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 71

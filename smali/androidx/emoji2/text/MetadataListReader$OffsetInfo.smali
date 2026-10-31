@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(JJ)V
-    .locals 0
+    .registers 5
     .param p1, "startOffset"    # J
     .param p3, "length"    # J
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method getLength()J
-    .locals 2
+    .registers 3
 
     .line 181
     iget-wide v0, p0, Landroidx/emoji2/text/MetadataListReader$OffsetInfo;->mLength:J
@@ -51,7 +51,7 @@
 .end method
 
 .method getStartOffset()J
-    .locals 2
+    .registers 3
 
     .line 177
     iget-wide v0, p0, Landroidx/emoji2/text/MetadataListReader$OffsetInfo;->mStartOffset:J

@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/RealBufferedSink;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lokio/RealBufferedSink;
 
     iput-object p1, p0, Lokio/RealBufferedSink$outputStream$1;->this$0:Lokio/RealBufferedSink;
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 127
     iget-object v0, p0, Lokio/RealBufferedSink$outputStream$1;->this$0:Lokio/RealBufferedSink;
@@ -79,14 +79,14 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
 
     .line 122
     iget-object v0, p0, Lokio/RealBufferedSink$outputStream$1;->this$0:Lokio/RealBufferedSink;
 
     iget-boolean v0, v0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 123
     iget-object v0, p0, Lokio/RealBufferedSink$outputStream$1;->this$0:Lokio/RealBufferedSink;
@@ -94,12 +94,12 @@
     invoke-virtual {v0}, Lokio/RealBufferedSink;->flush()V
 
     .line 125
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 129
     new-instance v0, Ljava/lang/StringBuilder;
@@ -126,7 +126,7 @@
 .end method
 
 .method public write(I)V
-    .locals 2
+    .registers 4
     .param p1, "b"    # I
 
     .line 109
@@ -134,7 +134,7 @@
 
     iget-boolean v0, v0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 110
     iget-object v0, p0, Lokio/RealBufferedSink$outputStream$1;->this$0:Lokio/RealBufferedSink;
@@ -162,7 +162,7 @@
     return-void
 
     .line 109
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -173,7 +173,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 2
+    .registers 6
     .param p1, "data"    # [B
     .param p2, "offset"    # I
     .param p3, "byteCount"    # I
@@ -187,7 +187,7 @@
 
     iget-boolean v0, v0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 116
     iget-object v0, p0, Lokio/RealBufferedSink$outputStream$1;->this$0:Lokio/RealBufferedSink;
@@ -213,7 +213,7 @@
     return-void
 
     .line 115
-    :cond_0
+    :cond_19
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"

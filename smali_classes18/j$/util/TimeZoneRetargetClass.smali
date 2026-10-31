@@ -5,11 +5,11 @@
 
 # direct methods
 .method public static synthetic toZoneId(Ljava/util/TimeZone;)Lj$/time/ZoneId;
-    .locals 1
+    .registers 2
 
     instance-of v0, p0, Lj$/util/TimeZoneRetargetInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/util/TimeZoneRetargetInterface;
 
@@ -19,7 +19,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     invoke-static {p0}, Lj$/util/DesugarTimeZone;->toZoneId(Ljava/util/TimeZone;)Lj$/time/ZoneId;
 
     move-result-object p0

@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/util/List;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 3
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
     .param p3, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p4, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -54,7 +54,7 @@
     iput-object p1, p0, Lorg/yaml/snakeyaml/tokens/DirectiveToken;->name:Ljava/lang/String;
 
     .line 30
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_30
 
     invoke-interface {p2}, Ljava/util/List;->size()I
 
@@ -62,12 +62,12 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
-    goto :goto_0
+    goto :goto_30
 
     .line 31
-    :cond_0
+    :cond_f
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -101,8 +101,8 @@
     throw v0
 
     .line 34
-    :cond_1
-    :goto_0
+    :cond_30
+    :goto_30
     iput-object p2, p0, Lorg/yaml/snakeyaml/tokens/DirectiveToken;->value:Ljava/util/List;
 
     .line 35
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 38
     .local p0, "this":Lorg/yaml/snakeyaml/tokens/DirectiveToken;, "Lorg/yaml/snakeyaml/tokens/DirectiveToken<TT;>;"
@@ -122,7 +122,7 @@
 .end method
 
 .method public getTokenId()Lorg/yaml/snakeyaml/tokens/Token$ID;
-    .locals 1
+    .registers 2
 
     .line 47
     .local p0, "this":Lorg/yaml/snakeyaml/tokens/DirectiveToken;, "Lorg/yaml/snakeyaml/tokens/DirectiveToken<TT;>;"
@@ -132,7 +132,7 @@
 .end method
 
 .method public getValue()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

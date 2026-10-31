@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/core/motion/utils/KeyCycleOscillator;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/constraintlayout/core/motion/utils/KeyCycleOscillator;
 
     .line 190
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public compare(Landroidx/constraintlayout/core/motion/utils/KeyCycleOscillator$WavePoint;Landroidx/constraintlayout/core/motion/utils/KeyCycleOscillator$WavePoint;)I
-    .locals 2
+    .registers 5
     .param p1, "lhs"    # Landroidx/constraintlayout/core/motion/utils/KeyCycleOscillator$WavePoint;
     .param p2, "rhs"    # Landroidx/constraintlayout/core/motion/utils/KeyCycleOscillator$WavePoint;
 
@@ -63,7 +63,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 190
     check-cast p1, Landroidx/constraintlayout/core/motion/utils/KeyCycleOscillator$WavePoint;

@@ -109,7 +109,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 40
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
@@ -212,7 +212,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/camera/core/impl/OptionsBundle;)V
-    .locals 0
+    .registers 2
     .param p1, "config"    # Landroidx/camera/core/impl/OptionsBundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -236,7 +236,7 @@
 
 # virtual methods
 .method public synthetic containsOption(Landroidx/camera/core/impl/Config$Option;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$containsOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Z
 
@@ -246,7 +246,7 @@
 .end method
 
 .method public synthetic findOptions(Ljava/lang/String;Landroidx/camera/core/impl/Config$OptionMatcher;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$findOptions(Landroidx/camera/core/impl/ReadableConfig;Ljava/lang/String;Landroidx/camera/core/impl/Config$OptionMatcher;)V
 
@@ -254,7 +254,7 @@
 .end method
 
 .method public getBufferFormat()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 183
     sget-object v0, Landroidx/camera/core/impl/ImageCaptureConfig;->OPTION_BUFFER_FORMAT:Landroidx/camera/core/impl/Config$Option;
@@ -269,7 +269,7 @@
 .end method
 
 .method public getBufferFormat(Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 1
+    .registers 3
     .param p1, "valueIfMissing"    # Ljava/lang/Integer;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -293,7 +293,7 @@
 .end method
 
 .method public synthetic getCameraSelector()Landroidx/camera/core/CameraSelector;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getCameraSelector(Landroidx/camera/core/impl/UseCaseConfig;)Landroidx/camera/core/CameraSelector;
 
@@ -303,7 +303,7 @@
 .end method
 
 .method public synthetic getCameraSelector(Landroidx/camera/core/CameraSelector;)Landroidx/camera/core/CameraSelector;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getCameraSelector(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/CameraSelector;)Landroidx/camera/core/CameraSelector;
 
@@ -313,7 +313,7 @@
 .end method
 
 .method public getCaptureBundle()Landroidx/camera/core/impl/CaptureBundle;
-    .locals 1
+    .registers 2
 
     .line 137
     sget-object v0, Landroidx/camera/core/impl/ImageCaptureConfig;->OPTION_CAPTURE_BUNDLE:Landroidx/camera/core/impl/Config$Option;
@@ -328,7 +328,7 @@
 .end method
 
 .method public getCaptureBundle(Landroidx/camera/core/impl/CaptureBundle;)Landroidx/camera/core/impl/CaptureBundle;
-    .locals 1
+    .registers 3
     .param p1, "valueIfMissing"    # Landroidx/camera/core/impl/CaptureBundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -352,7 +352,7 @@
 .end method
 
 .method public getCaptureMode()I
-    .locals 1
+    .registers 2
 
     .line 92
     sget-object v0, Landroidx/camera/core/impl/ImageCaptureConfig;->OPTION_IMAGE_CAPTURE_MODE:Landroidx/camera/core/impl/Config$Option;
@@ -371,7 +371,7 @@
 .end method
 
 .method public synthetic getCaptureOptionUnpacker()Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getCaptureOptionUnpacker(Landroidx/camera/core/impl/UseCaseConfig;)Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
 
@@ -381,7 +381,7 @@
 .end method
 
 .method public synthetic getCaptureOptionUnpacker(Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;)Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getCaptureOptionUnpacker(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;)Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
 
@@ -391,7 +391,7 @@
 .end method
 
 .method public getCaptureProcessor()Landroidx/camera/core/impl/CaptureProcessor;
-    .locals 1
+    .registers 2
 
     .line 160
     sget-object v0, Landroidx/camera/core/impl/ImageCaptureConfig;->OPTION_CAPTURE_PROCESSOR:Landroidx/camera/core/impl/Config$Option;
@@ -406,7 +406,7 @@
 .end method
 
 .method public getCaptureProcessor(Landroidx/camera/core/impl/CaptureProcessor;)Landroidx/camera/core/impl/CaptureProcessor;
-    .locals 1
+    .registers 3
     .param p1, "valueIfMissing"    # Landroidx/camera/core/impl/CaptureProcessor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -430,7 +430,7 @@
 .end method
 
 .method public getConfig()Landroidx/camera/core/impl/Config;
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Landroidx/camera/core/impl/ImageCaptureConfig;->mConfig:Landroidx/camera/core/impl/OptionsBundle;
@@ -439,7 +439,7 @@
 .end method
 
 .method public synthetic getDefaultCaptureConfig()Landroidx/camera/core/impl/CaptureConfig;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getDefaultCaptureConfig(Landroidx/camera/core/impl/UseCaseConfig;)Landroidx/camera/core/impl/CaptureConfig;
 
@@ -449,7 +449,7 @@
 .end method
 
 .method public synthetic getDefaultCaptureConfig(Landroidx/camera/core/impl/CaptureConfig;)Landroidx/camera/core/impl/CaptureConfig;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getDefaultCaptureConfig(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/CaptureConfig;)Landroidx/camera/core/impl/CaptureConfig;
 
@@ -459,7 +459,7 @@
 .end method
 
 .method public synthetic getDefaultResolution()Landroid/util/Size;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$getDefaultResolution(Landroidx/camera/core/impl/ImageOutputConfig;)Landroid/util/Size;
 
@@ -469,7 +469,7 @@
 .end method
 
 .method public synthetic getDefaultResolution(Landroid/util/Size;)Landroid/util/Size;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$getDefaultResolution(Landroidx/camera/core/impl/ImageOutputConfig;Landroid/util/Size;)Landroid/util/Size;
 
@@ -479,7 +479,7 @@
 .end method
 
 .method public synthetic getDefaultSessionConfig()Landroidx/camera/core/impl/SessionConfig;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getDefaultSessionConfig(Landroidx/camera/core/impl/UseCaseConfig;)Landroidx/camera/core/impl/SessionConfig;
 
@@ -489,7 +489,7 @@
 .end method
 
 .method public synthetic getDefaultSessionConfig(Landroidx/camera/core/impl/SessionConfig;)Landroidx/camera/core/impl/SessionConfig;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getDefaultSessionConfig(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/SessionConfig;)Landroidx/camera/core/impl/SessionConfig;
 
@@ -499,7 +499,7 @@
 .end method
 
 .method public getFlashMode()I
-    .locals 1
+    .registers 2
 
     .line 114
     sget-object v0, Landroidx/camera/core/impl/ImageCaptureConfig;->OPTION_FLASH_MODE:Landroidx/camera/core/impl/Config$Option;
@@ -518,7 +518,7 @@
 .end method
 
 .method public getFlashMode(I)I
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -550,7 +550,7 @@
 .end method
 
 .method public getImageReaderProxyProvider()Landroidx/camera/core/ImageReaderProxyProvider;
-    .locals 2
+    .registers 3
 
     .line 225
     sget-object v0, Landroidx/camera/core/impl/ImageCaptureConfig;->OPTION_IMAGE_READER_PROXY_PROVIDER:Landroidx/camera/core/impl/Config$Option;
@@ -567,7 +567,7 @@
 .end method
 
 .method public getInputFormat()I
-    .locals 1
+    .registers 2
 
     .line 193
     sget-object v0, Landroidx/camera/core/impl/ImageCaptureConfig;->OPTION_INPUT_FORMAT:Landroidx/camera/core/impl/Config$Option;
@@ -586,7 +586,7 @@
 .end method
 
 .method public getIoExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 272
     sget-object v0, Landroidx/camera/core/impl/ImageCaptureConfig;->OPTION_IO_EXECUTOR:Landroidx/camera/core/impl/Config$Option;
@@ -601,7 +601,7 @@
 .end method
 
 .method public getIoExecutor(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 3
     .param p1, "valueIfMissing"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -625,7 +625,7 @@
 .end method
 
 .method public getMaxCaptureStages()I
-    .locals 1
+    .registers 2
 
     .line 214
     sget-object v0, Landroidx/camera/core/impl/ImageCaptureConfig;->OPTION_MAX_CAPTURE_STAGES:Landroidx/camera/core/impl/Config$Option;
@@ -644,7 +644,7 @@
 .end method
 
 .method public getMaxCaptureStages(I)I
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -676,7 +676,7 @@
 .end method
 
 .method public synthetic getMaxResolution()Landroid/util/Size;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$getMaxResolution(Landroidx/camera/core/impl/ImageOutputConfig;)Landroid/util/Size;
 
@@ -686,7 +686,7 @@
 .end method
 
 .method public synthetic getMaxResolution(Landroid/util/Size;)Landroid/util/Size;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$getMaxResolution(Landroidx/camera/core/impl/ImageOutputConfig;Landroid/util/Size;)Landroid/util/Size;
 
@@ -696,7 +696,7 @@
 .end method
 
 .method public synthetic getOptionPriority(Landroidx/camera/core/impl/Config$Option;)Landroidx/camera/core/impl/Config$OptionPriority;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$getOptionPriority(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Landroidx/camera/core/impl/Config$OptionPriority;
 
@@ -706,7 +706,7 @@
 .end method
 
 .method public synthetic getPriorities(Landroidx/camera/core/impl/Config$Option;)Ljava/util/Set;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$getPriorities(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Ljava/util/Set;
 
@@ -716,7 +716,7 @@
 .end method
 
 .method public synthetic getSessionOptionUnpacker()Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getSessionOptionUnpacker(Landroidx/camera/core/impl/UseCaseConfig;)Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
 
@@ -726,7 +726,7 @@
 .end method
 
 .method public synthetic getSessionOptionUnpacker(Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;)Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getSessionOptionUnpacker(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;)Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
 
@@ -736,7 +736,7 @@
 .end method
 
 .method public synthetic getSupportedResolutions()Ljava/util/List;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$getSupportedResolutions(Landroidx/camera/core/impl/ImageOutputConfig;)Ljava/util/List;
 
@@ -746,7 +746,7 @@
 .end method
 
 .method public synthetic getSupportedResolutions(Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$getSupportedResolutions(Landroidx/camera/core/impl/ImageOutputConfig;Ljava/util/List;)Ljava/util/List;
 
@@ -756,7 +756,7 @@
 .end method
 
 .method public synthetic getSurfaceOccupancyPriority()I
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getSurfaceOccupancyPriority(Landroidx/camera/core/impl/UseCaseConfig;)I
 
@@ -766,7 +766,7 @@
 .end method
 
 .method public synthetic getSurfaceOccupancyPriority(I)I
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/UseCaseConfig$-CC;->$default$getSurfaceOccupancyPriority(Landroidx/camera/core/impl/UseCaseConfig;I)I
 
@@ -776,7 +776,7 @@
 .end method
 
 .method public synthetic getTargetAspectRatio()I
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$getTargetAspectRatio(Landroidx/camera/core/impl/ImageOutputConfig;)I
 
@@ -786,7 +786,7 @@
 .end method
 
 .method public synthetic getTargetClass()Ljava/lang/Class;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/internal/TargetConfig$-CC;->$default$getTargetClass(Landroidx/camera/core/internal/TargetConfig;)Ljava/lang/Class;
 
@@ -796,7 +796,7 @@
 .end method
 
 .method public synthetic getTargetClass(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/internal/TargetConfig$-CC;->$default$getTargetClass(Landroidx/camera/core/internal/TargetConfig;Ljava/lang/Class;)Ljava/lang/Class;
 
@@ -806,7 +806,7 @@
 .end method
 
 .method public synthetic getTargetName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/internal/TargetConfig$-CC;->$default$getTargetName(Landroidx/camera/core/internal/TargetConfig;)Ljava/lang/String;
 
@@ -816,7 +816,7 @@
 .end method
 
 .method public synthetic getTargetName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/internal/TargetConfig$-CC;->$default$getTargetName(Landroidx/camera/core/internal/TargetConfig;Ljava/lang/String;)Ljava/lang/String;
 
@@ -826,7 +826,7 @@
 .end method
 
 .method public synthetic getTargetResolution()Landroid/util/Size;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$getTargetResolution(Landroidx/camera/core/impl/ImageOutputConfig;)Landroid/util/Size;
 
@@ -836,7 +836,7 @@
 .end method
 
 .method public synthetic getTargetResolution(Landroid/util/Size;)Landroid/util/Size;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$getTargetResolution(Landroidx/camera/core/impl/ImageOutputConfig;Landroid/util/Size;)Landroid/util/Size;
 
@@ -846,7 +846,7 @@
 .end method
 
 .method public synthetic getTargetRotation()I
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$getTargetRotation(Landroidx/camera/core/impl/ImageOutputConfig;)I
 
@@ -856,7 +856,7 @@
 .end method
 
 .method public synthetic getTargetRotation(I)I
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$getTargetRotation(Landroidx/camera/core/impl/ImageOutputConfig;I)I
 
@@ -866,7 +866,7 @@
 .end method
 
 .method public synthetic getUseCaseEventCallback()Landroidx/camera/core/UseCase$EventCallback;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/internal/UseCaseEventConfig$-CC;->$default$getUseCaseEventCallback(Landroidx/camera/core/internal/UseCaseEventConfig;)Landroidx/camera/core/UseCase$EventCallback;
 
@@ -876,7 +876,7 @@
 .end method
 
 .method public synthetic getUseCaseEventCallback(Landroidx/camera/core/UseCase$EventCallback;)Landroidx/camera/core/UseCase$EventCallback;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/internal/UseCaseEventConfig$-CC;->$default$getUseCaseEventCallback(Landroidx/camera/core/internal/UseCaseEventConfig;Landroidx/camera/core/UseCase$EventCallback;)Landroidx/camera/core/UseCase$EventCallback;
 
@@ -886,7 +886,7 @@
 .end method
 
 .method public hasCaptureMode()Z
-    .locals 1
+    .registers 2
 
     .line 81
     sget-object v0, Landroidx/camera/core/impl/ImageCaptureConfig;->OPTION_IMAGE_CAPTURE_MODE:Landroidx/camera/core/impl/Config$Option;
@@ -899,7 +899,7 @@
 .end method
 
 .method public synthetic hasTargetAspectRatio()Z
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/ImageOutputConfig$-CC;->$default$hasTargetAspectRatio(Landroidx/camera/core/impl/ImageOutputConfig;)Z
 
@@ -909,7 +909,7 @@
 .end method
 
 .method public isSoftwareJpegEncoderRequested()Z
-    .locals 2
+    .registers 3
 
     .line 235
     sget-object v0, Landroidx/camera/core/impl/ImageCaptureConfig;->OPTION_USE_SOFTWARE_JPEG_ENCODER:Landroidx/camera/core/impl/Config$Option;
@@ -934,7 +934,7 @@
 .end method
 
 .method public synthetic listOptions()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$listOptions(Landroidx/camera/core/impl/ReadableConfig;)Ljava/util/Set;
 
@@ -944,7 +944,7 @@
 .end method
 
 .method public synthetic retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$retrieveOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
 
@@ -954,7 +954,7 @@
 .end method
 
 .method public synthetic retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$retrieveOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -964,7 +964,7 @@
 .end method
 
 .method public synthetic retrieveOptionWithPriority(Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$retrieveOptionWithPriority(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;)Ljava/lang/Object;
 

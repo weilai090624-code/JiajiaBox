@@ -37,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Object;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 3
     .param p2, "error"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -74,7 +74,7 @@
 .end method
 
 .method static fromError(Ljava/lang/Throwable;)Landroidx/camera/core/impl/LiveDataObservable$Result;
-    .locals 3
+    .registers 4
     .param p0, "error"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -114,7 +114,7 @@
 .end method
 
 .method static fromValue(Ljava/lang/Object;)Landroidx/camera/core/impl/LiveDataObservable$Result;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -148,27 +148,27 @@
 
 # virtual methods
 .method public completedSuccessfully()Z
-    .locals 1
+    .registers 2
 
     .line 187
     .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$Result;, "Landroidx/camera/core/impl/LiveDataObservable$Result<TT;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable$Result;->mError:Ljava/lang/Throwable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public getError()Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
 
     .line 211
     .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$Result;, "Landroidx/camera/core/impl/LiveDataObservable$Result<TT;>;"
@@ -178,7 +178,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -191,7 +191,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 202
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable$Result;->mValue:Ljava/lang/Object;
@@ -199,7 +199,7 @@
     return-object v0
 
     .line 198
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Result contains an error. Does not contain a value."
@@ -210,7 +210,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 217
     .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$Result;, "Landroidx/camera/core/impl/LiveDataObservable$Result<TT;>;"
@@ -228,7 +228,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -250,10 +250,10 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 218
-    :cond_0
+    :cond_27
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -274,7 +274,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_3c
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

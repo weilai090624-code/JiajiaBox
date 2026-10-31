@@ -5,7 +5,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -15,7 +15,7 @@
 
 # virtual methods
 .method public synthetic findVarHandle(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Lj$/com/android/tools/r8/DesugarVarHandle;
-    .locals 1
+    .registers 5
 
     new-instance v0, Lj$/com/android/tools/r8/DesugarVarHandle;
 
@@ -25,7 +25,7 @@
 .end method
 
 .method public synthetic toPrivateLookupIn(Ljava/lang/Class;)Lj$/com/android/tools/r8/DesugarMethodHandlesLookup;
-    .locals 0
+    .registers 2
 
     return-object p0
 .end method

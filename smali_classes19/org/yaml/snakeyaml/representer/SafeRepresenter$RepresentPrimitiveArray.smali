@@ -23,7 +23,7 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/yaml/snakeyaml/representer/SafeRepresenter;)V
-    .locals 0
+    .registers 2
 
     .line 228
     iput-object p1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentPrimitiveArray;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -34,7 +34,7 @@
 .end method
 
 .method private asBooleanList(Ljava/lang/Object;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p1, "in"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,10 +67,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_c
     array-length v3, v0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1b
 
     .line 313
     aget-boolean v3, v0, v2
@@ -84,16 +84,16 @@
     .line 312
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 314
     .end local v2    # "i":I
-    :cond_0
+    :cond_1b
     return-object v1
 .end method
 
 .method private asByteList(Ljava/lang/Object;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p1, "in"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -126,10 +126,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_c
     array-length v3, v0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1b
 
     .line 257
     aget-byte v3, v0, v2
@@ -143,16 +143,16 @@
     .line 256
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 258
     .end local v2    # "i":I
-    :cond_0
+    :cond_1b
     return-object v1
 .end method
 
 .method private asCharList(Ljava/lang/Object;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p1, "in"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -185,10 +185,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_c
     array-length v3, v0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1b
 
     .line 305
     aget-char v3, v0, v2
@@ -202,16 +202,16 @@
     .line 304
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 306
     .end local v2    # "i":I
-    :cond_0
+    :cond_1b
     return-object v1
 .end method
 
 .method private asDoubleList(Ljava/lang/Object;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p1, "in"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -244,10 +244,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_c
     array-length v3, v0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1b
 
     .line 297
     aget-wide v3, v0, v2
@@ -261,16 +261,16 @@
     .line 296
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 298
     .end local v2    # "i":I
-    :cond_0
+    :cond_1b
     return-object v1
 .end method
 
 .method private asFloatList(Ljava/lang/Object;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p1, "in"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -303,10 +303,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_c
     array-length v3, v0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1b
 
     .line 289
     aget v3, v0, v2
@@ -320,16 +320,16 @@
     .line 288
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 290
     .end local v2    # "i":I
-    :cond_0
+    :cond_1b
     return-object v1
 .end method
 
 .method private asIntList(Ljava/lang/Object;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p1, "in"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -362,10 +362,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_c
     array-length v3, v0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1b
 
     .line 273
     aget v3, v0, v2
@@ -379,16 +379,16 @@
     .line 272
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 274
     .end local v2    # "i":I
-    :cond_0
+    :cond_1b
     return-object v1
 .end method
 
 .method private asLongList(Ljava/lang/Object;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p1, "in"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -421,10 +421,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_c
     array-length v3, v0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1b
 
     .line 281
     aget-wide v3, v0, v2
@@ -438,16 +438,16 @@
     .line 280
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 282
     .end local v2    # "i":I
-    :cond_0
+    :cond_1b
     return-object v1
 .end method
 
 .method private asShortList(Ljava/lang/Object;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p1, "in"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -480,10 +480,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_c
     array-length v3, v0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1b
 
     .line 265
     aget-short v3, v0, v2
@@ -497,18 +497,18 @@
     .line 264
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 266
     .end local v2    # "i":I
-    :cond_0
+    :cond_1b
     return-object v1
 .end method
 
 
 # virtual methods
 .method public representData(Ljava/lang/Object;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 5
+    .registers 7
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 230
@@ -524,7 +524,7 @@
     .local v0, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     sget-object v1, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_1b
 
     .line 233
     iget-object v1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentPrimitiveArray;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -544,10 +544,10 @@
     return-object v1
 
     .line 234
-    :cond_0
+    :cond_1b
     sget-object v1, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_2e
 
     .line 235
     iget-object v1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentPrimitiveArray;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -567,10 +567,10 @@
     return-object v1
 
     .line 236
-    :cond_1
+    :cond_2e
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_41
 
     .line 237
     iget-object v1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentPrimitiveArray;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -590,10 +590,10 @@
     return-object v1
 
     .line 238
-    :cond_2
+    :cond_41
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v1, v0, :cond_3
+    if-ne v1, v0, :cond_54
 
     .line 239
     iget-object v1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentPrimitiveArray;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -613,10 +613,10 @@
     return-object v1
 
     .line 240
-    :cond_3
+    :cond_54
     sget-object v1, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    if-ne v1, v0, :cond_4
+    if-ne v1, v0, :cond_67
 
     .line 241
     iget-object v1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentPrimitiveArray;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -636,10 +636,10 @@
     return-object v1
 
     .line 242
-    :cond_4
+    :cond_67
     sget-object v1, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    if-ne v1, v0, :cond_5
+    if-ne v1, v0, :cond_7a
 
     .line 243
     iget-object v1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentPrimitiveArray;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -659,10 +659,10 @@
     return-object v1
 
     .line 244
-    :cond_5
+    :cond_7a
     sget-object v1, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    if-ne v1, v0, :cond_6
+    if-ne v1, v0, :cond_8d
 
     .line 245
     iget-object v1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentPrimitiveArray;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -682,10 +682,10 @@
     return-object v1
 
     .line 246
-    :cond_6
+    :cond_8d
     sget-object v1, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-ne v1, v0, :cond_7
+    if-ne v1, v0, :cond_a0
 
     .line 247
     iget-object v1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentPrimitiveArray;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -705,7 +705,7 @@
     return-object v1
 
     .line 250
-    :cond_7
+    :cond_a0
     new-instance v1, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v2, Ljava/lang/StringBuilder;

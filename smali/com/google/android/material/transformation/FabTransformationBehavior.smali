@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 89
     invoke-direct {p0}, Lcom/google/android/material/transformation/ExpandableTransformationBehavior;-><init>()V
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -108,7 +108,7 @@
 .end method
 
 .method private calculateChildContentContainer(Landroid/view/View;)Landroid/view/ViewGroup;
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 710
@@ -120,7 +120,7 @@
 
     .line 711
     .local v0, "childContentContainer":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 712
     invoke-direct {p0, v0}, Lcom/google/android/material/transformation/FabTransformationBehavior;->toViewGroupOrNull(Landroid/view/View;)Landroid/view/ViewGroup;
@@ -130,19 +130,19 @@
     return-object v1
 
     .line 716
-    :cond_0
+    :cond_d
     instance-of v1, p1, Lcom/google/android/material/transformation/TransformationChildLayout;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1b
 
     instance-of v1, p1, Lcom/google/android/material/transformation/TransformationChildCard;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 722
-    :cond_1
+    :cond_16
     invoke-direct {p0, p1}, Lcom/google/android/material/transformation/FabTransformationBehavior;->toViewGroupOrNull(Landroid/view/View;)Landroid/view/ViewGroup;
 
     move-result-object v1
@@ -150,8 +150,8 @@
     return-object v1
 
     .line 717
-    :cond_2
-    :goto_0
+    :cond_1b
+    :goto_1b
     move-object v1, p1
 
     check-cast v1, Landroid/view/ViewGroup;
@@ -171,7 +171,7 @@
 .end method
 
 .method private calculateChildVisibleBoundsAtEndOfExpansion(Landroid/view/View;Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;Lcom/google/android/material/animation/MotionTiming;Lcom/google/android/material/animation/MotionTiming;FFFFLandroid/graphics/RectF;)V
-    .locals 5
+    .registers 15
     .param p1, "child"    # Landroid/view/View;
     .param p2, "spec"    # Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;
     .param p3, "translationXTiming"    # Lcom/google/android/material/animation/MotionTiming;
@@ -235,7 +235,7 @@
 .end method
 
 .method private calculateDependencyWindowBounds(Landroid/view/View;Landroid/graphics/RectF;)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "rect"    # Landroid/graphics/RectF;
 
@@ -254,7 +254,7 @@
 .end method
 
 .method private calculateMotionTiming(FFZLcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;)Landroid/util/Pair;
-    .locals 3
+    .registers 8
     .param p1, "translationX"    # F
     .param p2, "translationY"    # F
     .param p3, "expanded"    # Z
@@ -276,31 +276,31 @@
 
     cmpl-float v1, p1, v0
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3c
 
     cmpl-float v1, p2, v0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 546
-    :cond_0
-    if-eqz p3, :cond_1
+    :cond_a
+    if-eqz p3, :cond_10
 
     cmpg-float v1, p2, v0
 
-    if-ltz v1, :cond_2
+    if-ltz v1, :cond_16
 
-    :cond_1
-    if-nez p3, :cond_3
+    :cond_10
+    if-nez p3, :cond_29
 
     cmpl-float v0, p2, v0
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_29
 
     .line 548
-    :cond_2
+    :cond_16
     iget-object v0, p4, Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;->timings:Lcom/google/android/material/animation/MotionSpec;
 
     const-string/jumbo v1, "translationXCurveUpwards"
@@ -320,12 +320,12 @@
     move-result-object v1
 
     .local v1, "translationYTiming":Lcom/google/android/material/animation/MotionTiming;
-    goto :goto_1
+    goto :goto_4e
 
     .line 552
     .end local v0    # "translationXTiming":Lcom/google/android/material/animation/MotionTiming;
     .end local v1    # "translationYTiming":Lcom/google/android/material/animation/MotionTiming;
-    :cond_3
+    :cond_29
     iget-object v0, p4, Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;->timings:Lcom/google/android/material/animation/MotionSpec;
 
     const-string/jumbo v1, "translationXCurveDownwards"
@@ -345,13 +345,13 @@
     move-result-object v1
 
     .restart local v1    # "translationYTiming":Lcom/google/android/material/animation/MotionTiming;
-    goto :goto_1
+    goto :goto_4e
 
     .line 544
     .end local v0    # "translationXTiming":Lcom/google/android/material/animation/MotionTiming;
     .end local v1    # "translationYTiming":Lcom/google/android/material/animation/MotionTiming;
-    :cond_4
-    :goto_0
+    :cond_3c
+    :goto_3c
     iget-object v0, p4, Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;->timings:Lcom/google/android/material/animation/MotionSpec;
 
     const-string/jumbo v1, "translationXLinear"
@@ -372,7 +372,7 @@
 
     .line 556
     .restart local v1    # "translationYTiming":Lcom/google/android/material/animation/MotionTiming;
-    :goto_1
+    :goto_4e
     new-instance v2, Landroid/util/Pair;
 
     invoke-direct {v2, v0, v1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -381,7 +381,7 @@
 .end method
 
 .method private calculateRevealCenterX(Landroid/view/View;Landroid/view/View;Lcom/google/android/material/animation/Positioning;)F
-    .locals 5
+    .registers 9
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "positioning"    # Lcom/google/android/material/animation/Positioning;
@@ -426,7 +426,7 @@
 .end method
 
 .method private calculateRevealCenterY(Landroid/view/View;Landroid/view/View;Lcom/google/android/material/animation/Positioning;)F
-    .locals 5
+    .registers 9
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "positioning"    # Lcom/google/android/material/animation/Positioning;
@@ -471,7 +471,7 @@
 .end method
 
 .method private calculateTranslationX(Landroid/view/View;Landroid/view/View;Lcom/google/android/material/animation/Positioning;)F
-    .locals 5
+    .registers 9
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "positioning"    # Lcom/google/android/material/animation/Positioning;
@@ -499,13 +499,13 @@
 
     and-int/lit8 v3, v3, 0x7
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_30
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_12
+    goto :goto_2c
 
     .line 576
-    :pswitch_1
+    :pswitch_13
     iget v3, v1, Landroid/graphics/RectF;->right:F
 
     iget v4, v0, Landroid/graphics/RectF;->right:F
@@ -513,10 +513,10 @@
     sub-float v2, v3, v4
 
     .line 577
-    goto :goto_0
+    goto :goto_2c
 
     .line 570
-    :pswitch_2
+    :pswitch_1a
     iget v3, v1, Landroid/graphics/RectF;->left:F
 
     iget v4, v0, Landroid/graphics/RectF;->left:F
@@ -524,10 +524,10 @@
     sub-float v2, v3, v4
 
     .line 571
-    goto :goto_0
+    goto :goto_2c
 
     .line 573
-    :pswitch_3
+    :pswitch_21
     invoke-virtual {v1}, Landroid/graphics/RectF;->centerX()F
 
     move-result v3
@@ -542,7 +542,7 @@
     nop
 
     .line 581
-    :goto_0
+    :goto_2c
     iget v3, p3, Lcom/google/android/material/animation/Positioning;->xAdjustment:F
 
     add-float/2addr v2, v3
@@ -550,18 +550,18 @@
     .line 582
     return v2
 
-    :pswitch_data_0
+    :pswitch_data_30
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_21
+        :pswitch_12
+        :pswitch_1a
+        :pswitch_12
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method private calculateTranslationY(Landroid/view/View;Landroid/view/View;Lcom/google/android/material/animation/Positioning;)F
-    .locals 5
+    .registers 9
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "positioning"    # Lcom/google/android/material/animation/Positioning;
@@ -589,12 +589,12 @@
 
     and-int/lit8 v3, v3, 0x70
 
-    sparse-switch v3, :sswitch_data_0
+    sparse-switch v3, :sswitch_data_30
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 602
-    :sswitch_0
+    :sswitch_13
     iget v3, v1, Landroid/graphics/RectF;->bottom:F
 
     iget v4, v0, Landroid/graphics/RectF;->bottom:F
@@ -602,10 +602,10 @@
     sub-float v2, v3, v4
 
     .line 603
-    goto :goto_0
+    goto :goto_2c
 
     .line 596
-    :sswitch_1
+    :sswitch_1a
     iget v3, v1, Landroid/graphics/RectF;->top:F
 
     iget v4, v0, Landroid/graphics/RectF;->top:F
@@ -613,10 +613,10 @@
     sub-float v2, v3, v4
 
     .line 597
-    goto :goto_0
+    goto :goto_2c
 
     .line 599
-    :sswitch_2
+    :sswitch_21
     invoke-virtual {v1}, Landroid/graphics/RectF;->centerY()F
 
     move-result v3
@@ -631,7 +631,7 @@
     nop
 
     .line 607
-    :goto_0
+    :goto_2c
     iget v3, p3, Lcom/google/android/material/animation/Positioning;->yAdjustment:F
 
     add-float/2addr v2, v3
@@ -639,16 +639,16 @@
     .line 608
     return v2
 
-    :sswitch_data_0
+    :sswitch_data_30
     .sparse-switch
-        0x10 -> :sswitch_2
-        0x30 -> :sswitch_1
-        0x50 -> :sswitch_0
+        0x10 -> :sswitch_21
+        0x30 -> :sswitch_1a
+        0x50 -> :sswitch_13
     .end sparse-switch
 .end method
 
 .method private calculateValueOfAnimationAtEndOfExpansion(Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;Lcom/google/android/material/animation/MotionTiming;FF)F
-    .locals 9
+    .registers 14
     .param p1, "spec"    # Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;
     .param p2, "timing"    # Lcom/google/android/material/animation/MotionTiming;
     .param p3, "from"    # F
@@ -721,7 +721,7 @@
 .end method
 
 .method private calculateWindowBounds(Landroid/view/View;Landroid/graphics/RectF;)V
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "rect"    # Landroid/graphics/RectF;
 
@@ -796,7 +796,7 @@
 .end method
 
 .method private createChildrenFadeAnimation(Landroid/view/View;Landroid/view/View;ZZLcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;Ljava/util/List;Ljava/util/List;)V
-    .locals 5
+    .registers 13
     .param p1, "unusedDependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "expanded"    # Z
@@ -823,49 +823,49 @@
     .local p7, "unusedListeners":Ljava/util/List;, "Ljava/util/List<Landroid/animation/Animator$AnimatorListener;>;"
     instance-of v0, p2, Landroid/view/ViewGroup;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 503
     return-void
 
     .line 505
-    :cond_0
+    :cond_5
     instance-of v0, p2, Lcom/google/android/material/circularreveal/CircularRevealWidget;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
     sget v0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->STRATEGY:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     .line 508
     return-void
 
     .line 511
-    :cond_1
+    :cond_e
     invoke-direct {p0, p2}, Lcom/google/android/material/transformation/FabTransformationBehavior;->calculateChildContentContainer(Landroid/view/View;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
     .line 512
     .local v0, "childContentContainer":Landroid/view/ViewGroup;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_15
 
     .line 513
     return-void
 
     .line 518
-    :cond_2
+    :cond_15
     const/4 v1, 0x0
 
     const/4 v2, 0x0
 
     const/4 v3, 0x1
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_32
 
     .line 519
-    if-nez p4, :cond_3
+    if-nez p4, :cond_25
 
     .line 520
     sget-object v4, Lcom/google/android/material/animation/ChildrenAlphaProperty;->CHILDREN_ALPHA:Landroid/util/Property;
@@ -877,7 +877,7 @@
     invoke-virtual {v4, v0, v2}, Landroid/util/Property;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 522
-    :cond_3
+    :cond_25
     sget-object v2, Lcom/google/android/material/animation/ChildrenAlphaProperty;->CHILDREN_ALPHA:Landroid/util/Property;
 
     new-array v3, v3, [F
@@ -892,11 +892,11 @@
     move-result-object v1
 
     .local v1, "animator":Landroid/animation/Animator;
-    goto :goto_0
+    goto :goto_3c
 
     .line 525
     .end local v1    # "animator":Landroid/animation/Animator;
-    :cond_4
+    :cond_32
     sget-object v4, Lcom/google/android/material/animation/ChildrenAlphaProperty;->CHILDREN_ALPHA:Landroid/util/Property;
 
     new-array v3, v3, [F
@@ -910,7 +910,7 @@
 
     .line 529
     .restart local v1    # "animator":Landroid/animation/Animator;
-    :goto_0
+    :goto_3c
     iget-object v2, p5, Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;->timings:Lcom/google/android/material/animation/MotionSpec;
 
     const-string v3, "contentFade"
@@ -931,7 +931,7 @@
 .end method
 
 .method private createColorAnimation(Landroid/view/View;Landroid/view/View;ZZLcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;Ljava/util/List;Ljava/util/List;)V
-    .locals 6
+    .registers 14
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "expanded"    # Z
@@ -958,13 +958,13 @@
     .local p7, "unusedListeners":Ljava/util/List;, "Ljava/util/List<Landroid/animation/Animator$AnimatorListener;>;"
     instance-of v0, p2, Lcom/google/android/material/circularreveal/CircularRevealWidget;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 463
     return-void
 
     .line 465
-    :cond_0
+    :cond_5
     move-object v0, p2
 
     check-cast v0, Lcom/google/android/material/circularreveal/CircularRevealWidget;
@@ -983,16 +983,16 @@
 
     .line 471
     .local v2, "transparent":I
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_22
 
     .line 472
-    if-nez p4, :cond_1
+    if-nez p4, :cond_17
 
     .line 473
     invoke-interface {v0, v1}, Lcom/google/android/material/circularreveal/CircularRevealWidget;->setCircularRevealScrimColor(I)V
 
     .line 475
-    :cond_1
+    :cond_17
     sget-object v3, Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;->CIRCULAR_REVEAL_SCRIM_COLOR:Landroid/util/Property;
 
     filled-new-array {v2}, [I
@@ -1005,11 +1005,11 @@
     move-result-object v3
 
     .local v3, "animator":Landroid/animation/ObjectAnimator;
-    goto :goto_0
+    goto :goto_2c
 
     .line 481
     .end local v3    # "animator":Landroid/animation/ObjectAnimator;
-    :cond_2
+    :cond_22
     sget-object v3, Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;->CIRCULAR_REVEAL_SCRIM_COLOR:Landroid/util/Property;
 
     filled-new-array {v1}, [I
@@ -1023,7 +1023,7 @@
 
     .line 488
     .restart local v3    # "animator":Landroid/animation/ObjectAnimator;
-    :goto_0
+    :goto_2c
     invoke-static {}, Lcom/google/android/material/animation/ArgbEvaluatorCompat;->getInstance()Lcom/google/android/material/animation/ArgbEvaluatorCompat;
 
     move-result-object v4
@@ -1051,7 +1051,7 @@
 .end method
 
 .method private createDependencyTranslationAnimation(Landroid/view/View;Landroid/view/View;ZLcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;Ljava/util/List;)V
-    .locals 10
+    .registers 16
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "expanded"    # Z
@@ -1111,16 +1111,16 @@
     sget-object v5, Landroid/view/View;->TRANSLATION_X:Landroid/util/Property;
 
     .line 245
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1f
 
     move v6, v0
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_1f
     iget v6, p0, Lcom/google/android/material/transformation/FabTransformationBehavior;->dependencyOriginalTranslationX:F
 
-    :goto_0
+    :goto_21
     const/4 v7, 0x1
 
     new-array v8, v7, [F
@@ -1139,16 +1139,16 @@
     sget-object v6, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
 
     .line 250
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_31
 
     move v8, v1
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_1
+    :cond_31
     iget v8, p0, Lcom/google/android/material/transformation/FabTransformationBehavior;->dependencyOriginalTranslationY:F
 
-    :goto_1
+    :goto_33
     new-array v7, v7, [F
 
     aput v8, v7, v9
@@ -1176,7 +1176,7 @@
 .end method
 
 .method private createElevationAnimation(Landroid/view/View;Landroid/view/View;ZZLcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;Ljava/util/List;Ljava/util/List;)V
-    .locals 5
+    .registers 13
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "expanded"    # Z
@@ -1217,10 +1217,10 @@
 
     const/4 v2, 0x1
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_1f
 
     .line 211
-    if-nez p4, :cond_0
+    if-nez p4, :cond_13
 
     .line 212
     neg-float v3, v0
@@ -1228,7 +1228,7 @@
     invoke-virtual {p2, v3}, Landroid/view/View;->setTranslationZ(F)V
 
     .line 214
-    :cond_0
+    :cond_13
     sget-object v3, Landroid/view/View;->TRANSLATION_Z:Landroid/util/Property;
 
     new-array v2, v2, [F
@@ -1242,11 +1242,11 @@
     move-result-object v1
 
     .local v1, "animator":Landroid/animation/Animator;
-    goto :goto_0
+    goto :goto_2a
 
     .line 216
     .end local v1    # "animator":Landroid/animation/Animator;
-    :cond_1
+    :cond_1f
     sget-object v3, Landroid/view/View;->TRANSLATION_Z:Landroid/util/Property;
 
     neg-float v4, v0
@@ -1261,7 +1261,7 @@
 
     .line 219
     .restart local v1    # "animator":Landroid/animation/Animator;
-    :goto_0
+    :goto_2a
     iget-object v2, p5, Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;->timings:Lcom/google/android/material/animation/MotionSpec;
 
     const-string v3, "elevation"
@@ -1282,7 +1282,7 @@
 .end method
 
 .method private createExpansionAnimation(Landroid/view/View;Landroid/view/View;ZZLcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;FFLjava/util/List;Ljava/util/List;)V
-    .locals 24
+    .registers 34
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "expanded"    # Z
@@ -1320,13 +1320,13 @@
 
     instance-of v0, v14, Lcom/google/android/material/circularreveal/CircularRevealWidget;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 378
     return-void
 
     .line 380
-    :cond_0
+    :cond_d
     move-object v11, v14
 
     check-cast v11, Lcom/google/android/material/circularreveal/CircularRevealWidget;
@@ -1382,10 +1382,10 @@
 
     .line 390
     .local v7, "timing":Lcom/google/android/material/animation/MotionTiming;
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_95
 
     .line 391
-    if-nez p4, :cond_1
+    if-nez p4, :cond_43
 
     .line 392
     new-instance v0, Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
@@ -1395,8 +1395,8 @@
     invoke-interface {v11, v0}, Lcom/google/android/material/circularreveal/CircularRevealWidget;->setRevealInfo(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V
 
     .line 396
-    :cond_1
-    if-eqz p4, :cond_2
+    :cond_43
+    if-eqz p4, :cond_4d
 
     invoke-interface {v11}, Lcom/google/android/material/circularreveal/CircularRevealWidget;->getRevealInfo()Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
@@ -1406,14 +1406,14 @@
 
     move v6, v0
 
-    goto :goto_0
+    goto :goto_4e
 
-    :cond_2
+    :cond_4d
     move v6, v8
 
     .line 397
     .local v6, "fromRadius":F
-    :goto_0
+    :goto_4e
     nop
 
     .line 398
@@ -1504,13 +1504,13 @@
 
     move-object/from16 v4, v18
 
-    goto :goto_1
+    goto :goto_e6
 
     .line 425
     .end local v16    # "timing":Lcom/google/android/material/animation/MotionTiming;
     .end local v18    # "animator":Landroid/animation/Animator;
     .restart local v7    # "timing":Lcom/google/android/material/animation/MotionTiming;
-    :cond_3
+    :cond_95
     move-object/from16 v16, v7
 
     .end local v7    # "timing":Lcom/google/android/material/animation/MotionTiming;
@@ -1632,7 +1632,7 @@
     .end local v18    # "toRadius":F
     .end local v19    # "fromRadius":F
     .restart local v4    # "animator":Landroid/animation/Animator;
-    :goto_1
+    :goto_e6
     move-object/from16 v0, v16
 
     .end local v16    # "timing":Lcom/google/android/material/animation/MotionTiming;
@@ -1658,7 +1658,7 @@
 .end method
 
 .method private createIconFadeAnimation(Landroid/view/View;Landroid/view/View;ZZLcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;Ljava/util/List;Ljava/util/List;)V
-    .locals 6
+    .registers 14
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "expanded"    # Z
@@ -1685,16 +1685,16 @@
     .local p7, "listeners":Ljava/util/List;, "Ljava/util/List<Landroid/animation/Animator$AnimatorListener;>;"
     instance-of v0, p2, Lcom/google/android/material/circularreveal/CircularRevealWidget;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_57
 
     instance-of v0, p1, Landroid/widget/ImageView;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
-    goto :goto_1
+    goto :goto_57
 
     .line 319
-    :cond_0
+    :cond_9
     move-object v0, p2
 
     check-cast v0, Lcom/google/android/material/circularreveal/CircularRevealWidget;
@@ -1713,28 +1713,28 @@
 
     .line 323
     .local v2, "icon":Landroid/graphics/drawable/Drawable;
-    if-nez v2, :cond_1
+    if-nez v2, :cond_16
 
     .line 324
     return-void
 
     .line 326
-    :cond_1
+    :cond_16
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     .line 330
     const/16 v3, 0xff
 
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_2e
 
     .line 331
-    if-nez p4, :cond_2
+    if-nez p4, :cond_22
 
     .line 332
     invoke-virtual {v2, v3}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
     .line 334
-    :cond_2
+    :cond_22
     sget-object v3, Lcom/google/android/material/animation/DrawableAlphaProperty;->DRAWABLE_ALPHA_COMPAT:Landroid/util/Property;
 
     const/4 v4, 0x0
@@ -1748,11 +1748,11 @@
     move-result-object v3
 
     .local v3, "animator":Landroid/animation/ObjectAnimator;
-    goto :goto_0
+    goto :goto_38
 
     .line 336
     .end local v3    # "animator":Landroid/animation/ObjectAnimator;
-    :cond_3
+    :cond_2e
     sget-object v4, Lcom/google/android/material/animation/DrawableAlphaProperty;->DRAWABLE_ALPHA_COMPAT:Landroid/util/Property;
 
     filled-new-array {v3}, [I
@@ -1765,7 +1765,7 @@
 
     .line 341
     .restart local v3    # "animator":Landroid/animation/ObjectAnimator;
-    :goto_0
+    :goto_38
     new-instance v4, Lcom/google/android/material/transformation/FabTransformationBehavior$2;
 
     invoke-direct {v4, p0, p2}, Lcom/google/android/material/transformation/FabTransformationBehavior$2;-><init>(Lcom/google/android/material/transformation/FabTransformationBehavior;Landroid/view/View;)V
@@ -1804,13 +1804,13 @@
     .end local v2    # "icon":Landroid/graphics/drawable/Drawable;
     .end local v3    # "animator":Landroid/animation/ObjectAnimator;
     .end local v4    # "timing":Lcom/google/android/material/animation/MotionTiming;
-    :cond_4
-    :goto_1
+    :cond_57
+    :goto_57
     return-void
 .end method
 
 .method private createPostFillRadialExpansion(Landroid/view/View;JJJIIFLjava/util/List;)V
-    .locals 3
+    .registers 15
     .param p1, "child"    # Landroid/view/View;
     .param p2, "delay"    # J
     .param p4, "duration"    # J
@@ -1838,7 +1838,7 @@
 
     cmp-long v2, v0, p6
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_1b
 
     .line 777
     nop
@@ -1866,12 +1866,12 @@
 
     .line 785
     .end local v0    # "animator":Landroid/animation/Animator;
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 .method private createPreFillRadialExpansion(Landroid/view/View;JIIFLjava/util/List;)V
-    .locals 3
+    .registers 11
     .param p1, "child"    # Landroid/view/View;
     .param p2, "delay"    # J
     .param p4, "revealCenterX"    # I
@@ -1897,7 +1897,7 @@
 
     cmp-long v2, p2, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_15
 
     .line 754
     nop
@@ -1919,12 +1919,12 @@
 
     .line 762
     .end local v2    # "animator":Landroid/animation/Animator;
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method private createTranslationAnimation(Landroid/view/View;Landroid/view/View;ZZLcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;Ljava/util/List;Ljava/util/List;Landroid/graphics/RectF;)V
-    .locals 25
+    .registers 34
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "expanded"    # Z
@@ -2009,10 +2009,10 @@
 
     const/4 v1, 0x1
 
-    if-eqz v13, :cond_1
+    if-eqz v13, :cond_79
 
     .line 279
-    if-nez p4, :cond_0
+    if-nez p4, :cond_35
 
     .line 280
     neg-float v2, v9
@@ -2025,7 +2025,7 @@
     invoke-virtual {v12, v2}, Landroid/view/View;->setTranslationY(F)V
 
     .line 283
-    :cond_0
+    :cond_35
     sget-object v2, Landroid/view/View;->TRANSLATION_X:Landroid/util/Property;
 
     new-array v3, v1, [F
@@ -2112,7 +2112,7 @@
 
     move/from16 v3, v24
 
-    goto :goto_0
+    goto :goto_9e
 
     .line 297
     .end local v10    # "translationX":F
@@ -2127,7 +2127,7 @@
     .restart local v7    # "motionTiming":Landroid/util/Pair;, "Landroid/util/Pair<Lcom/google/android/material/animation/MotionTiming;Lcom/google/android/material/animation/MotionTiming;>;"
     .restart local v8    # "translationY":F
     .restart local v9    # "translationX":F
-    :cond_1
+    :cond_79
     move-object/from16 v22, v5
 
     move-object/from16 v23, v6
@@ -2186,7 +2186,7 @@
     .end local v16    # "translationXAnimator":Landroid/animation/ValueAnimator;
     .local v0, "translationXAnimator":Landroid/animation/ValueAnimator;
     .local v1, "translationYAnimator":Landroid/animation/ValueAnimator;
-    :goto_0
+    :goto_9e
     move-object/from16 v2, v23
 
     .end local v23    # "translationXTiming":Lcom/google/android/material/animation/MotionTiming;
@@ -2211,7 +2211,7 @@
 .end method
 
 .method private getBackgroundTint(Landroid/view/View;)I
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 735
@@ -2221,7 +2221,7 @@
 
     .line 736
     .local v0, "tintList":Landroid/content/res/ColorStateList;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 737
     invoke-virtual {p1}, Landroid/view/View;->getDrawableState()[I
@@ -2239,20 +2239,20 @@
     return v1
 
     .line 739
-    :cond_0
+    :cond_13
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method private toViewGroupOrNull(Landroid/view/View;)Landroid/view/ViewGroup;
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 727
     instance-of v0, p1, Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 728
     move-object v0, p1
@@ -2262,7 +2262,7 @@
     return-object v0
 
     .line 730
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     return-object v0
@@ -2271,7 +2271,7 @@
 
 # virtual methods
 .method public layoutDependsOn(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
-    .locals 3
+    .registers 7
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "dependency"    # Landroid/view/View;
@@ -2283,14 +2283,14 @@
 
     const/16 v1, 0x8
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_1f
 
     .line 104
     instance-of v0, p3, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1e
 
     .line 105
     move-object v0, p3
@@ -2304,27 +2304,27 @@
 
     .line 107
     .local v0, "expandedComponentIdHint":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     invoke-virtual {p2}, Landroid/view/View;->getId()I
 
     move-result v2
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_1d
 
-    :cond_0
+    :cond_1c
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_1d
     return v1
 
     .line 109
     .end local v0    # "expandedComponentIdHint":I
-    :cond_2
+    :cond_1e
     return v1
 
     .line 100
-    :cond_3
+    :cond_1f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "This behavior cannot be attached to a GONE view. Set the view to INVISIBLE instead."
@@ -2335,13 +2335,13 @@
 .end method
 
 .method public onAttachedToLayoutParams(Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "lp"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
     .line 115
     iget v0, p1, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->dodgeInsetEdges:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 118
     const/16 v0, 0x50
@@ -2349,12 +2349,12 @@
     iput v0, p1, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->dodgeInsetEdges:I
 
     .line 120
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method protected onCreateExpandedStateChangeAnimation(Landroid/view/View;Landroid/view/View;ZZ)Landroid/animation/AnimatorSet;
-    .locals 18
+    .registers 23
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "expanded"    # Z
@@ -2375,7 +2375,7 @@
 
     .line 131
     .local v12, "spec":Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_1a
 
     .line 132
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getTranslationX()F
@@ -2392,7 +2392,7 @@
     iput v0, v10, Lcom/google/android/material/transformation/FabTransformationBehavior;->dependencyOriginalTranslationY:F
 
     .line 136
-    :cond_0
+    :cond_1a
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -2531,8 +2531,8 @@
     move-result v4
 
     .local v4, "count":I
-    :goto_0
-    if-ge v1, v4, :cond_1
+    :goto_87
+    if-ge v1, v4, :cond_95
 
     .line 191
     invoke-interface {v14, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -2546,12 +2546,12 @@
     .line 190
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_87
 
     .line 193
     .end local v1    # "i":I
     .end local v4    # "count":I
-    :cond_1
+    :cond_95
     return-object v0
 .end method
 

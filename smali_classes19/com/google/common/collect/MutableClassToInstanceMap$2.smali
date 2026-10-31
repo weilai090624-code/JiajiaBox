@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MutableClassToInstanceMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/MutableClassToInstanceMap;
 
     .line 97
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/MutableClassToInstanceMap$2;, "Lcom/google/common/collect/MutableClassToInstanceMap$2;"
@@ -56,7 +56,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/MutableClassToInstanceMap$2;, "Lcom/google/common/collect/MutableClassToInstanceMap$2;"
@@ -68,7 +68,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -95,7 +95,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -126,7 +126,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 124
     .local p0, "this":Lcom/google/common/collect/MutableClassToInstanceMap$2;, "Lcom/google/common/collect/MutableClassToInstanceMap$2;"
@@ -140,7 +140,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

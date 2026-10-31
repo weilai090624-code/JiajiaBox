@@ -21,7 +21,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method public static getImei(Landroid/telephony/TelephonyManager;)Ljava/lang/String;
-    .locals 8
+    .registers 9
     .param p0, "telephonyManager"    # Landroid/telephony/TelephonyManager;
 
     .line 70
@@ -38,7 +38,7 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 71
     invoke-static {p0}, Landroidx/core/telephony/TelephonyManagerCompat$Api26Impl;->getImei(Landroid/telephony/TelephonyManager;)Ljava/lang/String;
@@ -48,12 +48,12 @@
     return-object v0
 
     .line 72
-    :cond_0
+    :cond_b
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x16
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_60
 
     .line 77
     invoke-static {p0}, Landroidx/core/telephony/TelephonyManagerCompat;->getSubscriptionId(Landroid/telephony/TelephonyManager;)I
@@ -64,11 +64,11 @@
     .local v0, "subId":I
     const v1, 0x7fffffff
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_60
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_60
 
     .line 79
     invoke-static {v0}, Landroidx/core/telephony/SubscriptionManagerCompat;->getSlotIndex(I)I
@@ -81,7 +81,7 @@
 
     const/16 v3, 0x17
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_2c
 
     .line 81
     invoke-static {p0, v1}, Landroidx/core/telephony/TelephonyManagerCompat$Api23Impl;->getDeviceId(Landroid/telephony/TelephonyManager;I)Ljava/lang/String;
@@ -91,15 +91,15 @@
     return-object v2
 
     .line 84
-    :cond_1
-    :try_start_0
+    :cond_2c
+    :try_start_2c
     sget-object v2, Landroidx/core/telephony/TelephonyManagerCompat;->sGetDeviceIdMethod:Ljava/lang/reflect/Method;
 
     const/4 v3, 0x0
 
     const/4 v4, 0x1
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_47
 
     .line 85
     const-class v2, Landroid/telephony/TelephonyManager;
@@ -124,7 +124,7 @@
     invoke-virtual {v2, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     .line 91
-    :cond_2
+    :cond_47
     sget-object v2, Landroidx/core/telephony/TelephonyManagerCompat;->sGetDeviceIdMethod:Ljava/lang/reflect/Method;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -140,35 +140,35 @@
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_57
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_2c .. :try_end_57} :catch_5c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_2c .. :try_end_57} :catch_5a
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_2c .. :try_end_57} :catch_58
 
     return-object v2
 
     .line 94
-    :catch_0
+    :catch_58
     move-exception v2
 
-    goto :goto_1
+    goto :goto_5e
 
     .line 93
-    :catch_1
+    :catch_5a
     move-exception v2
 
-    goto :goto_0
+    goto :goto_5d
 
     .line 92
-    :catch_2
+    :catch_5c
     move-exception v2
 
     .line 95
-    :goto_0
+    :goto_5d
     nop
 
     .line 97
-    :goto_1
+    :goto_5e
     const/4 v2, 0x0
 
     return-object v2
@@ -176,7 +176,7 @@
     .line 102
     .end local v0    # "subId":I
     .end local v1    # "slotIndex":I
-    :cond_3
+    :cond_60
     invoke-virtual {p0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
 
     move-result-object v0
@@ -185,7 +185,7 @@
 .end method
 
 .method public static getSubscriptionId(Landroid/telephony/TelephonyManager;)I
-    .locals 4
+    .registers 5
     .param p0, "telephonyManager"    # Landroid/telephony/TelephonyManager;
 
     .line 112
@@ -193,7 +193,7 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 113
     invoke-static {p0}, Landroidx/core/telephony/TelephonyManagerCompat$Api30Impl;->getSubscriptionId(Landroid/telephony/TelephonyManager;)I
@@ -203,20 +203,20 @@
     return v0
 
     .line 114
-    :cond_0
+    :cond_b
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x16
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_46
 
     .line 116
-    :try_start_0
+    :try_start_11
     sget-object v0, Landroidx/core/telephony/TelephonyManagerCompat;->sGetSubIdMethod:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_28
 
     .line 117
     const-class v0, Landroid/telephony/TelephonyManager;
@@ -239,7 +239,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     .line 121
-    :cond_1
+    :cond_28
     sget-object v0, Landroidx/core/telephony/TelephonyManagerCompat;->sGetSubIdMethod:Ljava/lang/reflect/Method;
 
     new-array v1, v1, [Ljava/lang/Object;
@@ -252,7 +252,7 @@
 
     .line 122
     .local v0, "subId":Ljava/lang/Integer;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_45
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -260,44 +260,44 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_45
 
     .line 123
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3f
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_11 .. :try_end_3f} :catch_44
+    .catch Ljava/lang/IllegalAccessException; {:try_start_11 .. :try_end_3f} :catch_42
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_11 .. :try_end_3f} :catch_40
 
     return v1
 
     .line 127
     .end local v0    # "subId":Ljava/lang/Integer;
-    :catch_0
+    :catch_40
     move-exception v0
 
-    goto :goto_1
+    goto :goto_46
 
     .line 126
-    :catch_1
+    :catch_42
     move-exception v0
 
-    goto :goto_0
+    goto :goto_45
 
     .line 125
-    :catch_2
+    :catch_44
     move-exception v0
 
     .line 128
-    :cond_2
-    :goto_0
+    :cond_45
+    :goto_45
     nop
 
     .line 131
-    :cond_3
-    :goto_1
+    :cond_46
+    :goto_46
     const v0, 0x7fffffff
 
     return v0

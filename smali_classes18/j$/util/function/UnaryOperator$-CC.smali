@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static identity()Ljava/util/function/UnaryOperator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -25,7 +25,7 @@
 .end method
 
 .method public static synthetic lambda$identity$0(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .param p0, "t"    # Ljava/lang/Object;
 
     .line 50

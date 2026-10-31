@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 71
     new-instance v0, Landroidx/work/multiprocess/parcelable/ParcelableWorkerParameters$1;
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 4
+    .registers 6
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 85
@@ -130,7 +130,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/WorkerParameters;)V
-    .locals 1
+    .registers 3
     .param p1, "parameters"    # Landroidx/work/WorkerParameters;
 
     .line 62
@@ -185,7 +185,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 105
     const/4 v0, 0x0
@@ -194,7 +194,7 @@
 .end method
 
 .method public getData()Landroidx/work/Data;
-    .locals 1
+    .registers 2
 
     .line 135
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkerParameters;->mData:Landroidx/work/Data;
@@ -203,7 +203,7 @@
 .end method
 
 .method public getId()Ljava/util/UUID;
-    .locals 1
+    .registers 2
 
     .line 130
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkerParameters;->mId:Ljava/util/UUID;
@@ -212,7 +212,7 @@
 .end method
 
 .method public getRunAttemptCount()I
-    .locals 1
+    .registers 2
 
     .line 139
     iget v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkerParameters;->mRunAttemptCount:I
@@ -221,7 +221,7 @@
 .end method
 
 .method public getTags()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -238,7 +238,7 @@
 .end method
 
 .method public toWorkerParameters(Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/ProgressUpdater;Landroidx/work/ForegroundUpdater;)Landroidx/work/WorkerParameters;
-    .locals 14
+    .registers 19
     .param p1, "configuration"    # Landroidx/work/Configuration;
     .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
     .param p3, "progressUpdater"    # Landroidx/work/ProgressUpdater;
@@ -286,7 +286,7 @@
 .end method
 
 .method public toWorkerParameters(Landroidx/work/impl/WorkManagerImpl;)Landroidx/work/WorkerParameters;
-    .locals 7
+    .registers 9
     .param p1, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
 
     .line 153
@@ -334,7 +334,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 4
+    .registers 7
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

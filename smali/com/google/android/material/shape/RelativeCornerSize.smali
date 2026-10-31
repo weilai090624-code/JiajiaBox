@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(F)V
-    .locals 0
+    .registers 2
     .param p1, "percent"    # F
 
     .line 58
@@ -26,24 +26,24 @@
 .end method
 
 .method public static createFromCornerSize(Landroid/graphics/RectF;Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/RelativeCornerSize;
-    .locals 3
+    .registers 5
     .param p0, "bounds"    # Landroid/graphics/RectF;
     .param p1, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
     .line 45
     instance-of v0, p1, Lcom/google/android/material/shape/RelativeCornerSize;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 46
     move-object v0, p1
 
     check-cast v0, Lcom/google/android/material/shape/RelativeCornerSize;
 
-    goto :goto_0
+    goto :goto_16
 
     .line 47
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/android/material/shape/RelativeCornerSize;
 
     invoke-interface {p1, p0}, Lcom/google/android/material/shape/CornerSize;->getCornerSize(Landroid/graphics/RectF;)F
@@ -59,12 +59,12 @@
     invoke-direct {v0, v1}, Lcom/google/android/material/shape/RelativeCornerSize;-><init>(F)V
 
     .line 45
-    :goto_0
+    :goto_16
     return-object v0
 .end method
 
 .method private static getMaxCornerSize(Landroid/graphics/RectF;)F
-    .locals 2
+    .registers 3
     .param p0, "bounds"    # Landroid/graphics/RectF;
 
     .line 51
@@ -86,30 +86,30 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 75
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 76
     return v0
 
     .line 78
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/android/material/shape/RelativeCornerSize;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 79
     return v2
 
     .line 81
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/android/material/shape/RelativeCornerSize;
@@ -122,19 +122,19 @@
 
     cmpl-float v3, v3, v4
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_16
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_2
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public getCornerSize(Landroid/graphics/RectF;)F
-    .locals 2
+    .registers 4
     .param p1, "bounds"    # Landroid/graphics/RectF;
 
     .line 70
@@ -150,7 +150,7 @@
 .end method
 
 .method public getRelativePercent()F
-    .locals 1
+    .registers 2
 
     .line 65
     iget v0, p0, Lcom/google/android/material/shape/RelativeCornerSize;->percent:F
@@ -159,7 +159,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 87
     iget v0, p0, Lcom/google/android/material/shape/RelativeCornerSize;->percent:F

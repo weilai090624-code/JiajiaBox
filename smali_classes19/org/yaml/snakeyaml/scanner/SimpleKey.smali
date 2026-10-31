@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(IZIIILorg/yaml/snakeyaml/error/Mark;)V
-    .locals 0
+    .registers 7
     .param p1, "tokenNumber"    # I
     .param p2, "required"    # Z
     .param p3, "index"    # I
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public getColumn()I
-    .locals 1
+    .registers 2
 
     .line 50
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/SimpleKey;->column:I
@@ -64,7 +64,7 @@
 .end method
 
 .method public getIndex()I
-    .locals 1
+    .registers 2
 
     .line 58
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/SimpleKey;->index:I
@@ -73,7 +73,7 @@
 .end method
 
 .method public getLine()I
-    .locals 1
+    .registers 2
 
     .line 62
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/SimpleKey;->line:I
@@ -82,7 +82,7 @@
 .end method
 
 .method public getMark()Lorg/yaml/snakeyaml/error/Mark;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/SimpleKey;->mark:Lorg/yaml/snakeyaml/error/Mark;
@@ -91,7 +91,7 @@
 .end method
 
 .method public getTokenNumber()I
-    .locals 1
+    .registers 2
 
     .line 46
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/SimpleKey;->tokenNumber:I
@@ -100,7 +100,7 @@
 .end method
 
 .method public isRequired()Z
-    .locals 1
+    .registers 2
 
     .line 66
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/scanner/SimpleKey;->required:Z
@@ -109,7 +109,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 71
     new-instance v0, Ljava/lang/StringBuilder;

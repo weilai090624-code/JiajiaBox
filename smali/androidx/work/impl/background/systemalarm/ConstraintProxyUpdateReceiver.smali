@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 41
     const-string v0, "ConstrntProxyUpdtRecvr"
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -43,7 +43,7 @@
 .end method
 
 .method public static newConstraintProxyUpdateIntent(Landroid/content/Context;ZZZZ)Landroid/content/Intent;
-    .locals 4
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "batteryNotLowProxyEnabled"    # Z
     .param p2, "batteryChargingProxyEnabled"    # Z
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -133,27 +133,27 @@
     .end annotation
 
     .line 84
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     .line 85
     .local v0, "action":Ljava/lang/String;
-    :goto_0
+    :goto_8
     const-string v1, "androidx.work.impl.background.systemalarm.UpdateProxies"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2d
 
     .line 86
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -182,10 +182,10 @@
 
     invoke-virtual {v1, v2, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_41
 
     .line 88
-    :cond_1
+    :cond_2d
     invoke-virtual {p0}, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver;->goAsync()Landroid/content/BroadcastReceiver$PendingResult;
 
     move-result-object v1
@@ -214,6 +214,6 @@
     .end local v1    # "pendingResult":Landroid/content/BroadcastReceiver$PendingResult;
     .end local v2    # "workManager":Landroidx/work/impl/WorkManagerImpl;
     .end local v3    # "taskExecutor":Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    :goto_1
+    :goto_41
     return-void
 .end method

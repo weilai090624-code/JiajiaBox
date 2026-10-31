@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/multiprocess/RemoteListenableWorker;Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/work/multiprocess/RemoteListenableWorker;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public execute(Landroidx/work/multiprocess/IListenableWorkerImpl;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 4
+    .registers 7
     .param p1, "listenableWorkerImpl"    # Landroidx/work/multiprocess/IListenableWorkerImpl;
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/Throws;
@@ -121,7 +121,7 @@
 .end method
 
 .method public bridge synthetic execute(Ljava/lang/Object;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;

@@ -1331,7 +1331,7 @@
 
     const-string v5, "info"
 
-    packed-switch v4, :pswitch_data_dbc
+    packed-switch v4, :pswitch_data_dc6
 
     .line 173
     goto :goto_368
@@ -1470,7 +1470,7 @@
 
     move-result v15
 
-    packed-switch v15, :pswitch_data_dca
+    packed-switch v15, :pswitch_data_dd4
 
     .line 205
     move-object v15, v1
@@ -1545,7 +1545,7 @@
 
     const-string v15, "172.19.0.1/28"
 
-    sparse-switch v8, :sswitch_data_dd2
+    sparse-switch v8, :sswitch_data_ddc
 
     .line 222
     invoke-static {v15}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
@@ -4203,7 +4203,7 @@
 
     .line 658
     .local v12, "$i$a$-apply-ConfigBuilderKt$buildConfig$1$16$1":I
-    if-eqz v2, :cond_db4
+    if-eqz v2, :cond_dbe
 
     iput-object v2, v11, Lmoe/matsuri/nb4a/SingBoxOptions$DNSServerOptions;->address:Ljava/lang/String;
 
@@ -4952,7 +4952,13 @@
 
     move/from16 v6, p1
 
-    if-nez v6, :cond_d8f
+    if-nez v6, :cond_d99
+
+    move-object/from16 v6, p0
+
+    invoke-static {v5, v6}, Lio/nekohasekai/sagernet/ui/SubscriptionDns;->apply(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
 
     invoke-static {v5}, Lmoe/matsuri/nb4a/ui/RequestedUpdates;->routeDomain(Ljava/lang/String;)Ljava/lang/String;
 
@@ -4966,8 +4972,12 @@
 
     move-result-object v5
 
+    invoke-static {v5}, Lio/nekohasekai/sagernet/ui/SubscriptionDns;->fixResolves(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
     .line 747
-    :cond_d8f
+    :cond_d99
     move-object/from16 v25, v49
 
     check-cast v25, Ljava/util/List;
@@ -4988,7 +4998,7 @@
     check-cast v29, Ljava/util/Map;
 
     .line 751
-    if-eqz v39, :cond_da8
+    if-eqz v39, :cond_db2
 
     invoke-virtual/range {v34 .. v34}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getId()J
 
@@ -4996,13 +5006,13 @@
 
     move-wide/from16 v30, v6
 
-    goto :goto_daa
+    goto :goto_db4
 
-    :cond_da8
+    :cond_db2
     move-wide/from16 v30, v21
 
     .line 745
-    :goto_daa
+    :goto_db4
     move-object/from16 v23, v3
 
     move-object/from16 v24, v5
@@ -5030,7 +5040,7 @@
     .restart local v12    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$16$1":I
     .restart local v51    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1":I
     .restart local v52    # "ipv6Mode":I
-    :cond_db4
+    :cond_dbe
     new-instance v0, Ljava/lang/Exception;
 
     const-string v1, "No direct DNS, check your settings!"
@@ -5039,7 +5049,7 @@
 
     throw v0
 
-    :pswitch_data_dbc
+    :pswitch_data_dc6
     .packed-switch 0x0
         :pswitch_366
         :pswitch_363
@@ -5048,13 +5058,13 @@
         :pswitch_35c
     .end packed-switch
 
-    :pswitch_data_dca
+    :pswitch_data_dd4
     .packed-switch 0x0
         :pswitch_3c2
         :pswitch_3bf
     .end packed-switch
 
-    :sswitch_data_dd2
+    :sswitch_data_ddc
     .sparse-switch
         0x0 -> :sswitch_410
         0x3 -> :sswitch_407

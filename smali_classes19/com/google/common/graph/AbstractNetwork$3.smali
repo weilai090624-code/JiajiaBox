@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/Network;)V
-    .locals 0
+    .registers 2
 
     .line 284
     iput-object p1, p0, Lcom/google/common/graph/AbstractNetwork$3;->val$network:Lcom/google/common/graph/Network;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Lcom/google/common/graph/EndpointPair;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",
@@ -67,7 +67,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 284
     invoke-virtual {p0, p1}, Lcom/google/common/graph/AbstractNetwork$3;->apply(Ljava/lang/Object;)Lcom/google/common/graph/EndpointPair;

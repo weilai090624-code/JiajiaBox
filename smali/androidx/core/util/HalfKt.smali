@@ -33,7 +33,7 @@
 
 # direct methods
 .method public static final toHalf(D)Landroid/util/Half;
-    .locals 3
+    .registers 5
     .param p0, "$this$toHalf"    # D
 
     const/4 v0, 0x0
@@ -58,7 +58,7 @@
 .end method
 
 .method public static final toHalf(F)Landroid/util/Half;
-    .locals 2
+    .registers 3
     .param p0, "$this$toHalf"    # F
 
     const/4 v0, 0x0
@@ -73,7 +73,7 @@
 .end method
 
 .method public static final toHalf(Ljava/lang/String;)Landroid/util/Half;
-    .locals 2
+    .registers 3
     .param p0, "$this$toHalf"    # Ljava/lang/String;
 
     const/4 v0, 0x0
@@ -88,7 +88,7 @@
 .end method
 
 .method public static final toHalf(S)Landroid/util/Half;
-    .locals 2
+    .registers 3
     .param p0, "$this$toHalf"    # S
 
     const/4 v0, 0x0

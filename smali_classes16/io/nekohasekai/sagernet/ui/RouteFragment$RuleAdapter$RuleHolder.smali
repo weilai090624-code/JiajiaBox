@@ -85,7 +85,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$GfIOgn8P8OVJHiShqoqgpecaJOw(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;Lio/nekohasekai/sagernet/ui/RouteFragment;Landroid/widget/CompoundButton;Z)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;->bind$lambda$1(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;Lio/nekohasekai/sagernet/ui/RouteFragment;Landroid/widget/CompoundButton;Z)V
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$MKU1HeTeXEf_l6fwbcxoge9QG0g(Lio/nekohasekai/sagernet/ui/RouteFragment;Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;->bind$lambda$3(Lio/nekohasekai/sagernet/ui/RouteFragment;Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;Landroid/view/View;)V
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$a4k_jn4na-yjHx4FddVLLkd_5E0(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;->bind$lambda$0(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;Landroid/view/View;)V
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Lio/nekohasekai/sagernet/databinding/LayoutRouteItemBinding;)V
-    .locals 2
+    .registers 5
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
     .param p2, "binding"    # Lio/nekohasekai/sagernet/databinding/LayoutRouteItemBinding;
     .annotation system Ldalvik/annotation/Signature;
@@ -194,7 +194,7 @@
 .end method
 
 .method private static final bind$lambda$0(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;
     .param p1, "it"    # Landroid/view/View;
 
@@ -208,7 +208,7 @@
 .end method
 
 .method private static final bind$lambda$1(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;Lio/nekohasekai/sagernet/ui/RouteFragment;Landroid/widget/CompoundButton;Z)V
-    .locals 1
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;
     .param p1, "this$1"    # Lio/nekohasekai/sagernet/ui/RouteFragment;
     .param p3, "isChecked"    # Z
@@ -229,7 +229,7 @@
 .end method
 
 .method private static final bind$lambda$3(Lio/nekohasekai/sagernet/ui/RouteFragment;Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;Landroid/view/View;)V
-    .locals 6
+    .registers 9
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment;
     .param p1, "this$1"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;
     .param p2, "it"    # Landroid/view/View;
@@ -279,7 +279,7 @@
 
 # virtual methods
 .method public final bind(Lio/nekohasekai/sagernet/database/RuleEntity;)V
-    .locals 3
+    .registers 5
     .param p1, "ruleEntity"    # Lio/nekohasekai/sagernet/database/RuleEntity;
 
     const-string v0, "ruleEntity"
@@ -387,7 +387,7 @@
 .end method
 
 .method public final getEditButton()Landroidx/appcompat/widget/AppCompatImageView;
-    .locals 1
+    .registers 2
 
     .line 278
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;->editButton:Landroidx/appcompat/widget/AppCompatImageView;
@@ -396,7 +396,7 @@
 .end method
 
 .method public final getEnableSwitch()Landroidx/appcompat/widget/SwitchCompat;
-    .locals 1
+    .registers 2
 
     .line 280
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;->enableSwitch:Landroidx/appcompat/widget/SwitchCompat;
@@ -405,7 +405,7 @@
 .end method
 
 .method public final getProfileName()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 275
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;->profileName:Landroid/widget/TextView;
@@ -414,7 +414,7 @@
 .end method
 
 .method public final getProfileType()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 276
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;->profileType:Landroid/widget/TextView;
@@ -423,7 +423,7 @@
 .end method
 
 .method public final getRouteOutbound()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 277
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;->routeOutbound:Landroid/widget/TextView;
@@ -432,16 +432,16 @@
 .end method
 
 .method public final getRule()Lio/nekohasekai/sagernet/database/RuleEntity;
-    .locals 1
+    .registers 2
 
     .line 274
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;->rule:Lio/nekohasekai/sagernet/database/RuleEntity;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "rule"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -452,7 +452,7 @@
 .end method
 
 .method public final getShareLayout()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 279
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;->shareLayout:Landroid/widget/LinearLayout;
@@ -461,7 +461,7 @@
 .end method
 
 .method public final setRule(Lio/nekohasekai/sagernet/database/RuleEntity;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/database/RuleEntity;
 
     const-string v0, "<set-?>"

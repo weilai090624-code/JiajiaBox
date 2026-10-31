@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 314
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/Configuration;)V
-    .locals 1
+    .registers 3
     .param p1, "configuration"    # Landroidx/work/Configuration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -169,7 +169,7 @@
 
 # virtual methods
 .method public build()Landroidx/work/Configuration;
-    .locals 1
+    .registers 2
 
     .line 561
     new-instance v0, Landroidx/work/Configuration;
@@ -180,7 +180,7 @@
 .end method
 
 .method public setDefaultProcessName(Ljava/lang/String;)Landroidx/work/Configuration$Builder;
-    .locals 0
+    .registers 2
     .param p1, "processName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -199,7 +199,7 @@
 .end method
 
 .method public setExecutor(Ljava/util/concurrent/Executor;)Landroidx/work/Configuration$Builder;
-    .locals 0
+    .registers 2
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -218,7 +218,7 @@
 .end method
 
 .method public setInitializationExceptionHandler(Landroidx/core/util/Consumer;)Landroidx/work/Configuration$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -247,7 +247,7 @@
 .end method
 
 .method public setInitializationExceptionHandler(Landroidx/work/InitializationExceptionHandler;)Landroidx/work/Configuration$Builder;
-    .locals 1
+    .registers 3
     .param p1, "exceptionHandler"    # Landroidx/work/InitializationExceptionHandler;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -272,7 +272,7 @@
 .end method
 
 .method public setInputMergerFactory(Landroidx/work/InputMergerFactory;)Landroidx/work/Configuration$Builder;
-    .locals 0
+    .registers 2
     .param p1, "inputMergerFactory"    # Landroidx/work/InputMergerFactory;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -291,7 +291,7 @@
 .end method
 
 .method public setJobSchedulerJobIdRange(II)Landroidx/work/Configuration$Builder;
-    .locals 2
+    .registers 5
     .param p1, "minJobSchedulerId"    # I
     .param p2, "maxJobSchedulerId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -310,7 +310,7 @@
 
     const/16 v1, 0x3e8
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 421
     iput p1, p0, Landroidx/work/Configuration$Builder;->mMinJobSchedulerId:I
@@ -322,7 +322,7 @@
     return-object p0
 
     .line 417
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "WorkManager needs a range of at least 1000 job ids."
@@ -333,7 +333,7 @@
 .end method
 
 .method public setMaxSchedulerLimit(I)Landroidx/work/Configuration$Builder;
-    .locals 2
+    .registers 4
     .param p1, "maxSchedulerLimit"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -347,7 +347,7 @@
     .line 450
     const/16 v0, 0x14
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_d
 
     .line 455
     const/16 v0, 0x32
@@ -362,7 +362,7 @@
     return-object p0
 
     .line 451
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "WorkManager needs to be able to schedule at least 20 jobs in JobScheduler."
@@ -373,7 +373,7 @@
 .end method
 
 .method public setMinimumLoggingLevel(I)Landroidx/work/Configuration$Builder;
-    .locals 0
+    .registers 2
     .param p1, "loggingLevel"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -392,7 +392,7 @@
 .end method
 
 .method public setRunnableScheduler(Landroidx/work/RunnableScheduler;)Landroidx/work/Configuration$Builder;
-    .locals 0
+    .registers 2
     .param p1, "runnableScheduler"    # Landroidx/work/RunnableScheduler;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -411,7 +411,7 @@
 .end method
 
 .method public setSchedulingExceptionHandler(Landroidx/core/util/Consumer;)Landroidx/work/Configuration$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -440,7 +440,7 @@
 .end method
 
 .method public setTaskExecutor(Ljava/util/concurrent/Executor;)Landroidx/work/Configuration$Builder;
-    .locals 0
+    .registers 2
     .param p1, "taskExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -459,7 +459,7 @@
 .end method
 
 .method public setWorkerFactory(Landroidx/work/WorkerFactory;)Landroidx/work/Configuration$Builder;
-    .locals 0
+    .registers 2
     .param p1, "workerFactory"    # Landroidx/work/WorkerFactory;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

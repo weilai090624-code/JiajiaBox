@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 11
+    .registers 11
 
     new-instance v0, Lkotlin/internal/PlatformImplementations$ReflectThrowable;
 
@@ -80,10 +80,10 @@
 
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_14
     const/4 v5, 0x0
 
-    if-ge v4, v2, :cond_2
+    if-ge v4, v2, :cond_45
 
     aget-object v6, v1, v4
 
@@ -104,7 +104,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_3e
 
     invoke-virtual {v7}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
@@ -124,39 +124,39 @@
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_3e
 
     const/4 v9, 0x1
 
-    goto :goto_1
+    goto :goto_3f
 
-    :cond_0
+    :cond_3e
     const/4 v9, 0x0
 
     .line 24
     .end local v7    # "it":Ljava/lang/reflect/Method;
     .end local v8    # "$i$a$-find-PlatformImplementations$ReflectThrowable$1":I
-    :goto_1
-    if-eqz v9, :cond_1
+    :goto_3f
+    if-eqz v9, :cond_42
 
-    goto :goto_2
+    goto :goto_46
 
-    :cond_1
+    :cond_42
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_2
+    :cond_45
     move-object v6, v5
 
-    :goto_2
+    :goto_46
     sput-object v6, Lkotlin/internal/PlatformImplementations$ReflectThrowable;->addSuppressed:Ljava/lang/reflect/Method;
 
     .line 27
     array-length v2, v1
 
-    :goto_3
-    if-ge v3, v2, :cond_4
+    :goto_49
+    if-ge v3, v2, :cond_60
 
     aget-object v4, v1, v3
 
@@ -180,19 +180,19 @@
 
     .end local v6    # "it":Ljava/lang/reflect/Method;
     .end local v7    # "$i$a$-find-PlatformImplementations$ReflectThrowable$2":I
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_5d
 
     move-object v5, v4
 
-    goto :goto_4
+    goto :goto_60
 
-    :cond_3
+    :cond_5d
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_49
 
-    :cond_4
-    :goto_4
+    :cond_60
+    :goto_60
     sput-object v5, Lkotlin/internal/PlatformImplementations$ReflectThrowable;->getSuppressed:Ljava/lang/reflect/Method;
 
     .line 28
@@ -202,7 +202,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

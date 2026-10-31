@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef$Taking;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,7 +48,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator;ZLjava/util/function/Predicate;)V
-    .locals 0
+    .registers 4
     .param p2, "noSplitting"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method makeSpliterator(Lj$/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,7 +95,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -115,14 +115,14 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 751
     invoke-virtual {p0}, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef$Taking;->checkCancelOnCount()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     iget-object v1, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef$Taking;->s:Lj$/util/Spliterator;
 
@@ -131,7 +131,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     iget-object v1, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef$Taking;->p:Ljava/util/function/Predicate;
 
@@ -144,7 +144,7 @@
 
     move v0, v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 754
     iget-object v1, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef$Taking;->t:Ljava/lang/Object;
@@ -155,13 +155,13 @@
     return v2
 
     .line 759
-    :cond_0
+    :cond_25
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef$Taking;->takeOrDrop:Z
 
     .line 762
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2f
 
     .line 763
     iget-object v3, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef$Taking;->cancel:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -169,12 +169,12 @@
     invoke-virtual {v3, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     .line 764
-    :cond_1
+    :cond_2f
     return v1
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -191,17 +191,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_a
     invoke-super {p0}, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef;->trySplit()Lj$/util/Spliterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method

@@ -77,7 +77,7 @@
 
 # direct methods
 .method private static synthetic $values()[Landroidx/core/graphics/BlendModeCompat;
-    .locals 3
+    .registers 3
 
     .line 27
     const/16 v0, 0x1d
@@ -262,7 +262,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 37
     new-instance v0, Landroidx/core/graphics/BlendModeCompat;
@@ -594,7 +594,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -608,7 +608,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/core/graphics/BlendModeCompat;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 27
@@ -624,7 +624,7 @@
 .end method
 
 .method public static values()[Landroidx/core/graphics/BlendModeCompat;
-    .locals 1
+    .registers 1
 
     .line 27
     sget-object v0, Landroidx/core/graphics/BlendModeCompat;->$VALUES:[Landroidx/core/graphics/BlendModeCompat;

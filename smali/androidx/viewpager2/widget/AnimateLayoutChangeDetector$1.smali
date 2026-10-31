@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;
 
     .line 94
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 94
     check-cast p1, [I
@@ -60,7 +60,7 @@
 .end method
 
 .method public compare([I[I)I
-    .locals 2
+    .registers 5
     .param p1, "lhs"    # [I
     .param p2, "rhs"    # [I
 

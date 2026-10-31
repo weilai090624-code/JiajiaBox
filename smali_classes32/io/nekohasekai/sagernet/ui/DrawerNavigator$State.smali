@@ -1,4 +1,4 @@
-.class final Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;
+.class public final Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;
 .super Ljava/lang/Object;
 .source "DrawerNavigator.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "State"
 .end annotation
 
@@ -32,9 +32,10 @@
 .method private constructor <init>()V
     .registers 2
 
-    .line 72
+    .line 145
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 146
     new-instance v0, Lio/nekohasekai/sagernet/ui/DrawerHistory;
 
     invoke-direct {v0}, Lio/nekohasekai/sagernet/ui/DrawerHistory;-><init>()V
@@ -47,7 +48,7 @@
 .method synthetic constructor <init>(Lio/nekohasekai/sagernet/ui/DrawerNavigator$1;)V
     .registers 2
 
-    .line 72
+    .line 142
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;-><init>()V
 
     return-void

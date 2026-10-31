@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/print/PrintHelper;Landroid/os/CancellationSignal;Landroid/print/PrintAttributes;Landroid/graphics/Bitmap;Landroid/print/PrintAttributes;ILandroid/os/ParcelFileDescriptor;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
-    .locals 0
+    .registers 9
     .param p1, "this$0"    # Landroidx/print/PrintHelper;
 
     .line 635
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 635
     check-cast p1, [Ljava/lang/Void;
@@ -85,7 +85,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Throwable;
-    .locals 8
+    .registers 10
     .param p1, "params"    # [Ljava/lang/Void;
 
     .line 639
@@ -98,13 +98,13 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 640
     return-object v1
 
     .line 643
-    :cond_0
+    :cond_a
     new-instance v0, Landroid/print/pdf/PrintedPdfDocument;
 
     iget-object v2, p0, Landroidx/print/PrintHelper$1;->this$0:Landroidx/print/PrintHelper;
@@ -138,19 +138,19 @@
     invoke-virtual {v3}, Landroid/os/CancellationSignal;->isCanceled()Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_27
+    .catchall {:try_start_0 .. :try_end_27} :catchall_ec
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
     .line 650
     return-object v1
 
     .line 654
-    :cond_1
+    :cond_2a
     const/4 v3, 0x1
 
-    :try_start_1
+    :try_start_2b
     invoke-virtual {v0, v3}, Landroid/print/pdf/PrintedPdfDocument;->startPage(I)Landroid/graphics/pdf/PdfDocument$Page;
 
     move-result-object v4
@@ -159,7 +159,7 @@
     .local v4, "page":Landroid/graphics/pdf/PdfDocument$Page;
     sget-boolean v5, Landroidx/print/PrintHelper;->IS_MIN_MARGINS_HANDLING_CORRECT:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_41
 
     .line 658
     new-instance v3, Landroid/graphics/RectF;
@@ -175,11 +175,11 @@
     invoke-direct {v3, v5}, Landroid/graphics/RectF;-><init>(Landroid/graphics/Rect;)V
 
     .local v3, "contentRect":Landroid/graphics/RectF;
-    goto :goto_0
+    goto :goto_64
 
     .line 662
     .end local v3    # "contentRect":Landroid/graphics/RectF;
-    :cond_2
+    :cond_41
     new-instance v5, Landroid/print/pdf/PrintedPdfDocument;
 
     iget-object v6, p0, Landroidx/print/PrintHelper$1;->this$0:Landroidx/print/PrintHelper;
@@ -223,7 +223,7 @@
     .end local v5    # "dummyDocument":Landroid/print/pdf/PrintedPdfDocument;
     .end local v6    # "contentRect":Landroid/graphics/RectF;
     .local v3, "contentRect":Landroid/graphics/RectF;
-    :goto_0
+    :goto_64
     nop
 
     .line 672
@@ -246,12 +246,12 @@
     .local v5, "matrix":Landroid/graphics/Matrix;
     sget-boolean v6, Landroidx/print/PrintHelper;->IS_MIN_MARGINS_HANDLING_CORRECT:Z
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_78
 
-    goto :goto_1
+    goto :goto_86
 
     .line 679
-    :cond_3
+    :cond_78
     iget v6, v3, Landroid/graphics/RectF;->left:F
 
     iget v7, v3, Landroid/graphics/RectF;->top:F
@@ -266,7 +266,7 @@
     invoke-virtual {v6, v3}, Landroid/graphics/Canvas;->clipRect(Landroid/graphics/RectF;)Z
 
     .line 686
-    :goto_1
+    :goto_86
     invoke-virtual {v4}, Landroid/graphics/pdf/PdfDocument$Page;->getCanvas()Landroid/graphics/Canvas;
 
     move-result-object v6
@@ -282,60 +282,60 @@
     invoke-virtual {v6}, Landroid/os/CancellationSignal;->isCanceled()Z
 
     move-result v6
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_96
+    .catchall {:try_start_2b .. :try_end_96} :catchall_d4
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_af
 
     .line 692
     nop
 
     .line 700
-    :try_start_2
+    :try_start_99
     invoke-virtual {v0}, Landroid/print/pdf/PrintedPdfDocument;->close()V
 
     .line 702
     iget-object v6, p0, Landroidx/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_9e
+    .catchall {:try_start_99 .. :try_end_9e} :catchall_ec
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_a7
 
     .line 704
-    :try_start_3
+    :try_start_a0
     iget-object v6, p0, Landroidx/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v6}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_a5
+    .catch Ljava/io/IOException; {:try_start_a0 .. :try_end_a5} :catch_a6
+    .catchall {:try_start_a0 .. :try_end_a5} :catchall_ec
 
     .line 707
-    goto :goto_2
+    goto :goto_a7
 
     .line 705
-    :catch_0
+    :catch_a6
     move-exception v6
 
     .line 710
-    :cond_4
-    :goto_2
-    :try_start_4
+    :cond_a7
+    :goto_a7
+    :try_start_a7
     iget-object v6, p0, Landroidx/print/PrintHelper$1;->val$bitmap:Landroid/graphics/Bitmap;
 
-    if-eq v2, v6, :cond_5
+    if-eq v2, v6, :cond_ae
 
     .line 711
     invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_ae
+    .catchall {:try_start_a7 .. :try_end_ae} :catchall_ec
 
-    :cond_5
+    :cond_ae
     return-object v1
 
     .line 696
-    :cond_6
-    :try_start_5
+    :cond_af
+    :try_start_af
     new-instance v6, Ljava/io/FileOutputStream;
 
     iget-object v7, p0, Landroidx/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
@@ -349,109 +349,109 @@
 
     .line 696
     invoke-virtual {v0, v6}, Landroid/print/pdf/PrintedPdfDocument;->writeTo(Ljava/io/OutputStream;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_bd
+    .catchall {:try_start_af .. :try_end_bd} :catchall_d4
 
     .line 698
     nop
 
     .line 700
-    :try_start_6
+    :try_start_be
     invoke-virtual {v0}, Landroid/print/pdf/PrintedPdfDocument;->close()V
 
     .line 702
     iget-object v6, p0, Landroidx/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_c3
+    .catchall {:try_start_be .. :try_end_c3} :catchall_ec
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_cc
 
     .line 704
-    :try_start_7
+    :try_start_c5
     iget-object v6, p0, Landroidx/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v6}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_1
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+    :try_end_ca
+    .catch Ljava/io/IOException; {:try_start_c5 .. :try_end_ca} :catch_cb
+    .catchall {:try_start_c5 .. :try_end_ca} :catchall_ec
 
     .line 707
-    goto :goto_3
+    goto :goto_cc
 
     .line 705
-    :catch_1
+    :catch_cb
     move-exception v6
 
     .line 710
-    :cond_7
-    :goto_3
-    :try_start_8
+    :cond_cc
+    :goto_cc
+    :try_start_cc
     iget-object v6, p0, Landroidx/print/PrintHelper$1;->val$bitmap:Landroid/graphics/Bitmap;
 
-    if-eq v2, v6, :cond_8
+    if-eq v2, v6, :cond_d3
 
     .line 711
     invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
 
-    :cond_8
+    :cond_d3
     return-object v1
 
     .line 700
     .end local v3    # "contentRect":Landroid/graphics/RectF;
     .end local v4    # "page":Landroid/graphics/pdf/PdfDocument$Page;
     .end local v5    # "matrix":Landroid/graphics/Matrix;
-    :catchall_0
+    :catchall_d4
     move-exception v1
 
     invoke-virtual {v0}, Landroid/print/pdf/PrintedPdfDocument;->close()V
 
     .line 702
     iget-object v3, p0, Landroidx/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+    :try_end_da
+    .catchall {:try_start_cc .. :try_end_da} :catchall_ec
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_e3
 
     .line 704
-    :try_start_9
+    :try_start_dc
     iget-object v3, p0, Landroidx/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v3}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_2
-    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+    :try_end_e1
+    .catch Ljava/io/IOException; {:try_start_dc .. :try_end_e1} :catch_e2
+    .catchall {:try_start_dc .. :try_end_e1} :catchall_ec
 
     .line 707
-    goto :goto_4
+    goto :goto_e3
 
     .line 705
-    :catch_2
+    :catch_e2
     move-exception v3
 
     .line 710
-    :cond_9
-    :goto_4
-    :try_start_a
+    :cond_e3
+    :goto_e3
+    :try_start_e3
     iget-object v3, p0, Landroidx/print/PrintHelper$1;->val$bitmap:Landroid/graphics/Bitmap;
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_ea
 
     .line 711
     invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
 
-    :cond_a
+    :cond_ea
     nop
 
     .end local p1    # "params":[Ljava/lang/Void;
     throw v1
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_1
+    :try_end_ec
+    .catchall {:try_start_e3 .. :try_end_ec} :catchall_ec
 
     .line 714
     .end local v0    # "pdfDocument":Landroid/print/pdf/PrintedPdfDocument;
     .end local v2    # "maybeGrayscale":Landroid/graphics/Bitmap;
     .restart local p1    # "params":[Ljava/lang/Void;
-    :catchall_1
+    :catchall_ec
     move-exception v0
 
     .line 715
@@ -460,7 +460,7 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 635
     check-cast p1, Ljava/lang/Throwable;
@@ -471,7 +471,7 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Throwable;)V
-    .locals 4
+    .registers 6
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
     .line 721
@@ -481,18 +481,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 723
     iget-object v0, p0, Landroidx/print/PrintHelper$1;->val$writeResultCallback:Landroid/print/PrintDocumentAdapter$WriteResultCallback;
 
     invoke-virtual {v0}, Landroid/print/PrintDocumentAdapter$WriteResultCallback;->onWriteCancelled()V
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 724
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_e
+    if-nez p1, :cond_1e
 
     .line 726
     iget-object v0, p0, Landroidx/print/PrintHelper$1;->val$writeResultCallback:Landroid/print/PrintDocumentAdapter$WriteResultCallback;
@@ -509,10 +509,10 @@
 
     invoke-virtual {v0, v1}, Landroid/print/PrintDocumentAdapter$WriteResultCallback;->onWriteFinished([Landroid/print/PageRange;)V
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 730
-    :cond_1
+    :cond_1e
     const-string v0, "PrintHelper"
 
     const-string v1, "Error writing printed content"
@@ -527,6 +527,6 @@
     invoke-virtual {v0, v1}, Landroid/print/PrintDocumentAdapter$WriteResultCallback;->onWriteFailed(Ljava/lang/CharSequence;)V
 
     .line 733
-    :goto_0
+    :goto_2b
     return-void
 .end method

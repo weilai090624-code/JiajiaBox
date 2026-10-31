@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/ini4j/BasicRegistry;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "registry"    # Lorg/ini4j/BasicRegistry;
     .param p2, "name"    # Ljava/lang/String;
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public bridge synthetic addChild(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 3
     .param p1, "x0"    # Ljava/lang/String;
 
     .line 20
@@ -40,7 +40,7 @@
 .end method
 
 .method public addChild(Ljava/lang/String;)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 54
@@ -54,7 +54,7 @@
 .end method
 
 .method public bridge synthetic getChild(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 3
     .param p1, "x0"    # Ljava/lang/String;
 
     .line 20
@@ -66,7 +66,7 @@
 .end method
 
 .method public getChild(Ljava/lang/String;)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 32
@@ -80,7 +80,7 @@
 .end method
 
 .method public bridge synthetic getParent()Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 2
 
     .line 20
     invoke-virtual {p0}, Lorg/ini4j/BasicRegistryKey;->getParent()Lorg/ini4j/Registry$Key;
@@ -91,7 +91,7 @@
 .end method
 
 .method public getParent()Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 2
 
     .line 37
     invoke-super {p0}, Lorg/ini4j/BasicProfileSection;->getParent()Lorg/ini4j/Profile$Section;
@@ -104,7 +104,7 @@
 .end method
 
 .method public getType(Ljava/lang/Object;)Lorg/ini4j/Registry$Type;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 42
@@ -120,7 +120,7 @@
 .end method
 
 .method public getType(Ljava/lang/Object;Lorg/ini4j/Registry$Type;)Lorg/ini4j/Registry$Type;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "defaultType"    # Lorg/ini4j/Registry$Type;
 
@@ -131,21 +131,21 @@
 
     .line 49
     .local v0, "type":Lorg/ini4j/Registry$Type;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-object v1, v0
 
-    :goto_0
+    :goto_9
     return-object v1
 .end method
 
 .method public bridge synthetic lookup([Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 3
     .param p1, "x0"    # [Ljava/lang/String;
 
     .line 20
@@ -157,7 +157,7 @@
 .end method
 
 .method public varargs lookup([Ljava/lang/String;)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 3
     .param p1, "path"    # [Ljava/lang/String;
 
     .line 59
@@ -171,7 +171,7 @@
 .end method
 
 .method public putType(Ljava/lang/String;Lorg/ini4j/Registry$Type;)Lorg/ini4j/Registry$Type;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "type"    # Lorg/ini4j/Registry$Type;
 
@@ -188,7 +188,7 @@
 .end method
 
 .method public removeType(Ljava/lang/Object;)Lorg/ini4j/Registry$Type;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 69

@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 29
     invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/Key;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method getAttributeNames(Ljava/util/HashSet;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0

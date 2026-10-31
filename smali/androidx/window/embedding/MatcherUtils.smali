@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/embedding/MatcherUtils;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +71,7 @@
 .end method
 
 .method private final wildcardMatch(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 12
+    .registers 15
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "pattern"    # Ljava/lang/String;
 
@@ -96,26 +96,26 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 80
     return v3
 
     .line 82
-    :cond_0
+    :cond_12
     invoke-static {p2, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 83
     return v2
 
     .line 87
-    :cond_1
+    :cond_1a
     move-object v6, p2
 
     check-cast v6, Ljava/lang/CharSequence;
@@ -144,25 +144,25 @@
 
     move-result v6
 
-    if-ne v0, v6, :cond_2
+    if-ne v0, v6, :cond_3a
 
     .line 88
     invoke-static {p2, v1, v3, v4, v5}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_3b
 
-    :cond_2
+    :cond_3a
     const/4 v0, 0x0
 
     .line 85
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_3b
+    if-eqz v0, :cond_51
 
     .line 91
     invoke-virtual {p2}, Ljava/lang/String;->length()I
@@ -186,7 +186,7 @@
     return v0
 
     .line 85
-    :cond_3
+    :cond_51
     const/4 v0, 0x0
 
     .line 90
@@ -211,7 +211,7 @@
 
 # virtual methods
 .method public final areActivityOrIntentComponentsMatching$window_release(Landroid/app/Activity;Landroid/content/ComponentName;)Z
-    .locals 3
+    .registers 6
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "ruleComponent"    # Landroid/content/ComponentName;
 
@@ -232,7 +232,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 66
     const/4 v0, 0x1
@@ -240,33 +240,33 @@
     return v0
 
     .line 69
-    :cond_0
+    :cond_16
     invoke-virtual {p1}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     .line 70
-    :goto_0
-    goto :goto_1
+    :goto_1d
+    goto :goto_2d
 
     .line 69
-    :cond_1
+    :cond_1e
     invoke-virtual {v0}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_25
 
     .line 70
-    goto :goto_0
+    goto :goto_1d
 
     .line 69
     .local v0, "component":Landroid/content/ComponentName;
-    :cond_2
+    :cond_25
     const/4 v1, 0x0
 
     .line 70
@@ -282,12 +282,12 @@
     .end local v1    # "$i$a$-let-MatcherUtils$areActivityOrIntentComponentsMatching$1":I
     nop
 
-    :goto_1
+    :goto_2d
     return v1
 .end method
 
 .method public final areComponentsMatching$window_release(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
-    .locals 6
+    .registers 9
     .param p1, "activityComponent"    # Landroid/content/ComponentName;
     .param p2, "ruleComponent"    # Landroid/content/ComponentName;
 
@@ -302,7 +302,7 @@
 
     const/4 v2, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_22
 
     .line 34
     invoke-virtual {p2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -313,7 +313,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     invoke-virtual {p2}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
@@ -323,18 +323,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_21
     return v1
 
     .line 37
-    :cond_1
+    :cond_22
     invoke-virtual {p1}, Landroid/content/ComponentName;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -356,7 +356,7 @@
     move-result v0
 
     .line 36
-    if-nez v0, :cond_7
+    if-nez v0, :cond_95
 
     .line 40
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -371,7 +371,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_60
 
     .line 41
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -394,21 +394,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5e
 
-    goto :goto_1
+    goto :goto_60
 
-    :cond_2
+    :cond_5e
     const/4 v0, 0x0
 
-    goto :goto_2
+    goto :goto_61
 
-    :cond_3
-    :goto_1
+    :cond_60
+    :goto_60
     const/4 v0, 0x1
 
     .line 40
-    :goto_2
+    :goto_61
     nop
 
     .line 42
@@ -425,7 +425,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_8b
 
     .line 43
     invoke-virtual {p1}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
@@ -448,21 +448,21 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_89
 
-    goto :goto_3
+    goto :goto_8b
 
-    :cond_4
+    :cond_89
     const/4 v3, 0x0
 
-    goto :goto_4
+    goto :goto_8c
 
-    :cond_5
-    :goto_3
+    :cond_8b
+    :goto_8b
     const/4 v3, 0x1
 
     .line 42
-    :goto_4
+    :goto_8c
     nop
 
     .line 45
@@ -470,22 +470,22 @@
     nop
 
     .line 53
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_93
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_93
 
-    goto :goto_5
+    goto :goto_94
 
-    :cond_6
+    :cond_93
     const/4 v1, 0x0
 
-    :goto_5
+    :goto_94
     return v1
 
     .line 36
     .end local v0    # "packagesMatch":Z
     .end local v3    # "classesMatch":Z
-    :cond_7
+    :cond_95
     const/4 v0, 0x0
 
     .line 38

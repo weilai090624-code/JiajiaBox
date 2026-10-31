@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 638
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static removeBearingAccuracy(Landroid/location/Location;)V
-    .locals 25
+    .registers 26
     .param p0, "location"    # Landroid/location/Location;
 
     .line 756
@@ -35,13 +35,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     .line 757
     return-void
 
     .line 763
-    :cond_0
+    :cond_9
     invoke-virtual/range {p0 .. p0}, Landroid/location/Location;->getProvider()Ljava/lang/String;
 
     move-result-object v1
@@ -188,21 +188,21 @@
     invoke-virtual {v0, v8, v9}, Landroid/location/Location;->setLongitude(D)V
 
     .line 788
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_72
 
     .line 789
     invoke-virtual {v0, v11, v12}, Landroid/location/Location;->setAltitude(D)V
 
     .line 791
-    :cond_1
-    if-eqz v13, :cond_2
+    :cond_72
+    if-eqz v13, :cond_77
 
     .line 792
     invoke-virtual {v0, v14}, Landroid/location/Location;->setSpeed(F)V
 
     .line 794
-    :cond_2
-    if-eqz v16, :cond_3
+    :cond_77
+    if-eqz v16, :cond_81
 
     .line 795
     move-object/from16 v24, v1
@@ -214,13 +214,13 @@
     .local v24, "provider":Ljava/lang/String;
     invoke-virtual {v0, v1}, Landroid/location/Location;->setBearing(F)V
 
-    goto :goto_0
+    goto :goto_85
 
     .line 794
     .end local v24    # "provider":Ljava/lang/String;
     .local v1, "provider":Ljava/lang/String;
     .restart local v18    # "bearing":F
-    :cond_3
+    :cond_81
     move-object/from16 v24, v1
 
     move/from16 v1, v18
@@ -229,8 +229,8 @@
     .end local v18    # "bearing":F
     .local v1, "bearing":F
     .restart local v24    # "provider":Ljava/lang/String;
-    :goto_0
-    if-eqz v17, :cond_4
+    :goto_85
+    if-eqz v17, :cond_8f
 
     .line 798
     move/from16 v18, v1
@@ -242,13 +242,13 @@
     .restart local v18    # "bearing":F
     invoke-virtual {v0, v1}, Landroid/location/Location;->setAccuracy(F)V
 
-    goto :goto_1
+    goto :goto_93
 
     .line 797
     .end local v18    # "bearing":F
     .local v1, "bearing":F
     .restart local v20    # "accuracy":F
-    :cond_4
+    :cond_8f
     move/from16 v18, v1
 
     move/from16 v1, v20
@@ -257,8 +257,8 @@
     .end local v20    # "accuracy":F
     .local v1, "accuracy":F
     .restart local v18    # "bearing":F
-    :goto_1
-    if-eqz v19, :cond_5
+    :goto_93
+    if-eqz v19, :cond_9d
 
     .line 801
     move/from16 v20, v1
@@ -270,13 +270,13 @@
     .restart local v20    # "accuracy":F
     invoke-virtual {v0, v1}, Landroid/location/Location;->setVerticalAccuracyMeters(F)V
 
-    goto :goto_2
+    goto :goto_a1
 
     .line 800
     .end local v20    # "accuracy":F
     .local v1, "accuracy":F
     .restart local v22    # "verticalAccuracy":F
-    :cond_5
+    :cond_9d
     move/from16 v20, v1
 
     move/from16 v1, v22
@@ -285,8 +285,8 @@
     .end local v22    # "verticalAccuracy":F
     .local v1, "verticalAccuracy":F
     .restart local v20    # "accuracy":F
-    :goto_2
-    if-eqz v21, :cond_6
+    :goto_a1
+    if-eqz v21, :cond_ab
 
     .line 804
     move/from16 v22, v1
@@ -298,13 +298,13 @@
     .restart local v22    # "verticalAccuracy":F
     invoke-virtual {v0, v1}, Landroid/location/Location;->setBearingAccuracyDegrees(F)V
 
-    goto :goto_3
+    goto :goto_af
 
     .line 803
     .end local v22    # "verticalAccuracy":F
     .local v1, "verticalAccuracy":F
     .restart local v23    # "speedAccuracy":F
-    :cond_6
+    :cond_ab
     move/from16 v22, v1
 
     move/from16 v1, v23
@@ -313,19 +313,19 @@
     .end local v23    # "speedAccuracy":F
     .local v1, "speedAccuracy":F
     .restart local v22    # "verticalAccuracy":F
-    :goto_3
-    if-eqz v15, :cond_7
+    :goto_af
+    if-eqz v15, :cond_b4
 
     .line 807
     invoke-virtual {v0, v15}, Landroid/location/Location;->setExtras(Landroid/os/Bundle;)V
 
     .line 809
-    :cond_7
+    :cond_b4
     return-void
 .end method
 
 .method static removeSpeedAccuracy(Landroid/location/Location;)V
-    .locals 25
+    .registers 26
     .param p0, "location"    # Landroid/location/Location;
 
     .line 699
@@ -335,13 +335,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     .line 700
     return-void
 
     .line 706
-    :cond_0
+    :cond_9
     invoke-virtual/range {p0 .. p0}, Landroid/location/Location;->getProvider()Ljava/lang/String;
 
     move-result-object v1
@@ -488,21 +488,21 @@
     invoke-virtual {v0, v8, v9}, Landroid/location/Location;->setLongitude(D)V
 
     .line 731
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_72
 
     .line 732
     invoke-virtual {v0, v11, v12}, Landroid/location/Location;->setAltitude(D)V
 
     .line 734
-    :cond_1
-    if-eqz v13, :cond_2
+    :cond_72
+    if-eqz v13, :cond_77
 
     .line 735
     invoke-virtual {v0, v14}, Landroid/location/Location;->setSpeed(F)V
 
     .line 737
-    :cond_2
-    if-eqz v16, :cond_3
+    :cond_77
+    if-eqz v16, :cond_81
 
     .line 738
     move-object/from16 v24, v1
@@ -514,13 +514,13 @@
     .local v24, "provider":Ljava/lang/String;
     invoke-virtual {v0, v1}, Landroid/location/Location;->setBearing(F)V
 
-    goto :goto_0
+    goto :goto_85
 
     .line 737
     .end local v24    # "provider":Ljava/lang/String;
     .local v1, "provider":Ljava/lang/String;
     .restart local v18    # "bearing":F
-    :cond_3
+    :cond_81
     move-object/from16 v24, v1
 
     move/from16 v1, v18
@@ -529,8 +529,8 @@
     .end local v18    # "bearing":F
     .local v1, "bearing":F
     .restart local v24    # "provider":Ljava/lang/String;
-    :goto_0
-    if-eqz v17, :cond_4
+    :goto_85
+    if-eqz v17, :cond_8f
 
     .line 741
     move/from16 v18, v1
@@ -542,13 +542,13 @@
     .restart local v18    # "bearing":F
     invoke-virtual {v0, v1}, Landroid/location/Location;->setAccuracy(F)V
 
-    goto :goto_1
+    goto :goto_93
 
     .line 740
     .end local v18    # "bearing":F
     .local v1, "bearing":F
     .restart local v20    # "accuracy":F
-    :cond_4
+    :cond_8f
     move/from16 v18, v1
 
     move/from16 v1, v20
@@ -557,8 +557,8 @@
     .end local v20    # "accuracy":F
     .local v1, "accuracy":F
     .restart local v18    # "bearing":F
-    :goto_1
-    if-eqz v19, :cond_5
+    :goto_93
+    if-eqz v19, :cond_9d
 
     .line 744
     move/from16 v20, v1
@@ -570,13 +570,13 @@
     .restart local v20    # "accuracy":F
     invoke-virtual {v0, v1}, Landroid/location/Location;->setVerticalAccuracyMeters(F)V
 
-    goto :goto_2
+    goto :goto_a1
 
     .line 743
     .end local v20    # "accuracy":F
     .local v1, "accuracy":F
     .restart local v22    # "verticalAccuracy":F
-    :cond_5
+    :cond_9d
     move/from16 v20, v1
 
     move/from16 v1, v22
@@ -585,8 +585,8 @@
     .end local v22    # "verticalAccuracy":F
     .local v1, "verticalAccuracy":F
     .restart local v20    # "accuracy":F
-    :goto_2
-    if-eqz v21, :cond_6
+    :goto_a1
+    if-eqz v21, :cond_ab
 
     .line 747
     move/from16 v22, v1
@@ -598,13 +598,13 @@
     .restart local v22    # "verticalAccuracy":F
     invoke-virtual {v0, v1}, Landroid/location/Location;->setBearingAccuracyDegrees(F)V
 
-    goto :goto_3
+    goto :goto_af
 
     .line 746
     .end local v22    # "verticalAccuracy":F
     .local v1, "verticalAccuracy":F
     .restart local v23    # "bearingAccuracy":F
-    :cond_6
+    :cond_ab
     move/from16 v22, v1
 
     move/from16 v1, v23
@@ -613,19 +613,19 @@
     .end local v23    # "bearingAccuracy":F
     .local v1, "bearingAccuracy":F
     .restart local v22    # "verticalAccuracy":F
-    :goto_3
-    if-eqz v15, :cond_7
+    :goto_af
+    if-eqz v15, :cond_b4
 
     .line 750
     invoke-virtual {v0, v15}, Landroid/location/Location;->setExtras(Landroid/os/Bundle;)V
 
     .line 752
-    :cond_7
+    :cond_b4
     return-void
 .end method
 
 .method static removeVerticalAccuracy(Landroid/location/Location;)V
-    .locals 25
+    .registers 26
     .param p0, "location"    # Landroid/location/Location;
 
     .line 642
@@ -635,13 +635,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     .line 643
     return-void
 
     .line 649
-    :cond_0
+    :cond_9
     invoke-virtual/range {p0 .. p0}, Landroid/location/Location;->getProvider()Ljava/lang/String;
 
     move-result-object v1
@@ -788,21 +788,21 @@
     invoke-virtual {v0, v8, v9}, Landroid/location/Location;->setLongitude(D)V
 
     .line 674
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_72
 
     .line 675
     invoke-virtual {v0, v11, v12}, Landroid/location/Location;->setAltitude(D)V
 
     .line 677
-    :cond_1
-    if-eqz v13, :cond_2
+    :cond_72
+    if-eqz v13, :cond_77
 
     .line 678
     invoke-virtual {v0, v14}, Landroid/location/Location;->setSpeed(F)V
 
     .line 680
-    :cond_2
-    if-eqz v16, :cond_3
+    :cond_77
+    if-eqz v16, :cond_81
 
     .line 681
     move-object/from16 v24, v1
@@ -814,13 +814,13 @@
     .local v24, "provider":Ljava/lang/String;
     invoke-virtual {v0, v1}, Landroid/location/Location;->setBearing(F)V
 
-    goto :goto_0
+    goto :goto_85
 
     .line 680
     .end local v24    # "provider":Ljava/lang/String;
     .local v1, "provider":Ljava/lang/String;
     .restart local v18    # "bearing":F
-    :cond_3
+    :cond_81
     move-object/from16 v24, v1
 
     move/from16 v1, v18
@@ -829,8 +829,8 @@
     .end local v18    # "bearing":F
     .local v1, "bearing":F
     .restart local v24    # "provider":Ljava/lang/String;
-    :goto_0
-    if-eqz v17, :cond_4
+    :goto_85
+    if-eqz v17, :cond_8f
 
     .line 684
     move/from16 v18, v1
@@ -842,13 +842,13 @@
     .restart local v18    # "bearing":F
     invoke-virtual {v0, v1}, Landroid/location/Location;->setAccuracy(F)V
 
-    goto :goto_1
+    goto :goto_93
 
     .line 683
     .end local v18    # "bearing":F
     .local v1, "bearing":F
     .restart local v20    # "accuracy":F
-    :cond_4
+    :cond_8f
     move/from16 v18, v1
 
     move/from16 v1, v20
@@ -857,8 +857,8 @@
     .end local v20    # "accuracy":F
     .local v1, "accuracy":F
     .restart local v18    # "bearing":F
-    :goto_1
-    if-eqz v19, :cond_5
+    :goto_93
+    if-eqz v19, :cond_9d
 
     .line 687
     move/from16 v20, v1
@@ -870,13 +870,13 @@
     .restart local v20    # "accuracy":F
     invoke-virtual {v0, v1}, Landroid/location/Location;->setSpeedAccuracyMetersPerSecond(F)V
 
-    goto :goto_2
+    goto :goto_a1
 
     .line 686
     .end local v20    # "accuracy":F
     .local v1, "accuracy":F
     .restart local v22    # "speedAccuracy":F
-    :cond_5
+    :cond_9d
     move/from16 v20, v1
 
     move/from16 v1, v22
@@ -885,8 +885,8 @@
     .end local v22    # "speedAccuracy":F
     .local v1, "speedAccuracy":F
     .restart local v20    # "accuracy":F
-    :goto_2
-    if-eqz v21, :cond_6
+    :goto_a1
+    if-eqz v21, :cond_ab
 
     .line 690
     move/from16 v22, v1
@@ -898,13 +898,13 @@
     .restart local v22    # "speedAccuracy":F
     invoke-virtual {v0, v1}, Landroid/location/Location;->setBearingAccuracyDegrees(F)V
 
-    goto :goto_3
+    goto :goto_af
 
     .line 689
     .end local v22    # "speedAccuracy":F
     .local v1, "speedAccuracy":F
     .restart local v23    # "bearingAccuracy":F
-    :cond_6
+    :cond_ab
     move/from16 v22, v1
 
     move/from16 v1, v23
@@ -913,13 +913,13 @@
     .end local v23    # "bearingAccuracy":F
     .local v1, "bearingAccuracy":F
     .restart local v22    # "speedAccuracy":F
-    :goto_3
-    if-eqz v15, :cond_7
+    :goto_af
+    if-eqz v15, :cond_b4
 
     .line 693
     invoke-virtual {v0, v15}, Landroid/location/Location;->setExtras(Landroid/os/Bundle;)V
 
     .line 695
-    :cond_7
+    :cond_b4
     return-void
 .end method

@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,21 +50,21 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
 
     .line 47
     return-void
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
 
     .line 45
     return-void
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 46
     sget-object v0, Lokio/Timeout;->NONE:Lokio/Timeout;
@@ -73,7 +73,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 1
+    .registers 5
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 

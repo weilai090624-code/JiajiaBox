@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 125
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getCheckMarkTintList(Landroid/widget/CheckedTextView;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
     .param p0, "textView"    # Landroid/widget/CheckedTextView;
 
     .line 135
@@ -38,7 +38,7 @@
 .end method
 
 .method static getCheckMarkTintMode(Landroid/widget/CheckedTextView;)Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
     .param p0, "textView"    # Landroid/widget/CheckedTextView;
 
     .line 145
@@ -50,7 +50,7 @@
 .end method
 
 .method static setCheckMarkTintList(Landroid/widget/CheckedTextView;Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p0, "textView"    # Landroid/widget/CheckedTextView;
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method static setCheckMarkTintMode(Landroid/widget/CheckedTextView;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p0, "textView"    # Landroid/widget/CheckedTextView;
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 

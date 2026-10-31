@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -26,15 +26,15 @@
 .end method
 
 .method static a(Lcom/esotericsoftware/asm/Handler;Lcom/esotericsoftware/asm/Label;Lcom/esotericsoftware/asm/Label;)Lcom/esotericsoftware/asm/Handler;
-    .locals 4
+    .registers 7
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lcom/esotericsoftware/asm/Handler;->f:Lcom/esotericsoftware/asm/Handler;
 
     invoke-static {v0, p1, p2}, Lcom/esotericsoftware/asm/Handler;->a(Lcom/esotericsoftware/asm/Handler;Lcom/esotericsoftware/asm/Label;Lcom/esotericsoftware/asm/Label;)Lcom/esotericsoftware/asm/Handler;
@@ -53,41 +53,41 @@
 
     iget v2, p1, Lcom/esotericsoftware/asm/Label;->c:I
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_1c
 
     const v3, 0x7fffffff
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1c
     iget v3, p2, Lcom/esotericsoftware/asm/Label;->c:I
 
-    :goto_0
-    if-ge v2, v1, :cond_5
+    :goto_1e
+    if-ge v2, v1, :cond_50
 
-    if-le v3, v0, :cond_5
+    if-le v3, v0, :cond_50
 
-    if-gt v2, v0, :cond_3
+    if-gt v2, v0, :cond_2c
 
-    if-lt v3, v1, :cond_2
+    if-lt v3, v1, :cond_29
 
     iget-object p0, p0, Lcom/esotericsoftware/asm/Handler;->f:Lcom/esotericsoftware/asm/Handler;
 
-    goto :goto_1
+    goto :goto_50
 
-    :cond_2
+    :cond_29
     iput-object p2, p0, Lcom/esotericsoftware/asm/Handler;->a:Lcom/esotericsoftware/asm/Label;
 
-    goto :goto_1
+    goto :goto_50
 
-    :cond_3
-    if-lt v3, v1, :cond_4
+    :cond_2c
+    if-lt v3, v1, :cond_31
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/Handler;->b:Lcom/esotericsoftware/asm/Label;
 
-    goto :goto_1
+    goto :goto_50
 
-    :cond_4
+    :cond_31
     new-instance v0, Lcom/esotericsoftware/asm/Handler;
 
     invoke-direct {v0}, Lcom/esotericsoftware/asm/Handler;-><init>()V
@@ -118,7 +118,7 @@
 
     iput-object v0, p0, Lcom/esotericsoftware/asm/Handler;->f:Lcom/esotericsoftware/asm/Handler;
 
-    :cond_5
-    :goto_1
+    :cond_50
+    :goto_50
     return-object p0
 .end method

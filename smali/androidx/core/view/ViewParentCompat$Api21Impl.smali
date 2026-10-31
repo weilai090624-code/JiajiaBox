@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 525
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static onNestedFling(Landroid/view/ViewParent;Landroid/view/View;FFZ)Z
-    .locals 1
+    .registers 6
     .param p0, "viewParent"    # Landroid/view/ViewParent;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "v"    # F
@@ -42,7 +42,7 @@
 .end method
 
 .method static onNestedPreFling(Landroid/view/ViewParent;Landroid/view/View;FF)Z
-    .locals 1
+    .registers 5
     .param p0, "viewParent"    # Landroid/view/ViewParent;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "v"    # F
@@ -57,7 +57,7 @@
 .end method
 
 .method static onNestedPreScroll(Landroid/view/ViewParent;Landroid/view/View;II[I)V
-    .locals 0
+    .registers 5
     .param p0, "viewParent"    # Landroid/view/ViewParent;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "i"    # I
@@ -72,7 +72,7 @@
 .end method
 
 .method static onNestedScroll(Landroid/view/ViewParent;Landroid/view/View;IIII)V
-    .locals 0
+    .registers 6
     .param p0, "viewParent"    # Landroid/view/ViewParent;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "i"    # I
@@ -88,7 +88,7 @@
 .end method
 
 .method static onNestedScrollAccepted(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)V
-    .locals 0
+    .registers 4
     .param p0, "viewParent"    # Landroid/view/ViewParent;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "view1"    # Landroid/view/View;
@@ -102,7 +102,7 @@
 .end method
 
 .method static onStartNestedScroll(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)Z
-    .locals 1
+    .registers 5
     .param p0, "viewParent"    # Landroid/view/ViewParent;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "view1"    # Landroid/view/View;
@@ -117,7 +117,7 @@
 .end method
 
 .method static onStopNestedScroll(Landroid/view/ViewParent;Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p0, "viewParent"    # Landroid/view/ViewParent;
     .param p1, "view"    # Landroid/view/View;
 

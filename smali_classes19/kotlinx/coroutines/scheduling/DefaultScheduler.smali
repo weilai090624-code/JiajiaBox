@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/scheduling/DefaultScheduler;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 6
+    .registers 7
 
     .line 13
     nop
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
 
     .line 32
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -91,7 +91,7 @@
 .end method
 
 .method public limitedParallelism(I)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 1
+    .registers 3
     .param p1, "parallelism"    # I
 
     .line 20
@@ -100,7 +100,7 @@
     .line 21
     sget v0, Lkotlinx/coroutines/scheduling/TasksKt;->CORE_POOL_SIZE:I
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_b
 
     move-object v0, p0
 
@@ -109,7 +109,7 @@
     return-object v0
 
     .line 22
-    :cond_0
+    :cond_b
     invoke-super {p0, p1}, Lkotlinx/coroutines/scheduling/SchedulerCoroutineDispatcher;->limitedParallelism(I)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v0
@@ -118,7 +118,7 @@
 .end method
 
 .method public final shutdown$kotlinx_coroutines_core()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-super {p0}, Lkotlinx/coroutines/scheduling/SchedulerCoroutineDispatcher;->close()V
@@ -128,7 +128,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 35
     const-string v0, "Dispatchers.Default"

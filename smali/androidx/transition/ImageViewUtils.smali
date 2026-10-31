@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     const/4 v0, 0x1
@@ -24,7 +24,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method static animateTransform(Landroid/widget/ImageView;Landroid/graphics/Matrix;)V
-    .locals 4
+    .registers 6
     .param p0, "view"    # Landroid/widget/ImageView;
     .param p1, "matrix"    # Landroid/graphics/Matrix;
 
@@ -43,16 +43,16 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 46
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->animateTransform(Landroid/graphics/Matrix;)V
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 47
-    :cond_0
-    if-nez p1, :cond_2
+    :cond_a
+    if-nez p1, :cond_36
 
     .line 50
     invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
@@ -61,7 +61,7 @@
 
     .line 51
     .local v0, "drawable":Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_35
 
     .line 52
     invoke-virtual {p0}, Landroid/widget/ImageView;->getWidth()I
@@ -111,32 +111,32 @@
     .end local v0    # "drawable":Landroid/graphics/drawable/Drawable;
     .end local v1    # "vwidth":I
     .end local v2    # "vheight":I
-    :cond_1
-    goto :goto_0
+    :cond_35
+    goto :goto_3a
 
-    :cond_2
+    :cond_36
     nop
 
     .line 58
     invoke-static {p0, p1}, Landroidx/transition/ImageViewUtils;->hiddenAnimateTransform(Landroid/widget/ImageView;Landroid/graphics/Matrix;)V
 
     .line 83
-    :goto_0
+    :goto_3a
     return-void
 .end method
 
 .method private static fetchDrawMatrixField()V
-    .locals 3
+    .registers 3
 
     .line 100
     sget-boolean v0, Landroidx/transition/ImageViewUtils;->sDrawMatrixFieldFetched:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 102
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_5
     const-class v1, Landroid/widget/ImageView;
 
     const-string v2, "mDrawMatrix"
@@ -151,46 +151,46 @@
     sget-object v1, Landroidx/transition/ImageViewUtils;->sDrawMatrixField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_5 .. :try_end_14} :catch_15
 
     .line 106
-    goto :goto_0
+    goto :goto_16
 
     .line 104
-    :catch_0
+    :catch_15
     move-exception v1
 
     .line 107
-    :goto_0
+    :goto_16
     sput-boolean v0, Landroidx/transition/ImageViewUtils;->sDrawMatrixFieldFetched:Z
 
     .line 109
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method private static hiddenAnimateTransform(Landroid/widget/ImageView;Landroid/graphics/Matrix;)V
-    .locals 2
+    .registers 4
     .param p0, "view"    # Landroid/widget/ImageView;
     .param p1, "matrix"    # Landroid/graphics/Matrix;
 
     .line 88
     sget-boolean v0, Landroidx/transition/ImageViewUtils;->sTryHiddenAnimateTransform:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 92
-    :try_start_0
+    :try_start_4
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->animateTransform(Landroid/graphics/Matrix;)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_4 .. :try_end_7} :catch_8
 
     .line 95
-    goto :goto_0
+    goto :goto_c
 
     .line 93
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 94
@@ -201,7 +201,7 @@
 
     .line 97
     .end local v0    # "e":Ljava/lang/NoSuchMethodError;
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     return-void
 .end method

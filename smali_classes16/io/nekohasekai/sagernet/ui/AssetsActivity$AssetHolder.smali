@@ -60,7 +60,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$qtk2yU6NZJkOAOtCKuBbpI1coeQ(Lio/nekohasekai/sagernet/ui/AssetsActivity;Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;Ljava/io/File;Ljava/io/File;Ljava/lang/String;Landroid/view/View;)V
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;->bind$lambda$0(Lio/nekohasekai/sagernet/ui/AssetsActivity;Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;Ljava/io/File;Ljava/io/File;Ljava/lang/String;Landroid/view/View;)V
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/AssetsActivity;Lio/nekohasekai/sagernet/databinding/LayoutAssetItemBinding;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/AssetsActivity;
     .param p2, "binding"    # Lio/nekohasekai/sagernet/databinding/LayoutAssetItemBinding;
     .annotation system Ldalvik/annotation/Signature;
@@ -102,7 +102,7 @@
 .end method
 
 .method private static final bind$lambda$0(Lio/nekohasekai/sagernet/ui/AssetsActivity;Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;Ljava/io/File;Ljava/io/File;Ljava/lang/String;Landroid/view/View;)V
-    .locals 8
+    .registers 14
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/AssetsActivity;
     .param p1, "this$1"    # Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;
     .param p2, "$file"    # Ljava/io/File;
@@ -214,7 +214,7 @@
 
 # virtual methods
 .method public final bind(Ljava/io/File;)V
-    .locals 10
+    .registers 12
     .param p1, "file"    # Ljava/io/File;
 
     const-string v0, "file"
@@ -278,14 +278,14 @@
 
     const/4 v3, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_94
 
     .line 213
     invoke-virtual {v0}, Ljava/io/File;->isFile()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_69
 
     .line 214
     nop
@@ -293,7 +293,7 @@
     .line 215
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_46
     invoke-static {v0, v1, v3, v1}, Lkotlin/io/FilesKt;->readText$default(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -307,15 +307,15 @@
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_54
+    .catchall {:try_start_46 .. :try_end_54} :catchall_56
 
     move-object v2, v1
 
-    goto :goto_0
+    goto :goto_68
 
     .line 216
-    :catchall_0
+    :catchall_56
     move-exception v1
 
     .line 217
@@ -338,11 +338,11 @@
     nop
 
     .end local v1    # "e":Ljava/lang/Throwable;
-    :goto_0
-    goto :goto_1
+    :goto_68
+    goto :goto_95
 
     .line 221
-    :cond_0
+    :cond_69
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -383,14 +383,14 @@
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_95
 
     .line 224
-    :cond_1
+    :cond_94
     nop
 
     .line 212
-    :goto_1
+    :goto_95
     move-object v1, v2
 
     .line 227
@@ -450,11 +450,11 @@
 
     .line 366
     .local v4, "$i$f$setInvisible":I
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_cb
 
     const/4 v6, 0x4
 
-    :cond_2
+    :cond_cb
     invoke-virtual {v2, v6}, Landroid/view/View;->setVisibility(I)V
 
     .line 367
@@ -491,7 +491,7 @@
 .end method
 
 .method public final getBinding()Lio/nekohasekai/sagernet/databinding/LayoutAssetItemBinding;
-    .locals 1
+    .registers 2
 
     .line 202
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAssetItemBinding;
@@ -500,16 +500,16 @@
 .end method
 
 .method public final getFile()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 204
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;->file:Ljava/io/File;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "file"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -520,7 +520,7 @@
 .end method
 
 .method public final setFile(Ljava/io/File;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/io/File;
 
     const-string v0, "<set-?>"

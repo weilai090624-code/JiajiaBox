@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/ArraysKt__ArraysJVMKt;-><init>()V
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final contentDeepEquals([Ljava/lang/Object;[Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p0, "$this$contentDeepEqualsImpl"    # [Ljava/lang/Object;
     .param p1, "other"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -84,35 +84,35 @@
     .line 80
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 81
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p0, :cond_14
+    if-eqz p0, :cond_160
 
-    if-eqz p1, :cond_14
+    if-eqz p1, :cond_160
 
     array-length v2, p0
 
     array-length v3, p1
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_f
 
-    goto/16 :goto_3
+    goto/16 :goto_160
 
     .line 83
-    :cond_1
+    :cond_f
     const/4 v2, 0x0
 
     .local v2, "i":I
     array-length v3, p0
 
-    :goto_0
-    if-ge v2, v3, :cond_13
+    :goto_11
+    if-ge v2, v3, :cond_15f
 
     .line 84
     aget-object v4, p0, v2
@@ -123,31 +123,31 @@
 
     .line 87
     .local v5, "v2":Ljava/lang/Object;
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_1b
 
     .line 88
-    goto/16 :goto_1
+    goto/16 :goto_15a
 
     .line 89
-    :cond_2
-    if-eqz v4, :cond_12
+    :cond_1b
+    if-eqz v4, :cond_15e
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_21
 
-    goto/16 :goto_2
+    goto/16 :goto_15e
 
     .line 93
-    :cond_3
+    :cond_21
     nop
 
     .line 94
     instance-of v6, v4, [Ljava/lang/Object;
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_37
 
     instance-of v6, v5, [Ljava/lang/Object;
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_37
 
     move-object v6, v4
 
@@ -161,19 +161,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 95
-    :cond_4
+    :cond_37
     instance-of v6, v4, [B
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_4c
 
     instance-of v6, v5, [B
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_4c
 
     move-object v6, v4
 
@@ -187,19 +187,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 96
-    :cond_5
+    :cond_4c
     instance-of v6, v4, [S
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_61
 
     instance-of v6, v5, [S
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_61
 
     move-object v6, v4
 
@@ -213,19 +213,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 97
-    :cond_6
+    :cond_61
     instance-of v6, v4, [I
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_76
 
     instance-of v6, v5, [I
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_76
 
     move-object v6, v4
 
@@ -239,19 +239,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 98
-    :cond_7
+    :cond_76
     instance-of v6, v4, [J
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_8b
 
     instance-of v6, v5, [J
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_8b
 
     move-object v6, v4
 
@@ -265,19 +265,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 99
-    :cond_8
+    :cond_8b
     instance-of v6, v4, [F
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_a0
 
     instance-of v6, v5, [F
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_a0
 
     move-object v6, v4
 
@@ -291,19 +291,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 100
-    :cond_9
+    :cond_a0
     instance-of v6, v4, [D
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_b5
 
     instance-of v6, v5, [D
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_b5
 
     move-object v6, v4
 
@@ -317,19 +317,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 101
-    :cond_a
+    :cond_b5
     instance-of v6, v4, [C
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_ca
 
     instance-of v6, v5, [C
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_ca
 
     move-object v6, v4
 
@@ -343,19 +343,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 102
-    :cond_b
+    :cond_ca
     instance-of v6, v4, [Z
 
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_df
 
     instance-of v6, v5, [Z
 
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_df
 
     move-object v6, v4
 
@@ -369,19 +369,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 104
-    :cond_c
+    :cond_df
     instance-of v6, v4, Lkotlin/UByteArray;
 
-    if-eqz v6, :cond_d
+    if-eqz v6, :cond_fc
 
     instance-of v6, v5, Lkotlin/UByteArray;
 
-    if-eqz v6, :cond_d
+    if-eqz v6, :cond_fc
 
     move-object v6, v4
 
@@ -403,19 +403,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 105
-    :cond_d
+    :cond_fc
     instance-of v6, v4, Lkotlin/UShortArray;
 
-    if-eqz v6, :cond_e
+    if-eqz v6, :cond_119
 
     instance-of v6, v5, Lkotlin/UShortArray;
 
-    if-eqz v6, :cond_e
+    if-eqz v6, :cond_119
 
     move-object v6, v4
 
@@ -437,19 +437,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 106
-    :cond_e
+    :cond_119
     instance-of v6, v4, Lkotlin/UIntArray;
 
-    if-eqz v6, :cond_f
+    if-eqz v6, :cond_136
 
     instance-of v6, v5, Lkotlin/UIntArray;
 
-    if-eqz v6, :cond_f
+    if-eqz v6, :cond_136
 
     move-object v6, v4
 
@@ -471,19 +471,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 107
-    :cond_f
+    :cond_136
     instance-of v6, v4, Lkotlin/ULongArray;
 
-    if-eqz v6, :cond_10
+    if-eqz v6, :cond_153
 
     instance-of v6, v5, Lkotlin/ULongArray;
 
-    if-eqz v6, :cond_10
+    if-eqz v6, :cond_153
 
     move-object v6, v4
 
@@ -505,51 +505,51 @@
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 109
-    :cond_10
+    :cond_153
     invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-nez v6, :cond_11
+    if-nez v6, :cond_15a
 
     return v1
 
     .line 83
     .end local v4    # "v1":Ljava/lang/Object;
     .end local v5    # "v2":Ljava/lang/Object;
-    :cond_11
-    :goto_1
+    :cond_15a
+    :goto_15a
     add-int/lit8 v2, v2, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_11
 
     .line 90
     .restart local v4    # "v1":Ljava/lang/Object;
     .restart local v5    # "v2":Ljava/lang/Object;
-    :cond_12
-    :goto_2
+    :cond_15e
+    :goto_15e
     return v1
 
     .line 113
     .end local v2    # "i":I
     .end local v4    # "v1":Ljava/lang/Object;
     .end local v5    # "v2":Ljava/lang/Object;
-    :cond_13
+    :cond_15f
     return v0
 
     .line 81
-    :cond_14
-    :goto_3
+    :cond_160
+    :goto_160
     return v1
 .end method
 
 .method public static final contentDeepToString([Ljava/lang/Object;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "$this$contentDeepToStringImpl"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -561,14 +561,14 @@
     .end annotation
 
     .line 121
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     const-string v0, "null"
 
     return-object v0
 
     .line 122
-    :cond_0
+    :cond_5
     array-length v0, p0
 
     const v1, 0x19999999
@@ -620,7 +620,7 @@
 .end method
 
 .method private static final contentDeepToStringInternal$ArraysKt__ArraysKt([Ljava/lang/Object;Ljava/lang/StringBuilder;Ljava/util/List;)V
-    .locals 5
+    .registers 8
     .param p0, "$this$contentDeepToStringInternal"    # [Ljava/lang/Object;
     .param p1, "result"    # Ljava/lang/StringBuilder;
     .param p2, "processed"    # Ljava/util/List;
@@ -642,7 +642,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 131
     const-string v0, "[...]"
@@ -653,7 +653,7 @@
     return-void
 
     .line 134
-    :cond_0
+    :cond_c
     invoke-interface {p2, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 135
@@ -667,11 +667,11 @@
     .local v0, "i":I
     array-length v1, p0
 
-    :goto_0
-    if-ge v0, v1, :cond_14
+    :goto_16
+    if-ge v0, v1, :cond_130
 
     .line 138
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 139
     const-string v2, ", "
@@ -679,7 +679,7 @@
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 141
-    :cond_1
+    :cond_1f
     aget-object v2, p0, v0
 
     .line 142
@@ -687,19 +687,19 @@
     nop
 
     .line 143
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2b
 
     const-string v3, "null"
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_12c
 
     .line 144
-    :cond_2
+    :cond_2b
     instance-of v3, v2, [Ljava/lang/Object;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_37
 
     move-object v3, v2
 
@@ -707,15 +707,15 @@
 
     invoke-static {v3, p1, p2}, Lkotlin/collections/ArraysKt__ArraysKt;->contentDeepToStringInternal$ArraysKt__ArraysKt([Ljava/lang/Object;Ljava/lang/StringBuilder;Ljava/util/List;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_12c
 
     .line 145
-    :cond_3
+    :cond_37
     instance-of v3, v2, [B
 
     const-string v4, "toString(...)"
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_4c
 
     move-object v3, v2
 
@@ -729,13 +729,13 @@
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_12c
 
     .line 146
-    :cond_4
+    :cond_4c
     instance-of v3, v2, [S
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_5f
 
     move-object v3, v2
 
@@ -749,13 +749,13 @@
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_12c
 
     .line 147
-    :cond_5
+    :cond_5f
     instance-of v3, v2, [I
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_72
 
     move-object v3, v2
 
@@ -769,13 +769,13 @@
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_12c
 
     .line 148
-    :cond_6
+    :cond_72
     instance-of v3, v2, [J
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_85
 
     move-object v3, v2
 
@@ -789,13 +789,13 @@
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_12c
 
     .line 149
-    :cond_7
+    :cond_85
     instance-of v3, v2, [F
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_98
 
     move-object v3, v2
 
@@ -809,13 +809,13 @@
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_12c
 
     .line 150
-    :cond_8
+    :cond_98
     instance-of v3, v2, [D
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_ab
 
     move-object v3, v2
 
@@ -829,13 +829,13 @@
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_12c
 
     .line 151
-    :cond_9
+    :cond_ab
     instance-of v3, v2, [C
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_be
 
     move-object v3, v2
 
@@ -849,13 +849,13 @@
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_12c
 
     .line 152
-    :cond_a
+    :cond_be
     instance-of v3, v2, [Z
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_d0
 
     move-object v3, v2
 
@@ -869,112 +869,112 @@
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_12c
 
     .line 154
-    :cond_b
+    :cond_d0
     instance-of v3, v2, Lkotlin/UByteArray;
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_e6
 
     move-object v3, v2
 
     check-cast v3, Lkotlin/UByteArray;
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_de
 
     invoke-virtual {v3}, Lkotlin/UByteArray;->unbox-impl()[B
 
     move-result-object v4
 
-    :cond_c
+    :cond_de
     invoke-static {v4}, Lkotlin/collections/unsigned/UArraysKt;->contentToString-2csIQuQ([B)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_12c
 
     .line 155
-    :cond_d
+    :cond_e6
     instance-of v3, v2, Lkotlin/UShortArray;
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_fb
 
     move-object v3, v2
 
     check-cast v3, Lkotlin/UShortArray;
 
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_f3
 
     invoke-virtual {v3}, Lkotlin/UShortArray;->unbox-impl()[S
 
     move-result-object v4
 
-    :cond_e
+    :cond_f3
     invoke-static {v4}, Lkotlin/collections/unsigned/UArraysKt;->contentToString-d-6D3K8([S)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_12c
 
     .line 156
-    :cond_f
+    :cond_fb
     instance-of v3, v2, Lkotlin/UIntArray;
 
-    if-eqz v3, :cond_11
+    if-eqz v3, :cond_110
 
     move-object v3, v2
 
     check-cast v3, Lkotlin/UIntArray;
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_108
 
     invoke-virtual {v3}, Lkotlin/UIntArray;->unbox-impl()[I
 
     move-result-object v4
 
-    :cond_10
+    :cond_108
     invoke-static {v4}, Lkotlin/collections/unsigned/UArraysKt;->contentToString-XUkPCBk([I)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_12c
 
     .line 157
-    :cond_11
+    :cond_110
     instance-of v3, v2, Lkotlin/ULongArray;
 
-    if-eqz v3, :cond_13
+    if-eqz v3, :cond_125
 
     move-object v3, v2
 
     check-cast v3, Lkotlin/ULongArray;
 
-    if-eqz v3, :cond_12
+    if-eqz v3, :cond_11d
 
     invoke-virtual {v3}, Lkotlin/ULongArray;->unbox-impl()[J
 
     move-result-object v4
 
-    :cond_12
+    :cond_11d
     invoke-static {v4}, Lkotlin/collections/unsigned/UArraysKt;->contentToString-uLth9ew([J)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_12c
 
     .line 159
-    :cond_13
+    :cond_125
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -983,14 +983,14 @@
 
     .line 137
     .end local v2    # "element":Ljava/lang/Object;
-    :goto_1
+    :goto_12c
     add-int/lit8 v0, v0, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_16
 
     .line 163
     .end local v0    # "i":I
-    :cond_14
+    :cond_130
     const/16 v0, 0x5d
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -1007,7 +1007,7 @@
 .end method
 
 .method public static final flatten([[Ljava/lang/Object;)Ljava/util/List;
-    .locals 7
+    .registers 8
     .param p0, "$this$flatten"    # [[Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1036,8 +1036,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_c
+    if-ge v3, v1, :cond_19
 
     aget-object v5, v0, v3
 
@@ -1059,9 +1059,9 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_19
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, v4}, Ljava/util/ArrayList;-><init>(I)V
@@ -1074,8 +1074,8 @@
 
     array-length v1, v1
 
-    :goto_1
-    if-ge v2, v1, :cond_1
+    :goto_22
+    if-ge v2, v1, :cond_2f
 
     aget-object v3, p0, v2
 
@@ -1091,10 +1091,10 @@
     .end local v3    # "element":[Ljava/lang/Object;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 24
-    :cond_1
+    :cond_2f
     move-object v1, v0
 
     check-cast v1, Ljava/util/List;
@@ -1103,7 +1103,7 @@
 .end method
 
 .method private static final ifEmpty([Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$ifEmpty"    # [Ljava/lang/Object;
     .param p1, "defaultValue"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -1128,33 +1128,33 @@
     .line 70
     array-length v0, p0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_c
+    if-eqz v0, :cond_13
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     move-object v0, p0
 
-    :goto_1
+    :goto_14
     return-object v0
 .end method
 
 .method private static final isNullOrEmpty([Ljava/lang/Object;)Z
-    .locals 3
+    .registers 4
     .param p0, "$this$isNullOrEmpty"    # [Ljava/lang/Object;
 
     .line 50
@@ -1163,36 +1163,36 @@
     .line 54
     const/4 v0, 0x1
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_f
 
     array-length v1, p0
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_b
+    if-eqz v1, :cond_e
 
-    goto :goto_1
+    goto :goto_f
 
-    :cond_1
+    :cond_e
     const/4 v0, 0x0
 
-    :cond_2
-    :goto_1
+    :cond_f
+    :goto_f
     return v0
 .end method
 
 .method public static final unzip([Lkotlin/Pair;)Lkotlin/Pair;
-    .locals 6
+    .registers 7
     .param p0, "$this$unzip"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1236,8 +1236,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_13
+    if-ge v3, v2, :cond_28
 
     aget-object v4, p0, v3
 
@@ -1260,10 +1260,10 @@
     .end local v4    # "pair":Lkotlin/Pair;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 40
-    :cond_0
+    :cond_28
     invoke-static {v0, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
 
     move-result-object v2

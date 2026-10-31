@@ -129,7 +129,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 18
+    .registers 19
 
     move-object/from16 v0, p0
 
@@ -173,7 +173,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 16
+    .registers 32
     .param p1, "v"    # Ljava/lang/String;
     .param p2, "ps"    # Ljava/lang/String;
     .param p3, "add"    # Ljava/lang/String;
@@ -337,7 +337,7 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 16
+    .registers 34
 
     .line 16
     move/from16 v0, p16
@@ -346,212 +346,212 @@
 
     const-string v2, ""
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     .line 17
     move-object v1, v2
 
-    goto :goto_0
+    goto :goto_c
 
     .line 16
-    :cond_0
+    :cond_a
     move-object/from16 v1, p1
 
-    :goto_0
+    :goto_c
     and-int/lit8 v3, v0, 0x2
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_12
 
     .line 18
     move-object v3, v2
 
-    goto :goto_1
+    goto :goto_14
 
     .line 16
-    :cond_1
+    :cond_12
     move-object/from16 v3, p2
 
-    :goto_1
+    :goto_14
     and-int/lit8 v4, v0, 0x4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1a
 
     .line 19
     move-object v4, v2
 
-    goto :goto_2
+    goto :goto_1c
 
     .line 16
-    :cond_2
+    :cond_1a
     move-object/from16 v4, p3
 
-    :goto_2
+    :goto_1c
     and-int/lit8 v5, v0, 0x8
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_22
 
     .line 20
     move-object v5, v2
 
-    goto :goto_3
+    goto :goto_24
 
     .line 16
-    :cond_3
+    :cond_22
     move-object/from16 v5, p4
 
-    :goto_3
+    :goto_24
     and-int/lit8 v6, v0, 0x10
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_2a
 
     .line 21
     move-object v6, v2
 
-    goto :goto_4
+    goto :goto_2c
 
     .line 16
-    :cond_4
+    :cond_2a
     move-object/from16 v6, p5
 
-    :goto_4
+    :goto_2c
     and-int/lit8 v7, v0, 0x20
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_33
 
     .line 22
     const-string v7, "0"
 
-    goto :goto_5
+    goto :goto_35
 
     .line 16
-    :cond_5
+    :cond_33
     move-object/from16 v7, p6
 
-    :goto_5
+    :goto_35
     and-int/lit8 v8, v0, 0x40
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_3b
 
     .line 23
     move-object v8, v2
 
-    goto :goto_6
+    goto :goto_3d
 
     .line 16
-    :cond_6
+    :cond_3b
     move-object/from16 v8, p7
 
-    :goto_6
+    :goto_3d
     and-int/lit16 v9, v0, 0x80
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_43
 
     .line 24
     move-object v9, v2
 
-    goto :goto_7
+    goto :goto_45
 
     .line 16
-    :cond_7
+    :cond_43
     move-object/from16 v9, p8
 
-    :goto_7
+    :goto_45
     and-int/lit16 v10, v0, 0x100
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_4b
 
     .line 25
     move-object v10, v2
 
-    goto :goto_8
+    goto :goto_4d
 
     .line 16
-    :cond_8
+    :cond_4b
     move-object/from16 v10, p9
 
-    :goto_8
+    :goto_4d
     and-int/lit16 v11, v0, 0x200
 
-    if-eqz v11, :cond_9
+    if-eqz v11, :cond_53
 
     .line 26
     move-object v11, v2
 
-    goto :goto_9
+    goto :goto_55
 
     .line 16
-    :cond_9
+    :cond_53
     move-object/from16 v11, p10
 
-    :goto_9
+    :goto_55
     and-int/lit16 v12, v0, 0x400
 
-    if-eqz v12, :cond_a
+    if-eqz v12, :cond_5b
 
     .line 27
     move-object v12, v2
 
-    goto :goto_a
+    goto :goto_5d
 
     .line 16
-    :cond_a
+    :cond_5b
     move-object/from16 v12, p11
 
-    :goto_a
+    :goto_5d
     and-int/lit16 v13, v0, 0x800
 
-    if-eqz v13, :cond_b
+    if-eqz v13, :cond_63
 
     .line 28
     move-object v13, v2
 
-    goto :goto_b
+    goto :goto_65
 
     .line 16
-    :cond_b
+    :cond_63
     move-object/from16 v13, p12
 
-    :goto_b
+    :goto_65
     and-int/lit16 v14, v0, 0x1000
 
-    if-eqz v14, :cond_c
+    if-eqz v14, :cond_6b
 
     .line 29
     move-object v14, v2
 
-    goto :goto_c
+    goto :goto_6d
 
     .line 16
-    :cond_c
+    :cond_6b
     move-object/from16 v14, p13
 
-    :goto_c
+    :goto_6d
     and-int/lit16 v15, v0, 0x2000
 
-    if-eqz v15, :cond_d
+    if-eqz v15, :cond_73
 
     .line 30
     move-object v15, v2
 
-    goto :goto_d
+    goto :goto_75
 
     .line 16
-    :cond_d
+    :cond_73
     move-object/from16 v15, p14
 
-    :goto_d
+    :goto_75
     and-int/lit16 v0, v0, 0x4000
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_7a
 
     .line 31
-    goto :goto_e
+    goto :goto_7c
 
     .line 16
-    :cond_e
+    :cond_7a
     move-object/from16 v2, p15
 
-    :goto_e
+    :goto_7c
     move-object/from16 p1, p0
 
     move-object/from16 p2, v1
@@ -591,7 +591,7 @@
 .end method
 
 .method public static synthetic copy$default(Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;
-    .locals 16
+    .registers 34
 
     move-object/from16 v0, p0
 
@@ -599,184 +599,184 @@
 
     and-int/lit8 v2, v1, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_b
 
     iget-object v2, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->v:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     move-object/from16 v2, p1
 
-    :goto_0
+    :goto_d
     and-int/lit8 v3, v1, 0x2
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_14
 
     iget-object v3, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->ps:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_14
     move-object/from16 v3, p2
 
-    :goto_1
+    :goto_16
     and-int/lit8 v4, v1, 0x4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1d
 
     iget-object v4, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->add:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_2
+    :cond_1d
     move-object/from16 v4, p3
 
-    :goto_2
+    :goto_1f
     and-int/lit8 v5, v1, 0x8
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_26
 
     iget-object v5, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->port:Ljava/lang/String;
 
-    goto :goto_3
+    goto :goto_28
 
-    :cond_3
+    :cond_26
     move-object/from16 v5, p4
 
-    :goto_3
+    :goto_28
     and-int/lit8 v6, v1, 0x10
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_2f
 
     iget-object v6, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->id:Ljava/lang/String;
 
-    goto :goto_4
+    goto :goto_31
 
-    :cond_4
+    :cond_2f
     move-object/from16 v6, p5
 
-    :goto_4
+    :goto_31
     and-int/lit8 v7, v1, 0x20
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_38
 
     iget-object v7, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->aid:Ljava/lang/String;
 
-    goto :goto_5
+    goto :goto_3a
 
-    :cond_5
+    :cond_38
     move-object/from16 v7, p6
 
-    :goto_5
+    :goto_3a
     and-int/lit8 v8, v1, 0x40
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_41
 
     iget-object v8, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->scy:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_43
 
-    :cond_6
+    :cond_41
     move-object/from16 v8, p7
 
-    :goto_6
+    :goto_43
     and-int/lit16 v9, v1, 0x80
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_4a
 
     iget-object v9, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->net:Ljava/lang/String;
 
-    goto :goto_7
+    goto :goto_4c
 
-    :cond_7
+    :cond_4a
     move-object/from16 v9, p8
 
-    :goto_7
+    :goto_4c
     and-int/lit16 v10, v1, 0x100
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_53
 
     iget-object v10, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->type:Ljava/lang/String;
 
-    goto :goto_8
+    goto :goto_55
 
-    :cond_8
+    :cond_53
     move-object/from16 v10, p9
 
-    :goto_8
+    :goto_55
     and-int/lit16 v11, v1, 0x200
 
-    if-eqz v11, :cond_9
+    if-eqz v11, :cond_5c
 
     iget-object v11, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->host:Ljava/lang/String;
 
-    goto :goto_9
+    goto :goto_5e
 
-    :cond_9
+    :cond_5c
     move-object/from16 v11, p10
 
-    :goto_9
+    :goto_5e
     and-int/lit16 v12, v1, 0x400
 
-    if-eqz v12, :cond_a
+    if-eqz v12, :cond_65
 
     iget-object v12, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->path:Ljava/lang/String;
 
-    goto :goto_a
+    goto :goto_67
 
-    :cond_a
+    :cond_65
     move-object/from16 v12, p11
 
-    :goto_a
+    :goto_67
     and-int/lit16 v13, v1, 0x800
 
-    if-eqz v13, :cond_b
+    if-eqz v13, :cond_6e
 
     iget-object v13, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->tls:Ljava/lang/String;
 
-    goto :goto_b
+    goto :goto_70
 
-    :cond_b
+    :cond_6e
     move-object/from16 v13, p12
 
-    :goto_b
+    :goto_70
     and-int/lit16 v14, v1, 0x1000
 
-    if-eqz v14, :cond_c
+    if-eqz v14, :cond_77
 
     iget-object v14, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->sni:Ljava/lang/String;
 
-    goto :goto_c
+    goto :goto_79
 
-    :cond_c
+    :cond_77
     move-object/from16 v14, p13
 
-    :goto_c
+    :goto_79
     and-int/lit16 v15, v1, 0x2000
 
-    if-eqz v15, :cond_d
+    if-eqz v15, :cond_80
 
     iget-object v15, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->alpn:Ljava/lang/String;
 
-    goto :goto_d
+    goto :goto_82
 
-    :cond_d
+    :cond_80
     move-object/from16 v15, p14
 
-    :goto_d
+    :goto_82
     and-int/lit16 v1, v1, 0x4000
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_89
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->fp:Ljava/lang/String;
 
-    goto :goto_e
+    goto :goto_8b
 
-    :cond_e
+    :cond_89
     move-object/from16 v1, p15
 
-    :goto_e
+    :goto_8b
     move-object/from16 p1, v2
 
     move-object/from16 p2, v3
@@ -817,7 +817,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->v:Ljava/lang/String;
 
@@ -825,7 +825,7 @@
 .end method
 
 .method public final component10()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->host:Ljava/lang/String;
 
@@ -833,7 +833,7 @@
 .end method
 
 .method public final component11()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->path:Ljava/lang/String;
 
@@ -841,7 +841,7 @@
 .end method
 
 .method public final component12()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->tls:Ljava/lang/String;
 
@@ -849,7 +849,7 @@
 .end method
 
 .method public final component13()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->sni:Ljava/lang/String;
 
@@ -857,7 +857,7 @@
 .end method
 
 .method public final component14()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->alpn:Ljava/lang/String;
 
@@ -865,7 +865,7 @@
 .end method
 
 .method public final component15()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->fp:Ljava/lang/String;
 
@@ -873,7 +873,7 @@
 .end method
 
 .method public final component2()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->ps:Ljava/lang/String;
 
@@ -881,7 +881,7 @@
 .end method
 
 .method public final component3()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->add:Ljava/lang/String;
 
@@ -889,7 +889,7 @@
 .end method
 
 .method public final component4()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->port:Ljava/lang/String;
 
@@ -897,7 +897,7 @@
 .end method
 
 .method public final component5()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->id:Ljava/lang/String;
 
@@ -905,7 +905,7 @@
 .end method
 
 .method public final component6()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->aid:Ljava/lang/String;
 
@@ -913,7 +913,7 @@
 .end method
 
 .method public final component7()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->scy:Ljava/lang/String;
 
@@ -921,7 +921,7 @@
 .end method
 
 .method public final component8()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->net:Ljava/lang/String;
 
@@ -929,7 +929,7 @@
 .end method
 
 .method public final component9()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->type:Ljava/lang/String;
 
@@ -937,7 +937,7 @@
 .end method
 
 .method public final copy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;
-    .locals 17
+    .registers 33
 
     const-string v0, "v"
 
@@ -1069,24 +1069,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;
@@ -1099,11 +1099,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->ps:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->ps:Ljava/lang/String;
@@ -1112,11 +1112,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_23
 
     return v2
 
-    :cond_3
+    :cond_23
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->add:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->add:Ljava/lang/String;
@@ -1125,11 +1125,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_2e
 
     return v2
 
-    :cond_4
+    :cond_2e
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->port:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->port:Ljava/lang/String;
@@ -1138,11 +1138,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_39
 
     return v2
 
-    :cond_5
+    :cond_39
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->id:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->id:Ljava/lang/String;
@@ -1151,11 +1151,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_44
 
     return v2
 
-    :cond_6
+    :cond_44
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->aid:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->aid:Ljava/lang/String;
@@ -1164,11 +1164,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_4f
 
     return v2
 
-    :cond_7
+    :cond_4f
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->scy:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->scy:Ljava/lang/String;
@@ -1177,11 +1177,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_5a
 
     return v2
 
-    :cond_8
+    :cond_5a
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->net:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->net:Ljava/lang/String;
@@ -1190,11 +1190,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_65
 
     return v2
 
-    :cond_9
+    :cond_65
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->type:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->type:Ljava/lang/String;
@@ -1203,11 +1203,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_a
+    if-nez v3, :cond_70
 
     return v2
 
-    :cond_a
+    :cond_70
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->host:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->host:Ljava/lang/String;
@@ -1216,11 +1216,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_7b
 
     return v2
 
-    :cond_b
+    :cond_7b
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->path:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->path:Ljava/lang/String;
@@ -1229,11 +1229,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_86
 
     return v2
 
-    :cond_c
+    :cond_86
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->tls:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->tls:Ljava/lang/String;
@@ -1242,11 +1242,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_91
 
     return v2
 
-    :cond_d
+    :cond_91
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->sni:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->sni:Ljava/lang/String;
@@ -1255,11 +1255,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_9c
 
     return v2
 
-    :cond_e
+    :cond_9c
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->alpn:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->alpn:Ljava/lang/String;
@@ -1268,11 +1268,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_f
+    if-nez v3, :cond_a7
 
     return v2
 
-    :cond_f
+    :cond_a7
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->fp:Ljava/lang/String;
 
     iget-object v1, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->fp:Ljava/lang/String;
@@ -1281,16 +1281,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_b2
 
     return v2
 
-    :cond_10
+    :cond_b2
     return v0
 .end method
 
 .method public final getAdd()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 19
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->add:Ljava/lang/String;
@@ -1299,7 +1299,7 @@
 .end method
 
 .method public final getAid()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->aid:Ljava/lang/String;
@@ -1308,7 +1308,7 @@
 .end method
 
 .method public final getAlpn()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 30
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->alpn:Ljava/lang/String;
@@ -1317,7 +1317,7 @@
 .end method
 
 .method public final getFp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->fp:Ljava/lang/String;
@@ -1326,7 +1326,7 @@
 .end method
 
 .method public final getHost()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->host:Ljava/lang/String;
@@ -1335,7 +1335,7 @@
 .end method
 
 .method public final getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 21
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->id:Ljava/lang/String;
@@ -1344,7 +1344,7 @@
 .end method
 
 .method public final getNet()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 24
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->net:Ljava/lang/String;
@@ -1353,7 +1353,7 @@
 .end method
 
 .method public final getPath()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 27
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->path:Ljava/lang/String;
@@ -1362,7 +1362,7 @@
 .end method
 
 .method public final getPort()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 20
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->port:Ljava/lang/String;
@@ -1371,7 +1371,7 @@
 .end method
 
 .method public final getPs()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 18
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->ps:Ljava/lang/String;
@@ -1380,7 +1380,7 @@
 .end method
 
 .method public final getScy()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 23
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->scy:Ljava/lang/String;
@@ -1389,7 +1389,7 @@
 .end method
 
 .method public final getSni()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 29
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->sni:Ljava/lang/String;
@@ -1398,7 +1398,7 @@
 .end method
 
 .method public final getTls()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 28
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->tls:Ljava/lang/String;
@@ -1407,7 +1407,7 @@
 .end method
 
 .method public final getType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 25
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->type:Ljava/lang/String;
@@ -1416,7 +1416,7 @@
 .end method
 
 .method public final getV()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 17
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->v:Ljava/lang/String;
@@ -1425,7 +1425,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->v:Ljava/lang/String;
 
@@ -1577,7 +1577,7 @@
 .end method
 
 .method public final setAdd(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1591,7 +1591,7 @@
 .end method
 
 .method public final setAid(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1605,7 +1605,7 @@
 .end method
 
 .method public final setAlpn(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1619,7 +1619,7 @@
 .end method
 
 .method public final setFp(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1633,7 +1633,7 @@
 .end method
 
 .method public final setHost(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1647,7 +1647,7 @@
 .end method
 
 .method public final setId(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1661,7 +1661,7 @@
 .end method
 
 .method public final setNet(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1675,7 +1675,7 @@
 .end method
 
 .method public final setPath(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1689,7 +1689,7 @@
 .end method
 
 .method public final setPort(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1703,7 +1703,7 @@
 .end method
 
 .method public final setPs(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1717,7 +1717,7 @@
 .end method
 
 .method public final setScy(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1731,7 +1731,7 @@
 .end method
 
 .method public final setSni(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1745,7 +1745,7 @@
 .end method
 
 .method public final setTls(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1759,7 +1759,7 @@
 .end method
 
 .method public final setType(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1773,7 +1773,7 @@
 .end method
 
 .method public final setV(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1787,7 +1787,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     new-instance v0, Ljava/lang/StringBuilder;
 

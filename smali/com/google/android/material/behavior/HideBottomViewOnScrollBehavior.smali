@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 71
     sget v0, Lcom/google/android/material/R$attr;->motionDurationLong2:I
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 102
     .local p0, "this":Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;, "Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior<TV;>;"
@@ -120,7 +120,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -153,7 +153,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;Landroid/view/ViewPropertyAnimator;)Landroid/view/ViewPropertyAnimator;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;
     .param p1, "x1"    # Landroid/view/ViewPropertyAnimator;
 
@@ -164,7 +164,7 @@
 .end method
 
 .method private animateChildTo(Landroid/view/View;IJLandroid/animation/TimeInterpolator;)V
-    .locals 2
+    .registers 8
     .param p2, "targetY"    # I
     .param p3, "duration"    # J
     .param p5, "interpolator"    # Landroid/animation/TimeInterpolator;
@@ -219,7 +219,7 @@
 .end method
 
 .method private updateCurrentState(Landroid/view/View;I)V
-    .locals 3
+    .registers 6
     .param p2, "state"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -239,12 +239,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -260,17 +260,17 @@
 
     .line 254
     .end local v1    # "listener":Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior$OnScrollStateChangedListener;
-    goto :goto_0
+    goto :goto_8
 
     .line 255
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 
 # virtual methods
 .method public addOnScrollStateChangedListener(Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior$OnScrollStateChangedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior$OnScrollStateChangedListener;
 
     .line 280
@@ -284,7 +284,7 @@
 .end method
 
 .method public clearOnScrollStateChangedListeners()V
-    .locals 1
+    .registers 2
 
     .line 294
     .local p0, "this":Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;, "Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior<TV;>;"
@@ -297,7 +297,7 @@
 .end method
 
 .method public isScrolledDown()Z
-    .locals 2
+    .registers 3
 
     .line 215
     .local p0, "this":Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;, "Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior<TV;>;"
@@ -305,19 +305,19 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     return v1
 .end method
 
 .method public isScrolledUp()Z
-    .locals 2
+    .registers 3
 
     .line 178
     .local p0, "this":Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;, "Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior<TV;>;"
@@ -325,21 +325,21 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public onLayoutChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z
-    .locals 4
+    .registers 8
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "layoutDirection"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -459,7 +459,7 @@
 .end method
 
 .method public onNestedScroll(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;IIIII[I)V
-    .locals 0
+    .registers 10
     .param p1, "coordinatorLayout"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "target"    # Landroid/view/View;
     .param p4, "dxConsumed"    # I
@@ -481,28 +481,28 @@
     .line 169
     .local p0, "this":Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;, "Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior<TV;>;"
     .local p2, "child":Landroid/view/View;, "TV;"
-    if-lez p5, :cond_0
+    if-lez p5, :cond_6
 
     .line 170
     invoke-virtual {p0, p2}, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->slideDown(Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_b
 
     .line 171
-    :cond_0
-    if-gez p5, :cond_1
+    :cond_6
+    if-gez p5, :cond_b
 
     .line 172
     invoke-virtual {p0, p2}, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->slideUp(Landroid/view/View;)V
 
     .line 174
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     return-void
 .end method
 
 .method public onStartNestedScroll(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;II)Z
-    .locals 1
+    .registers 8
     .param p1, "coordinatorLayout"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "directTargetChild"    # Landroid/view/View;
     .param p4, "target"    # Landroid/view/View;
@@ -524,21 +524,21 @@
     .local p2, "child":Landroid/view/View;, "TV;"
     const/4 v0, 0x2
 
-    if-ne p5, v0, :cond_0
+    if-ne p5, v0, :cond_5
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_6
     return v0
 .end method
 
 .method public removeOnScrollStateChangedListener(Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior$OnScrollStateChangedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior$OnScrollStateChangedListener;
 
     .line 289
@@ -552,7 +552,7 @@
 .end method
 
 .method public setAdditionalHiddenOffsetY(Landroid/view/View;I)V
-    .locals 2
+    .registers 5
     .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -570,7 +570,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 143
     iget v0, p0, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->height:I
@@ -584,12 +584,12 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->setTranslationY(F)V
 
     .line 145
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public slideDown(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)V"
@@ -608,7 +608,7 @@
 .end method
 
 .method public slideDown(Landroid/view/View;Z)V
-    .locals 8
+    .registers 11
     .param p2, "animate"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -623,16 +623,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 234
     return-void
 
     .line 237
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->currentAnimator:Landroid/view/ViewPropertyAnimator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 238
     iget-object v0, p0, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->currentAnimator:Landroid/view/ViewPropertyAnimator;
@@ -643,7 +643,7 @@
     invoke-virtual {p1}, Landroid/view/View;->clearAnimation()V
 
     .line 241
-    :cond_1
+    :cond_13
     const/4 v0, 0x1
 
     invoke-direct {p0, p1, v0}, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->updateCurrentState(Landroid/view/View;I)V
@@ -657,7 +657,7 @@
 
     .line 243
     .local v0, "targetTranslationY":I
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_2a
 
     .line 244
     iget v1, p0, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->exitAnimDuration:I
@@ -674,21 +674,21 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->animateChildTo(Landroid/view/View;IJLandroid/animation/TimeInterpolator;)V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 246
-    :cond_2
+    :cond_2a
     int-to-float v1, v0
 
     invoke-virtual {p1, v1}, Landroid/view/View;->setTranslationY(F)V
 
     .line 248
-    :goto_0
+    :goto_2e
     return-void
 .end method
 
 .method public slideUp(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)V"
@@ -707,7 +707,7 @@
 .end method
 
 .method public slideUp(Landroid/view/View;Z)V
-    .locals 7
+    .registers 10
     .param p2, "animate"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -722,16 +722,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 197
     return-void
 
     .line 200
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->currentAnimator:Landroid/view/ViewPropertyAnimator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 201
     iget-object v0, p0, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->currentAnimator:Landroid/view/ViewPropertyAnimator;
@@ -742,7 +742,7 @@
     invoke-virtual {p1}, Landroid/view/View;->clearAnimation()V
 
     .line 204
-    :cond_1
+    :cond_13
     const/4 v0, 0x2
 
     invoke-direct {p0, p1, v0}, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->updateCurrentState(Landroid/view/View;I)V
@@ -752,7 +752,7 @@
 
     .line 206
     .local v0, "targetTranslationY":I
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_26
 
     .line 207
     iget v1, p0, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->enterAnimDuration:I
@@ -769,15 +769,15 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->animateChildTo(Landroid/view/View;IJLandroid/animation/TimeInterpolator;)V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 209
-    :cond_2
+    :cond_26
     int-to-float v1, v0
 
     invoke-virtual {p1, v1}, Landroid/view/View;->setTranslationY(F)V
 
     .line 211
-    :goto_0
+    :goto_2a
     return-void
 .end method

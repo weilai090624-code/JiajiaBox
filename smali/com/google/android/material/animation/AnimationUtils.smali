@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     new-instance v0, Landroid/view/animation/LinearInterpolator;
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +67,7 @@
 .end method
 
 .method public static lerp(FFF)F
-    .locals 1
+    .registers 4
     .param p0, "startValue"    # F
     .param p1, "endValue"    # F
     .param p2, "fraction"    # F
@@ -83,7 +83,7 @@
 .end method
 
 .method public static lerp(FFFFF)F
-    .locals 2
+    .registers 7
     .param p0, "outputMin"    # F
     .param p1, "outputMax"    # F
     .param p2, "inputMin"    # F
@@ -93,22 +93,22 @@
     .line 64
     cmpg-float v0, p4, p2
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_5
 
     .line 65
     return p0
 
     .line 67
-    :cond_0
+    :cond_5
     cmpl-float v0, p4, p3
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_a
 
     .line 68
     return p1
 
     .line 71
-    :cond_1
+    :cond_a
     sub-float v0, p4, p2
 
     sub-float v1, p3, p2
@@ -123,7 +123,7 @@
 .end method
 
 .method public static lerp(IIF)I
-    .locals 1
+    .registers 4
     .param p0, "startValue"    # I
     .param p1, "endValue"    # I
     .param p2, "fraction"    # F

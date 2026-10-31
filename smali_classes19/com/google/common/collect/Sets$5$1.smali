@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Sets$5;)V
-    .locals 2
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/collect/Sets$5;
 
     .line 1614
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -72,7 +72,7 @@
 .end method
 
 .method protected computeNext()Ljava/util/Set;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -93,7 +93,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 1621
     iget-object v0, p0, Lcom/google/common/collect/Sets$5$1;->bits:Ljava/util/BitSet;
@@ -104,10 +104,10 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/BitSet;->set(II)V
 
-    goto :goto_0
+    goto :goto_47
 
     .line 1623
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lcom/google/common/collect/Sets$5$1;->bits:Ljava/util/BitSet;
 
     invoke-virtual {v0, v1}, Ljava/util/BitSet;->nextSetBit(I)I
@@ -132,7 +132,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_30
 
     .line 1627
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$5$1;->endOfData()Ljava/lang/Object;
@@ -144,7 +144,7 @@
     return-object v1
 
     .line 1642
-    :cond_1
+    :cond_30
     iget-object v3, p0, Lcom/google/common/collect/Sets$5$1;->bits:Ljava/util/BitSet;
 
     sub-int v4, v2, v0
@@ -170,7 +170,7 @@
     .line 1646
     .end local v0    # "firstSetBit":I
     .end local v2    # "bitToFlip":I
-    :goto_0
+    :goto_47
     iget-object v0, p0, Lcom/google/common/collect/Sets$5$1;->bits:Ljava/util/BitSet;
 
     invoke-virtual {v0}, Ljava/util/BitSet;->clone()Ljava/lang/Object;

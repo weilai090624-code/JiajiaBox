@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final onNavDestinationSelected(Landroid/view/MenuItem;Landroidx/navigation/NavController;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$onNavDestinationSelected"    # Landroid/view/MenuItem;
     .param p1, "navController"    # Landroidx/navigation/NavController;
 

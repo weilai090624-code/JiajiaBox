@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .registers 13
 
     .line 197
     new-instance v6, Lj$/util/stream/FindOps$FindOp;
@@ -107,7 +107,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 191
     .local p0, "this":Lj$/util/stream/FindOps$FindSink$OfRef;, "Ljava/util/stream/FindOps$FindSink$OfRef<TT;>;"
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public get()Lj$/util/Optional;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -132,7 +132,7 @@
     .local p0, "this":Lj$/util/stream/FindOps$FindSink$OfRef;, "Ljava/util/stream/FindOps$FindSink$OfRef<TT;>;"
     iget-boolean v0, p0, Lj$/util/stream/FindOps$FindSink$OfRef;->hasValue:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-object v0, p0, Lj$/util/stream/FindOps$FindSink$OfRef;->value:Ljava/lang/Object;
 
@@ -140,17 +140,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 191
     .local p0, "this":Lj$/util/stream/FindOps$FindSink$OfRef;, "Ljava/util/stream/FindOps$FindSink$OfRef<TT;>;"

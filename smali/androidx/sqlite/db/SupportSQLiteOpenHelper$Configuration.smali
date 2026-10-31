@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Companion;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;ZZ)V
-    .locals 1
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "callback"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;
@@ -121,39 +121,39 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 7
+    .registers 15
 
     .line 285
     and-int/lit8 p7, p6, 0x8
 
     const/4 v0, 0x0
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_7
 
     .line 306
     const/4 v5, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 285
-    :cond_0
+    :cond_7
     move v5, p4
 
-    :goto_0
+    :goto_8
     and-int/lit8 p4, p6, 0x10
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_e
 
     .line 313
     const/4 v6, 0x0
 
-    goto :goto_1
+    goto :goto_f
 
     .line 285
-    :cond_1
+    :cond_e
     move v6, p5
 
-    :goto_1
+    :goto_f
     move-object v1, p0
 
     move-object v2, p1
@@ -169,7 +169,7 @@
 .end method
 
 .method public static final builder(Landroid/content/Context;)Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 

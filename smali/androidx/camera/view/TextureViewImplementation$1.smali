@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/view/TextureViewImplementation;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/view/TextureViewImplementation;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
-    .locals 3
+    .registers 7
     .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
     .param p2, "width"    # I
     .param p3, "height"    # I
@@ -105,7 +105,7 @@
 
     iget-object v0, v0, Landroidx/camera/view/TextureViewImplementation;->mSurfaceReleaseFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5a
 
     .line 135
     iget-object v0, p0, Landroidx/camera/view/TextureViewImplementation$1;->this$0:Landroidx/camera/view/TextureViewImplementation;
@@ -150,21 +150,21 @@
 
     invoke-virtual {v0}, Landroidx/camera/core/impl/DeferrableSurface;->close()V
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 139
-    :cond_0
+    :cond_5a
     iget-object v0, p0, Landroidx/camera/view/TextureViewImplementation$1;->this$0:Landroidx/camera/view/TextureViewImplementation;
 
     invoke-virtual {v0}, Landroidx/camera/view/TextureViewImplementation;->tryToProvidePreviewSurface()V
 
     .line 141
-    :goto_0
+    :goto_5f
     return-void
 .end method
 
 .method public onSurfaceTextureDestroyed(Landroid/graphics/SurfaceTexture;)Z
-    .locals 3
+    .registers 5
     .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -187,7 +187,7 @@
 
     iget-object v0, v0, Landroidx/camera/view/TextureViewImplementation;->mSurfaceReleaseFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 157
     iget-object v0, p0, Landroidx/camera/view/TextureViewImplementation$1;->this$0:Landroidx/camera/view/TextureViewImplementation;
@@ -225,7 +225,7 @@
     return v0
 
     .line 184
-    :cond_0
+    :cond_29
     const-string v0, "TextureViewImpl"
 
     const-string v1, "SurfaceTexture about to be destroyed"
@@ -239,7 +239,7 @@
 .end method
 
 .method public onSurfaceTextureSizeChanged(Landroid/graphics/SurfaceTexture;II)V
-    .locals 2
+    .registers 6
     .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
     .param p2, "width"    # I
     .param p3, "height"    # I
@@ -294,7 +294,7 @@
 .end method
 
 .method public onSurfaceTextureUpdated(Landroid/graphics/SurfaceTexture;)V
-    .locals 2
+    .registers 4
     .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -321,12 +321,12 @@
 
     .line 194
     .local v0, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Ljava/lang/Void;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 195
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
     .line 197
-    :cond_0
+    :cond_10
     return-void
 .end method

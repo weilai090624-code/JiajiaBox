@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMultimap;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/ImmutableMultimap;
 
     .line 696
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 702
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$2;, "Lcom/google/common/collect/ImmutableMultimap$2;"
@@ -94,7 +94,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$2;->valueCollectionItr:Ljava/util/Iterator;
 
@@ -102,25 +102,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_14
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -135,7 +135,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 708
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$2;->valueCollectionItr:Ljava/util/Iterator;
@@ -153,7 +153,7 @@
     iput-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$2;->valueItr:Ljava/util/Iterator;
 
     .line 710
-    :cond_0
+    :cond_16
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$2;->valueItr:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;

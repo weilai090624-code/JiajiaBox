@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 217
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokio/Timeout$Companion;-><init>()V
 
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public final minTimeout(JJ)J
-    .locals 3
+    .registers 8
     .param p1, "aNanos"    # J
     .param p3, "bNanos"    # J
 
@@ -72,38 +72,38 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_8
 
-    goto :goto_1
+    goto :goto_14
 
     .line 228
-    :cond_0
+    :cond_8
     cmp-long v2, p3, v0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_d
 
-    goto :goto_0
+    goto :goto_11
 
     .line 229
-    :cond_1
+    :cond_d
     cmp-long v0, p1, p3
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_13
 
     .line 231
-    :goto_0
+    :goto_11
     move-wide v0, p1
 
-    goto :goto_2
+    goto :goto_15
 
     .line 230
-    :cond_2
+    :cond_13
     nop
 
     .line 231
-    :goto_1
+    :goto_14
     move-wide v0, p3
 
-    :goto_2
+    :goto_15
     return-wide v0
 .end method

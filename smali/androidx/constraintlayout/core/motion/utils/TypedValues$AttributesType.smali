@@ -100,7 +100,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 21
+    .registers 21
 
     .line 115
     const-string/jumbo v19, "target"

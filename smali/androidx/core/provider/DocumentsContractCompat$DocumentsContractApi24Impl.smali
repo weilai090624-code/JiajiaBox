@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 300
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static isTreeUri(Landroid/net/Uri;)Z
-    .locals 1
+    .registers 2
     .param p0, "uri"    # Landroid/net/Uri;
 
     .line 291
@@ -38,7 +38,7 @@
 .end method
 
 .method static removeDocument(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/net/Uri;)Z
-    .locals 1
+    .registers 4
     .param p0, "content"    # Landroid/content/ContentResolver;
     .param p1, "documentUri"    # Landroid/net/Uri;
     .param p2, "parentDocumentUri"    # Landroid/net/Uri;

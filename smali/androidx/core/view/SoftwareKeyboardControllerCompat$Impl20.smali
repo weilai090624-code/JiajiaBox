@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 102
@@ -34,7 +34,7 @@
 .end method
 
 .method static synthetic lambda$show$0(Landroid/view/View;)V
-    .locals 2
+    .registers 3
     .param p0, "finalView"    # Landroid/view/View;
 
     .line 132
@@ -67,12 +67,12 @@
 
 # virtual methods
 .method hide()V
-    .locals 3
+    .registers 4
 
     .line 143
     iget-object v0, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl20;->mView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 144
     iget-object v0, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl20;->mView:Landroid/view/View;
@@ -102,41 +102,41 @@
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
     .line 149
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method show()V
-    .locals 3
+    .registers 4
 
     .line 109
     iget-object v0, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl20;->mView:Landroid/view/View;
 
     .line 111
     .local v0, "view":Landroid/view/View;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 112
     return-void
 
     .line 115
-    :cond_0
+    :cond_5
     invoke-virtual {v0}, Landroid/view/View;->isInEditMode()Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1b
 
     invoke-virtual {v0}, Landroid/view/View;->onCheckIsTextEditor()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_12
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 121
-    :cond_1
+    :cond_12
     invoke-virtual {v0}, Landroid/view/View;->getRootView()Landroid/view/View;
 
     move-result-object v1
@@ -145,16 +145,16 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 119
-    :cond_2
-    :goto_0
+    :cond_1b
+    :goto_1b
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
     .line 125
-    :goto_1
-    if-nez v0, :cond_3
+    :goto_1e
+    if-nez v0, :cond_2d
 
     .line 126
     iget-object v1, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl20;->mView:Landroid/view/View;
@@ -170,14 +170,14 @@
     move-result-object v0
 
     .line 129
-    :cond_3
-    if-eqz v0, :cond_4
+    :cond_2d
+    if-eqz v0, :cond_3e
 
     invoke-virtual {v0}, Landroid/view/View;->hasWindowFocus()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3e
 
     .line 130
     move-object v1, v0
@@ -192,6 +192,6 @@
 
     .line 139
     .end local v1    # "finalView":Landroid/view/View;
-    :cond_4
+    :cond_3e
     return-void
 .end method

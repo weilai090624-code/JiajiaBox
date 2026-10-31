@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 1
+    .registers 6
     .param p1, "providerAuthority"    # Ljava/lang/String;
     .param p2, "providerPackage"    # Ljava/lang/String;
     .param p3, "query"    # Ljava/lang/String;
@@ -69,16 +69,16 @@
     iput-object v0, p0, Landroidx/core/provider/FontRequest;->mCertificates:Ljava/util/List;
 
     .line 83
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_22
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_23
     invoke-static {v0}, Landroidx/core/util/Preconditions;->checkArgument(Z)V
 
     .line 84
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
-    .locals 1
+    .registers 6
     .param p1, "providerAuthority"    # Ljava/lang/String;
     .param p2, "providerPackage"    # Ljava/lang/String;
     .param p3, "query"    # Ljava/lang/String;
@@ -169,7 +169,7 @@
 .end method
 
 .method private createIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 6
     .param p1, "providerAuthority"    # Ljava/lang/String;
     .param p2, "providerPackage"    # Ljava/lang/String;
     .param p3, "query"    # Ljava/lang/String;
@@ -211,7 +211,7 @@
 
 # virtual methods
 .method public getCertificates()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -228,7 +228,7 @@
 .end method
 
 .method public getCertificatesArrayResId()I
-    .locals 1
+    .registers 2
 
     .line 144
     iget v0, p0, Landroidx/core/provider/FontRequest;->mCertificatesArray:I
@@ -237,7 +237,7 @@
 .end method
 
 .method getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 161
     iget-object v0, p0, Landroidx/core/provider/FontRequest;->mIdentifier:Ljava/lang/String;
@@ -246,7 +246,7 @@
 .end method
 
 .method public getIdentifier()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -257,7 +257,7 @@
 .end method
 
 .method public getProviderAuthority()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 102
     iget-object v0, p0, Landroidx/core/provider/FontRequest;->mProviderAuthority:Ljava/lang/String;
@@ -266,7 +266,7 @@
 .end method
 
 .method public getProviderPackage()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 111
     iget-object v0, p0, Landroidx/core/provider/FontRequest;->mProviderPackage:Ljava/lang/String;
@@ -275,7 +275,7 @@
 .end method
 
 .method public getQuery()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 120
     iget-object v0, p0, Landroidx/core/provider/FontRequest;->mQuery:Ljava/lang/String;
@@ -284,7 +284,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 166
     new-instance v0, Ljava/lang/StringBuilder;
@@ -349,14 +349,14 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_3c
     iget-object v2, p0, Landroidx/core/provider/FontRequest;->mCertificates:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_7b
 
     .line 173
     const-string v2, " ["
@@ -377,12 +377,12 @@
     const/4 v3, 0x0
 
     .local v3, "j":I
-    :goto_1
+    :goto_52
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_73
 
     .line 176
     const-string v4, " \""
@@ -415,11 +415,11 @@
     .end local v4    # "array":[B
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_52
 
     .line 181
     .end local v3    # "j":I
-    :cond_0
+    :cond_73
     const-string v3, " ]"
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -428,11 +428,11 @@
     .end local v2    # "set":Ljava/util/List;, "Ljava/util/List<[B>;"
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 183
     .end local v1    # "i":I
-    :cond_1
+    :cond_7b
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/CoroutineDispatcher;Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$observer$1;)V
-    .locals 1
+    .registers 5
 
     iput-object p1, p0, Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$2;->$lifecycleDispatcher:Lkotlinx/coroutines/CoroutineDispatcher;
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 197
@@ -92,7 +92,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 5
+    .registers 7
     .param p1, "it"    # Ljava/lang/Throwable;
 
     .line 198
@@ -106,7 +106,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 199
     iget-object v0, p0, Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$2;->$lifecycleDispatcher:Lkotlinx/coroutines/CoroutineDispatcher;
@@ -129,10 +129,10 @@
 
     invoke-virtual {v0, v1, v2}, Lkotlinx/coroutines/CoroutineDispatcher;->dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 203
-    :cond_0
+    :cond_21
     iget-object v0, p0, Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$2;->$this_suspendWithStateAtLeastUnchecked:Landroidx/lifecycle/Lifecycle;
 
     iget-object v1, p0, Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$2;->$observer:Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$observer$1;
@@ -142,6 +142,6 @@
     invoke-virtual {v0, v1}, Landroidx/lifecycle/Lifecycle;->removeObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     .line 204
-    :goto_0
+    :goto_2a
     return-void
 .end method

@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/ViewModelStoreOwner;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;->$viewModelStoreOwner:Landroidx/lifecycle/ViewModelStoreOwner;
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/SavedStateHandlesVM;
-    .locals 1
+    .registers 2
 
     .line 134
     iget-object v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;->$viewModelStoreOwner:Landroidx/lifecycle/ViewModelStoreOwner;
@@ -77,7 +77,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 133
     invoke-virtual {p0}, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;->invoke()Landroidx/lifecycle/SavedStateHandlesVM;

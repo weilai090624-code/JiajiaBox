@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/_Assertions;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,7 +65,7 @@
 .end method
 
 .method public static synthetic getENABLED$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

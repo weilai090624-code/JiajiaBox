@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/navigation/NavController$popBackStackInternal$3;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final invoke(Landroidx/navigation/NavDestination;)Landroidx/navigation/NavDestination;
-    .locals 3
+    .registers 5
     .param p1, "destination"    # Landroidx/navigation/NavDestination;
 
     const-string v0, "destination"
@@ -90,7 +90,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-virtual {v0}, Landroidx/navigation/NavGraph;->getStartDestinationId()I
 
@@ -100,12 +100,12 @@
 
     move-result v2
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_17
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_17
+    if-eqz v1, :cond_20
 
     .line 574
     invoke-virtual {p1}, Landroidx/navigation/NavDestination;->getParent()Landroidx/navigation/NavGraph;
@@ -114,10 +114,10 @@
 
     check-cast v0, Landroidx/navigation/NavDestination;
 
-    goto :goto_0
+    goto :goto_24
 
     .line 576
-    :cond_1
+    :cond_20
     const/4 v0, 0x0
 
     move-object v1, v0
@@ -125,12 +125,12 @@
     check-cast v1, Landroidx/navigation/NavDestination;
 
     .line 573
-    :goto_0
+    :goto_24
     return-object v0
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 572

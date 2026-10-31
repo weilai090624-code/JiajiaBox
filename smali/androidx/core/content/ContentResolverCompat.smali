@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static query(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    .locals 2
+    .registers 9
     .param p0, "resolver"    # Landroid/content/ContentResolver;
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "projection"    # [Ljava/lang/String;
@@ -29,20 +29,20 @@
     invoke-virtual/range {p0 .. p6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 129
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 130
     .local v0, "e":Ljava/lang/Exception;
     instance-of v1, v0, Landroid/os/OperationCanceledException;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 133
     new-instance v1, Landroidx/core/os/OperationCanceledException;
@@ -52,12 +52,12 @@
     throw v1
 
     .line 136
-    :cond_0
+    :cond_10
     throw v0
 .end method
 
 .method public static query(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroidx/core/os/CancellationSignal;)Landroid/database/Cursor;
-    .locals 8
+    .registers 15
     .param p0, "resolver"    # Landroid/content/ContentResolver;
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "projection"    # [Ljava/lang/String;
@@ -72,7 +72,7 @@
     nop
 
     .line 81
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_b
 
     .line 82
     invoke-virtual {p6}, Landroidx/core/os/CancellationSignal;->getCancellationSignalObject()Ljava/lang/Object;
@@ -83,16 +83,16 @@
 
     move-object v7, v0
 
-    goto :goto_0
+    goto :goto_d
 
     .line 83
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     move-object v7, v0
 
     .line 80
-    :goto_0
+    :goto_d
     move-object v1, p0
 
     move-object v2, p1

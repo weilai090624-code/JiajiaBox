@@ -70,7 +70,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 270
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,7 +79,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;-><init>()V
 
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public final addFailReason(J)I
-    .locals 5
+    .registers 8
     .param p1, "$this$addFailReason"    # J
 
     .line 305
@@ -101,21 +101,21 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_b
 
     const/4 v0, 0x2
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method public final updateHead(JI)J
-    .locals 5
+    .registers 9
     .param p1, "$this$updateHead"    # J
     .param p3, "newHead"    # I
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public final updateTail(JI)J
-    .locals 5
+    .registers 9
     .param p1, "$this$updateTail"    # J
     .param p3, "newTail"    # I
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public final withState(JLkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 5
+    .registers 9
     .param p1, "$this$withState"    # J
     .param p3, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -222,7 +222,7 @@
 .end method
 
 .method public final wo(JJ)J
-    .locals 2
+    .registers 7
     .param p1, "$this$wo"    # J
     .param p3, "other"    # J
 

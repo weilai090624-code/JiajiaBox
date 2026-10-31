@@ -38,7 +38,7 @@
 
 # direct methods
 .method public static final decodeBitmap(Landroid/graphics/ImageDecoder$Source;Lkotlin/jvm/functions/Function3;)Landroid/graphics/Bitmap;
-    .locals 2
+    .registers 4
     .param p0, "$this$decodeBitmap"    # Landroid/graphics/ImageDecoder$Source;
     .param p1, "action"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -76,7 +76,7 @@
 .end method
 
 .method public static final decodeDrawable(Landroid/graphics/ImageDecoder$Source;Lkotlin/jvm/functions/Function3;)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 4
     .param p0, "$this$decodeDrawable"    # Landroid/graphics/ImageDecoder$Source;
     .param p1, "action"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;

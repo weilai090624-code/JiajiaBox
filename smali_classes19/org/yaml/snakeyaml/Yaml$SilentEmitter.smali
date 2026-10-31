@@ -31,7 +31,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 393
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/yaml/snakeyaml/Yaml$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lorg/yaml/snakeyaml/Yaml$1;
 
     .line 393
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public emit(Lorg/yaml/snakeyaml/events/Event;)V
-    .locals 1
+    .registers 3
     .param p1, "event"    # Lorg/yaml/snakeyaml/events/Event;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -79,7 +79,7 @@
 .end method
 
 .method public getEvents()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

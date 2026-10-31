@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p2, "targetNode"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/graph/MultiEdgesConnecting;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/MultiEdgesConnecting;
 
     .line 39
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "edge"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -107,7 +107,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -138,7 +138,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 38
     .local p0, "this":Lcom/google/common/graph/MultiEdgesConnecting;, "Lcom/google/common/graph/MultiEdgesConnecting<TE;>;"

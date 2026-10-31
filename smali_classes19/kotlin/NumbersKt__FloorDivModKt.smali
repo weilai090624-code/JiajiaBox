@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/NumbersKt__BigIntegersKt;-><init>()V
 
@@ -41,7 +41,7 @@
 .end method
 
 .method private static final floorDiv(BB)I
-    .locals 2
+    .registers 4
     .param p0, "$this$floorDiv"    # B
     .param p1, "other"    # B
 
@@ -50,20 +50,20 @@
 
     xor-int v1, p0, p1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_c
 
     mul-int v1, v0, p1
 
-    if-eq v1, p0, :cond_0
+    if-eq v1, p0, :cond_c
 
     add-int/lit8 v0, v0, -0x1
 
-    :cond_0
+    :cond_c
     return v0
 .end method
 
 .method private static final floorDiv(BI)I
-    .locals 2
+    .registers 4
     .param p0, "$this$floorDiv"    # B
     .param p1, "other"    # I
 
@@ -72,20 +72,20 @@
 
     xor-int v1, p0, p1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_c
 
     mul-int v1, v0, p1
 
-    if-eq v1, p0, :cond_0
+    if-eq v1, p0, :cond_c
 
     add-int/lit8 v0, v0, -0x1
 
-    :cond_0
+    :cond_c
     return v0
 .end method
 
 .method private static final floorDiv(BS)I
-    .locals 2
+    .registers 4
     .param p0, "$this$floorDiv"    # B
     .param p1, "other"    # S
 
@@ -94,20 +94,20 @@
 
     xor-int v1, p0, p1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_c
 
     mul-int v1, v0, p1
 
-    if-eq v1, p0, :cond_0
+    if-eq v1, p0, :cond_c
 
     add-int/lit8 v0, v0, -0x1
 
-    :cond_0
+    :cond_c
     return v0
 .end method
 
 .method private static final floorDiv(IB)I
-    .locals 2
+    .registers 4
     .param p0, "$this$floorDiv"    # I
     .param p1, "other"    # B
 
@@ -116,20 +116,20 @@
 
     xor-int v1, p0, p1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_c
 
     mul-int v1, v0, p1
 
-    if-eq v1, p0, :cond_0
+    if-eq v1, p0, :cond_c
 
     add-int/lit8 v0, v0, -0x1
 
-    :cond_0
+    :cond_c
     return v0
 .end method
 
 .method private static final floorDiv(II)I
-    .locals 2
+    .registers 4
     .param p0, "$this$floorDiv"    # I
     .param p1, "other"    # I
 
@@ -140,21 +140,21 @@
     .local v0, "q":I
     xor-int v1, p0, p1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_c
 
     mul-int v1, v0, p1
 
-    if-eq v1, p0, :cond_0
+    if-eq v1, p0, :cond_c
 
     add-int/lit8 v0, v0, -0x1
 
     .line 202
-    :cond_0
+    :cond_c
     return v0
 .end method
 
 .method private static final floorDiv(IS)I
-    .locals 2
+    .registers 4
     .param p0, "$this$floorDiv"    # I
     .param p1, "other"    # S
 
@@ -163,20 +163,20 @@
 
     xor-int v1, p0, p1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_c
 
     mul-int v1, v0, p1
 
-    if-eq v1, p0, :cond_0
+    if-eq v1, p0, :cond_c
 
     add-int/lit8 v0, v0, -0x1
 
-    :cond_0
+    :cond_c
     return v0
 .end method
 
 .method private static final floorDiv(SB)I
-    .locals 2
+    .registers 4
     .param p0, "$this$floorDiv"    # S
     .param p1, "other"    # B
 
@@ -185,20 +185,20 @@
 
     xor-int v1, p0, p1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_c
 
     mul-int v1, v0, p1
 
-    if-eq v1, p0, :cond_0
+    if-eq v1, p0, :cond_c
 
     add-int/lit8 v0, v0, -0x1
 
-    :cond_0
+    :cond_c
     return v0
 .end method
 
 .method private static final floorDiv(SI)I
-    .locals 2
+    .registers 4
     .param p0, "$this$floorDiv"    # S
     .param p1, "other"    # I
 
@@ -207,20 +207,20 @@
 
     xor-int v1, p0, p1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_c
 
     mul-int v1, v0, p1
 
-    if-eq v1, p0, :cond_0
+    if-eq v1, p0, :cond_c
 
     add-int/lit8 v0, v0, -0x1
 
-    :cond_0
+    :cond_c
     return v0
 .end method
 
 .method private static final floorDiv(SS)I
-    .locals 2
+    .registers 4
     .param p0, "$this$floorDiv"    # S
     .param p1, "other"    # S
 
@@ -229,20 +229,20 @@
 
     xor-int v1, p0, p1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_c
 
     mul-int v1, v0, p1
 
-    if-eq v1, p0, :cond_0
+    if-eq v1, p0, :cond_c
 
     add-int/lit8 v0, v0, -0x1
 
-    :cond_0
+    :cond_c
     return v0
 .end method
 
 .method private static final floorDiv(BJ)J
-    .locals 9
+    .registers 12
     .param p0, "$this$floorDiv"    # B
     .param p1, "other"    # J
 
@@ -257,24 +257,24 @@
 
     cmp-long v8, v4, v6
 
-    if-gez v8, :cond_0
+    if-gez v8, :cond_14
 
     mul-long v4, v2, p1
 
     cmp-long v6, v4, v0
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_14
 
     const-wide/16 v0, -0x1
 
     add-long/2addr v2, v0
 
-    :cond_0
+    :cond_14
     return-wide v2
 .end method
 
 .method private static final floorDiv(IJ)J
-    .locals 9
+    .registers 12
     .param p0, "$this$floorDiv"    # I
     .param p1, "other"    # J
 
@@ -289,24 +289,24 @@
 
     cmp-long v8, v4, v6
 
-    if-gez v8, :cond_0
+    if-gez v8, :cond_14
 
     mul-long v4, v2, p1
 
     cmp-long v6, v4, v0
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_14
 
     const-wide/16 v0, -0x1
 
     add-long/2addr v2, v0
 
-    :cond_0
+    :cond_14
     return-wide v2
 .end method
 
 .method private static final floorDiv(JB)J
-    .locals 9
+    .registers 12
     .param p0, "$this$floorDiv"    # J
     .param p2, "other"    # B
 
@@ -321,24 +321,24 @@
 
     cmp-long v8, v4, v6
 
-    if-gez v8, :cond_0
+    if-gez v8, :cond_14
 
     mul-long v0, v0, v2
 
     cmp-long v4, v0, p0
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_14
 
     const-wide/16 v0, -0x1
 
     add-long/2addr v2, v0
 
-    :cond_0
+    :cond_14
     return-wide v2
 .end method
 
 .method private static final floorDiv(JI)J
-    .locals 9
+    .registers 12
     .param p0, "$this$floorDiv"    # J
     .param p2, "other"    # I
 
@@ -353,24 +353,24 @@
 
     cmp-long v8, v4, v6
 
-    if-gez v8, :cond_0
+    if-gez v8, :cond_14
 
     mul-long v0, v0, v2
 
     cmp-long v4, v0, p0
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_14
 
     const-wide/16 v0, -0x1
 
     add-long/2addr v2, v0
 
-    :cond_0
+    :cond_14
     return-wide v2
 .end method
 
 .method private static final floorDiv(JJ)J
-    .locals 7
+    .registers 11
     .param p0, "$this$floorDiv"    # J
     .param p2, "other"    # J
 
@@ -385,25 +385,25 @@
 
     cmp-long v6, v2, v4
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_13
 
     mul-long v2, v0, p2
 
     cmp-long v4, v2, p0
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_13
 
     const-wide/16 v2, -0x1
 
     add-long/2addr v0, v2
 
     .line 297
-    :cond_0
+    :cond_13
     return-wide v0
 .end method
 
 .method private static final floorDiv(JS)J
-    .locals 9
+    .registers 12
     .param p0, "$this$floorDiv"    # J
     .param p2, "other"    # S
 
@@ -418,24 +418,24 @@
 
     cmp-long v8, v4, v6
 
-    if-gez v8, :cond_0
+    if-gez v8, :cond_14
 
     mul-long v0, v0, v2
 
     cmp-long v4, v0, p0
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_14
 
     const-wide/16 v0, -0x1
 
     add-long/2addr v2, v0
 
-    :cond_0
+    :cond_14
     return-wide v2
 .end method
 
 .method private static final floorDiv(SJ)J
-    .locals 9
+    .registers 12
     .param p0, "$this$floorDiv"    # S
     .param p1, "other"    # J
 
@@ -450,24 +450,24 @@
 
     cmp-long v8, v4, v6
 
-    if-gez v8, :cond_0
+    if-gez v8, :cond_14
 
     mul-long v4, v2, p1
 
     cmp-long v6, v4, v0
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_14
 
     const-wide/16 v0, -0x1
 
     add-long/2addr v2, v0
 
-    :cond_0
+    :cond_14
     return-wide v2
 .end method
 
 .method private static final mod(BB)B
-    .locals 3
+    .registers 5
     .param p0, "$this$mod"    # B
     .param p1, "other"    # B
 
@@ -494,7 +494,7 @@
 .end method
 
 .method private static final mod(IB)B
-    .locals 3
+    .registers 5
     .param p0, "$this$mod"    # I
     .param p1, "other"    # B
 
@@ -521,7 +521,7 @@
 .end method
 
 .method private static final mod(JB)B
-    .locals 8
+    .registers 11
     .param p0, "$this$mod"    # J
     .param p2, "other"    # B
 
@@ -554,7 +554,7 @@
 .end method
 
 .method private static final mod(SB)B
-    .locals 3
+    .registers 5
     .param p0, "$this$mod"    # S
     .param p1, "other"    # B
 
@@ -581,7 +581,7 @@
 .end method
 
 .method private static final mod(DD)D
-    .locals 9
+    .registers 13
     .param p0, "$this$mod"    # D
     .param p2, "other"    # D
 
@@ -598,17 +598,17 @@
 
     cmpg-double v6, v0, v2
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_c
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
-    :goto_0
-    if-nez v2, :cond_2
+    :goto_d
+    if-nez v2, :cond_22
 
     invoke-static {v0, v1}, Ljava/lang/Math;->signum(D)D
 
@@ -620,29 +620,29 @@
 
     cmpg-double v8, v2, v6
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_1c
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     const/4 v4, 0x0
 
-    :goto_1
-    if-nez v4, :cond_2
+    :goto_1d
+    if-nez v4, :cond_22
 
     add-double v2, v0, p2
 
-    goto :goto_2
+    goto :goto_23
 
-    :cond_2
+    :cond_22
     move-wide v2, v0
 
-    :goto_2
+    :goto_23
     return-wide v2
 .end method
 
 .method private static final mod(DF)D
-    .locals 11
+    .registers 14
     .param p0, "$this$mod"    # D
     .param p2, "other"    # F
 
@@ -659,17 +659,17 @@
 
     cmpg-double v8, v2, v4
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_d
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v4, 0x0
 
-    :goto_0
-    if-nez v4, :cond_2
+    :goto_e
+    if-nez v4, :cond_21
 
     invoke-static {v2, v3}, Ljava/lang/Math;->signum(D)D
 
@@ -681,24 +681,24 @@
 
     cmpg-double v10, v4, v8
 
-    if-nez v10, :cond_1
+    if-nez v10, :cond_1d
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     const/4 v6, 0x0
 
-    :goto_1
-    if-nez v6, :cond_2
+    :goto_1e
+    if-nez v6, :cond_21
 
     add-double/2addr v2, v0
 
-    :cond_2
+    :cond_21
     return-wide v2
 .end method
 
 .method private static final mod(FD)D
-    .locals 9
+    .registers 12
     .param p0, "$this$mod"    # F
     .param p1, "other"    # D
 
@@ -715,17 +715,17 @@
 
     cmpg-double v6, v0, v2
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_c
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
-    :goto_0
-    if-nez v2, :cond_2
+    :goto_d
+    if-nez v2, :cond_20
 
     invoke-static {v0, v1}, Ljava/lang/Math;->signum(D)D
 
@@ -737,24 +737,24 @@
 
     cmpg-double v8, v2, v6
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_1c
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     const/4 v4, 0x0
 
-    :goto_1
-    if-nez v4, :cond_2
+    :goto_1d
+    if-nez v4, :cond_20
 
     add-double/2addr v0, p1
 
-    :cond_2
+    :cond_20
     return-wide v0
 .end method
 
 .method private static final mod(FF)F
-    .locals 5
+    .registers 7
     .param p0, "$this$mod"    # F
     .param p1, "other"    # F
 
@@ -771,17 +771,17 @@
 
     cmpg-float v1, v0, v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_2
+    :goto_c
+    if-nez v1, :cond_21
 
     invoke-static {v0}, Ljava/lang/Math;->signum(F)F
 
@@ -793,29 +793,29 @@
 
     cmpg-float v1, v1, v4
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1b
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     const/4 v2, 0x0
 
-    :goto_1
-    if-nez v2, :cond_2
+    :goto_1c
+    if-nez v2, :cond_21
 
     add-float v1, v0, p1
 
-    goto :goto_2
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     move v1, v0
 
-    :goto_2
+    :goto_22
     return v1
 .end method
 
 .method private static final mod(BI)I
-    .locals 3
+    .registers 5
     .param p0, "$this$mod"    # B
     .param p1, "other"    # I
 
@@ -840,7 +840,7 @@
 .end method
 
 .method private static final mod(II)I
-    .locals 3
+    .registers 5
     .param p0, "$this$mod"    # I
     .param p1, "other"    # I
 
@@ -867,7 +867,7 @@
 .end method
 
 .method private static final mod(JI)I
-    .locals 8
+    .registers 11
     .param p0, "$this$mod"    # J
     .param p2, "other"    # I
 
@@ -898,7 +898,7 @@
 .end method
 
 .method private static final mod(SI)I
-    .locals 3
+    .registers 5
     .param p0, "$this$mod"    # S
     .param p1, "other"    # I
 
@@ -923,7 +923,7 @@
 .end method
 
 .method private static final mod(BJ)J
-    .locals 6
+    .registers 9
     .param p0, "$this$mod"    # B
     .param p1, "other"    # J
 
@@ -952,7 +952,7 @@
 .end method
 
 .method private static final mod(IJ)J
-    .locals 6
+    .registers 9
     .param p0, "$this$mod"    # I
     .param p1, "other"    # J
 
@@ -981,7 +981,7 @@
 .end method
 
 .method private static final mod(JJ)J
-    .locals 6
+    .registers 10
     .param p0, "$this$mod"    # J
     .param p2, "other"    # J
 
@@ -1010,7 +1010,7 @@
 .end method
 
 .method private static final mod(SJ)J
-    .locals 6
+    .registers 9
     .param p0, "$this$mod"    # S
     .param p1, "other"    # J
 
@@ -1039,7 +1039,7 @@
 .end method
 
 .method private static final mod(BS)S
-    .locals 3
+    .registers 5
     .param p0, "$this$mod"    # B
     .param p1, "other"    # S
 
@@ -1066,7 +1066,7 @@
 .end method
 
 .method private static final mod(IS)S
-    .locals 3
+    .registers 5
     .param p0, "$this$mod"    # I
     .param p1, "other"    # S
 
@@ -1093,7 +1093,7 @@
 .end method
 
 .method private static final mod(JS)S
-    .locals 8
+    .registers 11
     .param p0, "$this$mod"    # J
     .param p2, "other"    # S
 
@@ -1126,7 +1126,7 @@
 .end method
 
 .method private static final mod(SS)S
-    .locals 3
+    .registers 5
     .param p0, "$this$mod"    # S
     .param p1, "other"    # S
 

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "message"    # Ljava/lang/String;
 
     .line 31
@@ -16,7 +16,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "throwable"    # Ljava/lang/Throwable;
 
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
     .line 35

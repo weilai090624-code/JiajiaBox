@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;)V
-    .locals 0
+    .registers 2
 
     .line 849
     iput-object p1, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
     .param p2, "x1"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$1;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 872
@@ -80,26 +80,26 @@
 .end method
 
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 4
+    .registers 6
     .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
     .line 858
     iget-boolean v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;->validValues:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     .line 859
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
 
     iget-object v0, v0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->shapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
 
     iget-object v0, v0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->shapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -108,7 +108,7 @@
 
     move-result v0
 
-    :goto_0
+    :goto_14
     iput v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;->shadowSizeStart:F
 
     .line 860
@@ -124,7 +124,7 @@
     iput-boolean v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;->validValues:Z
 
     .line 864
-    :cond_1
+    :cond_1f
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
 
     iget v1, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;->shadowSizeStart:F

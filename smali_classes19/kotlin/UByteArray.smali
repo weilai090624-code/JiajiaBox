@@ -105,7 +105,7 @@
 
 # direct methods
 .method private synthetic constructor <init>([B)V
-    .locals 0
+    .registers 2
     .param p1, "storage"    # [B
 
     .line 18
@@ -117,7 +117,7 @@
 .end method
 
 .method public static final synthetic box-impl([B)Lkotlin/UByteArray;
-    .locals 1
+    .registers 2
 
     new-instance v0, Lkotlin/UByteArray;
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public static constructor-impl(I)[B
-    .locals 1
+    .registers 2
     .param p0, "size"    # I
 
     .line 21
@@ -141,7 +141,7 @@
 .end method
 
 .method public static constructor-impl([B)[B
-    .locals 1
+    .registers 2
 
     const-string v0, "storage"
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public static contains-7apg3OU([BB)Z
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # [B
     .param p1, "element"    # B
 
@@ -167,7 +167,7 @@
 .end method
 
 .method public static containsAll-impl([BLjava/util/Collection;)Z
-    .locals 9
+    .registers 11
     .param p0, "arg0"    # [B
     .param p1, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
@@ -203,22 +203,22 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 89
-    :cond_0
+    :cond_14
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_3d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -236,7 +236,7 @@
 
     const/4 v8, 0x0
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_38
 
     move-object v7, v5
 
@@ -250,49 +250,49 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_38
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_2
+    :cond_38
     const/4 v5, 0x0
 
     .line 89
     .end local v5    # "it":Ljava/lang/Object;
     .end local v6    # "$i$a$-all-UByteArray$containsAll$1":I
-    :goto_0
-    if-nez v5, :cond_1
+    :goto_39
+    if-nez v5, :cond_18
 
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 90
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_3d
     nop
 
     .line 63
     .end local v0    # "$this$all$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$all":I
-    :goto_1
+    :goto_3e
     return v3
 .end method
 
 .method public static equals-impl([BLjava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     instance-of v0, p1, Lkotlin/UByteArray;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lkotlin/UByteArray;
@@ -305,18 +305,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     return v1
 
-    :cond_1
+    :cond_14
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static final equals-impl0([B[B)Z
-    .locals 1
+    .registers 3
 
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -326,7 +326,7 @@
 .end method
 
 .method public static final get-w2LRezQ([BI)B
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # [B
     .param p1, "index"    # I
 
@@ -341,7 +341,7 @@
 .end method
 
 .method public static getSize-impl([B)I
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # [B
 
     .line 42
@@ -351,13 +351,13 @@
 .end method
 
 .method public static synthetic getStorage$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static hashCode-impl([B)I
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Ljava/util/Arrays;->hashCode([B)I
 
@@ -367,27 +367,27 @@
 .end method
 
 .method public static isEmpty-impl([B)Z
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # [B
 
     .line 66
     array-length v0, p0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_6
     return v0
 .end method
 
 .method public static iterator-impl([B)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # [B
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -409,7 +409,7 @@
 .end method
 
 .method public static final set-VurrAj0([BIB)V
-    .locals 0
+    .registers 3
     .param p0, "arg0"    # [B
     .param p1, "index"    # I
     .param p2, "value"    # B
@@ -422,7 +422,7 @@
 .end method
 
 .method public static toString-impl([B)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -458,7 +458,7 @@
 
 # virtual methods
 .method public bridge synthetic add(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -470,7 +470,7 @@
 .end method
 
 .method public add-7apg3OU(B)Z
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -482,7 +482,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -503,7 +503,7 @@
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -515,19 +515,19 @@
 .end method
 
 .method public final bridge contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 13
     instance-of v0, p1, Lkotlin/UByte;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lkotlin/UByte;
@@ -544,7 +544,7 @@
 .end method
 
 .method public contains-7apg3OU(B)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # B
 
     .line 53
@@ -559,7 +559,7 @@
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .param p1, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -587,7 +587,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 
@@ -599,7 +599,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
@@ -612,7 +612,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 
@@ -624,7 +624,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
@@ -637,7 +637,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -658,7 +658,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -670,7 +670,7 @@
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -691,7 +691,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -712,7 +712,7 @@
 .end method
 
 .method public bridge synthetic size()I
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lkotlin/UByteArray;->getSize()I
@@ -723,7 +723,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     move-object v0, p0
 
@@ -737,7 +737,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -762,7 +762,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 
@@ -774,7 +774,7 @@
 .end method
 
 .method public final synthetic unbox-impl()[B
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 

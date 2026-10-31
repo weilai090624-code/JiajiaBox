@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "fractionalDigits"    # I
 
     .line 3407
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 20
+    .registers 23
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -78,7 +78,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_27
 
     .line 3417
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimePrintContext;->getTemporal()Lj$/time/temporal/TemporalAccessor;
@@ -96,16 +96,16 @@
     move-result-object v4
 
     .line 3419
-    :cond_0
+    :cond_27
     const/4 v5, 0x0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2b
 
     .line 3420
     return v5
 
     .line 3422
-    :cond_1
+    :cond_2b
     invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v6
@@ -114,18 +114,18 @@
     .local v6, "inSec":J
     sget-object v8, Lj$/time/temporal/ChronoField;->NANO_OF_SECOND:Lj$/time/temporal/ChronoField;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_38
 
     invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v11
 
-    goto :goto_0
+    goto :goto_3a
 
-    :cond_2
+    :cond_38
     const-wide/16 v11, 0x0
 
-    :goto_0
+    :goto_3a
     invoke-virtual {v8, v11, v12}, Lj$/time/temporal/ChronoField;->checkValidIntValue(J)I
 
     move-result v8
@@ -144,7 +144,7 @@
 
     cmp-long v18, v6, v11
 
-    if-ltz v18, :cond_5
+    if-ltz v18, :cond_8b
 
     .line 3427
     sub-long v11, v6, v9
@@ -189,7 +189,7 @@
 
     cmp-long v5, v14, v3
 
-    if-lez v5, :cond_3
+    if-lez v5, :cond_7e
 
     .line 3432
     const/16 v3, 0x2b
@@ -201,7 +201,7 @@
     invoke-virtual {v3, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     .line 3434
-    :cond_3
+    :cond_7e
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 3435
@@ -209,7 +209,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_8a
 
     .line 3436
     invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -219,15 +219,15 @@
     .end local v9    # "lo":J
     .end local v11    # "zeroSecs":J
     .end local v14    # "hi":J
-    :cond_4
-    goto :goto_1
+    :cond_8a
+    goto :goto_dc
 
     .line 3440
     .end local v18    # "inSecs":Ljava/lang/Long;
     .end local v19    # "inNanos":Ljava/lang/Long;
     .local v2, "inSecs":Ljava/lang/Long;
     .restart local v4    # "inNanos":Ljava/lang/Long;
-    :cond_5
+    :cond_8b
     move-object/from16 v18, v2
 
     move-object/from16 v19, v4
@@ -271,18 +271,18 @@
 
     move-result v14
 
-    if-nez v14, :cond_6
+    if-nez v14, :cond_ad
 
     .line 3447
     invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 3449
-    :cond_6
+    :cond_ad
     const-wide/16 v13, 0x0
 
     cmp-long v15, v11, v13
 
-    if-gez v15, :cond_9
+    if-gez v15, :cond_dc
 
     .line 3450
     invoke-virtual {v4}, Lj$/time/LocalDateTime;->getYear()I
@@ -291,7 +291,7 @@
 
     const/16 v14, -0x2710
 
-    if-ne v13, v14, :cond_7
+    if-ne v13, v14, :cond_c9
 
     .line 3451
     add-int/lit8 v13, v5, 0x2
@@ -306,23 +306,23 @@
 
     invoke-virtual {v1, v5, v13, v14}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_dc
 
     .line 3452
-    :cond_7
+    :cond_c9
     const-wide/16 v13, 0x0
 
     cmp-long v15, v9, v13
 
-    if-nez v15, :cond_8
+    if-nez v15, :cond_d3
 
     .line 3453
     invoke-virtual {v1, v5, v11, v12}, Ljava/lang/StringBuilder;->insert(IJ)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_dc
 
     .line 3455
-    :cond_8
+    :cond_d3
     add-int/lit8 v13, v5, 0x1
 
     invoke-static {v11, v12}, Ljava/lang/Math;->abs(J)J
@@ -337,21 +337,21 @@
     .end local v5    # "pos":I
     .end local v9    # "lo":J
     .end local v11    # "hi":J
-    :cond_9
-    :goto_1
+    :cond_dc
+    :goto_dc
     iget v2, v0, Lj$/time/format/DateTimeFormatterBuilder$InstantPrinterParser;->fractionalDigits:I
 
-    if-gez v2, :cond_a
+    if-gez v2, :cond_e2
 
-    if-gtz v8, :cond_b
+    if-gtz v8, :cond_e6
 
-    :cond_a
+    :cond_e2
     iget v2, v0, Lj$/time/format/DateTimeFormatterBuilder$InstantPrinterParser;->fractionalDigits:I
 
-    if-lez v2, :cond_f
+    if-lez v2, :cond_115
 
     .line 3461
-    :cond_b
+    :cond_e6
     const/16 v2, 0x2e
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -364,35 +364,35 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_2
+    :goto_ef
     iget v4, v0, Lj$/time/format/DateTimeFormatterBuilder$InstantPrinterParser;->fractionalDigits:I
 
     const/4 v5, -0x1
 
-    if-ne v4, v5, :cond_c
+    if-ne v4, v5, :cond_f6
 
-    if-gtz v8, :cond_e
+    if-gtz v8, :cond_105
 
-    :cond_c
+    :cond_f6
     iget v4, v0, Lj$/time/format/DateTimeFormatterBuilder$InstantPrinterParser;->fractionalDigits:I
 
     const/4 v5, -0x2
 
-    if-ne v4, v5, :cond_d
+    if-ne v4, v5, :cond_101
 
-    if-gtz v8, :cond_e
+    if-gtz v8, :cond_105
 
     rem-int/lit8 v4, v3, 0x3
 
-    if-nez v4, :cond_e
+    if-nez v4, :cond_105
 
-    :cond_d
+    :cond_101
     iget v4, v0, Lj$/time/format/DateTimeFormatterBuilder$InstantPrinterParser;->fractionalDigits:I
 
-    if-ge v3, v4, :cond_f
+    if-ge v3, v4, :cond_115
 
     .line 3466
-    :cond_e
+    :cond_105
     div-int v4, v8, v2
 
     .line 3467
@@ -415,12 +415,12 @@
     .end local v4    # "digit":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_ef
 
     .line 3472
     .end local v2    # "div":I
     .end local v3    # "i":I
-    :cond_f
+    :cond_115
     const/16 v2, 0x5a
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -432,7 +432,7 @@
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 28
+    .registers 32
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -446,32 +446,32 @@
 
     const/4 v2, 0x0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_b
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     iget v0, v1, Lj$/time/format/DateTimeFormatterBuilder$InstantPrinterParser;->fractionalDigits:I
 
-    :goto_0
+    :goto_d
     move v9, v0
 
     .line 3480
     .local v9, "minDigits":I
     iget v0, v1, Lj$/time/format/DateTimeFormatterBuilder$InstantPrinterParser;->fractionalDigits:I
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_15
 
     const/16 v0, 0x9
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_15
     iget v0, v1, Lj$/time/format/DateTimeFormatterBuilder$InstantPrinterParser;->fractionalDigits:I
 
-    :goto_1
+    :goto_17
     move v10, v0
 
     .line 3481
@@ -567,13 +567,13 @@
 
     .line 3491
     .local v14, "pos":I
-    if-gez v14, :cond_2
+    if-gez v14, :cond_68
 
     .line 3492
     return v14
 
     .line 3496
-    :cond_2
+    :cond_68
     sget-object v0, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v12, v0}, Lj$/time/format/DateTimeParseContext;->getParsed(Lj$/time/temporal/TemporalField;)Ljava/lang/Long;
@@ -650,21 +650,21 @@
 
     .line 3503
     .local v25, "nanoVal":Ljava/lang/Long;
-    if-eqz v24, :cond_3
+    if-eqz v24, :cond_ad
 
     invoke-virtual/range {v24 .. v24}, Ljava/lang/Long;->intValue()I
 
     move-result v3
 
-    goto :goto_2
+    goto :goto_ae
 
-    :cond_3
+    :cond_ad
     const/4 v3, 0x0
 
     .line 3504
     .local v3, "sec":I
-    :goto_2
-    if-eqz v25, :cond_4
+    :goto_ae
+    if-eqz v25, :cond_b4
 
     invoke-virtual/range {v25 .. v25}, Ljava/lang/Long;->intValue()I
 
@@ -672,20 +672,20 @@
 
     .line 3505
     .local v2, "nano":I
-    :cond_4
+    :cond_b4
     const/4 v7, 0x0
 
     .line 3506
     .local v7, "days":I
     const/16 v15, 0x18
 
-    if-ne v0, v15, :cond_5
+    if-ne v0, v15, :cond_c7
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_c7
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_c7
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_c7
 
     .line 3507
     const/4 v0, 0x0
@@ -699,21 +699,21 @@
 
     move v3, v7
 
-    goto :goto_3
+    goto :goto_e3
 
     .line 3509
-    :cond_5
+    :cond_c7
     const/16 v15, 0x17
 
-    if-ne v0, v15, :cond_6
+    if-ne v0, v15, :cond_de
 
     const/16 v15, 0x3b
 
-    if-ne v6, v15, :cond_6
+    if-ne v6, v15, :cond_de
 
     const/16 v15, 0x3c
 
-    if-ne v3, v15, :cond_6
+    if-ne v3, v15, :cond_de
 
     .line 3510
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->setParsedLeapSecond()V
@@ -727,10 +727,10 @@
 
     move v3, v7
 
-    goto :goto_3
+    goto :goto_e3
 
     .line 3513
-    :cond_6
+    :cond_de
     move/from16 v26, v0
 
     move/from16 v27, v3
@@ -742,7 +742,7 @@
     .local v3, "days":I
     .local v26, "hour":I
     .local v27, "sec":I
-    :goto_3
+    :goto_e3
     long-to-int v0, v4
 
     rem-int/lit16 v7, v0, 0x2710
@@ -763,12 +763,12 @@
 
     move/from16 v20, v27
 
-    :try_start_0
+    :try_start_f3
     invoke-static/range {v15 .. v21}, Lj$/time/LocalDateTime;->of(IIIIIII)Lj$/time/LocalDateTime;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_3
+    :try_end_f7
+    .catch Ljava/lang/RuntimeException; {:try_start_f3 .. :try_end_f7} :catch_146
 
     move v15, v2
 
@@ -776,7 +776,7 @@
     .local v15, "nano":I
     int-to-long v1, v3
 
-    :try_start_1
+    :try_start_f9
     invoke-virtual {v0, v1, v2}, Lj$/time/LocalDateTime;->plusDays(J)Lj$/time/LocalDateTime;
 
     move-result-object v0
@@ -788,8 +788,8 @@
     invoke-virtual {v0, v1}, Lj$/time/LocalDateTime;->toEpochSecond(Lj$/time/ZoneOffset;)J
 
     move-result-wide v1
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_2
+    :try_end_103
+    .catch Ljava/lang/RuntimeException; {:try_start_f9 .. :try_end_103} :catch_13c
 
     .line 3518
     .local v1, "instantSecs":J
@@ -803,10 +803,10 @@
     .end local v7    # "year":I
     .local v18, "min":I
     .local v19, "year":I
-    :try_start_2
+    :try_start_109
     div-long v6, v4, v16
-    :try_end_2
-    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_10b
+    .catch Ljava/lang/RuntimeException; {:try_start_109 .. :try_end_10b} :catch_136
 
     move-wide/from16 v16, v4
 
@@ -818,12 +818,12 @@
     .local v16, "yearParsed":J
     const-wide v3, 0x497968bd80L
 
-    :try_start_3
+    :try_start_113
     invoke-static {v6, v7, v3, v4}, Lj$/time/Duration$$ExternalSyntheticBackport1;->m(JJ)J
 
     move-result-wide v3
-    :try_end_3
-    .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_117
+    .catch Ljava/lang/RuntimeException; {:try_start_113 .. :try_end_117} :catch_132
 
     add-long v0, v1, v3
 
@@ -873,20 +873,20 @@
     .end local v20    # "days":I
     .end local v21    # "successPos":I
     .restart local v5    # "days":I
-    :catch_0
+    :catch_132
     move-exception v0
 
     move/from16 v20, v5
 
     .end local v5    # "days":I
     .restart local v20    # "days":I
-    goto :goto_4
+    goto :goto_150
 
     .end local v16    # "yearParsed":J
     .end local v20    # "days":I
     .restart local v3    # "days":I
     .restart local v4    # "yearParsed":J
-    :catch_1
+    :catch_136
     move-exception v0
 
     move/from16 v20, v3
@@ -897,7 +897,7 @@
     .end local v4    # "yearParsed":J
     .restart local v16    # "yearParsed":J
     .restart local v20    # "days":I
-    goto :goto_4
+    goto :goto_150
 
     .end local v16    # "yearParsed":J
     .end local v18    # "min":I
@@ -907,7 +907,7 @@
     .restart local v4    # "yearParsed":J
     .restart local v6    # "min":I
     .local v7, "year":I
-    :catch_2
+    :catch_13c
     move-exception v0
 
     move/from16 v20, v3
@@ -926,7 +926,7 @@
     .restart local v18    # "min":I
     .restart local v19    # "year":I
     .restart local v20    # "days":I
-    goto :goto_4
+    goto :goto_150
 
     .end local v15    # "nano":I
     .end local v16    # "yearParsed":J
@@ -938,7 +938,7 @@
     .restart local v4    # "yearParsed":J
     .restart local v6    # "min":I
     .restart local v7    # "year":I
-    :catch_3
+    :catch_146
     move-exception v0
 
     move v15, v2
@@ -963,14 +963,14 @@
     .restart local v18    # "min":I
     .restart local v19    # "year":I
     .restart local v20    # "days":I
-    :goto_4
+    :goto_150
     not-int v1, v8
 
     return v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 3529
     const-string v0, "Instant()"

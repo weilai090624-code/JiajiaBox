@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Node;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,21 +65,21 @@
     .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     iget-object v0, p0, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->curNode:Lj$/util/stream/Node;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 1098
     return-void
 
     .line 1100
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->tryAdvanceSpliterator:Lj$/util/Spliterator;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_26
 
     .line 1101
     iget-object v0, p0, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->lastNodeSpliterator:Lj$/util/Spliterator;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_20
 
     .line 1102
     invoke-virtual {p0}, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->initStack()Ljava/util/Deque;
@@ -88,7 +88,7 @@
 
     .line 1104
     .local v0, "stack":Ljava/util/Deque;, "Ljava/util/Deque<Ljava/util/stream/Node<TT;>;>;"
-    :goto_0
+    :goto_11
     invoke-virtual {p0, v0}, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->findNextLeafNode(Ljava/util/Deque;)Lj$/util/stream/Node;
 
     move-result-object v1
@@ -96,15 +96,15 @@
     move-object v2, v1
 
     .local v2, "leaf":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     .line 1105
     invoke-interface {v2, p1}, Lj$/util/stream/Node;->forEach(Ljava/util/function/Consumer;)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1107
-    :cond_1
+    :cond_1c
     const/4 v1, 0x0
 
     iput-object v1, p0, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->curNode:Lj$/util/stream/Node;
@@ -112,35 +112,35 @@
     .line 1108
     .end local v0    # "stack":Ljava/util/Deque;, "Ljava/util/Deque<Ljava/util/stream/Node<TT;>;>;"
     .end local v2    # "leaf":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
-    goto :goto_2
+    goto :goto_2d
 
     .line 1110
-    :cond_2
+    :cond_20
     iget-object v0, p0, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->lastNodeSpliterator:Lj$/util/Spliterator;
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
-    goto :goto_2
+    goto :goto_2d
 
     .line 1113
-    :cond_3
-    :goto_1
+    :cond_26
+    :goto_26
     invoke-virtual {p0, p1}, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->tryAdvance(Ljava/util/function/Consumer;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_2d
 
-    goto :goto_1
+    goto :goto_26
 
     .line 1114
-    :cond_4
-    :goto_2
+    :cond_2d
+    :goto_2d
     return-void
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -156,7 +156,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 1076
     const/4 v0, 0x0
@@ -164,7 +164,7 @@
     return v0
 
     .line 1078
-    :cond_0
+    :cond_8
     iget-object v0, p0, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->tryAdvanceSpliterator:Lj$/util/Spliterator;
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
@@ -173,12 +173,12 @@
 
     .line 1079
     .local v0, "hasNext":Z
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2c
 
     .line 1080
     iget-object v1, p0, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->lastNodeSpliterator:Lj$/util/Spliterator;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_29
 
     .line 1082
     iget-object v1, p0, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->tryAdvanceStack:Ljava/util/Deque;
@@ -189,7 +189,7 @@
 
     .line 1083
     .local v1, "leaf":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_29
 
     .line 1084
     invoke-interface {v1}, Lj$/util/stream/Node;->spliterator()Lj$/util/Spliterator;
@@ -209,12 +209,12 @@
 
     .line 1090
     .end local v1    # "leaf":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
-    :cond_1
+    :cond_29
     const/4 v1, 0x0
 
     iput-object v1, p0, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfRef;->curNode:Lj$/util/stream/Node;
 
     .line 1092
-    :cond_2
+    :cond_2c
     return v0
 .end method

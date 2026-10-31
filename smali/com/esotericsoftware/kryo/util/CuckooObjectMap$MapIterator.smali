@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/CuckooObjectMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method advance()V
-    .locals 4
+    .registers 5
 
     .line 692
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator<TK;TV;>;"
@@ -97,7 +97,7 @@
     add-int/2addr v1, v2
 
     .local v1, "n":I
-    :cond_0
+    :cond_10
     iget v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->nextIndex:I
 
     const/4 v3, 0x1
@@ -106,14 +106,14 @@
 
     iput v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->nextIndex:I
 
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_21
 
     .line 695
     iget v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->nextIndex:I
 
     aget-object v2, v0, v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_10
 
     .line 696
     iput-boolean v3, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->hasNext:Z
@@ -123,18 +123,18 @@
 
     .line 700
     .end local v1    # "n":I
-    :cond_1
+    :cond_21
     return-void
 .end method
 
 .method public remove()V
-    .locals 3
+    .registers 4
 
     .line 703
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator<TK;TV;>;"
     iget v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->currentIndex:I
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_3a
 
     .line 704
     iget v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->currentIndex:I
@@ -143,7 +143,7 @@
 
     iget v1, v1, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1d
 
     .line 705
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->map:Lcom/esotericsoftware/kryo/util/CuckooObjectMap;
@@ -162,10 +162,10 @@
     .line 707
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->advance()V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 709
-    :cond_0
+    :cond_1d
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->map:Lcom/esotericsoftware/kryo/util/CuckooObjectMap;
 
     iget-object v0, v0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -186,7 +186,7 @@
     aput-object v2, v0, v1
 
     .line 712
-    :goto_0
+    :goto_2e
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->currentIndex:I
@@ -204,7 +204,7 @@
     return-void
 
     .line 703
-    :cond_1
+    :cond_3a
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "next must be called before remove."
@@ -215,7 +215,7 @@
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     .line 686
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator<TK;TV;>;"

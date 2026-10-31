@@ -140,7 +140,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 14
+    .registers 14
 
     .line 205
     new-instance v0, Lcom/google/common/cache/CacheBuilder$1;
@@ -206,7 +206,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 296
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -252,7 +252,7 @@
 .end method
 
 .method private checkNonLoadingCache()V
-    .locals 5
+    .registers 6
 
     .line 920
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -262,16 +262,16 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     const-string v1, "refreshAfterWrite requires a LoadingCache"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
@@ -281,7 +281,7 @@
 .end method
 
 .method private checkWeightWithWeigher()V
-    .locals 7
+    .registers 8
 
     .line 924
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -293,59 +293,59 @@
 
     const-wide/16 v3, -0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
     .line 925
     iget-wide v5, p0, Lcom/google/common/cache/CacheBuilder;->maximumWeight:J
 
     cmp-long v0, v5, v3
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_10
     const-string v0, "maximumWeight requires weigher"
 
     invoke-static {v1, v0}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_38
 
     .line 927
-    :cond_1
+    :cond_16
     iget-boolean v0, p0, Lcom/google/common/cache/CacheBuilder;->strictParsing:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_29
 
     .line 928
     iget-wide v5, p0, Lcom/google/common/cache/CacheBuilder;->maximumWeight:J
 
     cmp-long v0, v5, v3
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_22
     const-string/jumbo v0, "weigher requires maximumWeight"
 
     invoke-static {v1, v0}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_38
 
     .line 930
-    :cond_3
+    :cond_29
     iget-wide v0, p0, Lcom/google/common/cache/CacheBuilder;->maximumWeight:J
 
     cmp-long v2, v0, v3
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_38
 
     .line 931
     sget-object v0, Lcom/google/common/cache/CacheBuilder;->logger:Ljava/util/logging/Logger;
@@ -357,13 +357,13 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     .line 935
-    :cond_4
-    :goto_2
+    :cond_38
+    :goto_38
     return-void
 .end method
 
 .method public static from(Lcom/google/common/cache/CacheBuilderSpec;)Lcom/google/common/cache/CacheBuilder;
-    .locals 1
+    .registers 2
     .param p0, "spec"    # Lcom/google/common/cache/CacheBuilderSpec;
     .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
     .end annotation
@@ -393,7 +393,7 @@
 .end method
 
 .method public static from(Ljava/lang/String;)Lcom/google/common/cache/CacheBuilder;
-    .locals 1
+    .registers 2
     .param p0, "spec"    # Ljava/lang/String;
     .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
     .end annotation
@@ -423,7 +423,7 @@
 .end method
 
 .method public static newBuilder()Lcom/google/common/cache/CacheBuilder;
-    .locals 1
+    .registers 1
     .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
     .end annotation
 
@@ -448,7 +448,7 @@
 
 # virtual methods
 .method public build()Lcom/google/common/cache/Cache;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
     .end annotation
 
@@ -476,7 +476,7 @@
 .end method
 
 .method public build(Lcom/google/common/cache/CacheLoader;)Lcom/google/common/cache/LoadingCache;
-    .locals 1
+    .registers 3
     .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
     .end annotation
 
@@ -504,7 +504,7 @@
 .end method
 
 .method public concurrencyLevel(I)Lcom/google/common/cache/CacheBuilder;
-    .locals 5
+    .registers 7
     .param p1, "concurrencyLevel"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -524,16 +524,16 @@
 
     const/4 v3, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     const-string v1, "concurrency level was already set to %s"
 
     iget v4, p0, Lcom/google/common/cache/CacheBuilder;->concurrencyLevel:I
@@ -541,14 +541,14 @@
     invoke-static {v0, v1, v4}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/String;I)V
 
     .line 446
-    if-lez p1, :cond_1
+    if-lez p1, :cond_14
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_15
     invoke-static {v2}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 447
@@ -559,7 +559,7 @@
 .end method
 
 .method public expireAfterAccess(JLjava/util/concurrent/TimeUnit;)Lcom/google/common/cache/CacheBuilder;
-    .locals 7
+    .registers 11
     .param p1, "duration"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -584,16 +584,16 @@
 
     cmp-long v6, v0, v2
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     const-string v1, "expireAfterAccess was already set to %s ns"
 
     iget-wide v2, p0, Lcom/google/common/cache/CacheBuilder;->expireAfterAccessNanos:J
@@ -605,14 +605,14 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_1b
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_1c
     const-string v0, "duration cannot be negative: %s %s"
 
     invoke-static {v4, v0, p1, p2, p3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;JLjava/lang/Object;)V
@@ -629,7 +629,7 @@
 .end method
 
 .method public expireAfterWrite(JLjava/util/concurrent/TimeUnit;)Lcom/google/common/cache/CacheBuilder;
-    .locals 7
+    .registers 11
     .param p1, "duration"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -654,16 +654,16 @@
 
     cmp-long v6, v0, v2
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     const-string v1, "expireAfterWrite was already set to %s ns"
 
     iget-wide v2, p0, Lcom/google/common/cache/CacheBuilder;->expireAfterWriteNanos:J
@@ -675,14 +675,14 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_1b
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_1c
     const-string v0, "duration cannot be negative: %s %s"
 
     invoke-static {v4, v0, p1, p2, p3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;JLjava/lang/Object;)V
@@ -699,7 +699,7 @@
 .end method
 
 .method getConcurrencyLevel()I
-    .locals 2
+    .registers 3
 
     .line 452
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -707,21 +707,21 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x4
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     iget v0, p0, Lcom/google/common/cache/CacheBuilder;->concurrencyLevel:I
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method getExpireAfterAccessNanos()J
-    .locals 5
+    .registers 6
 
     .line 749
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -731,24 +731,24 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_b
 
     .line 750
     const-wide/16 v0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
     .line 751
-    :cond_0
+    :cond_b
     iget-wide v0, p0, Lcom/google/common/cache/CacheBuilder;->expireAfterAccessNanos:J
 
     .line 749
-    :goto_0
+    :goto_d
     return-wide v0
 .end method
 
 .method getExpireAfterWriteNanos()J
-    .locals 5
+    .registers 6
 
     .line 709
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -758,21 +758,21 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_b
 
     const-wide/16 v0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     iget-wide v0, p0, Lcom/google/common/cache/CacheBuilder;->expireAfterWriteNanos:J
 
-    :goto_0
+    :goto_d
     return-wide v0
 .end method
 
 .method getInitialCapacity()I
-    .locals 2
+    .registers 3
 
     .line 407
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -780,21 +780,21 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/16 v0, 0x10
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_8
     iget v0, p0, Lcom/google/common/cache/CacheBuilder;->initialCapacity:I
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method getKeyEquivalence()Lcom/google/common/base/Equivalence;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -826,7 +826,7 @@
 .end method
 
 .method getKeyStrength()Lcom/google/common/cache/LocalCache$Strength;
-    .locals 2
+    .registers 3
 
     .line 617
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -844,7 +844,7 @@
 .end method
 
 .method getMaximumWeight()J
-    .locals 5
+    .registers 6
 
     .line 577
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -854,40 +854,40 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_19
 
     iget-wide v0, p0, Lcom/google/common/cache/CacheBuilder;->expireAfterAccessNanos:J
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_f
 
-    goto :goto_1
+    goto :goto_19
 
     .line 580
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilder;->weigher:Lcom/google/common/cache/Weigher;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
     iget-wide v0, p0, Lcom/google/common/cache/CacheBuilder;->maximumSize:J
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_16
     iget-wide v0, p0, Lcom/google/common/cache/CacheBuilder;->maximumWeight:J
 
-    :goto_0
+    :goto_18
     return-wide v0
 
     .line 578
-    :cond_2
-    :goto_1
+    :cond_19
+    :goto_19
     return-wide v2
 .end method
 
 .method getRefreshNanos()J
-    .locals 5
+    .registers 6
 
     .line 793
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -897,21 +897,21 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_b
 
     const-wide/16 v0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     iget-wide v0, p0, Lcom/google/common/cache/CacheBuilder;->refreshNanos:J
 
-    :goto_0
+    :goto_d
     return-wide v0
 .end method
 
 .method getRemovalListener()Lcom/google/common/cache/RemovalListener;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K1:TK;V1:TV;>()",
@@ -938,7 +938,7 @@
 .end method
 
 .method getStatsCounterSupplier()Lcom/google/common/base/Supplier;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -957,14 +957,14 @@
 .end method
 
 .method getTicker(Z)Lcom/google/common/base/Ticker;
-    .locals 1
+    .registers 3
     .param p1, "recordsTime"    # Z
 
     .line 813
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilder;->ticker:Lcom/google/common/base/Ticker;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 814
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilder;->ticker:Lcom/google/common/base/Ticker;
@@ -972,24 +972,24 @@
     return-object v0
 
     .line 816
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_7
+    if-eqz p1, :cond_e
 
     invoke-static {}, Lcom/google/common/base/Ticker;->systemTicker()Lcom/google/common/base/Ticker;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_1
+    :cond_e
     sget-object v0, Lcom/google/common/cache/CacheBuilder;->NULL_TICKER:Lcom/google/common/base/Ticker;
 
-    :goto_0
+    :goto_10
     return-object v0
 .end method
 
 .method getValueEquivalence()Lcom/google/common/base/Equivalence;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1021,7 +1021,7 @@
 .end method
 
 .method getValueStrength()Lcom/google/common/cache/LocalCache$Strength;
-    .locals 2
+    .registers 3
 
     .line 674
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -1039,7 +1039,7 @@
 .end method
 
 .method getWeigher()Lcom/google/common/cache/Weigher;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K1:TK;V1:TV;>()",
@@ -1064,7 +1064,7 @@
 .end method
 
 .method public initialCapacity(I)Lcom/google/common/cache/CacheBuilder;
-    .locals 5
+    .registers 7
     .param p1, "initialCapacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1084,16 +1084,16 @@
 
     const/4 v3, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     const-string v1, "initial capacity was already set to %s"
 
     iget v4, p0, Lcom/google/common/cache/CacheBuilder;->initialCapacity:I
@@ -1101,14 +1101,14 @@
     invoke-static {v0, v1, v4}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/String;I)V
 
     .line 401
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_14
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_15
     invoke-static {v2}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 402
@@ -1119,7 +1119,7 @@
 .end method
 
 .method isRecordingStats()Z
-    .locals 2
+    .registers 3
 
     .line 874
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -1127,21 +1127,21 @@
 
     sget-object v1, Lcom/google/common/cache/CacheBuilder;->CACHE_STATS_COUNTER:Lcom/google/common/base/Supplier;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method keyEquivalence(Lcom/google/common/base/Equivalence;)Lcom/google/common/cache/CacheBuilder;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1158,16 +1158,16 @@
     .local p1, "equivalence":Lcom/google/common/base/Equivalence;, "Lcom/google/common/base/Equivalence<Ljava/lang/Object;>;"
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilder;->keyEquivalence:Lcom/google/common/base/Equivalence;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     const-string v1, "key equivalence was already set to %s"
 
     iget-object v2, p0, Lcom/google/common/cache/CacheBuilder;->keyEquivalence:Lcom/google/common/base/Equivalence;
@@ -1188,7 +1188,7 @@
 .end method
 
 .method lenientParsing()Lcom/google/common/cache/CacheBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1208,7 +1208,7 @@
 .end method
 
 .method public maximumSize(J)Lcom/google/common/cache/CacheBuilder;
-    .locals 8
+    .registers 11
     .param p1, "maximumSize"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1230,16 +1230,16 @@
 
     cmp-long v6, v0, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     const-string v1, "maximum size was already set to %s"
 
     iget-wide v6, p0, Lcom/google/common/cache/CacheBuilder;->maximumSize:J
@@ -1251,16 +1251,16 @@
 
     cmp-long v6, v0, v4
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_1c
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_1d
     const-string v1, "maximum weight was already set to %s"
 
     iget-wide v4, p0, Lcom/google/common/cache/CacheBuilder;->maximumWeight:J
@@ -1270,16 +1270,16 @@
     .line 483
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilder;->weigher:Lcom/google/common/cache/Weigher;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2a
 
     const/4 v0, 0x1
 
-    goto :goto_2
+    goto :goto_2b
 
-    :cond_2
+    :cond_2a
     const/4 v0, 0x0
 
-    :goto_2
+    :goto_2b
     const-string v1, "maximum size can not be combined with weigher"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
@@ -1289,14 +1289,14 @@
 
     cmp-long v4, p1, v0
 
-    if-ltz v4, :cond_3
+    if-ltz v4, :cond_37
 
-    goto :goto_3
+    goto :goto_38
 
-    :cond_3
+    :cond_37
     const/4 v2, 0x0
 
-    :goto_3
+    :goto_38
     const-string v0, "maximum size must not be negative"
 
     invoke-static {v2, v0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -1309,7 +1309,7 @@
 .end method
 
 .method public maximumWeight(J)Lcom/google/common/cache/CacheBuilder;
-    .locals 8
+    .registers 11
     .param p1, "maximumWeight"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1331,16 +1331,16 @@
 
     cmp-long v6, v0, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     const-string v1, "maximum weight was already set to %s"
 
     iget-wide v6, p0, Lcom/google/common/cache/CacheBuilder;->maximumWeight:J
@@ -1352,16 +1352,16 @@
 
     cmp-long v6, v0, v4
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_1c
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_1d
     const-string v1, "maximum size was already set to %s"
 
     iget-wide v4, p0, Lcom/google/common/cache/CacheBuilder;->maximumSize:J
@@ -1373,14 +1373,14 @@
 
     cmp-long v4, p1, v0
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_2b
 
-    goto :goto_2
+    goto :goto_2c
 
-    :cond_2
+    :cond_2b
     const/4 v2, 0x0
 
-    :goto_2
+    :goto_2c
     const-string v0, "maximum weight must not be negative"
 
     invoke-static {v2, v0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -1393,7 +1393,7 @@
 .end method
 
 .method public recordStats()Lcom/google/common/cache/CacheBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1413,7 +1413,7 @@
 .end method
 
 .method public refreshAfterWrite(JLjava/util/concurrent/TimeUnit;)Lcom/google/common/cache/CacheBuilder;
-    .locals 7
+    .registers 11
     .param p1, "duration"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -1441,16 +1441,16 @@
 
     cmp-long v6, v0, v2
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     const-string v1, "refresh was already set to %s ns"
 
     iget-wide v2, p0, Lcom/google/common/cache/CacheBuilder;->refreshNanos:J
@@ -1462,14 +1462,14 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_1e
 
-    goto :goto_1
+    goto :goto_1f
 
-    :cond_1
+    :cond_1e
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_1f
     const-string v0, "duration must be positive: %s %s"
 
     invoke-static {v4, v0, p1, p2, p3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;JLjava/lang/Object;)V
@@ -1486,7 +1486,7 @@
 .end method
 
 .method public removalListener(Lcom/google/common/cache/RemovalListener;)Lcom/google/common/cache/CacheBuilder;
-    .locals 2
+    .registers 4
     .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
     .end annotation
 
@@ -1505,16 +1505,16 @@
     .local p1, "listener":Lcom/google/common/cache/RemovalListener;, "Lcom/google/common/cache/RemovalListener<-TK1;-TV1;>;"
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilder;->removalListener:Lcom/google/common/cache/RemovalListener;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 847
@@ -1535,7 +1535,7 @@
 .end method
 
 .method setKeyStrength(Lcom/google/common/cache/LocalCache$Strength;)Lcom/google/common/cache/CacheBuilder;
-    .locals 3
+    .registers 5
     .param p1, "strength"    # Lcom/google/common/cache/LocalCache$Strength;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1551,16 +1551,16 @@
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilder;->keyStrength:Lcom/google/common/cache/LocalCache$Strength;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     const-string v1, "Key strength was already set to %s"
 
     iget-object v2, p0, Lcom/google/common/cache/CacheBuilder;->keyStrength:Lcom/google/common/cache/LocalCache$Strength;
@@ -1581,7 +1581,7 @@
 .end method
 
 .method setValueStrength(Lcom/google/common/cache/LocalCache$Strength;)Lcom/google/common/cache/CacheBuilder;
-    .locals 3
+    .registers 5
     .param p1, "strength"    # Lcom/google/common/cache/LocalCache$Strength;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1597,16 +1597,16 @@
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilder;->valueStrength:Lcom/google/common/cache/LocalCache$Strength;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     const-string v1, "Value strength was already set to %s"
 
     iget-object v2, p0, Lcom/google/common/cache/CacheBuilder;->valueStrength:Lcom/google/common/cache/LocalCache$Strength;
@@ -1627,7 +1627,7 @@
 .end method
 
 .method public softValues()Lcom/google/common/cache/CacheBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1648,7 +1648,7 @@
 .end method
 
 .method public ticker(Lcom/google/common/base/Ticker;)Lcom/google/common/cache/CacheBuilder;
-    .locals 1
+    .registers 3
     .param p1, "ticker"    # Lcom/google/common/base/Ticker;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1664,16 +1664,16 @@
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilder;->ticker:Lcom/google/common/base/Ticker;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 808
@@ -1690,7 +1690,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     .line 943
     .local p0, "this":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<TK;TV;>;"
@@ -1704,7 +1704,7 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_10
 
     .line 945
     const-string v1, "initialCapacity"
@@ -1714,10 +1714,10 @@
     invoke-virtual {v0, v1, v3}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;I)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 947
-    :cond_0
+    :cond_10
     iget v1, p0, Lcom/google/common/cache/CacheBuilder;->concurrencyLevel:I
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_1b
 
     .line 948
     const-string v1, "concurrencyLevel"
@@ -1727,14 +1727,14 @@
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;I)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 950
-    :cond_1
+    :cond_1b
     iget-wide v1, p0, Lcom/google/common/cache/CacheBuilder;->maximumSize:J
 
     const-wide/16 v3, -0x1
 
     cmp-long v5, v1, v3
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_2a
 
     .line 951
     const-string v1, "maximumSize"
@@ -1744,12 +1744,12 @@
     invoke-virtual {v0, v1, v5, v6}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;J)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 953
-    :cond_2
+    :cond_2a
     iget-wide v1, p0, Lcom/google/common/cache/CacheBuilder;->maximumWeight:J
 
     cmp-long v5, v1, v3
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_37
 
     .line 954
     const-string v1, "maximumWeight"
@@ -1759,7 +1759,7 @@
     invoke-virtual {v0, v1, v5, v6}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;J)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 956
-    :cond_3
+    :cond_37
     iget-wide v1, p0, Lcom/google/common/cache/CacheBuilder;->expireAfterWriteNanos:J
 
     const-string v5, "ns"
@@ -1768,7 +1768,7 @@
 
     cmp-long v7, v1, v3
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_59
 
     .line 957
     iget-wide v1, p0, Lcom/google/common/cache/CacheBuilder;->expireAfterWriteNanos:J
@@ -1794,12 +1794,12 @@
     invoke-virtual {v0, v2, v1}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 959
-    :cond_4
+    :cond_59
     iget-wide v1, p0, Lcom/google/common/cache/CacheBuilder;->expireAfterAccessNanos:J
 
     cmp-long v7, v1, v3
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_77
 
     .line 960
     iget-wide v1, p0, Lcom/google/common/cache/CacheBuilder;->expireAfterAccessNanos:J
@@ -1825,10 +1825,10 @@
     invoke-virtual {v0, v2, v1}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 962
-    :cond_5
+    :cond_77
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilder;->keyStrength:Lcom/google/common/cache/LocalCache$Strength;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_8a
 
     .line 963
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilder;->keyStrength:Lcom/google/common/cache/LocalCache$Strength;
@@ -1846,10 +1846,10 @@
     invoke-virtual {v0, v2, v1}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 965
-    :cond_6
+    :cond_8a
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilder;->valueStrength:Lcom/google/common/cache/LocalCache$Strength;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_9e
 
     .line 966
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilder;->valueStrength:Lcom/google/common/cache/LocalCache$Strength;
@@ -1867,10 +1867,10 @@
     invoke-virtual {v0, v2, v1}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 968
-    :cond_7
+    :cond_9e
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilder;->keyEquivalence:Lcom/google/common/base/Equivalence;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_a7
 
     .line 969
     const-string v1, "keyEquivalence"
@@ -1878,10 +1878,10 @@
     invoke-virtual {v0, v1}, Lcom/google/common/base/MoreObjects$ToStringHelper;->addValue(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 971
-    :cond_8
+    :cond_a7
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilder;->valueEquivalence:Lcom/google/common/base/Equivalence;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_b1
 
     .line 972
     const-string/jumbo v1, "valueEquivalence"
@@ -1889,10 +1889,10 @@
     invoke-virtual {v0, v1}, Lcom/google/common/base/MoreObjects$ToStringHelper;->addValue(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 974
-    :cond_9
+    :cond_b1
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilder;->removalListener:Lcom/google/common/cache/RemovalListener;
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_ba
 
     .line 975
     const-string v1, "removalListener"
@@ -1900,7 +1900,7 @@
     invoke-virtual {v0, v1}, Lcom/google/common/base/MoreObjects$ToStringHelper;->addValue(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 977
-    :cond_a
+    :cond_ba
     invoke-virtual {v0}, Lcom/google/common/base/MoreObjects$ToStringHelper;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1909,7 +1909,7 @@
 .end method
 
 .method valueEquivalence(Lcom/google/common/base/Equivalence;)Lcom/google/common/cache/CacheBuilder;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1926,16 +1926,16 @@
     .local p1, "equivalence":Lcom/google/common/base/Equivalence;, "Lcom/google/common/base/Equivalence<Ljava/lang/Object;>;"
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilder;->valueEquivalence:Lcom/google/common/base/Equivalence;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     const-string/jumbo v1, "value equivalence was already set to %s"
 
     iget-object v2, p0, Lcom/google/common/cache/CacheBuilder;->valueEquivalence:Lcom/google/common/base/Equivalence;
@@ -1956,7 +1956,7 @@
 .end method
 
 .method public weakKeys()Lcom/google/common/cache/CacheBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1977,7 +1977,7 @@
 .end method
 
 .method public weakValues()Lcom/google/common/cache/CacheBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1998,7 +1998,7 @@
 .end method
 
 .method public weigher(Lcom/google/common/cache/Weigher;)Lcom/google/common/cache/CacheBuilder;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K1:TK;V1:TV;>(",
@@ -2018,22 +2018,22 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 562
     iget-boolean v0, p0, Lcom/google/common/cache/CacheBuilder;->strictParsing:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     .line 563
     iget-wide v3, p0, Lcom/google/common/cache/CacheBuilder;->maximumSize:J
@@ -2042,14 +2042,14 @@
 
     cmp-long v0, v3, v5
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_19
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_1a
     const-string/jumbo v0, "weigher can not be combined with maximum size"
 
     iget-wide v2, p0, Lcom/google/common/cache/CacheBuilder;->maximumSize:J
@@ -2057,7 +2057,7 @@
     invoke-static {v1, v0, v2, v3}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/String;J)V
 
     .line 571
-    :cond_2
+    :cond_22
     move-object v0, p0
 
     .line 572

@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final get(Landroid/view/View;)Landroidx/lifecycle/LifecycleOwner;
-    .locals 2
+    .registers 3
     .param p0, "$this$findViewTreeLifecycleOwner"    # Landroid/view/View;
 
     const-string v0, "<this>"
@@ -68,7 +68,7 @@
 .end method
 
 .method public static final set(Landroid/view/View;Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$setViewTreeLifecycleOwner"    # Landroid/view/View;
     .param p1, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
 

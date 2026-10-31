@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/CollectionsKt__IteratorsJVMKt;-><init>()V
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public static final forEach(Ljava/util/Iterator;Lkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$forEach"    # Ljava/util/Iterator;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -72,12 +72,12 @@
     .local v0, "$i$f$forEach":I
     nop
 
-    :goto_0
+    :goto_c
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -86,16 +86,16 @@
     .local v1, "element":Ljava/lang/Object;
     invoke-interface {p1, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_c
 
     .line 33
     .end local v1    # "element":Ljava/lang/Object;
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method private static final iterator(Ljava/util/Iterator;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$iterator"    # Ljava/util/Iterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -118,7 +118,7 @@
 .end method
 
 .method public static final withIndex(Ljava/util/Iterator;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$withIndex"    # Ljava/util/Iterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {

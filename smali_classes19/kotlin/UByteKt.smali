@@ -33,7 +33,7 @@
 
 # direct methods
 .method private static final toUByte(B)B
-    .locals 1
+    .registers 2
     .param p0, "$this$toUByte"    # B
 
     .line 368
@@ -45,7 +45,7 @@
 .end method
 
 .method private static final toUByte(I)B
-    .locals 1
+    .registers 2
     .param p0, "$this$toUByte"    # I
 
     .line 392
@@ -59,7 +59,7 @@
 .end method
 
 .method private static final toUByte(J)B
-    .locals 1
+    .registers 3
     .param p0, "$this$toUByte"    # J
 
     .line 404
@@ -75,7 +75,7 @@
 .end method
 
 .method private static final toUByte(S)B
-    .locals 1
+    .registers 2
     .param p0, "$this$toUByte"    # S
 
     .line 380

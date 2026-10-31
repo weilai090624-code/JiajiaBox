@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Llamada entrante</string>
     <string name="call_notification_ongoing_text">Llamada en curso</string>
     <string name="call_notification_screening_text">Filtrando una llamada entrante</string>
-    <string name="character_counter_content_description" formatted="false">Caracteres ingresados: %1$d de %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Se excedió en %1$d el límite de caracteres de %2$d</string>
+    <string name="character_counter_content_description">Caracteres ingresados: %1$d de %2$d</string>
+    <string name="character_counter_overflowed_content_description">Se excedió en %1$d el límite de caracteres de %2$d</string>
     <string name="clear_text_end_icon_content_description">Borrar texto</string>
     <string name="copy">Copiar</string>
     <string name="copy_toast_msg">Se copió el vínculo al portapapeles</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Fuera de rango: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Fecha de inicio - %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s - fecha de finalización</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s-%2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s-%2$s</string>
     <string name="mtrl_picker_range_header_title">Selecciona un período</string>
     <string name="mtrl_picker_range_header_unselected">Fecha de inicio - fecha de finalización</string>
     <string name="mtrl_picker_save">Guardar</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">Se copió \"%1$s\" en el portapapeles.</string>
     <string name="search_menu_title">Buscar</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">DESACTIVADO</string>
     <string name="v7_preference_on">ACTIVADO</string>
 </resources>

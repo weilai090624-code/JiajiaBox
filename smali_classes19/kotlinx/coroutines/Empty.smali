@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "isActive"    # Z
 
     .line 1303
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public getList()Lkotlinx/coroutines/NodeList;
-    .locals 1
+    .registers 2
 
     .line 1304
     const/4 v0, 0x0
@@ -65,7 +65,7 @@
 .end method
 
 .method public isActive()Z
-    .locals 1
+    .registers 2
 
     .line 1303
     iget-boolean v0, p0, Lkotlinx/coroutines/Empty;->isActive:Z
@@ -74,7 +74,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 1305
     new-instance v0, Ljava/lang/StringBuilder;
@@ -91,16 +91,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     const-string v1, "Active"
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const-string v1, "New"
 
-    :goto_0
+    :goto_16
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

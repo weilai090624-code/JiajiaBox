@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/channels/ReceiveChannel;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 476
@@ -97,7 +97,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 477

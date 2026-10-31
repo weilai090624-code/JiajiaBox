@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(JJ)J
-    .locals 7
+    .registers 11
 
     sub-long v0, p0, p2
 
@@ -19,35 +19,35 @@
 
     cmp-long v6, p2, v4
 
-    if-ltz v6, :cond_0
+    if-ltz v6, :cond_d
 
     const/4 p2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 p2, 0x0
 
-    :goto_0
+    :goto_e
     xor-long/2addr p0, v0
 
     cmp-long p3, p0, v4
 
-    if-ltz p3, :cond_1
+    if-ltz p3, :cond_14
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_15
     or-int p0, p2, v2
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_1a
 
     return-wide v0
 
-    :cond_2
+    :cond_1a
     new-instance p0, Ljava/lang/ArithmeticException;
 
     invoke-direct {p0}, Ljava/lang/ArithmeticException;-><init>()V

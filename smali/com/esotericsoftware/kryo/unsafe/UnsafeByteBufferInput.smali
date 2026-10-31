@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 48
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "bufferSize"    # I
 
     .line 55
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(JI)V
-    .locals 1
+    .registers 5
     .param p1, "address"    # J
     .param p3, "size"    # I
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "inputStream"    # Ljava/io/InputStream;
 
     .line 86
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;I)V
-    .locals 0
+    .registers 3
     .param p1, "inputStream"    # Ljava/io/InputStream;
     .param p2, "bufferSize"    # I
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Ljava/nio/ByteBuffer;)V
-    .locals 0
+    .registers 2
     .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
     .line 73
@@ -95,7 +95,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .locals 0
+    .registers 2
     .param p1, "bytes"    # [B
 
     .line 61
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>([BII)V
-    .locals 0
+    .registers 4
     .param p1, "bytes"    # [B
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -125,7 +125,7 @@
 .end method
 
 .method private setBufferPosition(Ljava/nio/Buffer;I)V
-    .locals 0
+    .registers 3
     .param p1, "buffer"    # Ljava/nio/Buffer;
     .param p2, "position"    # I
 
@@ -137,7 +137,7 @@
 .end method
 
 .method private updateBufferAddress()V
-    .locals 2
+    .registers 3
 
     .line 104
     iget-object v0, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->byteBuffer:Ljava/nio/ByteBuffer;
@@ -157,7 +157,7 @@
 
 # virtual methods
 .method public read()I
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -171,14 +171,14 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_9
 
     const/4 v0, -0x1
 
     return v0
 
     .line 113
-    :cond_0
+    :cond_9
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-wide v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->bufferAddress:J
@@ -212,7 +212,7 @@
 .end method
 
 .method public readBoolean()Z
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -226,12 +226,12 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     invoke-virtual {p0, v2}, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->require(I)I
 
     .line 182
-    :cond_0
+    :cond_a
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-wide v3, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->bufferAddress:J
@@ -250,14 +250,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1e
     move v0, v2
 
     .line 183
@@ -273,7 +273,7 @@
 .end method
 
 .method public readBooleans(I)[Z
-    .locals 3
+    .registers 5
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -295,7 +295,7 @@
 .end method
 
 .method public readByte()B
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -307,14 +307,14 @@
 
     iget v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->limit:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->require(I)I
 
     .line 120
-    :cond_0
+    :cond_a
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-wide v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->bufferAddress:J
@@ -346,7 +346,7 @@
 .end method
 
 .method public readByteUnsigned()I
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -358,14 +358,14 @@
 
     iget v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->limit:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->require(I)I
 
     .line 127
-    :cond_0
+    :cond_a
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-wide v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->bufferAddress:J
@@ -399,7 +399,7 @@
 .end method
 
 .method public readBytes(Ljava/lang/Object;JI)V
-    .locals 10
+    .registers 15
     .param p1, "to"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "count"    # I
@@ -422,7 +422,7 @@
 
     .line 237
     .local v0, "copyCount":I
-    :goto_0
+    :goto_9
     sget-object v1, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-wide v2, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->bufferAddress:J
@@ -454,7 +454,7 @@
     sub-int/2addr p4, v0
 
     .line 240
-    if-nez p4, :cond_0
+    if-nez p4, :cond_29
 
     .line 245
     iget-object v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->byteBuffer:Ljava/nio/ByteBuffer;
@@ -467,7 +467,7 @@
     return-void
 
     .line 241
-    :cond_0
+    :cond_29
     int-to-long v1, v0
 
     add-long/2addr p2, v1
@@ -482,11 +482,11 @@
     .line 243
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->require(I)I
 
-    goto :goto_0
+    goto :goto_9
 .end method
 
 .method public readBytes([BII)V
-    .locals 4
+    .registers 8
     .param p1, "bytes"    # [B
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -510,7 +510,7 @@
 .end method
 
 .method public readChar()C
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -557,7 +557,7 @@
 .end method
 
 .method public readChars(I)[C
-    .locals 4
+    .registers 6
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -581,7 +581,7 @@
 .end method
 
 .method public readDouble()D
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -628,7 +628,7 @@
 .end method
 
 .method public readDoubles(I)[D
-    .locals 4
+    .registers 6
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -652,7 +652,7 @@
 .end method
 
 .method public readFloat()F
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -699,7 +699,7 @@
 .end method
 
 .method public readFloats(I)[F
-    .locals 4
+    .registers 6
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -723,7 +723,7 @@
 .end method
 
 .method public readInt()I
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -770,7 +770,7 @@
 .end method
 
 .method public readInts(I)[I
-    .locals 4
+    .registers 6
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -794,7 +794,7 @@
 .end method
 
 .method public readLong()J
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -841,7 +841,7 @@
 .end method
 
 .method public readLongs(I)[J
-    .locals 4
+    .registers 6
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -865,7 +865,7 @@
 .end method
 
 .method public readShort()S
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -912,7 +912,7 @@
 .end method
 
 .method public readShorts(I)[S
-    .locals 4
+    .registers 6
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -936,25 +936,25 @@
 .end method
 
 .method public setBuffer(Ljava/nio/ByteBuffer;)V
-    .locals 2
+    .registers 4
     .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
     .line 97
     instance-of v0, p1, Lsun/nio/ch/DirectBuffer;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 98
     iget-object v0, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_d
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeByteBufferInput;->byteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->dispose(Ljava/nio/ByteBuffer;)V
 
     .line 99
-    :cond_0
+    :cond_d
     invoke-super {p0, p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->setBuffer(Ljava/nio/ByteBuffer;)V
 
     .line 100
@@ -964,7 +964,7 @@
     return-void
 
     .line 97
-    :cond_1
+    :cond_14
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "buffer must be direct."

@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;Lmoe/matsuri/nb4a/ui/ExtendedKeyboard;Landroid/widget/LinearLayout;Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)V
-    .locals 0
+    .registers 10
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "actionFormat"    # Landroid/widget/ImageView;
     .param p3, "actionRedo"    # Landroid/widget/ImageView;
@@ -98,7 +98,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
-    .locals 21
+    .registers 22
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -124,7 +124,7 @@
 
     .line 93
     .local v2, "actionFormat":Landroid/widget/ImageView;
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_83
 
     .line 97
     const v1, 0x7f0a0079
@@ -140,7 +140,7 @@
 
     .line 99
     .local v13, "actionRedo":Landroid/widget/ImageView;
-    if-eqz v13, :cond_6
+    if-eqz v13, :cond_82
 
     .line 103
     const v1, 0x7f0a0085
@@ -156,7 +156,7 @@
 
     .line 105
     .local v14, "actionTab":Landroid/widget/ImageView;
-    if-eqz v14, :cond_5
+    if-eqz v14, :cond_81
 
     .line 109
     const v1, 0x7f0a0087
@@ -172,7 +172,7 @@
 
     .line 111
     .local v15, "actionUndo":Landroid/widget/ImageView;
-    if-eqz v15, :cond_4
+    if-eqz v15, :cond_80
 
     .line 115
     const v1, 0x7f0a0116
@@ -188,7 +188,7 @@
 
     .line 117
     .local v16, "editor":Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
-    if-eqz v16, :cond_3
+    if-eqz v16, :cond_7f
 
     .line 121
     const v1, 0x7f0a0122
@@ -204,7 +204,7 @@
 
     .line 123
     .local v17, "extendedKeyboard":Lmoe/matsuri/nb4a/ui/ExtendedKeyboard;
-    if-eqz v17, :cond_2
+    if-eqz v17, :cond_7e
 
     .line 127
     const v1, 0x7f0a0183
@@ -220,7 +220,7 @@
 
     .line 129
     .local v18, "keyboardContainer":Landroid/widget/LinearLayout;
-    if-eqz v18, :cond_1
+    if-eqz v18, :cond_7d
 
     .line 133
     const v1, 0x7f0a0241
@@ -236,7 +236,7 @@
 
     .line 135
     .local v19, "scroller":Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
-    if-eqz v19, :cond_0
+    if-eqz v19, :cond_7c
 
     .line 139
     new-instance v20, Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
@@ -268,47 +268,47 @@
     return-object v20
 
     .line 136
-    :cond_0
-    goto :goto_0
+    :cond_7c
+    goto :goto_84
 
     .line 130
     .end local v19    # "scroller":Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
-    :cond_1
-    goto :goto_0
+    :cond_7d
+    goto :goto_84
 
     .line 124
     .end local v18    # "keyboardContainer":Landroid/widget/LinearLayout;
-    :cond_2
-    goto :goto_0
+    :cond_7e
+    goto :goto_84
 
     .line 118
     .end local v17    # "extendedKeyboard":Lmoe/matsuri/nb4a/ui/ExtendedKeyboard;
-    :cond_3
-    goto :goto_0
+    :cond_7f
+    goto :goto_84
 
     .line 112
     .end local v16    # "editor":Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
-    :cond_4
-    goto :goto_0
+    :cond_80
+    goto :goto_84
 
     .line 106
     .end local v15    # "actionUndo":Landroid/widget/ImageView;
-    :cond_5
-    goto :goto_0
+    :cond_81
+    goto :goto_84
 
     .line 100
     .end local v14    # "actionTab":Landroid/widget/ImageView;
-    :cond_6
-    goto :goto_0
+    :cond_82
+    goto :goto_84
 
     .line 94
     .end local v13    # "actionRedo":Landroid/widget/ImageView;
-    :cond_7
+    :cond_83
     nop
 
     .line 142
     .end local v2    # "actionFormat":Landroid/widget/ImageView;
-    :goto_0
+    :goto_84
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -333,7 +333,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -357,7 +357,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -385,13 +385,13 @@
 
     .line 79
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 80
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 82
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
 
     move-result-object v1
@@ -402,7 +402,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 21
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -413,7 +413,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;->rootView:Landroid/widget/LinearLayout;

@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/Job;)V
-    .locals 0
+    .registers 2
     .param p1, "parent"    # Lkotlinx/coroutines/Job;
 
     .line 65
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public childCancelled(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 66

@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Sink;Ljava/util/Comparator;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -87,7 +87,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 3
+    .registers 6
     .param p1, "size"    # J
 
     .line 354
@@ -96,7 +96,7 @@
 
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_d
 
     .line 356
     long-to-int v0, p1
@@ -109,7 +109,7 @@
     return-void
 
     .line 355
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Stream size exceeds max array size"
@@ -120,7 +120,7 @@
 .end method
 
 .method public end()V
-    .locals 4
+    .registers 5
 
     .line 361
     .local p0, "this":Lj$/util/stream/SortedOps$SizedRefSortingSink;, "Ljava/util/stream/SortedOps$SizedRefSortingSink<TT;>;"
@@ -146,16 +146,16 @@
     .line 363
     iget-boolean v0, p0, Lj$/util/stream/SortedOps$SizedRefSortingSink;->cancellationRequestedCalled:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_28
 
     .line 364
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_17
     iget v1, p0, Lj$/util/stream/SortedOps$SizedRefSortingSink;->offset:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_27
 
     .line 365
     iget-object v1, p0, Lj$/util/stream/SortedOps$SizedRefSortingSink;->downstream:Lj$/util/stream/Sink;
@@ -169,21 +169,21 @@
     .line 364
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .end local v0    # "i":I
-    :cond_0
-    goto :goto_2
+    :cond_27
+    goto :goto_41
 
     .line 368
-    :cond_1
+    :cond_28
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_1
+    :goto_29
     iget v1, p0, Lj$/util/stream/SortedOps$SizedRefSortingSink;->offset:I
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_41
 
     iget-object v1, p0, Lj$/util/stream/SortedOps$SizedRefSortingSink;->downstream:Lj$/util/stream/Sink;
 
@@ -191,7 +191,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_41
 
     .line 369
     iget-object v1, p0, Lj$/util/stream/SortedOps$SizedRefSortingSink;->downstream:Lj$/util/stream/Sink;
@@ -205,12 +205,12 @@
     .line 368
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_29
 
     .line 371
     .end local v0    # "i":I
-    :cond_2
-    :goto_2
+    :cond_41
+    :goto_41
     iget-object v0, p0, Lj$/util/stream/SortedOps$SizedRefSortingSink;->downstream:Lj$/util/stream/Sink;
 
     invoke-interface {v0}, Lj$/util/stream/Sink;->end()V

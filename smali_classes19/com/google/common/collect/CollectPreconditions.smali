@@ -10,7 +10,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,21 +19,21 @@
 .end method
 
 .method static checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 4
+    .registers 6
     .param p0, "key"    # Ljava/lang/Object;
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 30
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_32
 
     .line 32
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 35
     return-void
 
     .line 33
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -79,7 +79,7 @@
     throw v0
 
     .line 31
-    :cond_1
+    :cond_32
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -120,18 +120,18 @@
 .end method
 
 .method static checkNonnegative(ILjava/lang/String;)I
-    .locals 3
+    .registers 5
     .param p0, "value"    # I
     .param p1, "name"    # Ljava/lang/String;
 
     .line 39
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_3
 
     .line 42
     return p0
 
     .line 40
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -172,7 +172,7 @@
 .end method
 
 .method static checkNonnegative(JLjava/lang/String;)J
-    .locals 3
+    .registers 6
     .param p0, "value"    # J
     .param p2, "name"    # Ljava/lang/String;
 
@@ -181,13 +181,13 @@
 
     cmp-long v2, p0, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_7
 
     .line 50
     return-wide p0
 
     .line 48
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -228,18 +228,18 @@
 .end method
 
 .method static checkPositive(ILjava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p0, "value"    # I
     .param p1, "name"    # Ljava/lang/String;
 
     .line 54
-    if-lez p0, :cond_0
+    if-lez p0, :cond_3
 
     .line 57
     return-void
 
     .line 55
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -280,7 +280,7 @@
 .end method
 
 .method static checkRemove(Z)V
-    .locals 1
+    .registers 2
     .param p0, "canRemove"    # Z
 
     .line 64

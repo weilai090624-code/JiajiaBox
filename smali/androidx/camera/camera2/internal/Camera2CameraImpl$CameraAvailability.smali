@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/Camera2CameraImpl;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/Camera2CameraImpl;
     .param p2, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method isCameraAvailable()Z
-    .locals 1
+    .registers 2
 
     .line 1649
     iget-boolean v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$CameraAvailability;->mCameraAvailable:Z
@@ -70,7 +70,7 @@
 .end method
 
 .method public onCameraAvailable(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -88,13 +88,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 1615
     return-void
 
     .line 1618
-    :cond_0
+    :cond_9
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$CameraAvailability;->mCameraAvailable:Z
@@ -106,7 +106,7 @@
 
     sget-object v1, Landroidx/camera/camera2/internal/Camera2CameraImpl$InternalState;->PENDING_OPEN:Landroidx/camera/camera2/internal/Camera2CameraImpl$InternalState;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1a
 
     .line 1621
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$CameraAvailability;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
@@ -116,12 +116,12 @@
     invoke-virtual {v0, v1}, Landroidx/camera/camera2/internal/Camera2CameraImpl;->openCameraDevice(Z)V
 
     .line 1623
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method public onCameraUnavailable(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -139,13 +139,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 1630
     return-void
 
     .line 1633
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$CameraAvailability;->mCameraAvailable:Z
@@ -155,7 +155,7 @@
 .end method
 
 .method public onOpenAvailable()V
-    .locals 2
+    .registers 3
 
     .line 1639
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$CameraAvailability;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
@@ -164,7 +164,7 @@
 
     sget-object v1, Landroidx/camera/camera2/internal/Camera2CameraImpl$InternalState;->PENDING_OPEN:Landroidx/camera/camera2/internal/Camera2CameraImpl$InternalState;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 1640
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$CameraAvailability;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
@@ -174,6 +174,6 @@
     invoke-virtual {v0, v1}, Landroidx/camera/camera2/internal/Camera2CameraImpl;->openCameraDevice(Z)V
 
     .line 1642
-    :cond_0
+    :cond_e
     return-void
 .end method

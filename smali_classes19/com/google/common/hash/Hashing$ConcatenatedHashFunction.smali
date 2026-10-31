@@ -16,7 +16,7 @@
 
 # direct methods
 .method private varargs constructor <init>([Lcom/google/common/hash/HashFunction;)V
-    .locals 7
+    .registers 9
     .param p1, "functions"    # [Lcom/google/common/hash/HashFunction;
 
     .line 652
@@ -29,8 +29,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_6
+    if-ge v2, v0, :cond_22
 
     aget-object v3, p1, v2
 
@@ -45,17 +45,17 @@
 
     rem-int/lit8 v4, v4, 0x8
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_15
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v4, 0x0
 
     .line 657
-    :goto_1
+    :goto_16
     invoke-interface {v3}, Lcom/google/common/hash/HashFunction;->bits()I
 
     move-result v5
@@ -69,15 +69,15 @@
     .end local v3    # "function":Lcom/google/common/hash/HashFunction;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 660
-    :cond_1
+    :cond_22
     return-void
 .end method
 
 .method synthetic constructor <init>([Lcom/google/common/hash/HashFunction;Lcom/google/common/hash/Hashing$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # [Lcom/google/common/hash/HashFunction;
     .param p2, "x1"    # Lcom/google/common/hash/Hashing$1;
 
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public bits()I
-    .locals 6
+    .registers 7
 
     .line 675
     const/4 v0, 0x0
@@ -103,8 +103,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_5
+    if-ge v3, v2, :cond_11
 
     aget-object v4, v1, v3
 
@@ -120,15 +120,15 @@
     .end local v4    # "function":Lcom/google/common/hash/HashFunction;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 679
-    :cond_0
+    :cond_11
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -137,7 +137,7 @@
     .line 684
     instance-of v0, p1, Lcom/google/common/hash/Hashing$ConcatenatedHashFunction;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 685
     move-object v0, p1
@@ -158,14 +158,14 @@
 
     .line 688
     .end local v0    # "other":Lcom/google/common/hash/Hashing$ConcatenatedHashFunction;
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 693
     iget-object v0, p0, Lcom/google/common/hash/Hashing$ConcatenatedHashFunction;->functions:[Lcom/google/common/hash/HashFunction;
@@ -178,7 +178,7 @@
 .end method
 
 .method makeHash([Lcom/google/common/hash/Hasher;)Lcom/google/common/hash/HashCode;
-    .locals 7
+    .registers 9
     .param p1, "hashers"    # [Lcom/google/common/hash/Hasher;
 
     .line 664
@@ -200,8 +200,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_b
+    if-ge v3, v2, :cond_21
 
     aget-object v4, p1, v3
 
@@ -230,10 +230,10 @@
     .end local v5    # "newHash":Lcom/google/common/hash/HashCode;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 670
-    :cond_0
+    :cond_21
     invoke-static {v0}, Lcom/google/common/hash/HashCode;->fromBytesNoCopy([B)Lcom/google/common/hash/HashCode;
 
     move-result-object v2

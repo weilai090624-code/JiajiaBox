@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method protected bridge synthetic doLeaf()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 2219
     .local p0, "this":Lj$/util/stream/Nodes$CollectorTask$OfLong;, "Ljava/util/stream/Nodes$CollectorTask$OfLong<TP_IN;>;"
@@ -75,7 +75,7 @@
 .end method
 
 .method protected bridge synthetic makeChild(Lj$/util/Spliterator;)Lj$/util/stream/AbstractTask;
-    .locals 0
+    .registers 2
 
     .line 2219
     .local p0, "this":Lj$/util/stream/Nodes$CollectorTask$OfLong;, "Ljava/util/stream/Nodes$CollectorTask$OfLong<TP_IN;>;"

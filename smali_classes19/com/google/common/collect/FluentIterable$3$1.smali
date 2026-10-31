@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/FluentIterable$3;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/FluentIterable$3;
     .param p2, "size"    # I
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 304
     invoke-virtual {p0, p1}, Lcom/google/common/collect/FluentIterable$3$1;->get(I)Ljava/util/Iterator;
@@ -54,7 +54,7 @@
 .end method
 
 .method public get(I)Ljava/util/Iterator;
-    .locals 1
+    .registers 3
     .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

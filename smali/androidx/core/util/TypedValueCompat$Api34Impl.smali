@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 201
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static deriveDimension(IFLandroid/util/DisplayMetrics;)F
-    .locals 1
+    .registers 4
     .param p0, "unitToConvertTo"    # I
     .param p1, "pixelValue"    # F
     .param p2, "metrics"    # Landroid/util/DisplayMetrics;

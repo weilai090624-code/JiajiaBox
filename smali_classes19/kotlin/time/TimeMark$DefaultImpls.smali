@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static hasNotPassedNow(Lkotlin/time/TimeMark;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this"    # Lkotlin/time/TimeMark;
 
     .line 172
@@ -42,7 +42,7 @@
 .end method
 
 .method public static hasPassedNow(Lkotlin/time/TimeMark;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this"    # Lkotlin/time/TimeMark;
 
     .line 164
@@ -60,7 +60,7 @@
 .end method
 
 .method public static minus-LRDsOJo(Lkotlin/time/TimeMark;J)Lkotlin/time/TimeMark;
-    .locals 2
+    .registers 5
     .param p0, "$this"    # Lkotlin/time/TimeMark;
     .param p1, "duration"    # J
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public static plus-LRDsOJo(Lkotlin/time/TimeMark;J)Lkotlin/time/TimeMark;
-    .locals 2
+    .registers 5
     .param p0, "$this"    # Lkotlin/time/TimeMark;
     .param p1, "duration"    # J
 

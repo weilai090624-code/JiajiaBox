@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 37
     const-string v0, "SystemAlarmService"
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Landroidx/lifecycle/LifecycleService;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method private initializeDispatcher()V
-    .locals 1
+    .registers 2
 
     .line 93
     new-instance v0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public onAllCommandsCompleted()V
-    .locals 3
+    .registers 4
 
     .line 82
     const/4 v0, 0x1
@@ -92,7 +92,7 @@
 .end method
 
 .method public onCreate()V
-    .locals 1
+    .registers 2
 
     .line 44
     invoke-super {p0}, Landroidx/lifecycle/LifecycleService;->onCreate()V
@@ -110,7 +110,7 @@
 .end method
 
 .method public onDestroy()V
-    .locals 1
+    .registers 2
 
     .line 51
     invoke-super {p0}, Landroidx/lifecycle/LifecycleService;->onDestroy()V
@@ -130,7 +130,7 @@
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .locals 3
+    .registers 7
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "flags"    # I
     .param p3, "startId"    # I
@@ -153,7 +153,7 @@
     .line 59
     iget-boolean v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mIsShutdown:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 60
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -180,8 +180,8 @@
     iput-boolean v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mIsShutdown:Z
 
     .line 71
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_1d
+    if-eqz p1, :cond_24
 
     .line 72
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mDispatcher:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -189,7 +189,7 @@
     invoke-virtual {v0, p1, p3}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->add(Landroid/content/Intent;I)Z
 
     .line 76
-    :cond_1
+    :cond_24
     const/4 v0, 0x3
 
     return v0

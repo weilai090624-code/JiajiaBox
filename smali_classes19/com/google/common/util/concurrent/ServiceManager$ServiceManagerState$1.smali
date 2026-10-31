@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
 
     .line 611
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public apply(Ljava/util/Map$Entry;)Ljava/lang/Long;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,7 +68,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 611
     check-cast p1, Ljava/util/Map$Entry;

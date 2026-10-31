@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/executor/SequentialExecutor;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/core/impl/utils/executor/SequentialExecutor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 109
     iget-object v0, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor$1;->val$task:Ljava/lang/Runnable;

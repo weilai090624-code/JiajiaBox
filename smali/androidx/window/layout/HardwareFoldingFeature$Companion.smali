@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/window/layout/HardwareFoldingFeature$Companion;-><init>()V
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public final validateFeatureBounds$window_release(Landroidx/window/core/Bounds;)V
-    .locals 3
+    .registers 5
     .param p1, "bounds"    # Landroidx/window/core/Bounds;
 
     const-string v0, "bounds"
@@ -79,52 +79,52 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
     invoke-virtual {p1}, Landroidx/window/core/Bounds;->getHeight()I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     const/4 v0, 0x1
 
-    :goto_1
-    if-eqz v0, :cond_5
+    :goto_17
+    if-eqz v0, :cond_37
 
     .line 98
     invoke-virtual {p1}, Landroidx/window/core/Bounds;->getLeft()I
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_25
 
     invoke-virtual {p1}, Landroidx/window/core/Bounds;->getTop()I
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_26
 
-    :cond_2
+    :cond_25
     const/4 v1, 0x1
 
-    :cond_3
-    if-eqz v1, :cond_4
+    :cond_26
+    if-eqz v1, :cond_29
 
     .line 101
     return-void
 
     .line 98
-    :cond_4
+    :cond_29
     const/4 v0, 0x0
 
     .line 99
@@ -146,7 +146,7 @@
     throw v0
 
     .line 126
-    :cond_5
+    :cond_37
     const/4 v0, 0x0
 
     .line 97

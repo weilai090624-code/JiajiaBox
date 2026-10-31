@@ -12,7 +12,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "localeList"    # Ljava/lang/Object;
 
     .line 31
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 62
@@ -54,7 +54,7 @@
 .end method
 
 .method public get(I)Ljava/util/Locale;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 42
@@ -68,7 +68,7 @@
 .end method
 
 .method public getFirstMatch([Ljava/lang/String;)Ljava/util/Locale;
-    .locals 1
+    .registers 3
     .param p1, "supportedLocales"    # [Ljava/lang/String;
 
     .line 83
@@ -82,7 +82,7 @@
 .end method
 
 .method public getLocaleList()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 37
     iget-object v0, p0, Landroidx/core/os/LocaleListPlatformWrapper;->mLocaleList:Landroid/os/LocaleList;
@@ -91,7 +91,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Landroidx/core/os/LocaleListPlatformWrapper;->mLocaleList:Landroid/os/LocaleList;
@@ -104,7 +104,7 @@
 .end method
 
 .method public indexOf(Ljava/util/Locale;)I
-    .locals 1
+    .registers 3
     .param p1, "locale"    # Ljava/util/Locale;
 
     .line 57
@@ -118,7 +118,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 47
     iget-object v0, p0, Landroidx/core/os/LocaleListPlatformWrapper;->mLocaleList:Landroid/os/LocaleList;
@@ -131,7 +131,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Landroidx/core/os/LocaleListPlatformWrapper;->mLocaleList:Landroid/os/LocaleList;
@@ -144,7 +144,7 @@
 .end method
 
 .method public toLanguageTags()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 77
     iget-object v0, p0, Landroidx/core/os/LocaleListPlatformWrapper;->mLocaleList:Landroid/os/LocaleList;
@@ -157,7 +157,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Landroidx/core/os/LocaleListPlatformWrapper;->mLocaleList:Landroid/os/LocaleList;

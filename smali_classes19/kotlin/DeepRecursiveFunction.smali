@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function3;)V
-    .locals 1
+    .registers 3
     .param p1, "block"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public final getBlock$kotlin_stdlib()Lkotlin/jvm/functions/Function3;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

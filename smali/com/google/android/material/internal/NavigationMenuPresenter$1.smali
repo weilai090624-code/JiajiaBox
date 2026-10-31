@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/internal/NavigationMenuPresenter;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/internal/NavigationMenuPresenter;
 
     .line 487
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 6
+    .registers 8
     .param p1, "view"    # Landroid/view/View;
 
     .line 491
@@ -78,15 +78,15 @@
 
     .line 496
     .local v3, "checkStateChanged":Z
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2b
 
     invoke-virtual {v1}, Landroidx/appcompat/view/menu/MenuItemImpl;->isCheckable()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2b
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2b
 
     .line 497
     iget-object v5, p0, Lcom/google/android/material/internal/NavigationMenuPresenter$1;->this$0:Lcom/google/android/material/internal/NavigationMenuPresenter;
@@ -99,13 +99,13 @@
     const/4 v3, 0x1
 
     .line 500
-    :cond_0
+    :cond_2b
     iget-object v5, p0, Lcom/google/android/material/internal/NavigationMenuPresenter$1;->this$0:Lcom/google/android/material/internal/NavigationMenuPresenter;
 
     invoke-virtual {v5, v4}, Lcom/google/android/material/internal/NavigationMenuPresenter;->setUpdateSuspended(Z)V
 
     .line 501
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_37
 
     .line 502
     iget-object v5, p0, Lcom/google/android/material/internal/NavigationMenuPresenter$1;->this$0:Lcom/google/android/material/internal/NavigationMenuPresenter;
@@ -113,6 +113,6 @@
     invoke-virtual {v5, v4}, Lcom/google/android/material/internal/NavigationMenuPresenter;->updateMenuView(Z)V
 
     .line 504
-    :cond_1
+    :cond_37
     return-void
 .end method

@@ -88,7 +88,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion;
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -137,7 +137,7 @@
 .end method
 
 .method public static final synthetic access$getProgress$cp()Ljava/util/Map;
-    .locals 1
+    .registers 1
 
     .line 23
     sget-object v0, Lio/nekohasekai/sagernet/group/GroupUpdater;->progress:Ljava/util/Map;
@@ -146,7 +146,7 @@
 .end method
 
 .method public static final synthetic access$getUpdating$cp()Ljava/util/Set;
-    .locals 1
+    .registers 1
 
     .line 23
     sget-object v0, Lio/nekohasekai/sagernet/group/GroupUpdater;->updating:Ljava/util/Set;
@@ -174,7 +174,7 @@
 .end method
 
 .method protected final forceResolve(Ljava/util/List;Ljava/lang/Long;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 27
+    .registers 31
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -196,7 +196,7 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$1;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
@@ -208,7 +208,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v1, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$1;->label:I
 
@@ -218,9 +218,9 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v1, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$1;
 
     move-object/from16 v2, p0
@@ -228,7 +228,7 @@
     invoke-direct {v1, v2, v0}, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$1;-><init>(Lio/nekohasekai/sagernet/group/GroupUpdater;Lkotlin/coroutines/Continuation;)V
 
     .local v1, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_1f
     iget-object v3, v1, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$1;->result:Ljava/lang/Object;
 
     .local v3, "$result":Ljava/lang/Object;
@@ -241,7 +241,7 @@
 
     const/4 v6, 0x1
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_13a
 
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v3    # "$result":Ljava/lang/Object;
@@ -255,7 +255,7 @@
 
     .restart local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_33
     iget-object v4, v1, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$1;->L$0:Ljava/lang/Object;
 
     check-cast v4, Lkotlinx/coroutines/ExecutorCoroutineDispatcher;
@@ -263,10 +263,10 @@
     .local v4, "lookupPool":Lkotlinx/coroutines/ExecutorCoroutineDispatcher;
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_6
+    goto/16 :goto_133
 
     .end local v4    # "lookupPool":Lkotlinx/coroutines/ExecutorCoroutineDispatcher;
-    :pswitch_1
+    :pswitch_3c
     iget v5, v1, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$1;->I$0:I
 
     .local v5, "ipv6Mode":I
@@ -302,7 +302,7 @@
     .local v12, "this":Lio/nekohasekai/sagernet/group/GroupUpdater;
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_aa
 
     .end local v5    # "ipv6Mode":I
     .end local v7    # "progress":Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;
@@ -311,7 +311,7 @@
     .end local v10    # "groupId":Ljava/lang/Long;
     .end local v11    # "profiles":Ljava/util/List;
     .end local v12    # "this":Lio/nekohasekai/sagernet/group/GroupUpdater;
-    :pswitch_2
+    :pswitch_5a
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v12, p0
@@ -362,7 +362,7 @@
 
     .line 46
     .restart local v7    # "progress":Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_af
 
     .line 47
     sget-object v13, Lio/nekohasekai/sagernet/group/GroupUpdater;->progress:Ljava/util/Map;
@@ -400,22 +400,22 @@
 
     move-result-object v13
 
-    if-ne v13, v4, :cond_1
+    if-ne v13, v4, :cond_aa
 
     .line 39
     return-object v4
 
     .line 50
-    :cond_1
-    :goto_1
+    :cond_aa
+    :goto_aa
     move-object/from16 v17, v10
 
     move-object/from16 v18, v12
 
-    goto :goto_2
+    goto :goto_b3
 
     .line 46
-    :cond_2
+    :cond_af
     move-object/from16 v17, v10
 
     move-object/from16 v18, v12
@@ -425,34 +425,34 @@
     .end local v12    # "this":Lio/nekohasekai/sagernet/group/GroupUpdater;
     .local v17, "groupId":Ljava/lang/Long;
     .local v18, "this":Lio/nekohasekai/sagernet/group/GroupUpdater;
-    :goto_2
+    :goto_b3
     const/16 v19, 0x0
 
     const/4 v15, 0x2
 
-    if-lt v5, v15, :cond_3
+    if-lt v5, v15, :cond_ba
 
     const/4 v5, 0x1
 
-    goto :goto_3
+    goto :goto_bb
 
-    :cond_3
+    :cond_ba
     const/4 v5, 0x0
 
     .line 52
     .local v5, "ipv6First":Z
-    :goto_3
+    :goto_bb
     invoke-interface {v11}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v20
 
     .end local v11    # "profiles":Ljava/util/List;
-    :goto_4
+    :goto_bf
     invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_118
 
     invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -469,7 +469,7 @@
     .line 55
     instance-of v10, v11, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
 
-    if-nez v10, :cond_6
+    if-nez v10, :cond_114
 
     .line 58
     iget-object v10, v11, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverAddress:Ljava/lang/String;
@@ -482,7 +482,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_5
+    if-nez v10, :cond_110
 
     .line 60
     sget-object v10, Lkotlinx/coroutines/GlobalScope;->INSTANCE:Lkotlinx/coroutines/GlobalScope;
@@ -497,17 +497,17 @@
 
     new-instance v23, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$2;
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_ee
 
     const/4 v13, 0x1
 
-    goto :goto_5
+    goto :goto_ef
 
-    :cond_4
+    :cond_ee
     const/4 v13, 0x0
 
     .end local v11    # "profile":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    :goto_5
+    :goto_ef
     const/16 v16, 0x0
 
     move-object/from16 v10, v23
@@ -542,32 +542,32 @@
 
     const/4 v15, 0x2
 
-    goto :goto_4
+    goto :goto_bf
 
     .line 58
     .restart local v11    # "profile":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    :cond_5
+    :cond_110
     const/4 v6, 0x2
 
     const/4 v6, 0x1
 
     const/4 v15, 0x2
 
-    goto :goto_4
+    goto :goto_bf
 
     .line 55
-    :cond_6
+    :cond_114
     const/4 v6, 0x2
 
     const/4 v6, 0x1
 
     const/4 v15, 0x2
 
-    goto :goto_4
+    goto :goto_bf
 
     .line 52
     .end local v11    # "profile":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    :cond_7
+    :cond_118
     const/4 v6, 0x2
 
     .line 88
@@ -600,19 +600,19 @@
     move-result-object v5
 
     .end local v8    # "lookupJobs":Ljava/util/List;
-    if-ne v5, v4, :cond_8
+    if-ne v5, v4, :cond_132
 
     .line 39
     return-object v4
 
     .line 88
-    :cond_8
+    :cond_132
     move-object v4, v9
 
     .line 89
     .end local v9    # "lookupPool":Lkotlinx/coroutines/ExecutorCoroutineDispatcher;
     .restart local v4    # "lookupPool":Lkotlinx/coroutines/ExecutorCoroutineDispatcher;
-    :goto_6
+    :goto_133
     invoke-virtual {v4}, Lkotlinx/coroutines/ExecutorCoroutineDispatcher;->close()V
 
     .line 90
@@ -622,16 +622,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_13a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_5a
+        :pswitch_3c
+        :pswitch_33
     .end packed-switch
 .end method
 
 .method protected final rewriteAddress(Lio/nekohasekai/sagernet/fmt/AbstractBean;Ljava/util/List;Z)V
-    .locals 6
+    .registers 10
     .param p1, "bean"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .param p2, "addresses"    # Ljava/util/List;
     .param p3, "ipv6First"    # Z
@@ -705,7 +705,7 @@
 
     const-string v4, "sni"
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_4f
 
     .line 100
     move-object v3, v1
@@ -716,7 +716,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_cd
 
     move-object v3, v1
 
@@ -732,7 +732,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_cd
 
     move-object v3, v1
 
@@ -742,13 +742,13 @@
 
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->sni:Ljava/lang/String;
 
-    goto/16 :goto_0
+    goto/16 :goto_cd
 
     .line 102
-    :cond_0
+    :cond_4f
     instance-of v3, v1, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_7a
 
     .line 103
     nop
@@ -770,7 +770,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_cd
 
     move-object v3, v1
 
@@ -786,7 +786,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_cd
 
     move-object v3, v1
 
@@ -796,13 +796,13 @@
 
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->sni:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_cd
 
     .line 107
-    :cond_1
+    :cond_7a
     instance-of v3, v1, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_96
 
     .line 108
     move-object v3, v1
@@ -819,7 +819,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_cd
 
     move-object v3, v1
 
@@ -829,13 +829,13 @@
 
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->sni:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_cd
 
     .line 110
-    :cond_2
+    :cond_96
     instance-of v3, v1, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_b2
 
     .line 111
     move-object v3, v1
@@ -852,7 +852,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_cd
 
     move-object v3, v1
 
@@ -862,13 +862,13 @@
 
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->sni:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_cd
 
     .line 113
-    :cond_3
+    :cond_b2
     instance-of v3, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_cd
 
     .line 114
     move-object v3, v1
@@ -885,7 +885,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_cd
 
     move-object v3, v1
 
@@ -896,8 +896,8 @@
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
 
     .line 118
-    :cond_4
-    :goto_0
+    :cond_cd
+    :goto_cd
     iput-object v0, p1, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverAddress:Ljava/lang/String;
 
     .line 119

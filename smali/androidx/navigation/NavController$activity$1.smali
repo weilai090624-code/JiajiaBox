@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/navigation/NavController$activity$1;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final invoke(Landroid/content/Context;)Landroid/content/Context;
-    .locals 1
+    .registers 3
     .param p1, "it"    # Landroid/content/Context;
 
     const-string v0, "it"
@@ -86,7 +86,7 @@
     .line 74
     instance-of v0, p1, Landroid/content/ContextWrapper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 75
     move-object v0, p1
@@ -97,19 +97,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_12
 
     .line 76
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .line 74
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 73

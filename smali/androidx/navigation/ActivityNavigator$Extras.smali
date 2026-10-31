@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(ILandroidx/core/app/ActivityOptionsCompat;)V
-    .locals 0
+    .registers 3
     .param p1, "flags"    # I
     .param p2, "activityOptions"    # Landroidx/core/app/ActivityOptionsCompat;
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public final getActivityOptions()Landroidx/core/app/ActivityOptionsCompat;
-    .locals 1
+    .registers 2
 
     .line 436
     iget-object v0, p0, Landroidx/navigation/ActivityNavigator$Extras;->activityOptions:Landroidx/core/app/ActivityOptionsCompat;
@@ -88,7 +88,7 @@
 .end method
 
 .method public final getFlags()I
-    .locals 1
+    .registers 2
 
     .line 432
     iget v0, p0, Landroidx/navigation/ActivityNavigator$Extras;->flags:I

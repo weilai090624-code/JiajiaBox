@@ -38,7 +38,7 @@
 
 # direct methods
 .method private static final containsInvalidHostnameAsciiCodes(Ljava/lang/String;)Z
-    .locals 12
+    .registers 13
     .param p0, "$this$containsInvalidHostnameAsciiCodes"    # Ljava/lang/String;
 
     .line 65
@@ -48,11 +48,11 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_4
+    if-lez v0, :cond_35
 
     const/4 v2, 0x0
 
-    :cond_0
+    :cond_8
     move v3, v2
 
     .local v3, "i":I
@@ -73,7 +73,7 @@
 
     move-result v5
 
-    if-lez v5, :cond_3
+    if-lez v5, :cond_34
 
     const/16 v5, 0x7f
 
@@ -81,12 +81,12 @@
 
     move-result v5
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_20
 
-    goto :goto_0
+    goto :goto_34
 
     .line 76
-    :cond_1
+    :cond_20
     const-string v5, " #%/:?@[\\]"
 
     check-cast v5, Ljava/lang/CharSequence;
@@ -107,34 +107,34 @@
 
     const/4 v6, -0x1
 
-    if-eq v5, v6, :cond_2
+    if-eq v5, v6, :cond_31
 
     .line 77
     return v4
 
     .line 65
     .end local v11    # "c":C
-    :cond_2
-    if-lt v2, v0, :cond_0
+    :cond_31
+    if-lt v2, v0, :cond_8
 
-    goto :goto_1
+    goto :goto_35
 
     .line 71
     .restart local v11    # "c":C
-    :cond_3
-    :goto_0
+    :cond_34
+    :goto_34
     return v4
 
     .line 80
     .end local v3    # "i":I
     .end local v11    # "c":C
-    :cond_4
-    :goto_1
+    :cond_35
+    :goto_35
     return v1
 .end method
 
 .method private static final decodeIpv4Suffix(Ljava/lang/String;II[BI)Z
-    .locals 8
+    .registers 13
     .param p0, "input"    # Ljava/lang/String;
     .param p1, "pos"    # I
     .param p2, "limit"    # I
@@ -150,21 +150,21 @@
 
     .line 162
     .local v1, "i":I
-    :goto_0
+    :goto_2
     const/4 v2, 0x0
 
-    if-ge v1, p2, :cond_8
+    if-ge v1, p2, :cond_4d
 
     .line 163
     array-length v3, p3
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_9
 
     return v2
 
     .line 166
-    :cond_0
-    if-eq v0, p4, :cond_2
+    :cond_9
+    if-eq v0, p4, :cond_16
 
     .line 167
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -173,16 +173,16 @@
 
     const/16 v4, 0x2e
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_14
 
     return v2
 
     .line 168
-    :cond_1
+    :cond_14
     add-int/lit8 v1, v1, 0x1
 
     .line 172
-    :cond_2
+    :cond_16
     const/4 v3, 0x0
 
     .line 173
@@ -191,8 +191,8 @@
 
     .line 174
     .local v4, "groupOffset":I
-    :goto_1
-    if-ge v1, p2, :cond_6
+    :goto_18
+    if-ge v1, p2, :cond_41
 
     .line 175
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -207,7 +207,7 @@
 
     move-result v7
 
-    if-ltz v7, :cond_6
+    if-ltz v7, :cond_41
 
     const/16 v7, 0x39
 
@@ -215,20 +215,20 @@
 
     move-result v7
 
-    if-lez v7, :cond_3
+    if-lez v7, :cond_2f
 
-    goto :goto_2
+    goto :goto_41
 
     .line 177
-    :cond_3
-    if-nez v3, :cond_4
+    :cond_2f
+    if-nez v3, :cond_34
 
-    if-eq v4, v1, :cond_4
+    if-eq v4, v1, :cond_34
 
     return v2
 
     .line 178
-    :cond_4
+    :cond_34
     mul-int/lit8 v7, v3, 0xa
 
     add-int/2addr v7, v5
@@ -238,30 +238,30 @@
     .line 179
     const/16 v6, 0xff
 
-    if-le v3, v6, :cond_5
+    if-le v3, v6, :cond_3e
 
     return v2
 
     .line 180
-    :cond_5
+    :cond_3e
     add-int/lit8 v1, v1, 0x1
 
     .end local v5    # "c":C
-    goto :goto_1
+    goto :goto_18
 
     .line 182
-    :cond_6
-    :goto_2
+    :cond_41
+    :goto_41
     sub-int v5, v1, v4
 
     .line 183
     .local v5, "groupLength":I
-    if-nez v5, :cond_7
+    if-nez v5, :cond_46
 
     return v2
 
     .line 186
-    :cond_7
+    :cond_46
     add-int/lit8 v2, v0, 0x1
 
     .end local v0    # "b":I
@@ -275,24 +275,24 @@
     .end local v3    # "value":I
     .end local v4    # "groupOffset":I
     .end local v5    # "groupLength":I
-    goto :goto_0
+    goto :goto_2
 
     .line 190
     .end local v2    # "b":I
     .restart local v0    # "b":I
-    :cond_8
+    :cond_4d
     add-int/lit8 v3, p4, 0x4
 
-    if-ne v0, v3, :cond_9
+    if-ne v0, v3, :cond_52
 
     const/4 v2, 0x1
 
-    :cond_9
+    :cond_52
     return v2
 .end method
 
 .method private static final decodeIpv6(Ljava/lang/String;II)Ljava/net/InetAddress;
-    .locals 13
+    .registers 16
     .param p0, "input"    # Ljava/lang/String;
     .param p1, "pos"    # I
     .param p2, "limit"    # I
@@ -322,25 +322,25 @@
 
     .line 91
     .local v10, "i":I
-    :goto_0
+    :goto_9
     const/4 v11, -0x1
 
     const/4 v12, 0x0
 
-    if-ge v10, p2, :cond_b
+    if-ge v10, p2, :cond_89
 
     .line 92
     array-length v4, v0
 
-    if-ne v1, v4, :cond_0
+    if-ne v1, v4, :cond_11
 
     return-object v12
 
     .line 95
-    :cond_0
+    :cond_11
     add-int/lit8 v4, v10, 0x2
 
-    if-gt v4, p2, :cond_2
+    if-gt v4, p2, :cond_2d
 
     const/4 v8, 0x4
 
@@ -358,15 +358,15 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2d
 
     .line 97
-    if-eq v2, v11, :cond_1
+    if-eq v2, v11, :cond_25
 
     return-object v12
 
     .line 98
-    :cond_1
+    :cond_25
     add-int/lit8 v10, v10, 0x2
 
     .line 99
@@ -376,13 +376,13 @@
     move v2, v1
 
     .line 101
-    if-ne v10, p2, :cond_6
+    if-ne v10, p2, :cond_59
 
-    goto :goto_5
+    goto :goto_89
 
     .line 102
-    :cond_2
-    if-eqz v1, :cond_6
+    :cond_2d
+    if-eqz v1, :cond_59
 
     .line 104
     const/4 v8, 0x4
@@ -401,15 +401,15 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_3f
 
     .line 105
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_1
+    goto :goto_59
 
     .line 106
-    :cond_3
+    :cond_3f
     const/4 v8, 0x4
 
     const/4 v9, 0x0
@@ -426,7 +426,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_58
 
     .line 108
     add-int/lit8 v4, v1, -0x2
@@ -435,24 +435,24 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_55
 
     return-object v12
 
     .line 109
-    :cond_4
+    :cond_55
     add-int/lit8 v1, v1, 0x2
 
     .line 110
-    goto :goto_5
+    goto :goto_89
 
     .line 112
-    :cond_5
+    :cond_58
     return-object v12
 
     .line 117
-    :cond_6
-    :goto_1
+    :cond_59
+    :goto_59
     const/4 v4, 0x0
 
     .line 118
@@ -460,8 +460,8 @@
     move v3, v10
 
     .line 119
-    :goto_2
-    if-ge v10, p2, :cond_8
+    :goto_5b
+    if-ge v10, p2, :cond_6f
 
     .line 120
     invoke-virtual {p0, v10}, Ljava/lang/String;->charAt(I)C
@@ -474,12 +474,12 @@
 
     .line 121
     .local v5, "hexDigit":I
-    if-ne v5, v11, :cond_7
+    if-ne v5, v11, :cond_68
 
-    goto :goto_3
+    goto :goto_6f
 
     .line 122
-    :cond_7
+    :cond_68
     shl-int/lit8 v6, v4, 0x4
 
     add-int v4, v6, v5
@@ -488,25 +488,25 @@
     add-int/lit8 v10, v10, 0x1
 
     .end local v5    # "hexDigit":I
-    goto :goto_2
+    goto :goto_5b
 
     .line 125
-    :cond_8
-    :goto_3
+    :cond_6f
+    :goto_6f
     sub-int v5, v10, v3
 
     .line 126
     .local v5, "groupLength":I
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_88
 
     const/4 v6, 0x4
 
-    if-le v5, v6, :cond_9
+    if-le v5, v6, :cond_77
 
-    goto :goto_4
+    goto :goto_88
 
     .line 129
-    :cond_9
+    :cond_77
     add-int/lit8 v6, v1, 0x1
 
     .end local v1    # "b":I
@@ -532,31 +532,31 @@
 
     .end local v4    # "value":I
     .end local v5    # "groupLength":I
-    goto :goto_0
+    goto :goto_9
 
     .line 126
     .restart local v4    # "value":I
     .restart local v5    # "groupLength":I
-    :cond_a
-    :goto_4
+    :cond_88
+    :goto_88
     return-object v12
 
     .line 142
     .end local v4    # "value":I
     .end local v5    # "groupLength":I
-    :cond_b
-    :goto_5
+    :cond_89
+    :goto_89
     array-length v4, v0
 
-    if-eq v1, v4, :cond_d
+    if-eq v1, v4, :cond_9f
 
     .line 143
-    if-ne v2, v11, :cond_c
+    if-ne v2, v11, :cond_8f
 
     return-object v12
 
     .line 144
-    :cond_c
+    :cond_8f
     array-length v4, v0
 
     sub-int v5, v1, v2
@@ -579,7 +579,7 @@
     invoke-static {v0, v2, v4, v5}, Ljava/util/Arrays;->fill([BIIB)V
 
     .line 148
-    :cond_d
+    :cond_9f
     invoke-static {v0}, Ljava/net/InetAddress;->getByAddress([B)Ljava/net/InetAddress;
 
     move-result-object v4
@@ -588,7 +588,7 @@
 .end method
 
 .method private static final inet6AddressToAscii([B)Ljava/lang/String;
-    .locals 8
+    .registers 9
     .param p0, "address"    # [B
 
     .line 198
@@ -610,47 +610,47 @@
 
     .line 202
     .local v3, "i":I
-    :goto_0
+    :goto_5
     array-length v4, p0
 
     const/16 v5, 0x10
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_27
 
     .line 203
     move v4, v3
 
     .line 204
     .local v4, "currentRunOffset":I
-    :goto_1
-    if-ge v3, v5, :cond_0
+    :goto_b
+    if-ge v3, v5, :cond_1a
 
     aget-byte v6, p0, v3
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1a
 
     add-int/lit8 v6, v3, 0x1
 
     aget-byte v6, p0, v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1a
 
     .line 205
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_1
+    goto :goto_b
 
     .line 207
-    :cond_0
+    :cond_1a
     sub-int v5, v3, v4
 
     .line 208
     .local v5, "currentRunLength":I
-    if-le v5, v1, :cond_1
+    if-le v5, v1, :cond_23
 
     const/4 v6, 0x4
 
-    if-lt v5, v6, :cond_1
+    if-lt v5, v6, :cond_23
 
     .line 209
     move v0, v4
@@ -659,17 +659,17 @@
     move v1, v5
 
     .line 212
-    :cond_1
+    :cond_23
     nop
 
     .end local v4    # "currentRunOffset":I
     .end local v5    # "currentRunLength":I
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_0
+    goto :goto_5
 
     .line 214
-    :cond_2
+    :cond_27
     nop
 
     .line 200
@@ -688,16 +688,16 @@
 
     .line 219
     .restart local v3    # "i":I
-    :cond_3
-    :goto_2
+    :cond_2f
+    :goto_2f
     array-length v4, p0
 
-    if-ge v3, v4, :cond_6
+    if-ge v3, v4, :cond_60
 
     .line 220
     const/16 v4, 0x3a
 
-    if-ne v3, v0, :cond_4
+    if-ne v3, v0, :cond_40
 
     .line 221
     invoke-virtual {v2, v4}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
@@ -706,20 +706,20 @@
     add-int/2addr v3, v1
 
     .line 223
-    if-ne v3, v5, :cond_3
+    if-ne v3, v5, :cond_2f
 
     invoke-virtual {v2, v4}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
-    goto :goto_2
+    goto :goto_2f
 
     .line 225
-    :cond_4
-    if-lez v3, :cond_5
+    :cond_40
+    if-lez v3, :cond_45
 
     invoke-virtual {v2, v4}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 226
-    :cond_5
+    :cond_45
     aget-byte v4, p0, v3
 
     const/16 v6, 0xff
@@ -752,10 +752,10 @@
     .end local v4    # "group":I
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_2
+    goto :goto_2f
 
     .line 231
-    :cond_6
+    :cond_60
     invoke-virtual {v2}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
 
     move-result-object v4
@@ -764,7 +764,7 @@
 .end method
 
 .method public static final toCanonicalHost(Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 8
     .param p0, "$this$toCanonicalHost"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -796,7 +796,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_77
 
     .line 38
     const-string v1, "["
@@ -805,7 +805,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_31
 
     const-string v1, "]"
 
@@ -813,7 +813,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_31
 
     .line 39
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -826,10 +826,10 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_39
 
     .line 41
-    :cond_0
+    :cond_31
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -839,15 +839,15 @@
     move-result-object v1
 
     .line 38
-    :goto_0
-    if-nez v1, :cond_1
+    :goto_39
+    if-nez v1, :cond_3c
 
     .line 42
     return-object v5
 
     .line 43
     .local v1, "inetAddress":Ljava/net/InetAddress;
-    :cond_1
+    :cond_3c
     invoke-virtual {v1}, Ljava/net/InetAddress;->getAddress()[B
 
     move-result-object v2
@@ -858,7 +858,7 @@
 
     const/16 v4, 0x10
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_4f
 
     const-string v3, "address"
 
@@ -871,12 +871,12 @@
     return-object v3
 
     .line 45
-    :cond_2
+    :cond_4f
     array-length v3, v2
 
     const/4 v4, 0x4
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_58
 
     invoke-virtual {v1}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
 
@@ -885,7 +885,7 @@
     return-object v3
 
     .line 46
-    :cond_3
+    :cond_58
     new-instance v3, Ljava/lang/AssertionError;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -919,11 +919,11 @@
     .line 49
     .end local v1    # "inetAddress":Ljava/net/InetAddress;
     .end local v2    # "address":[B
-    :cond_4
+    :cond_77
     nop
 
     .line 50
-    :try_start_0
+    :try_start_78
     invoke-static {v0}, Ljava/net/IDN;->toASCII(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -956,43 +956,43 @@
 
     move-result v4
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_9b
 
     const/4 v3, 0x1
 
-    :cond_5
-    if-eqz v3, :cond_6
+    :cond_9b
+    if-eqz v3, :cond_9e
 
     return-object v5
 
     .line 54
-    :cond_6
+    :cond_9e
     invoke-static {v1}, Lokhttp3/internal/HostnamesKt;->containsInvalidHostnameAsciiCodes(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_a8
 
     .line 55
     move-object v2, v5
 
     check-cast v2, Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a7
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_78 .. :try_end_a7} :catch_aa
 
-    goto :goto_1
+    goto :goto_a9
 
     .line 57
-    :cond_7
+    :cond_a8
     move-object v5, v1
 
     .line 54
-    :goto_1
+    :goto_a9
     return-object v5
 
     .line 59
     .end local v1    # "result":Ljava/lang/String;
-    :catch_0
+    :catch_aa
     move-exception v1
 
     .line 60

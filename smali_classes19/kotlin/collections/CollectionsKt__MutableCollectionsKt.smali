@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/CollectionsKt__MutableCollectionsJVMKt;-><init>()V
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public static final addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
-    .locals 4
+    .registers 6
     .param p0, "$this$addAll"    # Ljava/util/Collection;
     .param p1, "elements"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -100,7 +100,7 @@
     .line 114
     instance-of v0, p1, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     move-object v0, p1
 
@@ -113,7 +113,7 @@
     return v0
 
     .line 116
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
     .line 117
@@ -122,13 +122,13 @@
 
     move-result-object v1
 
-    :cond_1
-    :goto_0
+    :cond_1c
+    :goto_1c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2e
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -140,20 +140,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1c
 
     const/4 v0, 0x1
 
     .end local v2    # "item":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1c
 
     .line 119
-    :cond_2
+    :cond_2e
     return v0
 .end method
 
 .method public static final addAll(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Z
-    .locals 4
+    .registers 6
     .param p0, "$this$addAll"    # Ljava/util/Collection;
     .param p1, "elements"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -185,13 +185,13 @@
 
     move-result-object v1
 
-    :cond_0
-    :goto_0
+    :cond_f
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -203,20 +203,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_f
 
     const/4 v0, 0x1
 
     .end local v2    # "item":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_f
 
     .line 132
-    :cond_1
+    :cond_21
     return v0
 .end method
 
 .method public static final addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$addAll"    # Ljava/util/Collection;
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -252,7 +252,7 @@
 .end method
 
 .method public static final convertToListIfNotCollection(Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .param p0, "$this$convertToListIfNotCollection"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -273,27 +273,27 @@
     .line 147
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     move-object v0, p0
 
     check-cast v0, Ljava/util/Collection;
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_d
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v0
 
     check-cast v0, Ljava/util/Collection;
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method private static final filterInPlace$CollectionsKt__MutableCollectionsKt(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;Z)Z
-    .locals 4
+    .registers 7
     .param p0, "$this$filterInPlace"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .param p2, "predicateResultToRemove"    # Z
@@ -325,13 +325,13 @@
 
     .line 223
     .local v2, "$i$a$-with-CollectionsKt__MutableCollectionsKt$filterInPlace$1":I
-    :cond_0
-    :goto_0
+    :cond_6
+    :goto_6
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_21
 
     .line 224
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -348,7 +348,7 @@
 
     move-result v3
 
-    if-ne v3, p2, :cond_0
+    if-ne v3, p2, :cond_6
 
     .line 225
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
@@ -356,10 +356,10 @@
     .line 226
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 228
-    :cond_1
+    :cond_21
     nop
 
     .line 222
@@ -372,7 +372,7 @@
 .end method
 
 .method private static final filterInPlace$CollectionsKt__MutableCollectionsKt(Ljava/util/List;Lkotlin/jvm/functions/Function1;Z)Z
-    .locals 5
+    .registers 8
     .param p0, "$this$filterInPlace"    # Ljava/util/List;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .param p2, "predicateResultToRemove"    # Z
@@ -393,7 +393,7 @@
     .line 280
     instance-of v0, p0, Ljava/util/RandomAccess;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 281
     const-string v0, "null cannot be cast to non-null type kotlin.collections.MutableIterable<T of kotlin.collections.CollectionsKt__MutableCollectionsKt.filterInPlace>"
@@ -411,7 +411,7 @@
     return v0
 
     .line 283
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     .line 284
@@ -423,10 +423,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_3
+    if-gt v1, v2, :cond_37
 
     .line 285
-    :goto_0
+    :goto_1a
     invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -443,39 +443,39 @@
 
     move-result v4
 
-    if-ne v4, p2, :cond_1
+    if-ne v4, p2, :cond_2b
 
     .line 287
-    goto :goto_1
+    goto :goto_32
 
     .line 289
-    :cond_1
-    if-eq v0, v1, :cond_2
+    :cond_2b
+    if-eq v0, v1, :cond_30
 
     .line 290
     invoke-interface {p0, v0, v3}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 292
-    :cond_2
+    :cond_30
     add-int/lit8 v0, v0, 0x1
 
     .line 284
     .end local v3    # "element":Ljava/lang/Object;
-    :goto_1
-    if-eq v1, v2, :cond_3
+    :goto_32
+    if-eq v1, v2, :cond_37
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 294
     .end local v1    # "readIndex":I
-    :cond_3
+    :cond_37
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_5
+    if-ge v0, v1, :cond_4d
 
     .line 295
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->getLastIndex(Ljava/util/List;)I
@@ -483,35 +483,35 @@
     move-result v1
 
     .local v1, "removeIndex":I
-    if-gt v0, v1, :cond_4
+    if-gt v0, v1, :cond_4b
 
     .line 296
-    :goto_2
+    :goto_43
     invoke-interface {p0, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 295
-    if-eq v1, v0, :cond_4
+    if-eq v1, v0, :cond_4b
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_2
+    goto :goto_43
 
     .line 298
     .end local v1    # "removeIndex":I
-    :cond_4
+    :cond_4b
     const/4 v1, 0x1
 
     return v1
 
     .line 300
-    :cond_5
+    :cond_4d
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method private static final minusAssign(Ljava/util/Collection;Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$minusAssign"    # Ljava/util/Collection;
     .param p1, "elements"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -542,7 +542,7 @@
 .end method
 
 .method private static final minusAssign(Ljava/util/Collection;Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$minusAssign"    # Ljava/util/Collection;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -567,7 +567,7 @@
 .end method
 
 .method private static final minusAssign(Ljava/util/Collection;Lkotlin/sequences/Sequence;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$minusAssign"    # Ljava/util/Collection;
     .param p1, "elements"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -598,7 +598,7 @@
 .end method
 
 .method private static final minusAssign(Ljava/util/Collection;[Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$minusAssign"    # Ljava/util/Collection;
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -627,7 +627,7 @@
 .end method
 
 .method private static final plusAssign(Ljava/util/Collection;Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Ljava/util/Collection;
     .param p1, "elements"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -658,7 +658,7 @@
 .end method
 
 .method private static final plusAssign(Ljava/util/Collection;Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Ljava/util/Collection;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -683,7 +683,7 @@
 .end method
 
 .method private static final plusAssign(Ljava/util/Collection;Lkotlin/sequences/Sequence;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Ljava/util/Collection;
     .param p1, "elements"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -714,7 +714,7 @@
 .end method
 
 .method private static final plusAssign(Ljava/util/Collection;[Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Ljava/util/Collection;
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -743,7 +743,7 @@
 .end method
 
 .method private static final remove(Ljava/util/List;I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$remove"    # Ljava/util/List;
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -778,7 +778,7 @@
 .end method
 
 .method private static final remove(Ljava/util/Collection;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$remove"    # Ljava/util/Collection;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -808,7 +808,7 @@
 .end method
 
 .method public static final removeAll(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$removeAll"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -844,7 +844,7 @@
 .end method
 
 .method public static final removeAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$removeAll"    # Ljava/util/Collection;
     .param p1, "elements"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -880,7 +880,7 @@
 .end method
 
 .method private static final removeAll(Ljava/util/Collection;Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$removeAll"    # Ljava/util/Collection;
     .param p1, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
@@ -916,7 +916,7 @@
 .end method
 
 .method public static final removeAll(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$removeAll"    # Ljava/util/Collection;
     .param p1, "elements"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -954,7 +954,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_22
 
     move-object v1, v0
 
@@ -964,21 +964,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_23
     return v1
 .end method
 
 .method public static final removeAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$removeAll"    # Ljava/util/Collection;
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -1006,17 +1006,17 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_12
+    if-nez v0, :cond_21
 
     invoke-static {p1}, Lkotlin/collections/ArraysKt;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -1028,19 +1028,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_22
     return v1
 .end method
 
 .method public static final removeAll(Ljava/util/List;Lkotlin/jvm/functions/Function1;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$removeAll"    # Ljava/util/List;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1076,7 +1076,7 @@
 .end method
 
 .method public static final removeFirst(Ljava/util/List;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this$removeFirst"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1097,7 +1097,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     const/4 v0, 0x0
 
@@ -1107,7 +1107,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "List is empty."
@@ -1118,7 +1118,7 @@
 .end method
 
 .method public static final removeFirstOrNull(Ljava/util/List;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$removeFirstOrNull"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1139,25 +1139,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     invoke-interface {p0, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public static final removeLast(Ljava/util/List;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this$removeLast"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1178,7 +1178,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->getLastIndex(Ljava/util/List;)I
 
@@ -1190,7 +1190,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "List is empty."
@@ -1201,7 +1201,7 @@
 .end method
 
 .method public static final removeLastOrNull(Ljava/util/List;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$removeLastOrNull"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1222,13 +1222,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_d
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->getLastIndex(Ljava/util/List;)I
 
     move-result v0
@@ -1237,12 +1237,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public static final retainAll(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$retainAll"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1278,7 +1278,7 @@
 .end method
 
 .method public static final retainAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$retainAll"    # Ljava/util/Collection;
     .param p1, "elements"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -1314,7 +1314,7 @@
 .end method
 
 .method private static final retainAll(Ljava/util/Collection;Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$retainAll"    # Ljava/util/Collection;
     .param p1, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
@@ -1350,7 +1350,7 @@
 .end method
 
 .method public static final retainAll(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$retainAll"    # Ljava/util/Collection;
     .param p1, "elements"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -1388,7 +1388,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1f
 
     .line 194
     move-object v1, v0
@@ -1402,7 +1402,7 @@
     return v1
 
     .line 196
-    :cond_0
+    :cond_1f
     invoke-static {p0}, Lkotlin/collections/CollectionsKt__MutableCollectionsKt;->retainNothing$CollectionsKt__MutableCollectionsKt(Ljava/util/Collection;)Z
 
     move-result v1
@@ -1411,7 +1411,7 @@
 .end method
 
 .method public static final retainAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$retainAll"    # Ljava/util/Collection;
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -1435,17 +1435,17 @@
     .line 182
     array-length v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_10
+    if-nez v0, :cond_1d
 
     .line 183
     invoke-static {p1}, Lkotlin/collections/ArraysKt;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -1461,7 +1461,7 @@
     return v0
 
     .line 185
-    :cond_1
+    :cond_1d
     invoke-static {p0}, Lkotlin/collections/CollectionsKt__MutableCollectionsKt;->retainNothing$CollectionsKt__MutableCollectionsKt(Ljava/util/Collection;)Z
 
     move-result v0
@@ -1470,7 +1470,7 @@
 .end method
 
 .method public static final retainAll(Ljava/util/List;Lkotlin/jvm/functions/Function1;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$retainAll"    # Ljava/util/List;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1506,7 +1506,7 @@
 .end method
 
 .method private static final retainNothing$CollectionsKt__MutableCollectionsKt(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$retainNothing"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {

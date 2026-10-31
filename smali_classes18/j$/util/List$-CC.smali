@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$replaceAll(Ljava/util/List;Ljava/util/function/UnaryOperator;)V
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Ljava/util/List;
 
     .line 437
@@ -19,12 +19,12 @@
 
     .line 439
     .local v0, "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
-    :goto_0
+    :goto_7
     invoke-interface {v0}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 440
     invoke-interface {v0}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -37,15 +37,15 @@
 
     invoke-interface {v0, v1}, Ljava/util/ListIterator;->set(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_7
 
     .line 442
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public static $default$sort(Ljava/util/List;Ljava/util/Comparator;)V
-    .locals 5
+    .registers 7
     .param p0, "_this"    # Ljava/util/List;
 
     .line 505
@@ -69,8 +69,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_d
+    if-ge v3, v2, :cond_1a
 
     aget-object v4, v0, v3
 
@@ -85,21 +85,21 @@
     .end local v4    # "e":Ljava/lang/Object;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 512
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public static $default$spliterator(Ljava/util/List;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Ljava/util/List;
 
     .line 773
     instance-of v0, p0, Ljava/util/RandomAccess;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 774
     new-instance v0, Lj$/util/AbstractList$RandomAccessSpliterator;
@@ -109,7 +109,7 @@
     return-object v0
 
     .line 776
-    :cond_0
+    :cond_a
     const/16 v0, 0x10
 
     invoke-static {p0, v0}, Lj$/util/Spliterators;->spliterator(Ljava/util/Collection;I)Lj$/util/Spliterator;
@@ -120,7 +120,7 @@
 .end method
 
 .method public static copyOf(Ljava/util/Collection;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -143,7 +143,7 @@
 .end method
 
 .method public static of()Ljava/util/List;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -163,7 +163,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -184,7 +184,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -206,7 +206,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -245,7 +245,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -289,7 +289,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -338,7 +338,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
-    .locals 3
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -392,7 +392,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
-    .locals 3
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -451,7 +451,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
-    .locals 3
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -515,7 +515,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
-    .locals 3
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -584,7 +584,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
-    .locals 3
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -658,7 +658,7 @@
 .end method
 
 .method public static varargs of([Ljava/lang/Object;)Ljava/util/List;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -675,7 +675,7 @@
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
     .line 1040
     new-instance v0, Lj$/util/ImmutableCollections$ListN;
@@ -685,7 +685,7 @@
     return-object v0
 
     .line 1038
-    :pswitch_0
+    :pswitch_b
     new-instance v0, Lj$/util/ImmutableCollections$List12;
 
     aget-object v1, p0, v1
@@ -699,7 +699,7 @@
     return-object v0
 
     .line 1036
-    :pswitch_1
+    :pswitch_16
     new-instance v0, Lj$/util/ImmutableCollections$List12;
 
     aget-object v1, p0, v1
@@ -709,7 +709,7 @@
     return-object v0
 
     .line 1034
-    :pswitch_2
+    :pswitch_1e
     invoke-static {}, Lj$/util/ImmutableCollections;->emptyList()Ljava/util/List;
 
     move-result-object v0
@@ -718,10 +718,10 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1e
+        :pswitch_16
+        :pswitch_b
     .end packed-switch
 .end method

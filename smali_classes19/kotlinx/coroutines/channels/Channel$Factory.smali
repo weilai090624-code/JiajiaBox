@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     new-instance v0, Lkotlinx/coroutines/channels/Channel$Factory;
 
@@ -97,7 +97,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 720
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method public final getCHANNEL_DEFAULT_CAPACITY$kotlinx_coroutines_core()I
-    .locals 1
+    .registers 2
 
     .line 754
     sget v0, Lkotlinx/coroutines/channels/Channel$Factory;->CHANNEL_DEFAULT_CAPACITY:I

@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/util/Size;Ljava/lang/Class;)V
-    .locals 3
+    .registers 6
     .param p1, "surfaceSize"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -60,7 +60,7 @@
 
     const/16 v2, 0x1c
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_15
 
     .line 96
     invoke-static {v0}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi28Impl;->wrap(Landroid/hardware/camera2/params/OutputConfiguration;)Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi28Impl;
@@ -69,10 +69,10 @@
 
     iput-object v1, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 98
-    :cond_0
+    :cond_15
     invoke-static {v0}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl;->wrap(Landroid/hardware/camera2/params/OutputConfiguration;)Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl;
 
     move-result-object v1
@@ -80,12 +80,12 @@
     iput-object v1, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
 
     .line 100
-    :goto_0
+    :goto_1b
     return-void
 .end method
 
 .method public constructor <init>(Landroid/view/Surface;)V
-    .locals 2
+    .registers 4
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -104,7 +104,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 51
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi28Impl;
@@ -113,15 +113,15 @@
 
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
 
-    goto :goto_0
+    goto :goto_34
 
     .line 52
-    :cond_0
+    :cond_11
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1f
 
     .line 53
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl;
@@ -130,15 +130,15 @@
 
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
 
-    goto :goto_0
+    goto :goto_34
 
     .line 54
-    :cond_1
+    :cond_1f
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_2d
 
     .line 55
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl;
@@ -147,10 +147,10 @@
 
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
 
-    goto :goto_0
+    goto :goto_34
 
     .line 57
-    :cond_2
+    :cond_2d
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl;
 
     invoke-direct {v0, p1}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl;-><init>(Landroid/view/Surface;)V
@@ -158,12 +158,12 @@
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
 
     .line 59
-    :goto_0
+    :goto_34
     return-void
 .end method
 
 .method private constructor <init>(Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "impl"    # Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -185,7 +185,7 @@
 .end method
 
 .method public static wrap(Ljava/lang/Object;)Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;
-    .locals 4
+    .registers 5
     .param p0, "outputConfiguration"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -199,13 +199,13 @@
     .line 119
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 120
     return-object v0
 
     .line 123
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
     .line 124
@@ -214,7 +214,7 @@
 
     const/16 v3, 0x1c
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_13
 
     .line 125
     move-object v2, p0
@@ -225,15 +225,15 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 127
-    :cond_1
+    :cond_13
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x1a
 
-    if-lt v2, v3, :cond_2
+    if-lt v2, v3, :cond_21
 
     .line 128
     move-object v2, p0
@@ -244,15 +244,15 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 130
-    :cond_2
+    :cond_21
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x18
 
-    if-lt v2, v3, :cond_3
+    if-lt v2, v3, :cond_2e
 
     .line 131
     move-object v2, p0
@@ -264,15 +264,15 @@
     move-result-object v1
 
     .line 135
-    :cond_3
-    :goto_0
-    if-nez v1, :cond_4
+    :cond_2e
+    :goto_2e
+    if-nez v1, :cond_31
 
     .line 136
     return-object v0
 
     .line 139
-    :cond_4
+    :cond_31
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;
 
     invoke-direct {v0, v1}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;-><init>(Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;)V
@@ -283,7 +283,7 @@
 
 # virtual methods
 .method public addSurface(Landroid/view/Surface;)V
-    .locals 1
+    .registers 3
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -304,7 +304,7 @@
 .end method
 
 .method public enableSurfaceSharing()V
-    .locals 1
+    .registers 2
 
     .line 178
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
@@ -316,7 +316,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -330,7 +330,7 @@
     .line 343
     instance-of v0, p1, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 344
     const/4 v0, 0x0
@@ -338,7 +338,7 @@
     return v0
 
     .line 347
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
 
     move-object v1, p1
@@ -355,7 +355,7 @@
 .end method
 
 .method public getMaxSharedSurfaceCount()I
-    .locals 1
+    .registers 2
 
     .line 293
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
@@ -368,7 +368,7 @@
 .end method
 
 .method public getPhysicalCameraId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 189
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
@@ -381,7 +381,7 @@
 .end method
 
 .method public getSurface()Landroid/view/Surface;
-    .locals 1
+    .registers 2
 
     .line 305
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
@@ -394,7 +394,7 @@
 .end method
 
 .method public getSurfaceGroupId()I
-    .locals 1
+    .registers 2
 
     .line 328
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
@@ -407,7 +407,7 @@
 .end method
 
 .method public getSurfaces()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -428,7 +428,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 355
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;
@@ -441,7 +441,7 @@
 .end method
 
 .method public removeSurface(Landroid/view/Surface;)V
-    .locals 1
+    .registers 3
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -462,7 +462,7 @@
 .end method
 
 .method public setPhysicalCameraId(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "physicalCameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -483,7 +483,7 @@
 .end method
 
 .method public unwrap()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 368
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat$OutputConfigurationCompatImpl;

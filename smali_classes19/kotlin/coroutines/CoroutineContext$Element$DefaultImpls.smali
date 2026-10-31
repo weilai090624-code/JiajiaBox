@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static fold(Lkotlin/coroutines/CoroutineContext$Element;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this"    # Lkotlin/coroutines/CoroutineContext$Element;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -57,7 +57,7 @@
 .end method
 
 .method public static get(Lkotlin/coroutines/CoroutineContext$Element;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/coroutines/CoroutineContext$Element;
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
@@ -84,7 +84,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const-string v0, "null cannot be cast to non-null type E of kotlin.coroutines.CoroutineContext.Element.get"
 
@@ -92,17 +92,17 @@
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static minusKey(Lkotlin/coroutines/CoroutineContext$Element;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/coroutines/CoroutineContext$Element;
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
@@ -128,25 +128,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_14
     move-object v0, p0
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static plus(Lkotlin/coroutines/CoroutineContext$Element;Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/coroutines/CoroutineContext$Element;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 

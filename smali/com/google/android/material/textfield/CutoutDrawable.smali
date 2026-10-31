@@ -18,22 +18,22 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 1
+    .registers 3
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 50
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_4
     new-instance v0, Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     invoke-direct {v0}, Lcom/google/android/material/shape/ShapeAppearanceModel;-><init>()V
 
-    :goto_0
+    :goto_9
     invoke-direct {p0, v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;-><init>(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
 
     .line 51
@@ -48,7 +48,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/shape/ShapeAppearanceModel;Lcom/google/android/material/textfield/CutoutDrawable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p2, "x1"    # Lcom/google/android/material/textfield/CutoutDrawable$1;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method static create(Lcom/google/android/material/shape/ShapeAppearanceModel;)Lcom/google/android/material/textfield/CutoutDrawable;
-    .locals 1
+    .registers 2
     .param p0, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 44
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method hasCutout()Z
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Lcom/google/android/material/textfield/CutoutDrawable;->cutoutBounds:Landroid/graphics/RectF;
@@ -92,7 +92,7 @@
 .end method
 
 .method removeCutout()V
-    .locals 1
+    .registers 2
 
     .line 76
     const/4 v0, 0x0
@@ -104,7 +104,7 @@
 .end method
 
 .method setCutout(FFFF)V
-    .locals 1
+    .registers 6
     .param p1, "left"    # F
     .param p2, "top"    # F
     .param p3, "right"    # F
@@ -117,7 +117,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     iget-object v0, p0, Lcom/google/android/material/textfield/CutoutDrawable;->cutoutBounds:Landroid/graphics/RectF;
 
@@ -125,7 +125,7 @@
 
     cmpl-float v0, p2, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     iget-object v0, p0, Lcom/google/android/material/textfield/CutoutDrawable;->cutoutBounds:Landroid/graphics/RectF;
 
@@ -133,7 +133,7 @@
 
     cmpl-float v0, p3, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     iget-object v0, p0, Lcom/google/android/material/textfield/CutoutDrawable;->cutoutBounds:Landroid/graphics/RectF;
 
@@ -141,10 +141,10 @@
 
     cmpl-float v0, p4, v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     .line 65
-    :cond_0
+    :cond_20
     iget-object v0, p0, Lcom/google/android/material/textfield/CutoutDrawable;->cutoutBounds:Landroid/graphics/RectF;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/graphics/RectF;->set(FFFF)V
@@ -153,12 +153,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/textfield/CutoutDrawable;->invalidateSelf()V
 
     .line 68
-    :cond_1
+    :cond_28
     return-void
 .end method
 
 .method setCutout(Landroid/graphics/RectF;)V
-    .locals 4
+    .registers 6
     .param p1, "bounds"    # Landroid/graphics/RectF;
 
     .line 71

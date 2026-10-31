@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/BiMap;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 .end method
 
 .method private static convert(Lcom/google/common/collect/BiMap;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<X:",
@@ -97,16 +97,16 @@
 
     .line 1529
     .local v0, "output":Ljava/lang/Object;, "TY;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     const-string v2, "No non-null mapping present for input: %s"
 
     invoke-static {v1, v2, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method protected doBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TB;)TA;"
@@ -142,7 +142,7 @@
 .end method
 
 .method protected doForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;)TB;"
@@ -162,7 +162,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -172,7 +172,7 @@
     .local p0, "this":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<TA;TB;>;"
     instance-of v0, p1, Lcom/google/common/collect/Maps$BiMapConverter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 1536
     move-object v0, p1
@@ -193,14 +193,14 @@
 
     .line 1539
     .end local v0    # "that":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<**>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 1544
     .local p0, "this":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<TA;TB;>;"
@@ -214,7 +214,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 1550
     .local p0, "this":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<TA;TB;>;"

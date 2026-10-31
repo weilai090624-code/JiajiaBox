@@ -101,7 +101,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 56
     const-string v0, "Processor"
@@ -116,7 +116,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/WorkDatabase;Ljava/util/List;)V
-    .locals 1
+    .registers 7
     .param p1, "appContext"    # Landroid/content/Context;
     .param p2, "configuration"    # Landroidx/work/Configuration;
     .param p3, "workTaskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
@@ -222,7 +222,7 @@
 .end method
 
 .method private static interrupt(Ljava/lang/String;Landroidx/work/impl/WorkerWrapper;)Z
-    .locals 4
+    .registers 6
     .param p0, "id"    # Ljava/lang/String;
     .param p1, "wrapper"    # Landroidx/work/impl/WorkerWrapper;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -237,7 +237,7 @@
     .end annotation
 
     .line 446
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_23
 
     .line 447
     invoke-virtual {p1}, Landroidx/work/impl/WorkerWrapper;->interrupt()V
@@ -275,7 +275,7 @@
     return v0
 
     .line 451
-    :cond_0
+    :cond_23
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
@@ -309,7 +309,7 @@
 .end method
 
 .method private runOnExecuted(Landroidx/work/impl/model/WorkGenerationalId;Z)V
-    .locals 2
+    .registers 5
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "needsReschedule"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -341,7 +341,7 @@
 .end method
 
 .method private stopForegroundService()V
-    .locals 7
+    .registers 8
 
     .line 417
     iget-object v0, p0, Landroidx/work/impl/Processor;->mLock:Ljava/lang/Object;
@@ -349,7 +349,7 @@
     monitor-enter v0
 
     .line 418
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/Processor;->mForegroundWorkMap:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
@@ -360,7 +360,7 @@
 
     .line 419
     .local v1, "hasForegroundWork":Z
-    if-nez v1, :cond_0
+    if-nez v1, :cond_31
 
     .line 420
     iget-object v2, p0, Landroidx/work/impl/Processor;->mAppContext:Landroid/content/Context;
@@ -368,28 +368,28 @@
     invoke-static {v2}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->createStopForegroundIntent(Landroid/content/Context;)Landroid/content/Intent;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_13
+    .catchall {:try_start_3 .. :try_end_13} :catchall_33
 
     .line 425
     .local v2, "intent":Landroid/content/Intent;
-    :try_start_1
+    :try_start_13
     iget-object v3, p0, Landroidx/work/impl/Processor;->mAppContext:Landroid/content/Context;
 
     invoke-virtual {v3, v2}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_18
+    .catchall {:try_start_13 .. :try_end_18} :catchall_19
 
     .line 428
-    goto :goto_0
+    goto :goto_25
 
     .line 426
-    :catchall_0
+    :catchall_19
     move-exception v3
 
     .line 427
     .local v3, "throwable":Ljava/lang/Throwable;
-    :try_start_2
+    :try_start_1a
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v4
@@ -402,10 +402,10 @@
 
     .line 430
     .end local v3    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_25
     iget-object v3, p0, Landroidx/work/impl/Processor;->mForegroundLock:Landroid/os/PowerManager$WakeLock;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_31
 
     .line 431
     iget-object v3, p0, Landroidx/work/impl/Processor;->mForegroundLock:Landroid/os/PowerManager$WakeLock;
@@ -420,19 +420,19 @@
     .line 435
     .end local v1    # "hasForegroundWork":Z
     .end local v2    # "intent":Landroid/content/Intent;
-    :cond_0
+    :cond_31
     monitor-exit v0
 
     .line 436
     return-void
 
     .line 435
-    :catchall_1
+    :catchall_33
     move-exception v1
 
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_35
+    .catchall {:try_start_1a .. :try_end_35} :catchall_33
 
     throw v1
 .end method
@@ -440,7 +440,7 @@
 
 # virtual methods
 .method public addExecutionListener(Landroidx/work/impl/ExecutionListener;)V
-    .locals 2
+    .registers 4
     .param p1, "executionListener"    # Landroidx/work/impl/ExecutionListener;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -457,7 +457,7 @@
     monitor-enter v0
 
     .line 358
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/Processor;->mOuterListeners:Ljava/util/List;
 
     invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -469,18 +469,18 @@
     return-void
 
     .line 359
-    :catchall_0
+    :catchall_a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw v1
 .end method
 
 .method public getRunningWorkSpec(Ljava/lang/String;)Landroidx/work/impl/model/WorkSpec;
-    .locals 3
+    .registers 5
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -497,7 +497,7 @@
     monitor-enter v0
 
     .line 398
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/Processor;->mForegroundWorkMap:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -508,7 +508,7 @@
 
     .line 399
     .local v1, "workerWrapper":Landroidx/work/impl/WorkerWrapper;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 400
     iget-object v2, p0, Landroidx/work/impl/Processor;->mEnqueuedWorkMap:Ljava/util/Map;
@@ -522,8 +522,8 @@
     move-object v1, v2
 
     .line 402
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_16
+    if-eqz v1, :cond_1e
 
     .line 403
     invoke-virtual {v1}, Landroidx/work/impl/WorkerWrapper;->getWorkSpec()Landroidx/work/impl/model/WorkSpec;
@@ -535,7 +535,7 @@
     return-object v2
 
     .line 405
-    :cond_1
+    :cond_1e
     monitor-exit v0
 
     const/4 v0, 0x0
@@ -544,18 +544,18 @@
 
     .line 407
     .end local v1    # "workerWrapper":Landroidx/work/impl/WorkerWrapper;
-    :catchall_0
+    :catchall_21
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_3 .. :try_end_23} :catchall_21
 
     throw v1
 .end method
 
 .method public hasWork()Z
-    .locals 2
+    .registers 3
 
     .line 323
     iget-object v0, p0, Landroidx/work/impl/Processor;->mLock:Ljava/lang/Object;
@@ -563,14 +563,14 @@
     monitor-enter v0
 
     .line 324
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/Processor;->mEnqueuedWorkMap:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
     iget-object v1, p0, Landroidx/work/impl/Processor;->mForegroundWorkMap:Ljava/util/Map;
 
@@ -579,38 +579,38 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_17
     monitor-exit v0
 
     .line 324
     return v1
 
     .line 326
-    :catchall_0
+    :catchall_19
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_3 .. :try_end_1b} :catchall_19
 
     throw v1
 .end method
 
 .method public isCancelled(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "id"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -627,7 +627,7 @@
     monitor-enter v0
 
     .line 315
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/Processor;->mCancelledIds:Ljava/util/Set;
 
     invoke-interface {v1, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -639,18 +639,18 @@
     return v1
 
     .line 316
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public isEnqueued(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -667,14 +667,14 @@
     monitor-enter v0
 
     .line 335
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/Processor;->mEnqueuedWorkMap:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_16
 
     iget-object v1, p0, Landroidx/work/impl/Processor;->mForegroundWorkMap:Ljava/util/Map;
 
@@ -683,38 +683,38 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_17
     monitor-exit v0
 
     .line 335
     return v1
 
     .line 337
-    :catchall_0
+    :catchall_19
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_3 .. :try_end_1b} :catchall_19
 
     throw v1
 .end method
 
 .method public isEnqueuedInForeground(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -731,7 +731,7 @@
     monitor-enter v0
 
     .line 347
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/Processor;->mForegroundWorkMap:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -743,18 +743,18 @@
     return v1
 
     .line 348
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method synthetic lambda$runOnExecuted$1$androidx-work-impl-Processor(Landroidx/work/impl/model/WorkGenerationalId;Z)V
-    .locals 0
+    .registers 3
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "needsReschedule"    # Z
 
@@ -765,7 +765,7 @@
 .end method
 
 .method synthetic lambda$startWork$0$androidx-work-impl-Processor(Ljava/util/ArrayList;Ljava/lang/String;)Landroidx/work/impl/model/WorkSpec;
-    .locals 1
+    .registers 4
     .param p1, "tags"    # Ljava/util/ArrayList;
     .param p2, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -802,7 +802,7 @@
 .end method
 
 .method public onExecuted(Landroidx/work/impl/model/WorkGenerationalId;Z)V
-    .locals 6
+    .registers 9
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "needsReschedule"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -822,7 +822,7 @@
     monitor-enter v0
 
     .line 376
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/Processor;->mEnqueuedWorkMap:Ljava/util/Map;
 
     invoke-virtual {p1}, Landroidx/work/impl/model/WorkGenerationalId;->getWorkSpecId()Ljava/lang/String;
@@ -837,7 +837,7 @@
 
     .line 378
     .local v1, "workerWrapper":Landroidx/work/impl/WorkerWrapper;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     invoke-virtual {v1}, Landroidx/work/impl/WorkerWrapper;->getWorkGenerationalId()Landroidx/work/impl/model/WorkGenerationalId;
 
@@ -847,7 +847,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_24
 
     .line 379
     iget-object v2, p0, Landroidx/work/impl/Processor;->mEnqueuedWorkMap:Ljava/util/Map;
@@ -859,7 +859,7 @@
     invoke-interface {v2, v3}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 381
-    :cond_0
+    :cond_24
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v2
@@ -921,12 +921,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_60
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_70
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -940,29 +940,29 @@
 
     .line 386
     .end local v3    # "executionListener":Landroidx/work/impl/ExecutionListener;
-    goto :goto_0
+    goto :goto_60
 
     .line 387
     .end local v1    # "workerWrapper":Landroidx/work/impl/WorkerWrapper;
-    :cond_1
+    :cond_70
     monitor-exit v0
 
     .line 388
     return-void
 
     .line 387
-    :catchall_0
+    :catchall_72
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_74
+    .catchall {:try_start_3 .. :try_end_74} :catchall_72
 
     throw v1
 .end method
 
 .method public removeExecutionListener(Landroidx/work/impl/ExecutionListener;)V
-    .locals 2
+    .registers 4
     .param p1, "executionListener"    # Landroidx/work/impl/ExecutionListener;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -979,7 +979,7 @@
     monitor-enter v0
 
     .line 369
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/Processor;->mOuterListeners:Ljava/util/List;
 
     invoke-interface {v1, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
@@ -991,18 +991,18 @@
     return-void
 
     .line 370
-    :catchall_0
+    :catchall_a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw v1
 .end method
 
 .method public startForeground(Ljava/lang/String;Landroidx/work/ForegroundInfo;)V
-    .locals 5
+    .registers 8
     .param p1, "workSpecId"    # Ljava/lang/String;
     .param p2, "foregroundInfo"    # Landroidx/work/ForegroundInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1022,7 +1022,7 @@
     monitor-enter v0
 
     .line 194
-    :try_start_0
+    :try_start_3
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
@@ -1066,12 +1066,12 @@
 
     .line 196
     .local v1, "wrapper":Landroidx/work/impl/WorkerWrapper;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_56
 
     .line 197
     iget-object v2, p0, Landroidx/work/impl/Processor;->mForegroundLock:Landroid/os/PowerManager$WakeLock;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_42
 
     .line 198
     iget-object v2, p0, Landroidx/work/impl/Processor;->mAppContext:Landroid/content/Context;
@@ -1090,7 +1090,7 @@
     invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
     .line 201
-    :cond_0
+    :cond_42
     iget-object v2, p0, Landroidx/work/impl/Processor;->mForegroundWorkMap:Ljava/util/Map;
 
     invoke-interface {v2, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -1117,25 +1117,25 @@
     .line 206
     .end local v1    # "wrapper":Landroidx/work/impl/WorkerWrapper;
     .end local v2    # "intent":Landroid/content/Intent;
-    :cond_1
+    :cond_56
     monitor-exit v0
 
     .line 207
     return-void
 
     .line 206
-    :catchall_0
+    :catchall_58
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5a
+    .catchall {:try_start_3 .. :try_end_5a} :catchall_58
 
     throw v1
 .end method
 
 .method public startWork(Landroidx/work/impl/StartStopToken;)Z
-    .locals 1
+    .registers 3
     .param p1, "id"    # Landroidx/work/impl/StartStopToken;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1157,7 +1157,7 @@
 .end method
 
 .method public startWork(Landroidx/work/impl/StartStopToken;Landroidx/work/WorkerParameters$RuntimeExtras;)Z
-    .locals 16
+    .registers 19
     .param p1, "startStopToken"    # Landroidx/work/impl/StartStopToken;
     .param p2, "runtimeExtras"    # Landroidx/work/WorkerParameters$RuntimeExtras;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1214,7 +1214,7 @@
     .local v14, "workSpec":Landroidx/work/impl/model/WorkSpec;
     const/4 v0, 0x0
 
-    if-nez v14, :cond_0
+    if-nez v14, :cond_43
 
     .line 128
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1250,18 +1250,18 @@
     return v0
 
     .line 133
-    :cond_0
+    :cond_43
     iget-object v15, v9, Landroidx/work/impl/Processor;->mLock:Ljava/lang/Object;
 
     monitor-enter v15
 
     .line 136
-    :try_start_0
+    :try_start_46
     invoke-virtual {v9, v12}, Landroidx/work/impl/Processor;->isEnqueued(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_97
 
     .line 138
     iget-object v1, v9, Landroidx/work/impl/Processor;->mWorkRuns:Ljava/util/Map;
@@ -1300,7 +1300,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_92
 
     .line 142
     invoke-interface {v1, v10}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -1338,14 +1338,14 @@
 
     invoke-virtual {v4, v5, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_95
 
     .line 153
-    :cond_1
+    :cond_92
     invoke-direct {v9, v11, v0}, Landroidx/work/impl/Processor;->runOnExecuted(Landroidx/work/impl/model/WorkGenerationalId;Z)V
 
     .line 155
-    :goto_0
+    :goto_95
     monitor-exit v15
 
     return v0
@@ -1354,7 +1354,7 @@
     .end local v1    # "tokens":Ljava/util/Set;, "Ljava/util/Set<Landroidx/work/impl/StartStopToken;>;"
     .end local v2    # "previousRun":Landroidx/work/impl/StartStopToken;
     .end local v3    # "previousRunGeneration":I
-    :cond_2
+    :cond_97
     invoke-virtual {v14}, Landroidx/work/impl/model/WorkSpec;->getGeneration()I
 
     move-result v1
@@ -1363,7 +1363,7 @@
 
     move-result v2
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_a6
 
     .line 161
     invoke-direct {v9, v11, v0}, Landroidx/work/impl/Processor;->runOnExecuted(Landroidx/work/impl/model/WorkGenerationalId;Z)V
@@ -1374,7 +1374,7 @@
     return v0
 
     .line 164
-    :cond_3
+    :cond_a6
     new-instance v0, Landroidx/work/impl/WorkerWrapper$Builder;
 
     iget-object v2, v9, Landroidx/work/impl/Processor;->mAppContext:Landroid/content/Context;
@@ -1401,13 +1401,13 @@
     invoke-virtual {v0, v1}, Landroidx/work/impl/WorkerWrapper$Builder;->withSchedulers(Ljava/util/List;)Landroidx/work/impl/WorkerWrapper$Builder;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_be
+    .catchall {:try_start_46 .. :try_end_be} :catchall_125
 
     .line 174
     move-object/from16 v1, p2
 
-    :try_start_1
+    :try_start_c0
     invoke-virtual {v0, v1}, Landroidx/work/impl/WorkerWrapper$Builder;->withRuntimeExtras(Landroidx/work/WorkerParameters$RuntimeExtras;)Landroidx/work/impl/WorkerWrapper$Builder;
 
     move-result-object v0
@@ -1469,8 +1469,8 @@
     .end local v2    # "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Boolean;>;"
     .end local v3    # "set":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroidx/work/impl/StartStopToken;>;"
     monitor-exit v15
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_f2
+    .catchall {:try_start_c0 .. :try_end_f2} :catchall_12a
 
     .line 185
     iget-object v2, v9, Landroidx/work/impl/Processor;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
@@ -1527,27 +1527,27 @@
 
     .line 184
     .end local v0    # "workWrapper":Landroidx/work/impl/WorkerWrapper;
-    :catchall_0
+    :catchall_125
     move-exception v0
 
     move-object/from16 v1, p2
 
-    :goto_1
-    :try_start_2
+    :goto_128
+    :try_start_128
     monitor-exit v15
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_129
+    .catchall {:try_start_128 .. :try_end_129} :catchall_12a
 
     throw v0
 
-    :catchall_1
+    :catchall_12a
     move-exception v0
 
-    goto :goto_1
+    goto :goto_128
 .end method
 
 .method public stopAndCancelWork(Ljava/lang/String;)Z
-    .locals 7
+    .registers 9
     .param p1, "id"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1572,7 +1572,7 @@
     monitor-enter v2
 
     .line 275
-    :try_start_0
+    :try_start_5
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v3
@@ -1616,20 +1616,20 @@
     move-object v0, v3
 
     .line 279
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_33
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_34
     move v1, v3
 
     .line 280
-    if-nez v0, :cond_1
+    if-nez v0, :cond_40
 
     .line 282
     iget-object v3, p0, Landroidx/work/impl/Processor;->mEnqueuedWorkMap:Ljava/util/Map;
@@ -1643,8 +1643,8 @@
     move-object v0, v3
 
     .line 284
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_40
+    if-eqz v0, :cond_47
 
     .line 285
     iget-object v3, p0, Landroidx/work/impl/Processor;->mWorkRuns:Ljava/util/Map;
@@ -1652,10 +1652,10 @@
     invoke-interface {v3, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 287
-    :cond_2
+    :cond_47
     monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_48
+    .catchall {:try_start_5 .. :try_end_48} :catchall_52
 
     .line 292
     invoke-static {p1, v0}, Landroidx/work/impl/Processor;->interrupt(Ljava/lang/String;Landroidx/work/impl/WorkerWrapper;)Z
@@ -1664,30 +1664,30 @@
 
     .line 293
     .local v2, "interrupted":Z
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_51
 
     .line 294
     invoke-direct {p0}, Landroidx/work/impl/Processor;->stopForegroundService()V
 
     .line 296
-    :cond_3
+    :cond_51
     return v2
 
     .line 287
     .end local v2    # "interrupted":Z
-    :catchall_0
+    :catchall_52
     move-exception v3
 
-    :try_start_1
+    :try_start_53
     monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_54
+    .catchall {:try_start_53 .. :try_end_54} :catchall_52
 
     throw v3
 .end method
 
 .method public stopForeground(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1704,7 +1704,7 @@
     monitor-enter v0
 
     .line 302
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/Processor;->mForegroundWorkMap:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1719,18 +1719,18 @@
     return-void
 
     .line 304
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public stopForegroundWork(Landroidx/work/impl/StartStopToken;)Z
-    .locals 7
+    .registers 9
     .param p1, "token"    # Landroidx/work/impl/StartStopToken;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1761,7 +1761,7 @@
     monitor-enter v2
 
     .line 219
-    :try_start_0
+    :try_start_c
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v3
@@ -1800,7 +1800,7 @@
     move-object v1, v3
 
     .line 221
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_38
 
     .line 222
     iget-object v3, p0, Landroidx/work/impl/Processor;->mWorkRuns:Ljava/util/Map;
@@ -1808,10 +1808,10 @@
     invoke-interface {v3, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 224
-    :cond_0
+    :cond_38
     monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_39
+    .catchall {:try_start_c .. :try_end_39} :catchall_3e
 
     .line 229
     invoke-static {v0, v1}, Landroidx/work/impl/Processor;->interrupt(Ljava/lang/String;Landroidx/work/impl/WorkerWrapper;)Z
@@ -1821,19 +1821,19 @@
     return v2
 
     .line 224
-    :catchall_0
+    :catchall_3e
     move-exception v3
 
-    :try_start_1
+    :try_start_3f
     monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_40
+    .catchall {:try_start_3f .. :try_end_40} :catchall_3e
 
     throw v3
 .end method
 
 .method public stopWork(Landroidx/work/impl/StartStopToken;)Z
-    .locals 8
+    .registers 10
     .param p1, "runId"    # Landroidx/work/impl/StartStopToken;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1864,7 +1864,7 @@
     monitor-enter v2
 
     .line 246
-    :try_start_0
+    :try_start_c
     iget-object v3, p0, Landroidx/work/impl/Processor;->mEnqueuedWorkMap:Ljava/util/Map;
 
     invoke-interface {v3, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1878,7 +1878,7 @@
     .line 247
     const/4 v3, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_36
 
     .line 248
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1913,7 +1913,7 @@
     return v3
 
     .line 251
-    :cond_0
+    :cond_36
     iget-object v4, p0, Landroidx/work/impl/Processor;->mWorkRuns:Ljava/util/Map;
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1924,18 +1924,18 @@
 
     .line 252
     .local v4, "runs":Ljava/util/Set;, "Ljava/util/Set<Landroidx/work/impl/StartStopToken;>;"
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_6f
 
     invoke-interface {v4, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_47
 
-    goto :goto_0
+    goto :goto_6f
 
     .line 255
-    :cond_1
+    :cond_47
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v3
@@ -1972,8 +1972,8 @@
 
     .end local v4    # "runs":Ljava/util/Set;, "Ljava/util/Set<Landroidx/work/impl/StartStopToken;>;"
     monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6a
+    .catchall {:try_start_c .. :try_end_6a} :catchall_71
 
     .line 262
     invoke-static {v0, v1}, Landroidx/work/impl/Processor;->interrupt(Ljava/lang/String;Landroidx/work/impl/WorkerWrapper;)Z
@@ -1984,21 +1984,21 @@
 
     .line 253
     .restart local v4    # "runs":Ljava/util/Set;, "Ljava/util/Set<Landroidx/work/impl/StartStopToken;>;"
-    :cond_2
-    :goto_0
-    :try_start_1
+    :cond_6f
+    :goto_6f
+    :try_start_6f
     monitor-exit v2
 
     return v3
 
     .line 257
     .end local v4    # "runs":Ljava/util/Set;, "Ljava/util/Set<Landroidx/work/impl/StartStopToken;>;"
-    :catchall_0
+    :catchall_71
     move-exception v3
 
     monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_73
+    .catchall {:try_start_6f .. :try_end_73} :catchall_71
 
     throw v3
 .end method

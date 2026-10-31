@@ -38,7 +38,7 @@
 
 # direct methods
 .method public static final setupWithNavController(Lcom/google/android/material/appbar/CollapsingToolbarLayout;Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/drawerlayout/widget/DrawerLayout;)V
-    .locals 5
+    .registers 9
     .param p0, "$this$setupWithNavController"    # Lcom/google/android/material/appbar/CollapsingToolbarLayout;
     .param p1, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
     .param p2, "navController"    # Landroidx/navigation/NavController;
@@ -119,7 +119,7 @@
 .end method
 
 .method public static final setupWithNavController(Lcom/google/android/material/appbar/CollapsingToolbarLayout;Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)V
-    .locals 1
+    .registers 5
     .param p0, "$this$setupWithNavController"    # Lcom/google/android/material/appbar/CollapsingToolbarLayout;
     .param p1, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
     .param p2, "navController"    # Landroidx/navigation/NavController;
@@ -149,12 +149,12 @@
 .end method
 
 .method public static synthetic setupWithNavController$default(Lcom/google/android/material/appbar/CollapsingToolbarLayout;Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;ILjava/lang/Object;)V
-    .locals 3
+    .registers 9
 
     .line 72
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_28
 
     .line 75
     invoke-virtual {p2}, Landroidx/navigation/NavController;->getGraph()Landroidx/navigation/NavGraph;
@@ -213,7 +213,7 @@
     .end local p3    # "navGraph$iv":Landroidx/navigation/NavGraph;
     .end local p4    # "drawerLayout$iv":Landroidx/customview/widget/Openable;
     .end local p5    # "fallbackOnNavigateUpListener$iv":Lkotlin/jvm/functions/Function0;
-    :cond_0
+    :cond_28
     invoke-static {p0, p1, p2, p3}, Landroidx/navigation/ui/CollapsingToolbarLayoutKt;->setupWithNavController(Lcom/google/android/material/appbar/CollapsingToolbarLayout;Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)V
 
     return-void

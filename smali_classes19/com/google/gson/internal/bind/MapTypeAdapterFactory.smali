@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;Z)V
-    .locals 0
+    .registers 3
     .param p1, "constructorConstructor"    # Lcom/google/gson/internal/ConstructorConstructor;
     .param p2, "complexMapKeySerialization"    # Z
 
@@ -40,7 +40,7 @@
 .end method
 
 .method private getKeyAdapter(Lcom/google/gson/Gson;Ljava/lang/reflect/Type;)Lcom/google/gson/TypeAdapter;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lcom/google/gson/Gson;
     .param p2, "keyType"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
@@ -57,16 +57,16 @@
     .line 140
     sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-eq p2, v0, :cond_1
+    if-eq p2, v0, :cond_12
 
     const-class v0, Ljava/lang/Boolean;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_9
 
-    goto :goto_0
+    goto :goto_12
 
     .line 142
-    :cond_0
+    :cond_9
     invoke-static {p2}, Lcom/google/gson/reflect/TypeToken;->get(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
 
     move-result-object v0
@@ -75,22 +75,22 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_14
 
     .line 141
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters;->BOOLEAN_AS_STRING:Lcom/google/gson/TypeAdapter;
 
     .line 140
-    :goto_1
+    :goto_14
     return-object v0
 .end method
 
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 18
+    .registers 21
     .param p1, "gson"    # Lcom/google/gson/Gson;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -129,7 +129,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 120
     const/4 v0, 0x0
@@ -137,7 +137,7 @@
     return-object v0
 
     .line 123
-    :cond_0
+    :cond_16
     invoke-static {v10}, Lcom/google/gson/internal/$Gson$Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
     move-result-object v12

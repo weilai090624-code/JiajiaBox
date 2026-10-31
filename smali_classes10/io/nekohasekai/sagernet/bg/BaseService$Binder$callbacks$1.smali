@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Landroid/os/RemoteCallbackList;-><init>()V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public bridge synthetic onCallbackDied(Landroid/os/IInterface;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Landroid/os/IInterface;
     .param p2, "p1"    # Ljava/lang/Object;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public onCallbackDied(Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "callback"    # Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
     .param p2, "cookie"    # Ljava/lang/Object;
 

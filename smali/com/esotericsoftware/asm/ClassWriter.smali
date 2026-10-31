@@ -92,7 +92,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     invoke-static {}, Lcom/esotericsoftware/asm/ClassWriter;->_clinit_()V
 
@@ -102,8 +102,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_8
+    if-ge v2, v0, :cond_18
 
     const-string v3, "AAAAAAAAAAAAAAAABCLMMDDDDDEEEEEEEEEEEEEEEEEEEEAAAAAAAADDDDDEEEEEEEEEEEEEEEEEEEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAAAAAAJJJJJJJJJJJJJJJJDOPAAAAAAGGGGGGGHIFBFAAFFAARQJJKKJJJJJJJJJJJJJJJJJJ"
 
@@ -119,16 +119,16 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_18
     sput-object v1, Lcom/esotericsoftware/asm/ClassWriter;->a:[B
 
     return-void
 .end method
 
 .method public constructor <init>(I)V
-    .locals 5
+    .registers 7
 
     const/high16 v0, 0x50000
 
@@ -192,35 +192,35 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_43
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_44
 
-    :cond_0
+    :cond_43
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_44
     iput-boolean v1, p0, Lcom/esotericsoftware/asm/ClassWriter;->K:Z
 
     and-int/lit8 p1, p1, 0x2
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_4b
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_1
+    :cond_4b
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_4c
     iput-boolean v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->J:Z
 
     return-void
 .end method
 
 .method public constructor <init>(Lcom/esotericsoftware/asm/ClassReader;I)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0, p2}, Lcom/esotericsoftware/asm/ClassWriter;-><init>(I)V
 
@@ -232,13 +232,13 @@
 .end method
 
 .method static synthetic _clinit_()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private a(Lcom/esotericsoftware/asm/Item;)Lcom/esotericsoftware/asm/Item;
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->e:[Lcom/esotericsoftware/asm/Item;
 
@@ -252,32 +252,32 @@
 
     aget-object v0, v0, v1
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_a
+    if-eqz v0, :cond_1b
 
     iget v1, v0, Lcom/esotericsoftware/asm/Item;->b:I
 
     iget v2, p1, Lcom/esotericsoftware/asm/Item;->b:I
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_18
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/asm/Item;->a(Lcom/esotericsoftware/asm/Item;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1b
 
-    :cond_0
+    :cond_18
     iget-object v0, v0, Lcom/esotericsoftware/asm/Item;->k:Lcom/esotericsoftware/asm/Item;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_1
+    :cond_1b
     return-object v0
 .end method
 
 .method private a(III)V
-    .locals 1
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -291,7 +291,7 @@
 .end method
 
 .method private b(Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
@@ -307,7 +307,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_29
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -331,12 +331,12 @@
 
     invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_0
+    :cond_29
     return-object v0
 .end method
 
 .method private b(III)V
-    .locals 1
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -350,7 +350,7 @@
 .end method
 
 .method private b(Lcom/esotericsoftware/asm/Item;)V
-    .locals 7
+    .registers 9
 
     iget v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->c:I
 
@@ -360,7 +360,7 @@
 
     iget v1, p0, Lcom/esotericsoftware/asm/ClassWriter;->f:I
 
-    if-le v0, v1, :cond_2
+    if-le v0, v1, :cond_36
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->e:[Lcom/esotericsoftware/asm/Item;
 
@@ -374,15 +374,15 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_14
+    if-ltz v0, :cond_2c
 
     iget-object v3, p0, Lcom/esotericsoftware/asm/ClassWriter;->e:[Lcom/esotericsoftware/asm/Item;
 
     aget-object v3, v3, v0
 
-    :goto_1
-    if-eqz v3, :cond_0
+    :goto_1a
+    if-eqz v3, :cond_29
 
     iget v4, v3, Lcom/esotericsoftware/asm/Item;->j:I
 
@@ -398,14 +398,14 @@
 
     move-object v3, v5
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_0
+    :cond_29
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_2c
     iput-object v2, p0, Lcom/esotericsoftware/asm/ClassWriter;->e:[Lcom/esotericsoftware/asm/Item;
 
     int-to-double v0, v1
@@ -418,7 +418,7 @@
 
     iput v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->f:I
 
-    :cond_2
+    :cond_36
     iget v0, p1, Lcom/esotericsoftware/asm/Item;->j:I
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/ClassWriter;->e:[Lcom/esotericsoftware/asm/Item;
@@ -441,7 +441,7 @@
 .end method
 
 .method private c(Lcom/esotericsoftware/asm/Item;)Lcom/esotericsoftware/asm/Item;
-    .locals 4
+    .registers 6
 
     iget-short p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->G:S
 
@@ -463,7 +463,7 @@
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     const/16 v0, 0x10
 
@@ -471,14 +471,14 @@
 
     iput-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
-    :cond_0
+    :cond_1d
     iget-short v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->G:S
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
     array-length v1, v1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_36
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
@@ -500,7 +500,7 @@
 
     iput-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
-    :cond_1
+    :cond_36
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
     iget-short v1, p0, Lcom/esotericsoftware/asm/ClassWriter;->G:S
@@ -513,7 +513,7 @@
 
 # virtual methods
 .method a(II)I
-    .locals 6
+    .registers 9
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
@@ -551,7 +551,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_45
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
@@ -587,14 +587,14 @@
 
     invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_0
+    :cond_45
     iget p1, v0, Lcom/esotericsoftware/asm/Item;->c:I
 
     return p1
 .end method
 
 .method a(Ljava/lang/String;I)I
-    .locals 2
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
@@ -632,7 +632,7 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_2a
 
     iget-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
@@ -640,14 +640,14 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_2a
     iget p1, p1, Lcom/esotericsoftware/asm/Item;->a:I
 
     return p1
 .end method
 
 .method a(D)Lcom/esotericsoftware/asm/Item;
-    .locals 2
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
@@ -659,7 +659,7 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_2d
 
     iget-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -691,12 +691,12 @@
 
     invoke-direct {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_0
+    :cond_2d
     return-object p1
 .end method
 
 .method a(F)Lcom/esotericsoftware/asm/Item;
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
@@ -708,7 +708,7 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_2b
 
     iget-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -738,12 +738,12 @@
 
     invoke-direct {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_0
+    :cond_2b
     return-object p1
 .end method
 
 .method a(I)Lcom/esotericsoftware/asm/Item;
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
@@ -755,7 +755,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_27
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -781,12 +781,12 @@
 
     invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_0
+    :cond_27
     return-object v0
 .end method
 
 .method a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lcom/esotericsoftware/asm/Item;
-    .locals 2
+    .registers 8
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->j:Lcom/esotericsoftware/asm/Item;
 
@@ -800,26 +800,26 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     const/4 v0, 0x4
 
     const/16 v1, 0xf
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_19
 
     invoke-virtual {p0, p2, p3, p4}, Lcom/esotericsoftware/asm/ClassWriter;->newField(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result p2
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_19
     invoke-virtual {p0, p2, p3, p4, p5}, Lcom/esotericsoftware/asm/ClassWriter;->newMethod(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I
 
     move-result p2
 
-    :goto_0
+    :goto_1d
     invoke-direct {p0, v1, p1, p2}, Lcom/esotericsoftware/asm/ClassWriter;->b(III)V
 
     new-instance v0, Lcom/esotericsoftware/asm/Item;
@@ -836,12 +836,12 @@
 
     invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_1
+    :cond_30
     return-object v0
 .end method
 
 .method a(J)Lcom/esotericsoftware/asm/Item;
-    .locals 2
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
@@ -853,7 +853,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_29
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -881,16 +881,16 @@
 
     invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_0
+    :cond_29
     return-object v0
 .end method
 
 .method a(Ljava/lang/Object;)Lcom/esotericsoftware/asm/Item;
-    .locals 6
+    .registers 8
 
     instance-of v0, p1, Ljava/lang/Integer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     check-cast p1, Ljava/lang/Integer;
 
@@ -904,10 +904,10 @@
 
     return-object p1
 
-    :cond_0
+    :cond_f
     instance-of v0, p1, Ljava/lang/Byte;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     check-cast p1, Ljava/lang/Byte;
 
@@ -921,10 +921,10 @@
 
     return-object p1
 
-    :cond_1
+    :cond_1e
     instance-of v0, p1, Ljava/lang/Character;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     check-cast p1, Ljava/lang/Character;
 
@@ -938,10 +938,10 @@
 
     return-object p1
 
-    :cond_2
+    :cond_2d
     instance-of v0, p1, Ljava/lang/Short;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3c
 
     check-cast p1, Ljava/lang/Short;
 
@@ -955,10 +955,10 @@
 
     return-object p1
 
-    :cond_3
+    :cond_3c
     instance-of v0, p1, Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_4b
 
     check-cast p1, Ljava/lang/Boolean;
 
@@ -972,10 +972,10 @@
 
     return-object p1
 
-    :cond_4
+    :cond_4b
     instance-of v0, p1, Ljava/lang/Float;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_5a
 
     check-cast p1, Ljava/lang/Float;
 
@@ -989,10 +989,10 @@
 
     return-object p1
 
-    :cond_5
+    :cond_5a
     instance-of v0, p1, Ljava/lang/Long;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_69
 
     check-cast p1, Ljava/lang/Long;
 
@@ -1006,10 +1006,10 @@
 
     return-object p1
 
-    :cond_6
+    :cond_69
     instance-of v0, p1, Ljava/lang/Double;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_78
 
     check-cast p1, Ljava/lang/Double;
 
@@ -1023,10 +1023,10 @@
 
     return-object p1
 
-    :cond_7
+    :cond_78
     instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_83
 
     check-cast p1, Ljava/lang/String;
 
@@ -1036,10 +1036,10 @@
 
     return-object p1
 
-    :cond_8
+    :cond_83
     instance-of v0, p1, Lcom/esotericsoftware/asm/Type;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_ac
 
     check-cast p1, Lcom/esotericsoftware/asm/Type;
 
@@ -1049,7 +1049,7 @@
 
     const/16 v1, 0xa
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_9a
 
     invoke-virtual {p1}, Lcom/esotericsoftware/asm/Type;->getInternalName()Ljava/lang/String;
 
@@ -1061,14 +1061,14 @@
 
     return-object p1
 
-    :cond_9
+    :cond_9a
     const/16 v1, 0xb
 
     invoke-virtual {p1}, Lcom/esotericsoftware/asm/Type;->getDescriptor()Ljava/lang/String;
 
     move-result-object p1
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_a7
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->c(Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
 
@@ -1076,17 +1076,17 @@
 
     return-object p1
 
-    :cond_a
+    :cond_a7
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
 
     move-result-object p1
 
     return-object p1
 
-    :cond_b
+    :cond_ac
     instance-of v0, p1, Lcom/esotericsoftware/asm/Handle;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_c2
 
     check-cast p1, Lcom/esotericsoftware/asm/Handle;
 
@@ -1108,7 +1108,7 @@
 
     return-object p1
 
-    :cond_c
+    :cond_c2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuffer;
@@ -1135,7 +1135,7 @@
 .end method
 
 .method a(Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
@@ -1151,7 +1151,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_28
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -1175,12 +1175,12 @@
 
     invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_0
+    :cond_28
     return-object v0
 .end method
 
 .method a(Ljava/lang/String;Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
-    .locals 3
+    .registers 6
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
@@ -1196,7 +1196,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2b
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
@@ -1222,16 +1222,16 @@
 
     invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_0
+    :cond_2b
     return-object v0
 .end method
 
 .method varargs a(Ljava/lang/String;Ljava/lang/String;Lcom/esotericsoftware/asm/Handle;[Ljava/lang/Object;)Lcom/esotericsoftware/asm/Item;
-    .locals 9
+    .registers 14
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->A:Lcom/esotericsoftware/asm/ByteVector;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     new-instance v0, Lcom/esotericsoftware/asm/ByteVector;
 
@@ -1239,7 +1239,7 @@
 
     iput-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->A:Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_0
+    :cond_b
     iget v1, v0, Lcom/esotericsoftware/asm/ByteVector;->b:I
 
     invoke-virtual {p3}, Lcom/esotericsoftware/asm/Handle;->hashCode()I
@@ -1274,8 +1274,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, p3, :cond_1
+    :goto_2b
+    if-ge v4, p3, :cond_3e
 
     aget-object v5, p4, v4
 
@@ -1293,9 +1293,9 @@
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_1
+    :cond_3e
     iget-object p4, v0, Lcom/esotericsoftware/asm/ByteVector;->a:[B
 
     add-int/lit8 p3, p3, 0x2
@@ -1316,28 +1316,28 @@
 
     aget-object v4, v4, v5
 
-    :goto_1
-    if-eqz v4, :cond_5
+    :goto_51
+    if-eqz v4, :cond_74
 
     iget v5, v4, Lcom/esotericsoftware/asm/Item;->b:I
 
     const/16 v6, 0x21
 
-    if-ne v5, v6, :cond_4
+    if-ne v5, v6, :cond_71
 
     iget v5, v4, Lcom/esotericsoftware/asm/Item;->j:I
 
-    if-eq v5, v2, :cond_2
+    if-eq v5, v2, :cond_5e
 
-    goto :goto_3
+    goto :goto_71
 
-    :cond_2
+    :cond_5e
     iget v5, v4, Lcom/esotericsoftware/asm/Item;->c:I
 
     const/4 v6, 0x0
 
-    :goto_2
-    if-ge v6, p3, :cond_5
+    :goto_61
+    if-ge v6, p3, :cond_74
 
     add-int v7, v1, v6
 
@@ -1347,31 +1347,31 @@
 
     aget-byte v8, p4, v8
 
-    if-eq v7, v8, :cond_3
+    if-eq v7, v8, :cond_6e
 
-    goto :goto_3
+    goto :goto_71
 
-    :cond_3
+    :cond_6e
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_61
 
-    :cond_4
-    :goto_3
+    :cond_71
+    :goto_71
     iget-object v4, v4, Lcom/esotericsoftware/asm/Item;->k:Lcom/esotericsoftware/asm/Item;
 
-    goto :goto_1
+    goto :goto_51
 
-    :cond_5
-    if-eqz v4, :cond_6
+    :cond_74
+    if-eqz v4, :cond_7b
 
     iget p3, v4, Lcom/esotericsoftware/asm/Item;->a:I
 
     iput v1, v0, Lcom/esotericsoftware/asm/ByteVector;->b:I
 
-    goto :goto_4
+    goto :goto_8c
 
-    :cond_6
+    :cond_7b
     iget p3, p0, Lcom/esotericsoftware/asm/ClassWriter;->z:I
 
     add-int/lit8 p4, p3, 0x1
@@ -1386,7 +1386,7 @@
 
     invoke-direct {p0, p4}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :goto_4
+    :goto_8c
     iget-object p4, p0, Lcom/esotericsoftware/asm/ClassWriter;->i:Lcom/esotericsoftware/asm/Item;
 
     invoke-virtual {p4, p1, p2, p3}, Lcom/esotericsoftware/asm/Item;->a(Ljava/lang/String;Ljava/lang/String;I)V
@@ -1397,7 +1397,7 @@
 
     move-result-object p4
 
-    if-nez p4, :cond_7
+    if-nez p4, :cond_b2
 
     const/16 p4, 0x12
 
@@ -1421,12 +1421,12 @@
 
     invoke-direct {p0, p4}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_7
+    :cond_b2
     return-object p4
 .end method
 
 .method a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
-    .locals 2
+    .registers 6
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->i:Lcom/esotericsoftware/asm/Item;
 
@@ -1440,7 +1440,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2a
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->newClass(Ljava/lang/String;)I
 
@@ -1466,23 +1466,23 @@
 
     invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_0
+    :cond_2a
     return-object v0
 .end method
 
 .method a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lcom/esotericsoftware/asm/Item;
-    .locals 1
+    .registers 6
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/16 p4, 0xb
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     const/16 p4, 0xa
 
-    :goto_0
+    :goto_7
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->i:Lcom/esotericsoftware/asm/Item;
 
     invoke-virtual {v0, p4, p1, p2, p3}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
@@ -1493,7 +1493,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2f
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->newClass(Ljava/lang/String;)I
 
@@ -1519,12 +1519,12 @@
 
     invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_1
+    :cond_2f
     return-object v0
 .end method
 
 .method c(Ljava/lang/String;)I
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
@@ -1540,7 +1540,7 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_16
 
     iget-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
@@ -1548,14 +1548,14 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_16
     iget p1, p1, Lcom/esotericsoftware/asm/Item;->a:I
 
     return p1
 .end method
 
 .method c(Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
@@ -1571,7 +1571,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_29
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -1595,12 +1595,12 @@
 
     invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_0
+    :cond_29
     return-object v0
 .end method
 
 .method protected getCommonSuperClass(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .registers 9
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -1614,7 +1614,7 @@
 
     const/16 v2, 0x2f
 
-    :try_start_0
+    :try_start_c
     invoke-virtual {p1, v2, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
     move-result-object v3
@@ -1632,42 +1632,42 @@
     invoke-static {v5, v4, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_1d} :catch_4e
 
     invoke-virtual {v3, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_24
 
     return-object p1
 
-    :cond_0
+    :cond_24
     invoke-virtual {v0, v3}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2b
 
     return-object p2
 
-    :cond_1
+    :cond_2b
     invoke-virtual {v3}, Ljava/lang/Class;->isInterface()Z
 
     move-result p1
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_4b
 
     invoke-virtual {v0}, Ljava/lang/Class;->isInterface()Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_38
 
-    goto :goto_0
+    goto :goto_4b
 
-    :cond_2
+    :cond_38
     invoke-virtual {v3}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v3
@@ -1676,7 +1676,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_38
 
     invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1688,13 +1688,13 @@
 
     return-object p1
 
-    :cond_3
-    :goto_0
+    :cond_4b
+    :goto_4b
     const-string p1, "java/lang/Object"
 
     return-object p1
 
-    :catch_0
+    :catch_4e
     move-exception p1
 
     new-instance p2, Ljava/lang/RuntimeException;
@@ -1709,7 +1709,7 @@
 .end method
 
 .method public newClass(Ljava/lang/String;)I
-    .locals 0
+    .registers 2
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
 
@@ -1721,7 +1721,7 @@
 .end method
 
 .method public newConst(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/Object;)Lcom/esotericsoftware/asm/Item;
 
@@ -1733,7 +1733,7 @@
 .end method
 
 .method public newField(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 0
+    .registers 4
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
 
@@ -1745,24 +1745,24 @@
 .end method
 
 .method public newHandle(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 7
+    .registers 12
 
     const/16 v0, 0x9
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_7
 
     const/4 v0, 0x1
 
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     const/4 v6, 0x0
 
-    :goto_0
+    :goto_9
     move-object v1, p0
 
     move v2, p1
@@ -1781,7 +1781,7 @@
 .end method
 
 .method public newHandle(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I
-    .locals 0
+    .registers 6
 
     invoke-virtual/range {p0 .. p5}, Lcom/esotericsoftware/asm/ClassWriter;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lcom/esotericsoftware/asm/Item;
 
@@ -1793,7 +1793,7 @@
 .end method
 
 .method public varargs newInvokeDynamic(Ljava/lang/String;Ljava/lang/String;Lcom/esotericsoftware/asm/Handle;[Ljava/lang/Object;)I
-    .locals 0
+    .registers 5
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;Ljava/lang/String;Lcom/esotericsoftware/asm/Handle;[Ljava/lang/Object;)Lcom/esotericsoftware/asm/Item;
 
@@ -1805,7 +1805,7 @@
 .end method
 
 .method public newMethod(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I
-    .locals 0
+    .registers 5
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lcom/esotericsoftware/asm/Item;
 
@@ -1817,7 +1817,7 @@
 .end method
 
 .method public newMethodType(Ljava/lang/String;)I
-    .locals 0
+    .registers 2
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->c(Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
 
@@ -1829,7 +1829,7 @@
 .end method
 
 .method public newNameType(Ljava/lang/String;Ljava/lang/String;)I
-    .locals 0
+    .registers 3
 
     invoke-virtual {p0, p1, p2}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
 
@@ -1841,7 +1841,7 @@
 .end method
 
 .method public newUTF8(Ljava/lang/String;)I
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
@@ -1857,7 +1857,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_28
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -1881,14 +1881,14 @@
 
     invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    :cond_0
+    :cond_28
     iget p1, v0, Lcom/esotericsoftware/asm/Item;->a:I
 
     return p1
 .end method
 
 .method public toByteArray()[B
-    .locals 28
+    .registers 29
 
     move-object/from16 v7, p0
 
@@ -1896,7 +1896,7 @@
 
     const v6, 0xffff
 
-    if-gt v0, v6, :cond_22
+    if-gt v0, v6, :cond_342
 
     iget v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->o:I
 
@@ -1910,8 +1910,8 @@
 
     const/4 v10, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_0
+    :goto_13
+    if-eqz v1, :cond_21
 
     add-int/lit8 v10, v10, 0x1
 
@@ -1925,15 +1925,15 @@
 
     check-cast v1, Lcom/esotericsoftware/asm/FieldWriter;
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_21
     iget-object v1, v7, Lcom/esotericsoftware/asm/ClassWriter;->D:Lcom/esotericsoftware/asm/MethodWriter;
 
     const/4 v11, 0x0
 
-    :goto_1
-    if-eqz v1, :cond_1
+    :goto_24
+    if-eqz v1, :cond_32
 
     add-int/lit8 v11, v11, 0x1
 
@@ -1947,14 +1947,14 @@
 
     check-cast v1, Lcom/esotericsoftware/asm/MethodWriter;
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_1
+    :cond_32
     iget-object v1, v7, Lcom/esotericsoftware/asm/ClassWriter;->A:Lcom/esotericsoftware/asm/ByteVector;
 
     const-string v12, "BootstrapMethods"
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_44
 
     iget-object v1, v7, Lcom/esotericsoftware/asm/ClassWriter;->A:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -1968,17 +1968,17 @@
 
     const/4 v1, 0x1
 
-    goto :goto_2
+    goto :goto_45
 
-    :cond_2
+    :cond_44
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_45
     iget v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->m:I
 
     const-string v14, "Signature"
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_52
 
     add-int/lit8 v1, v1, 0x1
 
@@ -1986,12 +1986,12 @@
 
     invoke-virtual {v7, v14}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
-    :cond_3
+    :cond_52
     iget v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->q:I
 
     const-string v15, "SourceFile"
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5f
 
     add-int/lit8 v1, v1, 0x1
 
@@ -1999,12 +1999,12 @@
 
     invoke-virtual {v7, v15}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
-    :cond_4
+    :cond_5f
     iget-object v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->r:Lcom/esotericsoftware/asm/ByteVector;
 
     const-string v5, "SourceDebugExtension"
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_71
 
     add-int/lit8 v1, v1, 0x1
 
@@ -2018,12 +2018,12 @@
 
     invoke-virtual {v7, v5}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
-    :cond_5
+    :cond_71
     iget v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->s:I
 
     const-string v4, "EnclosingMethod"
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7e
 
     add-int/lit8 v1, v1, 0x1
 
@@ -2031,7 +2031,7 @@
 
     invoke-virtual {v7, v4}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
-    :cond_6
+    :cond_7e
     iget v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->k:I
 
     const/high16 v16, 0x20000
@@ -2040,7 +2040,7 @@
 
     const-string v3, "Deprecated"
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8f
 
     add-int/lit8 v1, v1, 0x1
 
@@ -2048,7 +2048,7 @@
 
     invoke-virtual {v7, v3}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
-    :cond_7
+    :cond_8f
     iget v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->k:I
 
     and-int/lit16 v2, v2, 0x1000
@@ -2059,33 +2059,33 @@
 
     const/high16 v17, 0x40000
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_ad
 
     iget v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->b:I
 
     and-int/2addr v2, v6
 
-    if-lt v2, v8, :cond_8
+    if-lt v2, v8, :cond_a6
 
     iget v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->k:I
 
     and-int v2, v2, v17
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_ad
 
-    :cond_8
+    :cond_a6
     add-int/lit8 v1, v1, 0x1
 
     add-int/lit8 v0, v0, 0x6
 
     invoke-virtual {v7, v13}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
-    :cond_9
+    :cond_ad
     iget-object v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->y:Lcom/esotericsoftware/asm/ByteVector;
 
     const-string v8, "InnerClasses"
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_bf
 
     add-int/lit8 v1, v1, 0x1
 
@@ -2099,12 +2099,12 @@
 
     invoke-virtual {v7, v8}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
-    :cond_a
+    :cond_bf
     iget-object v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->u:Lcom/esotericsoftware/asm/AnnotationWriter;
 
     const-string v6, "RuntimeVisibleAnnotations"
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_d3
 
     add-int/lit8 v1, v1, 0x1
 
@@ -2120,12 +2120,12 @@
 
     invoke-virtual {v7, v6}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
-    :cond_b
+    :cond_d3
     iget-object v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->v:Lcom/esotericsoftware/asm/AnnotationWriter;
 
     const-string v9, "RuntimeInvisibleAnnotations"
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_e7
 
     add-int/lit8 v1, v1, 0x1
 
@@ -2141,14 +2141,14 @@
 
     invoke-virtual {v7, v9}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
-    :cond_c
+    :cond_e7
     iget-object v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->N:Lcom/esotericsoftware/asm/AnnotationWriter;
 
     move-object/from16 v18, v5
 
     const-string v5, "RuntimeVisibleTypeAnnotations"
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_fd
 
     add-int/lit8 v1, v1, 0x1
 
@@ -2164,10 +2164,10 @@
 
     invoke-virtual {v7, v5}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
-    :cond_d
+    :cond_fd
     iget-object v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->O:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_111
 
     add-int/lit8 v1, v1, 0x1
 
@@ -2185,12 +2185,12 @@
 
     invoke-virtual {v7, v2}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
-    :cond_e
+    :cond_111
     move/from16 v19, v0
 
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->w:Lcom/esotericsoftware/asm/Attribute;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_145
 
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->w:Lcom/esotericsoftware/asm/Attribute;
 
@@ -2238,9 +2238,9 @@
 
     move/from16 v1, v20
 
-    goto :goto_3
+    goto :goto_151
 
-    :cond_f
+    :cond_145
     move-object/from16 v24, v3
 
     move-object/from16 v25, v4
@@ -2253,7 +2253,7 @@
 
     move-object/from16 v9, v27
 
-    :goto_3
+    :goto_151
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
     iget v0, v0, Lcom/esotericsoftware/asm/ByteVector;->b:I
@@ -2328,10 +2328,10 @@
 
     const/4 v0, 0x0
 
-    :goto_4
+    :goto_19c
     iget v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->o:I
 
-    if-ge v0, v2, :cond_10
+    if-ge v0, v2, :cond_1aa
 
     iget-object v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->p:[I
 
@@ -2341,15 +2341,15 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_4
+    goto :goto_19c
 
-    :cond_10
+    :cond_1aa
     invoke-virtual {v5, v10}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->B:Lcom/esotericsoftware/asm/FieldWriter;
 
-    :goto_5
-    if-eqz v0, :cond_11
+    :goto_1af
+    if-eqz v0, :cond_1b9
 
     invoke-virtual {v0, v5}, Lcom/esotericsoftware/asm/FieldWriter;->a(Lcom/esotericsoftware/asm/ByteVector;)V
 
@@ -2357,15 +2357,15 @@
 
     check-cast v0, Lcom/esotericsoftware/asm/FieldWriter;
 
-    goto :goto_5
+    goto :goto_1af
 
-    :cond_11
+    :cond_1b9
     invoke-virtual {v5, v11}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->D:Lcom/esotericsoftware/asm/MethodWriter;
 
-    :goto_6
-    if-eqz v0, :cond_12
+    :goto_1be
+    if-eqz v0, :cond_1c8
 
     invoke-virtual {v0, v5}, Lcom/esotericsoftware/asm/MethodWriter;->a(Lcom/esotericsoftware/asm/ByteVector;)V
 
@@ -2373,14 +2373,14 @@
 
     check-cast v0, Lcom/esotericsoftware/asm/MethodWriter;
 
-    goto :goto_6
+    goto :goto_1be
 
-    :cond_12
+    :cond_1c8
     invoke-virtual {v5, v1}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->A:Lcom/esotericsoftware/asm/ByteVector;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1f1
 
     invoke-virtual {v7, v12}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
@@ -2416,10 +2416,10 @@
 
     invoke-virtual {v5, v0, v2, v1}, Lcom/esotericsoftware/asm/ByteVector;->putByteArray([BII)Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_13
+    :cond_1f1
     iget v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->m:I
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_208
 
     invoke-virtual {v7, v14}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
@@ -2439,15 +2439,15 @@
 
     invoke-virtual {v0, v2}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    goto :goto_7
+    goto :goto_209
 
-    :cond_14
+    :cond_208
     const/4 v1, 0x2
 
-    :goto_7
+    :goto_209
     iget v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->q:I
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_21e
 
     invoke-virtual {v7, v15}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
@@ -2465,10 +2465,10 @@
 
     invoke-virtual {v0, v1}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_15
+    :cond_21e
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->r:Lcom/esotericsoftware/asm/ByteVector;
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_239
 
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->r:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -2492,10 +2492,10 @@
 
     invoke-virtual {v5, v1, v2, v0}, Lcom/esotericsoftware/asm/ByteVector;->putByteArray([BII)Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_16
+    :cond_239
     iget v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->s:I
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_256
 
     move-object/from16 v0, v25
 
@@ -2521,12 +2521,12 @@
 
     invoke-virtual {v0, v1}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_17
+    :cond_256
     iget v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->k:I
 
     and-int v0, v0, v16
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_26a
 
     move-object/from16 v0, v24
 
@@ -2542,12 +2542,12 @@
 
     invoke-virtual {v0, v1}, Lcom/esotericsoftware/asm/ByteVector;->putInt(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_18
+    :cond_26a
     iget v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->k:I
 
     and-int/lit16 v0, v0, 0x1000
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_28c
 
     iget v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->b:I
 
@@ -2557,15 +2557,15 @@
 
     const/16 v1, 0x31
 
-    if-lt v0, v1, :cond_19
+    if-lt v0, v1, :cond_280
 
     iget v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->k:I
 
     and-int v0, v0, v17
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_28c
 
-    :cond_19
+    :cond_280
     invoke-virtual {v7, v13}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
     move-result v0
@@ -2578,10 +2578,10 @@
 
     invoke-virtual {v0, v1}, Lcom/esotericsoftware/asm/ByteVector;->putInt(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_1a
+    :cond_28c
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->y:Lcom/esotericsoftware/asm/ByteVector;
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_2b2
 
     invoke-virtual {v7, v8}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
@@ -2617,10 +2617,10 @@
 
     invoke-virtual {v5, v0, v2, v1}, Lcom/esotericsoftware/asm/ByteVector;->putByteArray([BII)Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_1b
+    :cond_2b2
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->u:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_2c2
 
     invoke-virtual {v7, v6}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
@@ -2632,10 +2632,10 @@
 
     invoke-virtual {v0, v5}, Lcom/esotericsoftware/asm/AnnotationWriter;->a(Lcom/esotericsoftware/asm/ByteVector;)V
 
-    :cond_1c
+    :cond_2c2
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->v:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_2d4
 
     move-object/from16 v0, v18
 
@@ -2649,10 +2649,10 @@
 
     invoke-virtual {v0, v5}, Lcom/esotericsoftware/asm/AnnotationWriter;->a(Lcom/esotericsoftware/asm/ByteVector;)V
 
-    :cond_1d
+    :cond_2d4
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->N:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_2e6
 
     move-object/from16 v0, v26
 
@@ -2666,10 +2666,10 @@
 
     invoke-virtual {v0, v5}, Lcom/esotericsoftware/asm/AnnotationWriter;->a(Lcom/esotericsoftware/asm/ByteVector;)V
 
-    :cond_1e
+    :cond_2e6
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->O:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_2f8
 
     const-string v0, "RuntimeInvisibleTypeAnnotations"
 
@@ -2683,10 +2683,10 @@
 
     invoke-virtual {v0, v5}, Lcom/esotericsoftware/asm/AnnotationWriter;->a(Lcom/esotericsoftware/asm/ByteVector;)V
 
-    :cond_1f
+    :cond_2f8
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->w:Lcom/esotericsoftware/asm/Attribute;
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_30b
 
     iget-object v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->w:Lcom/esotericsoftware/asm/Attribute;
 
@@ -2708,15 +2708,15 @@
 
     invoke-virtual/range {v0 .. v6}, Lcom/esotericsoftware/asm/Attribute;->a(Lcom/esotericsoftware/asm/ClassWriter;[BIIILcom/esotericsoftware/asm/ByteVector;)V
 
-    goto :goto_8
+    goto :goto_30c
 
-    :cond_20
+    :cond_30b
     move-object v8, v5
 
-    :goto_8
+    :goto_30c
     iget-boolean v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->L:Z
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_33f
 
     const/4 v0, 0x0
 
@@ -2768,12 +2768,12 @@
 
     return-object v0
 
-    :cond_21
+    :cond_33f
     iget-object v0, v8, Lcom/esotericsoftware/asm/ByteVector;->a:[B
 
     return-object v0
 
-    :cond_22
+    :cond_342
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Class file too large!"
@@ -2784,7 +2784,7 @@
 .end method
 
 .method public final visit(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
-    .locals 0
+    .registers 7
 
     iput p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->b:I
 
@@ -2798,7 +2798,7 @@
 
     iput-object p3, p0, Lcom/esotericsoftware/asm/ClassWriter;->I:Ljava/lang/String;
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_14
 
     invoke-virtual {p0, p4}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
@@ -2806,28 +2806,28 @@
 
     iput p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->m:I
 
-    :cond_0
+    :cond_14
     const/4 p1, 0x0
 
-    if-nez p5, :cond_1
+    if-nez p5, :cond_19
 
     const/4 p2, 0x0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_1
+    :cond_19
     invoke-virtual {p0, p5}, Lcom/esotericsoftware/asm/ClassWriter;->newClass(Ljava/lang/String;)I
 
     move-result p2
 
-    :goto_0
+    :goto_1d
     iput p2, p0, Lcom/esotericsoftware/asm/ClassWriter;->n:I
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_3e
 
     array-length p2, p6
 
-    if-lez p2, :cond_2
+    if-lez p2, :cond_3e
 
     array-length p2, p6
 
@@ -2839,10 +2839,10 @@
 
     iput-object p2, p0, Lcom/esotericsoftware/asm/ClassWriter;->p:[I
 
-    :goto_1
+    :goto_2d
     iget p2, p0, Lcom/esotericsoftware/asm/ClassWriter;->o:I
 
-    if-ge p1, p2, :cond_2
+    if-ge p1, p2, :cond_3e
 
     iget-object p2, p0, Lcom/esotericsoftware/asm/ClassWriter;->p:[I
 
@@ -2856,14 +2856,14 @@
 
     add-int/lit8 p1, p1, 0x1
 
-    goto :goto_1
+    goto :goto_2d
 
-    :cond_2
+    :cond_3e
     return-void
 .end method
 
 .method public final visitAnnotation(Ljava/lang/String;Z)Lcom/esotericsoftware/asm/AnnotationVisitor;
-    .locals 6
+    .registers 9
 
     new-instance v4, Lcom/esotericsoftware/asm/ByteVector;
 
@@ -2895,7 +2895,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/esotericsoftware/asm/AnnotationWriter;-><init>(Lcom/esotericsoftware/asm/ClassWriter;ZLcom/esotericsoftware/asm/ByteVector;Lcom/esotericsoftware/asm/ByteVector;I)V
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_24
 
     iget-object p2, p0, Lcom/esotericsoftware/asm/ClassWriter;->u:Lcom/esotericsoftware/asm/AnnotationWriter;
 
@@ -2903,21 +2903,21 @@
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->u:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_24
     iget-object p2, p0, Lcom/esotericsoftware/asm/ClassWriter;->v:Lcom/esotericsoftware/asm/AnnotationWriter;
 
     iput-object p2, p1, Lcom/esotericsoftware/asm/AnnotationWriter;->g:Lcom/esotericsoftware/asm/AnnotationWriter;
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->v:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    :goto_0
+    :goto_2a
     return-object p1
 .end method
 
 .method public final visitAttribute(Lcom/esotericsoftware/asm/Attribute;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->w:Lcom/esotericsoftware/asm/Attribute;
 
@@ -2929,13 +2929,13 @@
 .end method
 
 .method public final visitEnd()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public final visitField(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Lcom/esotericsoftware/asm/FieldVisitor;
-    .locals 8
+    .registers 14
 
     new-instance v7, Lcom/esotericsoftware/asm/FieldWriter;
 
@@ -2959,11 +2959,11 @@
 .end method
 
 .method public final visitInnerClass(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 2
+    .registers 7
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->y:Lcom/esotericsoftware/asm/ByteVector;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     new-instance v0, Lcom/esotericsoftware/asm/ByteVector;
 
@@ -2971,14 +2971,14 @@
 
     iput-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->y:Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;)Lcom/esotericsoftware/asm/Item;
 
     move-result-object p1
 
     iget v0, p1, Lcom/esotericsoftware/asm/Item;->c:I
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_43
 
     iget v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->x:I
 
@@ -2996,32 +2996,32 @@
 
     const/4 v1, 0x0
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_27
 
     const/4 p2, 0x0
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_1
+    :cond_27
     invoke-virtual {p0, p2}, Lcom/esotericsoftware/asm/ClassWriter;->newClass(Ljava/lang/String;)I
 
     move-result p2
 
-    :goto_0
+    :goto_2b
     invoke-virtual {v0, p2}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
     iget-object p2, p0, Lcom/esotericsoftware/asm/ClassWriter;->y:Lcom/esotericsoftware/asm/ByteVector;
 
-    if-nez p3, :cond_2
+    if-nez p3, :cond_33
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_2
+    :cond_33
     invoke-virtual {p0, p3}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
     move-result v1
 
-    :goto_1
+    :goto_37
     invoke-virtual {p2, v1}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
     iget-object p2, p0, Lcom/esotericsoftware/asm/ClassWriter;->y:Lcom/esotericsoftware/asm/ByteVector;
@@ -3032,12 +3032,12 @@
 
     iput p2, p1, Lcom/esotericsoftware/asm/Item;->c:I
 
-    :cond_3
+    :cond_43
     return-void
 .end method
 
 .method public final visitMethod(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lcom/esotericsoftware/asm/MethodVisitor;
-    .locals 10
+    .registers 16
 
     new-instance v9, Lcom/esotericsoftware/asm/MethodWriter;
 
@@ -3065,7 +3065,7 @@
 .end method
 
 .method public final visitOuterClass(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->newClass(Ljava/lang/String;)I
 
@@ -3073,9 +3073,9 @@
 
     iput p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->s:I
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_10
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_10
 
     invoke-virtual {p0, p2, p3}, Lcom/esotericsoftware/asm/ClassWriter;->newNameType(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3083,14 +3083,14 @@
 
     iput p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->t:I
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public final visitSource(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
@@ -3098,8 +3098,8 @@
 
     iput p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->q:I
 
-    :cond_0
-    if-eqz p2, :cond_1
+    :cond_8
+    if-eqz p2, :cond_19
 
     new-instance p1, Lcom/esotericsoftware/asm/ByteVector;
 
@@ -3115,12 +3115,12 @@
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->r:Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_1
+    :cond_19
     return-void
 .end method
 
 .method public final visitTypeAnnotation(ILcom/esotericsoftware/asm/TypePath;Ljava/lang/String;Z)Lcom/esotericsoftware/asm/AnnotationVisitor;
-    .locals 6
+    .registers 11
 
     new-instance v4, Lcom/esotericsoftware/asm/ByteVector;
 
@@ -3156,7 +3156,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/esotericsoftware/asm/AnnotationWriter;-><init>(Lcom/esotericsoftware/asm/ClassWriter;ZLcom/esotericsoftware/asm/ByteVector;Lcom/esotericsoftware/asm/ByteVector;I)V
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_2a
 
     iget-object p2, p0, Lcom/esotericsoftware/asm/ClassWriter;->N:Lcom/esotericsoftware/asm/AnnotationWriter;
 
@@ -3164,15 +3164,15 @@
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->N:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_2a
     iget-object p2, p0, Lcom/esotericsoftware/asm/ClassWriter;->O:Lcom/esotericsoftware/asm/AnnotationWriter;
 
     iput-object p2, p1, Lcom/esotericsoftware/asm/AnnotationWriter;->g:Lcom/esotericsoftware/asm/AnnotationWriter;
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->O:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    :goto_0
+    :goto_30
     return-object p1
 .end method

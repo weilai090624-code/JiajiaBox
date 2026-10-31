@@ -128,7 +128,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -136,7 +136,7 @@
 .end method
 
 .method public static final asList--ajY-9A([I)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$asList_u2d_u2dajY_u2d9A"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -162,7 +162,7 @@
 .end method
 
 .method public static final asList-GBYM_sE([B)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$asList_u2dGBYM_sE"    # [B
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -188,7 +188,7 @@
 .end method
 
 .method public static final asList-QwZRm1k([J)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$asList_u2dQwZRm1k"    # [J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -214,7 +214,7 @@
 .end method
 
 .method public static final asList-rL5Bavg([S)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$asList_u2drL5Bavg"    # [S
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -240,7 +240,7 @@
 .end method
 
 .method public static final binarySearch-2fe2U9s([IIII)I
-    .locals 6
+    .registers 10
     .param p0, "$this$binarySearch_u2d2fe2U9s"    # [I
     .param p1, "element"    # I
     .param p2, "fromIndex"    # I
@@ -272,8 +272,8 @@
 
     .line 157
     .local v2, "high":I
-    :goto_0
-    if-gt v1, v2, :cond_2
+    :goto_12
+    if-gt v1, v2, :cond_29
 
     .line 158
     add-int v3, v1, v2
@@ -292,31 +292,31 @@
 
     .line 161
     .local v5, "cmp":I
-    if-gez v5, :cond_0
+    if-gez v5, :cond_23
 
     .line 162
     add-int/lit8 v1, v3, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 163
-    :cond_0
-    if-lez v5, :cond_1
+    :cond_23
+    if-lez v5, :cond_28
 
     .line 164
     add-int/lit8 v2, v3, -0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 166
-    :cond_1
+    :cond_28
     return v3
 
     .line 168
     .end local v3    # "mid":I
     .end local v4    # "midVal":I
     .end local v5    # "cmp":I
-    :cond_2
+    :cond_29
     add-int/lit8 v3, v1, 0x1
 
     neg-int v3, v3
@@ -325,25 +325,25 @@
 .end method
 
 .method public static synthetic binarySearch-2fe2U9s$default([IIIIILjava/lang/Object;)I
-    .locals 0
+    .registers 6
 
     .line 152
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     invoke-static {p0}, Lkotlin/UIntArray;->getSize-impl([I)I
 
     move-result p3
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lkotlin/collections/unsigned/UArraysKt;->binarySearch-2fe2U9s([IIII)I
 
     move-result p0
@@ -352,7 +352,7 @@
 .end method
 
 .method public static final binarySearch-EtDCXyQ([SSII)I
-    .locals 6
+    .registers 10
     .param p0, "$this$binarySearch_u2dEtDCXyQ"    # [S
     .param p1, "element"    # S
     .param p2, "fromIndex"    # I
@@ -386,8 +386,8 @@
 
     .line 274
     .local v2, "high":I
-    :goto_0
-    if-gt v1, v2, :cond_2
+    :goto_15
+    if-gt v1, v2, :cond_2c
 
     .line 275
     add-int v3, v1, v2
@@ -406,31 +406,31 @@
 
     .line 278
     .local v5, "cmp":I
-    if-gez v5, :cond_0
+    if-gez v5, :cond_26
 
     .line 279
     add-int/lit8 v1, v3, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 280
-    :cond_0
-    if-lez v5, :cond_1
+    :cond_26
+    if-lez v5, :cond_2b
 
     .line 281
     add-int/lit8 v2, v3, -0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 283
-    :cond_1
+    :cond_2b
     return v3
 
     .line 285
     .end local v3    # "mid":I
     .end local v4    # "midVal":S
     .end local v5    # "cmp":I
-    :cond_2
+    :cond_2c
     add-int/lit8 v3, v1, 0x1
 
     neg-int v3, v3
@@ -439,25 +439,25 @@
 .end method
 
 .method public static synthetic binarySearch-EtDCXyQ$default([SSIIILjava/lang/Object;)I
-    .locals 0
+    .registers 6
 
     .line 269
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     invoke-static {p0}, Lkotlin/UShortArray;->getSize-impl([S)I
 
     move-result p3
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lkotlin/collections/unsigned/UArraysKt;->binarySearch-EtDCXyQ([SSII)I
 
     move-result p0
@@ -466,7 +466,7 @@
 .end method
 
 .method public static final binarySearch-K6DWlUc([JJII)I
-    .locals 8
+    .registers 13
     .param p0, "$this$binarySearch_u2dK6DWlUc"    # [J
     .param p1, "element"    # J
     .param p3, "fromIndex"    # I
@@ -498,8 +498,8 @@
 
     .line 196
     .local v3, "high":I
-    :goto_0
-    if-gt v2, v3, :cond_2
+    :goto_12
+    if-gt v2, v3, :cond_29
 
     .line 197
     add-int v4, v2, v3
@@ -518,31 +518,31 @@
 
     .line 200
     .local v7, "cmp":I
-    if-gez v7, :cond_0
+    if-gez v7, :cond_23
 
     .line 201
     add-int/lit8 v2, v4, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 202
-    :cond_0
-    if-lez v7, :cond_1
+    :cond_23
+    if-lez v7, :cond_28
 
     .line 203
     add-int/lit8 v3, v4, -0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 205
-    :cond_1
+    :cond_28
     return v4
 
     .line 207
     .end local v4    # "mid":I
     .end local v5    # "midVal":J
     .end local v7    # "cmp":I
-    :cond_2
+    :cond_29
     add-int/lit8 v4, v2, 0x1
 
     neg-int v4, v4
@@ -551,25 +551,25 @@
 .end method
 
 .method public static synthetic binarySearch-K6DWlUc$default([JJIIILjava/lang/Object;)I
-    .locals 0
+    .registers 7
 
     .line 191
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     const/4 p3, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p5, 0x4
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_d
 
     invoke-static {p0}, Lkotlin/ULongArray;->getSize-impl([J)I
 
     move-result p4
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3, p4}, Lkotlin/collections/unsigned/UArraysKt;->binarySearch-K6DWlUc([JJII)I
 
     move-result p0
@@ -578,7 +578,7 @@
 .end method
 
 .method public static final binarySearch-WpHrYlw([BBII)I
-    .locals 6
+    .registers 10
     .param p0, "$this$binarySearch_u2dWpHrYlw"    # [B
     .param p1, "element"    # B
     .param p2, "fromIndex"    # I
@@ -610,8 +610,8 @@
 
     .line 235
     .local v2, "high":I
-    :goto_0
-    if-gt v1, v2, :cond_2
+    :goto_13
+    if-gt v1, v2, :cond_2a
 
     .line 236
     add-int v3, v1, v2
@@ -630,31 +630,31 @@
 
     .line 239
     .local v5, "cmp":I
-    if-gez v5, :cond_0
+    if-gez v5, :cond_24
 
     .line 240
     add-int/lit8 v1, v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 241
-    :cond_0
-    if-lez v5, :cond_1
+    :cond_24
+    if-lez v5, :cond_29
 
     .line 242
     add-int/lit8 v2, v3, -0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 244
-    :cond_1
+    :cond_29
     return v3
 
     .line 246
     .end local v3    # "mid":I
     .end local v4    # "midVal":B
     .end local v5    # "cmp":I
-    :cond_2
+    :cond_2a
     add-int/lit8 v3, v1, 0x1
 
     neg-int v3, v3
@@ -663,25 +663,25 @@
 .end method
 
 .method public static synthetic binarySearch-WpHrYlw$default([BBIIILjava/lang/Object;)I
-    .locals 0
+    .registers 6
 
     .line 230
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     invoke-static {p0}, Lkotlin/UByteArray;->getSize-impl([B)I
 
     move-result p3
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lkotlin/collections/unsigned/UArraysKt;->binarySearch-WpHrYlw([BBII)I
 
     move-result p0
@@ -690,7 +690,7 @@
 .end method
 
 .method private static final elementAt-PpDY95g([BI)B
-    .locals 1
+    .registers 3
     .param p0, "$this$elementAt_u2dPpDY95g"    # [B
     .param p1, "index"    # I
 
@@ -707,7 +707,7 @@
 .end method
 
 .method private static final elementAt-nggk6HY([SI)S
-    .locals 1
+    .registers 3
     .param p0, "$this$elementAt_u2dnggk6HY"    # [S
     .param p1, "index"    # I
 
@@ -724,7 +724,7 @@
 .end method
 
 .method private static final elementAt-qFRl0hI([II)I
-    .locals 1
+    .registers 3
     .param p0, "$this$elementAt_u2dqFRl0hI"    # [I
     .param p1, "index"    # I
 
@@ -741,7 +741,7 @@
 .end method
 
 .method private static final elementAt-r7IrZao([JI)J
-    .locals 2
+    .registers 4
     .param p0, "$this$elementAt_u2dr7IrZao"    # [J
     .param p1, "index"    # I
 
@@ -758,7 +758,7 @@
 .end method
 
 .method public static final synthetic max--ajY-9A([I)Lkotlin/UInt;
-    .locals 1
+    .registers 2
     .param p0, "$this$max_u2d_u2dajY_u2d9A"    # [I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use maxOrNull instead."
@@ -787,7 +787,7 @@
 .end method
 
 .method public static final synthetic max-GBYM_sE([B)Lkotlin/UByte;
-    .locals 1
+    .registers 2
     .param p0, "$this$max_u2dGBYM_sE"    # [B
     .annotation runtime Lkotlin/Deprecated;
         message = "Use maxOrNull instead."
@@ -816,7 +816,7 @@
 .end method
 
 .method public static final synthetic max-QwZRm1k([J)Lkotlin/ULong;
-    .locals 1
+    .registers 2
     .param p0, "$this$max_u2dQwZRm1k"    # [J
     .annotation runtime Lkotlin/Deprecated;
         message = "Use maxOrNull instead."
@@ -845,7 +845,7 @@
 .end method
 
 .method public static final synthetic max-rL5Bavg([S)Lkotlin/UShort;
-    .locals 1
+    .registers 2
     .param p0, "$this$max_u2drL5Bavg"    # [S
     .annotation runtime Lkotlin/Deprecated;
         message = "Use maxOrNull instead."
@@ -874,7 +874,7 @@
 .end method
 
 .method private static final synthetic maxBy-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
-    .locals 7
+    .registers 9
     .param p0, "$this$maxBy_u2dJOV_ifY"    # [B
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -917,13 +917,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lkotlin/UByteArray;->get-w2LRezQ([BI)B
@@ -934,16 +934,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_22
 
-    :cond_1
+    :cond_1d
     invoke-static {v0}, Lkotlin/UByte;->box-impl(B)Lkotlin/UByte;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_2
+    :cond_22
     invoke-static {v0}, Lkotlin/UByte;->box-impl(B)Lkotlin/UByte;
 
     move-result-object v2
@@ -956,9 +956,9 @@
 
     const/4 v3, 0x1
 
-    if-gt v3, v1, :cond_1
+    if-gt v3, v1, :cond_1d
 
-    :goto_0
+    :goto_2f
     invoke-static {p0, v3}, Lkotlin/UByteArray;->get-w2LRezQ([BI)B
 
     move-result v4
@@ -977,25 +977,25 @@
 
     move-result v6
 
-    if-gez v6, :cond_3
+    if-gez v6, :cond_45
 
     move v0, v4
 
     move-object v2, v5
 
-    :cond_3
-    if-eq v3, v1, :cond_1
+    :cond_45
+    if-eq v3, v1, :cond_1d
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :goto_1
+    :goto_4a
     return-object v0
 .end method
 
 .method private static final synthetic maxBy-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
-    .locals 9
+    .registers 11
     .param p0, "$this$maxBy_u2dMShoTSo"    # [J
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1038,13 +1038,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lkotlin/ULongArray;->get-s-VKNKU([JI)J
@@ -1055,16 +1055,16 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_22
 
-    :cond_1
+    :cond_1d
     invoke-static {v0, v1}, Lkotlin/ULong;->box-impl(J)Lkotlin/ULong;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_2
+    :cond_22
     invoke-static {v0, v1}, Lkotlin/ULong;->box-impl(J)Lkotlin/ULong;
 
     move-result-object v3
@@ -1077,9 +1077,9 @@
 
     const/4 v4, 0x1
 
-    if-gt v4, v2, :cond_1
+    if-gt v4, v2, :cond_1d
 
-    :goto_0
+    :goto_2f
     invoke-static {p0, v4}, Lkotlin/ULongArray;->get-s-VKNKU([JI)J
 
     move-result-wide v5
@@ -1098,25 +1098,25 @@
 
     move-result v8
 
-    if-gez v8, :cond_3
+    if-gez v8, :cond_45
 
     move-wide v0, v5
 
     move-object v3, v7
 
-    :cond_3
-    if-eq v4, v2, :cond_1
+    :cond_45
+    if-eq v4, v2, :cond_1d
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :goto_1
+    :goto_4a
     return-object v0
 .end method
 
 .method private static final synthetic maxBy-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
-    .locals 7
+    .registers 9
     .param p0, "$this$maxBy_u2djgv0xPQ"    # [I
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1159,13 +1159,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lkotlin/UIntArray;->get-pVg5ArA([II)I
@@ -1176,16 +1176,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_22
 
-    :cond_1
+    :cond_1d
     invoke-static {v0}, Lkotlin/UInt;->box-impl(I)Lkotlin/UInt;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_2
+    :cond_22
     invoke-static {v0}, Lkotlin/UInt;->box-impl(I)Lkotlin/UInt;
 
     move-result-object v2
@@ -1198,9 +1198,9 @@
 
     const/4 v3, 0x1
 
-    if-gt v3, v1, :cond_1
+    if-gt v3, v1, :cond_1d
 
-    :goto_0
+    :goto_2f
     invoke-static {p0, v3}, Lkotlin/UIntArray;->get-pVg5ArA([II)I
 
     move-result v4
@@ -1219,25 +1219,25 @@
 
     move-result v6
 
-    if-gez v6, :cond_3
+    if-gez v6, :cond_45
 
     move v0, v4
 
     move-object v2, v5
 
-    :cond_3
-    if-eq v3, v1, :cond_1
+    :cond_45
+    if-eq v3, v1, :cond_1d
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :goto_1
+    :goto_4a
     return-object v0
 .end method
 
 .method private static final synthetic maxBy-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
-    .locals 7
+    .registers 9
     .param p0, "$this$maxBy_u2dxTcfx_M"    # [S
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1280,13 +1280,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lkotlin/UShortArray;->get-Mh2AYeg([SI)S
@@ -1297,16 +1297,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_22
 
-    :cond_1
+    :cond_1d
     invoke-static {v0}, Lkotlin/UShort;->box-impl(S)Lkotlin/UShort;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_2
+    :cond_22
     invoke-static {v0}, Lkotlin/UShort;->box-impl(S)Lkotlin/UShort;
 
     move-result-object v2
@@ -1319,9 +1319,9 @@
 
     const/4 v3, 0x1
 
-    if-gt v3, v1, :cond_1
+    if-gt v3, v1, :cond_1d
 
-    :goto_0
+    :goto_2f
     invoke-static {p0, v3}, Lkotlin/UShortArray;->get-Mh2AYeg([SI)S
 
     move-result v4
@@ -1340,25 +1340,25 @@
 
     move-result v6
 
-    if-gez v6, :cond_3
+    if-gez v6, :cond_45
 
     move v0, v4
 
     move-object v2, v5
 
-    :cond_3
-    if-eq v3, v1, :cond_1
+    :cond_45
+    if-eq v3, v1, :cond_1d
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :goto_1
+    :goto_4a
     return-object v0
 .end method
 
 .method public static final synthetic maxWith-XMRcp5o([BLjava/util/Comparator;)Lkotlin/UByte;
-    .locals 1
+    .registers 3
     .param p0, "$this$maxWith_u2dXMRcp5o"    # [B
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation runtime Lkotlin/Deprecated;
@@ -1392,7 +1392,7 @@
 .end method
 
 .method public static final synthetic maxWith-YmdZ_VM([ILjava/util/Comparator;)Lkotlin/UInt;
-    .locals 1
+    .registers 3
     .param p0, "$this$maxWith_u2dYmdZ_VM"    # [I
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation runtime Lkotlin/Deprecated;
@@ -1426,7 +1426,7 @@
 .end method
 
 .method public static final synthetic maxWith-eOHTfZs([SLjava/util/Comparator;)Lkotlin/UShort;
-    .locals 1
+    .registers 3
     .param p0, "$this$maxWith_u2deOHTfZs"    # [S
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation runtime Lkotlin/Deprecated;
@@ -1460,7 +1460,7 @@
 .end method
 
 .method public static final synthetic maxWith-zrEWJaI([JLjava/util/Comparator;)Lkotlin/ULong;
-    .locals 1
+    .registers 3
     .param p0, "$this$maxWith_u2dzrEWJaI"    # [J
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation runtime Lkotlin/Deprecated;
@@ -1494,7 +1494,7 @@
 .end method
 
 .method public static final synthetic min--ajY-9A([I)Lkotlin/UInt;
-    .locals 1
+    .registers 2
     .param p0, "$this$min_u2d_u2dajY_u2d9A"    # [I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use minOrNull instead."
@@ -1523,7 +1523,7 @@
 .end method
 
 .method public static final synthetic min-GBYM_sE([B)Lkotlin/UByte;
-    .locals 1
+    .registers 2
     .param p0, "$this$min_u2dGBYM_sE"    # [B
     .annotation runtime Lkotlin/Deprecated;
         message = "Use minOrNull instead."
@@ -1552,7 +1552,7 @@
 .end method
 
 .method public static final synthetic min-QwZRm1k([J)Lkotlin/ULong;
-    .locals 1
+    .registers 2
     .param p0, "$this$min_u2dQwZRm1k"    # [J
     .annotation runtime Lkotlin/Deprecated;
         message = "Use minOrNull instead."
@@ -1581,7 +1581,7 @@
 .end method
 
 .method public static final synthetic min-rL5Bavg([S)Lkotlin/UShort;
-    .locals 1
+    .registers 2
     .param p0, "$this$min_u2drL5Bavg"    # [S
     .annotation runtime Lkotlin/Deprecated;
         message = "Use minOrNull instead."
@@ -1610,7 +1610,7 @@
 .end method
 
 .method private static final synthetic minBy-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
-    .locals 7
+    .registers 9
     .param p0, "$this$minBy_u2dJOV_ifY"    # [B
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1653,13 +1653,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lkotlin/UByteArray;->get-w2LRezQ([BI)B
@@ -1670,16 +1670,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_22
 
-    :cond_1
+    :cond_1d
     invoke-static {v0}, Lkotlin/UByte;->box-impl(B)Lkotlin/UByte;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_2
+    :cond_22
     invoke-static {v0}, Lkotlin/UByte;->box-impl(B)Lkotlin/UByte;
 
     move-result-object v2
@@ -1692,9 +1692,9 @@
 
     const/4 v3, 0x1
 
-    if-gt v3, v1, :cond_1
+    if-gt v3, v1, :cond_1d
 
-    :goto_0
+    :goto_2f
     invoke-static {p0, v3}, Lkotlin/UByteArray;->get-w2LRezQ([BI)B
 
     move-result v4
@@ -1713,25 +1713,25 @@
 
     move-result v6
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_45
 
     move v0, v4
 
     move-object v2, v5
 
-    :cond_3
-    if-eq v3, v1, :cond_1
+    :cond_45
+    if-eq v3, v1, :cond_1d
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :goto_1
+    :goto_4a
     return-object v0
 .end method
 
 .method private static final synthetic minBy-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
-    .locals 9
+    .registers 11
     .param p0, "$this$minBy_u2dMShoTSo"    # [J
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1774,13 +1774,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lkotlin/ULongArray;->get-s-VKNKU([JI)J
@@ -1791,16 +1791,16 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_22
 
-    :cond_1
+    :cond_1d
     invoke-static {v0, v1}, Lkotlin/ULong;->box-impl(J)Lkotlin/ULong;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_2
+    :cond_22
     invoke-static {v0, v1}, Lkotlin/ULong;->box-impl(J)Lkotlin/ULong;
 
     move-result-object v3
@@ -1813,9 +1813,9 @@
 
     const/4 v4, 0x1
 
-    if-gt v4, v2, :cond_1
+    if-gt v4, v2, :cond_1d
 
-    :goto_0
+    :goto_2f
     invoke-static {p0, v4}, Lkotlin/ULongArray;->get-s-VKNKU([JI)J
 
     move-result-wide v5
@@ -1834,25 +1834,25 @@
 
     move-result v8
 
-    if-lez v8, :cond_3
+    if-lez v8, :cond_45
 
     move-wide v0, v5
 
     move-object v3, v7
 
-    :cond_3
-    if-eq v4, v2, :cond_1
+    :cond_45
+    if-eq v4, v2, :cond_1d
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :goto_1
+    :goto_4a
     return-object v0
 .end method
 
 .method private static final synthetic minBy-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
-    .locals 7
+    .registers 9
     .param p0, "$this$minBy_u2djgv0xPQ"    # [I
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1895,13 +1895,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lkotlin/UIntArray;->get-pVg5ArA([II)I
@@ -1912,16 +1912,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_22
 
-    :cond_1
+    :cond_1d
     invoke-static {v0}, Lkotlin/UInt;->box-impl(I)Lkotlin/UInt;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_2
+    :cond_22
     invoke-static {v0}, Lkotlin/UInt;->box-impl(I)Lkotlin/UInt;
 
     move-result-object v2
@@ -1934,9 +1934,9 @@
 
     const/4 v3, 0x1
 
-    if-gt v3, v1, :cond_1
+    if-gt v3, v1, :cond_1d
 
-    :goto_0
+    :goto_2f
     invoke-static {p0, v3}, Lkotlin/UIntArray;->get-pVg5ArA([II)I
 
     move-result v4
@@ -1955,25 +1955,25 @@
 
     move-result v6
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_45
 
     move v0, v4
 
     move-object v2, v5
 
-    :cond_3
-    if-eq v3, v1, :cond_1
+    :cond_45
+    if-eq v3, v1, :cond_1d
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :goto_1
+    :goto_4a
     return-object v0
 .end method
 
 .method private static final synthetic minBy-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
-    .locals 7
+    .registers 9
     .param p0, "$this$minBy_u2dxTcfx_M"    # [S
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2016,13 +2016,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lkotlin/UShortArray;->get-Mh2AYeg([SI)S
@@ -2033,16 +2033,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_22
 
-    :cond_1
+    :cond_1d
     invoke-static {v0}, Lkotlin/UShort;->box-impl(S)Lkotlin/UShort;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_2
+    :cond_22
     invoke-static {v0}, Lkotlin/UShort;->box-impl(S)Lkotlin/UShort;
 
     move-result-object v2
@@ -2055,9 +2055,9 @@
 
     const/4 v3, 0x1
 
-    if-gt v3, v1, :cond_1
+    if-gt v3, v1, :cond_1d
 
-    :goto_0
+    :goto_2f
     invoke-static {p0, v3}, Lkotlin/UShortArray;->get-Mh2AYeg([SI)S
 
     move-result v4
@@ -2076,25 +2076,25 @@
 
     move-result v6
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_45
 
     move v0, v4
 
     move-object v2, v5
 
-    :cond_3
-    if-eq v3, v1, :cond_1
+    :cond_45
+    if-eq v3, v1, :cond_1d
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :goto_1
+    :goto_4a
     return-object v0
 .end method
 
 .method public static final synthetic minWith-XMRcp5o([BLjava/util/Comparator;)Lkotlin/UByte;
-    .locals 1
+    .registers 3
     .param p0, "$this$minWith_u2dXMRcp5o"    # [B
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation runtime Lkotlin/Deprecated;
@@ -2128,7 +2128,7 @@
 .end method
 
 .method public static final synthetic minWith-YmdZ_VM([ILjava/util/Comparator;)Lkotlin/UInt;
-    .locals 1
+    .registers 3
     .param p0, "$this$minWith_u2dYmdZ_VM"    # [I
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation runtime Lkotlin/Deprecated;
@@ -2162,7 +2162,7 @@
 .end method
 
 .method public static final synthetic minWith-eOHTfZs([SLjava/util/Comparator;)Lkotlin/UShort;
-    .locals 1
+    .registers 3
     .param p0, "$this$minWith_u2deOHTfZs"    # [S
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation runtime Lkotlin/Deprecated;
@@ -2196,7 +2196,7 @@
 .end method
 
 .method public static final synthetic minWith-zrEWJaI([JLjava/util/Comparator;)Lkotlin/ULong;
-    .locals 1
+    .registers 3
     .param p0, "$this$minWith_u2dzrEWJaI"    # [J
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation runtime Lkotlin/Deprecated;
@@ -2230,7 +2230,7 @@
 .end method
 
 .method private static final sumOfBigDecimal([BLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf_u2dJOV_ifY"    # [B
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2273,8 +2273,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_1a
+    if-ge v2, v1, :cond_37
 
     invoke-static {p0, v2}, Lkotlin/UByteArray;->get-w2LRezQ([BI)B
 
@@ -2306,15 +2306,15 @@
     .end local v3    # "element":B
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 563
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method private static final sumOfBigDecimal([ILkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf_u2djgv0xPQ"    # [I
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2357,8 +2357,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_1a
+    if-ge v2, v1, :cond_37
 
     invoke-static {p0, v2}, Lkotlin/UIntArray;->get-pVg5ArA([II)I
 
@@ -2390,15 +2390,15 @@
     .end local v3    # "element":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 527
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method private static final sumOfBigDecimal([JLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;
-    .locals 7
+    .registers 9
     .param p0, "$this$sumOf_u2dMShoTSo"    # [J
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2441,8 +2441,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_1a
+    if-ge v2, v1, :cond_37
 
     invoke-static {p0, v2}, Lkotlin/ULongArray;->get-s-VKNKU([JI)J
 
@@ -2474,15 +2474,15 @@
     .end local v3    # "element":J
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 545
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method private static final sumOfBigDecimal([SLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf_u2dxTcfx_M"    # [S
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2525,8 +2525,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_1a
+    if-ge v2, v1, :cond_37
 
     invoke-static {p0, v2}, Lkotlin/UShortArray;->get-Mh2AYeg([SI)S
 
@@ -2558,15 +2558,15 @@
     .end local v3    # "element":S
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 581
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method private static final sumOfBigInteger([BLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf_u2dJOV_ifY"    # [B
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2609,8 +2609,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_1a
+    if-ge v2, v1, :cond_37
 
     invoke-static {p0, v2}, Lkotlin/UByteArray;->get-w2LRezQ([BI)B
 
@@ -2642,15 +2642,15 @@
     .end local v3    # "element":B
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 635
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method private static final sumOfBigInteger([ILkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf_u2djgv0xPQ"    # [I
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2693,8 +2693,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_1a
+    if-ge v2, v1, :cond_37
 
     invoke-static {p0, v2}, Lkotlin/UIntArray;->get-pVg5ArA([II)I
 
@@ -2726,15 +2726,15 @@
     .end local v3    # "element":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 599
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method private static final sumOfBigInteger([JLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;
-    .locals 7
+    .registers 9
     .param p0, "$this$sumOf_u2dMShoTSo"    # [J
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2777,8 +2777,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_1a
+    if-ge v2, v1, :cond_37
 
     invoke-static {p0, v2}, Lkotlin/ULongArray;->get-s-VKNKU([JI)J
 
@@ -2810,15 +2810,15 @@
     .end local v3    # "element":J
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 617
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method private static final sumOfBigInteger([SLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf_u2dxTcfx_M"    # [S
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2861,8 +2861,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_1a
+    if-ge v2, v1, :cond_37
 
     invoke-static {p0, v2}, Lkotlin/UShortArray;->get-Mh2AYeg([SI)S
 
@@ -2894,9 +2894,9 @@
     .end local v3    # "element":S
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 653
-    :cond_0
+    :cond_37
     return-object v0
 .end method

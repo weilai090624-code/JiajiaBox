@@ -76,7 +76,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     const/4 v0, -0x1
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -137,7 +137,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -153,7 +153,7 @@
 .end method
 
 .method public copy(Landroidx/constraintlayout/motion/widget/Key;)Landroidx/constraintlayout/motion/widget/Key;
-    .locals 1
+    .registers 3
     .param p1, "src"    # Landroidx/constraintlayout/motion/widget/Key;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -214,7 +214,7 @@
 .end method
 
 .method public getFramePosition()I
-    .locals 1
+    .registers 2
 
     .line 168
     iget v0, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
@@ -236,7 +236,7 @@
 .end method
 
 .method matches(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "constraintTag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -250,14 +250,14 @@
     .line 73
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/Key;->mTargetString:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
-    goto :goto_0
+    goto :goto_e
 
     .line 74
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/Key;->mTargetString:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
@@ -267,15 +267,15 @@
     return v0
 
     .line 73
-    :cond_1
-    :goto_0
+    :cond_e
+    :goto_e
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public setFramePosition(I)V
-    .locals 0
+    .registers 2
     .param p1, "pos"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -294,7 +294,7 @@
 .end method
 
 .method public setInterpolation(Ljava/util/HashMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -333,7 +333,7 @@
 .end method
 
 .method public setViewId(I)Landroidx/constraintlayout/motion/widget/Key;
-    .locals 0
+    .registers 2
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -352,7 +352,7 @@
 .end method
 
 .method toBoolean(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -366,7 +366,7 @@
     .line 125
     instance-of v0, p1, Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     move-object v0, p1
 
@@ -376,9 +376,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_c
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -387,12 +387,12 @@
 
     move-result v0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method toFloat(Ljava/lang/Object;)F
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -406,7 +406,7 @@
     .line 103
     instance-of v0, p1, Ljava/lang/Float;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     move-object v0, p1
 
@@ -416,9 +416,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_c
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -427,12 +427,12 @@
 
     move-result v0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method toInt(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -446,7 +446,7 @@
     .line 114
     instance-of v0, p1, Ljava/lang/Integer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     move-object v0, p1
 
@@ -456,9 +456,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_c
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -467,6 +467,6 @@
 
     move-result v0
 
-    :goto_0
+    :goto_14
     return v0
 .end method

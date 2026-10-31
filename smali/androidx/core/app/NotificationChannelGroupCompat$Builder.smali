@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # Ljava/lang/String;
 
     .line 63
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public build()Landroidx/core/app/NotificationChannelGroupCompat;
-    .locals 1
+    .registers 2
 
     .line 100
     iget-object v0, p0, Landroidx/core/app/NotificationChannelGroupCompat$Builder;->mGroup:Landroidx/core/app/NotificationChannelGroupCompat;
@@ -49,7 +49,7 @@
 .end method
 
 .method public setDescription(Ljava/lang/String;)Landroidx/core/app/NotificationChannelGroupCompat$Builder;
-    .locals 1
+    .registers 3
     .param p1, "description"    # Ljava/lang/String;
 
     .line 91
@@ -62,7 +62,7 @@
 .end method
 
 .method public setName(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationChannelGroupCompat$Builder;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/CharSequence;
 
     .line 78

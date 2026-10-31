@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/SynchronizedCaptureSessionImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSessionImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onCaptureSequenceAborted(Landroid/hardware/camera2/CameraCaptureSession;I)V
-    .locals 2
+    .registers 5
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "sequenceId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -61,7 +61,7 @@
 
     iget-object v0, v0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionImpl;->mStartStreamingCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 326
     iget-object v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionImpl$1;->this$0:Landroidx/camera/camera2/internal/SynchronizedCaptureSessionImpl;
@@ -78,12 +78,12 @@
     iput-object v1, v0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionImpl;->mStartStreamingCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 329
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public onCaptureStarted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;JJ)V
-    .locals 2
+    .registers 9
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "timestamp"    # J
@@ -108,7 +108,7 @@
 
     iget-object v0, v0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionImpl;->mStartStreamingCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 317
     iget-object v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionImpl$1;->this$0:Landroidx/camera/camera2/internal/SynchronizedCaptureSessionImpl;
@@ -125,6 +125,6 @@
     iput-object v1, v0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionImpl;->mStartStreamingCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 320
-    :cond_0
+    :cond_12
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 159
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method doLoad(Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;Ljava/util/concurrent/ThreadPoolExecutor;)V
-    .locals 3
+    .registers 6
     .param p1, "loaderCallback"    # Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
     .param p2, "executor"    # Ljava/util/concurrent/ThreadPoolExecutor;
 
@@ -57,7 +57,7 @@
 
     .line 175
     .local v0, "config":Landroidx/emoji2/text/FontRequestEmojiCompatConfig;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 179
     invoke-virtual {v0, p2}, Landroidx/emoji2/text/FontRequestEmojiCompatConfig;->setLoadingExecutor(Ljava/util/concurrent/Executor;)Landroidx/emoji2/text/FontRequestEmojiCompatConfig;
@@ -75,11 +75,11 @@
 
     .line 204
     .end local v0    # "config":Landroidx/emoji2/text/FontRequestEmojiCompatConfig;
-    goto :goto_0
+    goto :goto_27
 
     .line 176
     .restart local v0    # "config":Landroidx/emoji2/text/FontRequestEmojiCompatConfig;
-    :cond_0
+    :cond_18
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "EmojiCompat font provider not available on this device."
@@ -89,14 +89,14 @@
     .end local p1    # "loaderCallback":Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
     .end local p2    # "executor":Ljava/util/concurrent/ThreadPoolExecutor;
     throw v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_0 .. :try_end_20} :catchall_20
 
     .line 201
     .end local v0    # "config":Landroidx/emoji2/text/FontRequestEmojiCompatConfig;
     .restart local p1    # "loaderCallback":Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
     .restart local p2    # "executor":Ljava/util/concurrent/ThreadPoolExecutor;
-    :catchall_0
+    :catchall_20
     move-exception v0
 
     .line 202
@@ -108,12 +108,12 @@
 
     .line 205
     .end local v0    # "t":Ljava/lang/Throwable;
-    :goto_0
+    :goto_27
     return-void
 .end method
 
 .method synthetic lambda$load$0$androidx-emoji2-text-EmojiCompatInitializer$BackgroundDefaultLoader(Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;Ljava/util/concurrent/ThreadPoolExecutor;)V
-    .locals 0
+    .registers 3
     .param p1, "loaderCallback"    # Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
     .param p2, "executor"    # Ljava/util/concurrent/ThreadPoolExecutor;
 
@@ -124,7 +124,7 @@
 .end method
 
 .method public load(Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;)V
-    .locals 2
+    .registers 4
     .param p1, "loaderCallback"    # Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
 
     .line 165

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/DefaultSpecialEffectsController;Landroid/view/ViewGroup;Landroid/view/View;ZLandroidx/fragment/app/SpecialEffectsController$Operation;Landroidx/fragment/app/DefaultSpecialEffectsController$AnimationInfo;)V
-    .locals 0
+    .registers 7
     .param p1, "this$0"    # Landroidx/fragment/app/DefaultSpecialEffectsController;
 
     .line 210
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "anim"    # Landroid/animation/Animator;
 
     .line 213
@@ -67,7 +67,7 @@
     .line 214
     iget-boolean v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$2;->val$isHideOperation:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 217
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$2;->val$operation:Landroidx/fragment/app/SpecialEffectsController$Operation;
@@ -81,7 +81,7 @@
     invoke-virtual {v0, v1}, Landroidx/fragment/app/SpecialEffectsController$Operation$State;->applyState(Landroid/view/View;)V
 
     .line 219
-    :cond_0
+    :cond_16
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$2;->val$animationInfo:Landroidx/fragment/app/DefaultSpecialEffectsController$AnimationInfo;
 
     invoke-virtual {v0}, Landroidx/fragment/app/DefaultSpecialEffectsController$AnimationInfo;->completeSpecialEffect()V
@@ -93,7 +93,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_42
 
     .line 221
     new-instance v0, Ljava/lang/StringBuilder;
@@ -127,6 +127,6 @@
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 224
-    :cond_1
+    :cond_42
     return-void
 .end method

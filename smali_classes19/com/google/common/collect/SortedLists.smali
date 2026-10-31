@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static binarySearch(Ljava/util/List;Lcom/google/common/base/Function;Ljava/lang/Comparable;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
-    .locals 6
+    .registers 11
     .param p3, "presentBehavior"    # Lcom/google/common/collect/SortedLists$KeyPresentBehavior;
     .param p4, "absentBehavior"    # Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;
     .annotation system Ldalvik/annotation/Signature;
@@ -79,7 +79,7 @@
 .end method
 
 .method public static binarySearch(Ljava/util/List;Lcom/google/common/base/Function;Ljava/lang/Object;Ljava/util/Comparator;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
-    .locals 1
+    .registers 7
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -126,7 +126,7 @@
 .end method
 
 .method public static binarySearch(Ljava/util/List;Ljava/lang/Comparable;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
-    .locals 1
+    .registers 5
     .param p2, "presentBehavior"    # Lcom/google/common/collect/SortedLists$KeyPresentBehavior;
     .param p3, "absentBehavior"    # Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;
     .annotation system Ldalvik/annotation/Signature;
@@ -160,7 +160,7 @@
 .end method
 
 .method public static binarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
-    .locals 6
+    .registers 11
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -200,7 +200,7 @@
     .line 280
     instance-of v0, p0, Ljava/util/RandomAccess;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 281
     invoke-static {p0}, Lcom/google/common/collect/Lists;->newArrayList(Ljava/lang/Iterable;)Ljava/util/ArrayList;
@@ -208,7 +208,7 @@
     move-result-object p0
 
     .line 285
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     .line 286
@@ -221,8 +221,8 @@
 
     .line 288
     .local v1, "upper":I
-    :goto_0
-    if-gt v0, v1, :cond_3
+    :goto_1b
+    if-gt v0, v1, :cond_41
 
     .line 289
     add-int v2, v0, v1
@@ -241,16 +241,16 @@
 
     .line 291
     .local v3, "c":I
-    if-gez v3, :cond_1
+    if-gez v3, :cond_2e
 
     .line 292
     add-int/lit8 v1, v2, -0x1
 
-    goto :goto_1
+    goto :goto_32
 
     .line 293
-    :cond_1
-    if-lez v3, :cond_2
+    :cond_2e
+    if-lez v3, :cond_33
 
     .line 294
     add-int/lit8 v0, v2, 0x1
@@ -258,13 +258,13 @@
     .line 300
     .end local v2    # "middle":I
     .end local v3    # "c":I
-    :goto_1
-    goto :goto_0
+    :goto_32
+    goto :goto_1b
 
     .line 296
     .restart local v2    # "middle":I
     .restart local v3    # "c":I
-    :cond_2
+    :cond_33
     add-int/lit8 v4, v1, 0x1
 
     .line 298
@@ -287,7 +287,7 @@
     .line 301
     .end local v2    # "middle":I
     .end local v3    # "c":I
-    :cond_3
+    :cond_41
     invoke-virtual {p4, v0}, Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;->resultIndex(I)I
 
     move-result v2

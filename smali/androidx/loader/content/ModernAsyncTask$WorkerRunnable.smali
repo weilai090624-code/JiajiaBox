@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 519
     .local p0, "this":Landroidx/loader/content/ModernAsyncTask$WorkerRunnable;, "Landroidx/loader/content/ModernAsyncTask$WorkerRunnable<TParams;TResult;>;"

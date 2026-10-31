@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 1
+    .registers 4
     .param p1, "width"    # I
     .param p2, "height"    # I
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "c"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
 
     .line 1414
@@ -91,7 +91,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .line 1410
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/recyclerview/widget/RecyclerView$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroidx/recyclerview/widget/RecyclerView$LayoutParams;
 
     .line 1418
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public getSpanIndex()I
-    .locals 1
+    .registers 2
 
     .line 1436
     iget v0, p0, Landroidx/recyclerview/widget/GridLayoutManager$LayoutParams;->mSpanIndex:I
@@ -144,7 +144,7 @@
 .end method
 
 .method public getSpanSize()I
-    .locals 1
+    .registers 2
 
     .line 1446
     iget v0, p0, Landroidx/recyclerview/widget/GridLayoutManager$LayoutParams;->mSpanSize:I

@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/RoomDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "__db"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -86,7 +86,7 @@
 .end method
 
 .method public static getRequiredConverters()Ljava/util/List;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public all()Ljava/util/List;
-    .locals 11
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -147,7 +147,7 @@
 
     .line 154
     .local v2, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_15
     const-string v3, "key"
 
     invoke-static {v2, v3}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
@@ -182,12 +182,12 @@
 
     .line 158
     .local v6, "_result":Ljava/util/List;, "Ljava/util/List<Lio/nekohasekai/sagernet/database/preference/KeyValuePair;>;"
-    :goto_0
+    :goto_30
     invoke-interface {v2}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_55
 
     .line 160
     new-instance v7, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
@@ -224,8 +224,8 @@
 
     .line 170
     invoke-interface {v6, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_53
+    .catchall {:try_start_15 .. :try_end_53} :catchall_5d
 
     .line 171
     nop
@@ -234,10 +234,10 @@
     .end local v8    # "_tmpKey":Ljava/lang/String;
     .end local v9    # "_tmpValueType":I
     .end local v10    # "_tmpValue":[B
-    goto :goto_0
+    goto :goto_30
 
     .line 172
-    :cond_0
+    :cond_55
     nop
 
     .line 174
@@ -254,7 +254,7 @@
     .end local v4    # "_cursorIndexOfValueType":I
     .end local v5    # "_cursorIndexOfValue":I
     .end local v6    # "_result":Ljava/util/List;, "Ljava/util/List<Lio/nekohasekai/sagernet/database/preference/KeyValuePair;>;"
-    :catchall_0
+    :catchall_5d
     move-exception v3
 
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
@@ -267,7 +267,7 @@
 .end method
 
 .method public delete(Ljava/lang/String;)I
-    .locals 4
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -299,15 +299,15 @@
     invoke-interface {v0, v1, p1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 116
-    :try_start_0
+    :try_start_f
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->beginTransaction()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_14
+    .catchall {:try_start_f .. :try_end_14} :catchall_31
 
     .line 118
-    :try_start_1
+    :try_start_14
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
     move-result v2
@@ -317,19 +317,19 @@
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_14 .. :try_end_1d} :catchall_29
 
     .line 120
     nop
 
     .line 122
-    :try_start_2
+    :try_start_1e
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->endTransaction()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_23
+    .catchall {:try_start_1e .. :try_end_23} :catchall_31
 
     .line 125
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__preparedStmtOfDelete:Landroidx/room/SharedSQLiteStatement;
@@ -341,10 +341,10 @@
 
     .line 122
     .end local v2    # "_result":I
-    :catchall_0
+    :catchall_29
     move-exception v2
 
-    :try_start_3
+    :try_start_2a
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->endTransaction()V
@@ -356,14 +356,14 @@
     .end local v1    # "_argIndex":I
     .end local p1    # "key":Ljava/lang/String;
     throw v2
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_31
+    .catchall {:try_start_2a .. :try_end_31} :catchall_31
 
     .line 125
     .restart local v0    # "_stmt":Landroidx/sqlite/db/SupportSQLiteStatement;
     .restart local v1    # "_argIndex":I
     .restart local p1    # "key":Ljava/lang/String;
-    :catchall_1
+    :catchall_31
     move-exception v2
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__preparedStmtOfDelete:Landroidx/room/SharedSQLiteStatement;
@@ -375,7 +375,7 @@
 .end method
 
 .method public get(Ljava/lang/String;)Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    .locals 11
+    .registers 13
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -425,7 +425,7 @@
 
     .line 188
     .local v3, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_1a
     const-string v4, "key"
 
     invoke-static {v3, v4}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
@@ -454,7 +454,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_4d
 
     .line 193
     new-instance v7, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
@@ -488,23 +488,23 @@
     .line 202
     .local v10, "_tmpValue":[B
     invoke-virtual {v7, v10}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->setValue([B)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4c
+    .catchall {:try_start_1a .. :try_end_4c} :catchall_56
 
     .line 203
     .end local v8    # "_tmpKey":Ljava/lang/String;
     .end local v9    # "_tmpValueType":I
     .end local v10    # "_tmpValue":[B
-    goto :goto_0
+    goto :goto_4e
 
     .line 204
     .end local v7    # "_result":Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    :cond_0
+    :cond_4d
     const/4 v7, 0x0
 
     .line 206
     .restart local v7    # "_result":Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    :goto_0
+    :goto_4e
     nop
 
     .line 208
@@ -521,7 +521,7 @@
     .end local v5    # "_cursorIndexOfValueType":I
     .end local v6    # "_cursorIndexOfValue":I
     .end local v7    # "_result":Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    :catchall_0
+    :catchall_56
     move-exception v4
 
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
@@ -534,7 +534,7 @@
 .end method
 
 .method public insert(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -565,7 +565,7 @@
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 102
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__insertionAdapterOfKeyValuePair_1:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityInsertionAdapter;->insert(Ljava/lang/Iterable;)V
@@ -574,8 +574,8 @@
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_1b
 
     .line 105
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -589,7 +589,7 @@
     return-void
 
     .line 105
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -601,7 +601,7 @@
 .end method
 
 .method public put(Lio/nekohasekai/sagernet/database/preference/KeyValuePair;)J
-    .locals 3
+    .registers 5
     .param p1, "value"    # Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -623,7 +623,7 @@
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 89
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__insertionAdapterOfKeyValuePair:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityInsertionAdapter;->insertAndReturnId(Ljava/lang/Object;)J
@@ -635,8 +635,8 @@
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_a .. :try_end_15} :catchall_1c
 
     .line 91
     nop
@@ -651,7 +651,7 @@
 
     .line 93
     .end local v0    # "_result":J
-    :catchall_0
+    :catchall_1c
     move-exception v0
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -663,7 +663,7 @@
 .end method
 
 .method public reset()I
-    .locals 3
+    .registers 4
 
     .line 131
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -679,15 +679,15 @@
 
     .line 134
     .local v0, "_stmt":Landroidx/sqlite/db/SupportSQLiteStatement;
-    :try_start_0
+    :try_start_b
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v1}, Landroidx/room/RoomDatabase;->beginTransaction()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_10
+    .catchall {:try_start_b .. :try_end_10} :catchall_2d
 
     .line 136
-    :try_start_1
+    :try_start_10
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
     move-result v1
@@ -697,19 +697,19 @@
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_19
+    .catchall {:try_start_10 .. :try_end_19} :catchall_25
 
     .line 138
     nop
 
     .line 140
-    :try_start_2
+    :try_start_1a
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->endTransaction()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_1f
+    .catchall {:try_start_1a .. :try_end_1f} :catchall_2d
 
     .line 143
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__preparedStmtOfReset:Landroidx/room/SharedSQLiteStatement;
@@ -721,10 +721,10 @@
 
     .line 140
     .end local v1    # "_result":I
-    :catchall_0
+    :catchall_25
     move-exception v1
 
-    :try_start_3
+    :try_start_26
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->endTransaction()V
@@ -734,12 +734,12 @@
 
     .end local v0    # "_stmt":Landroidx/sqlite/db/SupportSQLiteStatement;
     throw v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_2d
+    .catchall {:try_start_26 .. :try_end_2d} :catchall_2d
 
     .line 143
     .restart local v0    # "_stmt":Landroidx/sqlite/db/SupportSQLiteStatement;
-    :catchall_1
+    :catchall_2d
     move-exception v1
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;->__preparedStmtOfReset:Landroidx/room/SharedSQLiteStatement;

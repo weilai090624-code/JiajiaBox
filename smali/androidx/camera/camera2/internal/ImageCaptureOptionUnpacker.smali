@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 32
     new-instance v0, Landroidx/camera/camera2/internal/ImageCaptureOptionUnpacker;
@@ -30,7 +30,7 @@
 .end method
 
 .method private constructor <init>(Landroidx/camera/camera2/internal/compat/workaround/ImageCapturePixelHDRPlus;)V
-    .locals 0
+    .registers 2
     .param p1, "imageCapturePixelHDRPlus"    # Landroidx/camera/camera2/internal/compat/workaround/ImageCapturePixelHDRPlus;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public unpack(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/CaptureConfig$Builder;)V
-    .locals 4
+    .registers 7
     .param p2, "builder"    # Landroidx/camera/core/impl/CaptureConfig$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -84,7 +84,7 @@
     .line 47
     instance-of v0, p1, Landroidx/camera/core/impl/ImageCaptureConfig;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 50
     move-object v0, p1
@@ -103,7 +103,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 55
     iget-object v2, p0, Landroidx/camera/camera2/internal/ImageCaptureOptionUnpacker;->mImageCapturePixelHDRPlus:Landroidx/camera/camera2/internal/compat/workaround/ImageCapturePixelHDRPlus;
@@ -115,7 +115,7 @@
     invoke-virtual {v2, v3, v1}, Landroidx/camera/camera2/internal/compat/workaround/ImageCapturePixelHDRPlus;->toggleHDRPlus(ILandroidx/camera/camera2/impl/Camera2ImplConfig$Builder;)V
 
     .line 59
-    :cond_0
+    :cond_1e
     invoke-virtual {v1}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->build()Landroidx/camera/camera2/impl/Camera2ImplConfig;
 
     move-result-object v2
@@ -128,7 +128,7 @@
     .line 48
     .end local v0    # "imageCaptureConfig":Landroidx/camera/core/impl/ImageCaptureConfig;
     .end local v1    # "camera2ConfigBuilder":Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
-    :cond_1
+    :cond_26
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "config is not ImageCaptureConfig"

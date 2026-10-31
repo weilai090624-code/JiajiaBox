@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 104
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static create(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)Landroidx/core/graphics/drawable/RoundedBitmapDrawable;
-    .locals 1
+    .registers 3
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
@@ -42,7 +42,7 @@
 .end method
 
 .method public static create(Landroid/content/res/Resources;Ljava/io/InputStream;)Landroidx/core/graphics/drawable/RoundedBitmapDrawable;
-    .locals 3
+    .registers 5
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "is"    # Ljava/io/InputStream;
 
@@ -61,7 +61,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_26
 
     .line 99
     new-instance v1, Ljava/lang/StringBuilder;
@@ -87,12 +87,12 @@
     invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 101
-    :cond_0
+    :cond_26
     return-object v0
 .end method
 
 .method public static create(Landroid/content/res/Resources;Ljava/lang/String;)Landroidx/core/graphics/drawable/RoundedBitmapDrawable;
-    .locals 3
+    .registers 5
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "filepath"    # Ljava/lang/String;
 
@@ -111,7 +111,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_26
 
     .line 86
     new-instance v1, Ljava/lang/StringBuilder;
@@ -137,6 +137,6 @@
     invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 88
-    :cond_0
+    :cond_26
     return-object v0
 .end method

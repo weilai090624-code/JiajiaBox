@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 64
@@ -102,7 +102,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "it"    # Ljava/lang/Throwable;
 
     .line 65

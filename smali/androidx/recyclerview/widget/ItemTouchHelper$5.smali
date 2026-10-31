@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/ItemTouchHelper;
 
     .line 1305
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onGetChildDrawingOrder(II)I
-    .locals 3
+    .registers 6
     .param p1, "childCount"    # I
     .param p2, "i"    # I
 
@@ -46,13 +46,13 @@
 
     iget-object v0, v0, Landroidx/recyclerview/widget/ItemTouchHelper;->mOverdrawChild:Landroid/view/View;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 1309
     return p2
 
     .line 1311
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$5;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
 
     iget v0, v0, Landroidx/recyclerview/widget/ItemTouchHelper;->mOverdrawChildPosition:I
@@ -61,7 +61,7 @@
     .local v0, "childPosition":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1e
 
     .line 1313
     iget-object v1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$5;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
@@ -82,25 +82,25 @@
     iput v0, v1, Landroidx/recyclerview/widget/ItemTouchHelper;->mOverdrawChildPosition:I
 
     .line 1316
-    :cond_1
+    :cond_1e
     add-int/lit8 v1, p1, -0x1
 
-    if-ne p2, v1, :cond_2
+    if-ne p2, v1, :cond_23
 
     .line 1317
     return v0
 
     .line 1319
-    :cond_2
-    if-ge p2, v0, :cond_3
+    :cond_23
+    if-ge p2, v0, :cond_27
 
     move v1, p2
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_3
+    :cond_27
     add-int/lit8 v1, p2, 0x1
 
-    :goto_0
+    :goto_29
     return v1
 .end method

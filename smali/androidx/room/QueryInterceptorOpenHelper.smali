@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/sqlite/db/SupportSQLiteOpenHelper;Ljava/util/concurrent/Executor;Landroidx/room/RoomDatabase$QueryCallback;)V
-    .locals 1
+    .registers 5
     .param p1, "delegate"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper;
     .param p2, "queryCallbackExecutor"    # Ljava/util/concurrent/Executor;
     .param p3, "queryCallback"    # Landroidx/room/RoomDatabase$QueryCallback;
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorOpenHelper;->delegate:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public getDatabaseName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorOpenHelper;->delegate:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public getDelegate()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 1
+    .registers 2
 
     .line 24
     iget-object v0, p0, Landroidx/room/QueryInterceptorOpenHelper;->delegate:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
@@ -128,7 +128,7 @@
 .end method
 
 .method public getReadableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 4
+    .registers 5
 
     .line 36
     new-instance v0, Landroidx/room/QueryInterceptorDatabase;
@@ -158,7 +158,7 @@
 .end method
 
 .method public getWritableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 4
+    .registers 5
 
     .line 29
     new-instance v0, Landroidx/room/QueryInterceptorDatabase;
@@ -188,7 +188,7 @@
 .end method
 
 .method public setWriteAheadLoggingEnabled(Z)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorOpenHelper;->delegate:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 

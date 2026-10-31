@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;Landroid/view/WindowInsets;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroidx/core/view/WindowInsetsCompat;
     .param p2, "insets"    # Landroid/view/WindowInsets;
 
@@ -47,7 +47,7 @@
 .end method
 
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;Landroidx/core/view/WindowInsetsCompat$Impl29;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroidx/core/view/WindowInsetsCompat;
     .param p2, "other"    # Landroidx/core/view/WindowInsetsCompat$Impl29;
 
@@ -72,12 +72,12 @@
 
 # virtual methods
 .method getMandatorySystemGestureInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 1308
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mMandatorySystemGestureInsets:Landroidx/core/graphics/Insets;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 1309
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mPlatformInsets:Landroid/view/WindowInsets;
@@ -94,19 +94,19 @@
     iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mMandatorySystemGestureInsets:Landroidx/core/graphics/Insets;
 
     .line 1312
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mMandatorySystemGestureInsets:Landroidx/core/graphics/Insets;
 
     return-object v0
 .end method
 
 .method getSystemGestureInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 1299
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mSystemGestureInsets:Landroidx/core/graphics/Insets;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 1300
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mPlatformInsets:Landroid/view/WindowInsets;
@@ -122,19 +122,19 @@
     iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mSystemGestureInsets:Landroidx/core/graphics/Insets;
 
     .line 1302
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mSystemGestureInsets:Landroidx/core/graphics/Insets;
 
     return-object v0
 .end method
 
 .method getTappableElementInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 1318
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mTappableElementInsets:Landroidx/core/graphics/Insets;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 1319
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mPlatformInsets:Landroid/view/WindowInsets;
@@ -150,14 +150,14 @@
     iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mTappableElementInsets:Landroidx/core/graphics/Insets;
 
     .line 1321
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl29;->mTappableElementInsets:Landroidx/core/graphics/Insets;
 
     return-object v0
 .end method
 
 .method inset(IIII)Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 6
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -178,7 +178,7 @@
 .end method
 
 .method public setStableInsets(Landroidx/core/graphics/Insets;)V
-    .locals 0
+    .registers 2
     .param p1, "stableInsets"    # Landroidx/core/graphics/Insets;
 
     .line 1333

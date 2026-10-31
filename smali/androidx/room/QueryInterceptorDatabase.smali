@@ -129,7 +129,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$Gpv4YX3WjGu4lYmzQMFlRiM3TyU(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/room/QueryInterceptorDatabase;->execSQL$lambda$10(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;)V
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Hdz_kxLXk_fdpg858Woqgj6Wpl4(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/QueryInterceptorDatabase;->endTransaction$lambda$4(Landroidx/room/QueryInterceptorDatabase;)V
 
@@ -145,7 +145,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$LxAqO_0_6Y5x4BgHz0eOQmKBSA4(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/QueryInterceptorDatabase;->setTransactionSuccessful$lambda$5(Landroidx/room/QueryInterceptorDatabase;)V
 
@@ -153,7 +153,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$MzeklJdAyMluUrBvf1P8GHHTDDg(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;Ljava/util/List;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/room/QueryInterceptorDatabase;->execSQL$lambda$12(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;Ljava/util/List;)V
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$QU6zQplx56XQWVhMrp9t0Sxs8q4(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/QueryInterceptorDatabase;->beginTransaction$lambda$0(Landroidx/room/QueryInterceptorDatabase;)V
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$ZY_QqK5qsDepoudiZla9n6BurTg(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/QueryInterceptorDatabase;->beginTransactionNonExclusive$lambda$1(Landroidx/room/QueryInterceptorDatabase;)V
 
@@ -177,7 +177,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$enW6rOeweRF_oHxol1V-abKBiFs(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/room/QueryInterceptorDatabase;->query$lambda$7(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -185,7 +185,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$lAHuasulg2-DyrvKuMpTKbtkx3o(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/QueryInterceptorDatabase;->beginTransactionWithListener$lambda$2(Landroidx/room/QueryInterceptorDatabase;)V
 
@@ -193,7 +193,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$lkbJOCqPf2ekCup0X6Wp_UIujto(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/room/QueryInterceptorDatabase;->query$lambda$6(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;)V
 
@@ -201,7 +201,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$mNMi8pDs4uUaIm9xv34iTMdA8Ps(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/QueryInterceptorDatabase;->beginTransactionWithListenerNonExclusive$lambda$3(Landroidx/room/QueryInterceptorDatabase;)V
 
@@ -209,7 +209,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$oAPj04hNrFgSXf1M8bF3PBNtVCU(Landroidx/room/QueryInterceptorDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;Landroidx/room/QueryInterceptorProgram;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/room/QueryInterceptorDatabase;->query$lambda$8(Landroidx/room/QueryInterceptorDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;Landroidx/room/QueryInterceptorProgram;)V
 
@@ -217,7 +217,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$prMsYExJmC2Ba76XNqf6fSt02_s(Landroidx/room/QueryInterceptorDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;Landroidx/room/QueryInterceptorProgram;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/room/QueryInterceptorDatabase;->query$lambda$9(Landroidx/room/QueryInterceptorDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;Landroidx/room/QueryInterceptorProgram;)V
 
@@ -225,7 +225,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/util/concurrent/Executor;Landroidx/room/RoomDatabase$QueryCallback;)V
-    .locals 1
+    .registers 5
     .param p1, "delegate"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p2, "queryCallbackExecutor"    # Ljava/util/concurrent/Executor;
     .param p3, "queryCallback"    # Landroidx/room/RoomDatabase$QueryCallback;
@@ -259,7 +259,7 @@
 .end method
 
 .method private static final beginTransaction$lambda$0(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
 
     const-string/jumbo v0, "this$0"
@@ -282,7 +282,7 @@
 .end method
 
 .method private static final beginTransactionNonExclusive$lambda$1(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
 
     const-string/jumbo v0, "this$0"
@@ -305,7 +305,7 @@
 .end method
 
 .method private static final beginTransactionWithListener$lambda$2(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
 
     const-string/jumbo v0, "this$0"
@@ -328,7 +328,7 @@
 .end method
 
 .method private static final beginTransactionWithListenerNonExclusive$lambda$3(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
 
     const-string/jumbo v0, "this$0"
@@ -351,7 +351,7 @@
 .end method
 
 .method private static final endTransaction$lambda$4(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
 
     const-string/jumbo v0, "this$0"
@@ -374,7 +374,7 @@
 .end method
 
 .method private static final execSQL$lambda$10(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
     .param p1, "$sql"    # Ljava/lang/String;
 
@@ -400,7 +400,7 @@
 .end method
 
 .method private static final execSQL$lambda$12(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
     .param p1, "$sql"    # Ljava/lang/String;
     .param p2, "$inputArguments"    # Ljava/util/List;
@@ -427,7 +427,7 @@
 .end method
 
 .method private static final query$lambda$6(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
     .param p1, "$query"    # Ljava/lang/String;
 
@@ -453,7 +453,7 @@
 .end method
 
 .method private static final query$lambda$7(Landroidx/room/QueryInterceptorDatabase;Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
     .param p1, "$query"    # Ljava/lang/String;
     .param p2, "$bindArgs"    # [Ljava/lang/Object;
@@ -483,7 +483,7 @@
 .end method
 
 .method private static final query$lambda$8(Landroidx/room/QueryInterceptorDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;Landroidx/room/QueryInterceptorProgram;)V
-    .locals 3
+    .registers 6
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
     .param p1, "$query"    # Landroidx/sqlite/db/SupportSQLiteQuery;
     .param p2, "$queryInterceptorProgram"    # Landroidx/room/QueryInterceptorProgram;
@@ -518,7 +518,7 @@
 .end method
 
 .method private static final query$lambda$9(Landroidx/room/QueryInterceptorDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;Landroidx/room/QueryInterceptorProgram;)V
-    .locals 3
+    .registers 6
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
     .param p1, "$query"    # Landroidx/sqlite/db/SupportSQLiteQuery;
     .param p2, "$queryInterceptorProgram"    # Landroidx/room/QueryInterceptorProgram;
@@ -556,7 +556,7 @@
 .end method
 
 .method private static final setTransactionSuccessful$lambda$5(Landroidx/room/QueryInterceptorDatabase;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorDatabase;
 
     const-string/jumbo v0, "this$0"
@@ -581,7 +581,7 @@
 
 # virtual methods
 .method public beginTransaction()V
-    .locals 2
+    .registers 3
 
     .line 46
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->queryCallbackExecutor:Ljava/util/concurrent/Executor;
@@ -602,7 +602,7 @@
 .end method
 
 .method public beginTransactionNonExclusive()V
-    .locals 2
+    .registers 3
 
     .line 53
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->queryCallbackExecutor:Ljava/util/concurrent/Executor;
@@ -623,7 +623,7 @@
 .end method
 
 .method public beginTransactionWithListener(Landroid/database/sqlite/SQLiteTransactionListener;)V
-    .locals 2
+    .registers 4
     .param p1, "transactionListener"    # Landroid/database/sqlite/SQLiteTransactionListener;
 
     const-string/jumbo v0, "transactionListener"
@@ -649,7 +649,7 @@
 .end method
 
 .method public beginTransactionWithListenerNonExclusive(Landroid/database/sqlite/SQLiteTransactionListener;)V
-    .locals 2
+    .registers 4
     .param p1, "transactionListener"    # Landroid/database/sqlite/SQLiteTransactionListener;
 
     const-string/jumbo v0, "transactionListener"
@@ -675,7 +675,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -685,7 +685,7 @@
 .end method
 
 .method public compileStatement(Ljava/lang/String;)Landroidx/sqlite/db/SupportSQLiteStatement;
-    .locals 4
+    .registers 6
     .param p1, "sql"    # Ljava/lang/String;
 
     const-string/jumbo v0, "sql"
@@ -720,7 +720,7 @@
 .end method
 
 .method public delete(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)I
-    .locals 1
+    .registers 5
 
     const-string/jumbo v0, "table"
 
@@ -736,7 +736,7 @@
 .end method
 
 .method public disableWriteAheadLogging()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -746,7 +746,7 @@
 .end method
 
 .method public enableWriteAheadLogging()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -758,7 +758,7 @@
 .end method
 
 .method public endTransaction()V
-    .locals 2
+    .registers 3
 
     .line 76
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->queryCallbackExecutor:Ljava/util/concurrent/Executor;
@@ -779,7 +779,7 @@
 .end method
 
 .method public execPerConnectionSQL(Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
 
     const-string/jumbo v0, "sql"
 
@@ -793,7 +793,7 @@
 .end method
 
 .method public execSQL(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "sql"    # Ljava/lang/String;
 
     const-string/jumbo v0, "sql"
@@ -819,7 +819,7 @@
 .end method
 
 .method public execSQL(Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 6
+    .registers 9
     .param p1, "sql"    # Ljava/lang/String;
     .param p2, "bindArgs"    # [Ljava/lang/Object;
 
@@ -901,7 +901,7 @@
 .end method
 
 .method public getAttachedDbs()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -923,7 +923,7 @@
 .end method
 
 .method public getMaximumSize()J
-    .locals 2
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -935,7 +935,7 @@
 .end method
 
 .method public getPageSize()J
-    .locals 2
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -947,7 +947,7 @@
 .end method
 
 .method public getPath()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -959,7 +959,7 @@
 .end method
 
 .method public getVersion()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -971,7 +971,7 @@
 .end method
 
 .method public inTransaction()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -983,7 +983,7 @@
 .end method
 
 .method public insert(Ljava/lang/String;ILandroid/content/ContentValues;)J
-    .locals 2
+    .registers 6
 
     const-string/jumbo v0, "table"
 
@@ -1003,7 +1003,7 @@
 .end method
 
 .method public isDatabaseIntegrityOk()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1015,7 +1015,7 @@
 .end method
 
 .method public isDbLockedByCurrentThread()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1027,7 +1027,7 @@
 .end method
 
 .method public isExecPerConnectionSQLSupported()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1039,7 +1039,7 @@
 .end method
 
 .method public isOpen()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1051,7 +1051,7 @@
 .end method
 
 .method public isReadOnly()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1063,7 +1063,7 @@
 .end method
 
 .method public isWriteAheadLoggingEnabled()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1075,7 +1075,7 @@
 .end method
 
 .method public needUpgrade(I)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1087,7 +1087,7 @@
 .end method
 
 .method public query(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroid/database/Cursor;
-    .locals 3
+    .registers 5
     .param p1, "query"    # Landroidx/sqlite/db/SupportSQLiteQuery;
 
     const-string v0, "query"
@@ -1127,7 +1127,7 @@
 .end method
 
 .method public query(Landroidx/sqlite/db/SupportSQLiteQuery;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    .locals 3
+    .registers 6
     .param p1, "query"    # Landroidx/sqlite/db/SupportSQLiteQuery;
     .param p2, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
@@ -1168,7 +1168,7 @@
 .end method
 
 .method public query(Ljava/lang/String;)Landroid/database/Cursor;
-    .locals 2
+    .registers 4
     .param p1, "query"    # Ljava/lang/String;
 
     const-string v0, "query"
@@ -1195,7 +1195,7 @@
 .end method
 
 .method public query(Ljava/lang/String;[Ljava/lang/Object;)Landroid/database/Cursor;
-    .locals 2
+    .registers 5
     .param p1, "query"    # Ljava/lang/String;
     .param p2, "bindArgs"    # [Ljava/lang/Object;
 
@@ -1227,7 +1227,7 @@
 .end method
 
 .method public setForeignKeyConstraintsEnabled(Z)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1237,7 +1237,7 @@
 .end method
 
 .method public setLocale(Ljava/util/Locale;)V
-    .locals 1
+    .registers 3
 
     const-string v0, "locale"
 
@@ -1251,7 +1251,7 @@
 .end method
 
 .method public setMaxSqlCacheSize(I)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1261,7 +1261,7 @@
 .end method
 
 .method public setMaximumSize(J)J
-    .locals 2
+    .registers 5
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1273,7 +1273,7 @@
 .end method
 
 .method public setPageSize(J)V
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1283,7 +1283,7 @@
 .end method
 
 .method public setTransactionSuccessful()V
-    .locals 2
+    .registers 3
 
     .line 83
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->queryCallbackExecutor:Ljava/util/concurrent/Executor;
@@ -1304,7 +1304,7 @@
 .end method
 
 .method public setVersion(I)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1314,7 +1314,7 @@
 .end method
 
 .method public update(Ljava/lang/String;ILandroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/Object;)I
-    .locals 7
+    .registers 13
 
     const-string/jumbo v0, "table"
 
@@ -1344,7 +1344,7 @@
 .end method
 
 .method public yieldIfContendedSafely()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -1356,7 +1356,7 @@
 .end method
 
 .method public yieldIfContendedSafely(J)Z
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorDatabase;->delegate:Landroidx/sqlite/db/SupportSQLiteDatabase;
 

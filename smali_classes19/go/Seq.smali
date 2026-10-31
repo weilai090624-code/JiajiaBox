@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 25
     const-string v0, "GoSeq"
@@ -82,7 +82,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 1
 
     .line 24
     sget-object v0, Lgo/Seq;->log:Ljava/util/logging/Logger;
@@ -101,7 +101,7 @@
 .end method
 
 .method static decRef(I)V
-    .locals 1
+    .registers 2
 
     .line 106
     sget-object v0, Lgo/Seq;->tracker:Lgo/Seq$RefTracker;
@@ -116,7 +116,7 @@
 .end method
 
 .method public static getRef(I)Lgo/Seq$Ref;
-    .locals 1
+    .registers 2
 
     .line 92
     sget-object v0, Lgo/Seq;->tracker:Lgo/Seq$RefTracker;
@@ -129,7 +129,7 @@
 .end method
 
 .method public static incGoObjectRef(Lgo/Seq$GoObject;)I
-    .locals 0
+    .registers 1
 
     .line 71
     invoke-interface {p0}, Lgo/Seq$GoObject;->incRefnum()I
@@ -143,7 +143,7 @@
 .end method
 
 .method public static incRef(Ljava/lang/Object;)I
-    .locals 1
+    .registers 2
 
     .line 67
     sget-object v0, Lgo/Seq;->tracker:Lgo/Seq$RefTracker;
@@ -156,7 +156,7 @@
 .end method
 
 .method public static incRefnum(I)V
-    .locals 1
+    .registers 2
 
     .line 59
     sget-object v0, Lgo/Seq;->tracker:Lgo/Seq$RefTracker;
@@ -171,7 +171,7 @@
 .end method
 
 .method public static setContext(Landroid/content/Context;)V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-static {p0}, Lgo/Seq;->setContext(Ljava/lang/Object;)V
@@ -184,17 +184,17 @@
 .end method
 
 .method public static touch()V
-    .locals 0
+    .registers 0
 
     .line 50
     return-void
 .end method
 
 .method public static trackGoRef(ILgo/Seq$GoObject;)V
-    .locals 2
+    .registers 4
 
     .line 85
-    if-gtz p0, :cond_0
+    if-gtz p0, :cond_8
 
     .line 88
     sget-object v0, Lgo/Seq;->goRefQueue:Lgo/Seq$GoRefQueue;
@@ -205,7 +205,7 @@
     return-void
 
     .line 86
-    :cond_0
+    :cond_8
     new-instance p1, Ljava/lang/RuntimeException;
 
     new-instance v0, Ljava/lang/StringBuilder;

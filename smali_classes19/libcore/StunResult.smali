@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     .line 11
     invoke-static {}, Llibcore/Libcore;->touch()V
@@ -21,7 +21,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,21 +58,21 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
 
     .line 33
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_2b
 
     instance-of v1, p1, Llibcore/StunResult;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_8
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 36
-    :cond_0
+    :cond_8
     check-cast p1, Llibcore/StunResult;
 
     .line 37
@@ -86,27 +86,27 @@
     move-result-object v2
 
     .line 39
-    if-nez v1, :cond_1
+    if-nez v1, :cond_17
 
     .line 40
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1e
 
     .line 41
     return v0
 
     .line 43
-    :cond_1
+    :cond_17
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1e
 
     .line 44
     return v0
 
     .line 46
-    :cond_2
+    :cond_1e
     invoke-virtual {p0}, Llibcore/StunResult;->getSuccess()Z
 
     move-result v1
@@ -117,20 +117,20 @@
     move-result p1
 
     .line 48
-    if-eq v1, p1, :cond_3
+    if-eq v1, p1, :cond_29
 
     .line 49
     return v0
 
     .line 51
-    :cond_3
+    :cond_29
     const/4 p1, 0x1
 
     return p1
 
     .line 34
-    :cond_4
-    :goto_0
+    :cond_2b
+    :goto_2b
     return v0
 .end method
 
@@ -141,7 +141,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 55
     invoke-virtual {p0}, Llibcore/StunResult;->getText()Ljava/lang/String;
@@ -176,7 +176,7 @@
 .end method
 
 .method public final incRefnum()I
-    .locals 1
+    .registers 2
 
     .line 16
     iget v0, p0, Llibcore/StunResult;->refnum:I
@@ -196,7 +196,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 59
     new-instance v0, Ljava/lang/StringBuilder;

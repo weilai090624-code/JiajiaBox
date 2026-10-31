@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method protected bridge synthetic doBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 112
     .local p0, "this":Lcom/google/common/base/Enums$StringConverter;, "Lcom/google/common/base/Enums$StringConverter<TT;>;"
@@ -90,7 +90,7 @@
 .end method
 
 .method protected doBackward(Ljava/lang/Enum;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -109,7 +109,7 @@
 .end method
 
 .method protected doForward(Ljava/lang/String;)Ljava/lang/Enum;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -131,7 +131,7 @@
 .end method
 
 .method protected bridge synthetic doForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 112
     .local p0, "this":Lcom/google/common/base/Enums$StringConverter;, "Lcom/google/common/base/Enums$StringConverter<TT;>;"
@@ -145,7 +145,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -155,7 +155,7 @@
     .local p0, "this":Lcom/google/common/base/Enums$StringConverter;, "Lcom/google/common/base/Enums$StringConverter<TT;>;"
     instance-of v0, p1, Lcom/google/common/base/Enums$StringConverter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 134
     move-object v0, p1
@@ -176,14 +176,14 @@
 
     .line 137
     .end local v0    # "that":Lcom/google/common/base/Enums$StringConverter;, "Lcom/google/common/base/Enums$StringConverter<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 142
     .local p0, "this":Lcom/google/common/base/Enums$StringConverter;, "Lcom/google/common/base/Enums$StringConverter<TT;>;"
@@ -197,7 +197,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 147
     .local p0, "this":Lcom/google/common/base/Enums$StringConverter;, "Lcom/google/common/base/Enums$StringConverter<TT;>;"

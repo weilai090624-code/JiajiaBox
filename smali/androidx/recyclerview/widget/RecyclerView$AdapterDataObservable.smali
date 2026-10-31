@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13096
     invoke-direct {p0}, Landroid/database/Observable;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public hasObservers()Z
-    .locals 1
+    .registers 2
 
     .line 13098
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -50,7 +50,7 @@
 .end method
 
 .method public notifyChanged()V
-    .locals 2
+    .registers 3
 
     .line 13106
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -62,8 +62,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_8
+    if-ltz v0, :cond_18
 
     .line 13107
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -79,16 +79,16 @@
     .line 13106
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 13109
     .end local v0    # "i":I
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public notifyItemMoved(II)V
-    .locals 3
+    .registers 6
     .param p1, "fromPosition"    # I
     .param p2, "toPosition"    # I
 
@@ -104,8 +104,8 @@
     sub-int/2addr v0, v1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_8
+    if-ltz v0, :cond_18
 
     .line 13154
     iget-object v2, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -121,16 +121,16 @@
     .line 13153
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 13156
     .end local v0    # "i":I
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public notifyItemRangeChanged(II)V
-    .locals 1
+    .registers 4
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public notifyItemRangeChanged(IILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
     .param p3, "payload"    # Ljava/lang/Object;
@@ -159,8 +159,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_8
+    if-ltz v0, :cond_18
 
     .line 13128
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -176,16 +176,16 @@
     .line 13127
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 13130
     .end local v0    # "i":I
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public notifyItemRangeInserted(II)V
-    .locals 2
+    .registers 5
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -199,8 +199,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_8
+    if-ltz v0, :cond_18
 
     .line 13138
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -216,16 +216,16 @@
     .line 13137
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 13140
     .end local v0    # "i":I
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public notifyItemRangeRemoved(II)V
-    .locals 2
+    .registers 5
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -239,8 +239,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_8
+    if-ltz v0, :cond_18
 
     .line 13148
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -256,16 +256,16 @@
     .line 13147
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 13150
     .end local v0    # "i":I
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public notifyStateRestorationPolicyChanged()V
-    .locals 2
+    .registers 3
 
     .line 13112
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -277,8 +277,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_8
+    if-ltz v0, :cond_18
 
     .line 13113
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -294,10 +294,10 @@
     .line 13112
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 13115
     .end local v0    # "i":I
-    :cond_0
+    :cond_18
     return-void
 .end method

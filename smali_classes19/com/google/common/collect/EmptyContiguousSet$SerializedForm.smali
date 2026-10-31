@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/DiscreteDomain;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,7 +66,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/DiscreteDomain;Lcom/google/common/collect/EmptyContiguousSet$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/DiscreteDomain;
     .param p2, "x1"    # Lcom/google/common/collect/EmptyContiguousSet$1;
 
@@ -78,7 +78,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 153
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet$SerializedForm;, "Lcom/google/common/collect/EmptyContiguousSet$SerializedForm<TC;>;"

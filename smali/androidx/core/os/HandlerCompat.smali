@@ -18,7 +18,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 244
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method public static createAsync(Landroid/os/Looper;)Landroid/os/Handler;
-    .locals 7
+    .registers 8
     .param p0, "looper"    # Landroid/os/Looper;
 
     .line 64
@@ -36,7 +36,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 65
     invoke-static {p0}, Landroidx/core/os/HandlerCompat$Api28Impl;->createAsync(Landroid/os/Looper;)Landroid/os/Handler;
@@ -46,8 +46,8 @@
     return-object v0
 
     .line 70
-    :cond_0
-    :try_start_0
+    :cond_b
+    :try_start_b
     const-class v0, Landroid/os/Handler;
 
     const/4 v1, 0x3
@@ -96,17 +96,17 @@
     move-result-object v0
 
     check-cast v0, Landroid/os/Handler;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_36
+    .catch Ljava/lang/IllegalAccessException; {:try_start_b .. :try_end_36} :catch_58
+    .catch Ljava/lang/InstantiationException; {:try_start_b .. :try_end_36} :catch_55
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_b .. :try_end_36} :catch_52
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_b .. :try_end_36} :catch_37
 
     .line 70
     return-object v0
 
     .line 79
-    :catch_0
+    :catch_37
     move-exception v0
 
     .line 80
@@ -119,12 +119,12 @@
     .local v1, "cause":Ljava/lang/Throwable;
     instance-of v2, v1, Ljava/lang/RuntimeException;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_4e
 
     .line 84
     instance-of v2, v1, Ljava/lang/Error;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_48
 
     .line 85
     move-object v2, v1
@@ -134,7 +134,7 @@
     throw v2
 
     .line 87
-    :cond_1
+    :cond_48
     new-instance v2, Ljava/lang/RuntimeException;
 
     invoke-direct {v2, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -142,7 +142,7 @@
     throw v2
 
     .line 82
-    :cond_2
+    :cond_4e
     move-object v2, v1
 
     check-cast v2, Ljava/lang/RuntimeException;
@@ -152,7 +152,7 @@
     .line 77
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     .end local v1    # "cause":Ljava/lang/Throwable;
-    :catch_1
+    :catch_52
     move-exception v0
 
     .line 78
@@ -160,11 +160,11 @@
     nop
 
     .local v0, "wrappedException":Ljava/lang/Exception;
-    goto :goto_0
+    goto :goto_5a
 
     .line 75
     .end local v0    # "wrappedException":Ljava/lang/Exception;
-    :catch_2
+    :catch_55
     move-exception v0
 
     .line 76
@@ -172,11 +172,11 @@
     nop
 
     .local v0, "wrappedException":Ljava/lang/Exception;
-    goto :goto_0
+    goto :goto_5a
 
     .line 73
     .end local v0    # "wrappedException":Ljava/lang/Exception;
-    :catch_3
+    :catch_58
     move-exception v0
 
     .line 74
@@ -185,7 +185,7 @@
 
     .line 88
     .local v0, "wrappedException":Ljava/lang/Exception;
-    :goto_0
+    :goto_5a
     nop
 
     .line 91
@@ -204,7 +204,7 @@
 .end method
 
 .method public static createAsync(Landroid/os/Looper;Landroid/os/Handler$Callback;)Landroid/os/Handler;
-    .locals 7
+    .registers 9
     .param p0, "looper"    # Landroid/os/Looper;
     .param p1, "callback"    # Landroid/os/Handler$Callback;
 
@@ -213,7 +213,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 124
     invoke-static {p0, p1}, Landroidx/core/os/HandlerCompat$Api28Impl;->createAsync(Landroid/os/Looper;Landroid/os/Handler$Callback;)Landroid/os/Handler;
@@ -223,8 +223,8 @@
     return-object v0
 
     .line 129
-    :cond_0
-    :try_start_0
+    :cond_b
+    :try_start_b
     const-class v0, Landroid/os/Handler;
 
     const/4 v1, 0x3
@@ -271,17 +271,17 @@
     move-result-object v0
 
     check-cast v0, Landroid/os/Handler;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_35
+    .catch Ljava/lang/IllegalAccessException; {:try_start_b .. :try_end_35} :catch_57
+    .catch Ljava/lang/InstantiationException; {:try_start_b .. :try_end_35} :catch_54
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_b .. :try_end_35} :catch_51
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_b .. :try_end_35} :catch_36
 
     .line 129
     return-object v0
 
     .line 138
-    :catch_0
+    :catch_36
     move-exception v0
 
     .line 139
@@ -294,12 +294,12 @@
     .local v1, "cause":Ljava/lang/Throwable;
     instance-of v2, v1, Ljava/lang/RuntimeException;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_4d
 
     .line 143
     instance-of v2, v1, Ljava/lang/Error;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_47
 
     .line 144
     move-object v2, v1
@@ -309,7 +309,7 @@
     throw v2
 
     .line 146
-    :cond_1
+    :cond_47
     new-instance v2, Ljava/lang/RuntimeException;
 
     invoke-direct {v2, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -317,7 +317,7 @@
     throw v2
 
     .line 141
-    :cond_2
+    :cond_4d
     move-object v2, v1
 
     check-cast v2, Ljava/lang/RuntimeException;
@@ -327,7 +327,7 @@
     .line 136
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     .end local v1    # "cause":Ljava/lang/Throwable;
-    :catch_1
+    :catch_51
     move-exception v0
 
     .line 137
@@ -335,11 +335,11 @@
     nop
 
     .local v0, "wrappedException":Ljava/lang/Exception;
-    goto :goto_0
+    goto :goto_59
 
     .line 134
     .end local v0    # "wrappedException":Ljava/lang/Exception;
-    :catch_2
+    :catch_54
     move-exception v0
 
     .line 135
@@ -347,11 +347,11 @@
     nop
 
     .local v0, "wrappedException":Ljava/lang/Exception;
-    goto :goto_0
+    goto :goto_59
 
     .line 132
     .end local v0    # "wrappedException":Ljava/lang/Exception;
-    :catch_3
+    :catch_57
     move-exception v0
 
     .line 133
@@ -360,7 +360,7 @@
 
     .line 147
     .local v0, "wrappedException":Ljava/lang/Exception;
-    :goto_0
+    :goto_59
     nop
 
     .line 150
@@ -379,7 +379,7 @@
 .end method
 
 .method public static hasCallbacks(Landroid/os/Handler;Ljava/lang/Runnable;)Z
-    .locals 7
+    .registers 9
     .param p0, "handler"    # Landroid/os/Handler;
     .param p1, "r"    # Ljava/lang/Runnable;
 
@@ -392,7 +392,7 @@
 
     const/16 v2, 0x1d
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_c
 
     .line 213
     invoke-static {p0, p1}, Landroidx/core/os/HandlerCompat$Api29Impl;->hasCallbacks(Landroid/os/Handler;Ljava/lang/Runnable;)Z
@@ -402,8 +402,8 @@
     return v1
 
     .line 219
-    :cond_0
-    :try_start_0
+    :cond_c
+    :try_start_c
     const-class v1, Landroid/os/Handler;
 
     const-string v2, "hasCallbacks"
@@ -437,28 +437,28 @@
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_c .. :try_end_2a} :catch_3c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_c .. :try_end_2a} :catch_31
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_c .. :try_end_2a} :catch_2e
+    .catch Ljava/lang/NullPointerException; {:try_start_c .. :try_end_2a} :catch_2b
 
     return v2
 
     .line 235
     .end local v1    # "hasCallbacksMethod":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_2b
     move-exception v1
 
     .line 236
     .local v1, "e":Ljava/lang/NullPointerException;
     move-object v0, v1
 
-    goto :goto_1
+    goto :goto_34
 
     .line 233
     .end local v1    # "e":Ljava/lang/NullPointerException;
-    :catch_1
+    :catch_2e
     move-exception v1
 
     .line 234
@@ -466,10 +466,10 @@
     move-object v0, v1
 
     .end local v1    # "e":Ljava/lang/NoSuchMethodException;
-    goto :goto_0
+    goto :goto_33
 
     .line 231
-    :catch_2
+    :catch_31
     move-exception v1
 
     .line 232
@@ -478,11 +478,11 @@
 
     .line 237
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    :goto_0
+    :goto_33
     nop
 
     .line 240
-    :goto_1
+    :goto_34
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     const-string v2, "Failed to call Handler.hasCallbacks(), but there is no safe failure mode for this method. Raising exception."
@@ -492,7 +492,7 @@
     throw v1
 
     .line 222
-    :catch_3
+    :catch_3c
     move-exception v1
 
     .line 223
@@ -505,12 +505,12 @@
     .local v2, "cause":Ljava/lang/Throwable;
     instance-of v3, v2, Ljava/lang/RuntimeException;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_53
 
     .line 227
     instance-of v3, v2, Ljava/lang/Error;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_4d
 
     .line 228
     move-object v3, v2
@@ -520,7 +520,7 @@
     throw v3
 
     .line 230
-    :cond_1
+    :cond_4d
     new-instance v3, Ljava/lang/RuntimeException;
 
     invoke-direct {v3, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -528,7 +528,7 @@
     throw v3
 
     .line 225
-    :cond_2
+    :cond_53
     move-object v3, v2
 
     check-cast v3, Ljava/lang/RuntimeException;
@@ -537,7 +537,7 @@
 .end method
 
 .method public static postDelayed(Landroid/os/Handler;Ljava/lang/Runnable;Ljava/lang/Object;J)Z
-    .locals 2
+    .registers 7
     .param p0, "handler"    # Landroid/os/Handler;
     .param p1, "r"    # Ljava/lang/Runnable;
     .param p2, "token"    # Ljava/lang/Object;
@@ -548,7 +548,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 183
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/core/os/HandlerCompat$Api28Impl;->postDelayed(Landroid/os/Handler;Ljava/lang/Runnable;Ljava/lang/Object;J)Z
@@ -558,7 +558,7 @@
     return v0
 
     .line 186
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Landroid/os/Message;->obtain(Landroid/os/Handler;Ljava/lang/Runnable;)Landroid/os/Message;
 
     move-result-object v0

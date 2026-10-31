@@ -1,6 +1,8 @@
 package constant
 
 const (
+	TypeNowhere            = "nowhere"
+	TypeNowhereEgress      = "nowhere-egress"
 	TypeTun                = "tun"
 	TypeRedirect           = "redirect"
 	TypeTProxy             = "tproxy"

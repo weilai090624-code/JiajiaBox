@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/LocalCache$AccessQueue;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/cache/LocalCache$AccessQueue;
 
     .line 3661
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public getAccessTime()J
-    .locals 2
+    .registers 3
 
     .line 3665
     .local p0, "this":Lcom/google/common/cache/LocalCache$AccessQueue$1;, "Lcom/google/common/cache/LocalCache$AccessQueue$1;"
@@ -72,7 +72,7 @@
 .end method
 
 .method public getNextInAccessQueue()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -89,7 +89,7 @@
 .end method
 
 .method public getPreviousInAccessQueue()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -106,7 +106,7 @@
 .end method
 
 .method public setAccessTime(J)V
-    .locals 0
+    .registers 3
     .param p1, "time"    # J
 
     .line 3669
@@ -115,7 +115,7 @@
 .end method
 
 .method public setNextInAccessQueue(Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -134,7 +134,7 @@
 .end method
 
 .method public setPreviousInAccessQueue(Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

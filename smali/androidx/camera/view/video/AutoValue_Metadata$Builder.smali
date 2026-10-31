@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     invoke-direct {p0}, Landroidx/camera/view/video/Metadata$Builder;-><init>()V
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public build()Landroidx/camera/view/video/Metadata;
-    .locals 3
+    .registers 4
 
     .line 62
     new-instance v0, Landroidx/camera/view/video/AutoValue_Metadata;
@@ -47,7 +47,7 @@
 .end method
 
 .method public setLocation(Landroid/location/Location;)Landroidx/camera/view/video/Metadata$Builder;
-    .locals 0
+    .registers 2
     .param p1, "location"    # Landroid/location/Location;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

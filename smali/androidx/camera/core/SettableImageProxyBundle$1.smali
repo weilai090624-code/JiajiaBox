@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/SettableImageProxyBundle;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/core/SettableImageProxyBundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public attachCompleter(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -89,7 +89,7 @@
     monitor-enter v0
 
     .line 169
-    :try_start_0
+    :try_start_5
     iget-object v1, p0, Landroidx/camera/core/SettableImageProxyBundle$1;->this$0:Landroidx/camera/core/SettableImageProxyBundle;
 
     iget-object v1, v1, Landroidx/camera/core/SettableImageProxyBundle;->mCompleters:Landroid/util/SparseArray;
@@ -100,8 +100,8 @@
 
     .line 170
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_5 .. :try_end_f} :catchall_2b
 
     .line 171
     new-instance v0, Ljava/lang/StringBuilder;
@@ -133,13 +133,13 @@
     return-object v0
 
     .line 170
-    :catchall_0
+    :catchall_2b
     move-exception v1
 
-    :try_start_1
+    :try_start_2c
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2d
+    .catchall {:try_start_2c .. :try_end_2d} :catchall_2b
 
     throw v1
 .end method

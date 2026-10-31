@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/TransitionManager$MultiListener;Landroidx/collection/ArrayMap;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/transition/TransitionManager$MultiListener;
 
     .line 286
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 289

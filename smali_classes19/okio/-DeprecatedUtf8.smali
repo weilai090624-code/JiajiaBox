@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokio/-DeprecatedUtf8;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final size(Ljava/lang/String;)J
-    .locals 3
+    .registers 5
     .param p1, "string"    # Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -96,7 +96,7 @@
 .end method
 
 .method public final size(Ljava/lang/String;II)J
-    .locals 2
+    .registers 6
     .param p1, "string"    # Ljava/lang/String;
     .param p2, "beginIndex"    # I
     .param p3, "endIndex"    # I

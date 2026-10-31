@@ -29,7 +29,7 @@
 
 # direct methods
 .method private static final contract(Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 2
     .param p0, "builder"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {

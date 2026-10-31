@@ -53,7 +53,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetdayOfWeek(Lj$/time/temporal/WeekFields;)Lj$/time/temporal/TemporalField;
-    .locals 0
+    .registers 1
 
     iget-object p0, p0, Lj$/time/temporal/WeekFields;->dayOfWeek:Lj$/time/temporal/TemporalField;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$fgetweekBasedYear(Lj$/time/temporal/WeekFields;)Lj$/time/temporal/TemporalField;
-    .locals 0
+    .registers 1
 
     iget-object p0, p0, Lj$/time/temporal/WeekFields;->weekBasedYear:Lj$/time/temporal/TemporalField;
 
@@ -69,7 +69,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$fgetweekOfWeekBasedYear(Lj$/time/temporal/WeekFields;)Lj$/time/temporal/TemporalField;
-    .locals 0
+    .registers 1
 
     iget-object p0, p0, Lj$/time/temporal/WeekFields;->weekOfWeekBasedYear:Lj$/time/temporal/TemporalField;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 196
     new-instance v0, Lj$/util/concurrent/ConcurrentHashMap;
@@ -121,7 +121,7 @@
 .end method
 
 .method private constructor <init>(Lj$/time/DayOfWeek;I)V
-    .locals 2
+    .registers 5
     .param p1, "firstDayOfWeek"    # Lj$/time/DayOfWeek;
     .param p2, "minimalDaysInFirstWeek"    # I
 
@@ -171,11 +171,11 @@
     .line 351
     const/4 v0, 0x1
 
-    if-lt p2, v0, :cond_0
+    if-lt p2, v0, :cond_31
 
     const/4 v0, 0x7
 
-    if-gt p2, v0, :cond_0
+    if-gt p2, v0, :cond_31
 
     .line 354
     iput-object p1, p0, Lj$/time/temporal/WeekFields;->firstDayOfWeek:Lj$/time/DayOfWeek;
@@ -187,7 +187,7 @@
     return-void
 
     .line 352
-    :cond_0
+    :cond_31
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Minimal number of days is invalid"
@@ -198,7 +198,7 @@
 .end method
 
 .method public static of(Lj$/time/DayOfWeek;I)Lj$/time/temporal/WeekFields;
-    .locals 3
+    .registers 5
     .param p0, "firstDayOfWeek"    # Lj$/time/DayOfWeek;
     .param p1, "minimalDaysInFirstWeek"    # I
 
@@ -235,7 +235,7 @@
 
     .line 333
     .local v1, "rules":Lj$/time/temporal/WeekFields;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_33
 
     .line 334
     new-instance v2, Lj$/time/temporal/WeekFields;
@@ -261,12 +261,12 @@
     check-cast v1, Lj$/time/temporal/WeekFields;
 
     .line 338
-    :cond_0
+    :cond_33
     return-object v1
 .end method
 
 .method public static of(Ljava/util/Locale;)Lj$/time/temporal/WeekFields;
-    .locals 5
+    .registers 6
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 296
@@ -328,7 +328,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 371
@@ -337,26 +337,26 @@
     .line 372
     iget-object v0, p0, Lj$/time/temporal/WeekFields;->firstDayOfWeek:Lj$/time/DayOfWeek;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 376
     iget v0, p0, Lj$/time/temporal/WeekFields;->minimalDays:I
 
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_12
 
     iget v0, p0, Lj$/time/temporal/WeekFields;->minimalDays:I
 
     const/4 v1, 0x7
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_12
 
     .line 379
     return-void
 
     .line 377
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/io/InvalidObjectException;
 
     const-string v1, "Minimal number of days is invalid"
@@ -366,7 +366,7 @@
     throw v0
 
     .line 373
-    :cond_1
+    :cond_1a
     new-instance v0, Ljava/io/InvalidObjectException;
 
     const-string v1, "firstDayOfWeek is null"
@@ -377,7 +377,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 5
+    .registers 6
 
     .line 390
     :try_start_0
@@ -388,13 +388,13 @@
     invoke-static {v0, v1}, Lj$/time/temporal/WeekFields;->of(Lj$/time/DayOfWeek;I)Lj$/time/temporal/WeekFields;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 391
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 392
@@ -431,7 +431,7 @@
 
 # virtual methods
 .method public dayOfWeek()Lj$/time/temporal/TemporalField;
-    .locals 1
+    .registers 2
 
     .line 444
     iget-object v0, p0, Lj$/time/temporal/WeekFields;->dayOfWeek:Lj$/time/temporal/TemporalField;
@@ -440,24 +440,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 642
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 643
     return v0
 
     .line 645
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lj$/time/temporal/WeekFields;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_16
 
     .line 646
     invoke-virtual {p0}, Lj$/time/temporal/WeekFields;->hashCode()I
@@ -468,23 +468,23 @@
 
     move-result v3
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_14
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     return v0
 
     .line 648
-    :cond_2
+    :cond_16
     return v2
 .end method
 
 .method public getFirstDayOfWeek()Lj$/time/DayOfWeek;
-    .locals 1
+    .registers 2
 
     .line 407
     iget-object v0, p0, Lj$/time/temporal/WeekFields;->firstDayOfWeek:Lj$/time/DayOfWeek;
@@ -493,7 +493,7 @@
 .end method
 
 .method public getMinimalDaysInFirstWeek()I
-    .locals 1
+    .registers 2
 
     .line 421
     iget v0, p0, Lj$/time/temporal/WeekFields;->minimalDays:I
@@ -502,7 +502,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 658
     iget-object v0, p0, Lj$/time/temporal/WeekFields;->firstDayOfWeek:Lj$/time/DayOfWeek;
@@ -521,7 +521,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 669
     iget-object v0, p0, Lj$/time/temporal/WeekFields;->firstDayOfWeek:Lj$/time/DayOfWeek;
@@ -566,7 +566,7 @@
 .end method
 
 .method public weekBasedYear()Lj$/time/temporal/TemporalField;
-    .locals 1
+    .registers 2
 
     .line 627
     iget-object v0, p0, Lj$/time/temporal/WeekFields;->weekBasedYear:Lj$/time/temporal/TemporalField;
@@ -575,7 +575,7 @@
 .end method
 
 .method public weekOfMonth()Lj$/time/temporal/TemporalField;
-    .locals 1
+    .registers 2
 
     .line 490
     iget-object v0, p0, Lj$/time/temporal/WeekFields;->weekOfMonth:Lj$/time/temporal/TemporalField;
@@ -584,7 +584,7 @@
 .end method
 
 .method public weekOfWeekBasedYear()Lj$/time/temporal/TemporalField;
-    .locals 1
+    .registers 2
 
     .line 585
     iget-object v0, p0, Lj$/time/temporal/WeekFields;->weekOfWeekBasedYear:Lj$/time/temporal/TemporalField;
@@ -593,7 +593,7 @@
 .end method
 
 .method public weekOfYear()Lj$/time/temporal/TemporalField;
-    .locals 1
+    .registers 2
 
     .line 535
     iget-object v0, p0, Lj$/time/temporal/WeekFields;->weekOfYear:Lj$/time/temporal/TemporalField;

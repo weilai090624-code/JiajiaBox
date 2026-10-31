@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 413
     new-instance v0, Lkotlinx/coroutines/internal/Symbol;
@@ -49,7 +49,7 @@
 .end method
 
 .method public static final BroadcastChannel(I)Lkotlinx/coroutines/channels/BroadcastChannel;
-    .locals 2
+    .registers 3
     .param p0, "capacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,7 +67,7 @@
     .end annotation
 
     .line 74
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_32
 
     .line 79
     new-instance v0, Lkotlinx/coroutines/channels/BroadcastChannelImpl;
@@ -76,10 +76,10 @@
 
     check-cast v0, Lkotlinx/coroutines/channels/BroadcastChannel;
 
-    goto :goto_0
+    goto :goto_30
 
     .line 76
-    :sswitch_0
+    :sswitch_b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Unsupported UNLIMITED capacity for BroadcastChannel"
@@ -89,7 +89,7 @@
     throw v0
 
     .line 75
-    :sswitch_1
+    :sswitch_13
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Unsupported 0 capacity for BroadcastChannel"
@@ -99,17 +99,17 @@
     throw v0
 
     .line 77
-    :sswitch_2
+    :sswitch_1b
     new-instance v0, Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;
 
     invoke-direct {v0}, Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;-><init>()V
 
     check-cast v0, Lkotlinx/coroutines/channels/BroadcastChannel;
 
-    goto :goto_0
+    goto :goto_30
 
     .line 78
-    :sswitch_3
+    :sswitch_23
     new-instance v0, Lkotlinx/coroutines/channels/BroadcastChannelImpl;
 
     sget-object v1, Lkotlinx/coroutines/channels/Channel;->Factory:Lkotlinx/coroutines/channels/Channel$Factory;
@@ -123,22 +123,22 @@
     check-cast v0, Lkotlinx/coroutines/channels/BroadcastChannel;
 
     .line 80
-    :goto_0
+    :goto_30
     return-object v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_32
     .sparse-switch
-        -0x2 -> :sswitch_3
-        -0x1 -> :sswitch_2
-        0x0 -> :sswitch_1
-        0x7fffffff -> :sswitch_0
+        -0x2 -> :sswitch_23
+        -0x1 -> :sswitch_1b
+        0x0 -> :sswitch_13
+        0x7fffffff -> :sswitch_b
     .end sparse-switch
 .end method
 
 .method public static final synthetic access$getNO_ELEMENT$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BroadcastChannelKt;->NO_ELEMENT:Lkotlinx/coroutines/internal/Symbol;

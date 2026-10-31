@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -86,22 +86,22 @@
 .end method
 
 .method public static synthetic copy$default(Lkotlin/collections/IndexedValue;ILjava/lang/Object;ILjava/lang/Object;)Lkotlin/collections/IndexedValue;
-    .locals 0
+    .registers 5
 
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     iget p1, p0, Lkotlin/collections/IndexedValue;->index:I
 
-    :cond_0
+    :cond_6
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_c
 
     iget-object p2, p0, Lkotlin/collections/IndexedValue;->value:Ljava/lang/Object;
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2}, Lkotlin/collections/IndexedValue;->copy(ILjava/lang/Object;)Lkotlin/collections/IndexedValue;
 
     move-result-object p0
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public final component1()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lkotlin/collections/IndexedValue;->index:I
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public final component2()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -133,7 +133,7 @@
 .end method
 
 .method public final copy(ILjava/lang/Object;)Lkotlin/collections/IndexedValue;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITT;)",
@@ -150,24 +150,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlin/collections/IndexedValue;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lkotlin/collections/IndexedValue;
@@ -176,11 +176,11 @@
 
     iget v4, v1, Lkotlin/collections/IndexedValue;->index:I
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_14
 
     return v2
 
-    :cond_2
+    :cond_14
     iget-object v3, p0, Lkotlin/collections/IndexedValue;->value:Ljava/lang/Object;
 
     iget-object v1, v1, Lkotlin/collections/IndexedValue;->value:Ljava/lang/Object;
@@ -189,16 +189,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     return v0
 .end method
 
 .method public final getIndex()I
-    .locals 1
+    .registers 2
 
     .line 14
     iget v0, p0, Lkotlin/collections/IndexedValue;->index:I
@@ -207,7 +207,7 @@
 .end method
 
 .method public final getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -221,7 +221,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget v0, p0, Lkotlin/collections/IndexedValue;->index:I
 
@@ -229,27 +229,27 @@
 
     iget-object v2, p0, Lkotlin/collections/IndexedValue;->value:Ljava/lang/Object;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_a
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_a
     iget-object v2, p0, Lkotlin/collections/IndexedValue;->value:Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    :goto_0
+    :goto_10
     add-int/2addr v1, v2
 
     return v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

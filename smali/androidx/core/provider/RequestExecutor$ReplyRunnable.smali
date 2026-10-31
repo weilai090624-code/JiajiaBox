@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/Handler;Ljava/util/concurrent/Callable;Landroidx/core/util/Consumer;)V
-    .locals 0
+    .registers 4
     .param p1, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 145
     .local p0, "this":Landroidx/core/provider/RequestExecutor$ReplyRunnable;, "Landroidx/core/provider/RequestExecutor$ReplyRunnable<TT;>;"
@@ -96,16 +96,16 @@
     invoke-interface {v0}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_6} :catch_7
 
     .line 148
     .local v0, "t":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_a
 
     .line 146
     .end local v0    # "t":Ljava/lang/Object;, "TT;"
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 147
@@ -116,7 +116,7 @@
 
     .line 149
     .local v0, "t":Ljava/lang/Object;, "TT;"
-    :goto_0
+    :goto_a
     move-object v1, v0
 
     .line 150

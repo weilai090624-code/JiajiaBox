@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     const-class v0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;
@@ -67,7 +67,7 @@
 .end method
 
 .method public varargs constructor <init>(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;)V
-    .locals 1
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
     .param p3, "readMethod"    # Ljava/lang/String;
     .param p4, "writeMethod"    # Ljava/lang/String;
@@ -109,7 +109,7 @@
 .end method
 
 .method public varargs constructor <init>(Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/Class;)V
-    .locals 6
+    .registers 10
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -144,7 +144,7 @@
 .end method
 
 .method private varargs discoverMethod(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    .locals 11
+    .registers 15
     .param p2, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -165,10 +165,10 @@
     move-object v0, p1
 
     .local v0, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :goto_0
+    :goto_1
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_42
 
     .line 197
     invoke-virtual {v0}, Ljava/lang/Class;->getDeclaredMethods()[Ljava/lang/reflect/Method;
@@ -182,8 +182,8 @@
     const/4 v4, 0x0
 
     .local v4, "i$":I
-    :goto_1
-    if-ge v4, v3, :cond_4
+    :goto_a
+    if-ge v4, v3, :cond_3d
 
     aget-object v5, v2, v4
 
@@ -197,7 +197,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_3a
 
     .line 199
     invoke-virtual {v5}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
@@ -210,13 +210,13 @@
 
     array-length v8, p3
 
-    if-eq v7, v8, :cond_0
+    if-eq v7, v8, :cond_21
 
     .line 201
-    goto :goto_3
+    goto :goto_3a
 
     .line 203
-    :cond_0
+    :cond_21
     const/4 v7, 0x1
 
     .line 204
@@ -224,10 +224,10 @@
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_2
+    :goto_23
     array-length v9, v6
 
-    if-ge v8, v9, :cond_2
+    if-ge v8, v9, :cond_34
 
     .line 205
     aget-object v9, v6, v8
@@ -238,21 +238,21 @@
 
     move-result v9
 
-    if-nez v9, :cond_1
+    if-nez v9, :cond_31
 
     .line 206
     const/4 v7, 0x0
 
     .line 204
-    :cond_1
+    :cond_31
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_2
+    goto :goto_23
 
     .line 209
     .end local v8    # "i":I
-    :cond_2
-    if-eqz v7, :cond_3
+    :cond_34
+    if-eqz v7, :cond_3a
 
     .line 210
     invoke-virtual {v5, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
@@ -264,26 +264,26 @@
     .end local v5    # "method":Ljava/lang/reflect/Method;
     .end local v6    # "parameterTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     .end local v7    # "found":Z
-    :cond_3
-    :goto_3
+    :cond_3a
+    :goto_3a
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_a
 
     .line 196
     .end local v2    # "arr$":[Ljava/lang/reflect/Method;
     .end local v3    # "len$":I
     .end local v4    # "i$":I
-    :cond_4
+    :cond_3d
     invoke-virtual {v0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1
 
     .line 216
     .end local v0    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_5
+    :cond_42
     sget-object v0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->log:Ljava/util/logging/Logger;
 
     sget-object v2, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
@@ -292,7 +292,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_74
 
     .line 217
     sget-object v0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->log:Ljava/util/logging/Logger;
@@ -340,7 +340,7 @@
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->fine(Ljava/lang/String;)V
 
     .line 220
-    :cond_6
+    :cond_74
     const/4 v0, 0x0
 
     return-object v0
@@ -349,16 +349,16 @@
 
 # virtual methods
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 117
     const-string v0, "\' on object "
 
-    :try_start_0
+    :try_start_2
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->read:Ljava/lang/reflect/Method;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 118
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->read:Ljava/lang/reflect/Method;
@@ -374,10 +374,10 @@
     return-object v0
 
     .line 119
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     .line 120
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
@@ -385,19 +385,19 @@
     invoke-virtual {v1, p1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_1a} :catch_4c
 
     return-object v0
 
     .line 125
-    :cond_1
+    :cond_1b
     nop
 
     .line 127
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_27
 
     .line 128
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
@@ -409,7 +409,7 @@
     return-object v0
 
     .line 130
-    :cond_2
+    :cond_27
     new-instance v1, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -447,7 +447,7 @@
     throw v1
 
     .line 122
-    :catch_0
+    :catch_4c
     move-exception v1
 
     .line 123
@@ -500,7 +500,7 @@
 .end method
 
 .method public getActualTypeArguments()[Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()[",
@@ -512,11 +512,11 @@
     .line 64
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->parameters:[Ljava/lang/Class;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 65
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
@@ -528,14 +528,14 @@
     return-object v0
 
     .line 67
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->parameters:[Ljava/lang/Class;
 
     return-object v0
 .end method
 
 .method public getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -550,7 +550,7 @@
     .local p1, "annotationType":Ljava/lang/Class;, "Ljava/lang/Class<TA;>;"
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->read:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 149
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->read:Ljava/lang/reflect/Method;
@@ -560,14 +560,14 @@
     move-result-object v0
 
     .local v0, "annotation":Ljava/lang/annotation/Annotation;, "TA;"
-    goto :goto_0
+    goto :goto_1c
 
     .line 150
     .end local v0    # "annotation":Ljava/lang/annotation/Annotation;, "TA;"
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 151
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
@@ -577,11 +577,11 @@
     move-result-object v0
 
     .restart local v0    # "annotation":Ljava/lang/annotation/Annotation;, "TA;"
-    goto :goto_0
+    goto :goto_1c
 
     .line 153
     .end local v0    # "annotation":Ljava/lang/annotation/Annotation;, "TA;"
-    :cond_1
+    :cond_16
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
     invoke-virtual {v0, p1}, Lorg/yaml/snakeyaml/introspector/Property;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
@@ -590,12 +590,12 @@
 
     .line 155
     .restart local v0    # "annotation":Ljava/lang/annotation/Annotation;, "TA;"
-    :goto_0
+    :goto_1c
     return-object v0
 .end method
 
 .method public getAnnotations()Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -612,7 +612,7 @@
     .local v0, "annotations":[Ljava/lang/annotation/Annotation;
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->read:Ljava/lang/reflect/Method;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 138
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->read:Ljava/lang/reflect/Method;
@@ -621,13 +621,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_16
 
     .line 139
-    :cond_0
+    :cond_c
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
     .line 140
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
@@ -637,29 +637,29 @@
     move-result-object v0
 
     .line 142
-    :cond_1
-    :goto_0
-    if-eqz v0, :cond_2
+    :cond_16
+    :goto_16
+    if-eqz v0, :cond_1d
 
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_2
+    :cond_1d
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/introspector/Property;->getAnnotations()Ljava/util/List;
 
     move-result-object v1
 
-    :goto_1
+    :goto_23
     return-object v1
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 225
     invoke-super {p0}, Lorg/yaml/snakeyaml/introspector/Property;->getName()Ljava/lang/String;
@@ -668,16 +668,16 @@
 
     .line 226
     .local v0, "n":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 227
     return-object v0
 
     .line 229
-    :cond_0
+    :cond_7
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_12
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
@@ -685,17 +685,17 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_13
     return-object v1
 .end method
 
 .method public getType()Ljava/lang/Class;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -711,16 +711,16 @@
 
     .line 235
     .local v0, "t":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 236
     return-object v0
 
     .line 238
-    :cond_0
+    :cond_7
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_12
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
@@ -728,30 +728,30 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_13
     return-object v1
 .end method
 
 .method public isReadable()Z
-    .locals 1
+    .registers 2
 
     .line 243
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->read:Ljava/lang/reflect/Method;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
@@ -759,38 +759,38 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_18
     return v0
 .end method
 
 .method public isWritable()Z
-    .locals 1
+    .registers 2
 
     .line 248
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->write:Ljava/lang/reflect/Method;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
@@ -798,25 +798,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_18
     return v0
 .end method
 
 .method public set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 9
+    .registers 12
     .param p1, "object"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
@@ -828,7 +828,7 @@
     .line 80
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->write:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8c
 
     .line 81
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->filler:Z
@@ -837,7 +837,7 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 82
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->write:Ljava/lang/reflect/Method;
@@ -848,16 +848,16 @@
 
     invoke-virtual {v0, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_4
+    goto/16 :goto_c6
 
     .line 83
-    :cond_0
-    if-eqz p2, :cond_a
+    :cond_15
+    if-eqz p2, :cond_c6
 
     .line 84
     instance-of v0, p2, Ljava/util/Collection;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_38
 
     .line 85
     move-object v0, p2
@@ -871,12 +871,12 @@
     move-result-object v3
 
     .local v3, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_22
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_36
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -894,18 +894,18 @@
 
     .line 88
     .end local v4    # "val":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_22
 
     .line 89
     .end local v0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     .end local v3    # "i$":Ljava/util/Iterator;
-    :cond_1
-    goto/16 :goto_4
+    :cond_36
+    goto/16 :goto_c6
 
-    :cond_2
+    :cond_38
     instance-of v0, p2, Ljava/util/Map;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_69
 
     .line 90
     move-object v0, p2
@@ -923,12 +923,12 @@
     move-result-object v3
 
     .restart local v3    # "i$":Ljava/util/Iterator;
-    :goto_1
+    :goto_47
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_68
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -960,16 +960,16 @@
 
     .line 93
     .end local v4    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    goto :goto_1
+    goto :goto_47
 
     .line 91
     .end local v0    # "map":Ljava/util/Map;, "Ljava/util/Map<**>;"
     .end local v3    # "i$":Ljava/util/Iterator;
-    :cond_3
-    goto :goto_3
+    :cond_68
+    goto :goto_8b
 
     .line 94
-    :cond_4
+    :cond_69
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -978,7 +978,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8b
 
     .line 98
     invoke-static {p2}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
@@ -990,8 +990,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_2
-    if-ge v3, v0, :cond_5
+    :goto_78
+    if-ge v3, v0, :cond_8a
 
     .line 100
     iget-object v4, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->write:Ljava/lang/reflect/Method;
@@ -1009,47 +1009,47 @@
     .line 99
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_78
 
     .line 102
     .end local v0    # "len":I
     .end local v3    # "i":I
-    :cond_5
-    goto :goto_4
+    :cond_8a
+    goto :goto_c6
 
     .line 94
-    :cond_6
-    :goto_3
-    goto :goto_4
+    :cond_8b
+    :goto_8b
+    goto :goto_c6
 
     .line 104
-    :cond_7
+    :cond_8c
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_96
 
     .line 105
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p1, p2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_4
+    goto :goto_c6
 
     .line 106
-    :cond_8
+    :cond_96
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a0
 
     .line 107
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->delegate:Lorg/yaml/snakeyaml/introspector/Property;
 
     invoke-virtual {v0, p1, p2}, Lorg/yaml/snakeyaml/introspector/Property;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_4
+    goto :goto_c6
 
     .line 109
-    :cond_9
+    :cond_a0
     sget-object v0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->log:Ljava/util/logging/Logger;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1087,13 +1087,13 @@
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->warning(Ljava/lang/String;)V
 
     .line 112
-    :cond_a
-    :goto_4
+    :cond_c6
+    :goto_c6
     return-void
 .end method
 
 .method public varargs setActualTypeArguments([Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -1104,30 +1104,30 @@
 
     .line 71
     .local p1, "args":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     array-length v0, p1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_8
 
     .line 72
     iput-object p1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->parameters:[Ljava/lang/Class;
 
-    goto :goto_0
+    goto :goto_b
 
     .line 74
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     iput-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->parameters:[Ljava/lang/Class;
 
     .line 76
-    :goto_0
+    :goto_b
     return-void
 .end method
 
 .method public setDelegate(Lorg/yaml/snakeyaml/introspector/Property;)V
-    .locals 3
+    .registers 5
     .param p1, "delegate"    # Lorg/yaml/snakeyaml/introspector/Property;
 
     .line 252
@@ -1136,15 +1136,15 @@
     .line 253
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->writeMethod:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->write:Ljava/lang/reflect/Method;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->filler:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 254
     const/4 v0, 0x1
@@ -1167,12 +1167,12 @@
     iput-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->write:Ljava/lang/reflect/Method;
 
     .line 257
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method public setTargetType(Ljava/lang/Class;)V
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1185,7 +1185,7 @@
     .local p1, "targetType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->targetType:Ljava/lang/Class;
 
-    if-eq v0, p1, :cond_5
+    if-eq v0, p1, :cond_a1
 
     .line 160
     iput-object p1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->targetType:Ljava/lang/Class;
@@ -1200,10 +1200,10 @@
     move-object v1, p1
 
     .local v1, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :goto_0
+    :goto_b
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_40
 
     .line 164
     invoke-virtual {v1}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
@@ -1217,8 +1217,8 @@
     const/4 v5, 0x0
 
     .local v5, "i$":I
-    :goto_1
-    if-ge v5, v4, :cond_1
+    :goto_14
+    if-ge v5, v4, :cond_3b
 
     aget-object v6, v3, v5
 
@@ -1232,7 +1232,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_38
 
     .line 166
     invoke-virtual {v6}, Ljava/lang/reflect/Field;->getModifiers()I
@@ -1245,13 +1245,13 @@
 
     move-result v8
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_3b
 
     invoke-static {v7}, Ljava/lang/reflect/Modifier;->isTransient(I)Z
 
     move-result v8
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_3b
 
     .line 168
     invoke-virtual {v6, v2}, Ljava/lang/reflect/Field;->setAccessible(Z)V
@@ -1259,36 +1259,36 @@
     .line 169
     iput-object v6, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
 
-    goto :goto_2
+    goto :goto_3b
 
     .line 164
     .end local v6    # "f":Ljava/lang/reflect/Field;
     .end local v7    # "modifiers":I
-    :cond_0
+    :cond_38
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_14
 
     .line 163
     .end local v3    # "arr$":[Ljava/lang/reflect/Field;
     .end local v4    # "len$":I
     .end local v5    # "i$":I
-    :cond_1
-    :goto_2
+    :cond_3b
+    :goto_3b
     invoke-virtual {v1}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 175
     .end local v1    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_2
+    :cond_40
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->field:Ljava/lang/reflect/Field;
 
     const/4 v3, 0x0
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_69
 
     sget-object v1, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->log:Ljava/util/logging/Logger;
 
@@ -1298,7 +1298,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_69
 
     .line 176
     sget-object v1, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->log:Ljava/util/logging/Logger;
@@ -1328,10 +1328,10 @@
     invoke-virtual {v1, v4}, Ljava/util/logging/Logger;->fine(Ljava/lang/String;)V
 
     .line 181
-    :cond_3
+    :cond_69
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->readMethod:Ljava/lang/String;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_77
 
     .line 182
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->readMethod:Ljava/lang/String;
@@ -1345,10 +1345,10 @@
     iput-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->read:Ljava/lang/reflect/Method;
 
     .line 184
-    :cond_4
+    :cond_77
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->writeMethod:Ljava/lang/String;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_a1
 
     .line 185
     iput-boolean v3, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->filler:Z
@@ -1373,11 +1373,11 @@
     .line 187
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->write:Ljava/lang/reflect/Method;
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_a1
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->parameters:[Ljava/lang/Class;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_a1
 
     .line 188
     iput-boolean v2, p0, Lorg/yaml/snakeyaml/introspector/PropertySubstitute;->filler:Z
@@ -1395,6 +1395,6 @@
 
     .line 193
     .end local v0    # "name":Ljava/lang/String;
-    :cond_5
+    :cond_a1
     return-void
 .end method

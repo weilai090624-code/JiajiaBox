@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1146
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static createAttributionContext(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Context;
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributionTag"    # Ljava/lang/String;
 
@@ -39,7 +39,7 @@
 .end method
 
 .method static getAttributionTag(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "obj"    # Landroid/content/Context;
 
     .line 1152
@@ -51,7 +51,7 @@
 .end method
 
 .method static getDisplayOrDefault(Landroid/content/Context;)Landroid/view/Display;
-    .locals 3
+    .registers 4
     .param p0, "obj"    # Landroid/content/Context;
 
     .line 1158
@@ -59,13 +59,13 @@
     invoke-virtual {p0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 1159
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 1161

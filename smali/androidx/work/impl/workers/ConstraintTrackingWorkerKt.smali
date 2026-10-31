@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 157
     const-string v0, "ConstraintTrkngWrkr"
@@ -56,7 +56,7 @@
 .end method
 
 .method public static final synthetic access$getTAG$p()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->TAG:Ljava/lang/String;
@@ -65,7 +65,7 @@
 .end method
 
 .method public static final synthetic access$setFailed(Landroidx/work/impl/utils/futures/SettableFuture;)Z
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Landroidx/work/impl/utils/futures/SettableFuture;
 
     .line 1
@@ -77,7 +77,7 @@
 .end method
 
 .method public static final synthetic access$setRetry(Landroidx/work/impl/utils/futures/SettableFuture;)Z
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Landroidx/work/impl/utils/futures/SettableFuture;
 
     .line 1
@@ -89,7 +89,7 @@
 .end method
 
 .method private static final setFailed(Landroidx/work/impl/utils/futures/SettableFuture;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$setFailed"    # Landroidx/work/impl/utils/futures/SettableFuture;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -113,7 +113,7 @@
 .end method
 
 .method private static final setRetry(Landroidx/work/impl/utils/futures/SettableFuture;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$setRetry"    # Landroidx/work/impl/utils/futures/SettableFuture;
     .annotation system Ldalvik/annotation/Signature;
         value = {

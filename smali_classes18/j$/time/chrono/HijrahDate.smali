@@ -35,7 +35,7 @@
 
 # direct methods
 .method private constructor <init>(Lj$/time/chrono/HijrahChronology;III)V
-    .locals 0
+    .registers 5
     .param p1, "chrono"    # Lj$/time/chrono/HijrahChronology;
     .param p2, "prolepticYear"    # I
     .param p3, "monthOfYear"    # I
@@ -64,7 +64,7 @@
 .end method
 
 .method private constructor <init>(Lj$/time/chrono/HijrahChronology;J)V
-    .locals 2
+    .registers 6
     .param p1, "chrono"    # Lj$/time/chrono/HijrahChronology;
     .param p2, "epochDay"    # J
 
@@ -108,7 +108,7 @@
 .end method
 
 .method public static from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 2
     .param p0, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 255
@@ -122,7 +122,7 @@
 .end method
 
 .method private getDayOfWeek()I
-    .locals 4
+    .registers 5
 
     .line 500
     invoke-virtual {p0}, Lj$/time/chrono/HijrahDate;->toEpochDay()J
@@ -147,7 +147,7 @@
 .end method
 
 .method private getDayOfYear()I
-    .locals 3
+    .registers 4
 
     .line 491
     iget-object v0, p0, Lj$/time/chrono/HijrahDate;->chrono:Lj$/time/chrono/HijrahChronology;
@@ -168,26 +168,26 @@
 .end method
 
 .method private getEraValue()I
-    .locals 2
+    .registers 3
 
     .line 510
     iget v0, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     return v1
 .end method
 
 .method private getProlepticMonth()J
-    .locals 4
+    .registers 5
 
     .line 390
     iget v0, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
@@ -212,7 +212,7 @@
 .end method
 
 .method public static now()Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 1
 
     .line 183
     invoke-static {}, Lj$/time/Clock;->systemDefaultZone()Lj$/time/Clock;
@@ -227,7 +227,7 @@
 .end method
 
 .method public static now(Lj$/time/Clock;)Lj$/time/chrono/HijrahDate;
-    .locals 3
+    .registers 4
     .param p0, "clock"    # Lj$/time/Clock;
 
     .line 216
@@ -249,7 +249,7 @@
 .end method
 
 .method public static now(Lj$/time/ZoneId;)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 2
     .param p0, "zone"    # Lj$/time/ZoneId;
 
     .line 200
@@ -265,7 +265,7 @@
 .end method
 
 .method public static of(III)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 4
     .param p0, "prolepticYear"    # I
     .param p1, "month"    # I
     .param p2, "dayOfMonth"    # I
@@ -281,7 +281,7 @@
 .end method
 
 .method static of(Lj$/time/chrono/HijrahChronology;III)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 5
     .param p0, "chrono"    # Lj$/time/chrono/HijrahChronology;
     .param p1, "prolepticYear"    # I
     .param p2, "monthOfYear"    # I
@@ -296,7 +296,7 @@
 .end method
 
 .method static ofEpochDay(Lj$/time/chrono/HijrahChronology;J)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 4
     .param p0, "chrono"    # Lj$/time/chrono/HijrahChronology;
     .param p1, "epochDay"    # J
 
@@ -309,7 +309,7 @@
 .end method
 
 .method static readExternal(Ljava/io/ObjectInput;)Lj$/time/chrono/HijrahDate;
-    .locals 5
+    .registers 6
     .param p0, "in"    # Ljava/io/ObjectInput;
 
     .line 691
@@ -347,7 +347,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 661
@@ -361,7 +361,7 @@
 .end method
 
 .method private resolvePreviousValid(III)Lj$/time/chrono/HijrahDate;
-    .locals 2
+    .registers 6
     .param p1, "prolepticYear"    # I
     .param p2, "month"    # I
     .param p3, "day"    # I
@@ -375,13 +375,13 @@
 
     .line 422
     .local v0, "monthDays":I
-    if-le p3, v0, :cond_0
+    if-le p3, v0, :cond_9
 
     .line 423
     move p3, v0
 
     .line 425
-    :cond_0
+    :cond_9
     iget-object v1, p0, Lj$/time/chrono/HijrahDate;->chrono:Lj$/time/chrono/HijrahChronology;
 
     invoke-static {v1, p1, p2, p3}, Lj$/time/chrono/HijrahDate;->of(Lj$/time/chrono/HijrahChronology;III)Lj$/time/chrono/HijrahDate;
@@ -392,7 +392,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 679
     new-instance v0, Lj$/time/chrono/Ser;
@@ -407,7 +407,7 @@
 
 # virtual methods
 .method public final atTime(Lj$/time/LocalTime;)Lj$/time/chrono/ChronoLocalDateTime;
-    .locals 1
+    .registers 3
     .param p1, "localTime"    # Lj$/time/LocalTime;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -429,24 +429,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 626
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 627
     return v0
 
     .line 629
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lj$/time/chrono/HijrahDate;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     .line 630
     move-object v1, p1
@@ -459,19 +459,19 @@
 
     iget v4, v1, Lj$/time/chrono/HijrahDate;->prolepticYear:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_2d
 
     iget v3, p0, Lj$/time/chrono/HijrahDate;->monthOfYear:I
 
     iget v4, v1, Lj$/time/chrono/HijrahDate;->monthOfYear:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_2d
 
     iget v3, p0, Lj$/time/chrono/HijrahDate;->dayOfMonth:I
 
     iget v4, v1, Lj$/time/chrono/HijrahDate;->dayOfMonth:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_2d
 
     .line 634
     invoke-virtual {p0}, Lj$/time/chrono/HijrahDate;->getChronology()Lj$/time/chrono/HijrahChronology;
@@ -486,25 +486,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2d
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     const/4 v0, 0x0
 
     .line 631
-    :goto_0
+    :goto_2e
     return v0
 
     .line 636
     .end local v1    # "otherDate":Lj$/time/chrono/HijrahDate;
-    :cond_2
+    :cond_2f
     return v2
 .end method
 
 .method public bridge synthetic getChronology()Lj$/time/chrono/Chronology;
-    .locals 1
+    .registers 2
 
     .line 119
     invoke-virtual {p0}, Lj$/time/chrono/HijrahDate;->getChronology()Lj$/time/chrono/HijrahChronology;
@@ -515,7 +515,7 @@
 .end method
 
 .method public getChronology()Lj$/time/chrono/HijrahChronology;
-    .locals 1
+    .registers 2
 
     .line 303
     iget-object v0, p0, Lj$/time/chrono/HijrahDate;->chrono:Lj$/time/chrono/HijrahChronology;
@@ -524,7 +524,7 @@
 .end method
 
 .method public bridge synthetic getEra()Lj$/time/chrono/Era;
-    .locals 1
+    .registers 2
 
     .line 119
     invoke-virtual {p0}, Lj$/time/chrono/HijrahDate;->getEra()Lj$/time/chrono/HijrahEra;
@@ -535,7 +535,7 @@
 .end method
 
 .method public getEra()Lj$/time/chrono/HijrahEra;
-    .locals 1
+    .registers 2
 
     .line 316
     sget-object v0, Lj$/time/chrono/HijrahEra;->AH:Lj$/time/chrono/HijrahEra;
@@ -544,13 +544,13 @@
 .end method
 
 .method public getLong(Lj$/time/temporal/TemporalField;)J
-    .locals 3
+    .registers 5
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 368
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_83
 
     .line 369
     sget-object v0, Lj$/time/chrono/HijrahDate$1;->$SwitchMap$java$time$temporal$ChronoField:[I
@@ -565,7 +565,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_88
 
     .line 384
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
@@ -593,7 +593,7 @@
     throw v0
 
     .line 382
-    :pswitch_0
+    :pswitch_2b
     invoke-direct {p0}, Lj$/time/chrono/HijrahDate;->getEraValue()I
 
     move-result v0
@@ -603,7 +603,7 @@
     return-wide v0
 
     .line 381
-    :pswitch_1
+    :pswitch_31
     iget v0, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
 
     int-to-long v0, v0
@@ -611,7 +611,7 @@
     return-wide v0
 
     .line 380
-    :pswitch_2
+    :pswitch_35
     iget v0, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
 
     int-to-long v0, v0
@@ -619,7 +619,7 @@
     return-wide v0
 
     .line 379
-    :pswitch_3
+    :pswitch_39
     invoke-direct {p0}, Lj$/time/chrono/HijrahDate;->getProlepticMonth()J
 
     move-result-wide v0
@@ -627,7 +627,7 @@
     return-wide v0
 
     .line 378
-    :pswitch_4
+    :pswitch_3e
     iget v0, p0, Lj$/time/chrono/HijrahDate;->monthOfYear:I
 
     int-to-long v0, v0
@@ -635,7 +635,7 @@
     return-wide v0
 
     .line 377
-    :pswitch_5
+    :pswitch_42
     invoke-direct {p0}, Lj$/time/chrono/HijrahDate;->getDayOfYear()I
 
     move-result v0
@@ -651,7 +651,7 @@
     return-wide v0
 
     .line 375
-    :pswitch_6
+    :pswitch_4e
     invoke-virtual {p0}, Lj$/time/chrono/HijrahDate;->toEpochDay()J
 
     move-result-wide v0
@@ -659,7 +659,7 @@
     return-wide v0
 
     .line 372
-    :pswitch_7
+    :pswitch_53
     invoke-direct {p0}, Lj$/time/chrono/HijrahDate;->getDayOfYear()I
 
     move-result v0
@@ -675,7 +675,7 @@
     return-wide v0
 
     .line 371
-    :pswitch_8
+    :pswitch_5f
     iget v0, p0, Lj$/time/chrono/HijrahDate;->dayOfMonth:I
 
     add-int/lit8 v0, v0, -0x1
@@ -689,7 +689,7 @@
     return-wide v0
 
     .line 370
-    :pswitch_9
+    :pswitch_69
     invoke-direct {p0}, Lj$/time/chrono/HijrahDate;->getDayOfWeek()I
 
     move-result v0
@@ -699,7 +699,7 @@
     return-wide v0
 
     .line 376
-    :pswitch_a
+    :pswitch_6f
     iget v0, p0, Lj$/time/chrono/HijrahDate;->dayOfMonth:I
 
     add-int/lit8 v0, v0, -0x1
@@ -713,7 +713,7 @@
     return-wide v0
 
     .line 374
-    :pswitch_b
+    :pswitch_79
     invoke-direct {p0}, Lj$/time/chrono/HijrahDate;->getDayOfYear()I
 
     move-result v0
@@ -723,7 +723,7 @@
     return-wide v0
 
     .line 373
-    :pswitch_c
+    :pswitch_7f
     iget v0, p0, Lj$/time/chrono/HijrahDate;->dayOfMonth:I
 
     int-to-long v0, v0
@@ -731,33 +731,33 @@
     return-wide v0
 
     .line 386
-    :cond_0
+    :cond_83
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->getFrom(Lj$/time/temporal/TemporalAccessor;)J
 
     move-result-wide v0
 
     return-wide v0
 
-    :pswitch_data_0
+    :pswitch_data_88
     .packed-switch 0x1
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_7f
+        :pswitch_79
+        :pswitch_6f
+        :pswitch_69
+        :pswitch_5f
+        :pswitch_53
+        :pswitch_4e
+        :pswitch_42
+        :pswitch_3e
+        :pswitch_39
+        :pswitch_35
+        :pswitch_31
+        :pswitch_2b
     .end packed-switch
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .registers 7
 
     .line 646
     iget v0, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
@@ -802,7 +802,7 @@
 .end method
 
 .method public isLeapYear()Z
-    .locals 3
+    .registers 4
 
     .line 521
     iget-object v0, p0, Lj$/time/chrono/HijrahDate;->chrono:Lj$/time/chrono/HijrahChronology;
@@ -819,7 +819,7 @@
 .end method
 
 .method public lengthOfMonth()I
-    .locals 3
+    .registers 4
 
     .line 329
     iget-object v0, p0, Lj$/time/chrono/HijrahDate;->chrono:Lj$/time/chrono/HijrahChronology;
@@ -836,7 +836,7 @@
 .end method
 
 .method public lengthOfYear()I
-    .locals 2
+    .registers 3
 
     .line 343
     iget-object v0, p0, Lj$/time/chrono/HijrahDate;->chrono:Lj$/time/chrono/HijrahChronology;
@@ -851,7 +851,7 @@
 .end method
 
 .method public bridge synthetic minus(JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 4
 
     .line 119
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/chrono/HijrahDate;->minus(JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/HijrahDate;
@@ -862,7 +862,7 @@
 .end method
 
 .method public bridge synthetic minus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 2
 
     .line 119
     invoke-virtual {p0, p1}, Lj$/time/chrono/HijrahDate;->minus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/HijrahDate;
@@ -873,7 +873,7 @@
 .end method
 
 .method public minus(JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 5
     .param p1, "amountToSubtract"    # J
     .param p3, "unit"    # Lj$/time/temporal/TemporalUnit;
 
@@ -888,7 +888,7 @@
 .end method
 
 .method public minus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 3
     .param p1, "amount"    # Lj$/time/temporal/TemporalAmount;
 
     .line 475
@@ -902,7 +902,7 @@
 .end method
 
 .method public bridge synthetic minus(JLj$/time/temporal/TemporalUnit;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
 
     .line 119
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/chrono/HijrahDate;->minus(JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/HijrahDate;
@@ -913,7 +913,7 @@
 .end method
 
 .method public bridge synthetic minus(Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     .line 119
     invoke-virtual {p0, p1}, Lj$/time/chrono/HijrahDate;->minus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/HijrahDate;
@@ -924,7 +924,7 @@
 .end method
 
 .method bridge synthetic minusDays(J)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 119
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/HijrahDate;->minusDays(J)Lj$/time/chrono/HijrahDate;
@@ -935,7 +935,7 @@
 .end method
 
 .method minusDays(J)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 4
     .param p1, "daysToSubtract"    # J
 
     .line 583
@@ -949,7 +949,7 @@
 .end method
 
 .method bridge synthetic minusMonths(J)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 119
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/HijrahDate;->minusMonths(J)Lj$/time/chrono/HijrahDate;
@@ -960,7 +960,7 @@
 .end method
 
 .method minusMonths(J)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 4
     .param p1, "monthsToSubtract"    # J
 
     .line 573
@@ -974,7 +974,7 @@
 .end method
 
 .method bridge synthetic minusWeeks(J)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 119
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/HijrahDate;->minusWeeks(J)Lj$/time/chrono/HijrahDate;
@@ -985,7 +985,7 @@
 .end method
 
 .method minusWeeks(J)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 4
     .param p1, "weeksToSubtract"    # J
 
     .line 578
@@ -999,7 +999,7 @@
 .end method
 
 .method bridge synthetic minusYears(J)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 119
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/HijrahDate;->minusYears(J)Lj$/time/chrono/HijrahDate;
@@ -1010,7 +1010,7 @@
 .end method
 
 .method minusYears(J)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 4
     .param p1, "yearsToSubtract"    # J
 
     .line 568
@@ -1024,7 +1024,7 @@
 .end method
 
 .method public bridge synthetic plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 4
 
     .line 119
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/chrono/HijrahDate;->plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/HijrahDate;
@@ -1035,7 +1035,7 @@
 .end method
 
 .method public bridge synthetic plus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 2
 
     .line 119
     invoke-virtual {p0, p1}, Lj$/time/chrono/HijrahDate;->plus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/HijrahDate;
@@ -1046,7 +1046,7 @@
 .end method
 
 .method public plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 5
     .param p1, "amountToAdd"    # J
     .param p3, "unit"    # Lj$/time/temporal/TemporalUnit;
 
@@ -1061,7 +1061,7 @@
 .end method
 
 .method public plus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 3
     .param p1, "amount"    # Lj$/time/temporal/TemporalAmount;
 
     .line 465
@@ -1075,7 +1075,7 @@
 .end method
 
 .method public bridge synthetic plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
 
     .line 119
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/chrono/HijrahDate;->plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/HijrahDate;
@@ -1086,7 +1086,7 @@
 .end method
 
 .method public bridge synthetic plus(Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     .line 119
     invoke-virtual {p0, p1}, Lj$/time/chrono/HijrahDate;->plus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/HijrahDate;
@@ -1097,7 +1097,7 @@
 .end method
 
 .method bridge synthetic plusDays(J)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 119
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/HijrahDate;->plusDays(J)Lj$/time/chrono/HijrahDate;
@@ -1108,7 +1108,7 @@
 .end method
 
 .method plusDays(J)Lj$/time/chrono/HijrahDate;
-    .locals 4
+    .registers 7
     .param p1, "days"    # J
 
     .line 553
@@ -1128,7 +1128,7 @@
 .end method
 
 .method bridge synthetic plusMonths(J)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 119
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/HijrahDate;->plusMonths(J)Lj$/time/chrono/HijrahDate;
@@ -1139,7 +1139,7 @@
 .end method
 
 .method plusMonths(J)Lj$/time/chrono/HijrahDate;
-    .locals 9
+    .registers 12
     .param p1, "monthsToAdd"    # J
 
     .line 536
@@ -1147,13 +1147,13 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_7
 
     .line 537
     return-object p0
 
     .line 539
-    :cond_0
+    :cond_7
     iget v0, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
 
     int-to-long v0, v0
@@ -1208,7 +1208,7 @@
 .end method
 
 .method bridge synthetic plusWeeks(J)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 119
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/HijrahDate;->plusWeeks(J)Lj$/time/chrono/HijrahDate;
@@ -1219,7 +1219,7 @@
 .end method
 
 .method plusWeeks(J)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 4
     .param p1, "weeksToAdd"    # J
 
     .line 548
@@ -1233,7 +1233,7 @@
 .end method
 
 .method bridge synthetic plusYears(J)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 119
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/HijrahDate;->plusYears(J)Lj$/time/chrono/HijrahDate;
@@ -1244,7 +1244,7 @@
 .end method
 
 .method plusYears(J)Lj$/time/chrono/HijrahDate;
-    .locals 3
+    .registers 6
     .param p1, "years"    # J
 
     .line 527
@@ -1252,13 +1252,13 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_7
 
     .line 528
     return-object p0
 
     .line 530
-    :cond_0
+    :cond_7
     iget v0, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
 
     long-to-int v1, p1
@@ -1281,20 +1281,20 @@
 .end method
 
 .method public range(Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 6
+    .registers 8
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 349
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_57
 
     .line 350
     invoke-virtual {p0, p1}, Lj$/time/chrono/HijrahDate;->isSupported(Lj$/time/temporal/TemporalField;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3e
 
     .line 351
     move-object v0, p1
@@ -1313,7 +1313,7 @@
 
     const-wide/16 v2, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_5c
 
     .line 359
     invoke-virtual {p0}, Lj$/time/chrono/HijrahDate;->getChronology()Lj$/time/chrono/HijrahChronology;
@@ -1327,7 +1327,7 @@
     return-object v1
 
     .line 355
-    :pswitch_0
+    :pswitch_23
     const-wide/16 v4, 0x5
 
     invoke-static {v2, v3, v4, v5}, Lj$/time/temporal/ValueRange;->of(JJ)Lj$/time/temporal/ValueRange;
@@ -1337,7 +1337,7 @@
     return-object v1
 
     .line 354
-    :pswitch_1
+    :pswitch_2a
     invoke-virtual {p0}, Lj$/time/chrono/HijrahDate;->lengthOfYear()I
 
     move-result v1
@@ -1351,7 +1351,7 @@
     return-object v1
 
     .line 353
-    :pswitch_2
+    :pswitch_34
     invoke-virtual {p0}, Lj$/time/chrono/HijrahDate;->lengthOfMonth()I
 
     move-result v1
@@ -1366,7 +1366,7 @@
 
     .line 361
     .end local v0    # "f":Lj$/time/temporal/ChronoField;
-    :cond_0
+    :cond_3e
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1392,23 +1392,23 @@
     throw v0
 
     .line 363
-    :cond_1
+    :cond_57
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->rangeRefinedBy(Lj$/time/temporal/TemporalAccessor;)Lj$/time/temporal/ValueRange;
 
     move-result-object v0
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_5c
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_34
+        :pswitch_2a
+        :pswitch_23
     .end packed-switch
 .end method
 
 .method public toEpochDay()J
-    .locals 4
+    .registers 5
 
     .line 480
     iget-object v0, p0, Lj$/time/chrono/HijrahDate;->chrono:Lj$/time/chrono/HijrahChronology;
@@ -1427,7 +1427,7 @@
 .end method
 
 .method public bridge synthetic toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 119
     invoke-super {p0}, Lj$/time/chrono/ChronoLocalDateImpl;->toString()Ljava/lang/String;
@@ -1438,7 +1438,7 @@
 .end method
 
 .method public bridge synthetic until(Lj$/time/temporal/Temporal;Lj$/time/temporal/TemporalUnit;)J
-    .locals 0
+    .registers 3
 
     .line 119
     invoke-super {p0, p1, p2}, Lj$/time/chrono/ChronoLocalDateImpl;->until(Lj$/time/temporal/Temporal;Lj$/time/temporal/TemporalUnit;)J
@@ -1449,7 +1449,7 @@
 .end method
 
 .method public until(Lj$/time/chrono/ChronoLocalDate;)Lj$/time/chrono/ChronoPeriod;
-    .locals 9
+    .registers 11
     .param p1, "endDate"    # Lj$/time/chrono/ChronoLocalDate;
 
     .line 595
@@ -1497,9 +1497,9 @@
 
     cmp-long v8, v1, v6
 
-    if-lez v8, :cond_1
+    if-lez v8, :cond_35
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_35
 
     .line 599
     sub-long/2addr v1, v4
@@ -1525,15 +1525,15 @@
 
     .line 602
     .end local v4    # "calcDate":Lj$/time/chrono/HijrahDate;
-    :cond_0
-    goto :goto_0
+    :cond_34
+    goto :goto_41
 
-    :cond_1
+    :cond_35
     cmp-long v8, v1, v6
 
-    if-gez v8, :cond_0
+    if-gez v8, :cond_34
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_34
 
     .line 603
     add-long/2addr v1, v4
@@ -1546,7 +1546,7 @@
     sub-int/2addr v3, v4
 
     .line 606
-    :goto_0
+    :goto_41
     const-wide/16 v4, 0xc
 
     div-long v6, v1, v4
@@ -1575,7 +1575,7 @@
 .end method
 
 .method public bridge synthetic with(Lj$/time/temporal/TemporalAdjuster;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 2
 
     .line 119
     invoke-virtual {p0, p1}, Lj$/time/chrono/HijrahDate;->with(Lj$/time/temporal/TemporalAdjuster;)Lj$/time/chrono/HijrahDate;
@@ -1586,7 +1586,7 @@
 .end method
 
 .method public bridge synthetic with(Lj$/time/temporal/TemporalField;J)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 4
 
     .line 119
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/chrono/HijrahDate;->with(Lj$/time/temporal/TemporalField;J)Lj$/time/chrono/HijrahDate;
@@ -1597,7 +1597,7 @@
 .end method
 
 .method public with(Lj$/time/temporal/TemporalAdjuster;)Lj$/time/chrono/HijrahDate;
-    .locals 1
+    .registers 3
     .param p1, "adjuster"    # Lj$/time/temporal/TemporalAdjuster;
 
     .line 436
@@ -1611,14 +1611,14 @@
 .end method
 
 .method public with(Lj$/time/temporal/TemporalField;J)Lj$/time/chrono/HijrahDate;
-    .locals 7
+    .registers 11
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "newValue"    # J
 
     .line 395
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_da
 
     .line 396
     move-object v0, p1
@@ -1652,7 +1652,7 @@
 
     const/4 v5, 0x1
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_e2
 
     .line 415
     new-instance v2, Lj$/time/temporal/UnsupportedTemporalTypeException;
@@ -1680,7 +1680,7 @@
     throw v2
 
     .line 413
-    :pswitch_0
+    :pswitch_38
     iget v2, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
 
     sub-int/2addr v5, v2
@@ -1696,7 +1696,7 @@
     return-object v2
 
     .line 412
-    :pswitch_1
+    :pswitch_44
     iget v2, p0, Lj$/time/chrono/HijrahDate;->monthOfYear:I
 
     iget v3, p0, Lj$/time/chrono/HijrahDate;->dayOfMonth:I
@@ -1708,19 +1708,19 @@
     return-object v2
 
     .line 411
-    :pswitch_2
+    :pswitch_4d
     iget v2, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
 
-    if-lt v2, v5, :cond_0
+    if-lt v2, v5, :cond_53
 
     move v2, v1
 
-    goto :goto_0
+    goto :goto_55
 
-    :cond_0
+    :cond_53
     rsub-int/lit8 v2, v1, 0x1
 
-    :goto_0
+    :goto_55
     iget v3, p0, Lj$/time/chrono/HijrahDate;->monthOfYear:I
 
     iget v4, p0, Lj$/time/chrono/HijrahDate;->dayOfMonth:I
@@ -1732,7 +1732,7 @@
     return-object v2
 
     .line 410
-    :pswitch_3
+    :pswitch_5e
     invoke-direct {p0}, Lj$/time/chrono/HijrahDate;->getProlepticMonth()J
 
     move-result-wide v2
@@ -1746,7 +1746,7 @@
     return-object v2
 
     .line 409
-    :pswitch_4
+    :pswitch_69
     iget v2, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
 
     iget v3, p0, Lj$/time/chrono/HijrahDate;->dayOfMonth:I
@@ -1758,7 +1758,7 @@
     return-object v2
 
     .line 408
-    :pswitch_5
+    :pswitch_72
     sget-object v2, Lj$/time/temporal/ChronoField;->ALIGNED_WEEK_OF_YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {p0, v2}, Lj$/time/chrono/HijrahDate;->getLong(Lj$/time/temporal/TemporalField;)J
@@ -1776,7 +1776,7 @@
     return-object v2
 
     .line 406
-    :pswitch_6
+    :pswitch_81
     new-instance v2, Lj$/time/chrono/HijrahDate;
 
     iget-object v3, p0, Lj$/time/chrono/HijrahDate;->chrono:Lj$/time/chrono/HijrahChronology;
@@ -1786,7 +1786,7 @@
     return-object v2
 
     .line 403
-    :pswitch_7
+    :pswitch_89
     sget-object v2, Lj$/time/temporal/ChronoField;->ALIGNED_DAY_OF_WEEK_IN_YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {p0, v2}, Lj$/time/chrono/HijrahDate;->getLong(Lj$/time/temporal/TemporalField;)J
@@ -1802,7 +1802,7 @@
     return-object v2
 
     .line 402
-    :pswitch_8
+    :pswitch_96
     sget-object v2, Lj$/time/temporal/ChronoField;->ALIGNED_DAY_OF_WEEK_IN_MONTH:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {p0, v2}, Lj$/time/chrono/HijrahDate;->getLong(Lj$/time/temporal/TemporalField;)J
@@ -1818,7 +1818,7 @@
     return-object v2
 
     .line 401
-    :pswitch_9
+    :pswitch_a3
     invoke-direct {p0}, Lj$/time/chrono/HijrahDate;->getDayOfWeek()I
 
     move-result v2
@@ -1834,7 +1834,7 @@
     return-object v2
 
     .line 407
-    :pswitch_a
+    :pswitch_af
     sget-object v2, Lj$/time/temporal/ChronoField;->ALIGNED_WEEK_OF_MONTH:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {p0, v2}, Lj$/time/chrono/HijrahDate;->getLong(Lj$/time/temporal/TemporalField;)J
@@ -1852,7 +1852,7 @@
     return-object v2
 
     .line 405
-    :pswitch_b
+    :pswitch_be
     invoke-virtual {p0}, Lj$/time/chrono/HijrahDate;->lengthOfYear()I
 
     move-result v2
@@ -1876,7 +1876,7 @@
     return-object v2
 
     .line 404
-    :pswitch_c
+    :pswitch_d1
     iget v2, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
 
     iget v3, p0, Lj$/time/chrono/HijrahDate;->monthOfYear:I
@@ -1890,7 +1890,7 @@
     .line 417
     .end local v0    # "f":Lj$/time/temporal/ChronoField;
     .end local v1    # "nvalue":I
-    :cond_1
+    :cond_da
     invoke-super {p0, p1, p2, p3}, Lj$/time/chrono/ChronoLocalDateImpl;->with(Lj$/time/temporal/TemporalField;J)Lj$/time/chrono/ChronoLocalDate;
 
     move-result-object v0
@@ -1901,26 +1901,26 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_e2
     .packed-switch 0x1
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_d1
+        :pswitch_be
+        :pswitch_af
+        :pswitch_a3
+        :pswitch_96
+        :pswitch_89
+        :pswitch_81
+        :pswitch_72
+        :pswitch_69
+        :pswitch_5e
+        :pswitch_4d
+        :pswitch_44
+        :pswitch_38
     .end packed-switch
 .end method
 
 .method public bridge synthetic with(Lj$/time/temporal/TemporalAdjuster;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     .line 119
     invoke-virtual {p0, p1}, Lj$/time/chrono/HijrahDate;->with(Lj$/time/temporal/TemporalAdjuster;)Lj$/time/chrono/HijrahDate;
@@ -1931,7 +1931,7 @@
 .end method
 
 .method public bridge synthetic with(Lj$/time/temporal/TemporalField;J)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
 
     .line 119
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/chrono/HijrahDate;->with(Lj$/time/temporal/TemporalField;J)Lj$/time/chrono/HijrahDate;
@@ -1942,19 +1942,19 @@
 .end method
 
 .method public withVariant(Lj$/time/chrono/HijrahChronology;)Lj$/time/chrono/HijrahDate;
-    .locals 4
+    .registers 6
     .param p1, "chronology"    # Lj$/time/chrono/HijrahChronology;
 
     .line 450
     iget-object v0, p0, Lj$/time/chrono/HijrahDate;->chrono:Lj$/time/chrono/HijrahChronology;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 451
     return-object p0
 
     .line 454
-    :cond_0
+    :cond_5
     iget v0, p0, Lj$/time/chrono/HijrahDate;->prolepticYear:I
 
     iget v1, p0, Lj$/time/chrono/HijrahDate;->monthOfYear:I
@@ -1971,16 +1971,16 @@
 
     iget v3, p0, Lj$/time/chrono/HijrahDate;->dayOfMonth:I
 
-    if-le v3, v0, :cond_1
+    if-le v3, v0, :cond_17
 
     move v3, v0
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_1
+    :cond_17
     iget v3, p0, Lj$/time/chrono/HijrahDate;->dayOfMonth:I
 
-    :goto_0
+    :goto_19
     invoke-static {p1, v1, v2, v3}, Lj$/time/chrono/HijrahDate;->of(Lj$/time/chrono/HijrahChronology;III)Lj$/time/chrono/HijrahDate;
 
     move-result-object v1
@@ -1989,7 +1989,7 @@
 .end method
 
 .method writeExternal(Ljava/io/ObjectOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "out"    # Ljava/io/ObjectOutput;
 
     .line 684

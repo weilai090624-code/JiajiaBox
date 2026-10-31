@@ -75,7 +75,7 @@
 
 # direct methods
 .method private static final countLeadingZeroBits-7apg3OU(B)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countLeadingZeroBits_u2d7apg3OU"    # B
 
     .line 169
@@ -91,7 +91,7 @@
 .end method
 
 .method private static final countLeadingZeroBits-VKZWuLQ(J)I
-    .locals 1
+    .registers 3
     .param p0, "$this$countLeadingZeroBits_u2dVKZWuLQ"    # J
 
     .line 97
@@ -103,7 +103,7 @@
 .end method
 
 .method private static final countLeadingZeroBits-WZ4Q5Ns(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countLeadingZeroBits_u2dWZ4Q5Ns"    # I
 
     .line 23
@@ -115,7 +115,7 @@
 .end method
 
 .method private static final countLeadingZeroBits-xj2QHRw(S)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countLeadingZeroBits_u2dxj2QHRw"    # S
 
     .line 242
@@ -133,7 +133,7 @@
 .end method
 
 .method private static final countOneBits-7apg3OU(B)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countOneBits_u2d7apg3OU"    # B
 
     .line 161
@@ -151,7 +151,7 @@
 .end method
 
 .method private static final countOneBits-VKZWuLQ(J)I
-    .locals 1
+    .registers 3
     .param p0, "$this$countOneBits_u2dVKZWuLQ"    # J
 
     .line 89
@@ -163,7 +163,7 @@
 .end method
 
 .method private static final countOneBits-WZ4Q5Ns(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countOneBits_u2dWZ4Q5Ns"    # I
 
     .line 15
@@ -175,7 +175,7 @@
 .end method
 
 .method private static final countOneBits-xj2QHRw(S)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countOneBits_u2dxj2QHRw"    # S
 
     .line 234
@@ -195,7 +195,7 @@
 .end method
 
 .method private static final countTrailingZeroBits-7apg3OU(B)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countTrailingZeroBits_u2d7apg3OU"    # B
 
     .line 177
@@ -209,7 +209,7 @@
 .end method
 
 .method private static final countTrailingZeroBits-VKZWuLQ(J)I
-    .locals 1
+    .registers 3
     .param p0, "$this$countTrailingZeroBits_u2dVKZWuLQ"    # J
 
     .line 105
@@ -221,7 +221,7 @@
 .end method
 
 .method private static final countTrailingZeroBits-WZ4Q5Ns(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countTrailingZeroBits_u2dWZ4Q5Ns"    # I
 
     .line 31
@@ -233,7 +233,7 @@
 .end method
 
 .method private static final countTrailingZeroBits-xj2QHRw(S)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countTrailingZeroBits_u2dxj2QHRw"    # S
 
     .line 250
@@ -249,7 +249,7 @@
 .end method
 
 .method private static final rotateLeft-JSWoG40(JI)J
-    .locals 2
+    .registers 5
     .param p0, "$this$rotateLeft_u2dJSWoG40"    # J
     .param p2, "bitCount"    # I
 
@@ -266,7 +266,7 @@
 .end method
 
 .method private static final rotateLeft-LxnNnR4(BI)B
-    .locals 1
+    .registers 3
     .param p0, "$this$rotateLeft_u2dLxnNnR4"    # B
     .param p1, "bitCount"    # I
 
@@ -283,7 +283,7 @@
 .end method
 
 .method private static final rotateLeft-V7xB4Y4(II)I
-    .locals 1
+    .registers 3
     .param p0, "$this$rotateLeft_u2dV7xB4Y4"    # I
     .param p1, "bitCount"    # I
 
@@ -300,7 +300,7 @@
 .end method
 
 .method private static final rotateLeft-olVBNx4(SI)S
-    .locals 1
+    .registers 3
     .param p0, "$this$rotateLeft_u2dolVBNx4"    # S
     .param p1, "bitCount"    # I
 
@@ -317,7 +317,7 @@
 .end method
 
 .method private static final rotateRight-JSWoG40(JI)J
-    .locals 2
+    .registers 5
     .param p0, "$this$rotateRight_u2dJSWoG40"    # J
     .param p2, "bitCount"    # I
 
@@ -334,7 +334,7 @@
 .end method
 
 .method private static final rotateRight-LxnNnR4(BI)B
-    .locals 1
+    .registers 3
     .param p0, "$this$rotateRight_u2dLxnNnR4"    # B
     .param p1, "bitCount"    # I
 
@@ -351,7 +351,7 @@
 .end method
 
 .method private static final rotateRight-V7xB4Y4(II)I
-    .locals 1
+    .registers 3
     .param p0, "$this$rotateRight_u2dV7xB4Y4"    # I
     .param p1, "bitCount"    # I
 
@@ -368,7 +368,7 @@
 .end method
 
 .method private static final rotateRight-olVBNx4(SI)S
-    .locals 1
+    .registers 3
     .param p0, "$this$rotateRight_u2dolVBNx4"    # S
     .param p1, "bitCount"    # I
 
@@ -385,7 +385,7 @@
 .end method
 
 .method private static final takeHighestOneBit-7apg3OU(B)B
-    .locals 1
+    .registers 2
     .param p0, "$this$takeHighestOneBit_u2d7apg3OU"    # B
 
     .line 186
@@ -405,7 +405,7 @@
 .end method
 
 .method private static final takeHighestOneBit-VKZWuLQ(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$takeHighestOneBit_u2dVKZWuLQ"    # J
 
     .line 114
@@ -421,7 +421,7 @@
 .end method
 
 .method private static final takeHighestOneBit-WZ4Q5Ns(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$takeHighestOneBit_u2dWZ4Q5Ns"    # I
 
     .line 40
@@ -437,7 +437,7 @@
 .end method
 
 .method private static final takeHighestOneBit-xj2QHRw(S)S
-    .locals 1
+    .registers 2
     .param p0, "$this$takeHighestOneBit_u2dxj2QHRw"    # S
 
     .line 259
@@ -459,7 +459,7 @@
 .end method
 
 .method private static final takeLowestOneBit-7apg3OU(B)B
-    .locals 1
+    .registers 2
     .param p0, "$this$takeLowestOneBit_u2d7apg3OU"    # B
 
     .line 195
@@ -479,7 +479,7 @@
 .end method
 
 .method private static final takeLowestOneBit-VKZWuLQ(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$takeLowestOneBit_u2dVKZWuLQ"    # J
 
     .line 123
@@ -495,7 +495,7 @@
 .end method
 
 .method private static final takeLowestOneBit-WZ4Q5Ns(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$takeLowestOneBit_u2dWZ4Q5Ns"    # I
 
     .line 49
@@ -511,7 +511,7 @@
 .end method
 
 .method private static final takeLowestOneBit-xj2QHRw(S)S
-    .locals 1
+    .registers 2
     .param p0, "$this$takeLowestOneBit_u2dxj2QHRw"    # S
 
     .line 268

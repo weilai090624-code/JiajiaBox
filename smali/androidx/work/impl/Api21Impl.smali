@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/work/impl/Api21Impl;
 
@@ -46,7 +46,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 120
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public final getNoBackupFilesDir(Landroid/content/Context;)Ljava/io/File;
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"

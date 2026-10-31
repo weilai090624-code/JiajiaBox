@@ -37,7 +37,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method protected final delegate()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -84,7 +84,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 57
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingListenableFuture$SimpleForwardingListenableFuture;, "Lcom/google/common/util/concurrent/ForwardingListenableFuture$SimpleForwardingListenableFuture<TV;>;"
@@ -96,7 +96,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/concurrent/Future;
-    .locals 1
+    .registers 2
 
     .line 57
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingListenableFuture$SimpleForwardingListenableFuture;, "Lcom/google/common/util/concurrent/ForwardingListenableFuture$SimpleForwardingListenableFuture<TV;>;"

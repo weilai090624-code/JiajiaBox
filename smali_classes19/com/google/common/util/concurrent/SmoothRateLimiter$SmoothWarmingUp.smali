@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;JLjava/util/concurrent/TimeUnit;D)V
-    .locals 2
+    .registers 9
     .param p1, "stopwatch"    # Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;
     .param p2, "warmupPeriod"    # J
     .param p4, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -52,7 +52,7 @@
 .end method
 
 .method private permitsToTime(D)D
-    .locals 4
+    .registers 7
     .param p1, "permits"    # D
 
     .line 262
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method coolDownIntervalMicros()D
-    .locals 4
+    .registers 5
 
     .line 267
     iget-wide v0, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothWarmingUp;->warmupPeriodMicros:J
@@ -85,7 +85,7 @@
 .end method
 
 .method doSetRate(DD)V
-    .locals 10
+    .registers 15
     .param p1, "permitsPerSecond"    # D
     .param p3, "stableIntervalMicros"    # D
 
@@ -151,29 +151,29 @@
 
     cmpl-double v8, v0, v4
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_34
 
     .line 233
     iput-wide v6, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothWarmingUp;->storedPermits:D
 
-    goto :goto_1
+    goto :goto_45
 
     .line 235
-    :cond_0
+    :cond_34
     nop
 
     .line 236
     cmpl-double v4, v0, v6
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_3c
 
     .line 237
     iget-wide v4, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothWarmingUp;->maxPermits:D
 
-    goto :goto_0
+    goto :goto_43
 
     .line 238
-    :cond_1
+    :cond_3c
     iget-wide v4, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothWarmingUp;->storedPermits:D
 
     iget-wide v6, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothWarmingUp;->maxPermits:D
@@ -182,16 +182,16 @@
 
     div-double/2addr v4, v0
 
-    :goto_0
+    :goto_43
     iput-wide v4, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothWarmingUp;->storedPermits:D
 
     .line 240
-    :goto_1
+    :goto_45
     return-void
 .end method
 
 .method storedPermitsToWaitTime(DD)J
-    .locals 15
+    .registers 20
     .param p1, "storedPermits"    # D
     .param p3, "permitsToTake"    # D
 
@@ -214,7 +214,7 @@
 
     cmpl-double v9, v3, v7
 
-    if-lez v9, :cond_0
+    if-lez v9, :cond_26
 
     .line 248
     invoke-static {v3, v4, v1, v2}, Ljava/lang/Math;->min(DD)D
@@ -257,7 +257,7 @@
     .end local v9    # "length":D
     .end local p3    # "permitsToTake":D
     .local v1, "permitsToTake":D
-    :cond_0
+    :cond_26
     iget-wide v7, v0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothWarmingUp;->stableIntervalMicros:D
 
     mul-double v7, v7, v1

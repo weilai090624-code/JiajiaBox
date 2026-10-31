@@ -626,12 +626,16 @@
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
+    instance-of v0, p0, Lio/nekohasekai/sagernet/ui/MorphDialog;
+
+    if-nez v0, :cond_56
+
     .line 64
     invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
-    if-eqz v0, :cond_52
+    if-eqz v0, :cond_56
 
     .line 65
     invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
@@ -707,7 +711,7 @@
     invoke-virtual {p0, p1, v0}, Landroid/view/Window;->setLayout(II)V
 
     .line 69
-    :cond_52
+    :cond_56
     return-void
 .end method
 
@@ -927,9 +931,9 @@
     move-result v5
 
     .line 44
-    new-instance v3, Landroid/app/Dialog;
+    new-instance v3, Lio/nekohasekai/sagernet/ui/MorphDialog;
 
-    invoke-direct {v3, v4}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, v4}, Lio/nekohasekai/sagernet/ui/MorphDialog;-><init>(Landroid/content/Context;)V
 
     invoke-static {v4, v6}, Lio/nekohasekai/sagernet/ui/NodeActions;->column(Landroid/content/Context;Ljava/lang/String;)Landroid/widget/LinearLayout;
 

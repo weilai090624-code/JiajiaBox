@@ -74,7 +74,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/collections/EmptyList;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -95,7 +95,7 @@
 .end method
 
 .method private final readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 53
     sget-object v0, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public bridge synthetic add(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public add(ILjava/lang/Void;)V
-    .locals 2
+    .registers 5
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -130,7 +130,7 @@
 .end method
 
 .method public bridge synthetic add(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public add(Ljava/lang/Void;)Z
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -154,7 +154,7 @@
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
-    .locals 2
+    .registers 5
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -166,7 +166,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -190,19 +190,19 @@
 .end method
 
 .method public final bridge contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 25
     instance-of v0, p1, Ljava/lang/Void;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Void;
@@ -215,7 +215,7 @@
 .end method
 
 .method public contains(Ljava/lang/Void;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Void;
 
     const-string v0, "element"
@@ -229,7 +229,7 @@
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .param p1, "elements"    # Ljava/util/Collection;
 
     const-string v0, "elements"
@@ -245,13 +245,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 28
     instance-of v0, p1, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     move-object v0, p1
 
@@ -261,21 +261,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     return v0
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 25
@@ -287,7 +287,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Void;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 37
@@ -323,7 +323,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 32
     const/4 v0, 0x0
@@ -332,7 +332,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 29
     const/4 v0, 0x1
@@ -341,19 +341,19 @@
 .end method
 
 .method public final bridge indexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 25
     instance-of v0, p1, Ljava/lang/Void;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Void;
@@ -366,7 +366,7 @@
 .end method
 
 .method public indexOf(Ljava/lang/Void;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Void;
 
     const-string v0, "element"
@@ -380,7 +380,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 33
     const/4 v0, 0x1
@@ -389,7 +389,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 41
     sget-object v0, Lkotlin/collections/EmptyIterator;->INSTANCE:Lkotlin/collections/EmptyIterator;
@@ -400,19 +400,19 @@
 .end method
 
 .method public final bridge lastIndexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 25
     instance-of v0, p1, Ljava/lang/Void;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Void;
@@ -425,7 +425,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Void;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Void;
 
     const-string v0, "element"
@@ -439,7 +439,7 @@
 .end method
 
 .method public listIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
 
     .line 42
     sget-object v0, Lkotlin/collections/EmptyIterator;->INSTANCE:Lkotlin/collections/EmptyIterator;
@@ -450,11 +450,11 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 44
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 45
     sget-object v0, Lkotlin/collections/EmptyIterator;->INSTANCE:Lkotlin/collections/EmptyIterator;
@@ -464,7 +464,7 @@
     return-object v0
 
     .line 44
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -491,7 +491,7 @@
 .end method
 
 .method public bridge synthetic remove(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -503,7 +503,7 @@
 .end method
 
 .method public remove(I)Ljava/lang/Void;
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -515,7 +515,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -527,7 +527,7 @@
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -539,7 +539,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -551,7 +551,7 @@
 .end method
 
 .method public bridge synthetic set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -563,7 +563,7 @@
 .end method
 
 .method public set(ILjava/lang/Void;)Ljava/lang/Void;
-    .locals 2
+    .registers 5
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -575,7 +575,7 @@
 .end method
 
 .method public final bridge size()I
-    .locals 1
+    .registers 2
 
     .line 25
     invoke-virtual {p0}, Lkotlin/collections/EmptyList;->getSize()I
@@ -586,14 +586,14 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 3
+    .registers 6
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
 
     .line 49
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_8
 
     move-object v0, p0
 
@@ -602,7 +602,7 @@
     return-object v0
 
     .line 50
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -639,7 +639,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     move-object v0, p0
 
@@ -653,7 +653,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -678,7 +678,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 30
     const-string v0, "[]"

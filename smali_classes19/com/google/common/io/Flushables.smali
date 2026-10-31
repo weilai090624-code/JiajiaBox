@@ -14,7 +14,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 34
     const-class v0, Lcom/google/common/io/Flushables;
@@ -33,7 +33,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method public static flush(Ljava/io/Flushable;Z)V
-    .locals 4
+    .registers 6
     .param p0, "flushable"    # Ljava/io/Flushable;
     .param p1, "swallowIOException"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -54,19 +54,19 @@
     .line 53
     :try_start_0
     invoke-interface {p0}, Ljava/io/Flushable;->flush()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3} :catch_4
 
     .line 60
-    goto :goto_0
+    goto :goto_10
 
     .line 54
-    :catch_0
+    :catch_4
     move-exception v0
 
     .line 55
     .local v0, "e":Ljava/io/IOException;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     .line 56
     sget-object v1, Lcom/google/common/io/Flushables;->logger:Ljava/util/logging/Logger;
@@ -79,32 +79,32 @@
 
     .line 61
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_10
     return-void
 
     .line 58
     .restart local v0    # "e":Ljava/io/IOException;
-    :cond_0
+    :cond_11
     throw v0
 .end method
 
 .method public static flushQuietly(Ljava/io/Flushable;)V
-    .locals 4
+    .registers 5
     .param p0, "flushable"    # Ljava/io/Flushable;
 
     .line 71
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_1
     invoke-static {p0, v0}, Lcom/google/common/io/Flushables;->flush(Ljava/io/Flushable;Z)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_4} :catch_5
 
     .line 74
-    goto :goto_0
+    goto :goto_f
 
     .line 72
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 73
@@ -119,6 +119,6 @@
 
     .line 75
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_f
     return-void
 .end method

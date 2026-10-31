@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 385
     new-instance v0, Landroidx/recyclerview/widget/ConcatAdapter$Config;
@@ -50,7 +50,7 @@
 .end method
 
 .method constructor <init>(ZLandroidx/recyclerview/widget/ConcatAdapter$Config$StableIdMode;)V
-    .locals 0
+    .registers 3
     .param p1, "isolateViewTypes"    # Z
     .param p2, "stableIdMode"    # Landroidx/recyclerview/widget/ConcatAdapter$Config$StableIdMode;
 

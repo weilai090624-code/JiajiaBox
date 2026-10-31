@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/room/Room;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 .end method
 
 .method public static final databaseBuilder(Landroid/content/Context;Ljava/lang/Class;Ljava/lang/String;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "klass"    # Ljava/lang/Class;
     .param p2, "name"    # Ljava/lang/String;
@@ -110,27 +110,27 @@
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     invoke-static {v0}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v0, 0x1
 
-    :goto_1
-    if-nez v0, :cond_2
+    :goto_19
+    if-nez v0, :cond_21
 
     .line 114
     new-instance v0, Landroidx/room/RoomDatabase$Builder;
@@ -140,7 +140,7 @@
     return-object v0
 
     .line 109
-    :cond_2
+    :cond_21
     const/4 v0, 0x0
 
     .line 110
@@ -163,7 +163,7 @@
 .end method
 
 .method public static final getGeneratedImplementation(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 12
+    .registers 14
     .param p0, "klass"    # Ljava/lang/Class;
     .param p1, "suffix"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -228,23 +228,23 @@
 
     const/4 v4, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2f
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_2f
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_30
+    if-eqz v2, :cond_34
 
     move-object v6, v1
 
-    goto :goto_1
+    goto :goto_44
 
-    :cond_1
+    :cond_34
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -262,7 +262,7 @@
     move-object v6, v2
 
     .line 44
-    :goto_1
+    :goto_44
     nop
 
     .line 46
@@ -302,7 +302,7 @@
     nop
 
     .line 48
-    :try_start_0
+    :try_start_62
     move-object v5, v0
 
     check-cast v5, Ljava/lang/CharSequence;
@@ -311,25 +311,25 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_6d
 
     const/4 v5, 0x1
 
-    goto :goto_2
+    goto :goto_6e
 
-    :cond_2
+    :cond_6d
     const/4 v5, 0x0
 
-    :goto_2
-    if-eqz v5, :cond_3
+    :goto_6e
+    if-eqz v5, :cond_72
 
     .line 49
     move-object v5, v2
 
-    goto :goto_3
+    goto :goto_89
 
     .line 51
-    :cond_3
+    :cond_72
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -353,7 +353,7 @@
     move-result-object v5
 
     .line 48
-    :goto_3
+    :goto_89
     nop
 
     .line 54
@@ -384,10 +384,10 @@
     invoke-virtual {v7, v4}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a3
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_62 .. :try_end_a3} :catch_e0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_62 .. :try_end_a3} :catch_c2
+    .catch Ljava/lang/InstantiationException; {:try_start_62 .. :try_end_a3} :catch_a4
 
     .line 47
     .end local v3    # "aClass":Ljava/lang/Class;
@@ -395,7 +395,7 @@
     return-object v4
 
     .line 66
-    :catch_0
+    :catch_a4
     move-exception v3
 
     .line 67
@@ -432,7 +432,7 @@
 
     .line 62
     .end local v3    # "e":Ljava/lang/InstantiationException;
-    :catch_1
+    :catch_c2
     move-exception v3
 
     .line 63
@@ -469,7 +469,7 @@
 
     .line 57
     .end local v3    # "e":Ljava/lang/IllegalAccessException;
-    :catch_2
+    :catch_e0
     move-exception v3
 
     .line 58
@@ -522,7 +522,7 @@
 .end method
 
 .method public static final inMemoryDatabaseBuilder(Landroid/content/Context;Ljava/lang/Class;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "klass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;

@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/internal/ThreadContextKt$findOne$1;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x2
 
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/ThreadContextElement;Lkotlin/coroutines/CoroutineContext$Element;)Lkotlinx/coroutines/ThreadContextElement;
-    .locals 1
+    .registers 4
     .param p1, "found"    # Lkotlinx/coroutines/ThreadContextElement;
     .param p2, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
     .annotation system Ldalvik/annotation/Signature;
@@ -117,25 +117,25 @@
     .end annotation
 
     .line 46
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_3
 
     return-object p1
 
     .line 47
-    :cond_0
+    :cond_3
     instance-of v0, p2, Lkotlinx/coroutines/ThreadContextElement;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_b
 
     move-object v0, p2
 
     check-cast v0, Lkotlinx/coroutines/ThreadContextElement;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_1
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method

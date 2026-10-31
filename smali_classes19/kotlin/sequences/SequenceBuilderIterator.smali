@@ -115,7 +115,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 104
     invoke-direct {p0}, Lkotlin/sequences/SequenceScope;-><init>()V
@@ -124,12 +124,12 @@
 .end method
 
 .method private final exceptionalState()Ljava/lang/Throwable;
-    .locals 3
+    .registers 4
 
     .line 155
     iget v0, p0, Lkotlin/sequences/SequenceBuilderIterator;->state:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_34
 
     .line 158
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -158,10 +158,10 @@
 
     check-cast v0, Ljava/lang/Throwable;
 
-    goto :goto_0
+    goto :goto_33
 
     .line 157
-    :pswitch_0
+    :pswitch_22
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Iterator has failed."
@@ -170,10 +170,10 @@
 
     check-cast v0, Ljava/lang/Throwable;
 
-    goto :goto_0
+    goto :goto_33
 
     .line 156
-    :pswitch_1
+    :pswitch_2c
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -181,18 +181,18 @@
     check-cast v0, Ljava/lang/Throwable;
 
     .line 159
-    :goto_0
+    :goto_33
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_34
     .packed-switch 0x4
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2c
+        :pswitch_22
     .end packed-switch
 .end method
 
 .method private final nextNotReady()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -204,7 +204,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-virtual {p0}, Lkotlin/sequences/SequenceBuilderIterator;->next()Ljava/lang/Object;
 
@@ -212,7 +212,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -223,7 +223,7 @@
 
 # virtual methods
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 188
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -234,7 +234,7 @@
 .end method
 
 .method public final getNextStep()Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -251,12 +251,12 @@
 .end method
 
 .method public hasNext()Z
-    .locals 3
+    .registers 4
 
     .line 111
     nop
 
-    :goto_0
+    :goto_1
     nop
 
     .line 112
@@ -266,7 +266,7 @@
 
     const/4 v2, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_38
 
     .line 123
     invoke-direct {p0}, Lkotlin/sequences/SequenceBuilderIterator;->exceptionalState()Ljava/lang/Throwable;
@@ -276,17 +276,17 @@
     throw v0
 
     .line 121
-    :pswitch_0
+    :pswitch_e
     const/4 v0, 0x0
 
     return v0
 
     .line 122
-    :pswitch_1
+    :pswitch_10
     return v2
 
     .line 115
-    :pswitch_2
+    :pswitch_11
     iget-object v0, p0, Lkotlin/sequences/SequenceBuilderIterator;->nextIterator:Ljava/util/Iterator;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -295,7 +295,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 116
     const/4 v0, 0x2
@@ -306,11 +306,11 @@
     return v2
 
     .line 119
-    :cond_0
+    :cond_20
     iput-object v1, p0, Lkotlin/sequences/SequenceBuilderIterator;->nextIterator:Ljava/util/Iterator;
 
     .line 126
-    :pswitch_3
+    :pswitch_22
     const/4 v0, 0x5
 
     iput v0, p0, Lkotlin/sequences/SequenceBuilderIterator;->state:I
@@ -336,20 +336,20 @@
     invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .end local v0    # "step":Lkotlin/coroutines/Continuation;
-    goto :goto_0
+    goto :goto_1
 
-    :pswitch_data_0
+    :pswitch_data_38
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_22
+        :pswitch_11
+        :pswitch_10
+        :pswitch_10
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -359,7 +359,7 @@
     .line 134
     iget v0, p0, Lkotlin/sequences/SequenceBuilderIterator;->state:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_26
 
     .line 147
     invoke-direct {p0}, Lkotlin/sequences/SequenceBuilderIterator;->exceptionalState()Ljava/lang/Throwable;
@@ -369,7 +369,7 @@
     throw v0
 
     .line 141
-    :pswitch_0
+    :pswitch_a
     const/4 v0, 0x0
 
     iput v0, p0, Lkotlin/sequences/SequenceBuilderIterator;->state:I
@@ -388,7 +388,7 @@
 
     .line 137
     .end local v0    # "result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_13
     const/4 v0, 0x1
 
     iput v0, p0, Lkotlin/sequences/SequenceBuilderIterator;->state:I
@@ -405,7 +405,7 @@
     return-object v0
 
     .line 135
-    :pswitch_2
+    :pswitch_20
     invoke-direct {p0}, Lkotlin/sequences/SequenceBuilderIterator;->nextNotReady()Ljava/lang/Object;
 
     move-result-object v0
@@ -414,17 +414,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_20
+        :pswitch_20
+        :pswitch_13
+        :pswitch_a
     .end packed-switch
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -436,7 +436,7 @@
 .end method
 
 .method public resumeWith(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 183
@@ -452,7 +452,7 @@
 .end method
 
 .method public final setNextStep(Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -471,7 +471,7 @@
 .end method
 
 .method public yield(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -515,27 +515,27 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_0
+    :cond_16
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1d
 
     return-object v0
 
-    :cond_1
+    :cond_1d
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method public yieldAll(Ljava/util/Iterator;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "iterator"    # Ljava/util/Iterator;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -556,14 +556,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 173
-    :cond_0
+    :cond_9
     iput-object p1, p0, Lkotlin/sequences/SequenceBuilderIterator;->nextIterator:Ljava/util/Iterator;
 
     .line 174
@@ -593,20 +593,20 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1f
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_1
+    :cond_1f
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_26
 
     return-object v0
 
-    :cond_2
+    :cond_26
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0

@@ -82,7 +82,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lmoe/matsuri/nb4a/utils/Util;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public final b64Decode(Ljava/lang/String;)[B
-    .locals 13
+    .registers 15
     .param p1, "b"    # Ljava/lang/String;
 
     const-string v0, "b"
@@ -193,12 +193,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_37
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_53
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -215,33 +215,33 @@
     nop
 
     .line 77
-    :try_start_0
+    :try_start_48
     invoke-static {v1, v4}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
 
     move-result-object v5
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4c
+    .catch Ljava/lang/Exception; {:try_start_48 .. :try_end_4c} :catch_4e
 
     move-object v0, v5
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 78
-    :catch_0
+    :catch_4e
     move-exception v5
 
     .line 80
-    :goto_1
-    if-eqz v0, :cond_0
+    :goto_4f
+    if-eqz v0, :cond_52
 
     return-object v0
 
     .end local v4    # "flag":I
-    :cond_0
-    goto :goto_0
+    :cond_52
+    goto :goto_37
 
     .line 83
-    :cond_1
+    :cond_53
     new-instance v3, Ljava/lang/IllegalStateException;
 
     const-string v4, "Cannot decode base64"
@@ -252,7 +252,7 @@
 .end method
 
 .method public final b64EncodeDefault([B)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "b"    # [B
 
     const-string v0, "b"
@@ -280,7 +280,7 @@
 .end method
 
 .method public final b64EncodeOneLine([B)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "b"    # [B
 
     const-string v0, "b"
@@ -308,7 +308,7 @@
 .end method
 
 .method public final b64EncodeUrlSafe(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/lang/String;
 
     const-string v0, "s"
@@ -334,7 +334,7 @@
 .end method
 
 .method public final b64EncodeUrlSafe([B)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "b"    # [B
 
     const-string v0, "b"
@@ -362,7 +362,7 @@
 .end method
 
 .method public final collapseStatusBar(Landroid/content/Context;)V
-    .locals 5
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -373,7 +373,7 @@
     nop
 
     .line 180
-    :try_start_0
+    :try_start_6
     const-string v0, "statusbar"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -401,24 +401,24 @@
     new-array v2, v3, [Ljava/lang/Object;
 
     invoke-virtual {v1, v0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_1e} :catch_1f
 
     .end local v0    # "statusBarManager":Ljava/lang/Object;
     .end local v1    # "collapse":Ljava/lang/reflect/Method;
-    goto :goto_0
+    goto :goto_20
 
     .line 183
-    :catch_0
+    :catch_1f
     move-exception v0
 
     .line 185
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 .method public final decodeFilename(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "headerValue"    # Ljava/lang/String;
 
     const-string v0, "headerValue"
@@ -450,13 +450,13 @@
 
     .line 197
     .local v1, "match":Lkotlin/text/MatchResult;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     invoke-interface {v1}, Lkotlin/text/MatchResult;->getGroupValues()Ljava/util/List;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_27
 
     const/4 v3, 0x1
 
@@ -466,14 +466,14 @@
 
     check-cast v2, Ljava/lang/String;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_29
 
-    :cond_0
+    :cond_27
     const-string v2, ""
 
     .line 198
     .local v2, "encoded":Ljava/lang/String;
-    :cond_1
+    :cond_29
     sget-object v3, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
     invoke-virtual {v3}, Ljava/nio/charset/Charset;->name()Ljava/lang/String;
@@ -492,7 +492,7 @@
 .end method
 
 .method public final getSdf1()Ljava/text/SimpleDateFormat;
-    .locals 1
+    .registers 2
 
     .line 163
     sget-object v0, Lmoe/matsuri/nb4a/utils/Util;->sdf1:Ljava/text/SimpleDateFormat;
@@ -501,17 +501,17 @@
 .end method
 
 .method public final getStringBox(Llibcore/StringBox;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "b"    # Llibcore/StringBox;
 
     .line 188
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     invoke-virtual {p1}, Llibcore/StringBox;->getValue()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 189
     invoke-virtual {p1}, Llibcore/StringBox;->getValue()Ljava/lang/String;
@@ -525,14 +525,14 @@
     return-object v0
 
     .line 191
-    :cond_0
+    :cond_12
     const-string v0, ""
 
     return-object v0
 .end method
 
 .method public final getSubString(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 11
+    .registers 15
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "left"    # Ljava/lang/String;
     .param p3, "right"    # Ljava/lang/String;
@@ -554,37 +554,37 @@
 
     const/4 v3, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_17
     const/4 v4, -0x1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1c
 
     .line 28
     const/4 v0, 0x0
 
-    goto :goto_2
+    goto :goto_31
 
     .line 30
-    :cond_2
+    :cond_1c
     move-object v5, p1
 
     check-cast v5, Ljava/lang/CharSequence;
@@ -604,7 +604,7 @@
     move-result v0
 
     .line 31
-    if-le v0, v4, :cond_3
+    if-le v0, v4, :cond_30
 
     .line 32
     invoke-virtual {p2}, Ljava/lang/String;->length()I
@@ -613,19 +613,19 @@
 
     add-int/2addr v0, v1
 
-    goto :goto_2
+    goto :goto_31
 
     .line 34
-    :cond_3
+    :cond_30
     const/4 v0, 0x0
 
     .line 37
-    :goto_2
-    if-nez p3, :cond_4
+    :goto_31
+    if-nez p3, :cond_34
 
-    goto :goto_3
+    goto :goto_40
 
-    :cond_4
+    :cond_34
     move-object v5, p1
 
     check-cast v5, Ljava/lang/CharSequence;
@@ -644,39 +644,39 @@
 
     move-result v4
 
-    :goto_3
+    :goto_40
     move v1, v4
 
     .line 38
     .local v1, "yLen":I
-    if-ltz v1, :cond_7
+    if-ltz v1, :cond_51
 
     move-object v4, p3
 
     check-cast v4, Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_4e
 
     invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_4f
 
-    :cond_5
+    :cond_4e
     const/4 v2, 0x1
 
-    :cond_6
-    if-eqz v2, :cond_8
+    :cond_4f
+    if-eqz v2, :cond_55
 
     .line 39
-    :cond_7
+    :cond_51
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
 
     .line 41
-    :cond_8
+    :cond_55
     invoke-virtual {p1, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
@@ -689,7 +689,7 @@
 .end method
 
 .method public final map2StringMap(Ljava/util/Map;)Ljava/util/Map;
-    .locals 10
+    .registers 12
     .param p1, "m"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -731,12 +731,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_16
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_46
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -758,7 +758,7 @@
 
     instance-of v7, v7, Ljava/lang/String;
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_43
 
     .line 123
     invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -782,7 +782,7 @@
     invoke-interface {v0, v7, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 125
-    :cond_0
+    :cond_43
     nop
 
     .line 202
@@ -791,10 +791,10 @@
     nop
 
     .end local v4    # "element$iv":Ljava/util/Map$Entry;
-    goto :goto_0
+    goto :goto_16
 
     .line 203
-    :cond_1
+    :cond_46
     nop
 
     .line 126
@@ -804,7 +804,7 @@
 .end method
 
 .method public final mergeJSON(Ljava/util/Map;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "dst"    # Ljava/util/Map;
     .param p2, "j"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -836,12 +836,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     return-void
 
     .line 157
-    :cond_0
+    :cond_14
     sget-object v0, Lmoe/matsuri/nb4a/utils/JavaUtil;->gson:Lcom/google/gson/Gson;
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -865,7 +865,7 @@
 .end method
 
 .method public final mergeMap(Ljava/util/Map;Ljava/util/Map;)Ljava/util/Map;
-    .locals 12
+    .registers 15
     .param p1, "dst"    # Ljava/util/Map;
     .param p2, "src"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -911,12 +911,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_14
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_ec
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -944,7 +944,7 @@
     .local v6, "v":Ljava/lang/Object;
     instance-of v7, v6, Ljava/util/Map;
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_60
 
     invoke-interface {p1, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -952,7 +952,7 @@
 
     instance-of v7, v7, Ljava/util/Map;
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_60
 
     .line 132
     invoke-interface {p1, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -995,14 +995,14 @@
 
     invoke-interface {p1, v5, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_e8
 
     .line 134
     .end local v7    # "currentMap":Ljava/util/Map;
-    :cond_0
+    :cond_60
     instance-of v7, v6, Ljava/util/List;
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_e5
 
     .line 135
     const-string v7, "+"
@@ -1017,7 +1017,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_a5
 
     .line 136
     check-cast v7, Ljava/lang/CharSequence;
@@ -1034,14 +1034,14 @@
 
     instance-of v9, v8, Ljava/util/List;
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_80
 
     move-object v10, v8
 
     check-cast v10, Ljava/util/List;
 
-    :cond_1
-    if-eqz v10, :cond_2
+    :cond_80
+    if-eqz v10, :cond_8a
 
     check-cast v10, Ljava/util/Collection;
 
@@ -1049,9 +1049,9 @@
 
     move-result-object v8
 
-    if-nez v8, :cond_3
+    if-nez v8, :cond_91
 
-    :cond_2
+    :cond_8a
     new-instance v8, Ljava/util/ArrayList;
 
     invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
@@ -1060,7 +1060,7 @@
 
     .line 138
     .local v8, "currentList":Ljava/util/List;
-    :cond_3
+    :cond_91
     move-object v9, v6
 
     check-cast v9, Ljava/util/Collection;
@@ -1082,17 +1082,17 @@
     .line 139
     invoke-interface {p1, v7, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_e8
 
     .line 140
     .end local v7    # "dstKey":Ljava/lang/String;
     .end local v8    # "currentList":Ljava/util/List;
-    :cond_4
+    :cond_a5
     invoke-static {v5, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_e1
 
     .line 141
     check-cast v7, Ljava/lang/CharSequence;
@@ -1109,14 +1109,14 @@
 
     instance-of v9, v8, Ljava/util/List;
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_bc
 
     move-object v10, v8
 
     check-cast v10, Ljava/util/List;
 
-    :cond_5
-    if-eqz v10, :cond_6
+    :cond_bc
+    if-eqz v10, :cond_c6
 
     check-cast v10, Ljava/util/Collection;
 
@@ -1124,9 +1124,9 @@
 
     move-result-object v8
 
-    if-nez v8, :cond_7
+    if-nez v8, :cond_cd
 
-    :cond_6
+    :cond_c6
     new-instance v8, Ljava/util/ArrayList;
 
     invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
@@ -1135,7 +1135,7 @@
 
     .line 143
     .restart local v8    # "currentList":Ljava/util/List;
-    :cond_7
+    :cond_cd
     move-object v9, v8
 
     check-cast v9, Ljava/util/Collection;
@@ -1157,22 +1157,22 @@
     .line 144
     invoke-interface {p1, v7, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_e8
 
     .line 146
     .end local v7    # "dstKey":Ljava/lang/String;
     .end local v8    # "currentList":Ljava/util/List;
-    :cond_8
+    :cond_e1
     invoke-interface {p1, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_e8
 
     .line 149
-    :cond_9
+    :cond_e5
     invoke-interface {p1, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 151
-    :goto_1
+    :goto_e8
     nop
 
     .line 204
@@ -1182,10 +1182,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/util/Map$Entry;
-    goto/16 :goto_0
+    goto/16 :goto_14
 
     .line 205
-    :cond_a
+    :cond_ec
     nop
 
     .line 152
@@ -1195,7 +1195,7 @@
 .end method
 
 .method public final timeStamp2Text(J)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "t"    # J
 
     .line 167
@@ -1217,7 +1217,7 @@
 .end method
 
 .method public final tryToSetField(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
@@ -1238,7 +1238,7 @@
     nop
 
     .line 172
-    :try_start_0
+    :try_start_10
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -1248,22 +1248,22 @@
     move-result-object v0
 
     invoke-virtual {v0, p1, p3}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_1b} :catch_1c
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 173
-    :catch_0
+    :catch_1c
     move-exception v0
 
     .line 175
-    :goto_0
+    :goto_1d
     return-void
 .end method
 
 .method public final zlibCompress([BI)[B
-    .locals 4
+    .registers 7
     .param p1, "input"    # [B
     .param p2, "level"    # I
 
@@ -1325,7 +1325,7 @@
 .end method
 
 .method public final zlibDecompress([B)[B
-    .locals 8
+    .registers 10
     .param p1, "input"    # [B
 
     const-string v0, "input"
@@ -1349,7 +1349,7 @@
 
     check-cast v2, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_12
     move-object v3, v2
 
     check-cast v3, Ljava/io/ByteArrayOutputStream;
@@ -1372,8 +1372,8 @@
 
     .line 109
     .local v6, "count":I
-    :goto_0
-    if-eqz v6, :cond_0
+    :goto_1e
+    if-eqz v6, :cond_2a
 
     .line 110
     invoke-virtual {v0, v5}, Ljava/util/zip/Inflater;->inflate([B)I
@@ -1387,18 +1387,18 @@
 
     invoke-virtual {v1, v5, v7, v6}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 114
-    :cond_0
+    :cond_2a
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->end()V
 
     .line 115
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_31
+    .catchall {:try_start_12 .. :try_end_31} :catchall_3b
 
     .line 103
     .end local v3    # "it":Ljava/io/ByteArrayOutputStream;
@@ -1415,21 +1415,21 @@
 
     return-object v7
 
-    :catchall_0
+    :catchall_3b
     move-exception v3
 
     .end local v0    # "inflater":Ljava/util/zip/Inflater;
     .end local v1    # "outputStream":Ljava/io/ByteArrayOutputStream;
     .end local p1    # "input":[B
-    :try_start_1
+    :try_start_3c
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_3d
+    .catchall {:try_start_3c .. :try_end_3d} :catchall_3d
 
     .restart local v0    # "inflater":Ljava/util/zip/Inflater;
     .restart local v1    # "outputStream":Ljava/io/ByteArrayOutputStream;
     .restart local p1    # "input":[B
-    :catchall_1
+    :catchall_3d
     move-exception v4
 
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V

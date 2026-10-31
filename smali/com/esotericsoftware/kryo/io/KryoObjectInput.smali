@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;)V
-    .locals 0
+    .registers 3
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
 
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public available()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -43,7 +43,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -60,7 +60,7 @@
 .end method
 
 .method public read()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -78,7 +78,7 @@
 .end method
 
 .method public read([B)I
-    .locals 1
+    .registers 3
     .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -97,7 +97,7 @@
 .end method
 
 .method public read([BII)I
-    .locals 1
+    .registers 5
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -118,7 +118,7 @@
 .end method
 
 .method public readObject()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;,
@@ -139,7 +139,7 @@
 .end method
 
 .method public skip(J)J
-    .locals 2
+    .registers 5
     .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {

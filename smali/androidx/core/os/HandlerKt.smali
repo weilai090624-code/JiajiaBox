@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final postAtTime(Landroid/os/Handler;JLjava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Runnable;
-    .locals 2
+    .registers 7
     .param p0, "$this$postAtTime"    # Landroid/os/Handler;
     .param p1, "uptimeMillis"    # J
     .param p3, "token"    # Ljava/lang/Object;
@@ -72,7 +72,7 @@
 .end method
 
 .method public static synthetic postAtTime$default(Landroid/os/Handler;JLjava/lang/Object;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Runnable;
-    .locals 0
+    .registers 7
     .param p0, "$this$postAtTime_u24default"    # Landroid/os/Handler;
     .param p1, "uptimeMillis"    # J
     .param p3, "token"    # Ljava/lang/Object;
@@ -81,13 +81,13 @@
     .line 60
     and-int/lit8 p5, p5, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 62
     const/4 p3, 0x0
 
     .line 60
-    :cond_0
+    :cond_5
     const/4 p5, 0x0
 
     .line 65
@@ -107,7 +107,7 @@
 .end method
 
 .method public static final postDelayed(Landroid/os/Handler;JLjava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Runnable;
-    .locals 2
+    .registers 7
     .param p0, "$this$postDelayed"    # Landroid/os/Handler;
     .param p1, "delayInMillis"    # J
     .param p3, "token"    # Ljava/lang/Object;
@@ -137,24 +137,24 @@
 
     .line 39
     .local v1, "runnable":Ljava/lang/Runnable;
-    if-nez p3, :cond_0
+    if-nez p3, :cond_e
 
     .line 40
     invoke-virtual {p0, v1, p1, p2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_0
+    goto :goto_11
 
     .line 42
-    :cond_0
+    :cond_e
     invoke-static {p0, v1, p3, p1, p2}, Landroidx/core/os/HandlerCompat;->postDelayed(Landroid/os/Handler;Ljava/lang/Runnable;Ljava/lang/Object;J)Z
 
     .line 44
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method public static synthetic postDelayed$default(Landroid/os/Handler;JLjava/lang/Object;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Runnable;
-    .locals 0
+    .registers 7
     .param p0, "$this$postDelayed_u24default"    # Landroid/os/Handler;
     .param p1, "delayInMillis"    # J
     .param p3, "token"    # Ljava/lang/Object;
@@ -163,13 +163,13 @@
     .line 33
     and-int/lit8 p5, p5, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 35
     const/4 p3, 0x0
 
     .line 33
-    :cond_0
+    :cond_5
     const/4 p5, 0x0
 
     .line 38
@@ -182,18 +182,18 @@
 
     .line 39
     .local p6, "runnable":Ljava/lang/Runnable;
-    if-nez p3, :cond_1
+    if-nez p3, :cond_13
 
     .line 40
     invoke-virtual {p0, p6, p1, p2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_0
+    goto :goto_16
 
     .line 42
-    :cond_1
+    :cond_13
     invoke-static {p0, p6, p3, p1, p2}, Landroidx/core/os/HandlerCompat;->postDelayed(Landroid/os/Handler;Ljava/lang/Runnable;Ljava/lang/Object;J)Z
 
     .line 44
-    :goto_0
+    :goto_16
     return-object p6
 .end method

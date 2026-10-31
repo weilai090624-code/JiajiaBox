@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 28
     new-instance v0, Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
@@ -127,7 +127,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .param p3, "bits"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -146,17 +146,17 @@
 .end method
 
 .method public static forBits(I)Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
-    .locals 1
+    .registers 2
     .param p0, "bits"    # I
 
     .line 53
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_c
 
     sget-object v0, Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;->FOR_BITS:[Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
 
     array-length v0, v0
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_c
 
     .line 56
     sget-object v0, Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;->FOR_BITS:[Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
@@ -166,7 +166,7 @@
     return-object v0
 
     .line 54
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -175,7 +175,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 25
@@ -191,7 +191,7 @@
 .end method
 
 .method public static values()[Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
-    .locals 1
+    .registers 1
 
     .line 25
     sget-object v0, Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;->$VALUES:[Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
@@ -208,7 +208,7 @@
 
 # virtual methods
 .method public getBits()I
-    .locals 1
+    .registers 2
 
     .line 45
     iget v0, p0, Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;->bits:I

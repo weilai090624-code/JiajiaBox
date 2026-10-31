@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/Surface;)V
-    .locals 1
+    .registers 3
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -107,7 +107,7 @@
 .end method
 
 .method private static getSurfaceFormat(Landroid/view/Surface;)I
-    .locals 6
+    .registers 7
     .param p0, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -121,7 +121,7 @@
     .line 249
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     const-string v1, "android.hardware.camera2.legacy.LegacyCameraDevice"
 
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -150,13 +150,13 @@
 
     const/16 v5, 0x16
 
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_1d
 
     .line 254
     invoke-virtual {v2, v3}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     .line 256
-    :cond_0
+    :cond_1d
     new-array v3, v3, [Ljava/lang/Object;
 
     aput-object p0, v3, v0
@@ -172,38 +172,38 @@
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2c
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_2c} :catch_33
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_2c} :catch_31
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_2c} :catch_2f
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_2c} :catch_2d
 
     return v0
 
     .line 257
     .end local v1    # "legacyCameraDeviceClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v2    # "detectSurfaceType":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_2d
     move-exception v1
 
-    goto :goto_0
+    goto :goto_34
 
-    :catch_1
+    :catch_2f
     move-exception v1
 
-    goto :goto_0
+    goto :goto_34
 
-    :catch_2
+    :catch_31
     move-exception v1
 
-    goto :goto_0
+    goto :goto_34
 
-    :catch_3
+    :catch_33
     move-exception v1
 
     .line 261
     .local v1, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_34
     const-string v2, "OutputConfigCompat"
 
     const-string v3, "Unable to retrieve surface format."
@@ -215,7 +215,7 @@
 .end method
 
 .method private static getSurfaceGenerationId(Landroid/view/Surface;)I
-    .locals 4
+    .registers 5
     .param p0, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -253,31 +253,31 @@
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_17} :catch_1c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_17} :catch_1a
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_17} :catch_18
 
     return v1
 
     .line 273
     .end local v0    # "getGenerationId":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_18
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :catch_1
+    :catch_1a
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :catch_2
+    :catch_1c
     move-exception v0
 
     .line 274
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_1d
     const-string v1, "OutputConfigCompat"
 
     const-string v2, "Unable to retrieve surface generation id."
@@ -291,7 +291,7 @@
 .end method
 
 .method private static getSurfaceSize(Landroid/view/Surface;)Landroid/util/Size;
-    .locals 7
+    .registers 8
     .param p0, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -305,7 +305,7 @@
     .line 232
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     const-string v1, "android.hardware.camera2.legacy.LegacyCameraDevice"
 
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -344,38 +344,38 @@
     move-result-object v3
 
     check-cast v3, Landroid/util/Size;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_22
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_22} :catch_29
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_22} :catch_27
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_22} :catch_25
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_22} :catch_23
 
     return-object v3
 
     .line 237
     .end local v1    # "legacyCameraDeviceClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v2    # "getSurfaceSize":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_23
     move-exception v1
 
-    goto :goto_0
+    goto :goto_2a
 
-    :catch_1
+    :catch_25
     move-exception v1
 
-    goto :goto_0
+    goto :goto_2a
 
-    :catch_2
+    :catch_27
     move-exception v1
 
-    goto :goto_0
+    goto :goto_2a
 
-    :catch_3
+    :catch_29
     move-exception v1
 
     .line 241
     .local v1, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_2a
     const-string v2, "OutputConfigCompat"
 
     const-string v3, "Unable to retrieve surface size."
@@ -389,7 +389,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "obj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -405,13 +405,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 284
     return v1
 
     .line 287
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;
@@ -426,25 +426,25 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_57
 
     iget v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;->mConfiguredFormat:I
 
     iget v3, v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;->mConfiguredFormat:I
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_57
 
     iget v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;->mConfiguredGenerationId:I
 
     iget v3, v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;->mConfiguredGenerationId:I
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_57
 
     iget-boolean v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;->mIsShared:Z
 
     iget-boolean v3, v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;->mIsShared:Z
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_57
 
     iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;->mPhysicalCameraId:Ljava/lang/String;
 
@@ -455,12 +455,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_30
 
-    goto :goto_1
+    goto :goto_57
 
     .line 297
-    :cond_1
+    :cond_30
     iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;->mSurfaces:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
@@ -482,8 +482,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_3
+    :goto_41
+    if-ge v3, v2, :cond_55
 
     .line 299
     iget-object v4, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;->mSurfaces:Ljava/util/List;
@@ -498,33 +498,33 @@
 
     move-result-object v5
 
-    if-eq v4, v5, :cond_2
+    if-eq v4, v5, :cond_52
 
     .line 300
     return v1
 
     .line 298
-    :cond_2
+    :cond_52
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_41
 
     .line 304
     .end local v3    # "i":I
-    :cond_3
+    :cond_55
     const/4 v1, 0x1
 
     return v1
 
     .line 294
     .end local v2    # "minLen":I
-    :cond_4
-    :goto_1
+    :cond_57
+    :goto_57
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 309
     const/4 v0, 0x1
@@ -592,20 +592,20 @@
     .line 319
     iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;->mPhysicalCameraId:Ljava/lang/String;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_35
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_3b
 
-    :cond_0
+    :cond_35
     iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl$OutputConfigurationParamsApi21;->mPhysicalCameraId:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v2
 
-    :goto_0
+    :goto_3b
     xor-int v0, v1, v2
 
     .line 321

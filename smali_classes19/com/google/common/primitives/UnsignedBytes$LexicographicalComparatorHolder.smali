@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 290
     nop
@@ -71,7 +71,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 289
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +80,7 @@
 .end method
 
 .method static getBestComparator()Ljava/util/Comparator;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -116,8 +116,8 @@
     aget-object v2, v1, v2
 
     check-cast v2, Ljava/util/Comparator;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_0 .. :try_end_15} :catchall_16
 
     .line 448
     .local v2, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<[B>;"
@@ -127,7 +127,7 @@
     .end local v0    # "theClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v1    # "constants":[Ljava/lang/Object;
     .end local v2    # "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<[B>;"
-    :catchall_0
+    :catchall_16
     move-exception v0
 
     .line 450

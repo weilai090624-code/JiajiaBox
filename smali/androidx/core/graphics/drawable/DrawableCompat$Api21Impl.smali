@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 427
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static applyTheme(Landroid/graphics/drawable/Drawable;Landroid/content/res/Resources$Theme;)V
-    .locals 0
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "t"    # Landroid/content/res/Resources$Theme;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static canApplyTheme(Landroid/graphics/drawable/Drawable;)Z
-    .locals 1
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 458
@@ -50,7 +50,7 @@
 .end method
 
 .method static getColorFilter(Landroid/graphics/drawable/Drawable;)Landroid/graphics/ColorFilter;
-    .locals 1
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 463
@@ -62,7 +62,7 @@
 .end method
 
 .method static inflate(Landroid/graphics/drawable/Drawable;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-    .locals 0
+    .registers 5
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "r"    # Landroid/content/res/Resources;
     .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
@@ -83,7 +83,7 @@
 .end method
 
 .method static setHotspot(Landroid/graphics/drawable/Drawable;FF)V
-    .locals 0
+    .registers 3
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "x"    # F
     .param p2, "y"    # F
@@ -96,7 +96,7 @@
 .end method
 
 .method static setHotspotBounds(Landroid/graphics/drawable/Drawable;IIII)V
-    .locals 0
+    .registers 5
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "left"    # I
     .param p2, "top"    # I
@@ -111,7 +111,7 @@
 .end method
 
 .method static setTint(Landroid/graphics/drawable/Drawable;I)V
-    .locals 0
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "tintColor"    # I
 
@@ -123,7 +123,7 @@
 .end method
 
 .method static setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
@@ -135,7 +135,7 @@
 .end method
 
 .method static setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 

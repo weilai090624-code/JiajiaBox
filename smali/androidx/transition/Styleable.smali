@@ -47,14 +47,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 30
     const/4 v0, 0x6
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_7c
 
     sput-object v0, Landroidx/transition/Styleable;->TRANSITION_TARGET:[I
 
@@ -168,7 +168,7 @@
 
     nop
 
-    :array_0
+    :array_7c
     .array-data 4
         0x101002f
         0x10103dc
@@ -180,7 +180,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 178
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

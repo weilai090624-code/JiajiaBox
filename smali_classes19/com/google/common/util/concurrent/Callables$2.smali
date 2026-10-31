@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ListeningExecutorService;Ljava/util/concurrent/Callable;)V
-    .locals 0
+    .registers 3
 
     .line 63
     iput-object p1, p0, Lcom/google/common/util/concurrent/Callables$2;->val$listeningExecutorService:Lcom/google/common/util/concurrent/ListeningExecutorService;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public call()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

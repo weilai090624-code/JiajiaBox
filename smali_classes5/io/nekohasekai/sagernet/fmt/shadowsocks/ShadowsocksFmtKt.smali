@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final buildSingBoxOutboundShadowsocksBean(Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;)Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_ShadowsocksOptions;
-    .locals 8
+    .registers 9
     .param p0, "bean"    # Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
 
     const-string v0, "bean"
@@ -90,7 +90,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_57
 
     .line 118
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->plugin:Ljava/lang/String;
@@ -129,7 +129,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_57
 
     .line 121
     iput-object v6, v1, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_ShadowsocksOptions;->plugin:Ljava/lang/String;
@@ -138,7 +138,7 @@
     iput-object v6, v1, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_ShadowsocksOptions;->plugin_opts:Ljava/lang/String;
 
     .line 125
-    :cond_0
+    :cond_57
     nop
 
     .line 111
@@ -148,7 +148,7 @@
 .end method
 
 .method public static final fixPluginName(Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;)V
-    .locals 8
+    .registers 9
     .param p0, "$this$fixPluginName"    # Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
 
     const-string v0, "<this>"
@@ -174,7 +174,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 11
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->plugin:Ljava/lang/String;
@@ -198,12 +198,12 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->plugin:Ljava/lang/String;
 
     .line 13
-    :cond_0
+    :cond_29
     return-void
 .end method
 
 .method public static final parseShadowsocks(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
-    .locals 14
+    .registers 15
     .param p0, "url"    # Ljava/lang/String;
 
     const-string v0, "url"
@@ -239,7 +239,7 @@
 
     const-string v7, ""
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_13b
 
     .line 18
     const/4 v3, 0x0
@@ -267,7 +267,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_11e
 
     .line 19
     move-object v3, v5
@@ -283,7 +283,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_96
 
     .line 23
     sget-object v5, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
@@ -325,7 +325,7 @@
     move-result-object v4
 
     .line 23
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_79
 
     .line 27
     invoke-virtual {v4}, Lokhttp3/HttpUrl;->newBuilder()Lokhttp3/HttpUrl$Builder;
@@ -347,9 +347,9 @@
     .line 23
     move-object v3, v0
 
-    goto :goto_0
+    goto :goto_96
 
-    :cond_0
+    :cond_79
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 26
@@ -380,8 +380,8 @@
     throw v0
 
     .line 32
-    :cond_1
-    :goto_0
+    :cond_96
+    :goto_96
     invoke-virtual {v3}, Lokhttp3/HttpUrl;->password()Ljava/lang/String;
 
     move-result-object v0
@@ -394,7 +394,7 @@
 
     const-string v4, "plugin"
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_dc
 
     .line 33
     new-instance v0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
@@ -444,14 +444,14 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_ce
 
-    goto :goto_1
+    goto :goto_cf
 
-    :cond_2
+    :cond_ce
     move-object v7, v4
 
-    :goto_1
+    :goto_cf
     iput-object v7, v1, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->plugin:Ljava/lang/String;
 
     .line 39
@@ -473,7 +473,7 @@
     return-object v0
 
     .line 44
-    :cond_3
+    :cond_dc
     invoke-virtual {v3}, Lokhttp3/HttpUrl;->username()Ljava/lang/String;
 
     move-result-object v0
@@ -533,14 +533,14 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_110
 
-    goto :goto_2
+    goto :goto_111
 
-    :cond_4
+    :cond_110
     move-object v7, v1
 
-    :goto_2
+    :goto_111
     iput-object v7, v6, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->plugin:Ljava/lang/String;
 
     .line 52
@@ -563,7 +563,7 @@
 
     .line 18
     .end local v0    # "methodAndPswd":Ljava/lang/String;
-    :cond_5
+    :cond_11e
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 19
@@ -595,7 +595,7 @@
 
     .line 57
     .end local v3    # "link":Ljava/lang/Object;
-    :cond_6
+    :cond_13b
     move-object v3, p0
 
     .line 59
@@ -612,14 +612,14 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_14c
 
     invoke-static {v3, v0, v1, v2, v1}, Lkotlin/text/StringsKt;->substringBefore$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     .line 61
-    :cond_7
+    :cond_14c
     sget-object v5, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -654,7 +654,7 @@
     move-result-object v4
 
     .line 61
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_1a7
 
     .line 64
     .local v4, "link":Lokhttp3/HttpUrl;
@@ -722,12 +722,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_1a5
 
     iput-object v0, v6, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->name:Ljava/lang/String;
 
     .line 72
-    :cond_8
+    :cond_1a5
     nop
 
     .line 64
@@ -738,7 +738,7 @@
 
     .line 61
     .end local v4    # "link":Lokhttp3/HttpUrl;
-    :cond_9
+    :cond_1a7
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 62
@@ -770,7 +770,7 @@
 .end method
 
 .method public static final parseShadowsocks(Lorg/json/JSONObject;)Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
-    .locals 7
+    .registers 8
     .param p0, "$this$parseShadowsocks"    # Lorg/json/JSONObject;
 
     const-string v0, "<this>"
@@ -848,27 +848,27 @@
 
     check-cast v5, Ljava/lang/CharSequence;
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_4a
 
     invoke-static {v5}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_48
 
-    goto :goto_0
+    goto :goto_4a
 
-    :cond_0
+    :cond_48
     const/4 v5, 0x0
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_1
-    :goto_0
+    :cond_4a
+    :goto_4a
     const/4 v5, 0x1
 
-    :goto_1
-    if-nez v5, :cond_2
+    :goto_4b
+    if-nez v5, :cond_6c
 
     .line 105
     new-instance v5, Ljava/lang/StringBuilder;
@@ -902,7 +902,7 @@
     iput-object v4, v1, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->plugin:Ljava/lang/String;
 
     .line 107
-    :cond_2
+    :cond_6c
     nop
 
     .line 96
@@ -913,7 +913,7 @@
 .end method
 
 .method public static final toUri(Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;)Ljava/lang/String;
-    .locals 11
+    .registers 12
     .param p0, "$this$toUri"    # Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
 
     const-string v0, "<this>"
@@ -1006,7 +1006,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_5f
 
     .line 84
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->plugin:Ljava/lang/String;
@@ -1014,7 +1014,7 @@
     invoke-virtual {v0, v2, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 87
-    :cond_0
+    :cond_5f
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->name:Ljava/lang/String;
 
     const-string v2, "name"
@@ -1027,7 +1027,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_7a
 
     .line 88
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->name:Ljava/lang/String;
@@ -1041,7 +1041,7 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->encodedFragment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 91
-    :cond_1
+    :cond_7a
     const/4 v1, 0x2
 
     const/4 v2, 0x0

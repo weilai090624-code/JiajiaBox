@@ -31,7 +31,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 57
     .local p0, "this":Lcom/google/common/collect/ForwardingMultiset;, "Lcom/google/common/collect/ForwardingMultiset<TE;>;"
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -70,7 +70,7 @@
 .end method
 
 .method public count(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -100,7 +100,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ForwardingMultiset;, "Lcom/google/common/collect/ForwardingMultiset<TE;>;"
@@ -112,7 +112,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 51
     .local p0, "this":Lcom/google/common/collect/ForwardingMultiset;, "Lcom/google/common/collect/ForwardingMultiset<TE;>;"
@@ -124,7 +124,7 @@
 .end method
 
 .method public elementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -147,7 +147,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -171,7 +171,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -179,7 +179,7 @@
 
     .line 91
     .local p0, "this":Lcom/google/common/collect/ForwardingMultiset;, "Lcom/google/common/collect/ForwardingMultiset<TE;>;"
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingMultiset;->delegate()Lcom/google/common/collect/Multiset;
 
@@ -189,25 +189,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 96
     .local p0, "this":Lcom/google/common/collect/ForwardingMultiset;, "Lcom/google/common/collect/ForwardingMultiset<TE;>;"
@@ -223,7 +223,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -244,7 +244,7 @@
 .end method
 
 .method public setCount(Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -271,7 +271,7 @@
 .end method
 
 .method public setCount(Ljava/lang/Object;II)Z
-    .locals 1
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -299,7 +299,7 @@
 .end method
 
 .method protected standardAdd(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -322,7 +322,7 @@
 .end method
 
 .method protected standardAddAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -342,7 +342,7 @@
 .end method
 
 .method protected standardClear()V
-    .locals 1
+    .registers 2
 
     .line 131
     .local p0, "this":Lcom/google/common/collect/ForwardingMultiset;, "Lcom/google/common/collect/ForwardingMultiset<TE;>;"
@@ -361,7 +361,7 @@
 .end method
 
 .method protected standardContains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -373,21 +373,21 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method protected standardCount(Ljava/lang/Object;)I
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -403,12 +403,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_24
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -426,7 +426,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     .line 145
     invoke-interface {v1}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
@@ -437,18 +437,18 @@
 
     .line 147
     .end local v1    # "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
-    :cond_0
-    goto :goto_0
+    :cond_23
+    goto :goto_8
 
     .line 148
-    :cond_1
+    :cond_24
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method protected standardEquals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -464,7 +464,7 @@
 .end method
 
 .method protected standardHashCode()I
-    .locals 1
+    .registers 2
 
     .line 303
     .local p0, "this":Lcom/google/common/collect/ForwardingMultiset;, "Lcom/google/common/collect/ForwardingMultiset<TE;>;"
@@ -480,7 +480,7 @@
 .end method
 
 .method protected standardIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -499,7 +499,7 @@
 .end method
 
 .method protected standardRemove(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -513,19 +513,19 @@
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method protected standardRemoveAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -545,7 +545,7 @@
 .end method
 
 .method protected standardRetainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -565,7 +565,7 @@
 .end method
 
 .method protected standardSetCount(Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -588,7 +588,7 @@
 .end method
 
 .method protected standardSetCount(Ljava/lang/Object;II)Z
-    .locals 1
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -612,7 +612,7 @@
 .end method
 
 .method protected standardSize()I
-    .locals 1
+    .registers 2
 
     .line 281
     .local p0, "this":Lcom/google/common/collect/ForwardingMultiset;, "Lcom/google/common/collect/ForwardingMultiset<TE;>;"
@@ -624,7 +624,7 @@
 .end method
 
 .method protected standardToString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 315
     .local p0, "this":Lcom/google/common/collect/ForwardingMultiset;, "Lcom/google/common/collect/ForwardingMultiset<TE;>;"

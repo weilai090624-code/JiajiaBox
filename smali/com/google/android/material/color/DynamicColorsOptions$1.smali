@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public shouldApplyDynamicColors(Landroid/app/Activity;I)Z
-    .locals 1
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "theme"    # I
 

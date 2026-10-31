@@ -86,7 +86,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/Channel;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 5
     .param p1, "parentContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "channel"    # Lkotlinx/coroutines/channels/Channel;
     .param p3, "block"    # Lkotlin/jvm/functions/Function2;
@@ -130,7 +130,7 @@
 .end method
 
 .method public static final synthetic access$onSendRegFunction(Lkotlinx/coroutines/channels/LazyActorCoroutine;Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/channels/LazyActorCoroutine;
     .param p1, "select"    # Lkotlinx/coroutines/selects/SelectInstance;
     .param p2, "element"    # Ljava/lang/Object;
@@ -142,13 +142,13 @@
 .end method
 
 .method public static synthetic getOnSend$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private final onSendRegFunction(Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "select"    # Lkotlinx/coroutines/selects/SelectInstance;
     .param p2, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -182,7 +182,7 @@
 
 # virtual methods
 .method public close(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 183
@@ -199,7 +199,7 @@
 .end method
 
 .method public getOnSend()Lkotlinx/coroutines/selects/SelectClause2;
-    .locals 8
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -262,7 +262,7 @@
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -291,7 +291,7 @@
 .end method
 
 .method protected onStart()V
-    .locals 2
+    .registers 3
 
     .line 157
     iget-object v0, p0, Lkotlinx/coroutines/channels/LazyActorCoroutine;->continuation:Lkotlin/coroutines/Continuation;
@@ -307,7 +307,7 @@
 .end method
 
 .method public send(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "element"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -333,18 +333,18 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     return-object v0
 
-    :cond_0
+    :cond_e
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method public trySend-JP2dKIU(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

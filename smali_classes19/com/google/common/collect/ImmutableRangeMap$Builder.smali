@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 96
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap$Builder;, "Lcom/google/common/collect/ImmutableRangeMap$Builder<TK;TV;>;"
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public build()Lcom/google/common/collect/ImmutableRangeMap;
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -114,14 +114,14 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_24
     iget-object v3, p0, Lcom/google/common/collect/ImmutableRangeMap$Builder;->entries:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_b1
 
     .line 140
     iget-object v3, p0, Lcom/google/common/collect/ImmutableRangeMap$Builder;->entries:Ljava/util/List;
@@ -140,7 +140,7 @@
 
     .line 141
     .local v3, "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TK;>;"
-    if-lez v2, :cond_1
+    if-lez v2, :cond_9b
 
     .line 142
     iget-object v4, p0, Lcom/google/common/collect/ImmutableRangeMap$Builder;->entries:Ljava/util/List;
@@ -165,7 +165,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_9b
 
     invoke-virtual {v3, v4}, Lcom/google/common/collect/Range;->intersection(Lcom/google/common/collect/Range;)Lcom/google/common/collect/Range;
 
@@ -175,12 +175,12 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_5d
 
-    goto :goto_1
+    goto :goto_9b
 
     .line 144
-    :cond_0
+    :cond_5d
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -245,8 +245,8 @@
 
     .line 148
     .end local v4    # "prevRange":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TK;>;"
-    :cond_1
-    :goto_1
+    :cond_9b
+    :goto_9b
     invoke-virtual {v0, v3}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
 
     .line 149
@@ -268,11 +268,11 @@
     .end local v3    # "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TK;>;"
     add-int/lit8 v2, v2, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_24
 
     .line 151
     .end local v2    # "i":I
-    :cond_2
+    :cond_b1
     new-instance v2, Lcom/google/common/collect/ImmutableRangeMap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
@@ -289,7 +289,7 @@
 .end method
 
 .method combine(Lcom/google/common/collect/ImmutableRangeMap$Builder;)Lcom/google/common/collect/ImmutableRangeMap$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -314,7 +314,7 @@
 .end method
 
 .method public put(Lcom/google/common/collect/Range;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableRangeMap$Builder;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -359,7 +359,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/RangeMap;)Lcom/google/common/collect/ImmutableRangeMap$Builder;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -385,12 +385,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -414,9 +414,9 @@
 
     .line 119
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lcom/google/common/collect/Range<TK;>;+TV;>;"
-    goto :goto_0
+    goto :goto_c
 
     .line 120
-    :cond_0
+    :cond_26
     return-object p0
 .end method

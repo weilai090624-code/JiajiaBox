@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     .local p0, "this":Lorg/ini4j/CommonMultiMap;, "Lorg/ini4j/CommonMultiMap<TK;TV;>;"
@@ -59,7 +59,7 @@
 .end method
 
 .method private makeKey(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "category"    # Ljava/lang/String;
     .param p2, "key"    # Ljava/lang/Object;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method private meta()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -109,7 +109,7 @@
     .local p0, "this":Lorg/ini4j/CommonMultiMap;, "Lorg/ini4j/CommonMultiMap<TK;TV;>;"
     iget-object v0, p0, Lorg/ini4j/CommonMultiMap;->_meta:Ljava/util/SortedMap;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 129
     new-instance v0, Ljava/util/TreeMap;
@@ -119,7 +119,7 @@
     iput-object v0, p0, Lorg/ini4j/CommonMultiMap;->_meta:Ljava/util/SortedMap;
 
     .line 132
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lorg/ini4j/CommonMultiMap;->_meta:Ljava/util/SortedMap;
 
     return-object v0
@@ -128,7 +128,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 38
     .local p0, "this":Lorg/ini4j/CommonMultiMap;, "Lorg/ini4j/CommonMultiMap<TK;TV;>;"
@@ -137,7 +137,7 @@
     .line 39
     iget-object v0, p0, Lorg/ini4j/CommonMultiMap;->_meta:Ljava/util/SortedMap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 41
     iget-object v0, p0, Lorg/ini4j/CommonMultiMap;->_meta:Ljava/util/SortedMap;
@@ -145,12 +145,12 @@
     invoke-interface {v0}, Ljava/util/SortedMap;->clear()V
 
     .line 43
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public getComment(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 33
@@ -167,7 +167,7 @@
 .end method
 
 .method getMeta(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "category"    # Ljava/lang/String;
     .param p2, "key"    # Ljava/lang/Object;
 
@@ -175,13 +175,13 @@
     .local p0, "this":Lorg/ini4j/CommonMultiMap;, "Lorg/ini4j/CommonMultiMap<TK;TV;>;"
     iget-object v0, p0, Lorg/ini4j/CommonMultiMap;->_meta:Ljava/util/SortedMap;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lorg/ini4j/CommonMultiMap;->_meta:Ljava/util/SortedMap;
 
     invoke-direct {p0, p1, p2}, Lorg/ini4j/CommonMultiMap;->makeKey(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -192,12 +192,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_10
     return-object v0
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -214,7 +214,7 @@
     .line 49
     instance-of v0, p1, Lorg/ini4j/CommonMultiMap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 51
     move-object v0, p1
@@ -225,7 +225,7 @@
 
     .line 53
     .local v0, "meta":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 55
     invoke-direct {p0}, Lorg/ini4j/CommonMultiMap;->meta()Ljava/util/Map;
@@ -236,12 +236,12 @@
 
     .line 58
     .end local v0    # "meta":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public putComment(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p2, "comment"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -267,7 +267,7 @@
 .end method
 
 .method putMeta(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "category"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -300,7 +300,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -325,7 +325,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -348,18 +348,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     .line 80
     invoke-virtual {p0, p1}, Lorg/ini4j/CommonMultiMap;->removeMeta(Ljava/lang/Object;)V
 
     .line 83
-    :cond_0
+    :cond_d
     return-object v0
 .end method
 
 .method public removeComment(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 88
@@ -376,7 +376,7 @@
 .end method
 
 .method removeMeta(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "category"    # Ljava/lang/String;
     .param p2, "key"    # Ljava/lang/Object;
 
@@ -384,13 +384,13 @@
     .local p0, "this":Lorg/ini4j/CommonMultiMap;, "Lorg/ini4j/CommonMultiMap<TK;TV;>;"
     iget-object v0, p0, Lorg/ini4j/CommonMultiMap;->_meta:Ljava/util/SortedMap;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lorg/ini4j/CommonMultiMap;->_meta:Ljava/util/SortedMap;
 
     invoke-direct {p0, p1, p2}, Lorg/ini4j/CommonMultiMap;->makeKey(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -401,19 +401,19 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_10
     return-object v0
 .end method
 
 .method removeMeta(Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 103
     .local p0, "this":Lorg/ini4j/CommonMultiMap;, "Lorg/ini4j/CommonMultiMap<TK;TV;>;"
     iget-object v0, p0, Lorg/ini4j/CommonMultiMap;->_meta:Ljava/util/SortedMap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 105
     iget-object v0, p0, Lorg/ini4j/CommonMultiMap;->_meta:Ljava/util/SortedMap;
@@ -437,6 +437,6 @@
     invoke-interface {v0}, Ljava/util/SortedMap;->clear()V
 
     .line 107
-    :cond_0
+    :cond_19
     return-void
 .end method

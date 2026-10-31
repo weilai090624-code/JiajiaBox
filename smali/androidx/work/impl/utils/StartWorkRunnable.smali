@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/impl/WorkManagerImpl;Landroidx/work/impl/StartStopToken;Landroidx/work/WorkerParameters$RuntimeExtras;)V
-    .locals 0
+    .registers 4
     .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .param p2, "workSpecId"    # Landroidx/work/impl/StartStopToken;
     .param p3, "runtimeExtras"    # Landroidx/work/WorkerParameters$RuntimeExtras;
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 49
     iget-object v0, p0, Landroidx/work/impl/utils/StartWorkRunnable;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;

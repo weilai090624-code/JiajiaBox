@@ -99,7 +99,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/connection/RealCall;Ljava/util/List;ILokhttp3/internal/connection/Exchange;Lokhttp3/Request;III)V
-    .locals 1
+    .registers 10
     .param p1, "call"    # Lokhttp3/internal/connection/RealCall;
     .param p2, "interceptors"    # Ljava/util/List;
     .param p3, "index"    # I
@@ -166,12 +166,12 @@
 .end method
 
 .method public static synthetic copy$okhttp$default(Lokhttp3/internal/http/RealInterceptorChain;ILokhttp3/internal/connection/Exchange;Lokhttp3/Request;IIIILjava/lang/Object;)Lokhttp3/internal/http/RealInterceptorChain;
-    .locals 4
+    .registers 13
 
     .line 49
     and-int/lit8 p8, p7, 0x1
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_7
 
     .line 50
     nop
@@ -179,10 +179,10 @@
     .line 49
     iget p1, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
 
-    :cond_0
+    :cond_7
     and-int/lit8 p8, p7, 0x2
 
-    if-eqz p8, :cond_1
+    if-eqz p8, :cond_e
 
     .line 51
     nop
@@ -190,12 +190,12 @@
     .line 49
     iget-object p2, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
 
-    :cond_1
+    :cond_e
     move-object p8, p2
 
     and-int/lit8 p2, p7, 0x4
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_16
 
     .line 52
     nop
@@ -203,12 +203,12 @@
     .line 49
     iget-object p3, p0, Lokhttp3/internal/http/RealInterceptorChain;->request:Lokhttp3/Request;
 
-    :cond_2
+    :cond_16
     move-object v0, p3
 
     and-int/lit8 p2, p7, 0x8
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_1e
 
     .line 53
     nop
@@ -216,12 +216,12 @@
     .line 49
     iget p4, p0, Lokhttp3/internal/http/RealInterceptorChain;->connectTimeoutMillis:I
 
-    :cond_3
+    :cond_1e
     move v1, p4
 
     and-int/lit8 p2, p7, 0x10
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_26
 
     .line 54
     nop
@@ -229,12 +229,12 @@
     .line 49
     iget p5, p0, Lokhttp3/internal/http/RealInterceptorChain;->readTimeoutMillis:I
 
-    :cond_4
+    :cond_26
     move v2, p5
 
     and-int/lit8 p2, p7, 0x20
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_2e
 
     .line 55
     nop
@@ -242,7 +242,7 @@
     .line 49
     iget p6, p0, Lokhttp3/internal/http/RealInterceptorChain;->writeTimeoutMillis:I
 
-    :cond_5
+    :cond_2e
     move v3, p6
 
     move-object p2, p0
@@ -269,7 +269,7 @@
 
 # virtual methods
 .method public call()Lokhttp3/Call;
-    .locals 1
+    .registers 2
 
     .line 85
     iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->call:Lokhttp3/internal/connection/RealCall;
@@ -280,7 +280,7 @@
 .end method
 
 .method public connectTimeoutMillis()I
-    .locals 1
+    .registers 2
 
     .line 61
     iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->connectTimeoutMillis:I
@@ -289,30 +289,30 @@
 .end method
 
 .method public connection()Lokhttp3/Connection;
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_6
     invoke-virtual {v0}, Lokhttp3/internal/connection/Exchange;->getConnection$okhttp()Lokhttp3/internal/connection/RealConnection;
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     check-cast v0, Lokhttp3/Connection;
 
     return-object v0
 .end method
 
 .method public final copy$okhttp(ILokhttp3/internal/connection/Exchange;Lokhttp3/Request;III)Lokhttp3/internal/http/RealInterceptorChain;
-    .locals 12
+    .registers 19
     .param p1, "index"    # I
     .param p2, "exchange"    # Lokhttp3/internal/connection/Exchange;
     .param p3, "request"    # Lokhttp3/Request;
@@ -360,7 +360,7 @@
 .end method
 
 .method public final getCall$okhttp()Lokhttp3/internal/connection/RealCall;
-    .locals 1
+    .registers 2
 
     .line 37
     iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->call:Lokhttp3/internal/connection/RealCall;
@@ -369,7 +369,7 @@
 .end method
 
 .method public final getConnectTimeoutMillis$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 42
     iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->connectTimeoutMillis:I
@@ -378,7 +378,7 @@
 .end method
 
 .method public final getExchange$okhttp()Lokhttp3/internal/connection/Exchange;
-    .locals 1
+    .registers 2
 
     .line 40
     iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
@@ -387,7 +387,7 @@
 .end method
 
 .method public final getReadTimeoutMillis$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 43
     iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->readTimeoutMillis:I
@@ -396,7 +396,7 @@
 .end method
 
 .method public final getRequest$okhttp()Lokhttp3/Request;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->request:Lokhttp3/Request;
@@ -405,7 +405,7 @@
 .end method
 
 .method public final getWriteTimeoutMillis$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 44
     iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->writeTimeoutMillis:I
@@ -414,7 +414,7 @@
 .end method
 
 .method public proceed(Lokhttp3/Request;)Lokhttp3/Response;
-    .locals 14
+    .registers 16
     .param p1, "request"    # Lokhttp3/Request;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -439,17 +439,17 @@
 
     const/4 v3, 0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_c
+    :goto_14
+    if-eqz v0, :cond_143
 
     .line 93
     iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->calls:I
@@ -465,7 +465,7 @@
 
     const-string v4, "network interceptor "
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_95
 
     .line 96
     iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
@@ -482,26 +482,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_68
 
     .line 99
     iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->calls:I
 
-    if-ne v0, v3, :cond_1
+    if-ne v0, v3, :cond_39
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_1
+    :cond_39
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_3a
+    if-eqz v0, :cond_3d
 
-    goto :goto_2
+    goto :goto_95
 
-    :cond_2
+    :cond_3d
     const/4 v0, 0x0
 
     .line 100
@@ -551,7 +551,7 @@
     throw v1
 
     .line 96
-    :cond_3
+    :cond_68
     const/4 v0, 0x0
 
     .line 97
@@ -603,8 +603,8 @@
     throw v1
 
     .line 105
-    :cond_4
-    :goto_2
+    :cond_95
+    :goto_95
     iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
 
     add-int/lit8 v6, v0, 0x1
@@ -653,7 +653,7 @@
 
     const-string v7, "interceptor "
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_126
 
     .line 108
     nop
@@ -662,7 +662,7 @@
     .local v6, "response":Lokhttp3/Response;
     iget-object v8, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_f8
 
     .line 113
     iget v8, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
@@ -675,29 +675,29 @@
 
     move-result v9
 
-    if-ge v8, v9, :cond_6
+    if-ge v8, v9, :cond_d2
 
     iget v8, v0, Lokhttp3/internal/http/RealInterceptorChain;->calls:I
 
-    if-ne v8, v3, :cond_5
+    if-ne v8, v3, :cond_d0
 
-    goto :goto_3
+    goto :goto_d2
 
-    :cond_5
+    :cond_d0
     const/4 v8, 0x0
 
-    goto :goto_4
+    goto :goto_d3
 
-    :cond_6
-    :goto_3
+    :cond_d2
+    :goto_d2
     const/4 v8, 0x1
 
-    :goto_4
-    if-eqz v8, :cond_7
+    :goto_d3
+    if-eqz v8, :cond_d6
 
-    goto :goto_5
+    goto :goto_f8
 
-    :cond_7
+    :cond_d6
     const/4 v2, 0x0
 
     .line 114
@@ -737,24 +737,24 @@
     throw v2
 
     .line 118
-    :cond_8
-    :goto_5
+    :cond_f8
+    :goto_f8
     invoke-virtual {v6}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
     move-result-object v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_ff
 
     const/4 v2, 0x1
 
-    :cond_9
-    if-eqz v2, :cond_a
+    :cond_ff
+    if-eqz v2, :cond_102
 
     .line 120
     return-object v6
 
     .line 124
-    :cond_a
+    :cond_102
     const/4 v1, 0x0
 
     .line 118
@@ -796,7 +796,7 @@
 
     .line 109
     .end local v6    # "response":Lokhttp3/Response;
-    :cond_b
+    :cond_126
     new-instance v1, Ljava/lang/NullPointerException;
 
     .line 110
@@ -830,7 +830,7 @@
     .line 91
     .end local v0    # "next":Lokhttp3/internal/http/RealInterceptorChain;
     .end local v5    # "interceptor":Lokhttp3/Interceptor;
-    :cond_c
+    :cond_143
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Check failed."
@@ -847,7 +847,7 @@
 .end method
 
 .method public readTimeoutMillis()I
-    .locals 1
+    .registers 2
 
     .line 69
     iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->readTimeoutMillis:I
@@ -856,7 +856,7 @@
 .end method
 
 .method public request()Lokhttp3/Request;
-    .locals 1
+    .registers 2
 
     .line 87
     iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->request:Lokhttp3/Request;
@@ -865,7 +865,7 @@
 .end method
 
 .method public withConnectTimeout(ILjava/util/concurrent/TimeUnit;)Lokhttp3/Interceptor$Chain;
-    .locals 12
+    .registers 15
     .param p1, "timeout"    # I
     .param p2, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -876,17 +876,17 @@
     .line 64
     iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_c
+    if-eqz v0, :cond_25
 
     .line 66
     const-string v0, "connectTimeout"
@@ -922,7 +922,7 @@
     return-object v0
 
     .line 124
-    :cond_1
+    :cond_25
     const/4 v0, 0x0
 
     .line 64
@@ -946,7 +946,7 @@
 .end method
 
 .method public withReadTimeout(ILjava/util/concurrent/TimeUnit;)Lokhttp3/Interceptor$Chain;
-    .locals 12
+    .registers 15
     .param p1, "timeout"    # I
     .param p2, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -957,17 +957,17 @@
     .line 72
     iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_c
+    if-eqz v0, :cond_25
 
     .line 74
     const-string v0, "readTimeout"
@@ -1003,7 +1003,7 @@
     return-object v0
 
     .line 124
-    :cond_1
+    :cond_25
     const/4 v0, 0x0
 
     .line 72
@@ -1027,7 +1027,7 @@
 .end method
 
 .method public withWriteTimeout(ILjava/util/concurrent/TimeUnit;)Lokhttp3/Interceptor$Chain;
-    .locals 12
+    .registers 15
     .param p1, "timeout"    # I
     .param p2, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -1038,17 +1038,17 @@
     .line 80
     iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_c
+    if-eqz v0, :cond_25
 
     .line 82
     const-string v0, "writeTimeout"
@@ -1084,7 +1084,7 @@
     return-object v0
 
     .line 124
-    :cond_1
+    :cond_25
     const/4 v0, 0x0
 
     .line 80
@@ -1108,7 +1108,7 @@
 .end method
 
 .method public writeTimeoutMillis()I
-    .locals 1
+    .registers 2
 
     .line 77
     iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->writeTimeoutMillis:I

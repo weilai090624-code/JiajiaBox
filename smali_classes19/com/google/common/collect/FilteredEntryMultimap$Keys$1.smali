@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/FilteredEntryMultimap$Keys;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/google/common/collect/FilteredEntryMultimap$Keys;
 
     .line 382
@@ -40,7 +40,7 @@
 .end method
 
 .method private removeEntriesIf(Lcom/google/common/base/Predicate;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -94,7 +94,7 @@
 .end method
 
 .method multiset()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -111,7 +111,7 @@
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -135,7 +135,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -163,7 +163,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 396
     .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap$Keys$1;, "Lcom/google/common/collect/FilteredEntryMultimap$Keys$1;"

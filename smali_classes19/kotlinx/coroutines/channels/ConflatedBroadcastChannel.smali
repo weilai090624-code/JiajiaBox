@@ -97,7 +97,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 104
     new-instance v0, Lkotlinx/coroutines/channels/BroadcastChannelImpl;
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -131,7 +131,7 @@
 .end method
 
 .method private constructor <init>(Lkotlinx/coroutines/channels/BroadcastChannelImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "broadcast"    # Lkotlinx/coroutines/channels/BroadcastChannelImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -154,7 +154,7 @@
 
 # virtual methods
 .method public cancel(Ljava/util/concurrent/CancellationException;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;->broadcast:Lkotlinx/coroutines/channels/BroadcastChannelImpl;
 
@@ -164,7 +164,7 @@
 .end method
 
 .method public synthetic cancel(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
         message = "Binary compatibility only"
@@ -180,7 +180,7 @@
 .end method
 
 .method public close(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;->broadcast:Lkotlinx/coroutines/channels/BroadcastChannelImpl;
 
@@ -192,7 +192,7 @@
 .end method
 
 .method public getOnSend()Lkotlinx/coroutines/selects/SelectClause2;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -213,7 +213,7 @@
 .end method
 
 .method public final getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -231,7 +231,7 @@
 .end method
 
 .method public final getValueOrNull()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -249,7 +249,7 @@
 .end method
 
 .method public invokeOnClose(Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -269,7 +269,7 @@
 .end method
 
 .method public isClosedForSend()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;->broadcast:Lkotlinx/coroutines/channels/BroadcastChannelImpl;
 
@@ -281,7 +281,7 @@
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -307,7 +307,7 @@
 .end method
 
 .method public openSubscription()Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -326,7 +326,7 @@
 .end method
 
 .method public send(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;",
@@ -348,7 +348,7 @@
 .end method
 
 .method public trySend-JP2dKIU(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",

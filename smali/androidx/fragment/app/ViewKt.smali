@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final findFragment(Landroid/view/View;)Landroidx/fragment/app/Fragment;
-    .locals 2
+    .registers 3
     .param p0, "$this$findFragment"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {

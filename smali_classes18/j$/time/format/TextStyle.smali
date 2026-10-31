@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     .line 96
     new-instance v0, Lj$/time/format/TextStyle;
@@ -146,7 +146,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;III)V
-    .locals 0
+    .registers 5
     .param p3, "calendarStyle"    # I
     .param p4, "zoneNameStyleIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -169,7 +169,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/format/TextStyle;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 88
@@ -185,7 +185,7 @@
 .end method
 
 .method public static values()[Lj$/time/format/TextStyle;
-    .locals 1
+    .registers 1
 
     .line 88
     sget-object v0, Lj$/time/format/TextStyle;->$VALUES:[Lj$/time/format/TextStyle;
@@ -202,7 +202,7 @@
 
 # virtual methods
 .method public asNormal()Lj$/time/format/TextStyle;
-    .locals 2
+    .registers 3
 
     .line 153
     invoke-static {}, Lj$/time/format/TextStyle;->values()[Lj$/time/format/TextStyle;
@@ -221,7 +221,7 @@
 .end method
 
 .method public asStandalone()Lj$/time/format/TextStyle;
-    .locals 2
+    .registers 3
 
     .line 144
     invoke-static {}, Lj$/time/format/TextStyle;->values()[Lj$/time/format/TextStyle;
@@ -240,7 +240,7 @@
 .end method
 
 .method public isStandalone()Z
-    .locals 2
+    .registers 3
 
     .line 136
     invoke-virtual {p0}, Lj$/time/format/TextStyle;->ordinal()I
@@ -251,19 +251,19 @@
 
     and-int/2addr v0, v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method toCalendarStyle()I
-    .locals 1
+    .registers 2
 
     .line 162
     iget v0, p0, Lj$/time/format/TextStyle;->calendarStyle:I
@@ -272,7 +272,7 @@
 .end method
 
 .method zoneNameStyleIndex()I
-    .locals 1
+    .registers 2
 
     .line 175
     iget v0, p0, Lj$/time/format/TextStyle;->zoneNameStyleIndex:I

@@ -68,7 +68,7 @@
 
 # direct methods
 .method public static final contains(Landroid/view/ViewGroup;Landroid/view/View;)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Landroid/view/ViewGroup;
     .param p1, "view"    # Landroid/view/View;
 
@@ -82,21 +82,21 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_b
     return v1
 .end method
 
 .method public static final forEach(Landroid/view/ViewGroup;Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 6
     .param p0, "$this$forEach"    # Landroid/view/ViewGroup;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -122,8 +122,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_0
+    :goto_6
+    if-ge v1, v2, :cond_12
 
     .line 54
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -135,16 +135,16 @@
     .line 53
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 56
     .end local v1    # "index":I
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public static final forEachIndexed(Landroid/view/ViewGroup;Lkotlin/jvm/functions/Function2;)V
-    .locals 5
+    .registers 7
     .param p0, "$this$forEachIndexed"    # Landroid/view/ViewGroup;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -172,8 +172,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_0
+    :goto_6
+    if-ge v1, v2, :cond_16
 
     .line 61
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -189,16 +189,16 @@
     .line 60
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 63
     .end local v1    # "index":I
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public static final get(Landroid/view/ViewGroup;I)Landroid/view/View;
-    .locals 3
+    .registers 5
     .param p0, "$this$get"    # Landroid/view/ViewGroup;
     .param p1, "index"    # I
 
@@ -207,11 +207,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-object v0
 
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -252,7 +252,7 @@
 .end method
 
 .method public static final getChildren(Landroid/view/ViewGroup;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$children"    # Landroid/view/ViewGroup;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -277,7 +277,7 @@
 .end method
 
 .method public static final getDescendants(Landroid/view/ViewGroup;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$descendants"    # Landroid/view/ViewGroup;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -302,7 +302,7 @@
 .end method
 
 .method public static final getIndices(Landroid/view/ViewGroup;)Lkotlin/ranges/IntRange;
-    .locals 3
+    .registers 4
     .param p0, "$this$indices"    # Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
@@ -323,7 +323,7 @@
 .end method
 
 .method public static final getSize(Landroid/view/ViewGroup;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$size"    # Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
@@ -338,7 +338,7 @@
 .end method
 
 .method public static final isEmpty(Landroid/view/ViewGroup;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isEmpty"    # Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
@@ -349,21 +349,21 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method public static final isNotEmpty(Landroid/view/ViewGroup;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isNotEmpty"    # Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
@@ -374,21 +374,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method public static final iterator(Landroid/view/ViewGroup;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$iterator"    # Landroid/view/ViewGroup;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -413,7 +413,7 @@
 .end method
 
 .method public static final minusAssign(Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$minusAssign"    # Landroid/view/ViewGroup;
     .param p1, "view"    # Landroid/view/View;
 
@@ -427,7 +427,7 @@
 .end method
 
 .method public static final plusAssign(Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Landroid/view/ViewGroup;
     .param p1, "view"    # Landroid/view/View;
 
@@ -441,7 +441,7 @@
 .end method
 
 .method public static final setMargins(Landroid/view/ViewGroup$MarginLayoutParams;I)V
-    .locals 1
+    .registers 3
     .param p0, "$this$setMargins"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .param p1, "size"    # I
 
@@ -456,7 +456,7 @@
 .end method
 
 .method public static final updateMargins(Landroid/view/ViewGroup$MarginLayoutParams;IIII)V
-    .locals 1
+    .registers 6
     .param p0, "$this$updateMargins"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .param p1, "left"    # I
     .param p2, "top"    # I
@@ -474,7 +474,7 @@
 .end method
 
 .method public static synthetic updateMargins$default(Landroid/view/ViewGroup$MarginLayoutParams;IIIIILjava/lang/Object;)V
-    .locals 0
+    .registers 7
     .param p0, "$this$updateMargins_u24default"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .param p1, "left"    # I
     .param p2, "top"    # I
@@ -484,40 +484,40 @@
     .line 193
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_6
 
     .line 194
     iget p1, p0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     .line 193
-    :cond_0
+    :cond_6
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_c
 
     .line 195
     iget p2, p0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
     .line 193
-    :cond_1
+    :cond_c
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_12
 
     .line 196
     iget p3, p0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
     .line 193
-    :cond_2
+    :cond_12
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_18
 
     .line 197
     iget p4, p0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
     .line 193
-    :cond_3
+    :cond_18
     const/4 p5, 0x0
 
     .line 199
@@ -529,7 +529,7 @@
 .end method
 
 .method public static final updateMarginsRelative(Landroid/view/ViewGroup$MarginLayoutParams;IIII)V
-    .locals 1
+    .registers 6
     .param p0, "$this$updateMarginsRelative"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .param p1, "start"    # I
     .param p2, "top"    # I
@@ -556,7 +556,7 @@
 .end method
 
 .method public static synthetic updateMarginsRelative$default(Landroid/view/ViewGroup$MarginLayoutParams;IIIIILjava/lang/Object;)V
-    .locals 0
+    .registers 7
     .param p0, "$this$updateMarginsRelative_u24default"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .param p1, "start"    # I
     .param p2, "top"    # I
@@ -566,7 +566,7 @@
     .line 213
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_8
 
     .line 214
     invoke-virtual {p0}, Landroid/view/ViewGroup$MarginLayoutParams;->getMarginStart()I
@@ -574,19 +574,19 @@
     move-result p1
 
     .line 213
-    :cond_0
+    :cond_8
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_e
 
     .line 215
     iget p2, p0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
     .line 213
-    :cond_1
+    :cond_e
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_16
 
     .line 216
     invoke-virtual {p0}, Landroid/view/ViewGroup$MarginLayoutParams;->getMarginEnd()I
@@ -594,16 +594,16 @@
     move-result p3
 
     .line 213
-    :cond_2
+    :cond_16
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_1c
 
     .line 217
     iget p4, p0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
     .line 213
-    :cond_3
+    :cond_1c
     const/4 p5, 0x0
 
     .line 219

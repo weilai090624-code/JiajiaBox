@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 34
     new-instance v0, Lorg/yaml/snakeyaml/nodes/Tag;
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 4
+    .registers 5
 
     .line 39
     invoke-direct {p0}, Lorg/yaml/snakeyaml/constructor/Constructor;-><init>()V
@@ -66,7 +66,7 @@
 .end method
 
 .method static synthetic access$100(Lorg/yaml/snakeyaml/env/EnvScalarConstructor;Lorg/yaml/snakeyaml/nodes/ScalarNode;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/env/EnvScalarConstructor;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/nodes/ScalarNode;
 
@@ -81,26 +81,26 @@
 
 # virtual methods
 .method public apply(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 9
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "separator"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/String;
     .param p4, "environment"    # Ljava/lang/String;
 
     .line 65
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_9
 
     invoke-virtual {p4}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     return-object p4
 
     .line 67
-    :cond_0
-    if-eqz p2, :cond_8
+    :cond_9
+    if-eqz p2, :cond_9e
 
     .line 69
     const-string v0, "?"
@@ -113,15 +113,15 @@
 
     const-string v2, ": "
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_39
 
     .line 70
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_1a
 
-    goto :goto_0
+    goto :goto_39
 
     .line 71
-    :cond_1
+    :cond_1a
     new-instance v0, Lorg/yaml/snakeyaml/error/MissingEnvironmentVariableException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -153,30 +153,30 @@
     throw v0
 
     .line 73
-    :cond_2
-    :goto_0
+    :cond_39
+    :goto_39
     const-string v0, ":?"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8a
 
     .line 74
-    if-eqz p4, :cond_4
+    if-eqz p4, :cond_6b
 
     .line 76
     invoke-virtual {p4}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4a
 
-    goto :goto_1
+    goto :goto_8a
 
     .line 77
-    :cond_3
+    :cond_4a
     new-instance v0, Lorg/yaml/snakeyaml/error/MissingEnvironmentVariableException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -210,7 +210,7 @@
     throw v0
 
     .line 75
-    :cond_4
+    :cond_6b
     new-instance v0, Lorg/yaml/snakeyaml/error/MissingEnvironmentVariableException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -242,45 +242,45 @@
     throw v0
 
     .line 79
-    :cond_5
-    :goto_1
+    :cond_8a
+    :goto_8a
     const-string v0, ":"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_9b
 
     .line 80
-    if-eqz p4, :cond_6
+    if-eqz p4, :cond_9a
 
     invoke-virtual {p4}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9e
 
     .line 81
-    :cond_6
+    :cond_9a
     return-object p3
 
     .line 83
-    :cond_7
-    if-nez p4, :cond_8
+    :cond_9b
+    if-nez p4, :cond_9e
 
     .line 84
     return-object p3
 
     .line 87
-    :cond_8
+    :cond_9e
     const-string v0, ""
 
     return-object v0
 .end method
 
 .method public getEnv(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 97

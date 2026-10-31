@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "platformTag"    # Ljava/lang/String;
     .param p2, "platformId"    # I
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/TrustedWebActivityServiceConnection$CancelNotificationArgs;
-    .locals 3
+    .registers 4
     .param p0, "bundle"    # Landroid/os/Bundle;
 
     .line 235
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public toBundle()Landroid/os/Bundle;
-    .locals 3
+    .registers 4
 
     .line 243
     new-instance v0, Landroid/os/Bundle;

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroidx/constraintlayout/core/parser/CLElement;)V
-    .locals 1
+    .registers 4
     .param p1, "reason"    # Ljava/lang/String;
     .param p2, "element"    # Landroidx/constraintlayout/core/parser/CLElement;
 
@@ -24,7 +24,7 @@
     iput-object p1, p0, Landroidx/constraintlayout/core/parser/CLParsingException;->mReason:Ljava/lang/String;
 
     .line 25
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_14
 
     .line 26
     invoke-virtual {p2}, Landroidx/constraintlayout/core/parser/CLElement;->getStrClass()Ljava/lang/String;
@@ -40,10 +40,10 @@
 
     iput v0, p0, Landroidx/constraintlayout/core/parser/CLParsingException;->mLineNumber:I
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 29
-    :cond_0
+    :cond_14
     const-string/jumbo v0, "unknown"
 
     iput-object v0, p0, Landroidx/constraintlayout/core/parser/CLParsingException;->mElementClass:Ljava/lang/String;
@@ -54,14 +54,14 @@
     iput v0, p0, Landroidx/constraintlayout/core/parser/CLParsingException;->mLineNumber:I
 
     .line 32
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 
 # virtual methods
 .method public reason()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 35
     new-instance v0, Ljava/lang/StringBuilder;
@@ -112,7 +112,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 40
     new-instance v0, Ljava/lang/StringBuilder;

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 9427
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static getAllowFreeFormInput(Landroid/app/RemoteInput;)Z
-    .locals 1
+    .registers 2
     .param p0, "remoteInput"    # Landroid/app/RemoteInput;
 
     .line 9431
@@ -37,7 +37,7 @@
 .end method
 
 .method static getChoices(Landroid/app/RemoteInput;)[Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "remoteInput"    # Landroid/app/RemoteInput;
 
     .line 9436
@@ -49,7 +49,7 @@
 .end method
 
 .method static getExtras(Landroid/app/Notification$Action;)Landroid/os/Bundle;
-    .locals 1
+    .registers 2
     .param p0, "action"    # Landroid/app/Notification$Action;
 
     .line 9466
@@ -61,7 +61,7 @@
 .end method
 
 .method static getExtras(Landroid/app/RemoteInput;)Landroid/os/Bundle;
-    .locals 1
+    .registers 2
     .param p0, "remoteInput"    # Landroid/app/RemoteInput;
 
     .line 9471
@@ -73,7 +73,7 @@
 .end method
 
 .method static getGroup(Landroid/app/Notification;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "notification"    # Landroid/app/Notification;
 
     .line 9461
@@ -85,7 +85,7 @@
 .end method
 
 .method static getLabel(Landroid/app/RemoteInput;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "remoteInput"    # Landroid/app/RemoteInput;
 
     .line 9441
@@ -97,7 +97,7 @@
 .end method
 
 .method static getRemoteInputs(Landroid/app/Notification$Action;)[Landroid/app/RemoteInput;
-    .locals 1
+    .registers 2
     .param p0, "action"    # Landroid/app/Notification$Action;
 
     .line 9451
@@ -109,7 +109,7 @@
 .end method
 
 .method static getResultKey(Landroid/app/RemoteInput;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "remoteInput"    # Landroid/app/RemoteInput;
 
     .line 9446
@@ -121,7 +121,7 @@
 .end method
 
 .method static getSortKey(Landroid/app/Notification;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "notification"    # Landroid/app/Notification;
 
     .line 9456

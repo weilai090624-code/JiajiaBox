@@ -31,15 +31,15 @@
 
 # direct methods
 .method private static final Char(I)C
-    .locals 3
+    .registers 4
     .param p0, "code"    # I
 
     .line 22
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_9
 
     const v0, 0xffff
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_9
 
     .line 25
     int-to-char v0, p0
@@ -47,7 +47,7 @@
     return v0
 
     .line 23
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -74,7 +74,7 @@
 .end method
 
 .method private static final getCode(C)I
-    .locals 0
+    .registers 1
     .param p0, "$this$code"    # C
 
     .line 50
@@ -82,7 +82,7 @@
 .end method
 
 .method public static synthetic getCode$annotations(C)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method

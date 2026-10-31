@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(JILjava/util/function/UnaryOperator;Ljava/lang/Object;)V
-    .locals 0
+    .registers 6
     .param p1, "est"    # J
     .param p3, "additionalCharacteristics"    # I
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,7 +74,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 1226
     iget-object v0, p0, Lj$/util/stream/Stream$1;->val$f:Ljava/util/function/UnaryOperator;
@@ -86,11 +86,11 @@
     move-result-object v0
 
     .local v0, "t":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_15
 
     .line 1228
     .end local v0    # "t":Ljava/lang/Object;, "TT;"
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lj$/util/stream/Stream$1;->val$seed:Ljava/lang/Object;
 
     .line 1229
@@ -98,7 +98,7 @@
     iput-boolean v1, p0, Lj$/util/stream/Stream$1;->started:Z
 
     .line 1231
-    :goto_0
+    :goto_15
     iput-object v0, p0, Lj$/util/stream/Stream$1;->prev:Ljava/lang/Object;
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V

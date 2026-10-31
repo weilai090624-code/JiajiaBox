@@ -37,7 +37,7 @@
 
 # direct methods
 .method private static final toULong(B)J
-    .locals 2
+    .registers 3
     .param p0, "$this$toULong"    # B
 
     .line 394
@@ -51,7 +51,7 @@
 .end method
 
 .method private static final toULong(D)J
-    .locals 2
+    .registers 4
     .param p0, "$this$toULong"    # D
 
     .line 450
@@ -63,7 +63,7 @@
 .end method
 
 .method private static final toULong(F)J
-    .locals 2
+    .registers 3
     .param p0, "$this$toULong"    # F
 
     .line 440
@@ -77,7 +77,7 @@
 .end method
 
 .method private static final toULong(I)J
-    .locals 2
+    .registers 3
     .param p0, "$this$toULong"    # I
 
     .line 418
@@ -91,7 +91,7 @@
 .end method
 
 .method private static final toULong(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$toULong"    # J
 
     .line 429
@@ -103,7 +103,7 @@
 .end method
 
 .method private static final toULong(S)J
-    .locals 2
+    .registers 3
     .param p0, "$this$toULong"    # S
 
     .line 406

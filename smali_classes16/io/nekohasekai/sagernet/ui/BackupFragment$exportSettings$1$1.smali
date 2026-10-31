@@ -72,7 +72,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/net/Uri;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -126,7 +126,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -169,7 +169,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -180,7 +180,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_a2
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -191,28 +191,28 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_9d
 
-    :pswitch_1
-    :try_start_0
+    :pswitch_17
+    :try_start_17
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/Exception; {:try_start_17 .. :try_end_1a} :catch_1b
 
-    goto :goto_1
+    goto :goto_77
 
     .line 52
-    :catch_0
+    :catch_1b
     move-exception v1
 
-    goto :goto_2
+    goto :goto_7f
 
     .line 42
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_1d
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 43
@@ -220,7 +220,7 @@
     nop
 
     .line 44
-    :try_start_1
+    :try_start_21
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/BackupFragment$exportSettings$1$1;->this$0:Lio/nekohasekai/sagernet/ui/BackupFragment;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/BackupFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -252,13 +252,13 @@
 
     instance-of v1, v4, Ljava/io/BufferedWriter;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_44
 
     check-cast v4, Ljava/io/BufferedWriter;
 
-    goto :goto_0
+    goto :goto_4c
 
-    :cond_0
+    :cond_44
     new-instance v1, Ljava/io/BufferedWriter;
 
     const/16 v3, 0x2000
@@ -267,14 +267,14 @@
 
     move-object v4, v1
 
-    :goto_0
+    :goto_4c
     check-cast v4, Ljava/io/Closeable;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/BackupFragment$exportSettings$1$1;->this$0:Lio/nekohasekai/sagernet/ui/BackupFragment;
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_50
+    .catch Ljava/lang/Exception; {:try_start_21 .. :try_end_50} :catch_1b
 
-    :try_start_2
+    :try_start_50
     move-object v3, v4
 
     check-cast v3, Ljava/io/BufferedWriter;
@@ -296,11 +296,11 @@
     .end local v3    # "it":Ljava/io/BufferedWriter;
     .end local v5    # "$i$a$-use-BackupFragment$exportSettings$1$1$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_5e
+    .catchall {:try_start_50 .. :try_end_5e} :catchall_78
 
     .line 46
-    :try_start_3
+    :try_start_5e
     invoke-static {v4, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .line 49
@@ -323,45 +323,45 @@
     invoke-static {v1, v3}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->onMainDispatcher(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_74
+    .catch Ljava/lang/Exception; {:try_start_5e .. :try_end_74} :catch_1b
 
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_77
 
     .line 42
     return-object v0
 
     .line 49
-    :cond_1
-    :goto_1
-    goto :goto_4
+    :cond_77
+    :goto_77
+    goto :goto_9e
 
     .line 46
-    :catchall_0
+    :catchall_78
     move-exception v1
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :try_start_4
+    :try_start_79
     throw v1
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_7a
+    .catchall {:try_start_79 .. :try_end_7a} :catchall_7a
 
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catchall_1
+    :catchall_7a
     move-exception v3
 
-    :try_start_5
+    :try_start_7b
     invoke-static {v4, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local p1    # "$result":Ljava/lang/Object;
     throw v3
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+    :try_end_7f
+    .catch Ljava/lang/Exception; {:try_start_7b .. :try_end_7f} :catch_1b
 
     .line 53
     .local v1, "e":Ljava/lang/Exception;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :goto_2
+    :goto_7f
     sget-object v3, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v4, v1
@@ -392,27 +392,27 @@
     move-result-object v1
 
     .end local v1    # "e":Ljava/lang/Exception;
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_9d
 
     .line 42
     return-object v0
 
     .line 58
-    :cond_2
-    :goto_3
+    :cond_9d
+    :goto_9d
     nop
 
-    :goto_4
+    :goto_9e
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a2
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1d
+        :pswitch_17
+        :pswitch_12
     .end packed-switch
 .end method

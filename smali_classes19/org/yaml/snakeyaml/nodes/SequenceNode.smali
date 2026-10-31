@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/util/List;Ljava/lang/Boolean;)V
-    .locals 1
+    .registers 5
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p3, "style"    # Ljava/lang/Boolean;
     .annotation system Ldalvik/annotation/Signature;
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/util/List;Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
-    .locals 7
+    .registers 11
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p3, "flowStyle"    # Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
     .annotation system Ldalvik/annotation/Signature;
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;ZLjava/util/List;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/Boolean;)V
-    .locals 7
+    .registers 14
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "resolved"    # Z
     .param p4, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -145,7 +145,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;ZLjava/util/List;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
-    .locals 2
+    .registers 9
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "resolved"    # Z
     .param p4, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -171,7 +171,7 @@
     invoke-direct {p0, p1, p4, p5, p6}, Lorg/yaml/snakeyaml/nodes/CollectionNode;-><init>(Lorg/yaml/snakeyaml/nodes/Tag;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
 
     .line 35
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_a
 
     .line 38
     iput-object p3, p0, Lorg/yaml/snakeyaml/nodes/SequenceNode;->value:Ljava/util/List;
@@ -183,7 +183,7 @@
     return-void
 
     .line 36
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "value in a Node is required."
@@ -196,7 +196,7 @@
 
 # virtual methods
 .method public getNodeId()Lorg/yaml/snakeyaml/nodes/NodeId;
-    .locals 1
+    .registers 2
 
     .line 69
     sget-object v0, Lorg/yaml/snakeyaml/nodes/NodeId;->sequence:Lorg/yaml/snakeyaml/nodes/NodeId;
@@ -205,7 +205,7 @@
 .end method
 
 .method public getValue()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -222,7 +222,7 @@
 .end method
 
 .method public setListType(Ljava/lang/Class;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -242,12 +242,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -261,16 +261,16 @@
 
     .line 84
     .end local v1    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_0
+    goto :goto_6
 
     .line 85
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 88
     new-instance v0, Ljava/lang/StringBuilder;

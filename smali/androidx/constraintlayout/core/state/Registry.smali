@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 23
     new-instance v0, Landroidx/constraintlayout/core/state/Registry;
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
 .end method
 
 .method public static getInstance()Landroidx/constraintlayout/core/state/Registry;
-    .locals 1
+    .registers 1
 
     .line 26
     sget-object v0, Landroidx/constraintlayout/core/state/Registry;->sRegistry:Landroidx/constraintlayout/core/state/Registry;
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public currentContent(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
 
     .line 54
@@ -76,7 +76,7 @@
 
     .line 55
     .local v0, "callback":Landroidx/constraintlayout/core/state/RegistryCallback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 56
     invoke-interface {v0}, Landroidx/constraintlayout/core/state/RegistryCallback;->currentMotionScene()Ljava/lang/String;
@@ -86,14 +86,14 @@
     return-object v1
 
     .line 58
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public currentLayoutInformation(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
 
     .line 62
@@ -107,7 +107,7 @@
 
     .line 63
     .local v0, "callback":Landroidx/constraintlayout/core/state/RegistryCallback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 64
     invoke-interface {v0}, Landroidx/constraintlayout/core/state/RegistryCallback;->currentLayoutInformation()Ljava/lang/String;
@@ -117,14 +117,14 @@
     return-object v1
 
     .line 66
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public getLastModified(Ljava/lang/String;)J
-    .locals 3
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
 
     .line 88
@@ -138,7 +138,7 @@
 
     .line 89
     .local v0, "callback":Landroidx/constraintlayout/core/state/RegistryCallback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 90
     invoke-interface {v0}, Landroidx/constraintlayout/core/state/RegistryCallback;->getLastModified()J
@@ -148,14 +148,14 @@
     return-wide v1
 
     .line 92
-    :cond_0
+    :cond_f
     const-wide v1, 0x7fffffffffffffffL
 
     return-wide v1
 .end method
 
 .method public getLayoutList()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -176,7 +176,7 @@
 .end method
 
 .method public register(Ljava/lang/String;Landroidx/constraintlayout/core/state/RegistryCallback;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/constraintlayout/core/state/RegistryCallback;
 
@@ -190,7 +190,7 @@
 .end method
 
 .method public setDrawDebug(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "debugMode"    # I
 
@@ -205,18 +205,18 @@
 
     .line 71
     .local v0, "callback":Landroidx/constraintlayout/core/state/RegistryCallback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 72
     invoke-interface {v0, p2}, Landroidx/constraintlayout/core/state/RegistryCallback;->setDrawDebug(I)V
 
     .line 74
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public setLayoutInformationMode(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "mode"    # I
 
@@ -231,18 +231,18 @@
 
     .line 78
     .local v0, "callback":Landroidx/constraintlayout/core/state/RegistryCallback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 79
     invoke-interface {v0, p2}, Landroidx/constraintlayout/core/state/RegistryCallback;->setLayoutInformationMode(I)V
 
     .line 81
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public unregister(Ljava/lang/String;Landroidx/constraintlayout/core/state/RegistryCallback;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/constraintlayout/core/state/RegistryCallback;
 
@@ -256,7 +256,7 @@
 .end method
 
 .method public updateContent(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "content"    # Ljava/lang/String;
 
@@ -271,18 +271,18 @@
 
     .line 41
     .local v0, "callback":Landroidx/constraintlayout/core/state/RegistryCallback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 42
     invoke-interface {v0, p2}, Landroidx/constraintlayout/core/state/RegistryCallback;->onNewMotionScene(Ljava/lang/String;)V
 
     .line 44
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public updateDimensions(Ljava/lang/String;II)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "width"    # I
     .param p3, "height"    # I
@@ -298,18 +298,18 @@
 
     .line 97
     .local v0, "callback":Landroidx/constraintlayout/core/state/RegistryCallback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 98
     invoke-interface {v0, p2, p3}, Landroidx/constraintlayout/core/state/RegistryCallback;->onDimensions(II)V
 
     .line 100
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public updateProgress(Ljava/lang/String;F)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "progress"    # F
 
@@ -324,12 +324,12 @@
 
     .line 48
     .local v0, "callback":Landroidx/constraintlayout/core/state/RegistryCallback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 49
     invoke-interface {v0, p2}, Landroidx/constraintlayout/core/state/RegistryCallback;->onProgress(F)V
 
     .line 51
-    :cond_0
+    :cond_d
     return-void
 .end method

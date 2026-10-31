@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/database/ProxyEntity_Dao_Impl;Landroidx/room/RoomDatabase;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/database/ProxyEntity_Dao_Impl;
     .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method protected bind(Landroidx/sqlite/db/SupportSQLiteStatement;Lio/nekohasekai/sagernet/database/ProxyEntity;)V
-    .locals 3
+    .registers 6
     .param p1, "statement"    # Landroidx/sqlite/db/SupportSQLiteStatement;
     .param p2, "entity"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -81,7 +81,7 @@
 .end method
 
 .method protected bridge synthetic bind(Landroidx/sqlite/db/SupportSQLiteStatement;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -102,7 +102,7 @@
 .end method
 
 .method protected createQuery()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 126
     const-string v0, "DELETE FROM `proxy_entities` WHERE `id` = ?"

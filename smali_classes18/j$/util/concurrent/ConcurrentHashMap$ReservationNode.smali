@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 2264
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ReservationNode;, "Ljava/util/concurrent/ConcurrentHashMap$ReservationNode<TK;TV;>;"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method find(ILjava/lang/Object;)Lj$/util/concurrent/ConcurrentHashMap$Node;
-    .locals 1
+    .registers 4
     .param p1, "h"    # I
     .param p2, "k"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

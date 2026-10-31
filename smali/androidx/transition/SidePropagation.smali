@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 34
     invoke-direct {p0}, Landroidx/transition/VisibilityPropagation;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method private distance(Landroid/view/View;IIIIIIII)I
-    .locals 6
+    .registers 16
     .param p1, "sceneRoot"    # Landroid/view/View;
     .param p2, "viewX"    # I
     .param p3, "viewY"    # I
@@ -54,87 +54,87 @@
 
     const/4 v5, 0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_19
 
     .line 126
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v0
 
-    if-ne v0, v5, :cond_0
+    if-ne v0, v5, :cond_12
 
     const/4 v4, 0x1
 
-    :cond_0
+    :cond_12
     move v0, v4
 
     .line 128
     .local v0, "isRtl":Z
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v2, 0x3
 
-    :goto_0
+    :goto_17
     move v0, v2
 
     .line 129
     .local v0, "side":I
-    goto :goto_1
+    goto :goto_2f
 
     .end local v0    # "side":I
-    :cond_2
+    :cond_19
     iget v0, p0, Landroidx/transition/SidePropagation;->mSide:I
 
     const v1, 0x800005
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_2d
 
     .line 130
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v0
 
-    if-ne v0, v5, :cond_3
+    if-ne v0, v5, :cond_27
 
     const/4 v4, 0x1
 
-    :cond_3
+    :cond_27
     move v0, v4
 
     .line 132
     .local v0, "isRtl":Z
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_2b
 
     const/4 v2, 0x3
 
-    :cond_4
+    :cond_2b
     move v0, v2
 
     .line 133
     .local v0, "side":I
-    goto :goto_1
+    goto :goto_2f
 
     .line 134
     .end local v0    # "side":I
-    :cond_5
+    :cond_2d
     iget v0, p0, Landroidx/transition/SidePropagation;->mSide:I
 
     .line 136
     .restart local v0    # "side":I
-    :goto_1
+    :goto_2f
     const/4 v1, 0x0
 
     .line 137
     .local v1, "distance":I
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_62
 
-    goto :goto_2
+    goto :goto_60
 
     .line 148
-    :sswitch_0
+    :sswitch_34
     sub-int v2, p3, p7
 
     sub-int v3, p4, p2
@@ -145,10 +145,10 @@
 
     add-int v1, v2, v3
 
-    goto :goto_2
+    goto :goto_60
 
     .line 142
-    :sswitch_1
+    :sswitch_3f
     sub-int v2, p9, p3
 
     sub-int v3, p4, p2
@@ -160,10 +160,10 @@
     add-int v1, v2, v3
 
     .line 143
-    goto :goto_2
+    goto :goto_60
 
     .line 145
-    :sswitch_2
+    :sswitch_4a
     sub-int v2, p2, p6
 
     sub-int v3, p5, p3
@@ -175,10 +175,10 @@
     add-int v1, v2, v3
 
     .line 146
-    goto :goto_2
+    goto :goto_60
 
     .line 139
-    :sswitch_3
+    :sswitch_55
     sub-int v2, p8, p2
 
     sub-int v3, p5, p3
@@ -193,28 +193,28 @@
     nop
 
     .line 151
-    :goto_2
+    :goto_60
     return v1
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_62
     .sparse-switch
-        0x3 -> :sswitch_3
-        0x5 -> :sswitch_2
-        0x30 -> :sswitch_1
-        0x50 -> :sswitch_0
+        0x3 -> :sswitch_55
+        0x5 -> :sswitch_4a
+        0x30 -> :sswitch_3f
+        0x50 -> :sswitch_34
     .end sparse-switch
 .end method
 
 .method private getMaxDistance(Landroid/view/ViewGroup;)I
-    .locals 1
+    .registers 3
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
 
     .line 155
     iget v0, p0, Landroidx/transition/SidePropagation;->mSide:I
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_10
 
     .line 162
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getHeight()I
@@ -224,7 +224,7 @@
     return v0
 
     .line 160
-    :sswitch_0
+    :sswitch_a
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getWidth()I
 
     move-result v0
@@ -233,19 +233,19 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_10
     .sparse-switch
-        0x3 -> :sswitch_0
-        0x5 -> :sswitch_0
-        0x800003 -> :sswitch_0
-        0x800005 -> :sswitch_0
+        0x3 -> :sswitch_a
+        0x5 -> :sswitch_a
+        0x800003 -> :sswitch_a
+        0x800005 -> :sswitch_a
     .end sparse-switch
 .end method
 
 
 # virtual methods
 .method public getStartDelay(Landroid/view/ViewGroup;Landroidx/transition/Transition;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)J
-    .locals 26
+    .registers 31
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "transition"    # Landroidx/transition/Transition;
     .param p3, "startValues"    # Landroidx/transition/TransitionValues;
@@ -258,15 +258,15 @@
 
     const-wide/16 v12, 0x0
 
-    if-nez v11, :cond_0
+    if-nez v11, :cond_b
 
-    if-nez p4, :cond_0
+    if-nez p4, :cond_b
 
     .line 77
     return-wide v12
 
     .line 79
-    :cond_0
+    :cond_b
     const/4 v0, 0x1
 
     .line 80
@@ -277,18 +277,18 @@
 
     .line 82
     .local v14, "epicenter":Landroid/graphics/Rect;
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_1e
 
     invoke-virtual {v10, v11}, Landroidx/transition/SidePropagation;->getViewVisibility(Landroidx/transition/TransitionValues;)I
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_19
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 86
-    :cond_1
+    :cond_19
     move-object/from16 v1, p4
 
     move v15, v0
@@ -296,12 +296,12 @@
     move-object v9, v1
 
     .local v1, "positionValues":Landroidx/transition/TransitionValues;
-    goto :goto_1
+    goto :goto_23
 
     .line 83
     .end local v1    # "positionValues":Landroidx/transition/TransitionValues;
-    :cond_2
-    :goto_0
+    :cond_1e
+    :goto_1e
     move-object/from16 v1, p3
 
     .line 84
@@ -317,7 +317,7 @@
     .end local v1    # "positionValues":Landroidx/transition/TransitionValues;
     .local v9, "positionValues":Landroidx/transition/TransitionValues;
     .local v15, "directionMultiplier":I
-    :goto_1
+    :goto_23
     invoke-virtual {v10, v9}, Landroidx/transition/SidePropagation;->getViewX(Landroidx/transition/TransitionValues;)I
 
     move-result v16
@@ -389,7 +389,7 @@
 
     .line 101
     .local v21, "bottom":I
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_68
 
     .line 102
     invoke-virtual {v14}, Landroid/graphics/Rect;->centerX()I
@@ -407,12 +407,12 @@
     move/from16 v23, v1
 
     .local v1, "epicenterY":I
-    goto :goto_2
+    goto :goto_73
 
     .line 105
     .end local v0    # "epicenterX":I
     .end local v1    # "epicenterY":I
-    :cond_3
+    :cond_68
     add-int v1, v18, v20
 
     div-int/2addr v1, v0
@@ -431,7 +431,7 @@
     .end local v1    # "epicenterX":I
     .local v22, "epicenterX":I
     .local v23, "epicenterY":I
-    :goto_2
+    :goto_73
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -488,13 +488,13 @@
     .local v3, "duration":J
     cmp-long v5, v3, v12
 
-    if-gez v5, :cond_4
+    if-gez v5, :cond_a1
 
     .line 116
     const-wide/16 v3, 0x12c
 
     .line 119
-    :cond_4
+    :cond_a1
     int-to-long v5, v15
 
     mul-long v5, v5, v3
@@ -517,7 +517,7 @@
 .end method
 
 .method public setPropagationSpeed(F)V
-    .locals 2
+    .registers 4
     .param p1, "propagationSpeed"    # F
 
     .line 67
@@ -525,7 +525,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 70
     iput p1, p0, Landroidx/transition/SidePropagation;->mPropagationSpeed:F
@@ -534,7 +534,7 @@
     return-void
 
     .line 68
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "propagationSpeed may not be 0"
@@ -545,7 +545,7 @@
 .end method
 
 .method public setSide(I)V
-    .locals 0
+    .registers 2
     .param p1, "side"    # I
 
     .line 51

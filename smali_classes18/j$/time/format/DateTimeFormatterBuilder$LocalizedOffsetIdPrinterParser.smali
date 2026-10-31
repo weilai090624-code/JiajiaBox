@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/format/TextStyle;)V
-    .locals 0
+    .registers 2
     .param p1, "style"    # Lj$/time/format/TextStyle;
 
     .line 3870
@@ -37,7 +37,7 @@
 .end method
 
 .method private static appendHMS(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "buf"    # Ljava/lang/StringBuilder;
     .param p1, "t"    # I
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 9
+    .registers 12
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -83,7 +83,7 @@
 
     .line 3882
     .local v0, "offsetSecs":Ljava/lang/Long;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 3883
     const/4 v1, 0x0
@@ -91,7 +91,7 @@
     return v1
 
     .line 3885
-    :cond_0
+    :cond_a
     const-string v1, "GMT"
 
     .line 3886
@@ -109,7 +109,7 @@
 
     .line 3888
     .local v2, "totalSecs":I
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_79
 
     .line 3889
     div-int/lit16 v3, v2, 0xe10
@@ -140,16 +140,16 @@
 
     .line 3892
     .local v5, "absSeconds":I
-    if-gez v2, :cond_1
+    if-gez v2, :cond_34
 
     const-string v6, "-"
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_1
+    :cond_34
     const-string v6, "+"
 
-    :goto_0
+    :goto_36
     invoke-virtual {p2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 3893
@@ -159,7 +159,7 @@
 
     const/16 v8, 0x3a
 
-    if-ne v6, v7, :cond_2
+    if-ne v6, v7, :cond_53
 
     .line 3894
     invoke-static {p2, v3}, Lj$/time/format/DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser;->appendHMS(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;
@@ -171,7 +171,7 @@
     invoke-static {p2, v4}, Lj$/time/format/DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser;->appendHMS(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;
 
     .line 3897
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_79
 
     .line 3898
     invoke-virtual {p2, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -179,13 +179,13 @@
     .line 3899
     invoke-static {p2, v5}, Lj$/time/format/DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser;->appendHMS(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_79
 
     .line 3902
-    :cond_2
+    :cond_53
     const/16 v6, 0xa
 
-    if-lt v3, v6, :cond_3
+    if-lt v3, v6, :cond_5f
 
     .line 3903
     div-int/lit8 v6, v3, 0xa
@@ -197,7 +197,7 @@
     invoke-virtual {p2, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 3905
-    :cond_3
+    :cond_5f
     rem-int/lit8 v6, v3, 0xa
 
     add-int/lit8 v6, v6, 0x30
@@ -207,19 +207,19 @@
     invoke-virtual {p2, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 3906
-    if-nez v4, :cond_4
+    if-nez v4, :cond_6b
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_79
 
     .line 3907
-    :cond_4
+    :cond_6b
     invoke-virtual {p2, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 3908
     invoke-static {p2, v4}, Lj$/time/format/DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser;->appendHMS(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;
 
     .line 3909
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_79
 
     .line 3910
     invoke-virtual {p2, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -231,15 +231,15 @@
     .end local v3    # "absHours":I
     .end local v4    # "absMinutes":I
     .end local v5    # "absSeconds":I
-    :cond_5
-    :goto_1
+    :cond_79
+    :goto_79
     const/4 v3, 0x1
 
     return v3
 .end method
 
 .method getDigit(Ljava/lang/CharSequence;I)I
-    .locals 2
+    .registers 5
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "position"    # I
 
@@ -252,30 +252,30 @@
     .local v0, "c":C
     const/16 v1, 0x30
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_10
 
     const/16 v1, 0x39
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_10
 
     .line 3924
-    :cond_0
+    :cond_d
     add-int/lit8 v1, v0, -0x30
 
     return v1
 
     .line 3922
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 19
+    .registers 23
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -319,7 +319,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_21
 
     .line 3933
     not-int v1, v8
@@ -327,7 +327,7 @@
     return v1
 
     .line 3935
-    :cond_0
+    :cond_21
     invoke-virtual {v11}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -339,7 +339,7 @@
 
     .line 3938
     .local v12, "negative":I
-    if-ne v9, v10, :cond_1
+    if-ne v9, v10, :cond_37
 
     .line 3939
     sget-object v2, Lj$/time/temporal/ChronoField;->OFFSET_SECONDS:Lj$/time/temporal/ChronoField;
@@ -359,7 +359,7 @@
     return v1
 
     .line 3941
-    :cond_1
+    :cond_37
     invoke-interface {v7, v9}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v13
@@ -368,7 +368,7 @@
     .local v13, "sign":C
     const/16 v1, 0x2b
 
-    if-ne v13, v1, :cond_2
+    if-ne v13, v1, :cond_42
 
     .line 3943
     const/4 v1, 0x1
@@ -377,15 +377,15 @@
 
     .end local v12    # "negative":I
     .local v1, "negative":I
-    goto :goto_0
+    goto :goto_48
 
     .line 3944
     .end local v1    # "negative":I
     .restart local v12    # "negative":I
-    :cond_2
+    :cond_42
     const/16 v1, 0x2d
 
-    if-ne v13, v1, :cond_e
+    if-ne v13, v1, :cond_153
 
     .line 3945
     const/4 v1, -0x1
@@ -393,7 +393,7 @@
     move v12, v1
 
     .line 3949
-    :goto_0
+    :goto_48
     add-int/lit8 v9, v9, 0x1
 
     .line 3950
@@ -415,7 +415,7 @@
 
     const/16 v6, 0x3a
 
-    if-ne v4, v5, :cond_9
+    if-ne v4, v5, :cond_bd
 
     .line 3954
     add-int/lit8 v4, v9, 0x1
@@ -438,9 +438,9 @@
 
     .line 3956
     .local v4, "h2":I
-    if-ltz v5, :cond_8
+    if-ltz v5, :cond_bb
 
-    if-ltz v4, :cond_8
+    if-ltz v4, :cond_bb
 
     add-int/lit8 v14, v9, 0x1
 
@@ -450,14 +450,14 @@
 
     move-result v9
 
-    if-eq v9, v6, :cond_3
+    if-eq v9, v6, :cond_6f
 
     move v9, v14
 
-    goto :goto_3
+    goto :goto_bb
 
     .line 3959
-    :cond_3
+    :cond_6f
     mul-int/lit8 v9, v5, 0xa
 
     add-int/2addr v9, v4
@@ -485,16 +485,16 @@
 
     .line 3962
     .local v1, "m2":I
-    if-ltz v14, :cond_7
+    if-ltz v14, :cond_b7
 
-    if-gez v1, :cond_4
+    if-gez v1, :cond_85
 
     move/from16 v17, v1
 
-    goto :goto_2
+    goto :goto_b9
 
     .line 3965
-    :cond_4
+    :cond_85
     mul-int/lit8 v16, v14, 0xa
 
     add-int v2, v16, v1
@@ -502,7 +502,7 @@
     .line 3966
     add-int/lit8 v6, v15, 0x2
 
-    if-ge v6, v10, :cond_5
+    if-ge v6, v10, :cond_ae
 
     invoke-interface {v7, v15}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -514,7 +514,7 @@
 
     .end local v1    # "m2":I
     .local v17, "m2":I
-    if-ne v6, v1, :cond_6
+    if-ne v6, v1, :cond_b0
 
     .line 3967
     add-int/lit8 v1, v15, 0x1
@@ -533,9 +533,9 @@
 
     .line 3969
     .local v6, "s2":I
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_b0
 
-    if-ltz v6, :cond_6
+    if-ltz v6, :cond_b0
 
     .line 3970
     mul-int/lit8 v16, v1, 0xa
@@ -545,13 +545,13 @@
     .line 3971
     add-int/lit8 v15, v15, 0x3
 
-    goto :goto_1
+    goto :goto_b0
 
     .line 3966
     .end local v6    # "s2":I
     .end local v17    # "m2":I
     .local v1, "m2":I
-    :cond_5
+    :cond_ae
     move/from16 v17, v1
 
     .line 3974
@@ -559,8 +559,8 @@
     .end local v4    # "h2":I
     .end local v5    # "h1":I
     .end local v14    # "m1":I
-    :cond_6
-    :goto_1
+    :cond_b0
+    :goto_b0
     move v14, v3
 
     move/from16 v16, v15
@@ -569,20 +569,20 @@
 
     move v9, v2
 
-    goto/16 :goto_4
+    goto/16 :goto_134
 
     .line 3962
     .restart local v1    # "m2":I
     .restart local v4    # "h2":I
     .restart local v5    # "h1":I
     .restart local v14    # "m1":I
-    :cond_7
+    :cond_b7
     move/from16 v17, v1
 
     .line 3963
     .end local v1    # "m2":I
     .restart local v17    # "m2":I
-    :goto_2
+    :goto_b9
     not-int v1, v8
 
     return v1
@@ -593,8 +593,8 @@
     .end local v17    # "m2":I
     .local v1, "h":I
     .local v9, "pos":I
-    :cond_8
-    :goto_3
+    :cond_bb
+    :goto_bb
     not-int v6, v8
 
     return v6
@@ -602,7 +602,7 @@
     .line 3975
     .end local v4    # "h2":I
     .end local v5    # "h1":I
-    :cond_9
+    :cond_bd
     add-int/lit8 v15, v9, 0x1
 
     .end local v9    # "pos":I
@@ -614,7 +614,7 @@
     .line 3976
     .end local v1    # "h":I
     .local v9, "h":I
-    if-gez v9, :cond_a
+    if-gez v9, :cond_c7
 
     .line 3977
     not-int v1, v8
@@ -622,8 +622,8 @@
     return v1
 
     .line 3979
-    :cond_a
-    if-ge v15, v10, :cond_d
+    :cond_c7
+    if-ge v15, v10, :cond_12f
 
     .line 3980
     invoke-virtual {v0, v7, v15}, Lj$/time/format/DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser;->getDigit(Ljava/lang/CharSequence;I)I
@@ -632,7 +632,7 @@
 
     .line 3981
     .local v1, "h2":I
-    if-ltz v1, :cond_b
+    if-ltz v1, :cond_d5
 
     .line 3982
     mul-int/lit8 v4, v9, 0xa
@@ -649,10 +649,10 @@
     .line 3985
     .end local v4    # "h":I
     .restart local v9    # "h":I
-    :cond_b
+    :cond_d5
     add-int/lit8 v4, v15, 0x2
 
-    if-ge v4, v10, :cond_c
+    if-ge v4, v10, :cond_129
 
     invoke-interface {v7, v15}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -660,18 +660,18 @@
 
     const/16 v5, 0x3a
 
-    if-ne v4, v5, :cond_c
+    if-ne v4, v5, :cond_129
 
     .line 3986
     add-int/lit8 v4, v15, 0x2
 
-    if-ge v4, v10, :cond_c
+    if-ge v4, v10, :cond_129
 
     invoke-interface {v7, v15}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v4
 
-    if-ne v4, v5, :cond_c
+    if-ne v4, v5, :cond_129
 
     .line 3987
     add-int/lit8 v4, v15, 0x1
@@ -690,9 +690,9 @@
 
     .line 3989
     .local v5, "m2":I
-    if-ltz v4, :cond_c
+    if-ltz v4, :cond_129
 
-    if-ltz v5, :cond_c
+    if-ltz v5, :cond_129
 
     .line 3990
     mul-int/lit8 v6, v4, 0xa
@@ -705,7 +705,7 @@
     .line 3992
     add-int/lit8 v6, v15, 0x2
 
-    if-ge v6, v10, :cond_c
+    if-ge v6, v10, :cond_129
 
     invoke-interface {v7, v15}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -713,7 +713,7 @@
 
     const/16 v14, 0x3a
 
-    if-ne v6, v14, :cond_c
+    if-ne v6, v14, :cond_129
 
     .line 3993
     add-int/lit8 v6, v15, 0x1
@@ -732,9 +732,9 @@
 
     .line 3995
     .local v14, "s2":I
-    if-ltz v6, :cond_c
+    if-ltz v6, :cond_129
 
-    if-ltz v14, :cond_c
+    if-ltz v14, :cond_129
 
     .line 3996
     mul-int/lit8 v16, v6, 0xa
@@ -752,7 +752,7 @@
 
     move v9, v2
 
-    goto :goto_4
+    goto :goto_134
 
     .line 4005
     .end local v1    # "h2":I
@@ -760,7 +760,7 @@
     .end local v5    # "m2":I
     .end local v6    # "s1":I
     .end local v14    # "s2":I
-    :cond_c
+    :cond_129
     move v14, v3
 
     move/from16 v16, v15
@@ -769,10 +769,10 @@
 
     move v9, v2
 
-    goto :goto_4
+    goto :goto_134
 
     .line 3979
-    :cond_d
+    :cond_12f
     move v14, v3
 
     move/from16 v16, v15
@@ -788,7 +788,7 @@
     .local v14, "s":I
     .local v15, "h":I
     .local v16, "pos":I
-    :goto_4
+    :goto_134
     int-to-long v1, v12
 
     int-to-long v3, v15
@@ -835,7 +835,7 @@
     .end local v16    # "pos":I
     .end local v17    # "offsetSecs":J
     .local v9, "pos":I
-    :cond_e
+    :cond_153
     sget-object v2, Lj$/time/temporal/ChronoField;->OFFSET_SECONDS:Lj$/time/temporal/ChronoField;
 
     const-wide/16 v3, 0x0
@@ -854,7 +854,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 4011
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser;->style:Lj$/time/format/TextStyle;

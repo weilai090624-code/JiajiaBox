@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 303
     new-instance v0, Lcom/google/common/util/concurrent/Striped$5;
@@ -79,7 +79,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 96
     .local p0, "this":Lcom/google/common/util/concurrent/Striped;, "Lcom/google/common/util/concurrent/Striped<TL;>;"
@@ -89,7 +89,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/Striped$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/util/concurrent/Striped$1;
 
     .line 88
@@ -100,7 +100,7 @@
 .end method
 
 .method static synthetic access$200(I)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # I
 
     .line 88
@@ -112,7 +112,7 @@
 .end method
 
 .method static synthetic access$300(I)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # I
 
     .line 88
@@ -124,7 +124,7 @@
 .end method
 
 .method private static ceilToPowerOfTwo(I)I
-    .locals 2
+    .registers 3
     .param p0, "x"    # I
 
     .line 548
@@ -142,7 +142,7 @@
 .end method
 
 .method static custom(ILcom/google/common/base/Supplier;)Lcom/google/common/util/concurrent/Striped;
-    .locals 2
+    .registers 4
     .param p0, "stripes"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -172,7 +172,7 @@
 .end method
 
 .method private static lazy(ILcom/google/common/base/Supplier;)Lcom/google/common/util/concurrent/Striped;
-    .locals 1
+    .registers 3
     .param p0, "stripes"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -194,28 +194,28 @@
     .local p1, "supplier":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<TL;>;"
     const/16 v0, 0x400
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_a
 
     .line 239
     new-instance v0, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;-><init>(ILcom/google/common/base/Supplier;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 240
-    :cond_0
+    :cond_a
     new-instance v0, Lcom/google/common/util/concurrent/Striped$LargeLazyStriped;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/util/concurrent/Striped$LargeLazyStriped;-><init>(ILcom/google/common/base/Supplier;)V
 
     .line 238
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method public static lazyWeakLock(I)Lcom/google/common/util/concurrent/Striped;
-    .locals 1
+    .registers 2
     .param p0, "stripes"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -239,7 +239,7 @@
 .end method
 
 .method public static lazyWeakReadWriteLock(I)Lcom/google/common/util/concurrent/Striped;
-    .locals 1
+    .registers 2
     .param p0, "stripes"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -261,7 +261,7 @@
 .end method
 
 .method public static lazyWeakSemaphore(II)Lcom/google/common/util/concurrent/Striped;
-    .locals 1
+    .registers 3
     .param p0, "stripes"    # I
     .param p1, "permits"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -286,7 +286,7 @@
 .end method
 
 .method public static lock(I)Lcom/google/common/util/concurrent/Striped;
-    .locals 1
+    .registers 2
     .param p0, "stripes"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -310,7 +310,7 @@
 .end method
 
 .method public static readWriteLock(I)Lcom/google/common/util/concurrent/Striped;
-    .locals 1
+    .registers 2
     .param p0, "stripes"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -332,7 +332,7 @@
 .end method
 
 .method public static semaphore(II)Lcom/google/common/util/concurrent/Striped;
-    .locals 1
+    .registers 3
     .param p0, "stripes"    # I
     .param p1, "permits"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -357,7 +357,7 @@
 .end method
 
 .method private static smear(I)I
-    .locals 2
+    .registers 3
     .param p0, "hashCode"    # I
 
     .line 561
@@ -384,7 +384,7 @@
 
 # virtual methods
 .method public bulkGet(Ljava/lang/Iterable;)Ljava/lang/Iterable;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -412,7 +412,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 146
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
@@ -422,7 +422,7 @@
     return-object v1
 
     .line 148
-    :cond_0
+    :cond_f
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -434,12 +434,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_16
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_29
 
     .line 150
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -455,11 +455,11 @@
     .line 149
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 152
     .end local v2    # "i":I
-    :cond_1
+    :cond_29
     invoke-static {v1}, Ljava/util/Arrays;->sort([I)V
 
     .line 154
@@ -479,19 +479,19 @@
     const/4 v2, 0x1
 
     .restart local v2    # "i":I
-    :goto_1
+    :goto_37
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v4
 
-    if-ge v2, v4, :cond_3
+    if-ge v2, v4, :cond_56
 
     .line 157
     aget v4, v1, v2
 
     .line 158
     .local v4, "currentStripe":I
-    if-ne v4, v3, :cond_2
+    if-ne v4, v3, :cond_4b
 
     .line 159
     add-int/lit8 v5, v2, -0x1
@@ -502,10 +502,10 @@
 
     invoke-interface {v0, v2, v5}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_53
 
     .line 161
-    :cond_2
+    :cond_4b
     invoke-virtual {p0, v4}, Lcom/google/common/util/concurrent/Striped;->getAt(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -517,14 +517,14 @@
 
     .line 156
     .end local v4    # "currentStripe":I
-    :goto_2
+    :goto_53
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_37
 
     .line 183
     .end local v2    # "i":I
-    :cond_3
+    :cond_56
     move-object v2, v0
 
     .line 184

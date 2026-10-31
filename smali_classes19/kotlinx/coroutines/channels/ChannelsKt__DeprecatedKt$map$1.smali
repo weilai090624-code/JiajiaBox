@@ -129,7 +129,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,7 +162,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -191,7 +191,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/channels/ProducerScope;
 
@@ -205,7 +205,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -235,7 +235,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 17
+    .registers 19
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -246,7 +246,7 @@
 
     iget v2, v1, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$map$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_12e
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -256,7 +256,7 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_13
     move-object/from16 v2, p0
 
     .local v2, "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$map$1;
@@ -296,10 +296,10 @@
     check-cast v12, Lkotlinx/coroutines/channels/ProducerScope;
 
     .local v12, "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :try_start_0
+    :try_start_2c
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_2f
+    .catchall {:try_start_2c .. :try_end_2f} :catchall_89
 
     move-object/from16 v16, v8
 
@@ -309,7 +309,7 @@
 
     move-object/from16 v12, v16
 
-    goto/16 :goto_3
+    goto/16 :goto_10c
 
     .end local v2    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$map$1;
     .end local v3    # "$result":Ljava/lang/Object;
@@ -320,7 +320,7 @@
     .end local v9    # "cause$iv$iv":Ljava/lang/Throwable;
     .end local v10    # "$this$consume$iv$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
     .end local v12    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :pswitch_1
+    :pswitch_37
     move-object/from16 v2, p0
 
     .restart local v2    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$map$1;
@@ -364,10 +364,10 @@
     check-cast v13, Lkotlinx/coroutines/channels/ProducerScope;
 
     .local v13, "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :try_start_1
+    :try_start_54
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_57
+    .catchall {:try_start_54 .. :try_end_57} :catchall_5d
 
     move-object v14, v13
 
@@ -377,20 +377,20 @@
 
     move-object v4, v3
 
-    goto/16 :goto_2
+    goto/16 :goto_ec
 
     .line 490
     .end local v6    # "$i$a$-consume-ChannelsKt__Channels_commonKt$consumeEach$2$iv":I
     .end local v7    # "$i$a$-consumeEach-ChannelsKt__DeprecatedKt$map$1$1":I
     .end local v13    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :catchall_0
+    :catchall_5d
     move-exception v0
 
     move-object v9, v10
 
     move-object v10, v11
 
-    goto/16 :goto_4
+    goto/16 :goto_124
 
     .line 331
     .end local v2    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$map$1;
@@ -399,7 +399,7 @@
     .end local v5    # "$i$f$consume":I
     .end local v10    # "cause$iv$iv":Ljava/lang/Throwable;
     .end local v11    # "$this$consume$iv$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :pswitch_2
+    :pswitch_62
     move-object/from16 v2, p0
 
     .restart local v2    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$map$1;
@@ -438,10 +438,10 @@
     check-cast v11, Lkotlinx/coroutines/channels/ProducerScope;
 
     .local v11, "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :try_start_2
+    :try_start_7b
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_7e
+    .catchall {:try_start_7b .. :try_end_7e} :catchall_89
 
     move-object v12, v7
 
@@ -459,15 +459,15 @@
 
     move-object/from16 v10, v16
 
-    goto :goto_1
+    goto :goto_c4
 
     .line 490
     .end local v6    # "$i$a$-consume-ChannelsKt__Channels_commonKt$consumeEach$2$iv":I
     .end local v11    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :catchall_1
+    :catchall_89
     move-exception v0
 
-    goto/16 :goto_4
+    goto/16 :goto_124
 
     .line 331
     .end local v2    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$map$1;
@@ -476,7 +476,7 @@
     .end local v5    # "$i$f$consume":I
     .end local v9    # "cause$iv$iv":Ljava/lang/Throwable;
     .end local v10    # "$this$consume$iv$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :pswitch_3
+    :pswitch_8c
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p0
@@ -525,7 +525,7 @@
 
     .line 487
     .local v11, "$i$a$-consume-ChannelsKt__Channels_commonKt$consumeEach$2$iv":I
-    :try_start_3
+    :try_start_a3
     invoke-interface {v8}, Lkotlinx/coroutines/channels/ReceiveChannel;->iterator()Lkotlinx/coroutines/channels/ChannelIterator;
 
     move-result-object v12
@@ -537,7 +537,7 @@
     .end local v8    # "$this$consumeEach_u24lambda_u241$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
     .end local v11    # "$i$a$-consume-ChannelsKt__Channels_commonKt$consumeEach$2$iv":I
     .restart local v6    # "$i$a$-consume-ChannelsKt__Channels_commonKt$consumeEach$2$iv":I
-    :goto_0
+    :goto_a9
     iput-object v4, v2, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$map$1;->L$0:Ljava/lang/Object;
 
     iput-object v8, v2, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$map$1;->L$1:Ljava/lang/Object;
@@ -553,16 +553,16 @@
     invoke-interface {v12, v2}, Lkotlinx/coroutines/channels/ChannelIterator;->hasNext(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v11
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+    :try_end_b8
+    .catchall {:try_start_a3 .. :try_end_b8} :catchall_122
 
-    if-ne v11, v0, :cond_0
+    if-ne v11, v0, :cond_bb
 
     .line 331
     return-object v0
 
     .line 487
-    :cond_0
+    :cond_bb
     move-object/from16 v16, v4
 
     move-object v4, v3
@@ -583,15 +583,15 @@
     .local v8, "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .local v10, "cause$iv$iv":Ljava/lang/Throwable;
     .local v11, "$this$consume$iv$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :goto_1
-    :try_start_4
+    :goto_c4
+    :try_start_c4
     check-cast v3, Ljava/lang/Boolean;
 
     invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_110
 
     invoke-interface {v12}, Lkotlinx/coroutines/channels/ChannelIterator;->next()Ljava/lang/Object;
 
@@ -621,13 +621,13 @@
     move-result-object v14
 
     .end local v3    # "it":Ljava/lang/Object;
-    if-ne v14, v0, :cond_1
+    if-ne v14, v0, :cond_e5
 
     .line 331
     return-object v0
 
     .line 333
-    :cond_1
+    :cond_e5
     move-object v3, v14
 
     move-object v14, v8
@@ -640,7 +640,7 @@
 
     .end local v8    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .local v14, "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :goto_2
+    :goto_ec
     iput-object v14, v2, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$map$1;->L$0:Ljava/lang/Object;
 
     iput-object v12, v2, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$map$1;->L$1:Ljava/lang/Object;
@@ -661,7 +661,7 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_2
+    if-ne v3, v0, :cond_101
 
     .line 331
     .end local v10    # "cause$iv$iv":Ljava/lang/Throwable;
@@ -669,7 +669,7 @@
 
     .line 333
     .restart local v10    # "cause$iv$iv":Ljava/lang/Throwable;
-    :cond_2
+    :cond_101
     move-object v3, v4
 
     move v8, v7
@@ -698,7 +698,7 @@
     .local v8, "$i$f$consumeEach":I
     .restart local v9    # "cause$iv$iv":Ljava/lang/Throwable;
     .local v10, "$this$consume$iv$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :goto_3
+    :goto_10c
     nop
 
     .line 487
@@ -707,7 +707,7 @@
 
     move-object v8, v11
 
-    goto :goto_0
+    goto :goto_a9
 
     .line 488
     .end local v3    # "$result":Ljava/lang/Object;
@@ -717,13 +717,13 @@
     .local v7, "$i$f$consumeEach":I
     .local v10, "cause$iv$iv":Ljava/lang/Throwable;
     .restart local v11    # "$this$consume$iv$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :cond_3
+    :cond_110
     nop
 
     .end local v6    # "$i$a$-consume-ChannelsKt__Channels_commonKt$consumeEach$2$iv":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_113
+    .catchall {:try_start_c4 .. :try_end_113} :catchall_11c
 
     .line 486
     nop
@@ -751,7 +751,7 @@
     .restart local v7    # "$i$f$consumeEach":I
     .restart local v10    # "cause$iv$iv":Ljava/lang/Throwable;
     .restart local v11    # "$this$consume$iv$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :catchall_2
+    :catchall_11c
     move-exception v0
 
     move-object v3, v4
@@ -762,14 +762,14 @@
 
     move-object v10, v11
 
-    goto :goto_4
+    goto :goto_124
 
     .end local v4    # "$result":Ljava/lang/Object;
     .end local v11    # "$this$consume$iv$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
     .restart local v3    # "$result":Ljava/lang/Object;
     .restart local v9    # "cause$iv$iv":Ljava/lang/Throwable;
     .local v10, "$this$consume$iv$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :catchall_3
+    :catchall_122
     move-exception v0
 
     move v4, v7
@@ -778,7 +778,7 @@
     .end local v7    # "$i$f$consumeEach":I
     .local v0, "e$iv$iv":Ljava/lang/Throwable;
     .local v4, "$i$f$consumeEach":I
-    :goto_4
+    :goto_124
     move-object v6, v0
 
     .line 492
@@ -792,10 +792,10 @@
     .end local v5    # "$i$f$consume":I
     .end local v6    # "cause$iv$iv":Ljava/lang/Throwable;
     .end local v10    # "$this$consume$iv$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :try_start_5
+    :try_start_126
     throw v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_4
+    :try_end_127
+    .catchall {:try_start_126 .. :try_end_127} :catchall_127
 
     .line 489
     .end local v0    # "e$iv$iv":Ljava/lang/Throwable;
@@ -805,7 +805,7 @@
     .restart local v5    # "$i$f$consume":I
     .restart local v6    # "cause$iv$iv":Ljava/lang/Throwable;
     .restart local v10    # "$this$consume$iv$iv":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :catchall_4
+    :catchall_127
     move-exception v0
 
     move-object v7, v0
@@ -816,11 +816,11 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_12e
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_8c
+        :pswitch_62
+        :pswitch_37
+        :pswitch_13
     .end packed-switch
 .end method

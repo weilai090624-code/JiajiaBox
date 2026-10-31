@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;Ljava/io/Writer;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;
 
     .line 593
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -65,7 +65,7 @@
     .line 618
     iget v0, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBufferLength:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_4f
 
     .line 619
     iget v0, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBuffer:I
@@ -116,10 +116,10 @@
 
     iget-object v1, v1, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;->paddingChar:Ljava/lang/Character;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4f
 
     .line 623
-    :goto_0
+    :goto_30
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->writtenChars:I
 
     iget-object v2, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->this$0:Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;
@@ -130,7 +130,7 @@
 
     rem-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4f
 
     .line 624
     iget-object v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->val$out:Ljava/io/Writer;
@@ -152,11 +152,11 @@
 
     iput v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->writtenChars:I
 
-    goto :goto_0
+    goto :goto_30
 
     .line 629
     .end local v0    # "charIndex":I
-    :cond_0
+    :cond_4f
     iget-object v0, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->val$out:Ljava/io/Writer;
 
     invoke-virtual {v0}, Ljava/io/Writer;->close()V
@@ -166,7 +166,7 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -183,7 +183,7 @@
 .end method
 
 .method public write(I)V
-    .locals 3
+    .registers 5
     .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -215,7 +215,7 @@
     iput v0, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBufferLength:I
 
     .line 603
-    :goto_0
+    :goto_13
     iget v0, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBufferLength:I
 
     iget-object v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->this$0:Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;
@@ -224,7 +224,7 @@
 
     iget v1, v1, Lcom/google/common/io/BaseEncoding$Alphabet;->bitsPerChar:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_4f
 
     .line 604
     iget v0, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBuffer:I
@@ -285,9 +285,9 @@
 
     .line 608
     .end local v0    # "charIndex":I
-    goto :goto_0
+    goto :goto_13
 
     .line 609
-    :cond_0
+    :cond_4f
     return-void
 .end method

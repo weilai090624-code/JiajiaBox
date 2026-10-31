@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;Lokio/Timeout;)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Ljava/io/OutputStream;
     .param p2, "timeout"    # Lokio/Timeout;
 
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Lokio/OutputStreamSink;->out:Ljava/io/OutputStream;
@@ -92,7 +92,7 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
 
     .line 70
     iget-object v0, p0, Lokio/OutputStreamSink;->out:Ljava/io/OutputStream;
@@ -103,7 +103,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 74
     iget-object v0, p0, Lokio/OutputStreamSink;->timeout:Lokio/Timeout;
@@ -112,7 +112,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 76
     new-instance v0, Ljava/lang/StringBuilder;
@@ -145,7 +145,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 8
+    .registers 12
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -169,13 +169,13 @@
 
     .line 53
     .local v0, "remaining":J
-    :cond_0
-    :goto_0
+    :cond_10
+    :goto_10
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_55
 
     .line 54
     iget-object v2, p0, Lokio/OutputStreamSink;->timeout:Lokio/Timeout;
@@ -249,7 +249,7 @@
 
     iget v5, v2, Lokio/Segment;->limit:I
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_10
 
     .line 64
     invoke-virtual {v2}, Lokio/Segment;->pop()Lokio/Segment;
@@ -263,9 +263,9 @@
 
     .end local v2    # "head":Lokio/Segment;
     .end local v3    # "toCopy":I
-    goto :goto_0
+    goto :goto_10
 
     .line 68
-    :cond_1
+    :cond_55
     return-void
 .end method

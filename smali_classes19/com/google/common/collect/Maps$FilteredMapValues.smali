@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Ljava/util/Map;Lcom/google/common/base/Predicate;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public remove(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -105,12 +105,12 @@
 
     .line 2828
     .local v0, "entryItr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2e
 
     .line 2829
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -127,7 +127,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2d
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -137,7 +137,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2d
 
     .line 2831
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -149,18 +149,18 @@
 
     .line 2834
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_2d
+    goto :goto_a
 
     .line 2835
-    :cond_1
+    :cond_2e
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -188,12 +188,12 @@
 
     .line 2842
     .local v1, "result":Z
-    :goto_0
+    :goto_b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2e
 
     .line 2843
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -210,7 +210,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2d
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -220,7 +220,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2d
 
     .line 2845
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -230,16 +230,16 @@
 
     .line 2848
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_2d
+    goto :goto_b
 
     .line 2849
-    :cond_1
+    :cond_2e
     return v1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -267,12 +267,12 @@
 
     .line 2856
     .local v1, "result":Z
-    :goto_0
+    :goto_b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2e
 
     .line 2857
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -289,7 +289,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2d
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -299,7 +299,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2d
 
     .line 2859
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -309,16 +309,16 @@
 
     .line 2862
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_2d
+    goto :goto_b
 
     .line 2863
-    :cond_1
+    :cond_2e
     return v1
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 2869
     .local p0, "this":Lcom/google/common/collect/Maps$FilteredMapValues;, "Lcom/google/common/collect/Maps$FilteredMapValues<TK;TV;>;"
@@ -338,7 +338,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

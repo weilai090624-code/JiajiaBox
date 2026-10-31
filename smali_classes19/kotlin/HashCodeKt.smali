@@ -26,21 +26,21 @@
 
 # direct methods
 .method private static final hashCode(Ljava/lang/Object;)I
-    .locals 1
+    .registers 2
     .param p0, "$this$hashCode"    # Ljava/lang/Object;
 
     .line 18
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_7
 
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     return v0
 .end method

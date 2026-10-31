@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 45
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_CompoundButton_RadioButton:I
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 58
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 7
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -149,7 +149,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2c
 
     .line 78
     sget v2, Lcom/google/android/material/R$styleable;->MaterialRadioButton_buttonTint:I
@@ -163,7 +163,7 @@
     invoke-static {p0, v2}, Landroidx/core/widget/CompoundButtonCompat;->setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
 
     .line 84
-    :cond_0
+    :cond_2c
     sget v2, Lcom/google/android/material/R$styleable;->MaterialRadioButton_useMaterialThemeColors:I
 
     .line 85
@@ -181,12 +181,12 @@
 .end method
 
 .method private getMaterialThemeColorsTintList()Landroid/content/res/ColorStateList;
-    .locals 7
+    .registers 8
 
     .line 119
     iget-object v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->materialThemeColorsTintList:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4c
 
     .line 120
     sget v0, Lcom/google/android/material/R$attr;->colorControlActivated:I
@@ -288,7 +288,7 @@
     .end local v1    # "colorOnSurface":I
     .end local v2    # "colorSurface":I
     .end local v3    # "radioButtonColorList":[I
-    :cond_0
+    :cond_4c
     iget-object v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->materialThemeColorsTintList:Landroid/content/res/ColorStateList;
 
     return-object v0
@@ -297,7 +297,7 @@
 
 # virtual methods
 .method public isUseMaterialThemeColors()Z
-    .locals 1
+    .registers 2
 
     .line 115
     iget-boolean v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->useMaterialThemeColors:Z
@@ -306,7 +306,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 1
+    .registers 2
 
     .line 92
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatRadioButton;->onAttachedToWindow()V
@@ -314,13 +314,13 @@
     .line 94
     iget-boolean v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->useMaterialThemeColors:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-static {p0}, Landroidx/core/widget/CompoundButtonCompat;->getButtonTintList(Landroid/widget/CompoundButton;)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 95
     const/4 v0, 0x1
@@ -328,19 +328,19 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/radiobutton/MaterialRadioButton;->setUseMaterialThemeColors(Z)V
 
     .line 97
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public setUseMaterialThemeColors(Z)V
-    .locals 1
+    .registers 3
     .param p1, "useMaterialThemeColors"    # Z
 
     .line 105
     iput-boolean p1, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->useMaterialThemeColors:Z
 
     .line 106
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 107
     invoke-direct {p0}, Lcom/google/android/material/radiobutton/MaterialRadioButton;->getMaterialThemeColorsTintList()Landroid/content/res/ColorStateList;
@@ -349,15 +349,15 @@
 
     invoke-static {p0, v0}, Landroidx/core/widget/CompoundButtonCompat;->setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    goto :goto_10
 
     .line 109
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Landroidx/core/widget/CompoundButtonCompat;->setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
 
     .line 111
-    :goto_0
+    :goto_10
     return-void
 .end method

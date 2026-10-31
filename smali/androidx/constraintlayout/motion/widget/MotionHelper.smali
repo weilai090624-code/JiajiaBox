@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -78,7 +78,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public getProgress()F
-    .locals 1
+    .registers 2
 
     .line 98
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->mProgress:F
@@ -125,7 +125,7 @@
 .end method
 
 .method protected init(Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 7
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -140,7 +140,7 @@
     invoke-super {p0, p1}, Landroidx/constraintlayout/widget/ConstraintHelper;->init(Landroid/util/AttributeSet;)V
 
     .line 61
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_39
 
     .line 62
     invoke-virtual {p0}, Landroidx/constraintlayout/motion/widget/MotionHelper;->getContext()Landroid/content/Context;
@@ -164,8 +164,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_14
+    if-ge v2, v1, :cond_36
 
     .line 65
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -176,7 +176,7 @@
     .local v3, "attr":I
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MotionHelper_onShow:I
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_27
 
     .line 67
     iget-boolean v4, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->mUseOnShow:Z
@@ -187,13 +187,13 @@
 
     iput-boolean v4, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->mUseOnShow:Z
 
-    goto :goto_1
+    goto :goto_33
 
     .line 68
-    :cond_0
+    :cond_27
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MotionHelper_onHide:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_33
 
     .line 69
     iget-boolean v4, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->mUseOnHide:Z
@@ -206,26 +206,26 @@
 
     .line 64
     .end local v3    # "attr":I
-    :cond_1
-    :goto_1
+    :cond_33
+    :goto_33
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 72
     .end local v2    # "i":I
-    :cond_2
+    :cond_36
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 74
     .end local v0    # "a":Landroid/content/res/TypedArray;
     .end local v1    # "N":I
-    :cond_3
+    :cond_39
     return-void
 .end method
 
 .method public isDecorator()Z
-    .locals 1
+    .registers 2
 
     .line 154
     const/4 v0, 0x0
@@ -234,7 +234,7 @@
 .end method
 
 .method public isUseOnHide()Z
-    .locals 1
+    .registers 2
 
     .line 93
     iget-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->mUseOnHide:Z
@@ -243,7 +243,7 @@
 .end method
 
 .method public isUsedOnShow()Z
-    .locals 1
+    .registers 2
 
     .line 83
     iget-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->mUseOnShow:Z
@@ -252,7 +252,7 @@
 .end method
 
 .method public onFinishedMotionScene(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -268,7 +268,7 @@
 .end method
 
 .method public onPostDraw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -284,7 +284,7 @@
 .end method
 
 .method public onPreDraw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -300,7 +300,7 @@
 .end method
 
 .method public onPreSetup(Landroidx/constraintlayout/motion/widget/MotionLayout;Ljava/util/HashMap;)V
-    .locals 0
+    .registers 3
     .param p1, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -330,7 +330,7 @@
 .end method
 
 .method public onTransitionChange(Landroidx/constraintlayout/motion/widget/MotionLayout;IIF)V
-    .locals 0
+    .registers 5
     .param p1, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .param p2, "startId"    # I
     .param p3, "endId"    # I
@@ -355,7 +355,7 @@
 .end method
 
 .method public onTransitionCompleted(Landroidx/constraintlayout/motion/widget/MotionLayout;I)V
-    .locals 0
+    .registers 3
     .param p1, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .param p2, "currentId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -374,7 +374,7 @@
 .end method
 
 .method public onTransitionStarted(Landroidx/constraintlayout/motion/widget/MotionLayout;II)V
-    .locals 0
+    .registers 4
     .param p1, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .param p2, "startId"    # I
     .param p3, "endId"    # I
@@ -396,7 +396,7 @@
 .end method
 
 .method public onTransitionTrigger(Landroidx/constraintlayout/motion/widget/MotionLayout;IZF)V
-    .locals 0
+    .registers 5
     .param p1, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .param p2, "triggerId"    # I
     .param p3, "positive"    # Z
@@ -421,7 +421,7 @@
 .end method
 
 .method public setProgress(F)V
-    .locals 5
+    .registers 7
     .param p1, "progress"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -438,7 +438,7 @@
     .line 104
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->mCount:I
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_22
 
     .line 105
     invoke-virtual {p0}, Landroidx/constraintlayout/motion/widget/MotionHelper;->getParent()Landroid/view/ViewParent;
@@ -457,10 +457,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_13
     iget v1, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->mCount:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_21
 
     .line 108
     iget-object v1, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->views:[Landroid/view/View;
@@ -475,14 +475,14 @@
     .end local v1    # "view":Landroid/view/View;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .end local v0    # "i":I
-    :cond_0
-    goto :goto_3
+    :cond_21
+    goto :goto_3e
 
     .line 112
-    :cond_1
+    :cond_22
     invoke-virtual {p0}, Landroidx/constraintlayout/motion/widget/MotionHelper;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
@@ -500,8 +500,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_1
-    if-ge v2, v1, :cond_3
+    :goto_2d
+    if-ge v2, v1, :cond_3e
 
     .line 116
     invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -512,33 +512,33 @@
     .local v3, "view":Landroid/view/View;
     instance-of v4, v3, Landroidx/constraintlayout/motion/widget/MotionHelper;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_38
 
     .line 118
-    goto :goto_2
+    goto :goto_3b
 
     .line 120
-    :cond_2
+    :cond_38
     invoke-virtual {p0, v3, p1}, Landroidx/constraintlayout/motion/widget/MotionHelper;->setProgress(Landroid/view/View;F)V
 
     .line 115
     .end local v3    # "view":Landroid/view/View;
-    :goto_2
+    :goto_3b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 123
     .end local v0    # "group":Landroid/view/ViewGroup;
     .end local v1    # "count":I
     .end local v2    # "i":I
-    :cond_3
-    :goto_3
+    :cond_3e
+    :goto_3e
     return-void
 .end method
 
 .method public setProgress(Landroid/view/View;F)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
     .param p2, "progress"    # F
     .annotation system Ldalvik/annotation/MethodParameters;

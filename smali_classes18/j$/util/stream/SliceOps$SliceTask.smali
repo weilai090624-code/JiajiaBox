@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Ljava/util/function/IntFunction;JJ)V
-    .locals 0
+    .registers 9
     .param p5, "offset"    # J
     .param p7, "size"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -102,7 +102,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/SliceOps$SliceTask;Lj$/util/Spliterator;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -144,14 +144,14 @@
 .end method
 
 .method private completedSize(J)J
-    .locals 6
+    .registers 9
     .param p1, "target"    # J
 
     .line 701
     .local p0, "this":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
     iget-boolean v0, p0, Lj$/util/stream/SliceOps$SliceTask;->completed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 702
     iget-wide v0, p0, Lj$/util/stream/SliceOps$SliceTask;->thisNodeSize:J
@@ -159,7 +159,7 @@
     return-wide v0
 
     .line 704
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lj$/util/stream/SliceOps$SliceTask;->leftChild:Lj$/util/stream/AbstractTask;
 
     check-cast v0, Lj$/util/stream/SliceOps$SliceTask;
@@ -172,14 +172,14 @@
 
     .line 706
     .local v1, "right":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_24
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_14
 
-    goto :goto_1
+    goto :goto_24
 
     .line 711
-    :cond_1
+    :cond_14
     invoke-direct {v0, p1, p2}, Lj$/util/stream/SliceOps$SliceTask;->completedSize(J)J
 
     move-result-wide v2
@@ -188,33 +188,33 @@
     .local v2, "leftSize":J
     cmp-long v4, v2, p1
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_1e
 
     move-wide v4, v2
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_2
+    :cond_1e
     invoke-direct {v1, p1, p2}, Lj$/util/stream/SliceOps$SliceTask;->completedSize(J)J
 
     move-result-wide v4
 
     add-long/2addr v4, v2
 
-    :goto_0
+    :goto_23
     return-wide v4
 
     .line 708
     .end local v2    # "leftSize":J
-    :cond_3
-    :goto_1
+    :cond_24
+    :goto_24
     iget-wide v2, p0, Lj$/util/stream/SliceOps$SliceTask;->thisNodeSize:J
 
     return-wide v2
 .end method
 
 .method private doTruncate(Lj$/util/stream/Node;)Lj$/util/stream/Node;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -234,7 +234,7 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_16
 
     invoke-interface {p1}, Lj$/util/stream/Node;->count()J
 
@@ -250,12 +250,12 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     iget-wide v0, p0, Lj$/util/stream/SliceOps$SliceTask;->thisNodeSize:J
 
-    :goto_0
+    :goto_18
     move-wide v5, v0
 
     .line 660
@@ -274,38 +274,38 @@
 .end method
 
 .method private isLeftCompleted(J)Z
-    .locals 8
+    .registers 11
     .param p1, "target"    # J
 
     .line 672
     .local p0, "this":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
     iget-boolean v0, p0, Lj$/util/stream/SliceOps$SliceTask;->completed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-wide v0, p0, Lj$/util/stream/SliceOps$SliceTask;->thisNodeSize:J
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_7
     invoke-direct {p0, p1, p2}, Lj$/util/stream/SliceOps$SliceTask;->completedSize(J)J
 
     move-result-wide v0
 
     .line 673
     .local v0, "size":J
-    :goto_0
+    :goto_b
     const/4 v2, 0x1
 
     cmp-long v3, v0, p1
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_11
 
     .line 674
     return v2
 
     .line 675
-    :cond_1
+    :cond_11
     invoke-virtual {p0}, Lj$/util/stream/SliceOps$SliceTask;->getParent()Lj$/util/stream/AbstractTask;
 
     move-result-object v3
@@ -317,13 +317,13 @@
 
     .line 676
     .local v4, "node":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
-    :goto_1
-    if-eqz v3, :cond_3
+    :goto_18
+    if-eqz v3, :cond_37
 
     .line 678
     iget-object v5, v3, Lj$/util/stream/SliceOps$SliceTask;->rightChild:Lj$/util/stream/AbstractTask;
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_2e
 
     .line 679
     iget-object v5, v3, Lj$/util/stream/SliceOps$SliceTask;->leftChild:Lj$/util/stream/AbstractTask;
@@ -332,7 +332,7 @@
 
     .line 680
     .local v5, "left":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_2e
 
     .line 681
     invoke-direct {v5, p1, p2}, Lj$/util/stream/SliceOps$SliceTask;->completedSize(J)J
@@ -344,14 +344,14 @@
     .line 682
     cmp-long v6, v0, p1
 
-    if-ltz v6, :cond_2
+    if-ltz v6, :cond_2e
 
     .line 683
     return v2
 
     .line 677
     .end local v5    # "left":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
-    :cond_2
+    :cond_2e
     move-object v4, v3
 
     invoke-virtual {v3}, Lj$/util/stream/SliceOps$SliceTask;->getParent()Lj$/util/stream/AbstractTask;
@@ -362,29 +362,29 @@
 
     check-cast v3, Lj$/util/stream/SliceOps$SliceTask;
 
-    goto :goto_1
+    goto :goto_18
 
     .line 687
     .end local v3    # "parent":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
     .end local v4    # "node":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
-    :cond_3
+    :cond_37
     cmp-long v3, v0, p1
 
-    if-ltz v3, :cond_4
+    if-ltz v3, :cond_3c
 
-    goto :goto_2
+    goto :goto_3d
 
-    :cond_4
+    :cond_3c
     const/4 v2, 0x0
 
-    :goto_2
+    :goto_3d
     return v2
 .end method
 
 
 # virtual methods
 .method protected cancel()V
-    .locals 1
+    .registers 2
 
     .line 653
     .local p0, "this":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
@@ -393,7 +393,7 @@
     .line 654
     iget-boolean v0, p0, Lj$/util/stream/SliceOps$SliceTask;->completed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 655
     invoke-virtual {p0}, Lj$/util/stream/SliceOps$SliceTask;->getEmptyResult()Lj$/util/stream/Node;
@@ -403,12 +403,12 @@
     invoke-virtual {p0, v0}, Lj$/util/stream/SliceOps$SliceTask;->setLocalResult(Ljava/lang/Object;)V
 
     .line 656
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method protected final doLeaf()Lj$/util/stream/Node;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -425,7 +425,7 @@
 
     const-wide/16 v1, -0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_45
 
     .line 596
     sget-object v0, Lj$/util/stream/StreamOpFlag;->SIZED:Lj$/util/stream/StreamOpFlag;
@@ -438,7 +438,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 597
     iget-object v0, p0, Lj$/util/stream/SliceOps$SliceTask;->op:Lj$/util/stream/AbstractPipeline;
@@ -449,13 +449,13 @@
 
     move-result-wide v1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 598
-    :cond_0
+    :cond_1d
     nop
 
-    :goto_0
+    :goto_1e
     move-wide v0, v1
 
     .line 599
@@ -507,7 +507,7 @@
     .end local v0    # "sizeIfKnown":J
     .end local v2    # "nb":Lj$/util/stream/Node$Builder;, "Ljava/util/stream/Node$Builder<TP_OUT;>;"
     .end local v3    # "opSink":Lj$/util/stream/Sink;, "Ljava/util/stream/Sink<TP_OUT;>;"
-    :cond_1
+    :cond_45
     iget-object v0, p0, Lj$/util/stream/SliceOps$SliceTask;->op:Lj$/util/stream/AbstractPipeline;
 
     iget-object v3, p0, Lj$/util/stream/SliceOps$SliceTask;->generator:Ljava/util/function/IntFunction;
@@ -524,7 +524,7 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_6f
 
     .line 609
     iget-object v1, p0, Lj$/util/stream/SliceOps$SliceTask;->op:Lj$/util/stream/AbstractPipeline;
@@ -555,10 +555,10 @@
 
     .line 611
     .end local v1    # "opSink":Lj$/util/stream/Sink;, "Ljava/util/stream/Sink<TP_OUT;>;"
-    goto :goto_1
+    goto :goto_76
 
     .line 613
-    :cond_2
+    :cond_6f
     iget-object v1, p0, Lj$/util/stream/SliceOps$SliceTask;->helper:Lj$/util/stream/PipelineHelper;
 
     iget-object v2, p0, Lj$/util/stream/SliceOps$SliceTask;->spliterator:Lj$/util/Spliterator;
@@ -566,7 +566,7 @@
     invoke-virtual {v1, v0, v2}, Lj$/util/stream/PipelineHelper;->wrapAndCopyInto(Lj$/util/stream/Sink;Lj$/util/Spliterator;)Lj$/util/stream/Sink;
 
     .line 615
-    :goto_1
+    :goto_76
     invoke-interface {v0}, Lj$/util/stream/Node$Builder;->build()Lj$/util/stream/Node;
 
     move-result-object v1
@@ -594,7 +594,7 @@
 .end method
 
 .method protected bridge synthetic doLeaf()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 553
     .local p0, "this":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
@@ -606,7 +606,7 @@
 .end method
 
 .method protected final getEmptyResult()Lj$/util/stream/Node;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -631,7 +631,7 @@
 .end method
 
 .method protected bridge synthetic getEmptyResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 553
     .local p0, "this":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
@@ -643,7 +643,7 @@
 .end method
 
 .method protected bridge synthetic makeChild(Lj$/util/Spliterator;)Lj$/util/stream/AbstractTask;
-    .locals 0
+    .registers 2
 
     .line 553
     .local p0, "this":Lj$/util/stream/SliceOps$SliceTask;, "Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;"
@@ -655,7 +655,7 @@
 .end method
 
 .method protected makeChild(Lj$/util/Spliterator;)Lj$/util/stream/SliceOps$SliceTask;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -677,7 +677,7 @@
 .end method
 
 .method public final onCompletion(Ljava/util/concurrent/CountedCompleter;)V
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -695,7 +695,7 @@
 
     const-wide/16 v1, 0x0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_72
 
     .line 627
     iget-object v0, p0, Lj$/util/stream/SliceOps$SliceTask;->leftChild:Lj$/util/stream/AbstractTask;
@@ -717,7 +717,7 @@
     .line 628
     iget-boolean v0, p0, Lj$/util/stream/SliceOps$SliceTask;->canceled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 629
     iput-wide v1, p0, Lj$/util/stream/SliceOps$SliceTask;->thisNodeSize:J
@@ -728,16 +728,16 @@
     move-result-object v0
 
     .local v0, "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    goto :goto_0
+    goto :goto_60
 
     .line 632
     .end local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    :cond_0
+    :cond_22
     iget-wide v3, p0, Lj$/util/stream/SliceOps$SliceTask;->thisNodeSize:J
 
     cmp-long v0, v3, v1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2d
 
     .line 633
     invoke-virtual {p0}, Lj$/util/stream/SliceOps$SliceTask;->getEmptyResult()Lj$/util/stream/Node;
@@ -745,11 +745,11 @@
     move-result-object v0
 
     .restart local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    goto :goto_0
+    goto :goto_60
 
     .line 634
     .end local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    :cond_1
+    :cond_2d
     iget-object v0, p0, Lj$/util/stream/SliceOps$SliceTask;->leftChild:Lj$/util/stream/AbstractTask;
 
     check-cast v0, Lj$/util/stream/SliceOps$SliceTask;
@@ -758,7 +758,7 @@
 
     cmp-long v0, v3, v1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_42
 
     .line 635
     iget-object v0, p0, Lj$/util/stream/SliceOps$SliceTask;->rightChild:Lj$/util/stream/AbstractTask;
@@ -772,11 +772,11 @@
     check-cast v0, Lj$/util/stream/Node;
 
     .restart local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    goto :goto_0
+    goto :goto_60
 
     .line 637
     .end local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    :cond_2
+    :cond_42
     iget-object v0, p0, Lj$/util/stream/SliceOps$SliceTask;->op:Lj$/util/stream/AbstractPipeline;
 
     invoke-virtual {v0}, Lj$/util/stream/AbstractPipeline;->getOutputShape()Lj$/util/stream/StreamShape;
@@ -811,23 +811,23 @@
 
     .line 640
     .restart local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    :goto_0
+    :goto_60
     invoke-virtual {p0}, Lj$/util/stream/SliceOps$SliceTask;->isRoot()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_6b
 
     invoke-direct {p0, v0}, Lj$/util/stream/SliceOps$SliceTask;->doTruncate(Lj$/util/stream/Node;)Lj$/util/stream/Node;
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_6c
 
-    :cond_3
+    :cond_6b
     move-object v3, v0
 
-    :goto_1
+    :goto_6c
     invoke-virtual {p0, v3}, Lj$/util/stream/SliceOps$SliceTask;->setLocalResult(Ljava/lang/Object;)V
 
     .line 641
@@ -837,19 +837,19 @@
 
     .line 643
     .end local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    :cond_4
+    :cond_72
     iget-wide v3, p0, Lj$/util/stream/SliceOps$SliceTask;->targetSize:J
 
     cmp-long v0, v3, v1
 
-    if-ltz v0, :cond_5
+    if-ltz v0, :cond_8c
 
     .line 644
     invoke-virtual {p0}, Lj$/util/stream/SliceOps$SliceTask;->isRoot()Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_8c
 
     iget-wide v0, p0, Lj$/util/stream/SliceOps$SliceTask;->targetOffset:J
 
@@ -862,13 +862,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8c
 
     .line 646
     invoke-virtual {p0}, Lj$/util/stream/SliceOps$SliceTask;->cancelLaterNodes()V
 
     .line 648
-    :cond_5
+    :cond_8c
     invoke-super {p0, p1}, Lj$/util/stream/AbstractShortCircuitTask;->onCompletion(Ljava/util/concurrent/CountedCompleter;)V
 
     .line 649

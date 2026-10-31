@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,12 +20,12 @@
 
 # virtual methods
 .method public cancelCurrent()V
-    .locals 1
+    .registers 2
 
     .line 33
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/AnimatorTracker;->currentAnimator:Landroid/animation/Animator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 34
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/AnimatorTracker;->currentAnimator:Landroid/animation/Animator;
@@ -33,12 +33,12 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
     .line 36
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 39
     const/4 v0, 0x0
@@ -50,7 +50,7 @@
 .end method
 
 .method public onNextAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 28

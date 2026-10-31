@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Telefonatë hyrëse</string>
     <string name="call_notification_ongoing_text">Telefonatë në vazhdim</string>
     <string name="call_notification_screening_text">Po filtron një telefonatë hyrëse</string>
-    <string name="character_counter_content_description" formatted="false">Karakteret e futura: %1$d nga %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Kufiri i karaktereve është kaluar: %1$d nga %2$d</string>
+    <string name="character_counter_content_description">Karakteret e futura: %1$d nga %2$d</string>
+    <string name="character_counter_overflowed_content_description">Kufiri i karaktereve është kaluar: %1$d nga %2$d</string>
     <string name="clear_text_end_icon_content_description">Pastro tekstin</string>
     <string name="copy">Kopjo</string>
     <string name="copy_toast_msg">Lidhja u kopjua në kujtesën e fragmenteve</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Jashtë gamës: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Data e fillimit – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – data e përfundimit</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
     <string name="mtrl_picker_range_header_title">Zgjidh gamën</string>
     <string name="mtrl_picker_range_header_unselected">Data e fillimit - data e përfundimit</string>
     <string name="mtrl_picker_save">Ruaj</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" u kopjua në kujtesën e fragmenteve</string>
     <string name="search_menu_title">Kërko</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">JOAKTIV</string>
     <string name="v7_preference_on">AKTIV</string>
 </resources>

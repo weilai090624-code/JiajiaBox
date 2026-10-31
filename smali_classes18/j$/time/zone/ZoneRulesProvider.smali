@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 138
     new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
@@ -92,7 +92,7 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 367
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -102,7 +102,7 @@
 .end method
 
 .method public static getAvailableZoneIds()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -119,7 +119,7 @@
 .end method
 
 .method private static getProvider(Ljava/lang/String;)Lj$/time/zone/ZoneRulesProvider;
-    .locals 4
+    .registers 5
     .param p0, "zoneId"    # Ljava/lang/String;
 
     .line 281
@@ -133,7 +133,7 @@
 
     .line 282
     .local v0, "provider":Lj$/time/zone/ZoneRulesProvider;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_33
 
     .line 283
     sget-object v1, Lj$/time/zone/ZoneRulesProvider;->ZONES:Ljava/util/concurrent/ConcurrentMap;
@@ -142,7 +142,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 284
     new-instance v1, Lj$/time/zone/ZoneRulesException;
@@ -154,7 +154,7 @@
     throw v1
 
     .line 286
-    :cond_0
+    :cond_1a
     new-instance v1, Lj$/time/zone/ZoneRulesException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -180,12 +180,12 @@
     throw v1
 
     .line 288
-    :cond_1
+    :cond_33
     return-object v0
 .end method
 
 .method public static getRules(Ljava/lang/String;Z)Lj$/time/zone/ZoneRules;
-    .locals 1
+    .registers 3
     .param p0, "zoneId"    # Ljava/lang/String;
     .param p1, "forCaching"    # Z
 
@@ -207,7 +207,7 @@
 .end method
 
 .method public static getVersions(Ljava/lang/String;)Ljava/util/NavigableMap;
-    .locals 1
+    .registers 2
     .param p0, "zoneId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -239,7 +239,7 @@
 .end method
 
 .method public static refresh()Z
-    .locals 4
+    .registers 4
 
     .line 357
     const/4 v0, 0x0
@@ -252,12 +252,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -275,15 +275,15 @@
 
     .line 360
     .end local v2    # "provider":Lj$/time/zone/ZoneRulesProvider;
-    goto :goto_0
+    goto :goto_7
 
     .line 361
-    :cond_0
+    :cond_19
     return v0
 .end method
 
 .method public static registerProvider(Lj$/time/zone/ZoneRulesProvider;)V
-    .locals 1
+    .registers 2
     .param p0, "provider"    # Lj$/time/zone/ZoneRulesProvider;
 
     .line 308
@@ -304,7 +304,7 @@
 .end method
 
 .method private static declared-synchronized registerProvider0(Lj$/time/zone/ZoneRulesProvider;)V
-    .locals 6
+    .registers 7
     .param p0, "provider"    # Lj$/time/zone/ZoneRulesProvider;
 
     const-class v0, Lj$/time/zone/ZoneRulesProvider;
@@ -312,7 +312,7 @@
     monitor-enter v0
 
     .line 320
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lj$/time/zone/ZoneRulesProvider;->provideZoneIds()Ljava/util/Set;
 
     move-result-object v1
@@ -321,12 +321,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4a
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -351,17 +351,17 @@
 
     .line 323
     .local v3, "old":Lj$/time/zone/ZoneRulesProvider;
-    if-nez v3, :cond_0
+    if-nez v3, :cond_27
 
     .line 328
     .end local v2    # "zoneId":Ljava/lang/String;
     .end local v3    # "old":Lj$/time/zone/ZoneRulesProvider;
-    goto :goto_0
+    goto :goto_b
 
     .line 324
     .restart local v2    # "zoneId":Ljava/lang/String;
     .restart local v3    # "old":Lj$/time/zone/ZoneRulesProvider;
-    :cond_0
+    :cond_27
     new-instance v1, Lj$/time/zone/ZoneRulesException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -399,7 +399,7 @@
     .line 329
     .end local v2    # "zoneId":Ljava/lang/String;
     .end local v3    # "old":Lj$/time/zone/ZoneRulesProvider;
-    :cond_1
+    :cond_4a
     new-instance v1, Ljava/util/HashSet;
 
     sget-object v2, Lj$/time/zone/ZoneRulesProvider;->ZONES:Ljava/util/concurrent/ConcurrentMap;
@@ -417,8 +417,8 @@
     move-result-object v2
 
     sput-object v2, Lj$/time/zone/ZoneRulesProvider;->ZONE_IDS:Ljava/util/Set;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5b
+    .catchall {:try_start_3 .. :try_end_5b} :catchall_5d
 
     .line 331
     monitor-exit v0
@@ -428,13 +428,13 @@
     .line 319
     .end local v1    # "combinedSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     .end local p0    # "provider":Lj$/time/zone/ZoneRulesProvider;
-    :catchall_0
+    :catchall_5d
     move-exception p0
 
-    :try_start_1
+    :try_start_5e
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5f
+    .catchall {:try_start_5e .. :try_end_5f} :catchall_5d
 
     throw p0
 .end method
@@ -442,7 +442,7 @@
 
 # virtual methods
 .method protected provideRefresh()Z
-    .locals 1
+    .registers 2
 
     .line 452
     const/4 v0, 0x0

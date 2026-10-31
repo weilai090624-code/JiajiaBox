@@ -96,7 +96,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;ZZ)V
-    .locals 1
+    .registers 5
     .param p1, "parentContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "initParentJob"    # Z
     .param p3, "active"    # Z
@@ -108,7 +108,7 @@
     nop
 
     .line 51
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_13
 
     sget-object v0, Lkotlinx/coroutines/Job;->Key:Lkotlinx/coroutines/Job$Key;
 
@@ -123,7 +123,7 @@
     invoke-virtual {p0, v0}, Lkotlinx/coroutines/AbstractCoroutine;->initParentJob(Lkotlinx/coroutines/Job;)V
 
     .line 52
-    :cond_0
+    :cond_13
     nop
 
     .line 58
@@ -142,7 +142,7 @@
 .end method
 
 .method public static synthetic getContext$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -150,7 +150,7 @@
 
 # virtual methods
 .method protected afterResume(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "state"    # Ljava/lang/Object;
 
     .line 105
@@ -160,7 +160,7 @@
 .end method
 
 .method protected cancellationExceptionMessage()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 86
     new-instance v0, Ljava/lang/StringBuilder;
@@ -189,7 +189,7 @@
 .end method
 
 .method public final getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Lkotlinx/coroutines/AbstractCoroutine;->context:Lkotlin/coroutines/CoroutineContext;
@@ -198,7 +198,7 @@
 .end method
 
 .method public getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 63
     iget-object v0, p0, Lkotlinx/coroutines/AbstractCoroutine;->context:Lkotlin/coroutines/CoroutineContext;
@@ -207,7 +207,7 @@
 .end method
 
 .method public final handleOnCompletionException$kotlinx_coroutines_core(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p1, "exception"    # Ljava/lang/Throwable;
 
     .line 108
@@ -220,7 +220,7 @@
 .end method
 
 .method public isActive()Z
-    .locals 1
+    .registers 2
 
     .line 65
     invoke-super {p0}, Lkotlinx/coroutines/JobSupport;->isActive()Z
@@ -231,7 +231,7 @@
 .end method
 
 .method public nameString$kotlinx_coroutines_core()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 112
     iget-object v0, p0, Lkotlinx/coroutines/AbstractCoroutine;->context:Lkotlin/coroutines/CoroutineContext;
@@ -240,7 +240,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     invoke-super {p0}, Lkotlinx/coroutines/JobSupport;->nameString$kotlinx_coroutines_core()Ljava/lang/String;
 
@@ -250,7 +250,7 @@
 
     .line 113
     .local v0, "coroutineName":Ljava/lang/String;
-    :cond_0
+    :cond_d
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -287,7 +287,7 @@
 .end method
 
 .method protected onCancelled(Ljava/lang/Throwable;Z)V
-    .locals 0
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
     .param p2, "handled"    # Z
 
@@ -296,7 +296,7 @@
 .end method
 
 .method protected onCompleted(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -309,13 +309,13 @@
 .end method
 
 .method protected final onCompletionInternal(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # Ljava/lang/Object;
 
     .line 90
     instance-of v0, p1, Lkotlinx/coroutines/CompletedExceptionally;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 91
     move-object v0, p1
@@ -334,19 +334,19 @@
 
     invoke-virtual {p0, v0, v1}, Lkotlinx/coroutines/AbstractCoroutine;->onCancelled(Ljava/lang/Throwable;Z)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 93
-    :cond_0
+    :cond_14
     invoke-virtual {p0, p1}, Lkotlinx/coroutines/AbstractCoroutine;->onCompleted(Ljava/lang/Object;)V
 
     .line 94
-    :goto_0
+    :goto_17
     return-void
 .end method
 
 .method public final resumeWith(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 100
@@ -366,12 +366,12 @@
     .local v0, "state":Ljava/lang/Object;
     sget-object v1, Lkotlinx/coroutines/JobSupportKt;->COMPLETING_WAITING_CHILDREN:Lkotlinx/coroutines/internal/Symbol;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     return-void
 
     .line 102
-    :cond_0
+    :cond_f
     invoke-virtual {p0, v0}, Lkotlinx/coroutines/AbstractCoroutine;->afterResume(Ljava/lang/Object;)V
 
     .line 103
@@ -379,7 +379,7 @@
 .end method
 
 .method public final start(Lkotlinx/coroutines/CoroutineStart;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 5
     .param p1, "start"    # Lkotlinx/coroutines/CoroutineStart;
     .param p2, "receiver"    # Ljava/lang/Object;
     .param p3, "block"    # Lkotlin/jvm/functions/Function2;

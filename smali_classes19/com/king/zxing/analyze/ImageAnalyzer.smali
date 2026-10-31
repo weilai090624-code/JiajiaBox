@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public analyze(Landroidx/camera/core/ImageProxy;I)Lcom/google/zxing/Result;
-    .locals 10
+    .registers 13
     .param p1, "image"    # Landroidx/camera/core/ImageProxy;
     .param p2, "orientation"    # I
 
@@ -30,7 +30,7 @@
 
     const/16 v1, 0x23
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_4c
 
     .line 35
     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->getPlanes()[Landroidx/camera/core/ImageProxy$PlaneProxy;
@@ -72,7 +72,7 @@
     .local v3, "height":I
     const/4 v4, 0x1
 
-    if-ne p2, v4, :cond_2
+    if-ne p2, v4, :cond_47
 
     .line 41
     array-length v5, v1
@@ -84,15 +84,15 @@
     const/4 v6, 0x0
 
     .local v6, "y":I
-    :goto_0
-    if-ge v6, v3, :cond_1
+    :goto_2b
+    if-ge v6, v3, :cond_42
 
     .line 43
     const/4 v7, 0x0
 
     .local v7, "x":I
-    :goto_1
-    if-ge v7, v2, :cond_0
+    :goto_2e
+    if-ge v7, v2, :cond_3f
 
     .line 44
     mul-int v8, v7, v3
@@ -114,18 +114,18 @@
     .line 43
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 42
     .end local v7    # "x":I
-    :cond_0
+    :cond_3f
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 47
     .end local v6    # "y":I
-    :cond_1
+    :cond_42
     invoke-virtual {p0, v5, v3, v2}, Lcom/king/zxing/analyze/ImageAnalyzer;->analyze([BII)Lcom/google/zxing/Result;
 
     move-result-object v4
@@ -134,7 +134,7 @@
 
     .line 49
     .end local v5    # "rotatedData":[B
-    :cond_2
+    :cond_47
     invoke-virtual {p0, v1, v2, v3}, Lcom/king/zxing/analyze/ImageAnalyzer;->analyze([BII)Lcom/google/zxing/Result;
 
     move-result-object v4
@@ -146,7 +146,7 @@
     .end local v1    # "data":[B
     .end local v2    # "width":I
     .end local v3    # "height":I
-    :cond_3
+    :cond_4c
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

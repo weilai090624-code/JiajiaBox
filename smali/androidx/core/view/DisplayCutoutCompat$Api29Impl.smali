@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 279
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static createDisplayCutout(Landroid/graphics/Insets;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/view/DisplayCutout;
-    .locals 7
+    .registers 12
     .param p0, "safeInsets"    # Landroid/graphics/Insets;
     .param p1, "boundLeft"    # Landroid/graphics/Rect;
     .param p2, "boundTop"    # Landroid/graphics/Rect;

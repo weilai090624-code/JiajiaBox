@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 119
     .local p0, "this":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<TT;>;"
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final fromJson(Ljava/io/Reader;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,7 +60,7 @@
 .end method
 
 .method public final fromJson(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "json"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +90,7 @@
 .end method
 
 .method public final fromJsonTree(Lcom/google/gson/JsonElement;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "jsonTree"    # Lcom/google/gson/JsonElement;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -112,14 +112,14 @@
     invoke-virtual {p0, v0}, Lcom/google/gson/TypeAdapter;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_9} :catch_a
 
     return-object v1
 
     .line 286
     .end local v0    # "jsonReader":Lcom/google/gson/stream/JsonReader;
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 287
@@ -132,7 +132,7 @@
 .end method
 
 .method public final nullSafe()Lcom/google/gson/TypeAdapter;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -167,7 +167,7 @@
 .end method
 
 .method public final toJson(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -184,10 +184,10 @@
 
     .line 217
     .local v0, "stringWriter":Ljava/io/StringWriter;
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0, v0, p1}, Lcom/google/gson/TypeAdapter;->toJson(Ljava/io/Writer;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_8} :catch_e
 
     .line 220
     nop
@@ -200,7 +200,7 @@
     return-object v1
 
     .line 218
-    :catch_0
+    :catch_e
     move-exception v1
 
     .line 219
@@ -213,7 +213,7 @@
 .end method
 
 .method public final toJson(Ljava/io/Writer;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Ljava/io/Writer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -245,7 +245,7 @@
 .end method
 
 .method public final toJsonTree(Ljava/lang/Object;)Lcom/google/gson/JsonElement;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -269,14 +269,14 @@
     invoke-virtual {v0}, Lcom/google/gson/internal/bind/JsonTreeWriter;->get()Lcom/google/gson/JsonElement;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_c} :catch_d
 
     return-object v1
 
     .line 236
     .end local v0    # "jsonWriter":Lcom/google/gson/internal/bind/JsonTreeWriter;
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 237

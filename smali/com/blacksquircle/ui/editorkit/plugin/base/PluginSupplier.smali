@@ -58,7 +58,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier$Companion;
 
@@ -72,7 +72,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -91,7 +91,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;-><init>()V
 
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public final plugin(Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;)V
-    .locals 1
+    .registers 3
     .param p1, "plugin"    # Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -125,7 +125,7 @@
 .end method
 
 .method public final supply()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

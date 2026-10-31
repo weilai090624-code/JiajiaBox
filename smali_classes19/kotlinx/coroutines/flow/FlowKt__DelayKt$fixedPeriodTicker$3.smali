@@ -90,7 +90,7 @@
 
 # direct methods
 .method constructor <init>(JJLkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -148,7 +148,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/channels/ProducerScope;
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -194,7 +194,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -203,7 +203,7 @@
     .line 315
     iget v1, p0, Lkotlinx/coroutines/flow/FlowKt__DelayKt$fixedPeriodTicker$3;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_6e
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -213,7 +213,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v1, p0
 
     .local v1, "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$fixedPeriodTicker$3;
@@ -225,12 +225,12 @@
     .local v2, "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_3
+    goto :goto_6c
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$fixedPeriodTicker$3;
     .end local v2    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1a
     move-object v1, p0
 
     .restart local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$fixedPeriodTicker$3;
@@ -242,12 +242,12 @@
     .restart local v2    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_5b
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$fixedPeriodTicker$3;
     .end local v2    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_23
     move-object v1, p0
 
     .restart local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$fixedPeriodTicker$3;
@@ -259,12 +259,12 @@
     .restart local v2    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_45
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$fixedPeriodTicker$3;
     .end local v2    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_3
+    :pswitch_2c
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -293,18 +293,18 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_45
 
     .line 315
     return-object v0
 
     .line 317
-    :cond_0
-    :goto_0
+    :cond_45
+    :goto_45
     nop
 
     .line 318
-    :goto_1
+    :goto_46
     invoke-interface {v2}, Lkotlinx/coroutines/channels/ProducerScope;->getChannel()Lkotlinx/coroutines/channels/SendChannel;
 
     move-result-object v3
@@ -325,14 +325,14 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_1
+    if-ne v3, v0, :cond_5b
 
     .line 315
     return-object v0
 
     .line 319
-    :cond_1
-    :goto_2
+    :cond_5b
+    :goto_5b
     iget-wide v3, v1, Lkotlinx/coroutines/flow/FlowKt__DelayKt$fixedPeriodTicker$3;->$delayMillis:J
 
     move-object v5, v1
@@ -349,23 +349,23 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_2
+    if-ne v3, v0, :cond_6c
 
     .line 315
     return-object v0
 
     .line 319
-    :cond_2
-    :goto_3
-    goto :goto_1
+    :cond_6c
+    :goto_6c
+    goto :goto_46
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6e
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2c
+        :pswitch_23
+        :pswitch_1a
+        :pswitch_11
     .end packed-switch
 .end method

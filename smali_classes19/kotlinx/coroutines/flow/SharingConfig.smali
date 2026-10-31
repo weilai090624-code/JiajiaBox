@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/Flow;ILkotlinx/coroutines/channels/BufferOverflow;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 0
+    .registers 5
     .param p1, "upstream"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "extraBufferCapacity"    # I
     .param p3, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;

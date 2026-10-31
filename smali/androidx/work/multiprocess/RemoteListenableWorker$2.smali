@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/multiprocess/RemoteListenableWorker;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/work/multiprocess/RemoteListenableWorker;
 
     .line 148
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public apply([B)Landroidx/work/ListenableWorker$Result;
-    .locals 4
+    .registers 6
     .param p1, "input"    # [B
 
     .line 151
@@ -87,7 +87,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 148
     check-cast p1, [B

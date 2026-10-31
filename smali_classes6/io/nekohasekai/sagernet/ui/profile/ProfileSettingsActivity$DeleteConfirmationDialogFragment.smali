@@ -52,7 +52,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$HmLSDtOVcyLAXobbI_pEWTARJ3c(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$DeleteConfirmationDialogFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$DeleteConfirmationDialogFragment;->prepare$lambda$0(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$DeleteConfirmationDialogFragment;Landroid/content/DialogInterface;I)V
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 68
     invoke-direct {p0}, Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment;-><init>()V
@@ -69,7 +69,7 @@
 .end method
 
 .method public static final synthetic access$getArg(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$DeleteConfirmationDialogFragment;)Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$DeleteConfirmationDialogFragment;
 
     .line 68
@@ -83,7 +83,7 @@
 .end method
 
 .method private static final prepare$lambda$0(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$DeleteConfirmationDialogFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$DeleteConfirmationDialogFragment;
 
     .line 72
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method protected prepare(Landroidx/appcompat/app/AlertDialog$Builder;Landroid/content/DialogInterface$OnClickListener;)V
-    .locals 2
+    .registers 5
     .param p1, "$this$prepare"    # Landroidx/appcompat/app/AlertDialog$Builder;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 

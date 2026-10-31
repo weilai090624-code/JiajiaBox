@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AtomicLongMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/AtomicLongMap;
 
     .line 341
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public apply(Ljava/util/concurrent/atomic/AtomicLong;)Ljava/lang/Long;
-    .locals 2
+    .registers 4
     .param p1, "atomic"    # Ljava/util/concurrent/atomic/AtomicLong;
 
     .line 344
@@ -59,7 +59,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 341
     .local p0, "this":Lcom/google/common/util/concurrent/AtomicLongMap$1;, "Lcom/google/common/util/concurrent/AtomicLongMap$1;"

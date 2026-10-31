@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>([C)V
-    .locals 0
+    .registers 2
     .param p1, "content"    # [C
 
     .line 23
@@ -36,7 +36,7 @@
 .end method
 
 .method public static allocate([C)Landroidx/constraintlayout/core/parser/CLObject;
-    .locals 1
+    .registers 2
     .param p0, "content"    # [C
 
     .line 27
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 69
     new-instance v0, Landroidx/constraintlayout/core/parser/CLObject$CLObjectIterator;
@@ -61,7 +61,7 @@
 .end method
 
 .method public toFormattedJSON()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 46
     const/4 v0, 0x0
@@ -74,7 +74,7 @@
 .end method
 
 .method public toFormattedJSON(II)Ljava/lang/String;
-    .locals 6
+    .registers 9
     .param p1, "indent"    # I
     .param p2, "forceIndent"    # I
 
@@ -104,12 +104,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_16
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_38
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -119,21 +119,21 @@
 
     .line 54
     .local v3, "element":Landroidx/constraintlayout/core/parser/CLElement;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2a
 
     .line 55
     const-string v4, ",\n"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 57
-    :cond_0
+    :cond_2a
     const/4 v1, 0x0
 
     .line 59
-    :goto_1
+    :goto_2b
     sget v4, Landroidx/constraintlayout/core/parser/CLObject;->BASE_INDENT:I
 
     add-int/2addr v4, p1
@@ -148,10 +148,10 @@
 
     .line 60
     .end local v3    # "element":Landroidx/constraintlayout/core/parser/CLElement;
-    goto :goto_0
+    goto :goto_16
 
     .line 61
-    :cond_1
+    :cond_38
     const-string v2, "\n"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -173,7 +173,7 @@
 .end method
 
 .method public toJSON()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 31
     new-instance v0, Ljava/lang/StringBuilder;
@@ -214,12 +214,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_24
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_41
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -229,21 +229,21 @@
 
     .line 34
     .local v3, "element":Landroidx/constraintlayout/core/parser/CLElement;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_38
 
     .line 35
     const-string v4, ", "
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_39
 
     .line 37
-    :cond_0
+    :cond_38
     const/4 v1, 0x0
 
     .line 39
-    :goto_1
+    :goto_39
     invoke-virtual {v3}, Landroidx/constraintlayout/core/parser/CLElement;->toJSON()Ljava/lang/String;
 
     move-result-object v4
@@ -252,10 +252,10 @@
 
     .line 40
     .end local v3    # "element":Landroidx/constraintlayout/core/parser/CLElement;
-    goto :goto_0
+    goto :goto_24
 
     .line 41
-    :cond_1
+    :cond_41
     const-string v2, " }"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

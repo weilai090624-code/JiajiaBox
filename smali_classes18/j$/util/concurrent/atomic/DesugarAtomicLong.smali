@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static accumulateAndGet(Ljava/util/concurrent/atomic/AtomicLong;JLjava/util/function/LongBinaryOperator;)J
-    .locals 5
+    .registers 9
     .param p0, "atomic"    # Ljava/util/concurrent/atomic/AtomicLong;
     .param p1, "x"    # J
     .param p3, "accumulatorFunction"    # Ljava/util/function/LongBinaryOperator;
@@ -22,7 +22,7 @@
     .line 141
     nop
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
     move-result-wide v0
@@ -39,14 +39,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     .line 144
     return-wide v2
 .end method
 
 .method public static getAndAccumulate(Ljava/util/concurrent/atomic/AtomicLong;JLjava/util/function/LongBinaryOperator;)J
-    .locals 5
+    .registers 9
     .param p0, "atomic"    # Ljava/util/concurrent/atomic/AtomicLong;
     .param p1, "x"    # J
     .param p3, "accumulatorFunction"    # Ljava/util/function/LongBinaryOperator;
@@ -54,7 +54,7 @@
     .line 116
     nop
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
     move-result-wide v0
@@ -71,21 +71,21 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     .line 119
     return-wide v0
 .end method
 
 .method public static getAndUpdate(Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/function/LongUnaryOperator;)J
-    .locals 5
+    .registers 7
     .param p0, "atomic"    # Ljava/util/concurrent/atomic/AtomicLong;
     .param p1, "updateFunction"    # Ljava/util/function/LongUnaryOperator;
 
     .line 71
     nop
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
     move-result-wide v0
@@ -102,21 +102,21 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     .line 74
     return-wide v0
 .end method
 
 .method public static updateAndGet(Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/function/LongUnaryOperator;)J
-    .locals 5
+    .registers 7
     .param p0, "atomic"    # Ljava/util/concurrent/atomic/AtomicLong;
     .param p1, "updateFunction"    # Ljava/util/function/LongUnaryOperator;
 
     .line 91
     nop
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
     move-result-wide v0
@@ -133,7 +133,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     .line 94
     return-wide v2

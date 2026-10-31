@@ -68,7 +68,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Set;Landroidx/customview/widget/Openable;Landroidx/navigation/ui/AppBarConfiguration$OnNavigateUpListener;)V
-    .locals 0
+    .registers 4
     .param p1, "topLevelDestinations"    # Ljava/util/Set;
     .param p2, "openableLayout"    # Landroidx/customview/widget/Openable;
     .param p3, "fallbackOnNavigateUpListener"    # Landroidx/navigation/ui/AppBarConfiguration$OnNavigateUpListener;
@@ -101,7 +101,7 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/util/Set;Landroidx/customview/widget/Openable;Landroidx/navigation/ui/AppBarConfiguration$OnNavigateUpListener;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     invoke-direct {p0, p1, p2, p3}, Landroidx/navigation/ui/AppBarConfiguration;-><init>(Ljava/util/Set;Landroidx/customview/widget/Openable;Landroidx/navigation/ui/AppBarConfiguration$OnNavigateUpListener;)V
 
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public final getDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use {@link #getOpenableLayout()}."
     .end annotation
@@ -121,25 +121,25 @@
 
     instance-of v0, v0, Landroidx/drawerlayout/widget/DrawerLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 79
     iget-object v0, p0, Landroidx/navigation/ui/AppBarConfiguration;->openableLayout:Landroidx/customview/widget/Openable;
 
     check-cast v0, Landroidx/drawerlayout/widget/DrawerLayout;
 
-    goto :goto_0
+    goto :goto_c
 
     .line 80
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public final getFallbackOnNavigateUpListener()Landroidx/navigation/ui/AppBarConfiguration$OnNavigateUpListener;
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Landroidx/navigation/ui/AppBarConfiguration;->fallbackOnNavigateUpListener:Landroidx/navigation/ui/AppBarConfiguration$OnNavigateUpListener;
@@ -148,7 +148,7 @@
 .end method
 
 .method public final getOpenableLayout()Landroidx/customview/widget/Openable;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Landroidx/navigation/ui/AppBarConfiguration;->openableLayout:Landroidx/customview/widget/Openable;
@@ -157,7 +157,7 @@
 .end method
 
 .method public final getTopLevelDestinations()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

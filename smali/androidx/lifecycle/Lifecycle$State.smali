@@ -65,7 +65,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Landroidx/lifecycle/Lifecycle$State;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x5
 
@@ -105,7 +105,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 236
     new-instance v0, Landroidx/lifecycle/Lifecycle$State;
@@ -172,7 +172,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -188,7 +188,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/lifecycle/Lifecycle$State;
-    .locals 1
+    .registers 2
 
     const-class v0, Landroidx/lifecycle/Lifecycle$State;
 
@@ -202,7 +202,7 @@
 .end method
 
 .method public static values()[Landroidx/lifecycle/Lifecycle$State;
-    .locals 1
+    .registers 1
 
     sget-object v0, Landroidx/lifecycle/Lifecycle$State;->$VALUES:[Landroidx/lifecycle/Lifecycle$State;
 
@@ -218,7 +218,7 @@
 
 # virtual methods
 .method public final isAtLeast(Landroidx/lifecycle/Lifecycle$State;)Z
-    .locals 1
+    .registers 3
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
 
     const-string/jumbo v0, "state"
@@ -234,15 +234,15 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     return v0
 .end method

@@ -114,7 +114,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;Landroidx/room/AutoCloser;)V
-    .locals 1
+    .registers 4
     .param p1, "delegate"    # Landroid/database/Cursor;
     .param p2, "autoCloser"    # Landroidx/room/AutoCloser;
 
@@ -142,7 +142,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 419
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
@@ -159,7 +159,7 @@
 .end method
 
 .method public copyStringToBuffer(ILandroid/database/CharArrayBuffer;)V
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public deactivate()V
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Deprecated in Java"
     .end annotation
@@ -182,7 +182,7 @@
 .end method
 
 .method public getBlob(I)[B
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -194,7 +194,7 @@
 .end method
 
 .method public getColumnCount()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -206,7 +206,7 @@
 .end method
 
 .method public getColumnIndex(Ljava/lang/String;)I
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -218,7 +218,7 @@
 .end method
 
 .method public getColumnIndexOrThrow(Ljava/lang/String;)I
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -230,7 +230,7 @@
 .end method
 
 .method public getColumnName(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -242,7 +242,7 @@
 .end method
 
 .method public getColumnNames()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -254,7 +254,7 @@
 .end method
 
 .method public getCount()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -266,7 +266,7 @@
 .end method
 
 .method public getDouble(I)D
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -278,7 +278,7 @@
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -290,7 +290,7 @@
 .end method
 
 .method public getFloat(I)F
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -302,7 +302,7 @@
 .end method
 
 .method public getInt(I)I
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -314,7 +314,7 @@
 .end method
 
 .method public getLong(I)J
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -326,7 +326,7 @@
 .end method
 
 .method public getNotificationUri()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 433
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
@@ -339,7 +339,7 @@
 .end method
 
 .method public getNotificationUris()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -360,7 +360,7 @@
 .end method
 
 .method public getPosition()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -372,7 +372,7 @@
 .end method
 
 .method public getShort(I)S
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -384,7 +384,7 @@
 .end method
 
 .method public getString(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -396,7 +396,7 @@
 .end method
 
 .method public getType(I)I
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -408,7 +408,7 @@
 .end method
 
 .method public getWantsAllOnMoveCalls()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -420,7 +420,7 @@
 .end method
 
 .method public isAfterLast()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -432,7 +432,7 @@
 .end method
 
 .method public isBeforeFirst()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -444,7 +444,7 @@
 .end method
 
 .method public isClosed()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -456,7 +456,7 @@
 .end method
 
 .method public isFirst()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -468,7 +468,7 @@
 .end method
 
 .method public isLast()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -480,7 +480,7 @@
 .end method
 
 .method public isNull(I)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -492,7 +492,7 @@
 .end method
 
 .method public move(I)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -504,7 +504,7 @@
 .end method
 
 .method public moveToFirst()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -516,7 +516,7 @@
 .end method
 
 .method public moveToLast()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -528,7 +528,7 @@
 .end method
 
 .method public moveToNext()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -540,7 +540,7 @@
 .end method
 
 .method public moveToPosition(I)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -552,7 +552,7 @@
 .end method
 
 .method public moveToPrevious()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -564,7 +564,7 @@
 .end method
 
 .method public registerContentObserver(Landroid/database/ContentObserver;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -574,7 +574,7 @@
 .end method
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -584,7 +584,7 @@
 .end method
 
 .method public requery()Z
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Deprecated in Java"
     .end annotation
@@ -599,7 +599,7 @@
 .end method
 
 .method public respond(Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -611,7 +611,7 @@
 .end method
 
 .method public setExtras(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "extras"    # Landroid/os/Bundle;
 
     const-string v0, "extras"
@@ -628,7 +628,7 @@
 .end method
 
 .method public setNotificationUri(Landroid/content/ContentResolver;Landroid/net/Uri;)V
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -638,7 +638,7 @@
 .end method
 
 .method public setNotificationUris(Landroid/content/ContentResolver;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p1, "cr"    # Landroid/content/ContentResolver;
     .param p2, "uris"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -670,7 +670,7 @@
 .end method
 
 .method public unregisterContentObserver(Landroid/database/ContentObserver;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 
@@ -680,7 +680,7 @@
 .end method
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->delegate:Landroid/database/Cursor;
 

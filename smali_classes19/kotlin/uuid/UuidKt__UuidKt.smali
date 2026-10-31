@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/uuid/UuidKt__UuidJVMKt;-><init>()V
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public static final synthetic access$checkHyphenAt(Ljava/lang/String;I)V
-    .locals 0
+    .registers 2
     .param p0, "$receiver"    # Ljava/lang/String;
     .param p1, "index"    # I
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public static final synthetic access$formatBytesInto(J[BII)V
-    .locals 0
+    .registers 5
     .param p0, "$receiver"    # J
     .param p2, "dst"    # [B
     .param p3, "dstOffset"    # I
@@ -81,7 +81,7 @@
 .end method
 
 .method public static final synthetic access$toByteArray(J[BI)V
-    .locals 0
+    .registers 4
     .param p0, "$receiver"    # J
     .param p2, "dst"    # [B
     .param p3, "dstOffset"    # I
@@ -93,7 +93,7 @@
 .end method
 
 .method public static final synthetic access$toLong([BI)J
-    .locals 2
+    .registers 4
     .param p0, "$receiver"    # [B
     .param p1, "startIndex"    # I
 
@@ -106,7 +106,7 @@
 .end method
 
 .method private static final checkHyphenAt$UuidKt__UuidKt(Ljava/lang/String;I)V
-    .locals 3
+    .registers 5
     .param p0, "$this$checkHyphenAt"    # Ljava/lang/String;
     .param p1, "index"    # I
 
@@ -117,23 +117,23 @@
 
     const/16 v1, 0x2d
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_b
+    if-eqz v0, :cond_e
 
     .line 439
     return-void
 
     .line 448
-    :cond_1
+    :cond_e
     const/4 v0, 0x0
 
     .line 438
@@ -173,7 +173,7 @@
 .end method
 
 .method private static final formatBytesInto$UuidKt__UuidKt(J[BII)V
-    .locals 9
+    .registers 14
     .param p0, "$this$formatBytesInto"    # J
     .param p2, "dst"    # [B
     .param p3, "dstOffset"    # I
@@ -198,8 +198,8 @@
     .local v3, "dstIndex":I
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, p4, :cond_0
+    :goto_8
+    if-ge v2, p4, :cond_29
 
     move v4, v2
 
@@ -254,15 +254,15 @@
     .end local v7    # "byte":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 435
-    :cond_0
+    :cond_29
     return-void
 .end method
 
 .method private static final toByteArray$UuidKt__UuidKt(J[BI)V
-    .locals 5
+    .registers 9
     .param p0, "$this$toByteArray"    # J
     .param p2, "dst"    # [B
     .param p3, "dstOffset"    # I
@@ -271,10 +271,10 @@
     const/4 v0, 0x0
 
     .local v0, "index":I
-    :goto_0
+    :goto_1
     const/16 v1, 0x8
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_14
 
     .line 443
     rsub-int/lit8 v2, v0, 0x7
@@ -297,16 +297,16 @@
     .end local v2    # "shift":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 446
     .end local v0    # "index":I
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method private static final toLong$UuidKt__UuidKt([BI)J
-    .locals 7
+    .registers 9
     .param p0, "$this$toLong"    # [B
     .param p1, "startIndex"    # I
 
@@ -437,7 +437,7 @@
 .end method
 
 .method public static final uuidFromRandomBytes([B)Lkotlin/uuid/Uuid;
-    .locals 2
+    .registers 3
     .param p0, "randomBytes"    # [B
 
     const-string v0, "randomBytes"

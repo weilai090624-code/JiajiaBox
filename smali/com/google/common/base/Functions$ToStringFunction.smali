@@ -37,7 +37,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/base/Functions$ToStringFunction;
-    .locals 3
+    .registers 3
 
     .line 67
     const/4 v0, 0x1
@@ -54,7 +54,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 68
     new-instance v0, Lcom/google/common/base/Functions$ToStringFunction;
@@ -78,7 +78,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -92,7 +92,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/base/Functions$ToStringFunction;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 67
@@ -108,7 +108,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/base/Functions$ToStringFunction;
-    .locals 1
+    .registers 1
 
     .line 67
     sget-object v0, Lcom/google/common/base/Functions$ToStringFunction;->$VALUES:[Lcom/google/common/base/Functions$ToStringFunction;
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 67
     invoke-virtual {p0, p1}, Lcom/google/common/base/Functions$ToStringFunction;->apply(Ljava/lang/Object;)Ljava/lang/String;
@@ -136,7 +136,7 @@
 .end method
 
 .method public apply(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 72
@@ -151,7 +151,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 78
     const-string v0, "Functions.toStringFunction()"

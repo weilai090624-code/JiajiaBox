@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function3;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public final onHeaderDecoded(Landroid/graphics/ImageDecoder;Landroid/graphics/ImageDecoder$ImageInfo;Landroid/graphics/ImageDecoder$Source;)V
-    .locals 1
+    .registers 5
     .param p1, "decoder"    # Landroid/graphics/ImageDecoder;
     .param p2, "info"    # Landroid/graphics/ImageDecoder$ImageInfo;
     .param p3, "source"    # Landroid/graphics/ImageDecoder$Source;

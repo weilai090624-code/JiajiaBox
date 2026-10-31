@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -190,7 +190,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 2
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -270,7 +270,7 @@
 .end method
 
 .method static synthetic access$000(Landroidx/constraintlayout/utils/widget/ImageFilterButton;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/constraintlayout/utils/widget/ImageFilterButton;
 
     .line 86
@@ -280,7 +280,7 @@
 .end method
 
 .method static synthetic access$100(Landroidx/constraintlayout/utils/widget/ImageFilterButton;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/constraintlayout/utils/widget/ImageFilterButton;
 
     .line 86
@@ -290,7 +290,7 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -310,7 +310,7 @@
     invoke-virtual {p0, v0, v0, v0, v0}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setPadding(IIII)V
 
     .line 118
-    if-eqz p2, :cond_e
+    if-eqz p2, :cond_12d
 
     .line 119
     invoke-virtual {p0}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->getContext()Landroid/content/Context;
@@ -344,8 +344,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_b
+    :goto_1d
+    if-ge v3, v2, :cond_b9
 
     .line 125
     invoke-virtual {v1, v3}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -358,7 +358,7 @@
 
     const/4 v6, 0x0
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_30
 
     .line 127
     invoke-virtual {v1, v4, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -367,13 +367,13 @@
 
     iput v5, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mCrossfade:F
 
-    goto/16 :goto_1
+    goto/16 :goto_b5
 
     .line 128
-    :cond_0
+    :cond_30
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_warmth:I
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_3d
 
     .line 129
     invoke-virtual {v1, v4, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -382,13 +382,13 @@
 
     invoke-virtual {p0, v5}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setWarmth(F)V
 
-    goto/16 :goto_1
+    goto/16 :goto_b5
 
     .line 130
-    :cond_1
+    :cond_3d
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_saturation:I
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_4a
 
     .line 131
     invoke-virtual {v1, v4, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -397,13 +397,13 @@
 
     invoke-virtual {p0, v5}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setSaturation(F)V
 
-    goto/16 :goto_1
+    goto/16 :goto_b5
 
     .line 132
-    :cond_2
+    :cond_4a
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_contrast:I
 
-    if-ne v4, v5, :cond_3
+    if-ne v4, v5, :cond_56
 
     .line 133
     invoke-virtual {v1, v4, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -412,13 +412,13 @@
 
     invoke-virtual {p0, v5}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setContrast(F)V
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 134
-    :cond_3
+    :cond_56
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_round:I
 
-    if-ne v4, v5, :cond_4
+    if-ne v4, v5, :cond_63
 
     .line 135
     nop
@@ -430,13 +430,13 @@
 
     invoke-virtual {p0, v5}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setRound(F)V
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 138
-    :cond_4
+    :cond_63
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_roundPercent:I
 
-    if-ne v4, v5, :cond_5
+    if-ne v4, v5, :cond_70
 
     .line 139
     nop
@@ -448,13 +448,13 @@
 
     invoke-virtual {p0, v5}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setRoundPercent(F)V
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 142
-    :cond_5
+    :cond_70
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_overlay:I
 
-    if-ne v4, v5, :cond_6
+    if-ne v4, v5, :cond_7e
 
     .line 143
     iget-boolean v5, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mOverlay:Z
@@ -465,13 +465,13 @@
 
     invoke-direct {p0, v5}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setOverlay(Z)V
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 144
-    :cond_6
+    :cond_7e
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_imagePanX:I
 
-    if-ne v4, v5, :cond_7
+    if-ne v4, v5, :cond_8c
 
     .line 145
     iget v5, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanX:F
@@ -482,13 +482,13 @@
 
     invoke-virtual {p0, v5}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setImagePanX(F)V
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 146
-    :cond_7
+    :cond_8c
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_imagePanY:I
 
-    if-ne v4, v5, :cond_8
+    if-ne v4, v5, :cond_9a
 
     .line 147
     iget v5, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanY:F
@@ -499,13 +499,13 @@
 
     invoke-virtual {p0, v5}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setImagePanY(F)V
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 148
-    :cond_8
+    :cond_9a
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_imageRotate:I
 
-    if-ne v4, v5, :cond_9
+    if-ne v4, v5, :cond_a8
 
     .line 149
     iget v5, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRotate:F
@@ -516,13 +516,13 @@
 
     invoke-virtual {p0, v5}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setImageRotate(F)V
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 150
-    :cond_9
+    :cond_a8
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_imageZoom:I
 
-    if-ne v4, v5, :cond_a
+    if-ne v4, v5, :cond_b5
 
     .line 151
     iget v5, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mZoom:F
@@ -535,15 +535,15 @@
 
     .line 124
     .end local v4    # "attr":I
-    :cond_a
-    :goto_1
+    :cond_b5
+    :goto_b5
     add-int/lit8 v3, v3, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_1d
 
     .line 154
     .end local v3    # "i":I
-    :cond_b
+    :cond_b9
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 156
@@ -556,11 +556,11 @@
     .line 157
     iget-object v3, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mAltDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_117
 
     iget-object v3, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_117
 
     .line 159
     iget-object v3, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mLayers:[Landroid/graphics/drawable/Drawable;
@@ -619,7 +619,7 @@
     .line 164
     iget-boolean v3, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mOverlay:Z
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_111
 
     .line 165
     iget-object v3, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mLayer:Landroid/graphics/drawable/LayerDrawable;
@@ -641,15 +641,15 @@
     invoke-virtual {v0, v3}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
     .line 167
-    :cond_c
+    :cond_111
     iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mLayer:Landroid/graphics/drawable/LayerDrawable;
 
     invoke-super {p0, v0}, Landroidx/appcompat/widget/AppCompatImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_2
+    goto :goto_12d
 
     .line 169
-    :cond_d
+    :cond_117
     invoke-virtual {p0}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
@@ -659,7 +659,7 @@
     .line 170
     iget-object v3, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_12d
 
     .line 171
     iget-object v3, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mLayers:[Landroid/graphics/drawable/Drawable;
@@ -677,13 +677,13 @@
     .line 175
     .end local v1    # "a":Landroid/content/res/TypedArray;
     .end local v2    # "N":I
-    :cond_e
-    :goto_2
+    :cond_12d
+    :goto_12d
     return-void
 .end method
 
 .method private setMatrix()V
-    .locals 14
+    .registers 15
 
     .line 335
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanX:F
@@ -692,7 +692,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanY:F
 
@@ -701,7 +701,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mZoom:F
 
@@ -710,7 +710,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRotate:F
 
@@ -719,13 +719,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 340
     return-void
 
     .line 342
-    :cond_0
+    :cond_21
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanX:F
 
     invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
@@ -734,70 +734,70 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_1
+    :cond_2c
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanX:F
 
     .line 343
     .local v0, "panX":F
-    :goto_0
+    :goto_2e
     iget v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanY:F
 
     invoke-static {v2}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_38
 
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_2
+    :cond_38
     iget v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanY:F
 
     .line 344
     .local v2, "panY":F
-    :goto_1
+    :goto_3a
     iget v3, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mZoom:F
 
     invoke-static {v3}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_45
 
     const/high16 v3, 0x3f800000    # 1.0f
 
-    goto :goto_2
+    goto :goto_47
 
-    :cond_3
+    :cond_45
     iget v3, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mZoom:F
 
     .line 345
     .local v3, "zoom":F
-    :goto_2
+    :goto_47
     iget v4, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRotate:F
 
     invoke-static {v4}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_50
 
-    goto :goto_3
+    goto :goto_52
 
-    :cond_4
+    :cond_50
     iget v1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRotate:F
 
     .line 346
     .local v1, "rota":F
-    :goto_3
+    :goto_52
     new-instance v4, Landroid/graphics/Matrix;
 
     invoke-direct {v4}, Landroid/graphics/Matrix;-><init>()V
@@ -853,16 +853,16 @@
 
     cmpg-float v9, v9, v10
 
-    if-gez v9, :cond_5
+    if-gez v9, :cond_81
 
     div-float v9, v7, v5
 
-    goto :goto_4
+    goto :goto_83
 
-    :cond_5
+    :cond_81
     div-float v9, v8, v6
 
-    :goto_4
+    :goto_83
     mul-float v9, v9, v3
 
     .line 353
@@ -928,7 +928,7 @@
 .end method
 
 .method private setOverlay(Z)V
-    .locals 0
+    .registers 2
     .param p1, "overlay"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -947,7 +947,7 @@
 .end method
 
 .method private updateViewMatrix()V
-    .locals 1
+    .registers 2
 
     .line 323
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanX:F
@@ -956,7 +956,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanY:F
 
@@ -965,7 +965,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mZoom:F
 
@@ -974,7 +974,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRotate:F
 
@@ -983,7 +983,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 328
     sget-object v0, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
@@ -994,7 +994,7 @@
     return-void
 
     .line 331
-    :cond_0
+    :cond_26
     invoke-direct {p0}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setMatrix()V
 
     .line 332
@@ -1004,7 +1004,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 1
+    .registers 3
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1026,18 +1026,18 @@
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatImageButton;->draw(Landroid/graphics/Canvas;)V
 
     .line 607
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 608
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 610
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public getContrast()F
-    .locals 1
+    .registers 2
 
     .line 410
     iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mImageMatrix:Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;
@@ -1048,7 +1048,7 @@
 .end method
 
 .method public getCrossfade()F
-    .locals 1
+    .registers 2
 
     .line 455
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mCrossfade:F
@@ -1057,7 +1057,7 @@
 .end method
 
 .method public getImagePanX()F
-    .locals 1
+    .registers 2
 
     .line 198
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanX:F
@@ -1066,7 +1066,7 @@
 .end method
 
 .method public getImagePanY()F
-    .locals 1
+    .registers 2
 
     .line 211
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPanY:F
@@ -1075,7 +1075,7 @@
 .end method
 
 .method public getImageRotate()F
-    .locals 1
+    .registers 2
 
     .line 229
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRotate:F
@@ -1084,7 +1084,7 @@
 .end method
 
 .method public getImageZoom()F
-    .locals 1
+    .registers 2
 
     .line 220
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mZoom:F
@@ -1093,7 +1093,7 @@
 .end method
 
 .method public getRound()F
-    .locals 1
+    .registers 2
 
     .line 593
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRound:F
@@ -1102,7 +1102,7 @@
 .end method
 
 .method public getRoundPercent()F
-    .locals 1
+    .registers 2
 
     .line 584
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRoundPercent:F
@@ -1111,7 +1111,7 @@
 .end method
 
 .method public getSaturation()F
-    .locals 1
+    .registers 2
 
     .line 391
     iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mImageMatrix:Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;
@@ -1122,7 +1122,7 @@
 .end method
 
 .method public getWarmth()F
-    .locals 1
+    .registers 2
 
     .line 429
     iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mImageMatrix:Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;
@@ -1133,7 +1133,7 @@
 .end method
 
 .method public layout(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "l"    # I
     .param p2, "t"    # I
     .param p3, "r"    # I
@@ -1164,7 +1164,7 @@
 .end method
 
 .method public setAltImageResource(I)V
-    .locals 3
+    .registers 5
     .param p1, "resId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1232,7 +1232,7 @@
 .end method
 
 .method public setBrightness(F)V
-    .locals 1
+    .registers 3
     .param p1, "brightness"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1258,7 +1258,7 @@
 .end method
 
 .method public setContrast(F)V
-    .locals 1
+    .registers 3
     .param p1, "contrast"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1284,7 +1284,7 @@
 .end method
 
 .method public setCrossfade(F)V
-    .locals 4
+    .registers 6
     .param p1, "crossfade"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1301,14 +1301,14 @@
     .line 440
     iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mLayers:[Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     .line 441
     iget-boolean v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mOverlay:Z
 
     const/high16 v1, 0x437f0000    # 255.0f
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 442
     iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mLayer:Landroid/graphics/drawable/LayerDrawable;
@@ -1332,7 +1332,7 @@
     invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
     .line 444
-    :cond_0
+    :cond_1e
     iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mLayer:Landroid/graphics/drawable/LayerDrawable;
 
     const/4 v2, 0x1
@@ -1355,12 +1355,12 @@
     invoke-super {p0, v0}, Landroidx/appcompat/widget/AppCompatImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 447
-    :cond_1
+    :cond_32
     return-void
 .end method
 
 .method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 3
+    .registers 5
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1374,9 +1374,9 @@
     .line 282
     iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mAltDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2e
 
     .line 283
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
@@ -1422,19 +1422,19 @@
 
     invoke-virtual {p0, v0}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setCrossfade(F)V
 
-    goto :goto_0
+    goto :goto_31
 
     .line 290
-    :cond_0
+    :cond_2e
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 292
-    :goto_0
+    :goto_31
     return-void
 .end method
 
 .method public setImagePanX(F)V
-    .locals 0
+    .registers 2
     .param p1, "pan"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1456,7 +1456,7 @@
 .end method
 
 .method public setImagePanY(F)V
-    .locals 0
+    .registers 2
     .param p1, "pan"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1478,7 +1478,7 @@
 .end method
 
 .method public setImageResource(I)V
-    .locals 3
+    .registers 5
     .param p1, "resId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1492,7 +1492,7 @@
     .line 296
     iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mAltDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     .line 297
     invoke-virtual {p0}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->getContext()Landroid/content/Context;
@@ -1546,19 +1546,19 @@
 
     invoke-virtual {p0, v0}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setCrossfade(F)V
 
-    goto :goto_0
+    goto :goto_37
 
     .line 304
-    :cond_0
+    :cond_34
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatImageButton;->setImageResource(I)V
 
     .line 306
-    :goto_0
+    :goto_37
     return-void
 .end method
 
 .method public setImageRotate(F)V
-    .locals 0
+    .registers 2
     .param p1, "rotation"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1580,7 +1580,7 @@
 .end method
 
 .method public setImageZoom(F)V
-    .locals 0
+    .registers 2
     .param p1, "zoom"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1602,7 +1602,7 @@
 .end method
 
 .method public setRound(F)V
-    .locals 8
+    .registers 10
     .param p1, "round"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1618,7 +1618,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 529
     iput p1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRound:F
@@ -1640,7 +1640,7 @@
 
     .line 535
     .end local v0    # "tmp":F
-    :cond_0
+    :cond_12
     iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRound:F
 
     const/4 v1, 0x1
@@ -1649,18 +1649,18 @@
 
     cmpl-float v0, v0, p1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
     .line 536
     .local v0, "change":Z
-    :goto_0
+    :goto_1d
     iput p1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRound:F
 
     .line 538
@@ -1670,12 +1670,12 @@
 
     cmpl-float v3, v3, v4
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_72
 
     .line 539
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPath:Landroid/graphics/Path;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_31
 
     .line 540
     new-instance v2, Landroid/graphics/Path;
@@ -1685,10 +1685,10 @@
     iput-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPath:Landroid/graphics/Path;
 
     .line 542
-    :cond_2
+    :cond_31
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRect:Landroid/graphics/RectF;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_3c
 
     .line 543
     new-instance v2, Landroid/graphics/RectF;
@@ -1698,13 +1698,13 @@
     iput-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRect:Landroid/graphics/RectF;
 
     .line 545
-    :cond_3
+    :cond_3c
     nop
 
     .line 546
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_4d
 
     .line 547
     new-instance v2, Landroidx/constraintlayout/utils/widget/ImageFilterButton$2;
@@ -1719,7 +1719,7 @@
     invoke-virtual {p0, v2}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
     .line 557
-    :cond_4
+    :cond_4d
     invoke-virtual {p0, v1}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setClipToOutline(Z)V
 
     .line 560
@@ -1764,18 +1764,18 @@
     .line 565
     .end local v1    # "w":I
     .end local v2    # "h":I
-    goto :goto_1
+    goto :goto_76
 
     .line 566
-    :cond_5
+    :cond_72
     nop
 
     .line 567
     invoke-virtual {p0, v2}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setClipToOutline(Z)V
 
     .line 570
-    :goto_1
-    if-eqz v0, :cond_6
+    :goto_76
+    if-eqz v0, :cond_7c
 
     .line 571
     nop
@@ -1784,12 +1784,12 @@
     invoke-virtual {p0}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->invalidateOutline()V
 
     .line 576
-    :cond_6
+    :cond_7c
     return-void
 .end method
 
 .method public setRoundPercent(F)V
-    .locals 8
+    .registers 10
     .param p1, "round"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1809,18 +1809,18 @@
 
     cmpl-float v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .line 479
     .local v0, "change":Z
-    :goto_0
+    :goto_b
     iput p1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRoundPercent:F
 
     .line 480
@@ -1830,12 +1830,12 @@
 
     cmpl-float v3, v3, v4
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_68
 
     .line 481
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPath:Landroid/graphics/Path;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1f
 
     .line 482
     new-instance v2, Landroid/graphics/Path;
@@ -1845,10 +1845,10 @@
     iput-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mPath:Landroid/graphics/Path;
 
     .line 484
-    :cond_1
+    :cond_1f
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRect:Landroid/graphics/RectF;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2a
 
     .line 485
     new-instance v2, Landroid/graphics/RectF;
@@ -1858,13 +1858,13 @@
     iput-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRect:Landroid/graphics/RectF;
 
     .line 487
-    :cond_2
+    :cond_2a
     nop
 
     .line 488
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_3b
 
     .line 489
     new-instance v2, Landroidx/constraintlayout/utils/widget/ImageFilterButton$1;
@@ -1879,7 +1879,7 @@
     invoke-virtual {p0, v2}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
     .line 500
-    :cond_3
+    :cond_3b
     invoke-virtual {p0, v1}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setClipToOutline(Z)V
 
     .line 502
@@ -1937,18 +1937,18 @@
     .end local v1    # "w":I
     .end local v2    # "h":I
     .end local v3    # "r":F
-    goto :goto_1
+    goto :goto_6c
 
     .line 509
-    :cond_4
+    :cond_68
     nop
 
     .line 510
     invoke-virtual {p0, v2}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->setClipToOutline(Z)V
 
     .line 513
-    :goto_1
-    if-eqz v0, :cond_5
+    :goto_6c
+    if-eqz v0, :cond_72
 
     .line 514
     nop
@@ -1957,12 +1957,12 @@
     invoke-virtual {p0}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->invalidateOutline()V
 
     .line 519
-    :cond_5
+    :cond_72
     return-void
 .end method
 
 .method public setSaturation(F)V
-    .locals 1
+    .registers 3
     .param p1, "saturation"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1988,7 +1988,7 @@
 .end method
 
 .method public setWarmth(F)V
-    .locals 1
+    .registers 3
     .param p1, "warmth"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$execPerConnectionSQL(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p1, "sql"    # Ljava/lang/String;
     .param p2, "bindArgs"    # [Ljava/lang/Object;
@@ -24,7 +24,7 @@
 .end method
 
 .method public static $default$isExecPerConnectionSQLSupported(Landroidx/sqlite/db/SupportSQLiteDatabase;)Z
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     .line 209

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$jZ4lYi0JFh8mFfUVZwUxXqVxgCk(Lio/nekohasekai/sagernet/ui/NetworkFragment;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/NetworkFragment;->onViewCreated$lambda$0(Lio/nekohasekai/sagernet/ui/NetworkFragment;Landroid/view/View;)V
 
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 10
     const v0, 0x7f0d0052
@@ -54,7 +54,7 @@
 .end method
 
 .method private static final onViewCreated$lambda$0(Lio/nekohasekai/sagernet/ui/NetworkFragment;Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/NetworkFragment;
     .param p1, "it"    # Landroid/view/View;
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method protected name0()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 12
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
@@ -93,7 +93,7 @@
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 3
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 

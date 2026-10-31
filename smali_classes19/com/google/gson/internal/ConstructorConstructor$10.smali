@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;Ljava/lang/reflect/Type;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/gson/internal/ConstructorConstructor;
 
     .line 212
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public construct()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -63,7 +63,7 @@
 
     const-string v1, "Invalid EnumMap type: "
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3d
 
     .line 215
     iget-object v0, p0, Lcom/google/gson/internal/ConstructorConstructor$10;->val$type:Ljava/lang/reflect/Type;
@@ -82,7 +82,7 @@
     .local v0, "elementType":Ljava/lang/reflect/Type;
     instance-of v2, v0, Ljava/lang/Class;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     .line 218
     new-instance v1, Ljava/util/EnumMap;
@@ -99,7 +99,7 @@
 
     .line 221
     .end local v1    # "map":Ljava/lang/Object;, "TT;"
-    :cond_0
+    :cond_20
     new-instance v2, Lcom/google/gson/JsonIOException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -130,7 +130,7 @@
 
     .line 224
     .end local v0    # "elementType":Ljava/lang/reflect/Type;
-    :cond_1
+    :cond_3d
     new-instance v0, Lcom/google/gson/JsonIOException;
 
     new-instance v2, Ljava/lang/StringBuilder;

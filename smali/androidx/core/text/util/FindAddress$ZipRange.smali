@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "low"    # I
     .param p2, "high"    # I
     .param p3, "exception1"    # I
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method matches(Ljava/lang/String;)Z
-    .locals 3
+    .registers 5
     .param p1, "zipCode"    # Ljava/lang/String;
 
     .line 50
@@ -74,24 +74,24 @@
     .local v0, "prefix":I
     iget v2, p0, Landroidx/core/text/util/FindAddress$ZipRange;->mLow:I
 
-    if-gt v2, v0, :cond_0
+    if-gt v2, v0, :cond_12
 
     iget v2, p0, Landroidx/core/text/util/FindAddress$ZipRange;->mHigh:I
 
-    if-le v0, v2, :cond_1
+    if-le v0, v2, :cond_1a
 
-    :cond_0
+    :cond_12
     iget v2, p0, Landroidx/core/text/util/FindAddress$ZipRange;->mException1:I
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_1a
 
     iget v2, p0, Landroidx/core/text/util/FindAddress$ZipRange;->mException2:I
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_1b
 
-    :cond_1
+    :cond_1a
     const/4 v1, 0x1
 
-    :cond_2
+    :cond_1b
     return v1
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 827
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static shouldShowRequestPermissionRationale(Landroid/app/Activity;Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "permission"    # Ljava/lang/String;
 

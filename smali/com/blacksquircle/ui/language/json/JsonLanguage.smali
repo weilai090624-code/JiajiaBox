@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/language/json/JsonLanguage$Companion;
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public getLanguageName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 38
     iget-object v0, p0, Lcom/blacksquircle/ui/language/json/JsonLanguage;->languageName:Ljava/lang/String;
@@ -96,7 +96,7 @@
 .end method
 
 .method public getParser()Lcom/blacksquircle/ui/language/base/parser/LanguageParser;
-    .locals 1
+    .registers 2
 
     .line 41
     sget-object v0, Lcom/blacksquircle/ui/language/json/parser/JsonParser;->Companion:Lcom/blacksquircle/ui/language/json/parser/JsonParser$Companion;
@@ -111,7 +111,7 @@
 .end method
 
 .method public getProvider()Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
-    .locals 1
+    .registers 2
 
     .line 45
     sget-object v0, Lcom/blacksquircle/ui/language/json/provider/JsonProvider;->Companion:Lcom/blacksquircle/ui/language/json/provider/JsonProvider$Companion;
@@ -126,7 +126,7 @@
 .end method
 
 .method public getStyler()Lcom/blacksquircle/ui/language/base/styler/LanguageStyler;
-    .locals 1
+    .registers 2
 
     .line 49
     sget-object v0, Lcom/blacksquircle/ui/language/json/styler/JsonStyler;->Companion:Lcom/blacksquircle/ui/language/json/styler/JsonStyler$Companion;

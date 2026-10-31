@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 8187
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/Notification;)V
-    .locals 2
+    .registers 4
     .param p1, "notif"    # Landroid/app/Notification;
 
     .line 8196
@@ -75,23 +75,23 @@
 
     const/16 v1, 0x1a
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_a
 
     .line 8201
     return-void
 
     .line 8204
-    :cond_0
+    :cond_a
     iget-object v0, p1, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     .line 8205
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_10
     iget-object v0, p1, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
     const-string v1, "android.tv.EXTENSIONS"
@@ -102,8 +102,8 @@
 
     .line 8206
     .local v0, "tvBundle":Landroid/os/Bundle;
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_18
+    if-eqz v0, :cond_47
 
     .line 8207
     const-string v1, "flags"
@@ -155,14 +155,14 @@
     iput-object v1, p0, Landroidx/core/app/NotificationCompat$TvExtender;->mDeleteIntent:Landroid/app/PendingIntent;
 
     .line 8213
-    :cond_2
+    :cond_47
     return-void
 .end method
 
 
 # virtual methods
 .method public extend(Landroidx/core/app/NotificationCompat$Builder;)Landroidx/core/app/NotificationCompat$Builder;
-    .locals 3
+    .registers 5
     .param p1, "builder"    # Landroidx/core/app/NotificationCompat$Builder;
 
     .line 8227
@@ -170,13 +170,13 @@
 
     const/16 v1, 0x1a
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_7
 
     .line 8228
     return-object p1
 
     .line 8231
-    :cond_0
+    :cond_7
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -206,7 +206,7 @@
     .line 8236
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$TvExtender;->mContentIntent:Landroid/app/PendingIntent;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2d
 
     .line 8237
     const-string v1, "content_intent"
@@ -216,10 +216,10 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 8240
-    :cond_1
+    :cond_2d
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$TvExtender;->mDeleteIntent:Landroid/app/PendingIntent;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_38
 
     .line 8241
     const-string v1, "delete_intent"
@@ -229,7 +229,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 8245
-    :cond_2
+    :cond_38
     invoke-virtual {p1}, Landroidx/core/app/NotificationCompat$Builder;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
@@ -243,7 +243,7 @@
 .end method
 
 .method public getChannelId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 8274
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$TvExtender;->mChannelId:Ljava/lang/String;
@@ -252,7 +252,7 @@
 .end method
 
 .method public getContentIntent()Landroid/app/PendingIntent;
-    .locals 1
+    .registers 2
 
     .line 8294
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$TvExtender;->mContentIntent:Landroid/app/PendingIntent;
@@ -261,7 +261,7 @@
 .end method
 
 .method public getDeleteIntent()Landroid/app/PendingIntent;
-    .locals 1
+    .registers 2
 
     .line 8314
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$TvExtender;->mDeleteIntent:Landroid/app/PendingIntent;
@@ -270,7 +270,7 @@
 .end method
 
 .method public isAvailableOnTv()Z
-    .locals 2
+    .registers 3
 
     .line 8254
     iget v0, p0, Landroidx/core/app/NotificationCompat$TvExtender;->mFlags:I
@@ -279,19 +279,19 @@
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_8
     return v1
 .end method
 
 .method public isSuppressShowOverApps()Z
-    .locals 1
+    .registers 2
 
     .line 8331
     iget-boolean v0, p0, Landroidx/core/app/NotificationCompat$TvExtender;->mSuppressShowOverApps:Z
@@ -300,7 +300,7 @@
 .end method
 
 .method public setChannelId(Ljava/lang/String;)Landroidx/core/app/NotificationCompat$TvExtender;
-    .locals 0
+    .registers 2
     .param p1, "channelId"    # Ljava/lang/String;
 
     .line 8266
@@ -311,7 +311,7 @@
 .end method
 
 .method public setContentIntent(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$TvExtender;
-    .locals 0
+    .registers 2
     .param p1, "intent"    # Landroid/app/PendingIntent;
 
     .line 8283
@@ -322,7 +322,7 @@
 .end method
 
 .method public setDeleteIntent(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$TvExtender;
-    .locals 0
+    .registers 2
     .param p1, "intent"    # Landroid/app/PendingIntent;
 
     .line 8303
@@ -333,7 +333,7 @@
 .end method
 
 .method public setSuppressShowOverApps(Z)Landroidx/core/app/NotificationCompat$TvExtender;
-    .locals 0
+    .registers 2
     .param p1, "suppress"    # Z
 
     .line 8322

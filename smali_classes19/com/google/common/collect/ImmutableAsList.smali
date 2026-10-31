@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 36
     .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"
@@ -36,7 +36,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -88,7 +88,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 53
     .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"
@@ -104,7 +104,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 58
     .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"
@@ -120,7 +120,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"
@@ -136,7 +136,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 85
     .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"

@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/text/StringsKt__StringNumberConversionsJVMKt;-><init>()V
 
@@ -53,7 +53,7 @@
 .end method
 
 .method public static final numberFormatError(Ljava/lang/String;)Ljava/lang/Void;
-    .locals 3
+    .registers 4
     .param p0, "input"    # Ljava/lang/String;
 
     const-string v0, "input"
@@ -93,7 +93,7 @@
 .end method
 
 .method public static final toByteOrNull(Ljava/lang/String;)Ljava/lang/Byte;
-    .locals 1
+    .registers 2
     .param p0, "$this$toByteOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -111,7 +111,7 @@
 .end method
 
 .method public static final toByteOrNull(Ljava/lang/String;I)Ljava/lang/Byte;
-    .locals 3
+    .registers 5
     .param p0, "$this$toByteOrNull"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -126,7 +126,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_20
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -136,16 +136,16 @@
     .local v0, "int":I
     const/16 v2, -0x80
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_1f
 
     const/16 v2, 0x7f
 
-    if-le v0, v2, :cond_0
+    if-le v0, v2, :cond_19
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 29
-    :cond_0
+    :cond_19
     int-to-byte v1, v0
 
     invoke-static {v1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
@@ -155,18 +155,18 @@
     return-object v1
 
     .line 28
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     return-object v1
 
     .line 27
     .end local v0    # "int":I
-    :cond_2
+    :cond_20
     return-object v1
 .end method
 
 .method public static final toIntOrNull(Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "$this$toIntOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -184,7 +184,7 @@
 .end method
 
 .method public static final toIntOrNull(Ljava/lang/String;I)Ljava/lang/Integer;
-    .locals 12
+    .registers 14
     .param p0, "$this$toIntOrNull"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -204,12 +204,12 @@
     .local v0, "length":I
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     return-object v1
 
     .line 72
-    :cond_0
+    :cond_10
     const/4 v2, 0x0
 
     .line 73
@@ -236,46 +236,46 @@
 
     move-result v6
 
-    if-gez v6, :cond_2
+    if-gez v6, :cond_32
 
     .line 78
     const/4 v6, 0x1
 
-    if-ne v0, v6, :cond_1
+    if-ne v0, v6, :cond_24
 
     return-object v1
 
     .line 80
-    :cond_1
+    :cond_24
     const/4 v2, 0x1
 
     .line 82
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_6c
 
     .line 89
-    :pswitch_0
+    :pswitch_28
     return-object v1
 
     .line 83
-    :pswitch_1
+    :pswitch_29
     const/4 v3, 0x1
 
     .line 84
     const/high16 v4, -0x80000000
 
-    goto :goto_0
+    goto :goto_37
 
     .line 86
-    :pswitch_2
+    :pswitch_2d
     const/4 v3, 0x0
 
     .line 87
     const v4, -0x7fffffff
 
-    goto :goto_0
+    goto :goto_37
 
     .line 91
-    :cond_2
+    :cond_32
     const/4 v2, 0x0
 
     .line 92
@@ -285,7 +285,7 @@
     const v4, -0x7fffffff
 
     .line 97
-    :goto_0
+    :goto_37
     const v6, -0x38e38e3
 
     .line 99
@@ -301,8 +301,8 @@
     move v9, v2
 
     .local v9, "i":I
-    :goto_1
-    if-ge v9, v0, :cond_7
+    :goto_3d
+    if-ge v9, v0, :cond_5f
 
     .line 102
     invoke-virtual {p0, v9}, Ljava/lang/String;->charAt(I)C
@@ -315,82 +315,82 @@
 
     .line 104
     .local v10, "digit":I
-    if-gez v10, :cond_3
+    if-gez v10, :cond_4a
 
     return-object v1
 
     .line 105
-    :cond_3
-    if-ge v8, v7, :cond_5
+    :cond_4a
+    if-ge v8, v7, :cond_54
 
     .line 106
-    if-ne v7, v6, :cond_4
+    if-ne v7, v6, :cond_53
 
     .line 107
     div-int v7, v4, p1
 
     .line 109
-    if-ge v8, v7, :cond_5
+    if-ge v8, v7, :cond_54
 
     .line 110
     return-object v1
 
     .line 113
-    :cond_4
+    :cond_53
     return-object v1
 
     .line 117
-    :cond_5
+    :cond_54
     mul-int v8, v8, p1
 
     .line 119
     add-int v11, v4, v10
 
-    if-ge v8, v11, :cond_6
+    if-ge v8, v11, :cond_5b
 
     return-object v1
 
     .line 121
-    :cond_6
+    :cond_5b
     sub-int/2addr v8, v10
 
     .line 101
     .end local v10    # "digit":I
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1
+    goto :goto_3d
 
     .line 124
     .end local v9    # "i":I
-    :cond_7
-    if-eqz v3, :cond_8
+    :cond_5f
+    if-eqz v3, :cond_66
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    goto :goto_2
+    goto :goto_6b
 
-    :cond_8
+    :cond_66
     neg-int v1, v8
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    :goto_2
+    :goto_6b
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_6c
     .packed-switch 0x2b
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_2d
+        :pswitch_28
+        :pswitch_29
     .end packed-switch
 .end method
 
 .method public static final toLongOrNull(Ljava/lang/String;)Ljava/lang/Long;
-    .locals 1
+    .registers 2
     .param p0, "$this$toLongOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -408,7 +408,7 @@
 .end method
 
 .method public static final toLongOrNull(Ljava/lang/String;I)Ljava/lang/Long;
-    .locals 20
+    .registers 22
     .param p0, "$this$toLongOrNull"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -432,12 +432,12 @@
     .local v2, "length":I
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     return-object v3
 
     .line 147
-    :cond_0
+    :cond_14
     const/4 v4, 0x0
 
     .line 148
@@ -464,46 +464,46 @@
 
     move-result v9
 
-    if-gez v9, :cond_2
+    if-gez v9, :cond_39
 
     .line 153
     const/4 v9, 0x1
 
-    if-ne v2, v9, :cond_1
+    if-ne v2, v9, :cond_29
 
     return-object v3
 
     .line 155
-    :cond_1
+    :cond_29
     const/4 v4, 0x1
 
     .line 157
-    packed-switch v8, :pswitch_data_0
+    packed-switch v8, :pswitch_data_9e
 
     .line 164
-    :pswitch_0
+    :pswitch_2d
     return-object v3
 
     .line 158
-    :pswitch_1
+    :pswitch_2e
     const/4 v5, 0x1
 
     .line 159
     const-wide/high16 v6, -0x8000000000000000L
 
-    goto :goto_0
+    goto :goto_40
 
     .line 161
-    :pswitch_2
+    :pswitch_32
     const/4 v5, 0x0
 
     .line 162
     const-wide v6, -0x7fffffffffffffffL    # -4.9E-324
 
-    goto :goto_0
+    goto :goto_40
 
     .line 166
-    :cond_2
+    :cond_39
     const/4 v4, 0x0
 
     .line 167
@@ -513,7 +513,7 @@
     const-wide v6, -0x7fffffffffffffffL    # -4.9E-324
 
     .line 172
-    :goto_0
+    :goto_40
     const-wide v9, -0x38e38e38e38e38eL    # -2.772000429909333E291
 
     .line 174
@@ -529,8 +529,8 @@
     move v15, v4
 
     .local v15, "i":I
-    :goto_1
-    if-ge v15, v2, :cond_8
+    :goto_49
+    if-ge v15, v2, :cond_8c
 
     .line 177
     invoke-virtual {v0, v15}, Ljava/lang/String;->charAt(I)C
@@ -543,22 +543,22 @@
 
     .line 179
     .local v3, "digit":I
-    if-gez v3, :cond_3
+    if-gez v3, :cond_58
 
     const/16 v16, 0x0
 
     return-object v16
 
     .line 180
-    :cond_3
+    :cond_58
     cmp-long v17, v13, v11
 
-    if-gez v17, :cond_6
+    if-gez v17, :cond_72
 
     .line 181
     cmp-long v17, v11, v9
 
-    if-nez v17, :cond_5
+    if-nez v17, :cond_70
 
     .line 182
     move/from16 v17, v8
@@ -578,7 +578,7 @@
     .local v8, "limitBeforeMul":J
     cmp-long v10, v13, v8
 
-    if-gez v10, :cond_4
+    if-gez v10, :cond_6d
 
     .line 185
     const/4 v10, 0x0
@@ -586,12 +586,12 @@
     return-object v10
 
     .line 184
-    :cond_4
+    :cond_6d
     const/4 v10, 0x0
 
     move-wide v11, v8
 
-    goto :goto_2
+    goto :goto_76
 
     .line 188
     .end local v17    # "firstChar":C
@@ -599,13 +599,13 @@
     .local v8, "firstChar":C
     .restart local v9    # "limitForMaxRadix":J
     .restart local v11    # "limitBeforeMul":J
-    :cond_5
+    :cond_70
     const/4 v10, 0x0
 
     return-object v10
 
     .line 180
-    :cond_6
+    :cond_72
     move/from16 v17, v8
 
     move-wide/from16 v18, v9
@@ -615,7 +615,7 @@
     .end local v9    # "limitForMaxRadix":J
     .restart local v17    # "firstChar":C
     .restart local v18    # "limitForMaxRadix":J
-    :goto_2
+    :goto_76
     int-to-long v8, v1
 
     mul-long v13, v13, v8
@@ -627,14 +627,14 @@
 
     cmp-long v10, v13, v8
 
-    if-gez v10, :cond_7
+    if-gez v10, :cond_81
 
     const/4 v8, 0x0
 
     return-object v8
 
     .line 196
-    :cond_7
+    :cond_81
     const/4 v8, 0x0
 
     int-to-long v9, v3
@@ -651,13 +651,13 @@
 
     move-wide/from16 v9, v18
 
-    goto :goto_1
+    goto :goto_49
 
     .end local v17    # "firstChar":C
     .end local v18    # "limitForMaxRadix":J
     .restart local v8    # "firstChar":C
     .restart local v9    # "limitForMaxRadix":J
-    :cond_8
+    :cond_8c
     move/from16 v17, v8
 
     move-wide/from16 v18, v9
@@ -668,36 +668,36 @@
     .end local v15    # "i":I
     .restart local v17    # "firstChar":C
     .restart local v18    # "limitForMaxRadix":J
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_97
 
     invoke-static {v13, v14}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
 
-    goto :goto_3
+    goto :goto_9c
 
-    :cond_9
+    :cond_97
     neg-long v8, v13
 
     invoke-static {v8, v9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
 
-    :goto_3
+    :goto_9c
     return-object v3
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_9e
     .packed-switch 0x2b
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_32
+        :pswitch_2d
+        :pswitch_2e
     .end packed-switch
 .end method
 
 .method public static final toShortOrNull(Ljava/lang/String;)Ljava/lang/Short;
-    .locals 1
+    .registers 2
     .param p0, "$this$toShortOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -715,7 +715,7 @@
 .end method
 
 .method public static final toShortOrNull(Ljava/lang/String;I)Ljava/lang/Short;
-    .locals 3
+    .registers 5
     .param p0, "$this$toShortOrNull"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -730,7 +730,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_20
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -740,16 +740,16 @@
     .local v0, "int":I
     const/16 v2, -0x8000
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_1f
 
     const/16 v2, 0x7fff
 
-    if-le v0, v2, :cond_0
+    if-le v0, v2, :cond_19
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 49
-    :cond_0
+    :cond_19
     int-to-short v1, v0
 
     invoke-static {v1}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
@@ -759,12 +759,12 @@
     return-object v1
 
     .line 48
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     return-object v1
 
     .line 47
     .end local v0    # "int":I
-    :cond_2
+    :cond_20
     return-object v1
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 620
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method jdkTypeDuplicatesOwnerName()Z
-    .locals 1
+    .registers 2
 
     .line 638
     const/4 v0, 0x0
@@ -38,7 +38,7 @@
 .end method
 
 .method newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 3
     .param p1, "componentType"    # Ljava/lang/reflect/Type;
 
     .line 623
@@ -52,7 +52,7 @@
 .end method
 
 .method typeName(Ljava/lang/reflect/Type;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/reflect/Type;
 
     .line 633
@@ -66,7 +66,7 @@
 .end method
 
 .method usedInGenericType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/reflect/Type;
 
     .line 628

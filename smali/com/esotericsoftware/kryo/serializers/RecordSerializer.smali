@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 53
     :try_start_0
@@ -92,32 +92,32 @@
     invoke-virtual {v0, v5, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2b
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_2b} :catch_2f
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_2b} :catch_2d
 
     move-object v0, v3
 
     .line 64
     .local v0, "getType":Ljava/lang/reflect/Method;
-    goto :goto_1
+    goto :goto_35
 
     .line 58
     .end local v0    # "getType":Ljava/lang/reflect/Method;
     .end local v1    # "isRecord":Ljava/lang/reflect/Method;
     .end local v2    # "getRecordComponents":Ljava/lang/reflect/Method;
     .end local v4    # "getName":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_2d
     move-exception v0
 
-    goto :goto_0
+    goto :goto_30
 
-    :catch_1
+    :catch_2f
     move-exception v0
 
     .line 60
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_30
     const/4 v1, 0x0
 
     .line 61
@@ -136,7 +136,7 @@
 
     .line 66
     .local v0, "getType":Ljava/lang/reflect/Method;
-    :goto_1
+    :goto_35
     sput-object v1, Lcom/esotericsoftware/kryo/serializers/RecordSerializer;->IS_RECORD:Ljava/lang/reflect/Method;
 
     .line 67
@@ -157,7 +157,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/RecordSerializer;, "Lcom/esotericsoftware/kryo/serializers/RecordSerializer<TT;>;"
@@ -173,7 +173,7 @@
 .end method
 
 .method private static componentValue(Ljava/lang/Object;Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "recordObject"    # Ljava/lang/Object;
     .param p1, "recordComponent"    # Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;
 
@@ -202,14 +202,14 @@
     invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_0 .. :try_end_15} :catchall_16
 
     return-object v1
 
     .line 207
     .end local v0    # "get":Ljava/lang/reflect/Method;
-    :catchall_0
+    :catchall_16
     move-exception v0
 
     .line 208
@@ -261,7 +261,7 @@
 .end method
 
 .method private static invokeCanonicalConstructor(Ljava/lang/Class;[Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "recordComponents"    # [Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;
     .param p2, "args"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -304,31 +304,31 @@
     move-result-object v0
 
     check-cast v0, [Ljava/lang/Class;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_0 .. :try_end_18} :catchall_2c
 
     .line 225
     .local v0, "paramTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
-    :try_start_1
+    :try_start_18
     invoke-virtual {p0, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1c
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_18 .. :try_end_1c} :catch_1d
+    .catchall {:try_start_18 .. :try_end_1c} :catchall_2c
 
     .line 229
     .local v1, "canonicalConstructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<TT;>;"
-    goto :goto_0
+    goto :goto_27
 
     .line 226
     .end local v1    # "canonicalConstructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<TT;>;"
-    :catch_0
+    :catch_1d
     move-exception v1
 
     .line 227
     .local v1, "e":Ljava/lang/NoSuchMethodException;
-    :try_start_2
+    :try_start_1e
     invoke-virtual {p0, v0}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v2
@@ -344,19 +344,19 @@
     .line 230
     .end local v2    # "canonicalConstructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<TT;>;"
     .local v1, "canonicalConstructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<TT;>;"
-    :goto_0
+    :goto_27
     invoke-virtual {v1, p2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_1e .. :try_end_2b} :catchall_2c
 
     return-object v2
 
     .line 231
     .end local v0    # "paramTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     .end local v1    # "canonicalConstructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<TT;>;"
-    :catchall_0
+    :catchall_2c
     move-exception v0
 
     .line 232
@@ -402,7 +402,7 @@
 .end method
 
 .method private isRecord(Ljava/lang/Class;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -430,13 +430,13 @@
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_0 .. :try_end_f} :catchall_10
 
     return v0
 
     .line 148
-    :catchall_0
+    :catchall_10
     move-exception v0
 
     .line 149
@@ -473,7 +473,7 @@
 .end method
 
 .method static synthetic lambda$invokeCanonicalConstructor$0(I)[Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .param p0, "x$0"    # I
 
     .line 222
@@ -483,7 +483,7 @@
 .end method
 
 .method private static recordComponents(Ljava/lang/Class;Ljava/util/Comparator;)[Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -525,10 +525,10 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_f
     array-length v4, v0
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_32
 
     .line 187
     aget-object v4, v0, v3
@@ -567,25 +567,25 @@
     .end local v4    # "comp":Ljava/lang/Object;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 192
     .end local v3    # "i":I
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_32
+    if-eqz p1, :cond_37
 
     invoke-static {v2, p1}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_37
+    .catchall {:try_start_0 .. :try_end_37} :catchall_38
 
     .line 193
-    :cond_1
+    :cond_37
     return-object v2
 
     .line 194
     .end local v0    # "rawComponents":[Ljava/lang/Object;
     .end local v2    # "recordComponents":[Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;
-    :catchall_0
+    :catchall_38
     move-exception v0
 
     .line 195
@@ -633,7 +633,7 @@
 
 # virtual methods
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 11
+    .registers 15
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .annotation system Ldalvik/annotation/Signature;
@@ -657,7 +657,7 @@
 
     const-string v2, ")"
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_e3
 
     .line 113
     new-instance v1, Lcom/esotericsoftware/kryo/serializers/RecordSerializer$$ExternalSyntheticLambda0;
@@ -683,10 +683,10 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
+    :goto_1b
     array-length v5, v1
 
-    if-ge v4, v5, :cond_4
+    if-ge v4, v5, :cond_d2
 
     .line 116
     aget-object v5, v1, v4
@@ -705,10 +705,10 @@
 
     .line 120
     .local v7, "rcType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :try_start_0
+    :try_start_28
     sget-boolean v8, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_54
 
     const-string v8, "kryo"
 
@@ -749,12 +749,12 @@
     invoke-static {v8, v9}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 122
-    :cond_0
+    :cond_54
     invoke-virtual {v7}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_65
 
     .line 123
     invoke-virtual {v5}, Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;->index()I
@@ -767,24 +767,24 @@
 
     aput-object v9, v3, v8
 
-    goto :goto_2
+    goto :goto_85
 
     .line 125
-    :cond_1
+    :cond_65
     iget-boolean v8, p0, Lcom/esotericsoftware/kryo/serializers/RecordSerializer;->fixedFieldTypes:Z
 
-    if-nez v8, :cond_3
+    if-nez v8, :cond_7b
 
     invoke-virtual {p1, v7}, Lcom/esotericsoftware/kryo/Kryo;->isFinal(Ljava/lang/Class;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_70
 
-    goto :goto_1
+    goto :goto_7b
 
     .line 128
-    :cond_2
+    :cond_70
     invoke-virtual {v5}, Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;->index()I
 
     move-result v8
@@ -795,11 +795,11 @@
 
     aput-object v9, v3, v8
 
-    goto :goto_2
+    goto :goto_85
 
     .line 126
-    :cond_3
-    :goto_1
+    :cond_7b
+    :goto_7b
     invoke-virtual {v5}, Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;->index()I
 
     move-result v8
@@ -809,12 +809,12 @@
     move-result-object v9
 
     aput-object v9, v3, v8
-    :try_end_0
-    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_85
+    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_28 .. :try_end_85} :catch_b0
+    .catchall {:try_start_28 .. :try_end_85} :catchall_89
 
     .line 138
-    :goto_2
+    :goto_85
     nop
 
     .line 115
@@ -823,13 +823,13 @@
     .end local v7    # "rcType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 134
     .restart local v5    # "rc":Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;
     .restart local v6    # "name":Ljava/lang/String;
     .restart local v7    # "rcType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :catchall_0
+    :catchall_89
     move-exception v8
 
     .line 135
@@ -876,7 +876,7 @@
     .line 131
     .end local v8    # "t":Ljava/lang/Throwable;
     .end local v9    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_0
+    :catch_b0
     move-exception v8
 
     .line 132
@@ -920,7 +920,7 @@
     .end local v6    # "name":Ljava/lang/String;
     .end local v7    # "rcType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v8    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :cond_4
+    :cond_d2
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/RecordSerializer$$ExternalSyntheticLambda1;
 
     invoke-direct {v0}, Lcom/esotericsoftware/kryo/serializers/RecordSerializer$$ExternalSyntheticLambda1;-><init>()V
@@ -941,7 +941,7 @@
     .line 111
     .end local v1    # "recordComponents":[Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;
     .end local v3    # "values":[Ljava/lang/Object;
-    :cond_5
+    :cond_e3
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -972,7 +972,7 @@
 .end method
 
 .method public setFixedFieldTypes(Z)V
-    .locals 0
+    .registers 2
     .param p1, "fixedFieldTypes"    # Z
 
     .line 241
@@ -984,7 +984,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 12
+    .registers 16
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .annotation system Ldalvik/annotation/Signature;
@@ -1013,7 +1013,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_cb
 
     .line 83
     new-instance v3, Lcom/esotericsoftware/kryo/serializers/RecordSerializer$$ExternalSyntheticLambda0;
@@ -1032,8 +1032,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_4
+    :goto_1d
+    if-ge v5, v4, :cond_ca
 
     aget-object v6, v3, v5
 
@@ -1051,10 +1051,10 @@
 
     .line 87
     .local v8, "name":Ljava/lang/String;
-    :try_start_0
+    :try_start_29
     sget-boolean v9, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_55
 
     const-string v9, "kryo"
 
@@ -1095,12 +1095,12 @@
     invoke-static {v9, v10}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 88
-    :cond_0
+    :cond_55
     invoke-virtual {v7}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_63
 
     .line 89
     invoke-static {p3, v6}, Lcom/esotericsoftware/kryo/serializers/RecordSerializer;->componentValue(Ljava/lang/Object;Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;)Ljava/lang/Object;
@@ -1109,46 +1109,46 @@
 
     invoke-virtual {p1, p2, v9}, Lcom/esotericsoftware/kryo/Kryo;->writeObject(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_7d
 
     .line 91
-    :cond_1
+    :cond_63
     iget-boolean v9, p0, Lcom/esotericsoftware/kryo/serializers/RecordSerializer;->fixedFieldTypes:Z
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_76
 
     invoke-virtual {p1, v7}, Lcom/esotericsoftware/kryo/Kryo;->isFinal(Ljava/lang/Class;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_6e
 
-    goto :goto_1
+    goto :goto_76
 
     .line 94
-    :cond_2
+    :cond_6e
     invoke-static {p3, v6}, Lcom/esotericsoftware/kryo/serializers/RecordSerializer;->componentValue(Ljava/lang/Object;Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;)Ljava/lang/Object;
 
     move-result-object v9
 
     invoke-virtual {p1, p2, v9}, Lcom/esotericsoftware/kryo/Kryo;->writeClassAndObject(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_7d
 
     .line 92
-    :cond_3
-    :goto_1
+    :cond_76
+    :goto_76
     invoke-static {p3, v6}, Lcom/esotericsoftware/kryo/serializers/RecordSerializer;->componentValue(Ljava/lang/Object;Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;)Ljava/lang/Object;
 
     move-result-object v9
 
     invoke-virtual {p1, p2, v9, v7}, Lcom/esotericsoftware/kryo/Kryo;->writeObjectOrNull(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;Ljava/lang/Class;)V
-    :try_end_0
-    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7d
+    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_29 .. :try_end_7d} :catch_a8
+    .catchall {:try_start_29 .. :try_end_7d} :catchall_81
 
     .line 104
-    :goto_2
+    :goto_7d
     nop
 
     .line 83
@@ -1157,13 +1157,13 @@
     .end local v8    # "name":Ljava/lang/String;
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 100
     .restart local v6    # "rc":Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;
     .restart local v7    # "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .restart local v8    # "name":Ljava/lang/String;
-    :catchall_0
+    :catchall_81
     move-exception v3
 
     .line 101
@@ -1210,7 +1210,7 @@
     .line 97
     .end local v3    # "t":Ljava/lang/Throwable;
     .end local v4    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_0
+    :catch_a8
     move-exception v3
 
     .line 98
@@ -1253,11 +1253,11 @@
     .end local v6    # "rc":Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;
     .end local v7    # "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v8    # "name":Ljava/lang/String;
-    :cond_4
+    :cond_ca
     return-void
 
     .line 81
-    :cond_5
+    :cond_cb
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v1, Ljava/lang/StringBuilder;

@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/FileSystem;)V
-    .locals 0
+    .registers 2
     .param p1, "$fileSystem"    # Lokio/FileSystem;
 
     iput-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$fileSystem$1;->$fileSystem:Lokio/FileSystem;
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public sink(Lokio/Path;Z)Lokio/Sink;
-    .locals 2
+    .registers 5
     .param p1, "file"    # Lokio/Path;
     .param p2, "mustCreate"    # Z
 
@@ -71,12 +71,12 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
-    goto :goto_0
+    goto :goto_12
 
     .local v0, "it":Lokio/Path;
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
     .line 106
@@ -92,7 +92,7 @@
     nop
 
     .line 108
-    :goto_0
+    :goto_12
     invoke-super {p0, p1, p2}, Lokio/ForwardingFileSystem;->sink(Lokio/Path;Z)Lokio/Sink;
 
     move-result-object v0

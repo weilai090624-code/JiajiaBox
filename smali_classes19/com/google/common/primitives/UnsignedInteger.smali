@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 44
     const/4 v0, 0x0
@@ -67,7 +67,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # I
 
     .line 50
@@ -83,7 +83,7 @@
 .end method
 
 .method public static fromIntBits(I)Lcom/google/common/primitives/UnsignedInteger;
-    .locals 1
+    .registers 2
     .param p0, "bits"    # I
 
     .line 68
@@ -95,7 +95,7 @@
 .end method
 
 .method public static valueOf(J)Lcom/google/common/primitives/UnsignedInteger;
-    .locals 3
+    .registers 5
     .param p0, "value"    # J
 
     .line 76
@@ -105,16 +105,16 @@
 
     cmp-long v2, v0, p0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     const-string v1, "value (%s) is outside the range for an unsigned integer value"
 
     invoke-static {v0, v1, p0, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -130,7 +130,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/primitives/UnsignedInteger;
-    .locals 1
+    .registers 2
     .param p0, "string"    # Ljava/lang/String;
 
     .line 106
@@ -144,7 +144,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;I)Lcom/google/common/primitives/UnsignedInteger;
-    .locals 1
+    .registers 3
     .param p0, "string"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public static valueOf(Ljava/math/BigInteger;)Lcom/google/common/primitives/UnsignedInteger;
-    .locals 2
+    .registers 3
     .param p0, "value"    # Ljava/math/BigInteger;
 
     .line 90
@@ -175,7 +175,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_14
 
     invoke-virtual {p0}, Ljava/math/BigInteger;->bitLength()I
 
@@ -183,17 +183,17 @@
 
     const/16 v1, 0x20
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     .line 91
-    :goto_0
+    :goto_15
     const-string v1, "value (%s) is outside the range for an unsigned integer value"
 
     invoke-static {v0, v1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -213,7 +213,7 @@
 
 # virtual methods
 .method public bigIntegerValue()Ljava/math/BigInteger;
-    .locals 2
+    .registers 3
 
     .line 210
     invoke-virtual {p0}, Lcom/google/common/primitives/UnsignedInteger;->longValue()J
@@ -228,7 +228,7 @@
 .end method
 
 .method public compareTo(Lcom/google/common/primitives/UnsignedInteger;)I
-    .locals 2
+    .registers 4
     .param p1, "other"    # Lcom/google/common/primitives/UnsignedInteger;
 
     .line 220
@@ -247,7 +247,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 41
     check-cast p1, Lcom/google/common/primitives/UnsignedInteger;
@@ -260,7 +260,7 @@
 .end method
 
 .method public dividedBy(Lcom/google/common/primitives/UnsignedInteger;)Lcom/google/common/primitives/UnsignedInteger;
-    .locals 2
+    .registers 4
     .param p1, "val"    # Lcom/google/common/primitives/UnsignedInteger;
 
     .line 159
@@ -286,7 +286,7 @@
 .end method
 
 .method public doubleValue()D
-    .locals 2
+    .registers 3
 
     .line 205
     invoke-virtual {p0}, Lcom/google/common/primitives/UnsignedInteger;->longValue()J
@@ -299,7 +299,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -310,7 +310,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 232
     move-object v0, p1
@@ -323,21 +323,21 @@
 
     iget v3, v0, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_f
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_f
     return v1
 
     .line 235
     .end local v0    # "other":Lcom/google/common/primitives/UnsignedInteger;
-    :cond_1
+    :cond_10
     return v1
 .end method
 
 .method public floatValue()F
-    .locals 2
+    .registers 3
 
     .line 196
     invoke-virtual {p0}, Lcom/google/common/primitives/UnsignedInteger;->longValue()J
@@ -350,7 +350,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 226
     iget v0, p0, Lcom/google/common/primitives/UnsignedInteger;->value:I
@@ -359,7 +359,7 @@
 .end method
 
 .method public intValue()I
-    .locals 1
+    .registers 2
 
     .line 181
     iget v0, p0, Lcom/google/common/primitives/UnsignedInteger;->value:I
@@ -368,7 +368,7 @@
 .end method
 
 .method public longValue()J
-    .locals 2
+    .registers 3
 
     .line 187
     iget v0, p0, Lcom/google/common/primitives/UnsignedInteger;->value:I
@@ -381,7 +381,7 @@
 .end method
 
 .method public minus(Lcom/google/common/primitives/UnsignedInteger;)Lcom/google/common/primitives/UnsignedInteger;
-    .locals 2
+    .registers 4
     .param p1, "val"    # Lcom/google/common/primitives/UnsignedInteger;
 
     .line 137
@@ -405,7 +405,7 @@
 .end method
 
 .method public mod(Lcom/google/common/primitives/UnsignedInteger;)Lcom/google/common/primitives/UnsignedInteger;
-    .locals 2
+    .registers 4
     .param p1, "val"    # Lcom/google/common/primitives/UnsignedInteger;
 
     .line 169
@@ -431,7 +431,7 @@
 .end method
 
 .method public plus(Lcom/google/common/primitives/UnsignedInteger;)Lcom/google/common/primitives/UnsignedInteger;
-    .locals 2
+    .registers 4
     .param p1, "val"    # Lcom/google/common/primitives/UnsignedInteger;
 
     .line 127
@@ -455,7 +455,7 @@
 .end method
 
 .method public times(Lcom/google/common/primitives/UnsignedInteger;)Lcom/google/common/primitives/UnsignedInteger;
-    .locals 2
+    .registers 4
     .param p1, "val"    # Lcom/google/common/primitives/UnsignedInteger;
 
     .line 149
@@ -479,7 +479,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 241
     const/16 v0, 0xa
@@ -492,7 +492,7 @@
 .end method
 
 .method public toString(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "radix"    # I
 
     .line 250

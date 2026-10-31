@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 229
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 229
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/Striped$2;->get()Ljava/util/concurrent/locks/Lock;
@@ -50,7 +50,7 @@
 .end method
 
 .method public get()Ljava/util/concurrent/locks/Lock;
-    .locals 2
+    .registers 3
 
     .line 232
     new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;

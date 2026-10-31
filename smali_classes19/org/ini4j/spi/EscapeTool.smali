@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 23
     const-string v0, "0123456789abcdef"
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method public static getInstance()Lorg/ini4j/spi/EscapeTool;
-    .locals 1
+    .registers 1
 
     .line 37
     sget-object v0, Lorg/ini4j/spi/EscapeTool;->INSTANCE:Lorg/ini4j/spi/EscapeTool;
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public escape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p1, "line"    # Ljava/lang/String;
 
     .line 42
@@ -102,8 +102,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_3
+    :goto_c
+    if-ge v2, v0, :cond_3c
 
     .line 47
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
@@ -120,7 +120,7 @@
 
     .line 50
     .local v4, "idx":I
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_29
 
     .line 52
     const/16 v5, 0x5c
@@ -136,42 +136,42 @@
 
     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_39
 
     .line 57
-    :cond_0
+    :cond_29
     const/16 v5, 0x20
 
-    if-lt v3, v5, :cond_2
+    if-lt v3, v5, :cond_36
 
     const/16 v5, 0x7e
 
-    if-le v3, v5, :cond_1
+    if-le v3, v5, :cond_32
 
-    goto :goto_1
+    goto :goto_36
 
     .line 63
-    :cond_1
+    :cond_32
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_39
 
     .line 59
-    :cond_2
-    :goto_1
+    :cond_36
+    :goto_36
     invoke-virtual {p0, v1, v3}, Lorg/ini4j/spi/EscapeTool;->escapeBinary(Ljava/lang/StringBuilder;C)V
 
     .line 45
     .end local v3    # "c":C
     .end local v4    # "idx":I
-    :goto_2
+    :goto_39
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 68
     .end local v2    # "i":I
-    :cond_3
+    :cond_3c
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -180,7 +180,7 @@
 .end method
 
 .method escapeBinary(Ljava/lang/StringBuilder;C)V
-    .locals 2
+    .registers 5
     .param p1, "buff"    # Ljava/lang/StringBuilder;
     .param p2, "c"    # C
 
@@ -236,7 +236,7 @@
 .end method
 
 .method public quote(Ljava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p1, "value"    # Ljava/lang/String;
 
     .line 73
@@ -244,13 +244,13 @@
 
     .line 75
     .local v0, "ret":Ljava/lang/String;
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_34
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_34
 
     .line 77
     new-instance v1, Ljava/lang/StringBuilder;
@@ -267,12 +267,12 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_14
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_2d
 
     .line 82
     invoke-virtual {p1, v3}, Ljava/lang/String;->charAt(I)C
@@ -283,27 +283,27 @@
     .local v4, "c":C
     const/16 v5, 0x5c
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_24
 
-    if-ne v4, v2, :cond_1
+    if-ne v4, v2, :cond_27
 
     .line 86
-    :cond_0
+    :cond_24
     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 89
-    :cond_1
+    :cond_27
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 80
     .end local v4    # "c":C
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 92
     .end local v3    # "i":I
-    :cond_2
+    :cond_2d
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 93
@@ -313,12 +313,12 @@
 
     .line 96
     .end local v1    # "buff":Ljava/lang/StringBuilder;
-    :cond_3
+    :cond_34
     return-object v0
 .end method
 
 .method public unescape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p1, "line"    # Ljava/lang/String;
 
     .line 101
@@ -338,8 +338,8 @@
 
     .line 105
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_3
+    :goto_a
+    if-ge v2, v0, :cond_3c
 
     .line 107
     add-int/lit8 v3, v2, 0x1
@@ -354,7 +354,7 @@
     .local v2, "c":C
     const/16 v4, 0x5c
 
-    if-ne v2, v4, :cond_2
+    if-ne v2, v4, :cond_37
 
     .line 111
     add-int/lit8 v4, v3, 0x1
@@ -372,7 +372,7 @@
 
     .line 114
     .local v3, "next":I
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_34
 
     .line 116
     const-string v5, "\\tnfbr:="
@@ -383,7 +383,7 @@
 
     .line 118
     .local v5, "idx":I
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_30
 
     .line 120
     const-string v6, "\\\t\n\u000c\u0008\r:="
@@ -393,28 +393,28 @@
     move-result v2
 
     .line 123
-    :cond_0
+    :cond_30
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 124
     .end local v5    # "idx":I
-    goto :goto_1
+    goto :goto_35
 
     .line 127
-    :cond_1
+    :cond_34
     move v4, v3
 
     .line 129
     .end local v3    # "next":I
-    :goto_1
+    :goto_35
     move v2, v4
 
-    goto :goto_2
+    goto :goto_3b
 
     .line 132
     .end local v4    # "i":I
     .local v3, "i":I
-    :cond_2
+    :cond_37
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move v2, v3
@@ -422,11 +422,11 @@
     .line 134
     .end local v3    # "i":I
     .local v2, "i":I
-    :goto_2
-    goto :goto_0
+    :goto_3b
+    goto :goto_a
 
     .line 136
-    :cond_3
+    :cond_3c
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -435,7 +435,7 @@
 .end method
 
 .method unescapeBinary(Ljava/lang/StringBuilder;CLjava/lang/String;I)I
-    .locals 4
+    .registers 9
     .param p1, "buff"    # Ljava/lang/StringBuilder;
     .param p2, "escapeType"    # C
     .param p3, "line"    # Ljava/lang/String;
@@ -448,12 +448,12 @@
     .local v0, "ret":I
     const/16 v1, 0x75
 
-    if-ne p2, v1, :cond_0
+    if-ne p2, v1, :cond_21
 
     .line 183
     add-int/lit8 v1, p4, 0x4
 
-    :try_start_0
+    :try_start_7
     invoke-virtual {p3, p4, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
@@ -467,17 +467,17 @@
     int-to-char v1, v1
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_15} :catch_18
 
     .line 184
     add-int/lit8 v0, p4, 0x4
 
     .line 189
-    goto :goto_0
+    goto :goto_21
 
     .line 186
-    :catch_0
+    :catch_18
     move-exception v1
 
     .line 188
@@ -492,13 +492,13 @@
 
     .line 192
     .end local v1    # "x":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_21
+    :goto_21
     return v0
 .end method
 
 .method public unquote(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "value"    # Ljava/lang/String;
 
     .line 141
@@ -515,14 +515,14 @@
     const/4 v2, 0x1
 
     .local v2, "i":I
-    :goto_0
+    :goto_7
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v3
 
     add-int/lit8 v3, v3, -0x1
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_22
 
     .line 146
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
@@ -533,35 +533,35 @@
     .local v3, "c":C
     const/16 v4, 0x5c
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_1c
 
     .line 150
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 152
     const/4 v1, 0x1
 
     .line 154
-    goto :goto_1
+    goto :goto_1f
 
     .line 157
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
     .line 160
-    :cond_1
+    :cond_1c
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 144
     .end local v3    # "c":C
-    :goto_1
+    :goto_1f
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 163
     .end local v2    # "i":I
-    :cond_2
+    :cond_22
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2

@@ -62,7 +62,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/NotificationChannel;)V
-    .locals 3
+    .registers 5
     .param p1, "channel"    # Landroid/app/NotificationChannel;
 
     .line 285
@@ -151,7 +151,7 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_59
 
     .line 298
     invoke-static {p1}, Landroidx/core/app/NotificationChannelCompat$Api30Impl;->getParentChannelId(Landroid/app/NotificationChannel;)Ljava/lang/String;
@@ -168,7 +168,7 @@
     iput-object v0, p0, Landroidx/core/app/NotificationChannelCompat;->mConversationId:Ljava/lang/String;
 
     .line 302
-    :cond_0
+    :cond_59
     invoke-static {p1}, Landroidx/core/app/NotificationChannelCompat$Api26Impl;->canBypassDnd(Landroid/app/NotificationChannel;)Z
 
     move-result v0
@@ -187,7 +187,7 @@
 
     const/16 v2, 0x1d
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_71
 
     .line 305
     invoke-static {p1}, Landroidx/core/app/NotificationChannelCompat$Api29Impl;->canBubble(Landroid/app/NotificationChannel;)Z
@@ -197,10 +197,10 @@
     iput-boolean v0, p0, Landroidx/core/app/NotificationChannelCompat;->mCanBubble:Z
 
     .line 307
-    :cond_1
+    :cond_71
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_7b
 
     .line 308
     invoke-static {p1}, Landroidx/core/app/NotificationChannelCompat$Api30Impl;->isImportantConversation(Landroid/app/NotificationChannel;)Z
@@ -210,12 +210,12 @@
     iput-boolean v0, p0, Landroidx/core/app/NotificationChannelCompat;->mImportantConversation:Z
 
     .line 310
-    :cond_2
+    :cond_7b
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "importance"    # I
 
@@ -264,7 +264,7 @@
 
 # virtual methods
 .method public canBubble()Z
-    .locals 1
+    .registers 2
 
     .line 509
     iget-boolean v0, p0, Landroidx/core/app/NotificationChannelCompat;->mCanBubble:Z
@@ -273,7 +273,7 @@
 .end method
 
 .method public canBypassDnd()Z
-    .locals 1
+    .registers 2
 
     .line 486
     iget-boolean v0, p0, Landroidx/core/app/NotificationChannelCompat;->mBypassDnd:Z
@@ -282,7 +282,7 @@
 .end method
 
 .method public canShowBadge()Z
-    .locals 1
+    .registers 2
 
     .line 445
     iget-boolean v0, p0, Landroidx/core/app/NotificationChannelCompat;->mShowBadge:Z
@@ -291,7 +291,7 @@
 .end method
 
 .method public getAudioAttributes()Landroid/media/AudioAttributes;
-    .locals 1
+    .registers 2
 
     .line 404
     iget-object v0, p0, Landroidx/core/app/NotificationChannelCompat;->mAudioAttributes:Landroid/media/AudioAttributes;
@@ -300,7 +300,7 @@
 .end method
 
 .method public getConversationId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 475
     iget-object v0, p0, Landroidx/core/app/NotificationChannelCompat;->mConversationId:Ljava/lang/String;
@@ -309,7 +309,7 @@
 .end method
 
 .method public getDescription()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 375
     iget-object v0, p0, Landroidx/core/app/NotificationChannelCompat;->mDescription:Ljava/lang/String;
@@ -318,7 +318,7 @@
 .end method
 
 .method public getGroup()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 455
     iget-object v0, p0, Landroidx/core/app/NotificationChannelCompat;->mGroupId:Ljava/lang/String;
@@ -327,7 +327,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 359
     iget-object v0, p0, Landroidx/core/app/NotificationChannelCompat;->mId:Ljava/lang/String;
@@ -336,7 +336,7 @@
 .end method
 
 .method public getImportance()I
-    .locals 1
+    .registers 2
 
     .line 388
     iget v0, p0, Landroidx/core/app/NotificationChannelCompat;->mImportance:I
@@ -345,7 +345,7 @@
 .end method
 
 .method public getLightColor()I
-    .locals 1
+    .registers 2
 
     .line 419
     iget v0, p0, Landroidx/core/app/NotificationChannelCompat;->mLightColor:I
@@ -354,7 +354,7 @@
 .end method
 
 .method public getLockscreenVisibility()I
-    .locals 1
+    .registers 2
 
     .line 498
     iget v0, p0, Landroidx/core/app/NotificationChannelCompat;->mLockscreenVisibility:I
@@ -363,7 +363,7 @@
 .end method
 
 .method public getName()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 367
     iget-object v0, p0, Landroidx/core/app/NotificationChannelCompat;->mName:Ljava/lang/CharSequence;
@@ -372,14 +372,14 @@
 .end method
 
 .method getNotificationChannel()Landroid/app/NotificationChannel;
-    .locals 3
+    .registers 4
 
     .line 318
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1a
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_8
 
     .line 319
     const/4 v0, 0x0
@@ -387,7 +387,7 @@
     return-object v0
 
     .line 321
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/core/app/NotificationChannelCompat;->mId:Ljava/lang/String;
 
     iget-object v1, p0, Landroidx/core/app/NotificationChannelCompat;->mName:Ljava/lang/CharSequence;
@@ -446,15 +446,15 @@
 
     const/16 v2, 0x1e
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_51
 
     iget-object v1, p0, Landroidx/core/app/NotificationChannelCompat;->mParentId:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_51
 
     iget-object v1, p0, Landroidx/core/app/NotificationChannelCompat;->mConversationId:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_51
 
     .line 331
     iget-object v1, p0, Landroidx/core/app/NotificationChannelCompat;->mParentId:Ljava/lang/String;
@@ -464,12 +464,12 @@
     invoke-static {v0, v1, v2}, Landroidx/core/app/NotificationChannelCompat$Api30Impl;->setConversationId(Landroid/app/NotificationChannel;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 333
-    :cond_1
+    :cond_51
     return-object v0
 .end method
 
 .method public getParentChannelId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 465
     iget-object v0, p0, Landroidx/core/app/NotificationChannelCompat;->mParentId:Ljava/lang/String;
@@ -478,7 +478,7 @@
 .end method
 
 .method public getSound()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 396
     iget-object v0, p0, Landroidx/core/app/NotificationChannelCompat;->mSound:Landroid/net/Uri;
@@ -487,7 +487,7 @@
 .end method
 
 .method public getVibrationPattern()[J
-    .locals 1
+    .registers 2
 
     .line 435
     iget-object v0, p0, Landroidx/core/app/NotificationChannelCompat;->mVibrationPattern:[J
@@ -496,7 +496,7 @@
 .end method
 
 .method public isImportantConversation()Z
-    .locals 1
+    .registers 2
 
     .line 524
     iget-boolean v0, p0, Landroidx/core/app/NotificationChannelCompat;->mImportantConversation:Z
@@ -505,7 +505,7 @@
 .end method
 
 .method public shouldShowLights()Z
-    .locals 1
+    .registers 2
 
     .line 411
     iget-boolean v0, p0, Landroidx/core/app/NotificationChannelCompat;->mLights:Z
@@ -514,7 +514,7 @@
 .end method
 
 .method public shouldVibrate()Z
-    .locals 1
+    .registers 2
 
     .line 426
     iget-boolean v0, p0, Landroidx/core/app/NotificationChannelCompat;->mVibrationEnabled:Z
@@ -523,7 +523,7 @@
 .end method
 
 .method public toBuilder()Landroidx/core/app/NotificationChannelCompat$Builder;
-    .locals 3
+    .registers 4
 
     .line 341
     new-instance v0, Landroidx/core/app/NotificationChannelCompat$Builder;

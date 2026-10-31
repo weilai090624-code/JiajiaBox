@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Lkotlin/jvm/internal/PropertyReference;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "receiver"    # Ljava/lang/Object;
 
     .line 20
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 0
+    .registers 6
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "owner"    # Ljava/lang/Class;
     .param p3, "name"    # Ljava/lang/String;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method protected computeReflected()Lkotlin/reflect/KCallable;
-    .locals 1
+    .registers 2
 
     .line 30
     invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->property1(Lkotlin/jvm/internal/PropertyReference1;)Lkotlin/reflect/KProperty1;
@@ -57,7 +57,7 @@
 .end method
 
 .method public getDelegate(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "receiver"    # Ljava/lang/Object;
 
     .line 46
@@ -75,7 +75,7 @@
 .end method
 
 .method public bridge synthetic getGetter()Lkotlin/reflect/KProperty$Getter;
-    .locals 1
+    .registers 2
 
     .line 12
     invoke-virtual {p0}, Lkotlin/jvm/internal/PropertyReference1;->getGetter()Lkotlin/reflect/KProperty1$Getter;
@@ -86,7 +86,7 @@
 .end method
 
 .method public getGetter()Lkotlin/reflect/KProperty1$Getter;
-    .locals 1
+    .registers 2
 
     .line 40
     invoke-virtual {p0}, Lkotlin/jvm/internal/PropertyReference1;->getReflected()Lkotlin/reflect/KProperty;
@@ -103,7 +103,7 @@
 .end method
 
 .method public invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "receiver"    # Ljava/lang/Object;
 
     .line 35

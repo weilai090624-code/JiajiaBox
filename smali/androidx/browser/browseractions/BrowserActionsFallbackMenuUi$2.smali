@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onShow(Landroid/content/DialogInterface;)V
-    .locals 2
+    .registers 4
     .param p1, "dialogInterface"    # Landroid/content/DialogInterface;
 
     .line 149
@@ -54,7 +54,7 @@
 
     iget-object v0, v0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi;->mMenuUiListener:Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi$BrowserActionsFallMenuUiListener;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 150
     const-string v0, "BrowserActionskMenuUi"
@@ -67,7 +67,7 @@
     return-void
 
     .line 153
-    :cond_0
+    :cond_e
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi$2;->this$0:Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi;
 
     iget-object v0, v0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi;->mMenuUiListener:Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi$BrowserActionsFallMenuUiListener;

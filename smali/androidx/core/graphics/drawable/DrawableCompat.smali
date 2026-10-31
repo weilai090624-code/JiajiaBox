@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 422
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 .end method
 
 .method public static applyTheme(Landroid/graphics/drawable/Drawable;Landroid/content/res/Resources$Theme;)V
-    .locals 0
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "theme"    # Landroid/content/res/Resources$Theme;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public static canApplyTheme(Landroid/graphics/drawable/Drawable;)Z
-    .locals 1
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 197
@@ -66,7 +66,7 @@
 .end method
 
 .method public static clearColorFilter(Landroid/graphics/drawable/Drawable;)V
-    .locals 5
+    .registers 6
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 224
@@ -74,15 +74,15 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 226
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
 
-    goto :goto_1
+    goto :goto_50
 
     .line 227
-    :cond_0
+    :cond_a
     nop
 
     .line 228
@@ -91,7 +91,7 @@
     .line 234
     instance-of v0, p0, Landroid/graphics/drawable/InsetDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 235
     move-object v0, p0
@@ -104,13 +104,13 @@
 
     invoke-static {v0}, Landroidx/core/graphics/drawable/DrawableCompat;->clearColorFilter(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_1
+    goto :goto_50
 
     .line 236
-    :cond_1
+    :cond_1d
     instance-of v0, p0, Landroidx/core/graphics/drawable/WrappedDrawable;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     .line 237
     move-object v0, p0
@@ -123,13 +123,13 @@
 
     invoke-static {v0}, Landroidx/core/graphics/drawable/DrawableCompat;->clearColorFilter(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_1
+    goto :goto_50
 
     .line 238
-    :cond_2
+    :cond_2c
     instance-of v0, p0, Landroid/graphics/drawable/DrawableContainer;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_50
 
     .line 239
     move-object v0, p0
@@ -149,7 +149,7 @@
 
     .line 242
     .local v1, "state":Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_4f
 
     .line 244
     const/4 v2, 0x0
@@ -160,8 +160,8 @@
     move-result v3
 
     .local v3, "count":I
-    :goto_0
-    if-ge v2, v3, :cond_4
+    :goto_41
+    if-ge v2, v3, :cond_4f
 
     .line 245
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->getChild(I)Landroid/graphics/drawable/Drawable;
@@ -170,16 +170,16 @@
 
     .line 246
     .local v4, "child":Landroid/graphics/drawable/Drawable;
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4c
 
     .line 247
     invoke-static {v4}, Landroidx/core/graphics/drawable/DrawableCompat;->clearColorFilter(Landroid/graphics/drawable/Drawable;)V
 
     .line 244
-    :cond_3
+    :cond_4c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_41
 
     .line 251
     .end local v0    # "container":Landroid/graphics/drawable/DrawableContainer;
@@ -187,17 +187,17 @@
     .end local v2    # "i":I
     .end local v3    # "count":I
     .end local v4    # "child":Landroid/graphics/drawable/Drawable;
-    :cond_4
+    :cond_4f
     nop
 
     .line 255
-    :cond_5
-    :goto_1
+    :cond_50
+    :goto_50
     return-void
 .end method
 
 .method public static getAlpha(Landroid/graphics/drawable/Drawable;)I
-    .locals 1
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 179
@@ -209,7 +209,7 @@
 .end method
 
 .method public static getColorFilter(Landroid/graphics/drawable/Drawable;)Landroid/graphics/ColorFilter;
-    .locals 1
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 212
@@ -224,7 +224,7 @@
 .end method
 
 .method public static getLayoutDirection(Landroid/graphics/drawable/Drawable;)I
-    .locals 6
+    .registers 7
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 396
@@ -232,7 +232,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 397
     invoke-static {p0}, Landroidx/core/graphics/drawable/DrawableCompat$Api23Impl;->getLayoutDirection(Landroid/graphics/drawable/Drawable;)I
@@ -242,19 +242,19 @@
     return v0
 
     .line 399
-    :cond_0
+    :cond_b
     sget-boolean v0, Landroidx/core/graphics/drawable/DrawableCompat;->sGetLayoutDirectionMethodFetched:Z
 
     const-string v1, "DrawableCompat"
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2d
 
     .line 401
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_13
     const-class v3, Landroid/graphics/drawable/Drawable;
 
     const-string v4, "getLayoutDirection"
@@ -272,14 +272,14 @@
     sget-object v3, Landroidx/core/graphics/drawable/DrawableCompat;->sGetLayoutDirectionMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v3, v0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_24
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_13 .. :try_end_24} :catch_25
 
     .line 406
-    goto :goto_0
+    goto :goto_2b
 
     .line 404
-    :catch_0
+    :catch_25
     move-exception v3
 
     .line 405
@@ -290,17 +290,17 @@
 
     .line 407
     .end local v3    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
+    :goto_2b
     sput-boolean v0, Landroidx/core/graphics/drawable/DrawableCompat;->sGetLayoutDirectionMethodFetched:Z
 
     .line 410
-    :cond_1
+    :cond_2d
     sget-object v0, Landroidx/core/graphics/drawable/DrawableCompat;->sGetLayoutDirectionMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_49
 
     .line 412
-    :try_start_1
+    :try_start_31
     sget-object v0, Landroidx/core/graphics/drawable/DrawableCompat;->sGetLayoutDirectionMethod:Ljava/lang/reflect/Method;
 
     new-array v3, v2, [Ljava/lang/Object;
@@ -314,13 +314,13 @@
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_3f
+    .catch Ljava/lang/Exception; {:try_start_31 .. :try_end_3f} :catch_40
 
     return v0
 
     .line 413
-    :catch_1
+    :catch_40
     move-exception v0
 
     .line 414
@@ -336,12 +336,12 @@
 
     .line 418
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_2
+    :cond_49
     return v2
 .end method
 
 .method public static inflate(Landroid/graphics/drawable/Drawable;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-    .locals 0
+    .registers 5
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "res"    # Landroid/content/res/Resources;
     .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
@@ -365,7 +365,7 @@
 .end method
 
 .method public static isAutoMirrored(Landroid/graphics/drawable/Drawable;)Z
-    .locals 1
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 96
@@ -377,7 +377,7 @@
 .end method
 
 .method public static jumpToCurrentState(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 1
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -390,7 +390,7 @@
 .end method
 
 .method public static setAutoMirrored(Landroid/graphics/drawable/Drawable;Z)V
-    .locals 0
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "mirrored"    # Z
 
@@ -402,7 +402,7 @@
 .end method
 
 .method public static setHotspot(Landroid/graphics/drawable/Drawable;FF)V
-    .locals 0
+    .registers 3
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "x"    # F
     .param p2, "y"    # F
@@ -418,7 +418,7 @@
 .end method
 
 .method public static setHotspotBounds(Landroid/graphics/drawable/Drawable;IIII)V
-    .locals 0
+    .registers 5
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "left"    # I
     .param p2, "top"    # I
@@ -436,7 +436,7 @@
 .end method
 
 .method public static setLayoutDirection(Landroid/graphics/drawable/Drawable;I)Z
-    .locals 7
+    .registers 9
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "layoutDirection"    # I
 
@@ -445,7 +445,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 361
     invoke-static {p0, p1}, Landroidx/core/graphics/drawable/DrawableCompat$Api23Impl;->setLayoutDirection(Landroid/graphics/drawable/Drawable;I)Z
@@ -455,7 +455,7 @@
     return v0
 
     .line 363
-    :cond_0
+    :cond_b
     sget-boolean v0, Landroidx/core/graphics/drawable/DrawableCompat;->sSetLayoutDirectionMethodFetched:Z
 
     const-string v1, "DrawableCompat"
@@ -464,10 +464,10 @@
 
     const/4 v3, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     .line 365
-    :try_start_0
+    :try_start_13
     const-class v0, Landroid/graphics/drawable/Drawable;
 
     const-string/jumbo v4, "setLayoutDirection"
@@ -489,14 +489,14 @@
     sget-object v0, Landroidx/core/graphics/drawable/DrawableCompat;->sSetLayoutDirectionMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, v3}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_13 .. :try_end_29} :catch_2a
 
     .line 370
-    goto :goto_0
+    goto :goto_30
 
     .line 368
-    :catch_0
+    :catch_2a
     move-exception v0
 
     .line 369
@@ -507,17 +507,17 @@
 
     .line 371
     .end local v0    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
+    :goto_30
     sput-boolean v3, Landroidx/core/graphics/drawable/DrawableCompat;->sSetLayoutDirectionMethodFetched:Z
 
     .line 374
-    :cond_1
+    :cond_32
     sget-object v0, Landroidx/core/graphics/drawable/DrawableCompat;->sSetLayoutDirectionMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4d
 
     .line 376
-    :try_start_1
+    :try_start_36
     sget-object v0, Landroidx/core/graphics/drawable/DrawableCompat;->sSetLayoutDirectionMethod:Ljava/lang/reflect/Method;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -529,14 +529,14 @@
     aput-object v4, v5, v2
 
     invoke-virtual {v0, p0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_43
+    .catch Ljava/lang/Exception; {:try_start_36 .. :try_end_43} :catch_44
 
     .line 377
     return v3
 
     .line 378
-    :catch_1
+    :catch_44
     move-exception v0
 
     .line 379
@@ -552,12 +552,12 @@
 
     .line 383
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_2
+    :cond_4d
     return v2
 .end method
 
 .method public static setTint(Landroid/graphics/drawable/Drawable;I)V
-    .locals 0
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "tint"    # I
 
@@ -572,7 +572,7 @@
 .end method
 
 .method public static setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
@@ -587,7 +587,7 @@
 .end method
 
 .method public static setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
@@ -602,7 +602,7 @@
 .end method
 
 .method public static unwrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -617,7 +617,7 @@
     .line 339
     instance-of v0, p0, Landroidx/core/graphics/drawable/WrappedDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 340
     move-object v0, p0
@@ -631,12 +631,12 @@
     return-object v0
 
     .line 342
-    :cond_0
+    :cond_c
     return-object p0
 .end method
 
 .method public static wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 3
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 312
@@ -644,19 +644,19 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_7
 
     .line 313
     return-object p0
 
     .line 314
-    :cond_0
+    :cond_7
     nop
 
     .line 315
     instance-of v0, p0, Landroidx/core/graphics/drawable/TintAwareDrawable;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_12
 
     .line 316
     new-instance v0, Landroidx/core/graphics/drawable/WrappedDrawableApi21;
@@ -666,6 +666,6 @@
     return-object v0
 
     .line 318
-    :cond_1
+    :cond_12
     return-object p0
 .end method

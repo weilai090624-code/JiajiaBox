@@ -99,7 +99,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$BlXCpnm_iShXAFahXaNR0ap24pA(Lio/nekohasekai/sagernet/bg/BaseService$Data;Landroid/content/Context;Landroid/content/Intent;)Lkotlin/Unit;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/bg/BaseService$Data;->receiver$lambda$0(Lio/nekohasekai/sagernet/bg/BaseService$Data;Landroid/content/Context;Landroid/content/Intent;)Lkotlin/Unit;
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/bg/BaseService$Interface;)V
-    .locals 1
+    .registers 3
     .param p1, "service"    # Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     const-string v0, "service"
@@ -149,23 +149,23 @@
 .end method
 
 .method public static synthetic changeState$default(Lio/nekohasekai/sagernet/bg/BaseService$Data;Lio/nekohasekai/sagernet/bg/BaseService$State;Ljava/lang/String;ILjava/lang/Object;)V
-    .locals 0
+    .registers 5
 
     .line 84
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lio/nekohasekai/sagernet/bg/BaseService$Data;->changeState(Lio/nekohasekai/sagernet/bg/BaseService$State;Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method private static final receiver$lambda$0(Lio/nekohasekai/sagernet/bg/BaseService$Data;Landroid/content/Context;Landroid/content/Intent;)Lkotlin/Unit;
-    .locals 4
+    .registers 7
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/bg/BaseService$Data;
     .param p1, "ctx"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
@@ -185,74 +185,74 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_91
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
     move-result v2
 
-    sparse-switch v2, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_9c
 
-    goto/16 :goto_0
+    goto/16 :goto_91
 
-    :sswitch_0
+    :sswitch_1a
     const-string v2, "android.intent.action.ACTION_SHUTDOWN"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_24
 
-    goto/16 :goto_0
+    goto/16 :goto_91
 
     .line 51
-    :cond_0
+    :cond_24
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     invoke-interface {v0}, Lio/nekohasekai/sagernet/bg/BaseService$Interface;->persistStats()V
 
-    goto/16 :goto_1
+    goto/16 :goto_98
 
     .line 50
-    :sswitch_1
+    :sswitch_2b
     const-string v2, "io.nekohasekai.sagernet.RELOAD"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_34
 
-    goto :goto_0
+    goto :goto_91
 
     .line 52
-    :cond_1
+    :cond_34
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     invoke-interface {v0}, Lio/nekohasekai/sagernet/bg/BaseService$Interface;->reload()V
 
-    goto :goto_1
+    goto :goto_98
 
     .line 50
-    :sswitch_2
+    :sswitch_3a
     const-string v2, "android.os.action.DEVICE_IDLE_MODE_CHANGED"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_43
 
-    goto :goto_0
+    goto :goto_91
 
     .line 55
-    :cond_2
+    :cond_43
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_7
+    if-lt v0, v1, :cond_98
 
     .line 56
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -265,68 +265,68 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_63
 
     .line 57
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->proxy:Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_98
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->getBox()Llibcore/BoxInstance;
 
     move-result-object v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_98
 
     invoke-virtual {v0}, Llibcore/BoxInstance;->sleep()V
 
-    goto :goto_1
+    goto :goto_98
 
     .line 59
-    :cond_3
+    :cond_63
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->proxy:Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_70
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->getBox()Llibcore/BoxInstance;
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_70
 
     invoke-virtual {v0}, Llibcore/BoxInstance;->wake()V
 
     .line 60
-    :cond_4
+    :cond_70
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getWakeResetConnections()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_98
 
     .line 61
     const/4 v0, 0x1
 
     invoke-static {v0}, Llibcore/Libcore;->resetAllConnections(Z)V
 
-    goto :goto_1
+    goto :goto_98
 
     .line 50
-    :sswitch_3
+    :sswitch_7d
     const-string v2, "com.linjiajia.top.RESET_UPSTREAM_CONNECTIONS"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_86
 
-    goto :goto_0
+    goto :goto_91
 
     .line 67
-    :cond_5
+    :cond_86
     new-instance v0, Lio/nekohasekai/sagernet/bg/BaseService$Data$receiver$1$1;
 
     invoke-direct {v0, p1, v1}, Lio/nekohasekai/sagernet/bg/BaseService$Data$receiver$1$1;-><init>(Landroid/content/Context;Lkotlin/coroutines/Continuation;)V
@@ -335,11 +335,11 @@
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
-    goto :goto_1
+    goto :goto_98
 
     .line 76
-    :cond_6
-    :goto_0
+    :cond_91
+    :goto_91
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     const/4 v2, 0x0
@@ -349,27 +349,27 @@
     invoke-static {v0, v2, v1, v3, v1}, Lio/nekohasekai/sagernet/bg/BaseService$Interface$DefaultImpls;->stopRunner$default(Lio/nekohasekai/sagernet/bg/BaseService$Interface;ZLjava/lang/String;ILjava/lang/Object;)V
 
     .line 78
-    :cond_7
-    :goto_1
+    :cond_98
+    :goto_98
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_9c
     .sparse-switch
-        -0x66d2391c -> :sswitch_3
-        0x33e5d967 -> :sswitch_2
-        0x6849a447 -> :sswitch_1
-        0x741706da -> :sswitch_0
+        -0x66d2391c -> :sswitch_7d
+        0x33e5d967 -> :sswitch_3a
+        0x6849a447 -> :sswitch_2b
+        0x741706da -> :sswitch_1a
     .end sparse-switch
 .end method
 
 
 # virtual methods
 .method public final changeState(Lio/nekohasekai/sagernet/bg/BaseService$State;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "s"    # Lio/nekohasekai/sagernet/bg/BaseService$State;
     .param p2, "msg"    # Ljava/lang/String;
 
@@ -380,14 +380,14 @@
     .line 85
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->state:Lio/nekohasekai/sagernet/bg/BaseService$State;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_c
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_c
 
     return-void
 
     .line 86
-    :cond_0
+    :cond_c
     iput-object p1, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->state:Lio/nekohasekai/sagernet/bg/BaseService$State;
 
     .line 87
@@ -405,7 +405,7 @@
 .end method
 
 .method public final getBinder()Lio/nekohasekai/sagernet/bg/BaseService$Binder;
-    .locals 1
+    .registers 2
 
     .line 81
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->binder:Lio/nekohasekai/sagernet/bg/BaseService$Binder;
@@ -414,7 +414,7 @@
 .end method
 
 .method public final getCloseReceiverRegistered()Z
-    .locals 1
+    .registers 2
 
     .line 79
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->closeReceiverRegistered:Z
@@ -423,7 +423,7 @@
 .end method
 
 .method public final getConnectingJob()Lkotlinx/coroutines/Job;
-    .locals 1
+    .registers 2
 
     .line 82
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->connectingJob:Lkotlinx/coroutines/Job;
@@ -432,7 +432,7 @@
 .end method
 
 .method public final getNotification()Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    .locals 1
+    .registers 2
 
     .line 47
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->notification:Lio/nekohasekai/sagernet/bg/ServiceNotification;
@@ -441,7 +441,7 @@
 .end method
 
 .method public final getProxy()Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->proxy:Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
@@ -450,7 +450,7 @@
 .end method
 
 .method public final getReceiver()Landroid/content/BroadcastReceiver;
-    .locals 1
+    .registers 2
 
     .line 49
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->receiver:Landroid/content/BroadcastReceiver;
@@ -459,7 +459,7 @@
 .end method
 
 .method public final getState()Lio/nekohasekai/sagernet/bg/BaseService$State;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Data;->state:Lio/nekohasekai/sagernet/bg/BaseService$State;
@@ -468,7 +468,7 @@
 .end method
 
 .method public final setCloseReceiverRegistered(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 79
@@ -478,7 +478,7 @@
 .end method
 
 .method public final setConnectingJob(Lkotlinx/coroutines/Job;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lkotlinx/coroutines/Job;
 
     .line 82
@@ -488,7 +488,7 @@
 .end method
 
 .method public final setNotification(Lio/nekohasekai/sagernet/bg/ServiceNotification;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/bg/ServiceNotification;
 
     .line 47
@@ -498,7 +498,7 @@
 .end method
 
 .method public final setProxy(Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
 
     .line 46
@@ -508,7 +508,7 @@
 .end method
 
 .method public final setState(Lio/nekohasekai/sagernet/bg/BaseService$State;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/bg/BaseService$State;
 
     const-string v0, "<set-?>"

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1141
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getTextAlignment(Landroid/view/View;)I
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 1147
@@ -38,7 +38,7 @@
 .end method
 
 .method static getTextDirection(Landroid/view/View;)I
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 1157
@@ -50,7 +50,7 @@
 .end method
 
 .method static setTextAlignment(Landroid/view/View;I)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "textAlignment"    # I
 
@@ -62,7 +62,7 @@
 .end method
 
 .method static setTextDirection(Landroid/view/View;I)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "textDirection"    # I
 

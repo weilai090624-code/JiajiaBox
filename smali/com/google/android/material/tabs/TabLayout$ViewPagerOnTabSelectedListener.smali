@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/viewpager/widget/ViewPager;)V
-    .locals 0
+    .registers 2
     .param p1, "viewPager"    # Landroidx/viewpager/widget/ViewPager;
 
     .line 3561
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onTabReselected(Lcom/google/android/material/tabs/TabLayout$Tab;)V
-    .locals 0
+    .registers 2
     .param p1, "tab"    # Lcom/google/android/material/tabs/TabLayout$Tab;
 
     .line 3578
@@ -47,7 +47,7 @@
 .end method
 
 .method public onTabSelected(Lcom/google/android/material/tabs/TabLayout$Tab;)V
-    .locals 2
+    .registers 4
     .param p1, "tab"    # Lcom/google/android/material/tabs/TabLayout$Tab;
 
     .line 3567
@@ -64,7 +64,7 @@
 .end method
 
 .method public onTabUnselected(Lcom/google/android/material/tabs/TabLayout$Tab;)V
-    .locals 0
+    .registers 2
     .param p1, "tab"    # Lcom/google/android/material/tabs/TabLayout$Tab;
 
     .line 3573

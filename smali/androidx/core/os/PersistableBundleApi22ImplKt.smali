@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/core/os/PersistableBundleApi22ImplKt;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 141
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public static final putBoolean(Landroid/os/PersistableBundle;Ljava/lang/String;Z)V
-    .locals 0
+    .registers 3
     .param p0, "persistableBundle"    # Landroid/os/PersistableBundle;
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Z
@@ -76,7 +76,7 @@
 .end method
 
 .method public static final putBooleanArray(Landroid/os/PersistableBundle;Ljava/lang/String;[Z)V
-    .locals 0
+    .registers 3
     .param p0, "persistableBundle"    # Landroid/os/PersistableBundle;
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # [Z

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Ljava/util/Map;I)V
-    .locals 0
+    .registers 4
     .param p3, "selfLoopCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -45,7 +45,7 @@
 .end method
 
 .method static of()Lcom/google/common/graph/DirectedNetworkConnections;
-    .locals 4
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -81,7 +81,7 @@
 .end method
 
 .method static ofImmutable(Ljava/util/Map;Ljava/util/Map;I)Lcom/google/common/graph/DirectedNetworkConnections;
-    .locals 3
+    .registers 6
     .param p2, "selfLoopCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public edgesConnecting(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -150,7 +150,7 @@
 .end method
 
 .method public predecessors()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -177,7 +177,7 @@
 .end method
 
 .method public successors()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

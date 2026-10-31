@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static final yield(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 8
     .param p0, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -62,42 +62,42 @@
 
     instance-of v4, v3, Lkotlinx/coroutines/internal/DispatchedContinuation;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_14
 
     check-cast v3, Lkotlinx/coroutines/internal/DispatchedContinuation;
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v3, 0x0
 
-    :goto_0
-    if-nez v3, :cond_1
+    :goto_15
+    if-nez v3, :cond_1a
 
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_3
+    goto :goto_51
 
     .line 34
     .local v3, "cont":Lkotlinx/coroutines/internal/DispatchedContinuation;
-    :cond_1
+    :cond_1a
     iget-object v4, v3, Lkotlinx/coroutines/internal/DispatchedContinuation;->dispatcher:Lkotlinx/coroutines/CoroutineDispatcher;
 
     invoke-virtual {v4, v2}, Lkotlinx/coroutines/CoroutineDispatcher;->isDispatchNeeded(Lkotlin/coroutines/CoroutineContext;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_28
 
     .line 36
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     invoke-virtual {v3, v2, v4}, Lkotlinx/coroutines/internal/DispatchedContinuation;->dispatchYield$kotlinx_coroutines_core(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_4c
 
     .line 40
-    :cond_2
+    :cond_28
     new-instance v4, Lkotlinx/coroutines/YieldContext;
 
     invoke-direct {v4}, Lkotlinx/coroutines/YieldContext;-><init>()V
@@ -119,33 +119,33 @@
     .line 43
     iget-boolean v5, v4, Lkotlinx/coroutines/YieldContext;->dispatcherWasUnconfined:Z
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_4c
 
     .line 46
     invoke-static {v3}, Lkotlinx/coroutines/internal/DispatchedContinuationKt;->yieldUndispatched(Lkotlinx/coroutines/internal/DispatchedContinuation;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_48
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v5
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_3
+    :cond_48
     sget-object v5, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    :goto_1
+    :goto_4a
     move-object v3, v5
 
-    goto :goto_3
+    goto :goto_51
 
     .line 50
     .end local v4    # "yieldContext":Lkotlinx/coroutines/YieldContext;
-    :cond_4
-    :goto_2
+    :cond_4c
+    :goto_4c
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v4
@@ -157,25 +157,25 @@
     .end local v1    # "$i$a$-suspendCoroutineUninterceptedOrReturn-YieldKt$yield$2":I
     .end local v2    # "context":Lkotlin/coroutines/CoroutineContext;
     .end local v3    # "cont":Lkotlinx/coroutines/internal/DispatchedContinuation;
-    :goto_3
+    :goto_51
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-ne v3, v0, :cond_5
+    if-ne v3, v0, :cond_5a
 
     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_5
+    :cond_5a
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-ne v3, v0, :cond_6
+    if-ne v3, v0, :cond_61
 
     return-object v3
 
-    :cond_6
+    :cond_61
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 51

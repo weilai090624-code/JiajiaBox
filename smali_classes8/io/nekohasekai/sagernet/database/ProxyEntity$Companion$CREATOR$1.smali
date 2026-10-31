@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 102
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/Serializable$CREATOR;-><init>()V
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public newArray(I)[Lio/nekohasekai/sagernet/database/ProxyEntity;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 109
@@ -70,7 +70,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # I
 
     .line 102
@@ -82,7 +82,7 @@
 .end method
 
 .method public newInstance()Lio/nekohasekai/sagernet/database/ProxyEntity;
-    .locals 36
+    .registers 37
 
     .line 105
     new-instance v35, Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -153,7 +153,7 @@
 .end method
 
 .method public bridge synthetic newInstance()Lio/nekohasekai/sagernet/fmt/Serializable;
-    .locals 1
+    .registers 2
 
     .line 102
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/database/ProxyEntity$Companion$CREATOR$1;->newInstance()Lio/nekohasekai/sagernet/database/ProxyEntity;

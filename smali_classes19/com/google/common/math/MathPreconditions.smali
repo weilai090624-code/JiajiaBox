@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,19 +19,19 @@
 .end method
 
 .method static checkInRangeForRoundingInputs(ZDLjava/math/RoundingMode;)V
-    .locals 4
+    .registers 8
     .param p0, "condition"    # Z
     .param p1, "input"    # D
     .param p3, "mode"    # Ljava/math/RoundingMode;
 
     .line 87
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 91
     return-void
 
     .line 88
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/ArithmeticException;
 
     invoke-static {p3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -82,20 +82,20 @@
 .end method
 
 .method static checkNoOverflow(ZLjava/lang/String;II)V
-    .locals 3
+    .registers 7
     .param p0, "condition"    # Z
     .param p1, "methodName"    # Ljava/lang/String;
     .param p2, "a"    # I
     .param p3, "b"    # I
 
     .line 94
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 97
     return-void
 
     .line 95
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/ArithmeticException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -158,20 +158,20 @@
 .end method
 
 .method static checkNoOverflow(ZLjava/lang/String;JJ)V
-    .locals 3
+    .registers 9
     .param p0, "condition"    # Z
     .param p1, "methodName"    # Ljava/lang/String;
     .param p2, "a"    # J
     .param p4, "b"    # J
 
     .line 100
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 103
     return-void
 
     .line 101
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/ArithmeticException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -234,7 +234,7 @@
 .end method
 
 .method static checkNonNegative(Ljava/lang/String;D)D
-    .locals 3
+    .registers 6
     .param p0, "role"    # Ljava/lang/String;
     .param p1, "x"    # D
 
@@ -243,13 +243,13 @@
 
     cmpl-double v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_7
 
     .line 77
     return-wide p1
 
     .line 75
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -296,18 +296,18 @@
 .end method
 
 .method static checkNonNegative(Ljava/lang/String;I)I
-    .locals 3
+    .registers 5
     .param p0, "role"    # Ljava/lang/String;
     .param p1, "x"    # I
 
     .line 53
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_3
 
     .line 56
     return p1
 
     .line 54
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -354,7 +354,7 @@
 .end method
 
 .method static checkNonNegative(Ljava/lang/String;J)J
-    .locals 3
+    .registers 6
     .param p0, "role"    # Ljava/lang/String;
     .param p1, "x"    # J
 
@@ -363,13 +363,13 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_7
 
     .line 63
     return-wide p1
 
     .line 61
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -416,7 +416,7 @@
 .end method
 
 .method static checkNonNegative(Ljava/lang/String;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 4
+    .registers 6
     .param p0, "role"    # Ljava/lang/String;
     .param p1, "x"    # Ljava/math/BigInteger;
 
@@ -425,13 +425,13 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_7
 
     .line 70
     return-object p1
 
     .line 68
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -492,18 +492,18 @@
 .end method
 
 .method static checkPositive(Ljava/lang/String;I)I
-    .locals 3
+    .registers 5
     .param p0, "role"    # Ljava/lang/String;
     .param p1, "x"    # I
 
     .line 32
-    if-lez p1, :cond_0
+    if-lez p1, :cond_3
 
     .line 35
     return p1
 
     .line 33
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -550,7 +550,7 @@
 .end method
 
 .method static checkPositive(Ljava/lang/String;J)J
-    .locals 3
+    .registers 6
     .param p0, "role"    # Ljava/lang/String;
     .param p1, "x"    # J
 
@@ -559,13 +559,13 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_7
 
     .line 42
     return-wide p1
 
     .line 40
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -612,7 +612,7 @@
 .end method
 
 .method static checkPositive(Ljava/lang/String;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 4
+    .registers 6
     .param p0, "role"    # Ljava/lang/String;
     .param p1, "x"    # Ljava/math/BigInteger;
 
@@ -621,13 +621,13 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_7
 
     .line 49
     return-object p1
 
     .line 47
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -688,17 +688,17 @@
 .end method
 
 .method static checkRoundingUnnecessary(Z)V
-    .locals 2
+    .registers 3
     .param p0, "condition"    # Z
 
     .line 81
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 84
     return-void
 
     .line 82
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/ArithmeticException;
 
     const-string v1, "mode was UNNECESSARY, but rounding was necessary"

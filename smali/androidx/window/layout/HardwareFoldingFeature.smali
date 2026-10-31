@@ -82,7 +82,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/window/layout/HardwareFoldingFeature$Companion;
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/window/core/Bounds;Landroidx/window/layout/HardwareFoldingFeature$Type;Landroidx/window/layout/FoldingFeature$State;)V
-    .locals 2
+    .registers 6
     .param p1, "featureBounds"    # Landroidx/window/core/Bounds;
     .param p2, "type"    # Landroidx/window/layout/HardwareFoldingFeature$Type;
     .param p3, "state"    # Landroidx/window/layout/FoldingFeature$State;
@@ -145,47 +145,47 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 73
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 74
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_c
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_1
+    :cond_c
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     return v2
 
     .line 76
-    :cond_2
-    if-eqz p1, :cond_6
+    :cond_18
+    if-eqz p1, :cond_4c
 
     move-object v1, p1
 
@@ -204,12 +204,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2b
 
     return v2
 
     .line 79
-    :cond_3
+    :cond_2b
     iget-object v1, p0, Landroidx/window/layout/HardwareFoldingFeature;->type:Landroidx/window/layout/HardwareFoldingFeature$Type;
 
     move-object v3, p1
@@ -222,12 +222,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_39
 
     return v2
 
     .line 80
-    :cond_4
+    :cond_39
     invoke-virtual {p0}, Landroidx/window/layout/HardwareFoldingFeature;->getState()Landroidx/window/layout/FoldingFeature$State;
 
     move-result-object v1
@@ -244,16 +244,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_4b
 
     return v2
 
     .line 82
-    :cond_5
+    :cond_4b
     return v0
 
     .line 76
-    :cond_6
+    :cond_4c
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type androidx.window.layout.HardwareFoldingFeature"
@@ -264,7 +264,7 @@
 .end method
 
 .method public getBounds()Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Landroidx/window/layout/HardwareFoldingFeature;->featureBounds:Landroidx/window/core/Bounds;
@@ -277,7 +277,7 @@
 .end method
 
 .method public getOcclusionType()Landroidx/window/layout/FoldingFeature$OcclusionType;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Landroidx/window/layout/HardwareFoldingFeature;->featureBounds:Landroidx/window/core/Bounds;
@@ -286,7 +286,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     iget-object v0, p0, Landroidx/window/layout/HardwareFoldingFeature;->featureBounds:Landroidx/window/core/Bounds;
 
@@ -294,28 +294,28 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
-    goto :goto_0
+    goto :goto_14
 
     .line 55
-    :cond_0
+    :cond_11
     sget-object v0, Landroidx/window/layout/FoldingFeature$OcclusionType;->FULL:Landroidx/window/layout/FoldingFeature$OcclusionType;
 
-    goto :goto_1
+    goto :goto_16
 
     .line 53
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     sget-object v0, Landroidx/window/layout/FoldingFeature$OcclusionType;->NONE:Landroidx/window/layout/FoldingFeature$OcclusionType;
 
     .line 56
-    :goto_1
+    :goto_16
     return-object v0
 .end method
 
 .method public getOrientation()Landroidx/window/layout/FoldingFeature$Orientation;
-    .locals 2
+    .registers 3
 
     .line 60
     iget-object v0, p0, Landroidx/window/layout/HardwareFoldingFeature;->featureBounds:Landroidx/window/core/Bounds;
@@ -330,24 +330,24 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_11
 
     .line 61
     sget-object v0, Landroidx/window/layout/FoldingFeature$Orientation;->HORIZONTAL:Landroidx/window/layout/FoldingFeature$Orientation;
 
-    goto :goto_0
+    goto :goto_13
 
     .line 63
-    :cond_0
+    :cond_11
     sget-object v0, Landroidx/window/layout/FoldingFeature$Orientation;->VERTICAL:Landroidx/window/layout/FoldingFeature$Orientation;
 
     .line 60
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public getState()Landroidx/window/layout/FoldingFeature$State;
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Landroidx/window/layout/HardwareFoldingFeature;->state:Landroidx/window/layout/FoldingFeature$State;
@@ -356,7 +356,7 @@
 .end method
 
 .method public final getType$window_release()Landroidx/window/layout/HardwareFoldingFeature$Type;
-    .locals 1
+    .registers 2
 
     .line 33
     iget-object v0, p0, Landroidx/window/layout/HardwareFoldingFeature;->type:Landroidx/window/layout/HardwareFoldingFeature$Type;
@@ -365,7 +365,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 86
     iget-object v0, p0, Landroidx/window/layout/HardwareFoldingFeature;->featureBounds:Landroidx/window/core/Bounds;
@@ -408,7 +408,7 @@
 .end method
 
 .method public isSeparating()Z
-    .locals 3
+    .registers 4
 
     .line 45
     nop
@@ -428,12 +428,12 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 47
-    :cond_0
+    :cond_11
     iget-object v0, p0, Landroidx/window/layout/HardwareFoldingFeature;->type:Landroidx/window/layout/HardwareFoldingFeature$Type;
 
     sget-object v2, Landroidx/window/layout/HardwareFoldingFeature$Type;->Companion:Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;
@@ -446,7 +446,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     invoke-virtual {p0}, Landroidx/window/layout/HardwareFoldingFeature;->getState()Landroidx/window/layout/FoldingFeature$State;
 
@@ -458,21 +458,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 48
-    :cond_1
+    :cond_2c
     const/4 v1, 0x0
 
     .line 49
-    :goto_0
+    :goto_2d
     return v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 68
     new-instance v0, Ljava/lang/StringBuilder;

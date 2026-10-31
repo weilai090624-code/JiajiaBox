@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 0
+    .registers 4
     .param p1, "value"    # Ljava/lang/String;
     .param p2, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getTokenId()Lorg/yaml/snakeyaml/tokens/Token$ID;
-    .locals 1
+    .registers 2
 
     .line 34
     sget-object v0, Lorg/yaml/snakeyaml/tokens/Token$ID;->Alias:Lorg/yaml/snakeyaml/tokens/Token$ID;
@@ -36,7 +36,7 @@
 .end method
 
 .method public getValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 29
     iget-object v0, p0, Lorg/yaml/snakeyaml/tokens/AliasToken;->value:Ljava/lang/String;

@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 40
     new-instance v0, Landroid/graphics/PointF;
@@ -30,7 +30,7 @@
 .end method
 
 .method constructor <init>(Landroidx/camera/view/PreviewTransformation;)V
-    .locals 0
+    .registers 2
     .param p1, "previewTransformation"    # Landroidx/camera/view/PreviewTransformation;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method protected convertPoint(FF)Landroid/graphics/PointF;
-    .locals 4
+    .registers 7
     .param p1, "x"    # F
     .param p2, "y"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -86,10 +86,10 @@
     monitor-enter p0
 
     .line 59
-    :try_start_0
+    :try_start_a
     iget-object v3, p0, Landroidx/camera/view/PreviewViewMeteringPointFactory;->mMatrix:Landroid/graphics/Matrix;
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_12
 
     .line 60
     sget-object v1, Landroidx/camera/view/PreviewViewMeteringPointFactory;->INVALID_POINT:Landroid/graphics/PointF;
@@ -99,15 +99,15 @@
     return-object v1
 
     .line 62
-    :cond_0
+    :cond_12
     iget-object v3, p0, Landroidx/camera/view/PreviewViewMeteringPointFactory;->mMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {v3, v0}, Landroid/graphics/Matrix;->mapPoints([F)V
 
     .line 63
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_a .. :try_end_18} :catchall_22
 
     .line 64
     new-instance v3, Landroid/graphics/PointF;
@@ -121,19 +121,19 @@
     return-object v3
 
     .line 63
-    :catchall_0
+    :catchall_22
     move-exception v1
 
-    :try_start_1
+    :try_start_23
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_24
+    .catchall {:try_start_23 .. :try_end_24} :catchall_22
 
     throw v1
 .end method
 
 .method recalculate(Landroid/util/Size;I)V
-    .locals 1
+    .registers 4
     .param p1, "previewViewSize"    # Landroid/util/Size;
     .param p2, "layoutDirection"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -154,23 +154,23 @@
     monitor-enter p0
 
     .line 71
-    :try_start_0
+    :try_start_4
     invoke-virtual {p1}, Landroid/util/Size;->getWidth()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     invoke-virtual {p1}, Landroid/util/Size;->getHeight()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 75
-    :cond_0
+    :cond_11
     iget-object v0, p0, Landroidx/camera/view/PreviewViewMeteringPointFactory;->mPreviewTransformation:Landroidx/camera/view/PreviewTransformation;
 
     invoke-virtual {v0, p1, p2}, Landroidx/camera/view/PreviewTransformation;->getPreviewViewToNormalizedSurfaceMatrix(Landroid/util/Size;I)Landroid/graphics/Matrix;
@@ -186,8 +186,8 @@
     return-void
 
     .line 72
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroidx/camera/view/PreviewViewMeteringPointFactory;->mMatrix:Landroid/graphics/Matrix;
@@ -198,12 +198,12 @@
     return-void
 
     .line 78
-    :catchall_0
+    :catchall_20
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_4 .. :try_end_22} :catchall_20
 
     throw v0
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;)V
-    .locals 1
+    .registers 3
     .param p1, "spec"    # Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
     .line 41
@@ -41,7 +41,7 @@
 .end method
 
 .method private drawRoundedEnd(Landroid/graphics/Canvas;Landroid/graphics/Paint;FFF)V
-    .locals 4
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "paint"    # Landroid/graphics/Paint;
     .param p3, "trackSize"    # F
@@ -87,7 +87,7 @@
 .end method
 
 .method private getSize()I
-    .locals 2
+    .registers 3
 
     .line 188
     iget-object v0, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public adjustCanvas(Landroid/graphics/Canvas;Landroid/graphics/Rect;F)V
-    .locals 10
+    .registers 14
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "bounds"    # Landroid/graphics/Rect;
     .param p3, "trackThicknessFraction"    # F
@@ -223,16 +223,16 @@
 
     const/4 v7, 0x1
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_50
 
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_51
 
-    :cond_0
+    :cond_50
     const/4 v6, -0x1
 
-    :goto_0
+    :goto_51
     iput v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->arcDirectionFactor:I
 
     .line 94
@@ -293,7 +293,7 @@
 
     const/4 v9, 0x2
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_8d
 
     iget-object v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
@@ -301,9 +301,9 @@
 
     iget v6, v6, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->showAnimationBehavior:I
 
-    if-eq v6, v9, :cond_2
+    if-eq v6, v9, :cond_9d
 
-    :cond_1
+    :cond_8d
     iget-object v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->drawable:Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;
 
     .line 99
@@ -311,7 +311,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_ae
 
     iget-object v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
@@ -319,10 +319,10 @@
 
     iget v6, v6, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->hideAnimationBehavior:I
 
-    if-ne v6, v7, :cond_3
+    if-ne v6, v7, :cond_ae
 
     .line 104
-    :cond_2
+    :cond_9d
     iget v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->adjustedRadius:F
 
     sub-float/2addr v8, p3
@@ -343,17 +343,17 @@
 
     iput v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->adjustedRadius:F
 
-    goto :goto_1
+    goto :goto_de
 
     .line 105
-    :cond_3
+    :cond_ae
     iget-object v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->drawable:Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;
 
     invoke-virtual {v6}, Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;->isShowing()Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_be
 
     iget-object v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
@@ -361,9 +361,9 @@
 
     iget v6, v6, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->showAnimationBehavior:I
 
-    if-eq v6, v7, :cond_5
+    if-eq v6, v7, :cond_ce
 
-    :cond_4
+    :cond_be
     iget-object v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->drawable:Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;
 
     .line 107
@@ -371,7 +371,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_de
 
     iget-object v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
@@ -379,10 +379,10 @@
 
     iget v6, v6, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->hideAnimationBehavior:I
 
-    if-ne v6, v9, :cond_6
+    if-ne v6, v9, :cond_de
 
     .line 112
-    :cond_5
+    :cond_ce
     iget v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->adjustedRadius:F
 
     sub-float/2addr v8, p3
@@ -404,13 +404,13 @@
     iput v6, p0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->adjustedRadius:F
 
     .line 114
-    :cond_6
-    :goto_1
+    :cond_de
+    :goto_de
     return-void
 .end method
 
 .method fillIndicator(Landroid/graphics/Canvas;Landroid/graphics/Paint;FFI)V
-    .locals 17
+    .registers 23
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "paint"    # Landroid/graphics/Paint;
     .param p3, "startFraction"    # F
@@ -424,13 +424,13 @@
 
     cmpl-float v0, p3, p4
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 136
     return-void
 
     .line 140
-    :cond_0
+    :cond_9
     sget-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v13, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
@@ -470,7 +470,7 @@
     .local v15, "startDegree":F
     cmpl-float v1, p4, p3
 
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_38
 
     .line 150
     sub-float v1, p4, p3
@@ -483,10 +483,10 @@
 
     mul-float v1, v1, v2
 
-    goto :goto_0
+    goto :goto_45
 
     .line 151
-    :cond_1
+    :cond_38
     const/high16 v1, 0x3f800000    # 1.0f
 
     add-float v1, p4, v1
@@ -501,7 +501,7 @@
 
     mul-float v1, v1, v2
 
-    :goto_0
+    :goto_45
     move/from16 v16, v1
 
     .line 154
@@ -543,7 +543,7 @@
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_8c
 
     invoke-static/range {v16 .. v16}, Ljava/lang/Math;->abs(F)F
 
@@ -551,7 +551,7 @@
 
     cmpg-float v0, v1, v0
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_8c
 
     .line 159
     sget-object v0, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
@@ -583,12 +583,12 @@
     invoke-direct/range {v0 .. v5}, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->drawRoundedEnd(Landroid/graphics/Canvas;Landroid/graphics/Paint;FFF)V
 
     .line 164
-    :cond_2
+    :cond_8c
     return-void
 .end method
 
 .method fillTrack(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
-    .locals 8
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "paint"    # Landroid/graphics/Paint;
 
@@ -669,7 +669,7 @@
 .end method
 
 .method public getPreferredHeight()I
-    .locals 1
+    .registers 2
 
     .line 51
     invoke-direct {p0}, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->getSize()I
@@ -680,7 +680,7 @@
 .end method
 
 .method public getPreferredWidth()I
-    .locals 1
+    .registers 2
 
     .line 46
     invoke-direct {p0}, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;->getSize()I

@@ -93,7 +93,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/jvm/internal/TypeParameterReference$Companion;
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/String;Lkotlin/reflect/KVariance;Z)V
-    .locals 1
+    .registers 6
     .param p1, "container"    # Ljava/lang/Object;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "variance"    # Lkotlin/reflect/KVariance;
@@ -141,7 +141,7 @@
 .end method
 
 .method public static synthetic getUpperBounds$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -149,13 +149,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 37
     instance-of v0, p1, Lkotlin/jvm/internal/TypeParameterReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     iget-object v0, p0, Lkotlin/jvm/internal/TypeParameterReference;->container:Ljava/lang/Object;
 
@@ -169,7 +169,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     invoke-virtual {p0}, Lkotlin/jvm/internal/TypeParameterReference;->getName()Ljava/lang/String;
 
@@ -187,21 +187,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_24
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_25
     return v0
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 16
     iget-object v0, p0, Lkotlin/jvm/internal/TypeParameterReference;->name:Ljava/lang/String;
@@ -210,7 +210,7 @@
 .end method
 
 .method public getUpperBounds()Ljava/util/List;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -223,7 +223,7 @@
     .line 25
     iget-object v0, p0, Lkotlin/jvm/internal/TypeParameterReference;->bounds:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const-class v0, Ljava/lang/Object;
 
@@ -247,12 +247,12 @@
 
     .end local v1    # "it":Ljava/util/List;
     .end local v2    # "$i$a$-also-TypeParameterReference$upperBounds$1":I
-    :cond_0
+    :cond_12
     return-object v0
 .end method
 
 .method public getVariance()Lkotlin/reflect/KVariance;
-    .locals 1
+    .registers 2
 
     .line 17
     iget-object v0, p0, Lkotlin/jvm/internal/TypeParameterReference;->variance:Lkotlin/reflect/KVariance;
@@ -261,23 +261,23 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 40
     iget-object v0, p0, Lkotlin/jvm/internal/TypeParameterReference;->container:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     mul-int/lit8 v0, v0, 0x1f
 
     invoke-virtual {p0}, Lkotlin/jvm/internal/TypeParameterReference;->getName()Ljava/lang/String;
@@ -294,7 +294,7 @@
 .end method
 
 .method public isReified()Z
-    .locals 1
+    .registers 2
 
     .line 18
     iget-boolean v0, p0, Lkotlin/jvm/internal/TypeParameterReference;->isReified:Z
@@ -303,7 +303,7 @@
 .end method
 
 .method public final setUpperBounds(Ljava/util/List;)V
-    .locals 3
+    .registers 5
     .param p1, "upperBounds"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -322,7 +322,7 @@
     .line 30
     iget-object v0, p0, Lkotlin/jvm/internal/TypeParameterReference;->bounds:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 33
     iput-object p1, p0, Lkotlin/jvm/internal/TypeParameterReference;->bounds:Ljava/util/List;
@@ -331,7 +331,7 @@
     return-void
 
     .line 30
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 31
@@ -369,7 +369,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 42
     sget-object v0, Lkotlin/jvm/internal/TypeParameterReference;->Companion:Lkotlin/jvm/internal/TypeParameterReference$Companion;

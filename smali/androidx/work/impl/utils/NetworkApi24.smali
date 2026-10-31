@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final registerDefaultNetworkCallbackCompat(Landroid/net/ConnectivityManager;Landroid/net/ConnectivityManager$NetworkCallback;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$registerDefaultNetworkCallbackCompat"    # Landroid/net/ConnectivityManager;
     .param p1, "networkCallback"    # Landroid/net/ConnectivityManager$NetworkCallback;
 

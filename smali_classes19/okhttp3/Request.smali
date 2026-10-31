@@ -100,7 +100,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/HttpUrl;Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Ljava/util/Map;)V
-    .locals 1
+    .registers 7
     .param p1, "url"    # Lokhttp3/HttpUrl;
     .param p2, "method"    # Ljava/lang/String;
     .param p3, "headers"    # Lokhttp3/Headers;
@@ -162,7 +162,7 @@
 
 # virtual methods
 .method public final -deprecated_body()Lokhttp3/RequestBody;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -179,7 +179,7 @@
 .end method
 
 .method public final -deprecated_cacheControl()Lokhttp3/CacheControl;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -198,7 +198,7 @@
 .end method
 
 .method public final -deprecated_headers()Lokhttp3/Headers;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -215,7 +215,7 @@
 .end method
 
 .method public final -deprecated_method()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -232,7 +232,7 @@
 .end method
 
 .method public final -deprecated_url()Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -249,7 +249,7 @@
 .end method
 
 .method public final body()Lokhttp3/RequestBody;
-    .locals 1
+    .registers 2
 
     .line 32
     iget-object v0, p0, Lokhttp3/Request;->body:Lokhttp3/RequestBody;
@@ -258,14 +258,14 @@
 .end method
 
 .method public final cacheControl()Lokhttp3/CacheControl;
-    .locals 3
+    .registers 4
 
     .line 69
     iget-object v0, p0, Lokhttp3/Request;->lazyCacheControl:Lokhttp3/CacheControl;
 
     .line 70
     .local v0, "result":Lokhttp3/CacheControl;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 71
     sget-object v1, Lokhttp3/CacheControl;->Companion:Lokhttp3/CacheControl$Companion;
@@ -280,12 +280,12 @@
     iput-object v0, p0, Lokhttp3/Request;->lazyCacheControl:Lokhttp3/CacheControl;
 
     .line 74
-    :cond_0
+    :cond_e
     return-object v0
 .end method
 
 .method public final getTags$okhttp()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -304,7 +304,7 @@
 .end method
 
 .method public final header(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -322,7 +322,7 @@
 .end method
 
 .method public final headers(Ljava/lang/String;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -350,7 +350,7 @@
 .end method
 
 .method public final headers()Lokhttp3/Headers;
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lokhttp3/Request;->headers:Lokhttp3/Headers;
@@ -359,7 +359,7 @@
 .end method
 
 .method public final isHttps()Z
-    .locals 1
+    .registers 2
 
     .line 39
     iget-object v0, p0, Lokhttp3/Request;->url:Lokhttp3/HttpUrl;
@@ -372,7 +372,7 @@
 .end method
 
 .method public final method()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 30
     iget-object v0, p0, Lokhttp3/Request;->method:Ljava/lang/String;
@@ -381,7 +381,7 @@
 .end method
 
 .method public final newBuilder()Lokhttp3/Request$Builder;
-    .locals 1
+    .registers 2
 
     .line 61
     new-instance v0, Lokhttp3/Request$Builder;
@@ -392,7 +392,7 @@
 .end method
 
 .method public final tag()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 53
     const-class v0, Ljava/lang/Object;
@@ -405,7 +405,7 @@
 .end method
 
 .method public final tag(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -436,7 +436,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 14
+    .registers 15
 
     .line 112
     new-instance v0, Ljava/lang/StringBuilder;
@@ -482,7 +482,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_75
 
     .line 118
     const-string v3, ", headers=["
@@ -509,12 +509,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_3a
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_6f
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -525,11 +525,11 @@
 
     .end local v5    # "index$iv":I
     .local v8, "index$iv":I
-    if-gez v5, :cond_0
+    if-gez v5, :cond_4b
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    :cond_0
+    :cond_4b
     move-object v9, v7
 
     check-cast v9, Lkotlin/Pair;
@@ -555,7 +555,7 @@
 
     .line 120
     .local v12, "value":Ljava/lang/String;
-    if-lez v5, :cond_1
+    if-lez v5, :cond_62
 
     .line 121
     const-string v13, ", "
@@ -563,7 +563,7 @@
     invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 123
-    :cond_1
+    :cond_62
     invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 124
@@ -583,12 +583,12 @@
     .end local v10    # "$i$a$-forEachIndexed-Request$toString$1$1":I
     .end local v11    # "name":Ljava/lang/String;
     .end local v12    # "value":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_3a
 
     .line 301
     .end local v8    # "index$iv":I
     .local v5, "index$iv":I
-    :cond_2
+    :cond_6f
     nop
 
     .line 127
@@ -600,7 +600,7 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 129
-    :cond_3
+    :cond_75
     invoke-virtual {p0}, Lokhttp3/Request;->getTags$okhttp()Ljava/util/Map;
 
     move-result-object v3
@@ -609,7 +609,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_8b
 
     .line 130
     const-string v3, ", tags="
@@ -624,7 +624,7 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 133
-    :cond_4
+    :cond_8b
     const/16 v3, 0x7d
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -648,7 +648,7 @@
 .end method
 
 .method public final url()Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 2
 
     .line 29
     iget-object v0, p0, Lokhttp3/Request;->url:Lokhttp3/HttpUrl;

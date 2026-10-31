@@ -173,7 +173,7 @@
 
 # direct methods
 .method constructor <init>([Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function3;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -218,7 +218,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -255,7 +255,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -269,7 +269,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -298,7 +298,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 22
+    .registers 24
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -309,7 +309,7 @@
 
     iget v2, v1, Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_170
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -319,7 +319,7 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_13
     move-object/from16 v2, p0
 
     .local v2, "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2;
@@ -359,7 +359,7 @@
 
     move/from16 v6, v21
 
-    goto/16 :goto_6
+    goto/16 :goto_16b
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2;
     .end local v3    # "$result":Ljava/lang/Object;
@@ -368,7 +368,7 @@
     .end local v6    # "lastReceivedEpoch":[B
     .end local v7    # "resultChannel":Lkotlinx/coroutines/channels/Channel;
     .end local v8    # "latestValues":[Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_33
     move-object/from16 v2, p0
 
     .restart local v2    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2;
@@ -408,7 +408,7 @@
 
     move/from16 v6, v21
 
-    goto/16 :goto_5
+    goto/16 :goto_145
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2;
     .end local v3    # "$result":Ljava/lang/Object;
@@ -417,7 +417,7 @@
     .end local v6    # "lastReceivedEpoch":[B
     .end local v7    # "resultChannel":Lkotlinx/coroutines/channels/Channel;
     .end local v8    # "latestValues":[Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_53
     move-object/from16 v2, p0
 
     .restart local v2    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2;
@@ -463,7 +463,7 @@
 
     move/from16 v6, v21
 
-    goto/16 :goto_2
+    goto/16 :goto_ec
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2;
     .end local v3    # "$result":Ljava/lang/Object;
@@ -472,7 +472,7 @@
     .end local v6    # "lastReceivedEpoch":[B
     .end local v7    # "resultChannel":Lkotlinx/coroutines/channels/Channel;
     .end local v8    # "latestValues":[Ljava/lang/Object;
-    :pswitch_3
+    :pswitch_79
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p0
@@ -493,14 +493,14 @@
 
     .line 21
     .local v11, "size":I
-    if-nez v11, :cond_0
+    if-nez v11, :cond_8c
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 22
-    :cond_0
+    :cond_8c
     new-array v12, v11, [Ljava/lang/Object;
 
     .line 23
@@ -547,8 +547,8 @@
     move v10, v5
 
     .local v10, "i":I
-    :goto_0
-    if-ge v10, v11, :cond_1
+    :goto_a9
+    if-ge v10, v11, :cond_c8
 
     .line 29
     new-instance v5, Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;
@@ -592,9 +592,9 @@
 
     .end local v14    # "i":I
     .restart local v10    # "i":I
-    goto :goto_0
+    goto :goto_a9
 
-    :cond_1
+    :cond_c8
     move v14, v10
 
     .line 48
@@ -618,7 +618,7 @@
     .local v5, "currentEpoch":B
     .local v6, "remainingAbsentValues":I
     .restart local v7    # "resultChannel":Lkotlinx/coroutines/channels/Channel;
-    :goto_1
+    :goto_d0
     nop
 
     .line 51
@@ -649,25 +649,25 @@
 
     move-result-object v9
 
-    if-ne v9, v0, :cond_2
+    if-ne v9, v0, :cond_eb
 
     .line 19
     return-object v0
 
     .line 54
-    :cond_2
+    :cond_eb
     move-object v8, v12
 
     .end local v12    # "latestValues":[Ljava/lang/Object;
     .restart local v8    # "latestValues":[Ljava/lang/Object;
-    :goto_2
+    :goto_ec
     invoke-static {v9}, Lkotlinx/coroutines/channels/ChannelResult;->getOrNull-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v9
 
     check-cast v9, Lkotlin/collections/IndexedValue;
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_f8
 
     .end local v4    # "lastReceivedEpoch":[B
     .end local v5    # "currentEpoch":B
@@ -690,8 +690,8 @@
     .end local v0    # "latestValues":[Ljava/lang/Object;
     .restart local v8    # "latestValues":[Ljava/lang/Object;
     .local v9, "element":Lkotlin/collections/IndexedValue;
-    :cond_3
-    :goto_3
+    :cond_f8
+    :goto_f8
     nop
 
     .line 56
@@ -715,16 +715,16 @@
     .end local v9    # "element":Lkotlin/collections/IndexedValue;
     sget-object v9, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->UNINITIALIZED:Lkotlinx/coroutines/internal/Symbol;
 
-    if-ne v11, v9, :cond_4
+    if-ne v11, v9, :cond_10b
 
     add-int/lit8 v6, v6, -0x1
 
     .line 63
     .end local v11    # "previous":Ljava/lang/Object;
-    :cond_4
+    :cond_10b
     aget-byte v9, v4, v10
 
-    if-eq v9, v5, :cond_6
+    if-eq v9, v5, :cond_120
 
     .line 64
     int-to-byte v9, v5
@@ -742,20 +742,20 @@
 
     check-cast v9, Lkotlin/collections/IndexedValue;
 
-    if-nez v9, :cond_5
+    if-nez v9, :cond_11f
 
-    goto :goto_4
+    goto :goto_120
 
     .end local v10    # "index":I
     .restart local v9    # "element":Lkotlin/collections/IndexedValue;
-    :cond_5
-    goto :goto_3
+    :cond_11f
+    goto :goto_f8
 
     .line 69
     .end local v9    # "element":Lkotlin/collections/IndexedValue;
-    :cond_6
-    :goto_4
-    if-nez v6, :cond_a
+    :cond_120
+    :goto_120
+    if-nez v6, :cond_16d
 
     .line 74
     iget-object v9, v2, Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2;->$arrayFactory:Lkotlin/jvm/functions/Function0;
@@ -768,7 +768,7 @@
 
     .line 75
     .local v9, "results":[Ljava/lang/Object;
-    if-nez v9, :cond_8
+    if-nez v9, :cond_146
 
     .line 76
     .end local v9    # "results":[Ljava/lang/Object;
@@ -794,25 +794,25 @@
 
     move-result-object v9
 
-    if-ne v9, v0, :cond_7
+    if-ne v9, v0, :cond_144
 
     .line 19
     return-object v0
 
     .line 76
-    :cond_7
+    :cond_144
     move-object v12, v8
 
     .end local v8    # "latestValues":[Ljava/lang/Object;
     .restart local v12    # "latestValues":[Ljava/lang/Object;
-    :goto_5
-    goto :goto_1
+    :goto_145
+    goto :goto_d0
 
     .line 78
     .end local v12    # "latestValues":[Ljava/lang/Object;
     .restart local v8    # "latestValues":[Ljava/lang/Object;
     .restart local v9    # "results":[Ljava/lang/Object;
-    :cond_8
+    :cond_146
     const/16 v15, 0xe
 
     const/16 v16, 0x0
@@ -853,33 +853,33 @@
     move-result-object v9
 
     .end local v9    # "results":[Ljava/lang/Object;
-    if-ne v9, v0, :cond_9
+    if-ne v9, v0, :cond_16a
 
     .line 19
     return-object v0
 
     .line 79
-    :cond_9
+    :cond_16a
     move-object v12, v8
 
     .end local v8    # "latestValues":[Ljava/lang/Object;
     .restart local v12    # "latestValues":[Ljava/lang/Object;
-    :goto_6
-    goto/16 :goto_1
+    :goto_16b
+    goto/16 :goto_d0
 
     .line 69
     .end local v12    # "latestValues":[Ljava/lang/Object;
     .restart local v8    # "latestValues":[Ljava/lang/Object;
-    :cond_a
+    :cond_16d
     move-object v12, v8
 
-    goto/16 :goto_1
+    goto/16 :goto_d0
 
-    :pswitch_data_0
+    :pswitch_data_170
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_79
+        :pswitch_53
+        :pswitch_33
+        :pswitch_13
     .end packed-switch
 .end method

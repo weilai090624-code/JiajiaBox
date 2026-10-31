@@ -68,7 +68,7 @@
     <color name="design_fab_stroke_end_inner_color">#0a000000</color>
     <color name="design_fab_stroke_end_outer_color">#0f000000</color>
     <color name="design_fab_stroke_top_inner_color">#1affffff</color>
-    <color name="design_fab_stroke_top_outer_color">#2effffff</color>
+    <color name="design_fab_stroke_top_outer_color">#4effffff</color>
     <color name="design_snackbar_background_color">#ff323232</color>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/view/OnReceiveContentListener;)V
-    .locals 0
+    .registers 2
     .param p1, "jetpackListener"    # Landroidx/core/view/OnReceiveContentListener;
 
     .line 3273
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onReceiveContent(Landroid/view/View;Landroid/view/ContentInfo;)Landroid/view/ContentInfo;
-    .locals 3
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "platPayload"    # Landroid/view/ContentInfo;
 
@@ -58,7 +58,7 @@
 
     .line 3282
     .local v1, "result":Landroidx/core/view/ContentInfoCompat;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 3283
     const/4 v2, 0x0
@@ -66,14 +66,14 @@
     return-object v2
 
     .line 3285
-    :cond_0
-    if-ne v1, v0, :cond_1
+    :cond_e
+    if-ne v1, v0, :cond_11
 
     .line 3287
     return-object p2
 
     .line 3289
-    :cond_1
+    :cond_11
     invoke-virtual {v1}, Landroidx/core/view/ContentInfoCompat;->toContentInfo()Landroid/view/ContentInfo;
 
     move-result-object v2

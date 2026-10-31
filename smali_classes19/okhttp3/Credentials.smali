@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokhttp3/Credentials;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method public static final basic(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public static final basic(Ljava/lang/String;Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 3
+    .registers 6
     .param p0, "username"    # Ljava/lang/String;
     .param p1, "password"    # Ljava/lang/String;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
@@ -147,12 +147,12 @@
 .end method
 
 .method public static synthetic basic$default(Ljava/lang/String;Ljava/lang/String;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 25
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_b
 
     .line 28
     sget-object p2, Ljava/nio/charset/StandardCharsets;->ISO_8859_1:Ljava/nio/charset/Charset;
@@ -162,7 +162,7 @@
     invoke-static {p2, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 25
-    :cond_0
+    :cond_b
     invoke-static {p0, p1, p2}, Lokhttp3/Credentials;->basic(Ljava/lang/String;Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;
 
     move-result-object p0

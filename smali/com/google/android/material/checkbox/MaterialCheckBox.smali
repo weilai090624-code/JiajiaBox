@@ -92,7 +92,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 83
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_CompoundButton_CheckBox:I
@@ -196,7 +196,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 223
@@ -209,7 +209,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -223,7 +223,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -334,21 +334,21 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_7f
 
     .line 247
     invoke-static {p1}, Lcom/google/android/material/internal/ThemeEnforcement;->isMaterial3Theme(Landroid/content/Context;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_7f
 
     .line 248
     invoke-direct {p0, v1}, Lcom/google/android/material/checkbox/MaterialCheckBox;->isButtonDrawableLegacy(Landroidx/appcompat/widget/TintTypedArray;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_7f
 
     .line 249
     invoke-super {p0, v0}, Landroidx/appcompat/widget/AppCompatCheckBox;->setButtonDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -368,7 +368,7 @@
     .line 252
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7f
 
     .line 253
     sget v0, Lcom/google/android/material/R$drawable;->mtrl_checkbox_button_icon:I
@@ -381,7 +381,7 @@
     iput-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 257
-    :cond_0
+    :cond_7f
     sget v0, Lcom/google/android/material/R$styleable;->MaterialCheckBox_buttonIconTint:I
 
     .line 258
@@ -456,7 +456,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_c7
 
     .line 271
     sget v0, Lcom/google/android/material/R$styleable;->MaterialCheckBox_checkedState:I
@@ -470,7 +470,7 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->setCheckedState(I)V
 
     .line 275
-    :cond_1
+    :cond_c7
     invoke-virtual {v1}, Landroidx/appcompat/widget/TintTypedArray;->recycle()V
 
     .line 277
@@ -484,7 +484,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/checkbox/MaterialCheckBox;)[I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/checkbox/MaterialCheckBox;
 
     .line 81
@@ -494,14 +494,14 @@
 .end method
 
 .method private getButtonStateDescription()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 811
     iget v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->checkedState:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 812
     invoke-virtual {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->getResources()Landroid/content/res/Resources;
@@ -517,10 +517,10 @@
     return-object v0
 
     .line 813
-    :cond_0
+    :cond_10
     iget v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->checkedState:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     .line 814
     invoke-virtual {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->getResources()Landroid/content/res/Resources;
@@ -536,7 +536,7 @@
     return-object v0
 
     .line 816
-    :cond_1
+    :cond_1f
     invoke-virtual {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -551,12 +551,12 @@
 .end method
 
 .method private getMaterialThemeColorsTintList()Landroid/content/res/ColorStateList;
-    .locals 8
+    .registers 9
 
     .line 844
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->materialThemeColorsTintList:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5a
 
     .line 845
     sget-object v0, Lcom/google/android/material/checkbox/MaterialCheckBox;->CHECKBOX_STATES:[[I
@@ -679,19 +679,19 @@
     .end local v2    # "colorError":I
     .end local v3    # "colorSurface":I
     .end local v4    # "colorOnSurface":I
-    :cond_0
+    :cond_5a
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->materialThemeColorsTintList:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
 
 .method private getSuperButtonTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 822
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 823
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonTintList:Landroid/content/res/ColorStateList;
@@ -699,12 +699,12 @@
     return-object v0
 
     .line 825
-    :cond_0
+    :cond_7
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatCheckBox;->getButtonTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 826
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatCheckBox;->getButtonTintList()Landroid/content/res/ColorStateList;
@@ -714,7 +714,7 @@
     return-object v0
 
     .line 828
-    :cond_1
+    :cond_12
     invoke-interface {p0}, Landroidx/core/widget/TintableCompoundButton;->getSupportButtonTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v0
@@ -723,7 +723,7 @@
 .end method
 
 .method private isButtonDrawableLegacy(Landroidx/appcompat/widget/TintTypedArray;)Z
-    .locals 4
+    .registers 6
     .param p1, "attributes"    # Landroidx/appcompat/widget/TintTypedArray;
 
     .line 832
@@ -751,18 +751,18 @@
     .line 839
     sget v3, Lcom/google/android/material/checkbox/MaterialCheckBox;->FRAMEWORK_BUTTON_DRAWABLE_RES_ID:I
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_15
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_15
     return v1
 .end method
 
 .method private refreshButtonDrawable()V
-    .locals 3
+    .registers 4
 
     .line 724
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonDrawable:Landroid/graphics/drawable/Drawable;
@@ -822,18 +822,18 @@
 .end method
 
 .method private setDefaultStateDescription()V
-    .locals 2
+    .registers 3
 
     .line 804
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->customStateDescription:Ljava/lang/CharSequence;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 805
     invoke-direct {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->getButtonStateDescription()Ljava/lang/String;
@@ -843,26 +843,26 @@
     invoke-super {p0, v0}, Landroidx/appcompat/widget/AppCompatCheckBox;->setStateDescription(Ljava/lang/CharSequence;)V
 
     .line 807
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method private setUpDefaultButtonDrawableAnimationIfNeeded()V
-    .locals 5
+    .registers 6
 
     .line 745
     iget-boolean v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->usingMaterialButtonDrawable:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 746
     return-void
 
     .line 749
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->transitionToUnchecked:Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 750
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->transitionToUnchecked:Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;
@@ -879,22 +879,22 @@
     invoke-virtual {v0, v1}, Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;->registerAnimationCallback(Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;)V
 
     .line 757
-    :cond_1
+    :cond_17
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_42
 
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonDrawable:Landroid/graphics/drawable/Drawable;
 
     instance-of v0, v0, Landroid/graphics/drawable/AnimatedStateListDrawable;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->transitionToUnchecked:Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
     .line 760
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonDrawable:Landroid/graphics/drawable/Drawable;
@@ -927,21 +927,21 @@
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/drawable/AnimatedStateListDrawable;->addTransition(IILandroid/graphics/drawable/Drawable;Z)V
 
     .line 767
-    :cond_2
+    :cond_42
     return-void
 .end method
 
 .method private updateButtonTints()V
-    .locals 2
+    .registers 3
 
     .line 770
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 771
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonDrawable:Landroid/graphics/drawable/Drawable;
@@ -951,14 +951,14 @@
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     .line 774
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 775
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconDrawable:Landroid/graphics/drawable/Drawable;
@@ -968,12 +968,12 @@
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     .line 777
-    :cond_1
+    :cond_1e
     return-void
 .end method
 
 .method private updateIconTintIfNeeded()V
-    .locals 0
+    .registers 1
 
     .line 783
     nop
@@ -985,7 +985,7 @@
 
 # virtual methods
 .method public addOnCheckedStateChangedListener(Lcom/google/android/material/checkbox/MaterialCheckBox$OnCheckedStateChangedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/checkbox/MaterialCheckBox$OnCheckedStateChangedListener;
 
     .line 442
@@ -998,7 +998,7 @@
 .end method
 
 .method public addOnErrorChangedListener(Lcom/google/android/material/checkbox/MaterialCheckBox$OnErrorChangedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/checkbox/MaterialCheckBox$OnErrorChangedListener;
 
     .line 534
@@ -1011,7 +1011,7 @@
 .end method
 
 .method public clearOnCheckedStateChangedListeners()V
-    .locals 1
+    .registers 2
 
     .line 457
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->onCheckedStateChangedListeners:Ljava/util/LinkedHashSet;
@@ -1023,7 +1023,7 @@
 .end method
 
 .method public clearOnErrorChangedListeners()V
-    .locals 1
+    .registers 2
 
     .line 549
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->onErrorChangedListeners:Ljava/util/LinkedHashSet;
@@ -1035,7 +1035,7 @@
 .end method
 
 .method public getButtonDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 567
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonDrawable:Landroid/graphics/drawable/Drawable;
@@ -1044,7 +1044,7 @@
 .end method
 
 .method public getButtonIconDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 630
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconDrawable:Landroid/graphics/drawable/Drawable;
@@ -1053,7 +1053,7 @@
 .end method
 
 .method public getButtonIconTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 658
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconTintList:Landroid/content/res/ColorStateList;
@@ -1062,7 +1062,7 @@
 .end method
 
 .method public getButtonIconTintMode()Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
 
     .line 686
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -1071,7 +1071,7 @@
 .end method
 
 .method public getButtonTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 582
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonTintList:Landroid/content/res/ColorStateList;
@@ -1080,7 +1080,7 @@
 .end method
 
 .method public getCheckedState()I
-    .locals 1
+    .registers 2
 
     .line 429
     iget v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->checkedState:I
@@ -1089,7 +1089,7 @@
 .end method
 
 .method public getErrorAccessibilityLabel()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 521
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->errorAccessibilityLabel:Ljava/lang/CharSequence;
@@ -1098,7 +1098,7 @@
 .end method
 
 .method public isCenterIfNoTextEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 720
     iget-boolean v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->centerIfNoTextEnabled:Z
@@ -1107,26 +1107,26 @@
 .end method
 
 .method public isChecked()Z
-    .locals 2
+    .registers 3
 
     .line 353
     iget v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->checkedState:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     return v1
 .end method
 
 .method public isErrorShown()Z
-    .locals 1
+    .registers 2
 
     .line 486
     iget-boolean v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->errorShown:Z
@@ -1135,7 +1135,7 @@
 .end method
 
 .method public isUseMaterialThemeColors()Z
-    .locals 1
+    .registers 2
 
     .line 704
     iget-boolean v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->useMaterialThemeColors:Z
@@ -1144,7 +1144,7 @@
 .end method
 
 .method synthetic lambda$new$0$com-google-android-material-checkbox-MaterialCheckBox()V
-    .locals 1
+    .registers 2
 
     .line 281
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconDrawable:Landroid/graphics/drawable/Drawable;
@@ -1155,7 +1155,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 1
+    .registers 2
 
     .line 314
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatCheckBox;->onAttachedToWindow()V
@@ -1163,15 +1163,15 @@
     .line 316
     iget-boolean v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->useMaterialThemeColors:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonTintList:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconTintList:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 317
     const/4 v0, 0x1
@@ -1179,12 +1179,12 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->setUseMaterialThemeColors(Z)V
 
     .line 319
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method protected onCreateDrawableState(I)[I
-    .locals 3
+    .registers 5
     .param p1, "extraSpace"    # I
 
     .line 323
@@ -1202,7 +1202,7 @@
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_12
 
     .line 326
     sget-object v1, Lcom/google/android/material/checkbox/MaterialCheckBox;->INDETERMINATE_STATE_SET:[I
@@ -1210,12 +1210,12 @@
     invoke-static {v0, v1}, Lcom/google/android/material/checkbox/MaterialCheckBox;->mergeDrawableStates([I[I)[I
 
     .line 329
-    :cond_0
+    :cond_12
     invoke-virtual {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->isErrorShown()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1d
 
     .line 330
     sget-object v1, Lcom/google/android/material/checkbox/MaterialCheckBox;->ERROR_STATE_SET:[I
@@ -1223,7 +1223,7 @@
     invoke-static {v0, v1}, Lcom/google/android/material/checkbox/MaterialCheckBox;->mergeDrawableStates([I[I)[I
 
     .line 333
-    :cond_1
+    :cond_1d
     invoke-static {v0}, Lcom/google/android/material/drawable/DrawableUtils;->getCheckedState([I)[I
 
     move-result-object v1
@@ -1238,13 +1238,13 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 10
+    .registers 12
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 288
     iget-boolean v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->centerIfNoTextEnabled:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_56
 
     invoke-virtual {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->getText()Ljava/lang/CharSequence;
 
@@ -1254,7 +1254,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_56
 
     .line 289
     invoke-static {p0}, Landroidx/core/widget/CompoundButtonCompat;->getButtonDrawable(Landroid/widget/CompoundButton;)Landroid/graphics/drawable/Drawable;
@@ -1263,25 +1263,25 @@
 
     .line 290
     .local v0, "drawable":Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_56
 
     .line 291
     invoke-static {p0}, Lcom/google/android/material/internal/ViewUtils;->isLayoutRtl(Landroid/view/View;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     const/4 v1, -0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v1, 0x1
 
     .line 292
     .local v1, "direction":I
-    :goto_0
+    :goto_1d
     invoke-virtual {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->getWidth()I
 
     move-result v2
@@ -1321,7 +1321,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_55
 
     .line 300
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -1354,7 +1354,7 @@
 
     .line 305
     .end local v4    # "bounds":Landroid/graphics/Rect;
-    :cond_1
+    :cond_55
     return-void
 
     .line 309
@@ -1362,7 +1362,7 @@
     .end local v1    # "direction":I
     .end local v2    # "dx":I
     .end local v3    # "saveCount":I
-    :cond_2
+    :cond_56
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatCheckBox;->onDraw(Landroid/graphics/Canvas;)V
 
     .line 310
@@ -1370,25 +1370,25 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 2
+    .registers 4
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 368
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatCheckBox;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
     .line 369
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
     .line 370
     return-void
 
     .line 373
-    :cond_0
+    :cond_6
     invoke-virtual {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->isErrorShown()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     .line 374
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1422,18 +1422,18 @@
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setText(Ljava/lang/CharSequence;)V
 
     .line 376
-    :cond_1
+    :cond_2c
     return-void
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroid/os/Parcelable;
 
     .line 880
     instance-of v0, p1, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 881
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatCheckBox;->onRestoreInstanceState(Landroid/os/Parcelable;)V
@@ -1442,7 +1442,7 @@
     return-void
 
     .line 884
-    :cond_0
+    :cond_8
     move-object v0, p1
 
     check-cast v0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;
@@ -1465,7 +1465,7 @@
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 3
+    .registers 4
 
     .line 870
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatCheckBox;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -1491,7 +1491,7 @@
 .end method
 
 .method public removeOnCheckedStateChangedListener(Lcom/google/android/material/checkbox/MaterialCheckBox$OnCheckedStateChangedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/checkbox/MaterialCheckBox$OnCheckedStateChangedListener;
 
     .line 452
@@ -1504,7 +1504,7 @@
 .end method
 
 .method public removeOnErrorChangedListener(Lcom/google/android/material/checkbox/MaterialCheckBox$OnErrorChangedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/checkbox/MaterialCheckBox$OnErrorChangedListener;
 
     .line 544
@@ -1517,7 +1517,7 @@
 .end method
 
 .method public setButtonDrawable(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 554
@@ -1536,7 +1536,7 @@
 .end method
 
 .method public setButtonDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 559
@@ -1555,7 +1555,7 @@
 .end method
 
 .method public setButtonIconDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 616
@@ -1569,7 +1569,7 @@
 .end method
 
 .method public setButtonIconDrawableResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 602
@@ -1588,19 +1588,19 @@
 .end method
 
 .method public setButtonIconTintList(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "tintList"    # Landroid/content/res/ColorStateList;
 
     .line 643
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconTintList:Landroid/content/res/ColorStateList;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 644
     return-void
 
     .line 646
-    :cond_0
+    :cond_5
     iput-object p1, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconTintList:Landroid/content/res/ColorStateList;
 
     .line 647
@@ -1611,19 +1611,19 @@
 .end method
 
 .method public setButtonIconTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 1
+    .registers 3
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 671
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 672
     return-void
 
     .line 674
-    :cond_0
+    :cond_5
     iput-object p1, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
     .line 675
@@ -1634,19 +1634,19 @@
 .end method
 
 .method public setButtonTintList(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "tintList"    # Landroid/content/res/ColorStateList;
 
     .line 572
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonTintList:Landroid/content/res/ColorStateList;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 573
     return-void
 
     .line 575
-    :cond_0
+    :cond_5
     iput-object p1, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonTintList:Landroid/content/res/ColorStateList;
 
     .line 576
@@ -1657,7 +1657,7 @@
 .end method
 
 .method public setButtonTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 587
@@ -1671,7 +1671,7 @@
 .end method
 
 .method public setCenterIfNoTextEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "centerIfNoTextEnabled"    # Z
 
     .line 712
@@ -1682,7 +1682,7 @@
 .end method
 
 .method public setChecked(Z)V
-    .locals 0
+    .registers 2
     .param p1, "checked"    # Z
 
     .line 348
@@ -1693,13 +1693,13 @@
 .end method
 
 .method public setCheckedState(I)V
-    .locals 4
+    .registers 6
     .param p1, "checkedState"    # I
 
     .line 385
     iget v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->checkedState:I
 
-    if-eq v0, p1, :cond_5
+    if-eq v0, p1, :cond_67
 
     .line 386
     iput p1, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->checkedState:I
@@ -1711,16 +1711,16 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     invoke-super {p0, v0}, Landroidx/appcompat/widget/AppCompatCheckBox;->setChecked(Z)V
 
     .line 388
@@ -1732,19 +1732,19 @@
     .line 392
     iget-boolean v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->broadcasting:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 393
     return-void
 
     .line 396
-    :cond_1
+    :cond_1d
     iput-boolean v2, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->broadcasting:Z
 
     .line 397
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->onCheckedStateChangedListeners:Ljava/util/LinkedHashSet;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3b
 
     .line 398
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->onCheckedStateChangedListeners:Ljava/util/LinkedHashSet;
@@ -1753,12 +1753,12 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_29
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1774,19 +1774,19 @@
 
     .line 400
     .end local v2    # "listener":Lcom/google/android/material/checkbox/MaterialCheckBox$OnCheckedStateChangedListener;
-    goto :goto_1
+    goto :goto_29
 
     .line 402
-    :cond_2
+    :cond_3b
     iget v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->checkedState:I
 
     const/4 v2, 0x2
 
-    if-eq v0, v2, :cond_3
+    if-eq v0, v2, :cond_4d
 
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->onCheckedChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4d
 
     .line 403
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->onCheckedChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
@@ -1798,12 +1798,12 @@
     invoke-interface {v0, p0, v2}, Landroid/widget/CompoundButton$OnCheckedChangeListener;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     .line 405
-    :cond_3
+    :cond_4d
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1a
 
-    if-lt v0, v2, :cond_4
+    if-lt v0, v2, :cond_64
 
     .line 406
     invoke-virtual {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->getContext()Landroid/content/Context;
@@ -1821,26 +1821,26 @@
 
     .line 408
     .local v0, "autofillManager":Landroid/view/autofill/AutofillManager;
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_64
 
     .line 409
     invoke-virtual {v0, p0}, Landroid/view/autofill/AutofillManager;->notifyValueChanged(Landroid/view/View;)V
 
     .line 413
     .end local v0    # "autofillManager":Landroid/view/autofill/AutofillManager;
-    :cond_4
+    :cond_64
     iput-boolean v1, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->broadcasting:Z
 
     .line 416
     nop
 
     .line 420
-    :cond_5
+    :cond_67
     return-void
 .end method
 
 .method public setEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "enabled"    # Z
 
     .line 342
@@ -1854,7 +1854,7 @@
 .end method
 
 .method public setErrorAccessibilityLabel(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "errorAccessibilityLabel"    # Ljava/lang/CharSequence;
 
     .line 510
@@ -1865,11 +1865,11 @@
 .end method
 
 .method public setErrorAccessibilityLabelResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 498
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     invoke-virtual {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->getResources()Landroid/content/res/Resources;
 
@@ -1879,12 +1879,12 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     invoke-virtual {p0, v0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->setErrorAccessibilityLabel(Ljava/lang/CharSequence;)V
 
     .line 499
@@ -1892,19 +1892,19 @@
 .end method
 
 .method public setErrorShown(Z)V
-    .locals 3
+    .registers 5
     .param p1, "errorShown"    # Z
 
     .line 469
     iget-boolean v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->errorShown:Z
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 470
     return-void
 
     .line 472
-    :cond_0
+    :cond_5
     iput-boolean p1, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->errorShown:Z
 
     .line 473
@@ -1917,12 +1917,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_10
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_22
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1938,15 +1938,15 @@
 
     .line 476
     .end local v1    # "listener":Lcom/google/android/material/checkbox/MaterialCheckBox$OnErrorChangedListener;
-    goto :goto_0
+    goto :goto_10
 
     .line 477
-    :cond_1
+    :cond_22
     return-void
 .end method
 
 .method public setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
     .line 363
@@ -1957,38 +1957,38 @@
 .end method
 
 .method public setStateDescription(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "stateDescription"    # Ljava/lang/CharSequence;
 
     .line 795
     iput-object p1, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->customStateDescription:Ljava/lang/CharSequence;
 
     .line 796
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     .line 797
     invoke-direct {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->setDefaultStateDescription()V
 
-    goto :goto_0
+    goto :goto_b
 
     .line 799
-    :cond_0
+    :cond_8
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatCheckBox;->setStateDescription(Ljava/lang/CharSequence;)V
 
     .line 801
-    :goto_0
+    :goto_b
     return-void
 .end method
 
 .method public setUseMaterialThemeColors(Z)V
-    .locals 1
+    .registers 3
     .param p1, "useMaterialThemeColors"    # Z
 
     .line 694
     iput-boolean p1, p0, Lcom/google/android/material/checkbox/MaterialCheckBox;->useMaterialThemeColors:Z
 
     .line 695
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 696
     invoke-direct {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->getMaterialThemeColorsTintList()Landroid/content/res/ColorStateList;
@@ -1997,21 +1997,21 @@
 
     invoke-static {p0, v0}, Landroidx/core/widget/CompoundButtonCompat;->setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    goto :goto_10
 
     .line 698
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Landroidx/core/widget/CompoundButtonCompat;->setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
 
     .line 700
-    :goto_0
+    :goto_10
     return-void
 .end method
 
 .method public toggle()V
-    .locals 1
+    .registers 2
 
     .line 358
     invoke-virtual {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox;->isChecked()Z

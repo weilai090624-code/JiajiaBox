@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/ws/WebSocketExtensions$Companion;-><init>()V
 
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public final parse(Lokhttp3/Headers;)Lokhttp3/internal/ws/WebSocketExtensions;
-    .locals 22
+    .registers 24
     .param p1, "responseHeaders"    # Lokhttp3/Headers;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -103,11 +103,11 @@
 
     move-result v7
 
-    if-lez v7, :cond_15
+    if-lez v7, :cond_139
 
     const/4 v8, 0x0
 
-    :goto_0
+    :goto_14
     move v9, v8
 
     .local v9, "i":I
@@ -126,15 +126,15 @@
 
     move-result v11
 
-    if-nez v11, :cond_0
+    if-nez v11, :cond_27
 
     .line 108
     move/from16 v20, v9
 
-    goto/16 :goto_a
+    goto/16 :goto_132
 
     .line 110
-    :cond_0
+    :cond_27
     invoke-virtual {v0, v9}, Lokhttp3/Headers;->value(I)Ljava/lang/String;
 
     move-result-object v11
@@ -147,12 +147,12 @@
 
     .line 114
     .local v15, "pos":I
-    :goto_1
+    :goto_2d
     invoke-virtual {v11}, Ljava/lang/String;->length()I
 
     move-result v12
 
-    if-ge v15, v12, :cond_13
+    if-ge v15, v12, :cond_12f
 
     .line 115
     const/16 v16, 0x4
@@ -207,20 +207,20 @@
 
     move-result v13
 
-    if-eqz v13, :cond_12
+    if-eqz v13, :cond_123
 
     .line 122
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_5d
 
     const/4 v6, 0x1
 
     .line 123
-    :cond_1
+    :cond_5d
     const/4 v1, 0x1
 
     .line 126
-    :goto_2
-    if-ge v10, v12, :cond_11
+    :goto_5e
+    if-ge v10, v12, :cond_114
 
     .line 127
     const/16 v0, 0x3b
@@ -251,7 +251,7 @@
     .local v1, "name":Ljava/lang/String;
     const/16 v18, 0x0
 
-    if-ge v0, v13, :cond_2
+    if-ge v0, v13, :cond_8b
 
     .line 131
     move/from16 v19, v6
@@ -278,14 +278,14 @@
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_95
 
     .line 133
     .end local v19    # "unexpectedValues":Z
     .end local v21    # "equals":I
     .restart local v0    # "equals":I
     .restart local v6    # "unexpectedValues":Z
-    :cond_2
+    :cond_8b
     move/from16 v21, v0
 
     move/from16 v19, v6
@@ -301,7 +301,7 @@
     move-object/from16 v0, v18
 
     .line 130
-    :goto_3
+    :goto_95
     nop
 
     .line 135
@@ -324,54 +324,54 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_bb
 
     .line 138
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_a8
 
     const/4 v6, 0x1
 
     .end local v19    # "unexpectedValues":Z
     .restart local v6    # "unexpectedValues":Z
-    goto :goto_4
+    goto :goto_aa
 
     .end local v6    # "unexpectedValues":Z
     .restart local v19    # "unexpectedValues":Z
-    :cond_3
+    :cond_a8
     move/from16 v6, v19
 
     .line 139
     .end local v19    # "unexpectedValues":Z
     .restart local v6    # "unexpectedValues":Z
-    :goto_4
-    if-nez v0, :cond_4
+    :goto_aa
+    if-nez v0, :cond_ad
 
-    goto :goto_5
+    goto :goto_b1
 
-    :cond_4
+    :cond_ad
     invoke-static {v0}, Lkotlin/text/StringsKt;->toIntOrNull(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v18
 
-    :goto_5
+    :goto_b1
     move-object/from16 v2, v18
 
     .line 140
-    if-nez v2, :cond_5
+    if-nez v2, :cond_b6
 
     const/4 v6, 0x1
 
-    :cond_5
+    :cond_b6
     move/from16 v1, v17
 
     move/from16 v9, v20
 
-    goto :goto_2
+    goto :goto_5e
 
     .line 142
     .end local v6    # "unexpectedValues":Z
     .restart local v19    # "unexpectedValues":Z
-    :cond_6
+    :cond_bb
     const-string v6, "client_no_context_takeover"
 
     const/4 v9, 0x1
@@ -380,44 +380,44 @@
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_d3
 
     .line 143
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_c8
 
     const/4 v6, 0x1
 
     .end local v19    # "unexpectedValues":Z
     .restart local v6    # "unexpectedValues":Z
-    goto :goto_6
+    goto :goto_ca
 
     .end local v6    # "unexpectedValues":Z
     .restart local v19    # "unexpectedValues":Z
-    :cond_7
+    :cond_c8
     move/from16 v6, v19
 
     .line 144
     .end local v19    # "unexpectedValues":Z
     .restart local v6    # "unexpectedValues":Z
-    :goto_6
-    if-eqz v0, :cond_8
+    :goto_ca
+    if-eqz v0, :cond_cd
 
     const/4 v6, 0x1
 
     .line 145
-    :cond_8
+    :cond_cd
     const/4 v3, 0x1
 
     move/from16 v1, v17
 
     move/from16 v9, v20
 
-    goto :goto_2
+    goto :goto_5e
 
     .line 147
     .end local v6    # "unexpectedValues":Z
     .restart local v19    # "unexpectedValues":Z
-    :cond_9
+    :cond_d3
     const-string v6, "server_max_window_bits"
 
     const/4 v9, 0x1
@@ -426,54 +426,54 @@
 
     move-result v6
 
-    if-eqz v6, :cond_d
+    if-eqz v6, :cond_f4
 
     .line 148
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_e0
 
     const/4 v6, 0x1
 
     .end local v19    # "unexpectedValues":Z
     .restart local v6    # "unexpectedValues":Z
-    goto :goto_7
+    goto :goto_e2
 
     .end local v6    # "unexpectedValues":Z
     .restart local v19    # "unexpectedValues":Z
-    :cond_a
+    :cond_e0
     move/from16 v6, v19
 
     .line 149
     .end local v19    # "unexpectedValues":Z
     .restart local v6    # "unexpectedValues":Z
-    :goto_7
-    if-nez v0, :cond_b
+    :goto_e2
+    if-nez v0, :cond_e5
 
-    goto :goto_8
+    goto :goto_e9
 
-    :cond_b
+    :cond_e5
     invoke-static {v0}, Lkotlin/text/StringsKt;->toIntOrNull(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v18
 
-    :goto_8
+    :goto_e9
     move-object/from16 v4, v18
 
     .line 150
-    if-nez v4, :cond_c
+    if-nez v4, :cond_ee
 
     const/4 v6, 0x1
 
-    :cond_c
+    :cond_ee
     move/from16 v1, v17
 
     move/from16 v9, v20
 
-    goto/16 :goto_2
+    goto/16 :goto_5e
 
     .line 152
     .end local v6    # "unexpectedValues":Z
     .restart local v19    # "unexpectedValues":Z
-    :cond_d
+    :cond_f4
     const-string v6, "server_no_context_takeover"
 
     const/4 v9, 0x1
@@ -482,44 +482,44 @@
 
     move-result v6
 
-    if-eqz v6, :cond_10
+    if-eqz v6, :cond_10d
 
     .line 153
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_101
 
     const/4 v6, 0x1
 
     .end local v19    # "unexpectedValues":Z
     .restart local v6    # "unexpectedValues":Z
-    goto :goto_9
+    goto :goto_103
 
     .end local v6    # "unexpectedValues":Z
     .restart local v19    # "unexpectedValues":Z
-    :cond_e
+    :cond_101
     move/from16 v6, v19
 
     .line 154
     .end local v19    # "unexpectedValues":Z
     .restart local v6    # "unexpectedValues":Z
-    :goto_9
-    if-eqz v0, :cond_f
+    :goto_103
+    if-eqz v0, :cond_106
 
     const/4 v6, 0x1
 
     .line 155
-    :cond_f
+    :cond_106
     const/4 v5, 0x1
 
     move/from16 v1, v17
 
     move/from16 v9, v20
 
-    goto/16 :goto_2
+    goto/16 :goto_5e
 
     .line 158
     .end local v6    # "unexpectedValues":Z
     .restart local v19    # "unexpectedValues":Z
-    :cond_10
+    :cond_10d
     const/4 v6, 0x1
 
     move/from16 v1, v17
@@ -532,14 +532,14 @@
     .end local v19    # "unexpectedValues":Z
     .end local v21    # "equals":I
     .restart local v6    # "unexpectedValues":Z
-    goto/16 :goto_2
+    goto/16 :goto_5e
 
     .line 126
     .end local v17    # "compressionEnabled":Z
     .end local v20    # "i":I
     .local v1, "compressionEnabled":Z
     .restart local v9    # "i":I
-    :cond_11
+    :cond_114
     move/from16 v17, v1
 
     move/from16 v19, v6
@@ -562,7 +562,7 @@
 
     const/4 v10, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_2d
 
     .line 165
     .end local v17    # "compressionEnabled":Z
@@ -571,7 +571,7 @@
     .restart local v1    # "compressionEnabled":Z
     .restart local v6    # "unexpectedValues":Z
     .restart local v9    # "i":I
-    :cond_12
+    :cond_123
     move/from16 v20, v9
 
     const/4 v9, 0x1
@@ -591,14 +591,14 @@
     .end local v12    # "extensionEnd":I
     .end local v14    # "extensionTokenEnd":I
     .end local v15    # "extensionToken":Ljava/lang/String;
-    goto/16 :goto_1
+    goto/16 :goto_2d
 
     .line 114
     .end local v10    # "pos":I
     .end local v20    # "i":I
     .restart local v9    # "i":I
     .local v15, "pos":I
-    :cond_13
+    :cond_12f
     move/from16 v20, v9
 
     move v10, v15
@@ -608,20 +608,20 @@
     .end local v11    # "header":Ljava/lang/String;
     .end local v15    # "pos":I
     .restart local v20    # "i":I
-    :goto_a
-    if-lt v8, v7, :cond_14
+    :goto_132
+    if-lt v8, v7, :cond_135
 
-    goto :goto_b
+    goto :goto_139
 
-    :cond_14
+    :cond_135
     move-object/from16 v0, p1
 
-    goto/16 :goto_0
+    goto/16 :goto_14
 
     .line 171
     .end local v20    # "i":I
-    :cond_15
-    :goto_b
+    :cond_139
+    :goto_139
     new-instance v0, Lokhttp3/internal/ws/WebSocketExtensions;
 
     .line 172

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$values(Lcom/google/common/collect/BiMap;)Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/collect/BiMap;
 
     .line 37

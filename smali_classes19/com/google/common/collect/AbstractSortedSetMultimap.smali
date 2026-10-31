@@ -31,7 +31,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public asMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -75,7 +75,7 @@
 .end method
 
 .method bridge synthetic createCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 36
     .local p0, "this":Lcom/google/common/collect/AbstractSortedSetMultimap;, "Lcom/google/common/collect/AbstractSortedSetMultimap<TK;TV;>;"
@@ -87,7 +87,7 @@
 .end method
 
 .method bridge synthetic createCollection()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 36
     .local p0, "this":Lcom/google/common/collect/AbstractSortedSetMultimap;, "Lcom/google/common/collect/AbstractSortedSetMultimap<TK;TV;>;"
@@ -109,7 +109,7 @@
 .end method
 
 .method bridge synthetic createUnmodifiableEmptyCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 36
     .local p0, "this":Lcom/google/common/collect/AbstractSortedSetMultimap;, "Lcom/google/common/collect/AbstractSortedSetMultimap<TK;TV;>;"
@@ -121,7 +121,7 @@
 .end method
 
 .method bridge synthetic createUnmodifiableEmptyCollection()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 36
     .local p0, "this":Lcom/google/common/collect/AbstractSortedSetMultimap;, "Lcom/google/common/collect/AbstractSortedSetMultimap<TK;TV;>;"
@@ -133,7 +133,7 @@
 .end method
 
 .method createUnmodifiableEmptyCollection()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -156,7 +156,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -172,7 +172,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -188,7 +188,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -214,7 +214,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -230,7 +230,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -246,7 +246,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -273,7 +273,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -289,7 +289,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -305,7 +305,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -334,7 +334,7 @@
 .end method
 
 .method bridge synthetic unmodifiableCollectionSubclass(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
 
     .line 36
     .local p0, "this":Lcom/google/common/collect/AbstractSortedSetMultimap;, "Lcom/google/common/collect/AbstractSortedSetMultimap<TK;TV;>;"
@@ -346,7 +346,7 @@
 .end method
 
 .method unmodifiableCollectionSubclass(Ljava/util/Collection;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -364,7 +364,7 @@
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     instance-of v0, p1, Ljava/util/NavigableSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 61
     move-object v0, p1
@@ -378,7 +378,7 @@
     return-object v0
 
     .line 63
-    :cond_0
+    :cond_c
     move-object v0, p1
 
     check-cast v0, Ljava/util/SortedSet;
@@ -391,7 +391,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -410,7 +410,7 @@
 .end method
 
 .method wrapCollection(Ljava/lang/Object;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -433,7 +433,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 70
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;
@@ -447,7 +447,7 @@
     return-object v0
 
     .line 72
-    :cond_0
+    :cond_e
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;
 
     move-object v2, p2

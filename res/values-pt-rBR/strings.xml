@@ -41,8 +41,8 @@
     <string name="call_notification_incoming_text">Chamada recebida</string>
     <string name="call_notification_ongoing_text">Chamada em andamento</string>
     <string name="call_notification_screening_text">Filtrando uma ligação recebida</string>
-    <string name="character_counter_content_description" formatted="false">Caracteres inseridos: %1$d de %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Limite de %2$d caracteres excedido em %1$d</string>
+    <string name="character_counter_content_description">Caracteres inseridos: %1$d de %2$d</string>
+    <string name="character_counter_overflowed_content_description">Limite de %2$d caracteres excedido em %1$d</string>
     <string name="clear_text_end_icon_content_description">Limpar texto</string>
     <string name="copy">Copiar</string>
     <string name="copy_toast_msg">Link copiado para a área de transferência</string>
@@ -97,7 +97,7 @@
     <string name="mtrl_picker_out_of_range">Fora do intervalo: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Data de início – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Data de término</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Selecionar intervalo</string>
     <string name="mtrl_picker_range_header_unselected">Data de início – Data de término</string>
     <string name="mtrl_picker_save">Salvar</string>
@@ -122,7 +122,7 @@
     <string name="project">Projeto</string>
     <string name="search_menu_title">Pesquisar</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="telegram">Canal de atualização do telegram</string>
     <string name="theme">Tema</string>
     <string name="v7_preference_off">DESATIVADO</string>

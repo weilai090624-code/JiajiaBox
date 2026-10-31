@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     new-instance v0, Landroidx/camera/camera2/internal/Camera2SessionOptionUnpacker;
@@ -25,7 +25,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public unpack(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/SessionConfig$Builder;)V
-    .locals 7
+    .registers 10
     .param p2, "builder"    # Landroidx/camera/core/impl/SessionConfig$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -88,7 +88,7 @@
 
     .line 49
     .local v2, "templateType":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
     .line 50
     invoke-virtual {v0}, Landroidx/camera/core/impl/SessionConfig;->getTemplateType()I
@@ -126,7 +126,7 @@
     move-result-object v1
 
     .line 59
-    :cond_0
+    :cond_32
     invoke-virtual {p2, v1}, Landroidx/camera/core/impl/SessionConfig$Builder;->setImplementationOptions(Landroidx/camera/core/impl/Config;)V
 
     .line 62

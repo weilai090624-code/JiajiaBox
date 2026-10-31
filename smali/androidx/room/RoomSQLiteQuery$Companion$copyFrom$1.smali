@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/room/RoomSQLiteQuery;)V
-    .locals 0
+    .registers 2
     .param p1, "$query"    # Landroidx/room/RoomSQLiteQuery;
 
     .line 187
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public bindBlob(I[B)V
-    .locals 1
+    .registers 4
 
     const-string/jumbo v0, "value"
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public bindDouble(ID)V
-    .locals 1
+    .registers 5
 
     iget-object v0, p0, Landroidx/room/RoomSQLiteQuery$Companion$copyFrom$1;->$$delegate_0:Landroidx/room/RoomSQLiteQuery;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public bindLong(IJ)V
-    .locals 1
+    .registers 5
 
     iget-object v0, p0, Landroidx/room/RoomSQLiteQuery$Companion$copyFrom$1;->$$delegate_0:Landroidx/room/RoomSQLiteQuery;
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public bindNull(I)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/RoomSQLiteQuery$Companion$copyFrom$1;->$$delegate_0:Landroidx/room/RoomSQLiteQuery;
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public bindString(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
 
     const-string/jumbo v0, "value"
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public clearBindings()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/RoomSQLiteQuery$Companion$copyFrom$1;->$$delegate_0:Landroidx/room/RoomSQLiteQuery;
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/RoomSQLiteQuery$Companion$copyFrom$1;->$$delegate_0:Landroidx/room/RoomSQLiteQuery;
 

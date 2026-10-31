@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/reflect/KTypeProjection$Companion;
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/reflect/KVariance;Lkotlin/reflect/KType;)V
-    .locals 4
+    .registers 7
     .param p1, "variance"    # Lkotlin/reflect/KVariance;
     .param p2, "type"    # Lkotlin/reflect/KType;
 
@@ -108,37 +108,37 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     iget-object v3, p0, Lkotlin/reflect/KTypeProjection;->type:Lkotlin/reflect/KType;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_17
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v3, 0x0
 
-    :goto_1
-    if-ne v0, v3, :cond_2
+    :goto_18
+    if-ne v0, v3, :cond_1b
 
-    goto :goto_2
+    goto :goto_1c
 
-    :cond_2
+    :cond_1b
     const/4 v1, 0x0
 
-    :goto_2
-    if-nez v1, :cond_4
+    :goto_1c
+    if-nez v1, :cond_4b
 
     const/4 v0, 0x0
 
@@ -146,15 +146,15 @@
     .local v0, "$i$a$-require-KTypeProjection$1":I
     iget-object v1, p0, Lkotlin/reflect/KTypeProjection;->variance:Lkotlin/reflect/KVariance;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_26
 
     .line 37
     const-string v1, "Star projection must have no type specified."
 
-    goto :goto_3
+    goto :goto_41
 
     .line 39
-    :cond_3
+    :cond_26
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -183,7 +183,7 @@
 
     .line 35
     .end local v0    # "$i$a$-require-KTypeProjection$1":I
-    :goto_3
+    :goto_41
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -195,7 +195,7 @@
     throw v0
 
     .line 41
-    :cond_4
+    :cond_4b
     nop
 
     .line 23
@@ -203,7 +203,7 @@
 .end method
 
 .method public static final contravariant(Lkotlin/reflect/KType;)Lkotlin/reflect/KTypeProjection;
-    .locals 1
+    .registers 2
     .param p0, "type"    # Lkotlin/reflect/KType;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -219,22 +219,22 @@
 .end method
 
 .method public static synthetic copy$default(Lkotlin/reflect/KTypeProjection;Lkotlin/reflect/KVariance;Lkotlin/reflect/KType;ILjava/lang/Object;)Lkotlin/reflect/KTypeProjection;
-    .locals 0
+    .registers 5
 
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     iget-object p1, p0, Lkotlin/reflect/KTypeProjection;->variance:Lkotlin/reflect/KVariance;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_c
 
     iget-object p2, p0, Lkotlin/reflect/KTypeProjection;->type:Lkotlin/reflect/KType;
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2}, Lkotlin/reflect/KTypeProjection;->copy(Lkotlin/reflect/KVariance;Lkotlin/reflect/KType;)Lkotlin/reflect/KTypeProjection;
 
     move-result-object p0
@@ -243,7 +243,7 @@
 .end method
 
 .method public static final covariant(Lkotlin/reflect/KType;)Lkotlin/reflect/KTypeProjection;
-    .locals 1
+    .registers 2
     .param p0, "type"    # Lkotlin/reflect/KType;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -259,7 +259,7 @@
 .end method
 
 .method public static final invariant(Lkotlin/reflect/KType;)Lkotlin/reflect/KTypeProjection;
-    .locals 1
+    .registers 2
     .param p0, "type"    # Lkotlin/reflect/KType;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -277,7 +277,7 @@
 
 # virtual methods
 .method public final component1()Lkotlin/reflect/KVariance;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlin/reflect/KTypeProjection;->variance:Lkotlin/reflect/KVariance;
 
@@ -285,7 +285,7 @@
 .end method
 
 .method public final component2()Lkotlin/reflect/KType;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlin/reflect/KTypeProjection;->type:Lkotlin/reflect/KType;
 
@@ -293,7 +293,7 @@
 .end method
 
 .method public final copy(Lkotlin/reflect/KVariance;Lkotlin/reflect/KType;)Lkotlin/reflect/KTypeProjection;
-    .locals 1
+    .registers 4
 
     new-instance v0, Lkotlin/reflect/KTypeProjection;
 
@@ -303,24 +303,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlin/reflect/KTypeProjection;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lkotlin/reflect/KTypeProjection;
@@ -329,11 +329,11 @@
 
     iget-object v4, v1, Lkotlin/reflect/KTypeProjection;->variance:Lkotlin/reflect/KVariance;
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_14
 
     return v2
 
-    :cond_2
+    :cond_14
     iget-object v3, p0, Lkotlin/reflect/KTypeProjection;->type:Lkotlin/reflect/KType;
 
     iget-object v1, v1, Lkotlin/reflect/KTypeProjection;->type:Lkotlin/reflect/KType;
@@ -342,16 +342,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     return v0
 .end method
 
 .method public final getType()Lkotlin/reflect/KType;
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lkotlin/reflect/KTypeProjection;->type:Lkotlin/reflect/KType;
@@ -360,7 +360,7 @@
 .end method
 
 .method public final getVariance()Lkotlin/reflect/KVariance;
-    .locals 1
+    .registers 2
 
     .line 27
     iget-object v0, p0, Lkotlin/reflect/KTypeProjection;->variance:Lkotlin/reflect/KVariance;
@@ -369,60 +369,60 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-object v0, p0, Lkotlin/reflect/KTypeProjection;->variance:Lkotlin/reflect/KVariance;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lkotlin/reflect/KTypeProjection;->variance:Lkotlin/reflect/KVariance;
 
     invoke-virtual {v0}, Lkotlin/reflect/KVariance;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_d
     mul-int/lit8 v2, v0, 0x1f
 
     iget-object v3, p0, Lkotlin/reflect/KTypeProjection;->type:Lkotlin/reflect/KType;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_14
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
+    :cond_14
     iget-object v1, p0, Lkotlin/reflect/KTypeProjection;->type:Lkotlin/reflect/KType;
 
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    :goto_1
+    :goto_1a
     add-int/2addr v2, v1
 
     return v2
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 43
     iget-object v0, p0, Lkotlin/reflect/KTypeProjection;->variance:Lkotlin/reflect/KVariance;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_6
     sget-object v1, Lkotlin/reflect/KTypeProjection$WhenMappings;->$EnumSwitchMapping$0:[I
 
     invoke-virtual {v0}, Lkotlin/reflect/KVariance;->ordinal()I
@@ -431,18 +431,18 @@
 
     aget v0, v1, v0
 
-    :goto_0
-    packed-switch v0, :pswitch_data_0
+    :goto_e
+    packed-switch v0, :pswitch_data_4e
 
     .line 47
-    :pswitch_0
+    :pswitch_11
     new-instance v0, Lkotlin/NoWhenBranchMatchedException;
 
     invoke-direct {v0}, Lkotlin/NoWhenBranchMatchedException;-><init>()V
 
     throw v0
 
-    :pswitch_1
+    :pswitch_17
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -463,10 +463,10 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4c
 
     .line 46
-    :pswitch_2
+    :pswitch_2d
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -487,34 +487,34 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4c
 
     .line 45
-    :pswitch_3
+    :pswitch_43
     iget-object v0, p0, Lkotlin/reflect/KTypeProjection;->type:Lkotlin/reflect/KType;
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4c
 
     .line 44
-    :pswitch_4
+    :pswitch_4a
     const-string v0, "*"
 
     .line 48
-    :goto_1
+    :goto_4c
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4e
     .packed-switch -0x1
-        :pswitch_4
-        :pswitch_0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_4a
+        :pswitch_11
+        :pswitch_43
+        :pswitch_2d
+        :pswitch_17
     .end packed-switch
 .end method

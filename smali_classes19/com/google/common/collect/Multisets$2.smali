@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)V
-    .locals 0
+    .registers 3
 
     .line 462
     iput-object p1, p0, Lcom/google/common/collect/Multisets$2;->val$multiset1:Lcom/google/common/collect/Multiset;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public count(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -61,13 +61,13 @@
 
     .line 466
     .local v0, "count1":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_a
     iget-object v1, p0, Lcom/google/common/collect/Multisets$2;->val$multiset2:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v1, p1}, Lcom/google/common/collect/Multiset;->count(Ljava/lang/Object;)I
@@ -78,12 +78,12 @@
 
     move-result v1
 
-    :goto_0
+    :goto_14
     return v1
 .end method
 
 .method createElementSet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -113,7 +113,7 @@
 .end method
 
 .method elementIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -133,7 +133,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

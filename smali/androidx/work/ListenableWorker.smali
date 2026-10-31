@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
-    .locals 2
+    .registers 5
     .param p1, "appContext"    # Landroid/content/Context;
     .param p2, "workerParams"    # Landroidx/work/WorkerParameters;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -41,10 +41,10 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 76
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_14
 
     .line 80
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_c
 
     .line 84
     iput-object p1, p0, Landroidx/work/ListenableWorker;->mAppContext:Landroid/content/Context;
@@ -56,7 +56,7 @@
     return-void
 
     .line 81
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "WorkerParameters is null"
@@ -66,7 +66,7 @@
     throw v0
 
     .line 77
-    :cond_1
+    :cond_14
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Application Context is null"
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public final getApplicationContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 94
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mAppContext:Landroid/content/Context;
@@ -88,7 +88,7 @@
 .end method
 
 .method public getBackgroundExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 322
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
@@ -101,7 +101,7 @@
 .end method
 
 .method public getForegroundInfoAsync()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -133,7 +133,7 @@
 .end method
 
 .method public final getId()Ljava/util/UUID;
-    .locals 1
+    .registers 2
 
     .line 103
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
@@ -146,7 +146,7 @@
 .end method
 
 .method public final getInputData()Landroidx/work/Data;
-    .locals 1
+    .registers 2
 
     .line 114
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
@@ -159,7 +159,7 @@
 .end method
 
 .method public final getNetwork()Landroid/net/Network;
-    .locals 1
+    .registers 2
 
     .line 159
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
@@ -172,7 +172,7 @@
 .end method
 
 .method public final getRunAttemptCount()I
-    .locals 1
+    .registers 2
 
     .line 170
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
@@ -185,7 +185,7 @@
 .end method
 
 .method public final getTags()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -206,7 +206,7 @@
 .end method
 
 .method public getTaskExecutor()Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    .locals 1
+    .registers 2
 
     .line 330
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
@@ -219,7 +219,7 @@
 .end method
 
 .method public final getTriggeredContentAuthorities()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -240,7 +240,7 @@
 .end method
 
 .method public final getTriggeredContentUris()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -261,7 +261,7 @@
 .end method
 
 .method public getWorkerFactory()Landroidx/work/WorkerFactory;
-    .locals 1
+    .registers 2
 
     .line 338
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
@@ -274,7 +274,7 @@
 .end method
 
 .method public final isStopped()Z
-    .locals 1
+    .registers 2
 
     .line 271
     iget-boolean v0, p0, Landroidx/work/ListenableWorker;->mStopped:Z
@@ -283,7 +283,7 @@
 .end method
 
 .method public final isUsed()Z
-    .locals 1
+    .registers 2
 
     .line 303
     iget-boolean v0, p0, Landroidx/work/ListenableWorker;->mUsed:Z
@@ -292,14 +292,14 @@
 .end method
 
 .method public onStopped()V
-    .locals 0
+    .registers 1
 
     .line 294
     return-void
 .end method
 
 .method public final setForegroundAsync(Landroidx/work/ForegroundInfo;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .param p1, "foregroundInfo"    # Landroidx/work/ForegroundInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -346,7 +346,7 @@
 .end method
 
 .method public setProgressAsync(Landroidx/work/Data;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .param p1, "data"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -393,7 +393,7 @@
 .end method
 
 .method public final setUsed()V
-    .locals 1
+    .registers 2
 
     .line 314
     const/4 v0, 0x1
@@ -416,7 +416,7 @@
 .end method
 
 .method public final stop()V
-    .locals 1
+    .registers 2
 
     .line 279
     const/4 v0, 0x1

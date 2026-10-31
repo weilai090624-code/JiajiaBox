@@ -94,7 +94,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -103,7 +103,7 @@
 .end method
 
 .method public static equalsIgnoreCase(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-    .locals 8
+    .registers 10
     .param p0, "s1"    # Ljava/lang/CharSequence;
     .param p1, "s2"    # Ljava/lang/CharSequence;
 
@@ -116,31 +116,31 @@
     .local v0, "length":I
     const/4 v1, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_8
 
     .line 605
     return v1
 
     .line 607
-    :cond_0
+    :cond_8
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
     const/4 v3, 0x0
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_10
 
     .line 608
     return v3
 
     .line 610
-    :cond_1
+    :cond_10
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_4
+    :goto_11
+    if-ge v2, v0, :cond_31
 
     .line 611
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -155,13 +155,13 @@
 
     .line 613
     .local v5, "c2":C
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_1e
 
     .line 614
-    goto :goto_1
+    goto :goto_2d
 
     .line 616
-    :cond_2
+    :cond_1e
     invoke-static {v4}, Lcom/google/common/base/Ascii;->getAlphaIndex(C)I
 
     move-result v6
@@ -170,13 +170,13 @@
     .local v6, "alphaIndex":I
     const/16 v7, 0x1a
 
-    if-ge v6, v7, :cond_3
+    if-ge v6, v7, :cond_30
 
     invoke-static {v5}, Lcom/google/common/base/Ascii;->getAlphaIndex(C)I
 
     move-result v7
 
-    if-ne v6, v7, :cond_3
+    if-ne v6, v7, :cond_30
 
     .line 620
     nop
@@ -185,16 +185,16 @@
     .end local v4    # "c1":C
     .end local v5    # "c2":C
     .end local v6    # "alphaIndex":I
-    :goto_1
+    :goto_2d
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 622
     .restart local v4    # "c1":C
     .restart local v5    # "c2":C
     .restart local v6    # "alphaIndex":I
-    :cond_3
+    :cond_30
     return v3
 
     .line 624
@@ -202,12 +202,12 @@
     .end local v4    # "c1":C
     .end local v5    # "c2":C
     .end local v6    # "alphaIndex":I
-    :cond_4
+    :cond_31
     return v1
 .end method
 
 .method private static getAlphaIndex(C)I
-    .locals 1
+    .registers 2
     .param p0, "c"    # C
 
     .line 633
@@ -221,55 +221,55 @@
 .end method
 
 .method public static isLowerCase(C)Z
-    .locals 1
+    .registers 2
     .param p0, "c"    # C
 
     .line 506
     const/16 v0, 0x61
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_a
 
     const/16 v0, 0x7a
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public static isUpperCase(C)Z
-    .locals 1
+    .registers 2
     .param p0, "c"    # C
 
     .line 515
     const/16 v0, 0x41
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_a
 
     const/16 v0, 0x5a
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public static toLowerCase(C)C
-    .locals 1
+    .registers 2
     .param p0, "c"    # C
 
     .line 447
@@ -277,29 +277,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     xor-int/lit8 v0, p0, 0x20
 
     int-to-char v0, v0
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     move v0, p0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public static toLowerCase(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "chars"    # Ljava/lang/CharSequence;
 
     .line 432
     instance-of v0, p0, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 433
     move-object v0, p0
@@ -313,7 +313,7 @@
     return-object v0
 
     .line 435
-    :cond_0
+    :cond_c
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -325,10 +325,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_13
     array-length v2, v0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_23
 
     .line 437
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -344,11 +344,11 @@
     .line 436
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 439
     .end local v1    # "i":I
-    :cond_1
+    :cond_23
     invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
 
     move-result-object v1
@@ -357,7 +357,7 @@
 .end method
 
 .method public static toLowerCase(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "string"    # Ljava/lang/String;
 
     .line 408
@@ -370,8 +370,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_3
+    :goto_5
+    if-ge v1, v0, :cond_2f
 
     .line 410
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -382,7 +382,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2c
 
     .line 411
     invoke-virtual {p0}, Ljava/lang/String;->toCharArray()[C
@@ -391,8 +391,8 @@
 
     .line 412
     .local v2, "chars":[C
-    :goto_1
-    if-ge v1, v0, :cond_1
+    :goto_15
+    if-ge v1, v0, :cond_27
 
     .line 413
     aget-char v3, v2, v1
@@ -403,7 +403,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_24
 
     .line 415
     xor-int/lit8 v4, v3, 0x20
@@ -414,13 +414,13 @@
 
     .line 412
     .end local v3    # "c":C
-    :cond_0
+    :cond_24
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_15
 
     .line 418
-    :cond_1
+    :cond_27
     invoke-static {v2}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
 
     move-result-object v3
@@ -429,19 +429,19 @@
 
     .line 409
     .end local v2    # "chars":[C
-    :cond_2
+    :cond_2c
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 421
     .end local v1    # "i":I
-    :cond_3
+    :cond_2f
     return-object p0
 .end method
 
 .method public static toUpperCase(C)C
-    .locals 1
+    .registers 2
     .param p0, "c"    # C
 
     .line 495
@@ -449,29 +449,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     xor-int/lit8 v0, p0, 0x20
 
     int-to-char v0, v0
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     move v0, p0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public static toUpperCase(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "chars"    # Ljava/lang/CharSequence;
 
     .line 480
     instance-of v0, p0, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 481
     move-object v0, p0
@@ -485,7 +485,7 @@
     return-object v0
 
     .line 483
-    :cond_0
+    :cond_c
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -497,10 +497,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_13
     array-length v2, v0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_23
 
     .line 485
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -516,11 +516,11 @@
     .line 484
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 487
     .end local v1    # "i":I
-    :cond_1
+    :cond_23
     invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
 
     move-result-object v1
@@ -529,7 +529,7 @@
 .end method
 
 .method public static toUpperCase(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "string"    # Ljava/lang/String;
 
     .line 456
@@ -542,8 +542,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_3
+    :goto_5
+    if-ge v1, v0, :cond_2f
 
     .line 458
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -554,7 +554,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2c
 
     .line 459
     invoke-virtual {p0}, Ljava/lang/String;->toCharArray()[C
@@ -563,8 +563,8 @@
 
     .line 460
     .local v2, "chars":[C
-    :goto_1
-    if-ge v1, v0, :cond_1
+    :goto_15
+    if-ge v1, v0, :cond_27
 
     .line 461
     aget-char v3, v2, v1
@@ -575,7 +575,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_24
 
     .line 463
     xor-int/lit8 v4, v3, 0x20
@@ -586,13 +586,13 @@
 
     .line 460
     .end local v3    # "c":C
-    :cond_0
+    :cond_24
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_15
 
     .line 466
-    :cond_1
+    :cond_27
     invoke-static {v2}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
 
     move-result-object v3
@@ -601,19 +601,19 @@
 
     .line 457
     .end local v2    # "chars":[C
-    :cond_2
+    :cond_2c
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 469
     .end local v1    # "i":I
-    :cond_3
+    :cond_2f
     return-object p0
 .end method
 
 .method public static truncate(Ljava/lang/CharSequence;ILjava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 8
     .param p0, "seq"    # Ljava/lang/CharSequence;
     .param p1, "maxLength"    # I
     .param p2, "truncationIndicator"    # Ljava/lang/String;
@@ -632,17 +632,17 @@
     .local v0, "truncationLength":I
     const/4 v1, 0x0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_e
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v2, 0x0
 
     .line 562
-    :goto_0
+    :goto_f
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -657,7 +657,7 @@
 
     move-result v2
 
-    if-gt v2, p1, :cond_2
+    if-gt v2, p1, :cond_2a
 
     .line 565
     invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
@@ -670,18 +670,18 @@
 
     move-result v3
 
-    if-gt v3, p1, :cond_1
+    if-gt v3, p1, :cond_29
 
     .line 567
     return-object v2
 
     .line 570
-    :cond_1
+    :cond_29
     move-object p0, v2
 
     .line 573
     .end local v2    # "string":Ljava/lang/String;
-    :cond_2
+    :cond_2a
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2, p1}, Ljava/lang/StringBuilder;-><init>(I)V

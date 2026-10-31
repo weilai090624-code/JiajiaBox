@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 157
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static transferLayerProperties(Landroid/graphics/drawable/LayerDrawable;Landroid/graphics/drawable/LayerDrawable;I)V
-    .locals 1
+    .registers 4
     .param p0, "src"    # Landroid/graphics/drawable/LayerDrawable;
     .param p1, "dst"    # Landroid/graphics/drawable/LayerDrawable;
     .param p2, "i"    # I

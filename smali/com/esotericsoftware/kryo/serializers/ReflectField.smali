@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Field;Lcom/esotericsoftware/kryo/serializers/FieldSerializer;Lcom/esotericsoftware/kryo/util/Generics$GenericType;)V
-    .locals 0
+    .registers 4
     .param p1, "field"    # Ljava/lang/reflect/Field;
     .param p2, "fieldSerializer"    # Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
     .param p3, "genericType"    # Lcom/esotericsoftware/kryo/util/Generics$GenericType;
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public copy(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 6
+    .registers 9
     .param p1, "original"    # Ljava/lang/Object;
     .param p2, "copy"    # Ljava/lang/Object;
 
@@ -56,7 +56,7 @@
 
     const-string v1, " ("
 
-    :try_start_0
+    :try_start_4
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->fieldSerializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
     iget-object v2, v2, Lcom/esotericsoftware/kryo/serializers/FieldSerializer;->kryo:Lcom/esotericsoftware/kryo/Kryo;
@@ -70,10 +70,10 @@
     move-result-object v2
 
     invoke-virtual {p0, p2, v2}, Lcom/esotericsoftware/kryo/serializers/ReflectField;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catch Ljava/lang/IllegalAccessException; {:try_start_4 .. :try_end_13} :catch_6a
+    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_4 .. :try_end_13} :catch_42
+    .catchall {:try_start_4 .. :try_end_13} :catchall_15
 
     .line 171
     nop
@@ -82,7 +82,7 @@
     return-void
 
     .line 167
-    :catchall_0
+    :catchall_15
     move-exception v2
 
     .line 168
@@ -135,7 +135,7 @@
     .line 164
     .end local v2    # "t":Ljava/lang/Throwable;
     .end local v3    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_0
+    :catch_42
     move-exception v2
 
     .line 165
@@ -181,7 +181,7 @@
 
     .line 162
     .end local v2    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_1
+    :catch_6a
     move-exception v2
 
     .line 163
@@ -234,7 +234,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -253,7 +253,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Object;)V
-    .locals 8
+    .registers 11
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -268,7 +268,7 @@
 
     .line 112
     .local v2, "kryo":Lcom/esotericsoftware/kryo/Kryo;
-    :try_start_0
+    :try_start_8
     iget-object v3, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->serializer:Lcom/esotericsoftware/kryo/Serializer;
 
     .line 113
@@ -279,7 +279,7 @@
 
     .line 114
     .local v4, "concreteType":Ljava/lang/Class;
-    if-nez v4, :cond_2
+    if-nez v4, :cond_35
 
     .line 116
     invoke-virtual {v2, p1}, Lcom/esotericsoftware/kryo/Kryo;->readClass(Lcom/esotericsoftware/kryo/io/Input;)Lcom/esotericsoftware/kryo/Registration;
@@ -288,7 +288,7 @@
 
     .line 117
     .local v5, "registration":Lcom/esotericsoftware/kryo/Registration;
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1b
 
     .line 118
     const/4 v6, 0x0
@@ -299,8 +299,8 @@
     return-void
 
     .line 121
-    :cond_0
-    if-nez v3, :cond_1
+    :cond_1b
+    if-nez v3, :cond_22
 
     invoke-virtual {v5}, Lcom/esotericsoftware/kryo/Registration;->getSerializer()Lcom/esotericsoftware/kryo/Serializer;
 
@@ -309,7 +309,7 @@
     move-object v3, v6
 
     .line 122
-    :cond_1
+    :cond_22
     invoke-virtual {v2}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
     move-result-object v6
@@ -331,12 +331,12 @@
 
     .line 124
     .local v5, "value":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_5c
 
     .line 125
     .end local v5    # "value":Ljava/lang/Object;
-    :cond_2
-    if-nez v3, :cond_3
+    :cond_35
+    if-nez v3, :cond_46
 
     .line 126
     invoke-virtual {v2, v4}, Lcom/esotericsoftware/kryo/Kryo;->getSerializer(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
@@ -348,16 +348,16 @@
     .line 128
     iget-object v5, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->valueClass:Ljava/lang/Class;
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_46
 
     iget-boolean v5, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->reuseSerializer:Z
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_46
 
     iput-object v3, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->serializer:Lcom/esotericsoftware/kryo/Serializer;
 
     .line 130
-    :cond_3
+    :cond_46
     invoke-virtual {v2}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
     move-result-object v5
@@ -369,7 +369,7 @@
     .line 131
     iget-boolean v5, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->canBeNull:Z
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_58
 
     .line 132
     invoke-virtual {v2, p1, v4, v3}, Lcom/esotericsoftware/kryo/Kryo;->readObjectOrNull(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;)Ljava/lang/Object;
@@ -377,18 +377,18 @@
     move-result-object v5
 
     .restart local v5    # "value":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_5c
 
     .line 134
     .end local v5    # "value":Ljava/lang/Object;
-    :cond_4
+    :cond_58
     invoke-virtual {v2, p1, v4, v3}, Lcom/esotericsoftware/kryo/Kryo;->readObject(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;)Ljava/lang/Object;
 
     move-result-object v5
 
     .line 136
     .restart local v5    # "value":Ljava/lang/Object;
-    :goto_0
+    :goto_5c
     invoke-virtual {v2}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
     move-result-object v6
@@ -397,10 +397,10 @@
 
     .line 138
     invoke-virtual {p0, p2, v5}, Lcom/esotericsoftware/kryo/serializers/ReflectField;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_66
+    .catch Ljava/lang/IllegalAccessException; {:try_start_8 .. :try_end_66} :catch_bd
+    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_8 .. :try_end_66} :catch_95
+    .catchall {:try_start_8 .. :try_end_66} :catchall_68
 
     .line 148
     .end local v3    # "serializer":Lcom/esotericsoftware/kryo/Serializer;
@@ -412,7 +412,7 @@
     return-void
 
     .line 144
-    :catchall_0
+    :catchall_68
     move-exception v3
 
     .line 145
@@ -465,7 +465,7 @@
     .line 141
     .end local v3    # "t":Ljava/lang/Throwable;
     .end local v4    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_0
+    :catch_95
     move-exception v3
 
     .line 142
@@ -511,7 +511,7 @@
 
     .line 139
     .end local v3    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_1
+    :catch_bd
     move-exception v3
 
     .line 140
@@ -564,12 +564,12 @@
 .end method
 
 .method resolveFieldClass()Ljava/lang/Class;
-    .locals 2
+    .registers 3
 
     .line 152
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->valueClass:Ljava/lang/Class;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 153
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->genericType:Lcom/esotericsoftware/kryo/util/Generics$GenericType;
@@ -588,7 +588,7 @@
 
     .line 154
     .local v0, "fieldClass":Ljava/lang/Class;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->fieldSerializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
@@ -598,20 +598,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     return-object v0
 
     .line 156
     .end local v0    # "fieldClass":Ljava/lang/Class;
-    :cond_0
+    :cond_1f
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->valueClass:Ljava/lang/Class;
 
     return-object v0
 .end method
 
 .method public set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
@@ -630,7 +630,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 9
+    .registers 12
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -645,7 +645,7 @@
 
     .line 57
     .local v2, "kryo":Lcom/esotericsoftware/kryo/Kryo;
-    :try_start_0
+    :try_start_8
     invoke-virtual {p0, p2}, Lcom/esotericsoftware/kryo/serializers/ReflectField;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -662,10 +662,10 @@
 
     .line 61
     .local v5, "concreteType":Ljava/lang/Class;
-    if-nez v5, :cond_2
+    if-nez v5, :cond_37
 
     .line 63
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1b
 
     .line 64
     const/4 v6, 0x0
@@ -676,7 +676,7 @@
     return-void
 
     .line 67
-    :cond_0
+    :cond_1b
     invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v6
@@ -687,7 +687,7 @@
 
     .line 68
     .local v6, "registration":Lcom/esotericsoftware/kryo/Registration;
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2a
 
     invoke-virtual {v6}, Lcom/esotericsoftware/kryo/Registration;->getSerializer()Lcom/esotericsoftware/kryo/Serializer;
 
@@ -696,7 +696,7 @@
     move-object v4, v7
 
     .line 69
-    :cond_1
+    :cond_2a
     invoke-virtual {v2}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
     move-result-object v7
@@ -710,11 +710,11 @@
 
     .line 71
     .end local v6    # "registration":Lcom/esotericsoftware/kryo/Registration;
-    goto :goto_0
+    goto :goto_5e
 
     .line 72
-    :cond_2
-    if-nez v4, :cond_3
+    :cond_37
+    if-nez v4, :cond_48
 
     .line 73
     invoke-virtual {v2, v5}, Lcom/esotericsoftware/kryo/Kryo;->getSerializer(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
@@ -726,16 +726,16 @@
     .line 75
     iget-object v6, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->valueClass:Ljava/lang/Class;
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_48
 
     iget-boolean v6, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->reuseSerializer:Z
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_48
 
     iput-object v4, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->serializer:Lcom/esotericsoftware/kryo/Serializer;
 
     .line 77
-    :cond_3
+    :cond_48
     invoke-virtual {v2}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
     move-result-object v6
@@ -747,22 +747,22 @@
     .line 78
     iget-boolean v6, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField;->canBeNull:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_59
 
     .line 79
     invoke-virtual {v2, p1, v3, v4}, Lcom/esotericsoftware/kryo/Kryo;->writeObjectOrNull(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;Lcom/esotericsoftware/kryo/Serializer;)V
 
-    goto :goto_0
+    goto :goto_5e
 
     .line 81
-    :cond_4
-    if-eqz v3, :cond_5
+    :cond_59
+    if-eqz v3, :cond_67
 
     .line 85
     invoke-virtual {v2, p1, v3, v4}, Lcom/esotericsoftware/kryo/Kryo;->writeObject(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;Lcom/esotericsoftware/kryo/Serializer;)V
 
     .line 88
-    :goto_0
+    :goto_5e
     invoke-virtual {v2}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
     move-result-object v6
@@ -782,7 +782,7 @@
     .restart local v3    # "value":Ljava/lang/Object;
     .restart local v4    # "serializer":Lcom/esotericsoftware/kryo/Serializer;
     .restart local v5    # "concreteType":Ljava/lang/Class;
-    :cond_5
+    :cond_67
     new-instance v6, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -832,11 +832,11 @@
     .end local p1    # "output":Lcom/esotericsoftware/kryo/io/Output;
     .end local p2    # "object":Ljava/lang/Object;
     throw v6
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/StackOverflowError; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_96
+    .catch Ljava/lang/IllegalAccessException; {:try_start_8 .. :try_end_96} :catch_10f
+    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_8 .. :try_end_96} :catch_e7
+    .catch Ljava/lang/StackOverflowError; {:try_start_8 .. :try_end_96} :catch_c3
+    .catchall {:try_start_8 .. :try_end_96} :catchall_96
 
     .line 100
     .end local v3    # "value":Ljava/lang/Object;
@@ -845,7 +845,7 @@
     .restart local v2    # "kryo":Lcom/esotericsoftware/kryo/Kryo;
     .restart local p1    # "output":Lcom/esotericsoftware/kryo/io/Output;
     .restart local p2    # "object":Ljava/lang/Object;
-    :catchall_0
+    :catchall_96
     move-exception v3
 
     .line 101
@@ -898,7 +898,7 @@
     .line 94
     .end local v3    # "t":Ljava/lang/Throwable;
     .end local v4    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_0
+    :catch_c3
     move-exception v0
 
     .line 95
@@ -940,7 +940,7 @@
 
     .line 91
     .end local v0    # "ex":Ljava/lang/StackOverflowError;
-    :catch_1
+    :catch_e7
     move-exception v3
 
     .line 92
@@ -986,7 +986,7 @@
 
     .line 89
     .end local v3    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_2
+    :catch_10f
     move-exception v3
 
     .line 90

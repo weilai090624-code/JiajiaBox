@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Iterator;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public final hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 46
     .local p0, "this":Lcom/google/common/collect/TransformedIterator;, "Lcom/google/common/collect/TransformedIterator<TF;TT;>;"
@@ -81,7 +81,7 @@
 .end method
 
 .method public final next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public final remove()V
-    .locals 1
+    .registers 2
 
     .line 57
     .local p0, "this":Lcom/google/common/collect/TransformedIterator;, "Lcom/google/common/collect/TransformedIterator<TF;TT;>;"

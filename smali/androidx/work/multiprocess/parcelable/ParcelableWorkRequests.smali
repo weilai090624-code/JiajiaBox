@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 53
     new-instance v0, Landroidx/work/multiprocess/parcelable/ParcelableWorkRequests$1;
@@ -45,7 +45,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 7
+    .registers 9
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 44
@@ -79,8 +79,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_19
+    if-ge v2, v1, :cond_2c
 
     aget-object v3, v0, v2
 
@@ -105,15 +105,15 @@
     .end local v4    # "parcelled":Landroidx/work/multiprocess/parcelable/ParcelableWorkRequest;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 51
-    :cond_0
+    :cond_2c
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -137,7 +137,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 69
     const/4 v0, 0x0
@@ -146,7 +146,7 @@
 .end method
 
 .method public getRequests()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -163,7 +163,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 4
+    .registers 7
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
@@ -181,14 +181,14 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_9
     iget-object v2, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkRequests;->mRequests:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_23
 
     .line 76
     new-instance v2, Landroidx/work/multiprocess/parcelable/ParcelableWorkRequest;
@@ -208,11 +208,11 @@
     .line 75
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 78
     .end local v1    # "i":I
-    :cond_0
+    :cond_23
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelableArray([Landroid/os/Parcelable;I)V
 
     .line 79

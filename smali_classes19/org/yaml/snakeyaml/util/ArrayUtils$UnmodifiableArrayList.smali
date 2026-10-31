@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TE;)V"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,7 +72,7 @@
 
     array-length v0, v0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_a
 
     .line 72
     iget-object v0, p0, Lorg/yaml/snakeyaml/util/ArrayUtils$UnmodifiableArrayList;->array:[Ljava/lang/Object;
@@ -82,7 +82,7 @@
     return-object v0
 
     .line 70
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -123,7 +123,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 77
     .local p0, "this":Lorg/yaml/snakeyaml/util/ArrayUtils$UnmodifiableArrayList;, "Lorg/yaml/snakeyaml/util/ArrayUtils$UnmodifiableArrayList<TE;>;"

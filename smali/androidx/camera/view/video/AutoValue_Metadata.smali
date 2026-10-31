@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/location/Location;)V
-    .locals 0
+    .registers 2
     .param p1, "location"    # Landroid/location/Location;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/location/Location;Landroidx/camera/view/video/AutoValue_Metadata$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Landroid/location/Location;
     .param p2, "x1"    # Landroidx/camera/view/video/AutoValue_Metadata$1;
 
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -66,18 +66,18 @@
     .line 33
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 34
     return v0
 
     .line 36
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/camera/view/video/Metadata;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_24
 
     .line 37
     move-object v1, p1
@@ -88,22 +88,22 @@
     .local v1, "that":Landroidx/camera/view/video/Metadata;
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_Metadata;->location:Landroid/location/Location;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_19
 
     invoke-virtual {v1}, Landroidx/camera/view/video/Metadata;->getLocation()Landroid/location/Location;
 
     move-result-object v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_17
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_17
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_2
+    :cond_19
     iget-object v0, p0, Landroidx/camera/view/video/AutoValue_Metadata;->location:Landroid/location/Location;
 
     invoke-virtual {v1}, Landroidx/camera/view/video/Metadata;->getLocation()Landroid/location/Location;
@@ -114,17 +114,17 @@
 
     move-result v0
 
-    :goto_0
+    :goto_23
     return v0
 
     .line 40
     .end local v1    # "that":Landroidx/camera/view/video/Metadata;
-    :cond_3
+    :cond_24
     return v2
 .end method
 
 .method public getLocation()Landroid/location/Location;
-    .locals 1
+    .registers 2
 
     .line 21
     iget-object v0, p0, Landroidx/camera/view/video/AutoValue_Metadata;->location:Landroid/location/Location;
@@ -133,7 +133,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 45
     const/4 v0, 0x1
@@ -147,20 +147,20 @@
     .line 47
     iget-object v1, p0, Landroidx/camera/view/video/AutoValue_Metadata;->location:Landroid/location/Location;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_c
     iget-object v1, p0, Landroidx/camera/view/video/AutoValue_Metadata;->location:Landroid/location/Location;
 
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    :goto_0
+    :goto_12
     xor-int/2addr v0, v1
 
     .line 48
@@ -168,7 +168,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 26
     new-instance v0, Ljava/lang/StringBuilder;

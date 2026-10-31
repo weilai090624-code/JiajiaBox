@@ -352,7 +352,7 @@
 
     if-eqz v1, :cond_c8
 
-    const/high16 v0, 0x41d00000    # 26.0f
+    const/high16 v0, 0x41b00000    # 22.0f
 
     .line 58
     invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/CardLight;->bind(Landroid/view/View;F)V

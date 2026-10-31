@@ -30,7 +30,7 @@
 
 # direct methods
 .method private static final and(BB)B
-    .locals 1
+    .registers 3
     .param p0, "$this$and"    # B
     .param p1, "other"    # B
 
@@ -43,7 +43,7 @@
 .end method
 
 .method private static final and(SS)S
-    .locals 1
+    .registers 3
     .param p0, "$this$and"    # S
     .param p1, "other"    # S
 
@@ -56,7 +56,7 @@
 .end method
 
 .method private static final inv(B)B
-    .locals 1
+    .registers 2
     .param p0, "$this$inv"    # B
 
     .line 26
@@ -68,7 +68,7 @@
 .end method
 
 .method private static final inv(S)S
-    .locals 1
+    .registers 2
     .param p0, "$this$inv"    # S
 
     .line 47
@@ -80,7 +80,7 @@
 .end method
 
 .method private static final or(BB)B
-    .locals 1
+    .registers 3
     .param p0, "$this$or"    # B
     .param p1, "other"    # B
 
@@ -93,7 +93,7 @@
 .end method
 
 .method private static final or(SS)S
-    .locals 1
+    .registers 3
     .param p0, "$this$or"    # S
     .param p1, "other"    # S
 
@@ -106,7 +106,7 @@
 .end method
 
 .method private static final xor(BB)B
-    .locals 1
+    .registers 3
     .param p0, "$this$xor"    # B
     .param p1, "other"    # B
 
@@ -119,7 +119,7 @@
 .end method
 
 .method private static final xor(SS)S
-    .locals 1
+    .registers 3
     .param p0, "$this$xor"    # S
     .param p1, "other"    # S
 

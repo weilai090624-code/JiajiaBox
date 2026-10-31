@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(IIJJ)V
-    .locals 0
+    .registers 7
     .param p1, "schema"    # I
     .param p2, "resultCode"    # I
     .param p3, "packageLastUpdateTime"    # J
@@ -56,7 +56,7 @@
 .end method
 
 .method static readFromFile(Ljava/io/File;)Landroidx/profileinstaller/ProfileVerifier$Cache;
-    .locals 9
+    .registers 10
     .param p0, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -75,7 +75,7 @@
 
     .line 397
     .local v0, "dis":Ljava/io/DataInputStream;
-    :try_start_0
+    :try_start_a
     new-instance v8, Landroidx/profileinstaller/ProfileVerifier$Cache;
 
     .line 398
@@ -101,8 +101,8 @@
     move-object v1, v8
 
     invoke-direct/range {v1 .. v7}, Landroidx/profileinstaller/ProfileVerifier$Cache;-><init>(IIJJ)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_a .. :try_end_20} :catchall_24
 
     .line 403
     invoke-virtual {v0}, Ljava/io/DataInputStream;->close()V
@@ -111,52 +111,52 @@
     return-object v8
 
     .line 396
-    :catchall_0
+    :catchall_24
     move-exception v1
 
-    :try_start_1
+    :try_start_25
     invoke-virtual {v0}, Ljava/io/DataInputStream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_28
+    .catchall {:try_start_25 .. :try_end_28} :catchall_29
 
-    goto :goto_0
+    goto :goto_2d
 
-    :catchall_1
+    :catchall_29
     move-exception v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_0
+    :goto_2d
     throw v1
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 366
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 367
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2e
 
     instance-of v2, p1, Landroidx/profileinstaller/ProfileVerifier$Cache;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_c
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 368
-    :cond_1
+    :cond_c
     move-object v2, p1
 
     check-cast v2, Landroidx/profileinstaller/ProfileVerifier$Cache;
@@ -167,7 +167,7 @@
 
     iget v4, v2, Landroidx/profileinstaller/ProfileVerifier$Cache;->mResultCode:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_2c
 
     iget-wide v3, p0, Landroidx/profileinstaller/ProfileVerifier$Cache;->mPackageLastUpdateTime:J
 
@@ -175,13 +175,13 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_2c
 
     iget v3, p0, Landroidx/profileinstaller/ProfileVerifier$Cache;->mSchema:I
 
     iget v4, v2, Landroidx/profileinstaller/ProfileVerifier$Cache;->mSchema:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_2c
 
     iget-wide v3, p0, Landroidx/profileinstaller/ProfileVerifier$Cache;->mInstalledCurrentProfileSize:J
 
@@ -189,25 +189,25 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_2c
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_2
+    :cond_2c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_2d
     return v0
 
     .line 367
     .end local v2    # "cacheFile":Landroidx/profileinstaller/ProfileVerifier$Cache;
-    :cond_3
-    :goto_1
+    :cond_2e
+    :goto_2e
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .registers 7
 
     .line 377
     iget v0, p0, Landroidx/profileinstaller/ProfileVerifier$Cache;->mResultCode:I
@@ -267,7 +267,7 @@
 .end method
 
 .method writeOnFile(Ljava/io/File;)V
-    .locals 3
+    .registers 5
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -289,7 +289,7 @@
 
     .line 388
     .local v0, "dos":Ljava/io/DataOutputStream;
-    :try_start_0
+    :try_start_d
     iget v1, p0, Landroidx/profileinstaller/ProfileVerifier$Cache;->mSchema:I
 
     invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeInt(I)V
@@ -308,8 +308,8 @@
     iget-wide v1, p0, Landroidx/profileinstaller/ProfileVerifier$Cache;->mInstalledCurrentProfileSize:J
 
     invoke-virtual {v0, v1, v2}, Ljava/io/DataOutputStream;->writeLong(J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_d .. :try_end_21} :catchall_25
 
     .line 392
     invoke-virtual {v0}, Ljava/io/DataOutputStream;->close()V
@@ -320,21 +320,21 @@
 
     .line 387
     .restart local v0    # "dos":Ljava/io/DataOutputStream;
-    :catchall_0
+    :catchall_25
     move-exception v1
 
-    :try_start_1
+    :try_start_26
     invoke-virtual {v0}, Ljava/io/DataOutputStream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_29
+    .catchall {:try_start_26 .. :try_end_29} :catchall_2a
 
-    goto :goto_0
+    goto :goto_2e
 
-    :catchall_1
+    :catchall_2a
     move-exception v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_0
+    :goto_2e
     throw v1
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AlertController;Landroid/view/View;Landroid/view/View;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/appcompat/app/AlertController;
 
     .line 608
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onScroll(Landroid/widget/AbsListView;III)V
-    .locals 2
+    .registers 7
     .param p1, "v"    # Landroid/widget/AbsListView;
     .param p2, "firstVisibleItem"    # I
     .param p3, "visibleItemCount"    # I
@@ -63,7 +63,7 @@
 .end method
 
 .method public onScrollStateChanged(Landroid/widget/AbsListView;I)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Landroid/widget/AbsListView;
     .param p2, "scrollState"    # I
 

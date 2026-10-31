@@ -77,7 +77,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/collections/builders/SerializedCollection$Companion;
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 679
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
@@ -108,7 +108,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Collection;I)V
-    .locals 1
+    .registers 4
     .param p1, "collection"    # Ljava/util/Collection;
     .param p2, "tag"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -137,7 +137,7 @@
 .end method
 
 .method private final readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 710
     iget-object v0, p0, Lkotlin/collections/builders/SerializedCollection;->collection:Ljava/util/Collection;
@@ -148,7 +148,7 @@
 
 # virtual methods
 .method public readExternal(Ljava/io/ObjectInput;)V
-    .locals 11
+    .registers 13
     .param p1, "input"    # Ljava/io/ObjectInput;
 
     const-string v0, "input"
@@ -172,7 +172,7 @@
     .local v2, "other":I
     const/16 v3, 0x2e
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_91
 
     .line 696
     invoke-interface {p1}, Ljava/io/ObjectInput;->readInt()I
@@ -181,12 +181,12 @@
 
     .line 697
     .local v4, "size":I
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_74
 
     .line 698
     const/4 v5, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_ae
 
     .line 706
     new-instance v5, Ljava/io/InvalidObjectException;
@@ -218,7 +218,7 @@
     throw v5
 
     .line 702
-    :pswitch_0
+    :pswitch_38
     invoke-static {v4}, Lkotlin/collections/SetsKt;->createSetBuilder(I)Ljava/util/Set;
 
     move-result-object v3
@@ -232,8 +232,8 @@
     .local v7, "$i$a$-buildSet-SerializedCollection$readExternal$2":I
     nop
 
-    :goto_0
-    if-ge v5, v4, :cond_0
+    :goto_3f
+    if-ge v5, v4, :cond_4d
 
     move v8, v5
 
@@ -253,10 +253,10 @@
     .end local v9    # "$i$a$-repeat-SerializedCollection$readExternal$2$1":I
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 704
-    :cond_0
+    :cond_4d
     nop
 
     .line 702
@@ -268,10 +268,10 @@
 
     check-cast v3, Ljava/util/Collection;
 
-    goto :goto_2
+    goto :goto_71
 
     .line 699
-    :pswitch_1
+    :pswitch_55
     invoke-static {v4}, Lkotlin/collections/CollectionsKt;->createListBuilder(I)Ljava/util/List;
 
     move-result-object v3
@@ -285,8 +285,8 @@
     .local v7, "$i$a$-buildList-SerializedCollection$readExternal$1":I
     nop
 
-    :goto_1
-    if-ge v5, v4, :cond_1
+    :goto_5c
+    if-ge v5, v4, :cond_6a
 
     move v8, v5
 
@@ -306,10 +306,10 @@
     .end local v9    # "$i$a$-repeat-SerializedCollection$readExternal$1$1":I
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 701
-    :cond_1
+    :cond_6a
     nop
 
     .line 699
@@ -322,14 +322,14 @@
     check-cast v3, Ljava/util/Collection;
 
     .line 698
-    :goto_2
+    :goto_71
     iput-object v3, p0, Lkotlin/collections/builders/SerializedCollection;->collection:Ljava/util/Collection;
 
     .line 708
     return-void
 
     .line 697
-    :cond_2
+    :cond_74
     new-instance v5, Ljava/io/InvalidObjectException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -360,7 +360,7 @@
 
     .line 694
     .end local v4    # "size":I
-    :cond_3
+    :cond_91
     new-instance v4, Ljava/io/InvalidObjectException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -389,15 +389,15 @@
 
     throw v4
 
-    :pswitch_data_0
+    :pswitch_data_ae
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_55
+        :pswitch_38
     .end packed-switch
 .end method
 
 .method public writeExternal(Ljava/io/ObjectOutput;)V
-    .locals 2
+    .registers 4
     .param p1, "output"    # Ljava/io/ObjectOutput;
 
     const-string v0, "output"
@@ -425,12 +425,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_19
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -441,9 +441,9 @@
     invoke-interface {p1, v1}, Ljava/io/ObjectOutput;->writeObject(Ljava/lang/Object;)V
 
     .end local v1    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_19
 
     .line 687
-    :cond_0
+    :cond_27
     return-void
 .end method

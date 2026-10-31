@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 302
     new-instance v0, Lcom/google/common/util/concurrent/AbstractFuture$Failure;
@@ -43,7 +43,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p1, "exception"    # Ljava/lang/Throwable;
 
     .line 312

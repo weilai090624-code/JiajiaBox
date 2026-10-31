@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableList;I)V
-    .locals 1
+    .registers 4
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method protected get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

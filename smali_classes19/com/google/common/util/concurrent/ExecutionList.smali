@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 46
     const-class v0, Lcom/google/common/util/concurrent/ExecutionList;
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,21 +57,21 @@
 .end method
 
 .method private static executeListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 7
+    .registers 9
     .param p0, "runnable"    # Ljava/lang/Runnable;
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 143
     :try_start_0
     invoke-interface {p1, p0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_3} :catch_4
 
     .line 152
-    goto :goto_0
+    goto :goto_44
 
     .line 144
-    :catch_0
+    :catch_4
     move-exception v0
 
     .line 148
@@ -140,14 +140,14 @@
 
     .line 153
     .end local v0    # "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_44
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 5
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
@@ -165,10 +165,10 @@
     monitor-enter p0
 
     .line 80
-    :try_start_0
+    :try_start_b
     iget-boolean v0, p0, Lcom/google/common/util/concurrent/ExecutionList;->executed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 81
     new-instance v0, Lcom/google/common/util/concurrent/ExecutionList$RunnableExecutorPair;
@@ -185,10 +185,10 @@
     return-void
 
     .line 84
-    :cond_0
+    :cond_1a
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_b .. :try_end_1b} :catchall_1f
 
     .line 89
     invoke-static {p1, p2}, Lcom/google/common/util/concurrent/ExecutionList;->executeListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
@@ -197,28 +197,28 @@
     return-void
 
     .line 84
-    :catchall_0
+    :catchall_1f
     move-exception v0
 
-    :try_start_1
+    :try_start_20
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_21
+    .catchall {:try_start_20 .. :try_end_21} :catchall_1f
 
     throw v0
 .end method
 
 .method public execute()V
-    .locals 4
+    .registers 5
 
     .line 107
     monitor-enter p0
 
     .line 108
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lcom/google/common/util/concurrent/ExecutionList;->executed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 109
     monitor-exit p0
@@ -226,7 +226,7 @@
     return-void
 
     .line 111
-    :cond_0
+    :cond_7
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/common/util/concurrent/ExecutionList;->executed:Z
@@ -242,16 +242,16 @@
 
     .line 114
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_1 .. :try_end_10} :catchall_27
 
     .line 124
     const/4 v1, 0x0
 
     .line 125
     .local v1, "reversedList":Lcom/google/common/util/concurrent/ExecutionList$RunnableExecutorPair;
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_11
+    if-eqz v0, :cond_1a
 
     .line 126
     move-object v2, v0
@@ -268,12 +268,12 @@
 
     .line 130
     .end local v2    # "tmp":Lcom/google/common/util/concurrent/ExecutionList$RunnableExecutorPair;
-    goto :goto_0
+    goto :goto_11
 
     .line 131
-    :cond_1
-    :goto_1
-    if-eqz v1, :cond_2
+    :cond_1a
+    :goto_1a
+    if-eqz v1, :cond_26
 
     .line 132
     iget-object v2, v1, Lcom/google/common/util/concurrent/ExecutionList$RunnableExecutorPair;->runnable:Ljava/lang/Runnable;
@@ -285,22 +285,22 @@
     .line 133
     iget-object v1, v1, Lcom/google/common/util/concurrent/ExecutionList$RunnableExecutorPair;->next:Lcom/google/common/util/concurrent/ExecutionList$RunnableExecutorPair;
 
-    goto :goto_1
+    goto :goto_1a
 
     .line 135
-    :cond_2
+    :cond_26
     return-void
 
     .line 114
     .end local v0    # "list":Lcom/google/common/util/concurrent/ExecutionList$RunnableExecutorPair;
     .end local v1    # "reversedList":Lcom/google/common/util/concurrent/ExecutionList$RunnableExecutorPair;
-    :catchall_0
+    :catchall_27
     move-exception v0
 
-    :try_start_1
+    :try_start_28
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_29
+    .catchall {:try_start_28 .. :try_end_29} :catchall_27
 
     throw v0
 .end method

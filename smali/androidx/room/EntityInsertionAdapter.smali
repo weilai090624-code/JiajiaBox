@@ -67,7 +67,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/RoomDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "database"    # Landroidx/room/RoomDatabase;
 
     const-string v0, "database"
@@ -93,7 +93,7 @@
 .end method
 
 .method public final insert(Ljava/lang/Iterable;)V
-    .locals 7
+    .registers 9
     .param p1, "entities"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -124,17 +124,17 @@
 
     .line 232
     .local v2, "$i$f$forEach":I
-    :try_start_0
+    :try_start_c
     invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_0
+    :goto_10
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_25
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -152,8 +152,8 @@
 
     .line 84
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeInsert()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_c .. :try_end_22} :catchall_2b
 
     .line 85
     nop
@@ -164,10 +164,10 @@
     nop
 
     .end local v4    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_10
 
     .line 233
-    :cond_0
+    :cond_25
     nop
 
     .line 87
@@ -182,7 +182,7 @@
     return-void
 
     .line 87
-    :catchall_0
+    :catchall_2b
     move-exception v1
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -191,7 +191,7 @@
 .end method
 
 .method public final insert(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "entity"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -209,13 +209,13 @@
     nop
 
     .line 50
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0, v0, p1}, Landroidx/room/EntityInsertionAdapter;->bind(Landroidx/sqlite/db/SupportSQLiteStatement;Ljava/lang/Object;)V
 
     .line 51
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeInsert()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_5 .. :try_end_b} :catchall_10
 
     .line 53
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -227,7 +227,7 @@
     return-void
 
     .line 53
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -236,7 +236,7 @@
 .end method
 
 .method public final insert([Ljava/lang/Object;)V
-    .locals 8
+    .registers 10
     .param p1, "entities"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -265,13 +265,13 @@
 
     .line 230
     .local v2, "$i$f$forEach":I
-    :try_start_0
+    :try_start_c
     array-length v3, v1
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_0
+    :goto_e
+    if-ge v4, v3, :cond_1f
 
     aget-object v5, v1, v4
 
@@ -287,8 +287,8 @@
 
     .line 67
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeInsert()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_c .. :try_end_1a} :catchall_25
 
     .line 68
     nop
@@ -301,10 +301,10 @@
     .end local v5    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 231
-    :cond_0
+    :cond_1f
     nop
 
     .line 70
@@ -319,7 +319,7 @@
     return-void
 
     .line 70
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -328,7 +328,7 @@
 .end method
 
 .method public final insertAndReturnId(Ljava/lang/Object;)J
-    .locals 3
+    .registers 5
     .param p1, "entity"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -346,15 +346,15 @@
     nop
 
     .line 100
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0, v0, p1}, Landroidx/room/EntityInsertionAdapter;->bind(Landroidx/sqlite/db/SupportSQLiteStatement;Ljava/lang/Object;)V
 
     .line 101
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeInsert()J
 
     move-result-wide v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_5 .. :try_end_c} :catchall_11
 
     .line 103
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -366,7 +366,7 @@
     return-wide v1
 
     .line 103
-    :catchall_0
+    :catchall_11
     move-exception v1
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -375,7 +375,7 @@
 .end method
 
 .method public final insertAndReturnIdsArray(Ljava/util/Collection;)[J
-    .locals 12
+    .registers 14
     .param p1, "entities"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -399,7 +399,7 @@
     nop
 
     .line 116
-    :try_start_0
+    :try_start_a
     invoke-interface {p1}, Ljava/util/Collection;->size()I
 
     move-result v1
@@ -425,12 +425,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_19
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_38
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -441,12 +441,12 @@
 
     .end local v4    # "index$iv":I
     .local v7, "index$iv":I
-    if-gez v4, :cond_0
+    if-gez v4, :cond_2a
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
     .local v4, "index":I
-    :cond_0
+    :cond_2a
     move-object v8, v6
 
     .local v8, "entity":Ljava/lang/Object;
@@ -462,8 +462,8 @@
     move-result-wide v10
 
     aput-wide v10, v1, v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_35
+    .catchall {:try_start_a .. :try_end_35} :catchall_3f
 
     .line 120
     nop
@@ -475,12 +475,12 @@
     move v4, v7
 
     .end local v6    # "item$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_19
 
     .line 236
     .end local v7    # "index$iv":I
     .local v4, "index$iv":I
-    :cond_1
+    :cond_38
     nop
 
     .line 121
@@ -500,7 +500,7 @@
     return-object v1
 
     .line 123
-    :catchall_0
+    :catchall_3f
     move-exception v1
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -509,7 +509,7 @@
 .end method
 
 .method public final insertAndReturnIdsArray([Ljava/lang/Object;)[J
-    .locals 13
+    .registers 15
     .param p1, "entities"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -531,7 +531,7 @@
     nop
 
     .line 136
-    :try_start_0
+    :try_start_a
     array-length v1, p1
 
     new-array v1, v1, [J
@@ -553,8 +553,8 @@
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-ge v6, v5, :cond_0
+    :goto_12
+    if-ge v6, v5, :cond_29
 
     aget-object v7, v2, v6
 
@@ -578,8 +578,8 @@
     move-result-wide v11
 
     aput-wide v11, v1, v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_a .. :try_end_23} :catchall_30
 
     .line 140
     nop
@@ -595,12 +595,12 @@
 
     move v4, v8
 
-    goto :goto_0
+    goto :goto_12
 
     .line 239
     .end local v8    # "index$iv":I
     .local v4, "index$iv":I
-    :cond_0
+    :cond_29
     nop
 
     .line 141
@@ -620,7 +620,7 @@
     return-object v1
 
     .line 143
-    :catchall_0
+    :catchall_30
     move-exception v1
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -629,7 +629,7 @@
 .end method
 
 .method public final insertAndReturnIdsArrayBox(Ljava/util/Collection;)[Ljava/lang/Long;
-    .locals 8
+    .registers 10
     .param p1, "entities"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -660,7 +660,7 @@
     nop
 
     .line 157
-    :try_start_0
+    :try_start_e
     invoke-interface {p1}, Ljava/util/Collection;->size()I
 
     move-result v2
@@ -669,8 +669,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_15
+    if-ge v4, v2, :cond_2b
 
     .line 158
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -692,15 +692,15 @@
     move-result-object v5
 
     aput-object v5, v3, v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_e .. :try_end_28} :catchall_32
 
     add-int/lit8 v4, v4, 0x1
 
     .line 157
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_2b
     move-object v2, v3
 
     .line 162
@@ -718,7 +718,7 @@
     return-object v2
 
     .line 164
-    :catchall_0
+    :catchall_32
     move-exception v2
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -727,7 +727,7 @@
 .end method
 
 .method public final insertAndReturnIdsArrayBox([Ljava/lang/Object;)[Ljava/lang/Long;
-    .locals 8
+    .registers 10
     .param p1, "entities"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -756,15 +756,15 @@
     nop
 
     .line 178
-    :try_start_0
+    :try_start_e
     array-length v2, p1
 
     new-array v3, v2, [Ljava/lang/Long;
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_12
+    if-ge v4, v2, :cond_28
 
     .line 179
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -786,15 +786,15 @@
     move-result-object v5
 
     aput-object v5, v3, v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catchall {:try_start_e .. :try_end_25} :catchall_2f
 
     add-int/lit8 v4, v4, 0x1
 
     .line 178
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_28
     move-object v2, v3
 
     .line 183
@@ -812,7 +812,7 @@
     return-object v2
 
     .line 185
-    :catchall_0
+    :catchall_2f
     move-exception v2
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -821,7 +821,7 @@
 .end method
 
 .method public final insertAndReturnIdsList(Ljava/util/Collection;)Ljava/util/List;
-    .locals 12
+    .registers 14
     .param p1, "entities"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -848,7 +848,7 @@
     nop
 
     .line 218
-    :try_start_0
+    :try_start_a
     invoke-static {}, Lkotlin/collections/CollectionsKt;->createListBuilder()Ljava/util/List;
 
     move-result-object v1
@@ -873,12 +873,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_18
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_35
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -914,10 +914,10 @@
     nop
 
     .end local v7    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_18
 
     .line 243
-    :cond_0
+    :cond_35
     nop
 
     .line 223
@@ -931,8 +931,8 @@
     invoke-static {v1}, Lkotlin/collections/CollectionsKt;->build(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3b
+    .catchall {:try_start_a .. :try_end_3b} :catchall_40
 
     .line 225
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -944,7 +944,7 @@
     return-object v1
 
     .line 225
-    :catchall_0
+    :catchall_40
     move-exception v1
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -953,7 +953,7 @@
 .end method
 
 .method public final insertAndReturnIdsList([Ljava/lang/Object;)Ljava/util/List;
-    .locals 13
+    .registers 15
     .param p1, "entities"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -978,7 +978,7 @@
     nop
 
     .line 198
-    :try_start_0
+    :try_start_a
     invoke-static {}, Lkotlin/collections/CollectionsKt;->createListBuilder()Ljava/util/List;
 
     move-result-object v1
@@ -1001,8 +1001,8 @@
 
     const/4 v7, 0x0
 
-    :goto_0
-    if-ge v7, v6, :cond_0
+    :goto_14
+    if-ge v7, v6, :cond_2d
 
     aget-object v8, v4, v7
 
@@ -1038,10 +1038,10 @@
     .end local v8    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 241
-    :cond_0
+    :cond_2d
     nop
 
     .line 203
@@ -1055,8 +1055,8 @@
     invoke-static {v1}, Lkotlin/collections/CollectionsKt;->build(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catchall {:try_start_a .. :try_end_33} :catchall_38
 
     .line 205
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -1068,7 +1068,7 @@
     return-object v1
 
     .line 205
-    :catchall_0
+    :catchall_38
     move-exception v1
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityInsertionAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V

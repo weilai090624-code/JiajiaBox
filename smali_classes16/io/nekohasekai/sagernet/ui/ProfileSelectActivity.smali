@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/ProfileSelectActivity$Companion;
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 8
     const v0, 0x7f0d0043
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 5
+    .registers 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 17
@@ -138,7 +138,7 @@
 .end method
 
 .method public returnProfile(J)V
-    .locals 4
+    .registers 7
     .param p1, "profileId"    # J
 
     .line 30

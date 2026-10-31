@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/ImmutableMultiset;)V
-    .locals 0
+    .registers 2
 
     .line 327
     .local p0, "this":Lcom/google/common/collect/ImmutableMultiset$EntrySet;, "Lcom/google/common/collect/ImmutableMultiset<TE;>.EntrySet;"
@@ -44,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ImmutableMultiset;Lcom/google/common/collect/ImmutableMultiset$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/ImmutableMultiset;
     .param p2, "x1"    # Lcom/google/common/collect/ImmutableMultiset$1;
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -70,7 +70,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     .line 346
     move-object v0, p1
@@ -83,13 +83,13 @@
 
     move-result v2
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_f
 
     .line 348
     return v1
 
     .line 350
-    :cond_0
+    :cond_f
     iget-object v2, p0, Lcom/google/common/collect/ImmutableMultiset$EntrySet;->this$0:Lcom/google/common/collect/ImmutableMultiset;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multiset$Entry;->getElement()Ljava/lang/Object;
@@ -106,22 +106,22 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_20
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_20
     return v1
 
     .line 353
     .end local v0    # "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
     .end local v2    # "count":I
-    :cond_2
+    :cond_21
     return v1
 .end method
 
 .method get(I)Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -143,7 +143,7 @@
 .end method
 
 .method bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 326
     .local p0, "this":Lcom/google/common/collect/ImmutableMultiset$EntrySet;, "Lcom/google/common/collect/ImmutableMultiset<TE;>.EntrySet;"
@@ -155,7 +155,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 358
     .local p0, "this":Lcom/google/common/collect/ImmutableMultiset$EntrySet;, "Lcom/google/common/collect/ImmutableMultiset<TE;>.EntrySet;"
@@ -169,7 +169,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 330
     .local p0, "this":Lcom/google/common/collect/ImmutableMultiset$EntrySet;, "Lcom/google/common/collect/ImmutableMultiset<TE;>.EntrySet;"
@@ -183,7 +183,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 340
     .local p0, "this":Lcom/google/common/collect/ImmutableMultiset$EntrySet;, "Lcom/google/common/collect/ImmutableMultiset<TE;>.EntrySet;"
@@ -201,7 +201,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 364
     .local p0, "this":Lcom/google/common/collect/ImmutableMultiset$EntrySet;, "Lcom/google/common/collect/ImmutableMultiset<TE;>.EntrySet;"

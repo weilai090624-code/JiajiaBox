@@ -2159,7 +2159,6 @@
         <item name="listPreferredItemPaddingRight">24.0dip</item>
         <item name="windowActionBar">false</item>
         <item name="windowActionModeOverlay">true</item>
-        <item name="windowFixedHeightMajor">@null</item>
         <item name="windowFixedHeightMinor">@null</item>
         <item name="windowFixedWidthMajor">@null</item>
         <item name="windowFixedWidthMinor">@null</item>
@@ -3905,7 +3904,6 @@
         <item name="whiteOrTextPrimary">@color/white</item>
         <item name="windowActionBar">false</item>
         <item name="windowActionModeOverlay">true</item>
-        <item name="windowFixedHeightMajor">95.00001%</item>
         <item name="windowNoTitle">true</item>
     </style>
     <style name="Theme.SagerNet.Dialog.Amber" parent="@style/Theme.SagerNet.Dialog">
@@ -5549,7 +5547,7 @@
         <item name="defaultScrollFlagsEnabled">true</item>
         <item name="elevation">@dimen/m3_searchbar_elevation</item>
         <item name="enforceMaterialTheme">true</item>
-        <item name="hideNavigationIcon">false</item>
+        <item name="iconSize">false</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Search</item>
         <item name="maxButtonHeight">@dimen/m3_searchbar_height</item>
         <item name="shapeAppearance">?shapeAppearanceMediumComponent</item>

@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Lcom/google/android/material/checkbox/MaterialCheckBox;Lcom/google/android/material/card/MaterialCardView;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputEditText;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputEditText;)V
-    .locals 0
+    .registers 8
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "deduplication"    # Lcom/google/android/material/checkbox/MaterialCheckBox;
     .param p3, "deduplicationCard"    # Lcom/google/android/material/card/MaterialCardView;
@@ -82,7 +82,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutEditGroupBinding;
-    .locals 17
+    .registers 18
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -108,7 +108,7 @@
 
     .line 85
     .local v2, "deduplication":Lcom/google/android/material/checkbox/MaterialCheckBox;
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_5f
 
     .line 89
     const v1, 0x7f0a00f2
@@ -124,7 +124,7 @@
 
     .line 91
     .local v11, "deduplicationCard":Lcom/google/android/material/card/MaterialCardView;
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_5e
 
     .line 95
     const v1, 0x7f0a0140
@@ -140,7 +140,7 @@
 
     .line 97
     .local v12, "groupLinksLayout":Lcom/google/android/material/textfield/TextInputLayout;
-    if-eqz v12, :cond_3
+    if-eqz v12, :cond_5d
 
     .line 101
     const v1, 0x7f0a0142
@@ -156,7 +156,7 @@
 
     .line 103
     .local v13, "groupName":Lcom/google/android/material/textfield/TextInputEditText;
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_5c
 
     .line 107
     const v1, 0x7f0a0143
@@ -172,7 +172,7 @@
 
     .line 109
     .local v14, "groupNameLayout":Lcom/google/android/material/textfield/TextInputLayout;
-    if-eqz v14, :cond_1
+    if-eqz v14, :cond_5b
 
     .line 113
     const v1, 0x7f0a0146
@@ -188,7 +188,7 @@
 
     .line 115
     .local v15, "groupSubscriptionLink":Lcom/google/android/material/textfield/TextInputEditText;
-    if-eqz v15, :cond_0
+    if-eqz v15, :cond_5a
 
     .line 119
     new-instance v16, Lio/nekohasekai/sagernet/databinding/LayoutEditGroupBinding;
@@ -216,37 +216,37 @@
     return-object v16
 
     .line 116
-    :cond_0
-    goto :goto_0
+    :cond_5a
+    goto :goto_60
 
     .line 110
     .end local v15    # "groupSubscriptionLink":Lcom/google/android/material/textfield/TextInputEditText;
-    :cond_1
-    goto :goto_0
+    :cond_5b
+    goto :goto_60
 
     .line 104
     .end local v14    # "groupNameLayout":Lcom/google/android/material/textfield/TextInputLayout;
-    :cond_2
-    goto :goto_0
+    :cond_5c
+    goto :goto_60
 
     .line 98
     .end local v13    # "groupName":Lcom/google/android/material/textfield/TextInputEditText;
-    :cond_3
-    goto :goto_0
+    :cond_5d
+    goto :goto_60
 
     .line 92
     .end local v12    # "groupLinksLayout":Lcom/google/android/material/textfield/TextInputLayout;
-    :cond_4
-    goto :goto_0
+    :cond_5e
+    goto :goto_60
 
     .line 86
     .end local v11    # "deduplicationCard":Lcom/google/android/material/card/MaterialCardView;
-    :cond_5
+    :cond_5f
     nop
 
     .line 122
     .end local v2    # "deduplication":Lcom/google/android/material/checkbox/MaterialCheckBox;
-    :goto_0
+    :goto_60
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -271,7 +271,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutEditGroupBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -295,7 +295,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutEditGroupBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -323,13 +323,13 @@
 
     .line 71
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 72
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 74
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutEditGroupBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutEditGroupBinding;
 
     move-result-object v1
@@ -340,7 +340,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 21
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutEditGroupBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -351,7 +351,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutEditGroupBinding;->rootView:Landroid/widget/LinearLayout;

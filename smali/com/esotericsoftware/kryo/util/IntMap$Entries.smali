@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/IntMap;)V
-    .locals 1
+    .registers 3
     .param p1, "map"    # Lcom/esotericsoftware/kryo/util/IntMap;
 
     .line 539
@@ -68,13 +68,13 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 560
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Entries;, "Lcom/esotericsoftware/kryo/util/IntMap$Entries<TV;>;"
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Entries;->valid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 561
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Entries;->hasNext:Z
@@ -82,7 +82,7 @@
     return v0
 
     .line 560
-    :cond_0
+    :cond_7
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
     const-string v1, "#iterator() cannot be used nested."
@@ -93,7 +93,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -109,7 +109,7 @@
 .end method
 
 .method public next()Lcom/esotericsoftware/kryo/util/IntMap$Entry;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -122,12 +122,12 @@
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Entries;, "Lcom/esotericsoftware/kryo/util/IntMap$Entries<TV;>;"
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Entries;->hasNext:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_45
 
     .line 545
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Entries;->valid:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3d
 
     .line 546
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Entries;->map:Lcom/esotericsoftware/kryo/util/IntMap;
@@ -140,7 +140,7 @@
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1f
 
     .line 548
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Entries;->entry:Lcom/esotericsoftware/kryo/util/IntMap$Entry;
@@ -158,10 +158,10 @@
 
     iput-object v2, v1, Lcom/esotericsoftware/kryo/util/IntMap$Entry;->value:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_33
 
     .line 551
-    :cond_0
+    :cond_1f
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Entries;->entry:Lcom/esotericsoftware/kryo/util/IntMap$Entry;
 
     iget v2, p0, Lcom/esotericsoftware/kryo/util/IntMap$Entries;->nextIndex:I
@@ -184,7 +184,7 @@
     iput-object v2, v1, Lcom/esotericsoftware/kryo/util/IntMap$Entry;->value:Ljava/lang/Object;
 
     .line 554
-    :goto_0
+    :goto_33
     iget v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Entries;->nextIndex:I
 
     iput v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Entries;->currentIndex:I
@@ -199,7 +199,7 @@
 
     .line 545
     .end local v0    # "keyTable":[I
-    :cond_1
+    :cond_3d
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
     const-string v1, "#iterator() cannot be used nested."
@@ -209,7 +209,7 @@
     throw v0
 
     .line 544
-    :cond_2
+    :cond_45
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -218,7 +218,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 535
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Entries;, "Lcom/esotericsoftware/kryo/util/IntMap$Entries<TV;>;"
@@ -230,7 +230,7 @@
 .end method
 
 .method public bridge synthetic remove()V
-    .locals 0
+    .registers 1
 
     .line 535
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Entries;, "Lcom/esotericsoftware/kryo/util/IntMap$Entries<TV;>;"
@@ -240,7 +240,7 @@
 .end method
 
 .method public bridge synthetic reset()V
-    .locals 0
+    .registers 1
 
     .line 535
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Entries;, "Lcom/esotericsoftware/kryo/util/IntMap$Entries<TV;>;"

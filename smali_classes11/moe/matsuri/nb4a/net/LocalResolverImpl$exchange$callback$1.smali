@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Llibcore/ExchangeContext;)V
-    .locals 0
+    .registers 2
     .param p1, "$ctx"    # Llibcore/ExchangeContext;
 
     iput-object p1, p0, Lmoe/matsuri/nb4a/net/LocalResolverImpl$exchange$callback$1;->$ctx:Llibcore/ExchangeContext;
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public bridge synthetic onAnswer(Ljava/lang/Object;I)V
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # I
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public onAnswer([BI)V
-    .locals 1
+    .registers 4
     .param p1, "answer"    # [B
     .param p2, "rcode"    # I
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public onError(Landroid/net/DnsResolver$DnsException;)V
-    .locals 3
+    .registers 5
     .param p1, "error"    # Landroid/net/DnsResolver$DnsException;
 
     const-string v0, "error"
@@ -121,7 +121,7 @@
     .local v0, "cause":Ljava/lang/Throwable;
     instance-of v1, v0, Landroid/system/ErrnoException;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 48
     iget-object v1, p0, Lmoe/matsuri/nb4a/net/LocalResolverImpl$exchange$callback$1;->$ctx:Llibcore/ExchangeContext;
@@ -134,10 +134,10 @@
 
     invoke-virtual {v1, v2}, Llibcore/ExchangeContext;->errnoCode(I)V
 
-    goto :goto_0
+    goto :goto_28
 
     .line 50
-    :cond_0
+    :cond_18
     sget-object v1, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v2, p1
@@ -154,6 +154,6 @@
     invoke-virtual {v1, v2}, Llibcore/ExchangeContext;->errnoCode(I)V
 
     .line 53
-    :goto_0
+    :goto_28
     return-void
 .end method

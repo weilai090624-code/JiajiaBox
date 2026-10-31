@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 191
     iput-object p1, p0, Landroidx/browser/customtabs/CustomTabsClient$1;->val$applicationContext:Landroid/content/Context;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public final onCustomTabsServiceConnected(Landroid/content/ComponentName;Landroidx/browser/customtabs/CustomTabsClient;)V
-    .locals 2
+    .registers 5
     .param p1, "name"    # Landroid/content/ComponentName;
     .param p2, "client"    # Landroidx/browser/customtabs/CustomTabsClient;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 0
+    .registers 2
     .param p1, "componentName"    # Landroid/content/ComponentName;
 
     .line 203

@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Equivalence;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -122,7 +122,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -132,18 +132,18 @@
     .local p0, "this":Lcom/google/common/base/Equivalence$EquivalentToPredicate;, "Lcom/google/common/base/Equivalence$EquivalentToPredicate<TT;>;"
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 285
     return v0
 
     .line 287
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/base/Equivalence$EquivalentToPredicate;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_23
 
     .line 288
     move-object v1, p1
@@ -160,7 +160,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_21
 
     iget-object v3, p0, Lcom/google/common/base/Equivalence$EquivalentToPredicate;->target:Ljava/lang/Object;
 
@@ -170,24 +170,24 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_21
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_22
     return v0
 
     .line 291
     .end local v1    # "that":Lcom/google/common/base/Equivalence$EquivalentToPredicate;, "Lcom/google/common/base/Equivalence$EquivalentToPredicate<*>;"
-    :cond_2
+    :cond_23
     return v2
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 296
     .local p0, "this":Lcom/google/common/base/Equivalence$EquivalentToPredicate;, "Lcom/google/common/base/Equivalence$EquivalentToPredicate<TT;>;"
@@ -215,7 +215,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 301
     .local p0, "this":Lcom/google/common/base/Equivalence$EquivalentToPredicate;, "Lcom/google/common/base/Equivalence$EquivalentToPredicate<TT;>;"

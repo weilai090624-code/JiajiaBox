@@ -54,7 +54,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -86,7 +86,7 @@
 .end method
 
 .method static create(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/MapDifference$ValueDifference;
-    .locals 1
+    .registers 3
     .param p0    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -130,7 +130,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 692
     move-object v0, p1
@@ -149,7 +149,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     iget-object v2, p0, Lcom/google/common/collect/Maps$ValueDifferenceImpl;->right:Ljava/lang/Object;
 
@@ -162,27 +162,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     nop
 
     .line 693
-    :goto_0
+    :goto_23
     return v1
 
     .line 696
     .end local v0    # "that":Lcom/google/common/collect/MapDifference$ValueDifference;, "Lcom/google/common/collect/MapDifference$ValueDifference<*>;"
-    :cond_1
+    :cond_24
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 701
     .local p0, "this":Lcom/google/common/collect/Maps$ValueDifferenceImpl;, "Lcom/google/common/collect/Maps$ValueDifferenceImpl<TV;>;"
@@ -210,7 +210,7 @@
 .end method
 
 .method public leftValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -228,7 +228,7 @@
 .end method
 
 .method public rightValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -246,7 +246,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 706
     .local p0, "this":Lcom/google/common/collect/Maps$ValueDifferenceImpl;, "Lcom/google/common/collect/Maps$ValueDifferenceImpl<TV;>;"

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Method;)V
-    .locals 1
+    .registers 3
     .param p1, "method"    # Ljava/lang/reflect/Method;
 
     .line 251
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -72,7 +72,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 264
     move-object v0, p1
@@ -89,7 +89,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     iget-object v2, p0, Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;->parameterTypes:Ljava/util/List;
 
@@ -99,21 +99,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_1d
     return v1
 
     .line 267
     .end local v0    # "ident":Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;
-    :cond_1
+    :cond_1e
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 258
     iget-object v0, p0, Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;->name:Ljava/lang/String;

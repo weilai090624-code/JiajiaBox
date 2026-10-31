@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 6
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
@@ -52,7 +52,7 @@
 .end method
 
 .method public static final dp2px(I)I
-    .locals 2
+    .registers 3
     .param p0, "dpValue"    # I
 
     .line 13
@@ -74,7 +74,7 @@
 .end method
 
 .method public static final dp2pxf(I)F
-    .locals 2
+    .registers 3
     .param p0, "dpValue"    # I
 
     .line 9

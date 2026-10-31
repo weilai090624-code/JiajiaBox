@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/text/MatchResult;)V
-    .locals 1
+    .registers 3
     .param p1, "match"    # Lkotlin/text/MatchResult;
 
     const-string v0, "match"
@@ -72,7 +72,7 @@
 .end method
 
 .method private final component1()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 99
     invoke-virtual {p0}, Lkotlin/text/MatchResult$Destructured;->getMatch()Lkotlin/text/MatchResult;
@@ -95,7 +95,7 @@
 .end method
 
 .method private final component10()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 117
     invoke-virtual {p0}, Lkotlin/text/MatchResult$Destructured;->getMatch()Lkotlin/text/MatchResult;
@@ -118,7 +118,7 @@
 .end method
 
 .method private final component2()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 101
     invoke-virtual {p0}, Lkotlin/text/MatchResult$Destructured;->getMatch()Lkotlin/text/MatchResult;
@@ -141,7 +141,7 @@
 .end method
 
 .method private final component3()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 103
     invoke-virtual {p0}, Lkotlin/text/MatchResult$Destructured;->getMatch()Lkotlin/text/MatchResult;
@@ -164,7 +164,7 @@
 .end method
 
 .method private final component4()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 105
     invoke-virtual {p0}, Lkotlin/text/MatchResult$Destructured;->getMatch()Lkotlin/text/MatchResult;
@@ -187,7 +187,7 @@
 .end method
 
 .method private final component5()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 107
     invoke-virtual {p0}, Lkotlin/text/MatchResult$Destructured;->getMatch()Lkotlin/text/MatchResult;
@@ -210,7 +210,7 @@
 .end method
 
 .method private final component6()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 109
     invoke-virtual {p0}, Lkotlin/text/MatchResult$Destructured;->getMatch()Lkotlin/text/MatchResult;
@@ -233,7 +233,7 @@
 .end method
 
 .method private final component7()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 111
     invoke-virtual {p0}, Lkotlin/text/MatchResult$Destructured;->getMatch()Lkotlin/text/MatchResult;
@@ -256,7 +256,7 @@
 .end method
 
 .method private final component8()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 113
     invoke-virtual {p0}, Lkotlin/text/MatchResult$Destructured;->getMatch()Lkotlin/text/MatchResult;
@@ -279,7 +279,7 @@
 .end method
 
 .method private final component9()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 115
     invoke-virtual {p0}, Lkotlin/text/MatchResult$Destructured;->getMatch()Lkotlin/text/MatchResult;
@@ -304,7 +304,7 @@
 
 # virtual methods
 .method public final getMatch()Lkotlin/text/MatchResult;
-    .locals 1
+    .registers 2
 
     .line 97
     iget-object v0, p0, Lkotlin/text/MatchResult$Destructured;->match:Lkotlin/text/MatchResult;
@@ -313,7 +313,7 @@
 .end method
 
 .method public final toList()Ljava/util/List;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZLorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/Boolean;)V
-    .locals 7
+    .registers 14
     .param p1, "anchor"    # Ljava/lang/String;
     .param p2, "tag"    # Ljava/lang/String;
     .param p3, "implicit"    # Z
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZLorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
-    .locals 2
+    .registers 9
     .param p1, "anchor"    # Ljava/lang/String;
     .param p2, "tag"    # Ljava/lang/String;
     .param p3, "implicit"    # Z
@@ -65,7 +65,7 @@
     iput-boolean p3, p0, Lorg/yaml/snakeyaml/events/CollectionStartEvent;->implicit:Z
 
     .line 37
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_c
 
     .line 38
     iput-object p6, p0, Lorg/yaml/snakeyaml/events/CollectionStartEvent;->flowStyle:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
@@ -74,7 +74,7 @@
     return-void
 
     .line 37
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Flow style must be provided."
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method protected getArguments()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 84
     new-instance v0, Ljava/lang/StringBuilder;
@@ -134,7 +134,7 @@
 .end method
 
 .method public getFlowStyle()Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
-    .locals 1
+    .registers 2
 
     .line 79
     iget-object v0, p0, Lorg/yaml/snakeyaml/events/CollectionStartEvent;->flowStyle:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
@@ -143,7 +143,7 @@
 .end method
 
 .method public getImplicit()Z
-    .locals 1
+    .registers 2
 
     .line 69
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/events/CollectionStartEvent;->implicit:Z
@@ -152,7 +152,7 @@
 .end method
 
 .method public getTag()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Lorg/yaml/snakeyaml/events/CollectionStartEvent;->tag:Ljava/lang/String;
@@ -161,22 +161,22 @@
 .end method
 
 .method public isFlow()Z
-    .locals 2
+    .registers 3
 
     .line 88
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->FLOW:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/events/CollectionStartEvent;->flowStyle:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method

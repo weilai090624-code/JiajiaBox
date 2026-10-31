@@ -67,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1248
     new-instance v0, Ljava/lang/Object;
@@ -80,7 +80,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -103,7 +103,7 @@
 .end method
 
 .method private constructor <init>(Lj$/util/Spliterator;Lj$/util/concurrent/ConcurrentHashMap;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,7 +133,7 @@
 .end method
 
 .method private mapNull(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
@@ -143,23 +143,23 @@
     .line 1275
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
     .local p1, "t":Ljava/lang/Object;, "TT;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_4
     sget-object v0, Lj$/util/stream/StreamSpliterators$DistinctSpliterator;->NULL_VALUE:Ljava/lang/Object;
 
-    :goto_0
+    :goto_6
     return-object v0
 .end method
 
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -176,7 +176,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -186,7 +186,7 @@
 .end method
 
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 1312
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
@@ -204,7 +204,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 2
+    .registers 3
 
     .line 1307
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
@@ -218,7 +218,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -243,7 +243,7 @@
 .end method
 
 .method public getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -264,7 +264,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -274,7 +274,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -284,7 +284,7 @@
 .end method
 
 .method synthetic lambda$forEachRemaining$0$java-util-stream-StreamSpliterators$DistinctSpliterator(Ljava/util/function/Consumer;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "action"    # Ljava/util/function/Consumer;
     .param p2, "t"    # Ljava/lang/Object;
 
@@ -302,18 +302,18 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 1294
     invoke-interface {p1, p2}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
     .line 1296
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -327,14 +327,14 @@
     .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$DistinctSpliterator;->s:Lj$/util/Spliterator;
 
     invoke-interface {v0, p0}, Lj$/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 1281
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$DistinctSpliterator;->seen:Lj$/util/concurrent/ConcurrentHashMap;
@@ -351,7 +351,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     .line 1282
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$DistinctSpliterator;->tmpSlot:Ljava/lang/Object;
@@ -369,14 +369,14 @@
     return v0
 
     .line 1287
-    :cond_1
+    :cond_23
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -395,7 +395,7 @@
 
     .line 1302
     .local v0, "split":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     new-instance v1, Lj$/util/stream/StreamSpliterators$DistinctSpliterator;
 
@@ -403,11 +403,11 @@
 
     invoke-direct {v1, v0, v2}, Lj$/util/stream/StreamSpliterators$DistinctSpliterator;-><init>(Lj$/util/Spliterator;Lj$/util/concurrent/ConcurrentHashMap;)V
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     return-object v1
 .end method

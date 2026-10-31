@@ -70,7 +70,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multiset;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -117,7 +117,7 @@
 .end method
 
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -139,7 +139,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -159,7 +159,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 175
     .local p0, "this":Lcom/google/common/collect/Multisets$UnmodifiableMultiset;, "Lcom/google/common/collect/Multisets$UnmodifiableMultiset<TE;>;"
@@ -171,7 +171,7 @@
 .end method
 
 .method createElementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -196,7 +196,7 @@
 .end method
 
 .method protected delegate()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -213,7 +213,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 93
     .local p0, "this":Lcom/google/common/collect/Multisets$UnmodifiableMultiset;, "Lcom/google/common/collect/Multisets$UnmodifiableMultiset<TE;>;"
@@ -225,7 +225,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 93
     .local p0, "this":Lcom/google/common/collect/Multisets$UnmodifiableMultiset;, "Lcom/google/common/collect/Multisets$UnmodifiableMultiset<TE;>;"
@@ -237,7 +237,7 @@
 .end method
 
 .method public elementSet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -252,7 +252,7 @@
 
     .line 117
     .local v0, "es":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$UnmodifiableMultiset;->createElementSet()Ljava/util/Set;
 
@@ -260,17 +260,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/Multisets$UnmodifiableMultiset;->elementSet:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -286,7 +286,7 @@
 
     .line 126
     .local v0, "es":Ljava/util/Set;, "Ljava/util/Set<Lcom/google/common/collect/Multiset$Entry<TE;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 129
     iget-object v1, p0, Lcom/google/common/collect/Multisets$UnmodifiableMultiset;->delegate:Lcom/google/common/collect/Multiset;
@@ -301,19 +301,19 @@
 
     iput-object v1, p0, Lcom/google/common/collect/Multisets$UnmodifiableMultiset;->entrySet:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_12
 
     .line 130
-    :cond_0
+    :cond_11
     move-object v1, v0
 
     .line 126
-    :goto_0
+    :goto_12
     return-object v1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -338,7 +338,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -355,7 +355,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -371,7 +371,7 @@
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -391,7 +391,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -411,7 +411,7 @@
 .end method
 
 .method public setCount(Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -434,7 +434,7 @@
 .end method
 
 .method public setCount(Ljava/lang/Object;II)Z
-    .locals 1
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

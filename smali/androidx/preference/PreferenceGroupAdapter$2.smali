@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/PreferenceGroupAdapter;Ljava/util/List;Ljava/util/List;Landroidx/preference/PreferenceManager$PreferenceComparisonCallback;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/preference/PreferenceGroupAdapter;
 
     .line 141
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public areContentsTheSame(II)Z
-    .locals 3
+    .registers 6
     .param p1, "oldItemPosition"    # I
     .param p2, "newItemPosition"    # I
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public areItemsTheSame(II)Z
-    .locals 3
+    .registers 6
     .param p1, "oldItemPosition"    # I
     .param p2, "newItemPosition"    # I
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public getNewListSize()I
-    .locals 1
+    .registers 2
 
     .line 149
     iget-object v0, p0, Landroidx/preference/PreferenceGroupAdapter$2;->val$visiblePreferenceList:Ljava/util/List;
@@ -127,7 +127,7 @@
 .end method
 
 .method public getOldListSize()I
-    .locals 1
+    .registers 2
 
     .line 144
     iget-object v0, p0, Landroidx/preference/PreferenceGroupAdapter$2;->val$oldVisibleList:Ljava/util/List;

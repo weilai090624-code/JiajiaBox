@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 53
     nop
@@ -124,7 +124,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 215
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -134,7 +134,7 @@
 .end method
 
 .method public static describePlatform()Ljava/lang/String;
-    .locals 3
+    .registers 3
 
     .line 86
     new-instance v0, Ljava/lang/StringBuilder;
@@ -221,7 +221,7 @@
     .local v0, "desc":Ljava/lang/String;
     sget v1, Lorg/objenesis/strategy/PlatformDescription;->ANDROID_VERSION:I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_6e
 
     .line 95
     new-instance v1, Ljava/lang/StringBuilder;
@@ -249,7 +249,7 @@
     move-result-object v0
 
     .line 97
-    :cond_0
+    :cond_6e
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -273,7 +273,7 @@
 .end method
 
 .method private static getAndroidVersion()I
-    .locals 1
+    .registers 1
 
     .line 165
     const-string v0, "Dalvik"
@@ -282,7 +282,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 166
     const/4 v0, 0x0
@@ -290,7 +290,7 @@
     return v0
 
     .line 168
-    :cond_0
+    :cond_a
     invoke-static {}, Lorg/objenesis/strategy/PlatformDescription;->getAndroidVersion0()I
 
     move-result v0
@@ -299,7 +299,7 @@
 .end method
 
 .method private static getAndroidVersion0()I
-    .locals 4
+    .registers 4
 
     .line 174
     :try_start_0
@@ -308,22 +308,22 @@
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
+    :try_end_6
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_6} :catch_28
 
     .line 178
     .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     nop
 
     .line 181
-    :try_start_1
+    :try_start_7
     const-string v1, "SDK_INT"
 
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_d
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_7 .. :try_end_d} :catch_22
 
     .line 186
     .local v1, "field":Ljava/lang/reflect/Field;
@@ -332,7 +332,7 @@
     .line 189
     const/4 v2, 0x0
 
-    :try_start_2
+    :try_start_f
     invoke-virtual {v1, v2}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
@@ -342,8 +342,8 @@
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
-    :try_end_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_19
+    .catch Ljava/lang/IllegalAccessException; {:try_start_f .. :try_end_19} :catch_1b
 
     .line 193
     .local v2, "version":I
@@ -354,7 +354,7 @@
 
     .line 191
     .end local v2    # "version":I
-    :catch_0
+    :catch_1b
     move-exception v2
 
     .line 192
@@ -368,7 +368,7 @@
     .line 183
     .end local v1    # "field":Ljava/lang/reflect/Field;
     .end local v2    # "e":Ljava/lang/IllegalAccessException;
-    :catch_1
+    :catch_22
     move-exception v1
 
     .line 185
@@ -382,7 +382,7 @@
     .line 176
     .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v1    # "e":Ljava/lang/NoSuchFieldException;
-    :catch_2
+    :catch_28
     move-exception v0
 
     .line 177
@@ -395,7 +395,7 @@
 .end method
 
 .method private static getGaeRuntimeVersion()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 161
     const-string v0, "com.google.appengine.runtime.version"
@@ -408,7 +408,7 @@
 .end method
 
 .method private static getIsAndroidOpenJDK()Z
-    .locals 4
+    .registers 4
 
     .line 124
     invoke-static {}, Lorg/objenesis/strategy/PlatformDescription;->getAndroidVersion()I
@@ -417,13 +417,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 125
     return v1
 
     .line 129
-    :cond_0
+    :cond_8
     const-string v0, "java.boot.class.path"
 
     invoke-static {v0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -432,7 +432,7 @@
 
     .line 130
     .local v0, "bootClasspath":Ljava/lang/String;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
@@ -444,16 +444,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1d
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_1d
     return v1
 .end method
 
 .method private static getOldAndroidVersion(Ljava/lang/Class;)I
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -470,8 +470,8 @@
     invoke-virtual {p0, v0}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_6} :catch_1b
 
     .line 204
     .local v0, "field":Ljava/lang/reflect/Field;
@@ -480,14 +480,14 @@
     .line 207
     const/4 v1, 0x0
 
-    :try_start_1
+    :try_start_8
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_e
+    .catch Ljava/lang/IllegalAccessException; {:try_start_8 .. :try_end_e} :catch_14
 
     .line 211
     .local v1, "version":Ljava/lang/String;
@@ -502,7 +502,7 @@
 
     .line 209
     .end local v1    # "version":Ljava/lang/String;
-    :catch_0
+    :catch_14
     move-exception v1
 
     .line 210
@@ -516,7 +516,7 @@
     .line 202
     .end local v0    # "field":Ljava/lang/reflect/Field;
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    :catch_1
+    :catch_1b
     move-exception v0
 
     .line 203
@@ -529,7 +529,7 @@
 .end method
 
 .method public static isAfterJava11()Z
-    .locals 3
+    .registers 3
 
     .line 149
     invoke-static {}, Lorg/objenesis/strategy/PlatformDescription;->isAfterJigsaw()Z
@@ -538,13 +538,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 150
     return v1
 
     .line 152
-    :cond_0
+    :cond_8
     sget-object v0, Lorg/objenesis/strategy/PlatformDescription;->SPECIFICATION_VERSION:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -555,16 +555,16 @@
     .local v0, "version":I
     const/16 v2, 0xb
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_13
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_13
     return v1
 .end method
 
 .method public static isAfterJigsaw()Z
-    .locals 2
+    .registers 2
 
     .line 139
     sget-object v0, Lorg/objenesis/strategy/PlatformDescription;->SPECIFICATION_VERSION:Ljava/lang/String;
@@ -577,21 +577,21 @@
 
     move-result v1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_c
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_d
     return v1
 .end method
 
 .method public static isAndroidOpenJDK()Z
-    .locals 1
+    .registers 1
 
     .line 120
     sget-boolean v0, Lorg/objenesis/strategy/PlatformDescription;->IS_ANDROID_OPENJDK:Z
@@ -600,26 +600,26 @@
 .end method
 
 .method public static isGoogleAppEngine()Z
-    .locals 1
+    .registers 1
 
     .line 157
     sget-object v0, Lorg/objenesis/strategy/PlatformDescription;->GAE_VERSION:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public static isThisJVM(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 111

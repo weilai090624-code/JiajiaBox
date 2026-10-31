@@ -72,7 +72,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/sequences/Sequence;ZLkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 5
     .param p1, "sequence"    # Lkotlin/sequences/Sequence;
     .param p2, "sendWhen"    # Z
     .param p3, "predicate"    # Lkotlin/jvm/functions/Function1;
@@ -113,18 +113,18 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/sequences/Sequence;ZLkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 157
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 159
     const/4 p2, 0x1
 
     .line 157
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2, p3}, Lkotlin/sequences/FilteringSequence;-><init>(Lkotlin/sequences/Sequence;ZLkotlin/jvm/functions/Function1;)V
 
     .line 161
@@ -132,7 +132,7 @@
 .end method
 
 .method public static final synthetic access$getPredicate$p(Lkotlin/sequences/FilteringSequence;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/FilteringSequence;
 
     .line 157
@@ -142,7 +142,7 @@
 .end method
 
 .method public static final synthetic access$getSendWhen$p(Lkotlin/sequences/FilteringSequence;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/FilteringSequence;
 
     .line 157
@@ -152,7 +152,7 @@
 .end method
 
 .method public static final synthetic access$getSequence$p(Lkotlin/sequences/FilteringSequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/FilteringSequence;
 
     .line 157
@@ -164,7 +164,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/view/PreviewView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/view/PreviewView;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method synthetic lambda$onSurfaceRequested$0$androidx-camera-view-PreviewView$1(Landroidx/camera/core/SurfaceRequest;)V
-    .locals 1
+    .registers 3
     .param p1, "surfaceRequest"    # Landroidx/camera/core/SurfaceRequest;
 
     .line 166
@@ -59,7 +59,7 @@
 .end method
 
 .method synthetic lambda$onSurfaceRequested$1$androidx-camera-view-PreviewView$1(Landroidx/camera/core/impl/CameraInternal;Landroidx/camera/core/SurfaceRequest;Landroidx/camera/core/SurfaceRequest$TransformationInfo;)V
-    .locals 3
+    .registers 7
     .param p1, "camera"    # Landroidx/camera/core/impl/CameraInternal;
     .param p2, "surfaceRequest"    # Landroidx/camera/core/SurfaceRequest;
     .param p3, "transformationInfo"    # Landroidx/camera/core/SurfaceRequest$TransformationInfo;
@@ -103,18 +103,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_29
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_29
     const/4 v0, 0x0
 
     .line 181
     .local v0, "isFrontCamera":Z
-    :goto_0
+    :goto_2a
     iget-object v1, p0, Landroidx/camera/view/PreviewView$1;->this$0:Landroidx/camera/view/PreviewView;
 
     iget-object v1, v1, Landroidx/camera/view/PreviewView;->mPreviewTransform:Landroidx/camera/view/PreviewTransformation;
@@ -137,7 +137,7 @@
 .end method
 
 .method synthetic lambda$onSurfaceRequested$2$androidx-camera-view-PreviewView$1(Landroidx/camera/view/PreviewStreamStateObserver;Landroidx/camera/core/impl/CameraInternal;)V
-    .locals 2
+    .registers 5
     .param p1, "streamStateObserver"    # Landroidx/camera/view/PreviewStreamStateObserver;
     .param p2, "camera"    # Landroidx/camera/core/impl/CameraInternal;
 
@@ -152,7 +152,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 203
     sget-object v0, Landroidx/camera/view/PreviewView$StreamState;->IDLE:Landroidx/camera/view/PreviewView$StreamState;
@@ -160,7 +160,7 @@
     invoke-virtual {p1, v0}, Landroidx/camera/view/PreviewStreamStateObserver;->updatePreviewStreamState(Landroidx/camera/view/PreviewView$StreamState;)V
 
     .line 205
-    :cond_0
+    :cond_10
     invoke-virtual {p1}, Landroidx/camera/view/PreviewStreamStateObserver;->clear()V
 
     .line 206
@@ -175,7 +175,7 @@
 .end method
 
 .method public onSurfaceRequested(Landroidx/camera/core/SurfaceRequest;)V
-    .locals 5
+    .registers 7
     .param p1, "surfaceRequest"    # Landroidx/camera/core/SurfaceRequest;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -191,7 +191,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 165
     iget-object v0, p0, Landroidx/camera/view/PreviewView$1;->this$0:Landroidx/camera/view/PreviewView;
@@ -214,7 +214,7 @@
     return-void
 
     .line 169
-    :cond_0
+    :cond_19
     const-string v0, "PreviewView"
 
     const-string v1, "Surface requested by Preview."
@@ -257,7 +257,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4e
 
     .line 187
     new-instance v2, Landroidx/camera/view/TextureViewImplementation;
@@ -270,10 +270,10 @@
 
     invoke-direct {v2, v3, v4}, Landroidx/camera/view/TextureViewImplementation;-><init>(Landroid/widget/FrameLayout;Landroidx/camera/view/PreviewTransformation;)V
 
-    goto :goto_0
+    goto :goto_59
 
     .line 188
-    :cond_1
+    :cond_4e
     new-instance v2, Landroidx/camera/view/SurfaceViewImplementation;
 
     iget-object v3, p0, Landroidx/camera/view/PreviewView$1;->this$0:Landroidx/camera/view/PreviewView;
@@ -284,7 +284,7 @@
 
     invoke-direct {v2, v3, v4}, Landroidx/camera/view/SurfaceViewImplementation;-><init>(Landroid/widget/FrameLayout;Landroidx/camera/view/PreviewTransformation;)V
 
-    :goto_0
+    :goto_59
     iput-object v2, v1, Landroidx/camera/view/PreviewView;->mImplementation:Landroidx/camera/view/PreviewViewImplementation;
 
     .line 190

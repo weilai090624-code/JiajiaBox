@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/Traverser$Traversal;Ljava/util/Deque;Lcom/google/common/graph/Traverser$InsertionOrder;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/graph/Traverser$Traversal;
 
     .line 444
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method protected computeNext()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TN;"
@@ -64,7 +64,7 @@
     .local p0, "this":Lcom/google/common/graph/Traverser$Traversal$3;, "Lcom/google/common/graph/Traverser$Traversal$3;"
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/google/common/graph/Traverser$Traversal$3;->this$0:Lcom/google/common/graph/Traverser$Traversal;
 
     iget-object v1, p0, Lcom/google/common/graph/Traverser$Traversal$3;->val$horizon:Ljava/util/Deque;
@@ -75,7 +75,7 @@
 
     .line 450
     .local v0, "next":Ljava/lang/Object;, "TN;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_25
 
     .line 451
     iget-object v1, p0, Lcom/google/common/graph/Traverser$Traversal$3;->this$0:Lcom/google/common/graph/Traverser$Traversal;
@@ -96,7 +96,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_24
 
     .line 455
     iget-object v2, p0, Lcom/google/common/graph/Traverser$Traversal$3;->val$order:Lcom/google/common/graph/Traverser$InsertionOrder;
@@ -106,20 +106,20 @@
     invoke-virtual {v2, v3, v1}, Lcom/google/common/graph/Traverser$InsertionOrder;->insertInto(Ljava/util/Deque;Ljava/lang/Object;)V
 
     .line 457
-    :cond_1
+    :cond_24
     return-object v0
 
     .line 459
     .end local v0    # "next":Ljava/lang/Object;, "TN;"
     .end local v1    # "successors":Ljava/util/Iterator;, "Ljava/util/Iterator<+TN;>;"
-    :cond_2
+    :cond_25
     iget-object v0, p0, Lcom/google/common/graph/Traverser$Traversal$3;->val$horizon:Ljava/util/Deque;
 
     invoke-interface {v0}, Ljava/util/Deque;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     .line 460
     invoke-virtual {p0}, Lcom/google/common/graph/Traverser$Traversal$3;->endOfData()Ljava/lang/Object;

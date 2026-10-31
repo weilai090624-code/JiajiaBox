@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 334
     invoke-direct {p0}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;-><init>()V
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public final synthetic forEach(Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 6
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -82,12 +82,12 @@
 
     .line 342
     .local v1, "cur":Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
-    :goto_0
+    :goto_c
     invoke-static {v1, p0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_24
 
     .line 343
     const/4 v2, 0x3
@@ -98,46 +98,46 @@
 
     instance-of v2, v1, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     invoke-interface {p1, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 344
-    :cond_0
+    :cond_1f
     invoke-virtual {v1}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->getNextNode()Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 346
-    :cond_1
+    :cond_24
     return-void
 .end method
 
 .method public final isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 335
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/LockFreeLinkedListHead;->getNext()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public isRemoved()Z
-    .locals 1
+    .registers 2
 
     .line 352
     const/4 v0, 0x0
@@ -146,7 +146,7 @@
 .end method
 
 .method protected nextIfRemoved()Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
-    .locals 1
+    .registers 2
 
     .line 353
     const/4 v0, 0x0
@@ -155,7 +155,7 @@
 .end method
 
 .method public final remove()Ljava/lang/Void;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -172,7 +172,7 @@
 .end method
 
 .method public bridge synthetic remove()Z
-    .locals 1
+    .registers 2
 
     .line 334
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/LockFreeLinkedListHead;->remove()Ljava/lang/Void;
@@ -189,7 +189,7 @@
 .end method
 
 .method public final validate$kotlinx_coroutines_core()V
-    .locals 4
+    .registers 5
 
     .line 356
     move-object v0, p0
@@ -210,12 +210,12 @@
 
     .line 358
     .local v1, "cur":Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
-    :goto_0
+    :goto_e
     invoke-static {v1, p0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1e
 
     .line 359
     invoke-virtual {v1}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->getNextNode()Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
@@ -233,10 +233,10 @@
     move-object v1, v3
 
     .end local v3    # "next":Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
-    goto :goto_0
+    goto :goto_e
 
     .line 364
-    :cond_0
+    :cond_1e
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/LockFreeLinkedListHead;->getNext()Ljava/lang/Object;
 
     move-result-object v3

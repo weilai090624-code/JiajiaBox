@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Future;Landroidx/camera/core/impl/utils/futures/FutureCallback;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 336
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;, "Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener<TV;>;"
@@ -100,10 +100,10 @@
     invoke-static {v0}, Landroidx/camera/core/impl/utils/futures/Futures;->getDone(Ljava/util/concurrent/Future;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_6} :catch_16
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_6} :catch_f
+    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_6} :catch_d
 
     .line 343
     .local v0, "value":Ljava/lang/Object;, "TV;"
@@ -119,17 +119,17 @@
 
     .line 340
     .end local v0    # "value":Ljava/lang/Object;, "TV;"
-    :catch_0
+    :catch_d
     move-exception v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :catch_1
+    :catch_f
     move-exception v0
 
     .line 341
     .local v0, "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_10
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;->mCallback:Landroidx/camera/core/impl/utils/futures/FutureCallback;
 
     invoke-interface {v1, v0}, Landroidx/camera/core/impl/utils/futures/FutureCallback;->onFailure(Ljava/lang/Throwable;)V
@@ -139,7 +139,7 @@
 
     .line 337
     .end local v0    # "e":Ljava/lang/Throwable;
-    :catch_2
+    :catch_16
     move-exception v0
 
     .line 338
@@ -157,7 +157,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 349
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;, "Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener<TV;>;"

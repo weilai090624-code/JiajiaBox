@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter;
 
     .line 120
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 123

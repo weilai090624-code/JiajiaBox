@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public onClosed(Lokhttp3/WebSocket;ILjava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "webSocket"    # Lokhttp3/WebSocket;
     .param p2, "code"    # I
     .param p3, "reason"    # Ljava/lang/String;
@@ -74,7 +74,7 @@
 .end method
 
 .method public onClosing(Lokhttp3/WebSocket;ILjava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "webSocket"    # Lokhttp3/WebSocket;
     .param p2, "code"    # I
     .param p3, "reason"    # Ljava/lang/String;
@@ -92,7 +92,7 @@
 .end method
 
 .method public onFailure(Lokhttp3/WebSocket;Ljava/lang/Throwable;Lokhttp3/Response;)V
-    .locals 1
+    .registers 5
     .param p1, "webSocket"    # Lokhttp3/WebSocket;
     .param p2, "t"    # Ljava/lang/Throwable;
     .param p3, "response"    # Lokhttp3/Response;
@@ -110,7 +110,7 @@
 .end method
 
 .method public onMessage(Lokhttp3/WebSocket;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "webSocket"    # Lokhttp3/WebSocket;
     .param p2, "text"    # Ljava/lang/String;
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public onMessage(Lokhttp3/WebSocket;Lokio/ByteString;)V
-    .locals 1
+    .registers 4
     .param p1, "webSocket"    # Lokhttp3/WebSocket;
     .param p2, "bytes"    # Lokio/ByteString;
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public onOpen(Lokhttp3/WebSocket;Lokhttp3/Response;)V
-    .locals 1
+    .registers 4
     .param p1, "webSocket"    # Lokhttp3/WebSocket;
     .param p2, "response"    # Lokhttp3/Response;
 

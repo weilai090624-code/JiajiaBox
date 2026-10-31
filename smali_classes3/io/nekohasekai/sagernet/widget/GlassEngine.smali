@@ -171,7 +171,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/widget/GlassEngine$Companion;
 
@@ -194,7 +194,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "host"    # Landroid/view/View;
 
     const-string v0, "host"
@@ -284,7 +284,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_52
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->attachListener:Lio/nekohasekai/sagernet/widget/GlassEngine$attachListener$1;
 
@@ -293,7 +293,7 @@
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/widget/GlassEngine$attachListener$1;->onViewAttachedToWindow(Landroid/view/View;)V
 
     .line 134
-    :cond_0
+    :cond_52
     nop
 
     .line 281
@@ -316,7 +316,7 @@
 .end method
 
 .method public static final synthetic access$getCapturing$cp()Z
-    .locals 1
+    .registers 1
 
     .line 41
     sget-boolean v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->capturing:Z
@@ -325,7 +325,7 @@
 .end method
 
 .method public static final synthetic access$getRENDER_PAINT$cp()Landroid/graphics/Paint;
-    .locals 1
+    .registers 1
 
     .line 41
     sget-object v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->RENDER_PAINT:Landroid/graphics/Paint;
@@ -334,7 +334,7 @@
 .end method
 
 .method public static final synthetic access$getSource$p(Lio/nekohasekai/sagernet/widget/GlassEngine;)Landroid/view/View;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/widget/GlassEngine;
 
     .line 41
@@ -344,7 +344,7 @@
 .end method
 
 .method public static final synthetic access$setCapturing$cp(Z)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Z
 
     .line 41
@@ -354,7 +354,7 @@
 .end method
 
 .method public static final synthetic access$setFirst$p(Lio/nekohasekai/sagernet/widget/GlassEngine;Z)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/widget/GlassEngine;
     .param p1, "<set-?>"    # Z
 
@@ -365,7 +365,7 @@
 .end method
 
 .method public static final synthetic access$setSnapshot$p(Lio/nekohasekai/sagernet/widget/GlassEngine;Landroid/graphics/Bitmap;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/widget/GlassEngine;
     .param p1, "<set-?>"    # Landroid/graphics/Bitmap;
 
@@ -376,7 +376,7 @@
 .end method
 
 .method public static final synthetic access$setSource$p(Lio/nekohasekai/sagernet/widget/GlassEngine;Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/widget/GlassEngine;
     .param p1, "<set-?>"    # Landroid/view/View;
 
@@ -387,7 +387,7 @@
 .end method
 
 .method private final buildHoldTable(FF)[F
-    .locals 13
+    .registers 16
     .param p1, "magnify"    # F
     .param p2, "bandFraction"    # F
 
@@ -424,7 +424,7 @@
 
     .line 419
     .local v5, "j":I
-    :goto_0
+    :goto_17
     add-int/lit8 v6, v5, -0x1
 
     int-to-float v6, v6
@@ -476,15 +476,15 @@
     .line 418
     .end local v6    # "a":F
     .end local v7    # "b":F
-    if-eq v5, v3, :cond_0
+    if-eq v5, v3, :cond_3e
 
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 423
     .end local v5    # "j":I
-    :cond_0
+    :cond_3e
     aget v2, v4, v3
 
     .line 424
@@ -509,7 +509,7 @@
 
     .line 441
     .local v8, "i":I
-    :goto_1
+    :goto_4b
     int-to-float v9, v8
 
     int-to-float v11, v6
@@ -520,7 +520,7 @@
     .local v9, "s":F
     cmpg-float v11, v9, v5
 
-    if-gtz v11, :cond_1
+    if-gtz v11, :cond_5a
 
     .line 444
     sub-float v11, v10, v1
@@ -531,10 +531,10 @@
 
     add-float/2addr v11, v12
 
-    goto :goto_2
+    goto :goto_65
 
     .line 447
-    :cond_1
+    :cond_5a
     sub-float v11, v10, v9
 
     div-float/2addr v11, v1
@@ -547,25 +547,25 @@
 
     sub-float v11, v10, v11
 
-    :goto_2
+    :goto_65
     aput v11, v7, v8
 
     .line 440
     .end local v9    # "s":F
-    if-eq v8, v6, :cond_2
+    if-eq v8, v6, :cond_6c
 
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 450
     .end local v8    # "i":I
-    :cond_2
+    :cond_6c
     return-object v7
 .end method
 
 .method private static final buildHoldTable$magOfW(FF)F
-    .locals 5
+    .registers 7
     .param p0, "M"    # F
     .param p1, "w"    # F
 
@@ -604,7 +604,7 @@
 .end method
 
 .method private static final buildHoldTable$wOf(FI[FF)F
-    .locals 7
+    .registers 11
     .param p0, "g1"    # F
     .param p1, "gw"    # I
     .param p2, "g"    # [F
@@ -621,14 +621,14 @@
     .local v1, "t":F
     cmpl-float v2, v1, p0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_c
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     return v0
 
     .line 428
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
     .line 429
@@ -637,8 +637,8 @@
 
     .line 430
     .local v3, "hi":I
-    :goto_0
-    if-ge v2, v3, :cond_2
+    :goto_e
+    if-ge v2, v3, :cond_21
 
     .line 431
     add-int v4, v2, v3
@@ -653,20 +653,20 @@
 
     cmpg-float v5, v5, v1
 
-    if-gtz v5, :cond_1
+    if-gtz v5, :cond_1e
 
     move v2, v4
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_1
+    :cond_1e
     add-int/lit8 v3, v4, -0x1
 
     .end local v4    # "mid":I
-    goto :goto_0
+    goto :goto_e
 
     .line 434
-    :cond_2
+    :cond_21
     add-int/lit8 v4, v2, 0x1
 
     aget v4, p2, v4
@@ -681,7 +681,7 @@
 
     cmpl-float v5, v4, v5
 
-    if-lez v5, :cond_3
+    if-lez v5, :cond_34
 
     aget v0, p2, v2
 
@@ -691,7 +691,7 @@
 
     .line 436
     .local v0, "fr":F
-    :cond_3
+    :cond_34
     int-to-float v5, v2
 
     add-float/2addr v5, v0
@@ -704,7 +704,7 @@
 .end method
 
 .method private final edgeMap([FF)F
-    .locals 3
+    .registers 6
     .param p1, "tbl"    # [F
     .param p2, "t"    # F
 
@@ -731,7 +731,7 @@
 .end method
 
 .method private final edgeProfile(FF)[F
-    .locals 20
+    .registers 23
     .param p1, "magnify"    # F
     .param p2, "bandFraction"    # F
 
@@ -790,12 +790,12 @@
     .line 317
     const/4 v11, 0x0
 
-    :goto_0
+    :goto_27
     const/high16 v12, 0x40000000    # 2.0f
 
     const/16 v13, 0x30
 
-    if-ge v11, v13, :cond_1
+    if-ge v11, v13, :cond_41
 
     move v13, v11
 
@@ -816,17 +816,17 @@
 
     cmpg-float v12, v12, v5
 
-    if-gez v12, :cond_0
+    if-gez v12, :cond_3c
 
     move v9, v15
 
-    goto :goto_1
+    goto :goto_3d
 
-    :cond_0
+    :cond_3c
     move v10, v15
 
     .line 320
-    :goto_1
+    :goto_3d
     nop
 
     .line 317
@@ -835,10 +835,10 @@
     .end local v15    # "mid":F
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
     .line 321
-    :cond_1
+    :cond_41
     add-float v11, v9, v10
 
     div-float/2addr v11, v12
@@ -855,7 +855,7 @@
 
     .line 324
     .local v13, "i":I
-    :goto_2
+    :goto_49
     add-int/lit8 v14, v13, -0x1
 
     int-to-float v14, v14
@@ -901,7 +901,7 @@
     .line 323
     .end local v14    # "a":F
     .end local v15    # "b":F
-    if-eq v13, v8, :cond_2
+    if-eq v13, v8, :cond_71
 
     add-int/lit8 v13, v13, 0x1
 
@@ -909,11 +909,11 @@
 
     const/high16 v5, 0x3f800000    # 1.0f
 
-    goto :goto_2
+    goto :goto_49
 
     .line 329
     .end local v13    # "i":I
-    :cond_2
+    :cond_71
     const/16 v3, 0x401
 
     new-array v5, v3, [F
@@ -927,8 +927,8 @@
     const/4 v14, 0x0
 
     .local v14, "ti":I
-    :goto_3
-    if-ge v14, v3, :cond_5
+    :goto_77
+    if-ge v14, v3, :cond_c4
 
     .line 332
     int-to-float v15, v14
@@ -939,10 +939,10 @@
 
     .line 333
     .local v15, "target":F
-    :goto_4
+    :goto_7e
     add-int/lit8 v3, v8, -0x1
 
-    if-ge v13, v3, :cond_3
+    if-ge v13, v3, :cond_8f
 
     add-int/lit8 v3, v13, 0x1
 
@@ -950,16 +950,16 @@
 
     cmpg-float v3, v3, v15
 
-    if-gez v3, :cond_3
+    if-gez v3, :cond_8f
 
     add-int/lit8 v13, v13, 0x1
 
     const/16 v3, 0x401
 
-    goto :goto_4
+    goto :goto_7e
 
     .line 334
-    :cond_3
+    :cond_8f
     add-int/lit8 v3, v13, 0x1
 
     aget v3, v12, v3
@@ -978,7 +978,7 @@
     .local v19, "M":F
     cmpl-float v18, v3, v18
 
-    if-lez v18, :cond_4
+    if-lez v18, :cond_a7
 
     aget v18, v12, v13
 
@@ -986,14 +986,14 @@
 
     div-float v18, v18, v3
 
-    goto :goto_5
+    goto :goto_a9
 
-    :cond_4
+    :cond_a7
     const/16 v18, 0x0
 
     .line 336
     .local v18, "frac":F
-    :goto_5
+    :goto_a9
     int-to-float v0, v13
 
     add-float v0, v0, v18
@@ -1030,7 +1030,7 @@
 
     const/16 v3, 0x401
 
-    goto :goto_3
+    goto :goto_77
 
     .line 338
     .end local v14    # "ti":I
@@ -1038,12 +1038,12 @@
     .end local v19    # "M":F
     .restart local v0    # "M":F
     .restart local v2    # "band":F
-    :cond_5
+    :cond_c4
     return-object v5
 .end method
 
 .method private static final edgeProfile$area(IFFFF)F
-    .locals 6
+    .registers 11
     .param p0, "N"    # I
     .param p1, "yRise0"    # F
     .param p2, "M"    # F
@@ -1058,10 +1058,10 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    if-gt v1, p0, :cond_0
+    if-gt v1, p0, :cond_21
 
     .line 308
-    :goto_0
+    :goto_4
     add-int/lit8 v2, v1, -0x1
 
     int-to-float v2, v2
@@ -1103,20 +1103,20 @@
     .line 307
     .end local v2    # "a":F
     .end local v3    # "b":F
-    if-eq v1, p0, :cond_0
+    if-eq v1, p0, :cond_21
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 312
     .end local v1    # "i":I
-    :cond_0
+    :cond_21
     return v0
 .end method
 
 .method private static final edgeProfile$qAt(FFFFF)F
-    .locals 6
+    .registers 11
     .param p0, "yRise0"    # F
     .param p1, "M"    # F
     .param p2, "yPeak"    # F
@@ -1128,14 +1128,14 @@
 
     cmpg-float v1, p3, p0
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_8
 
     div-float/2addr v0, p1
 
     return v0
 
     .line 296
-    :cond_0
+    :cond_8
     const/high16 v1, 0x40000000    # 2.0f
 
     const/high16 v2, 0x40400000    # 3.0f
@@ -1144,7 +1144,7 @@
 
     cmpg-float v4, p3, p2
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_2a
 
     .line 297
     sub-float v4, p3, p0
@@ -1184,7 +1184,7 @@
     .line 301
     .end local v3    # "t":F
     .end local v4    # "sm":F
-    :cond_1
+    :cond_2a
     sub-float v4, p3, p2
 
     sub-float v5, v0, p2
@@ -1217,7 +1217,7 @@
 .end method
 
 .method private final ensureVerts(I)V
-    .locals 1
+    .registers 3
     .param p1, "need"    # I
 
     .line 241
@@ -1225,19 +1225,19 @@
 
     array-length v0, v0
 
-    if-ge v0, p1, :cond_0
+    if-ge v0, p1, :cond_9
 
     new-array v0, p1, [F
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->warpVerts:[F
 
     .line 242
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private final renderRadialLens(Landroid/graphics/Canvas;Landroid/graphics/Bitmap;)V
-    .locals 23
+    .registers 26
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "bmp"    # Landroid/graphics/Bitmap;
 
@@ -1260,14 +1260,14 @@
 
     .line 252
     .local v2, "h":I
-    if-lez v1, :cond_5
+    if-lez v1, :cond_b2
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_14
 
-    goto/16 :goto_3
+    goto/16 :goto_b2
 
     .line 253
-    :cond_0
+    :cond_14
     int-to-float v3, v1
 
     const/high16 v4, 0x40000000    # 2.0f
@@ -1296,12 +1296,12 @@
 
     cmpg-float v8, v6, v7
 
-    if-gez v8, :cond_1
+    if-gez v8, :cond_27
 
     return-void
 
     .line 257
-    :cond_1
+    :cond_27
     const/16 v8, 0x28
 
     .line 258
@@ -1337,7 +1337,7 @@
 
     .line 264
     .local v10, "gy":I
-    :goto_0
+    :goto_3b
     int-to-float v11, v10
 
     mul-float v11, v11, v20
@@ -1352,7 +1352,7 @@
 
     .line 266
     .local v12, "gx":I
-    :goto_1
+    :goto_42
     int-to-float v13, v12
 
     mul-float v13, v13, v20
@@ -1383,7 +1383,7 @@
 
     cmpl-float v16, v14, v15
 
-    if-lez v16, :cond_2
+    if-lez v16, :cond_68
 
     .line 269
     move/from16 v21, v8
@@ -1410,14 +1410,14 @@
 
     double-to-float v15, v4
 
-    goto :goto_2
+    goto :goto_6c
 
     .line 270
     .end local v21    # "grid":I
     .end local v22    # "cy":F
     .restart local v5    # "cy":F
     .restart local v8    # "grid":I
-    :cond_2
+    :cond_68
     move/from16 v22, v5
 
     move/from16 v21, v8
@@ -1427,7 +1427,7 @@
     .end local v8    # "grid":I
     .restart local v21    # "grid":I
     .restart local v22    # "cy":F
-    :goto_2
+    :goto_6c
     move v4, v15
 
     .line 271
@@ -1469,7 +1469,7 @@
 
     .end local v21    # "grid":I
     .local v4, "grid":I
-    if-eq v12, v4, :cond_3
+    if-eq v12, v4, :cond_93
 
     add-int/lit8 v12, v12, 0x1
 
@@ -1483,13 +1483,13 @@
 
     const/high16 v4, 0x40000000    # 2.0f
 
-    goto :goto_1
+    goto :goto_42
 
     .line 263
     .end local v11    # "qy":F
     .end local v12    # "gx":I
-    :cond_3
-    if-eq v10, v4, :cond_4
+    :cond_93
+    if-eq v10, v4, :cond_a0
 
     add-int/lit8 v10, v10, 0x1
 
@@ -1503,11 +1503,11 @@
 
     const/high16 v4, 0x40000000    # 2.0f
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 275
     .end local v10    # "gy":I
-    :cond_4
+    :cond_a0
     iget-object v13, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->warpVerts:[F
 
     const/16 v16, 0x0
@@ -1540,13 +1540,13 @@
     .end local v19    # "exp":F
     .end local v20    # "step":F
     .end local v22    # "cy":F
-    :cond_5
-    :goto_3
+    :cond_b2
+    :goto_b2
     return-void
 .end method
 
 .method private final renderTopLens(Landroid/graphics/Canvas;Landroid/graphics/Bitmap;)V
-    .locals 20
+    .registers 23
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "bmp"    # Landroid/graphics/Bitmap;
 
@@ -1569,16 +1569,16 @@
 
     .line 545
     .local v2, "h":I
-    if-lez v1, :cond_5
+    if-lez v1, :cond_8f
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_16
 
     move/from16 v17, v2
 
-    goto/16 :goto_4
+    goto/16 :goto_91
 
     .line 546
-    :cond_0
+    :cond_16
     const/16 v12, 0x48
 
     .line 547
@@ -1618,10 +1618,10 @@
 
     .line 555
     .local v5, "gy":I
-    :goto_0
+    :goto_2d
     iget-boolean v6, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->lensFlip:Z
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_37
 
     .line 556
     int-to-float v6, v5
@@ -1632,10 +1632,10 @@
 
     sub-float v6, v4, v6
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 558
-    :cond_1
+    :cond_37
     int-to-float v6, v5
 
     int-to-float v7, v13
@@ -1643,7 +1643,7 @@
     div-float/2addr v6, v7
 
     .line 555
-    :goto_1
+    :goto_3a
     nop
 
     .line 560
@@ -1666,7 +1666,7 @@
     .local v8, "dyN":F
     iget-boolean v9, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->lensFlip:Z
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_4d
 
     int-to-float v9, v2
 
@@ -1674,21 +1674,21 @@
 
     mul-float v9, v9, v10
 
-    goto :goto_2
+    goto :goto_50
 
-    :cond_2
+    :cond_4d
     int-to-float v9, v2
 
     mul-float v9, v9, v8
 
     .line 564
     .local v9, "dy":F
-    :goto_2
+    :goto_50
     const/4 v10, 0x0
 
     .line 565
     .local v10, "gx":I
-    :goto_3
+    :goto_51
     int-to-float v4, v10
 
     move/from16 v17, v2
@@ -1724,7 +1724,7 @@
 
     .line 564
     .end local v4    # "dx":F
-    if-eq v10, v12, :cond_3
+    if-eq v10, v12, :cond_70
 
     add-int/lit8 v10, v10, 0x1
 
@@ -1734,7 +1734,7 @@
 
     const/high16 v4, 0x3f800000    # 1.0f
 
-    goto :goto_3
+    goto :goto_51
 
     .line 553
     .end local v6    # "sy":F
@@ -1742,8 +1742,8 @@
     .end local v8    # "dyN":F
     .end local v9    # "dy":F
     .end local v10    # "gx":I
-    :cond_3
-    if-eq v5, v13, :cond_4
+    :cond_70
+    if-eq v5, v13, :cond_7b
 
     add-int/lit8 v5, v5, 0x1
 
@@ -1753,11 +1753,11 @@
 
     const/high16 v4, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 570
     .end local v5    # "gy":I
-    :cond_4
+    :cond_7b
     iget-object v7, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->warpVerts:[F
 
     const/4 v10, 0x0
@@ -1796,19 +1796,19 @@
     .end local v17    # "h":I
     .end local v19    # "idx":I
     .restart local v2    # "h":I
-    :cond_5
+    :cond_8f
     move/from16 v17, v2
 
     .end local v2    # "h":I
     .restart local v17    # "h":I
-    :goto_4
+    :goto_91
     return-void
 .end method
 
 
 # virtual methods
 .method public final getLensFlip()Z
-    .locals 1
+    .registers 2
 
     .line 77
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->lensFlip:Z
@@ -1817,7 +1817,7 @@
 .end method
 
 .method public final getLensPower()F
-    .locals 1
+    .registers 2
 
     .line 63
     iget v0, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->lensPower:F
@@ -1826,7 +1826,7 @@
 .end method
 
 .method public final getPaused()Z
-    .locals 1
+    .registers 2
 
     .line 101
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->paused:Z
@@ -1835,7 +1835,7 @@
 .end method
 
 .method public final getSnapshotScale()F
-    .locals 1
+    .registers 2
 
     .line 85
     iget v0, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshotScale:F
@@ -1844,7 +1844,7 @@
 .end method
 
 .method public final getTopLensPower()F
-    .locals 1
+    .registers 2
 
     .line 70
     iget v0, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->topLensPower:F
@@ -1853,24 +1853,24 @@
 .end method
 
 .method public onPreDraw()Z
-    .locals 1
+    .registers 2
 
     .line 137
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->paused:Z
 
-    if-nez v0, :cond_done
+    if-nez v0, :cond_7
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/widget/GlassEngine;->refresh()V
 
     .line 138
-    :cond_done
+    :cond_7
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public final refresh()V
-    .locals 29
+    .registers 30
 
     .line 146
     move-object/from16 v1, p0
@@ -1893,18 +1893,18 @@
     .local v4, "height":I
     iget-object v0, v1, Lio/nekohasekai/sagernet/widget/GlassEngine;->source:Landroid/view/View;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     return-void
 
-    :cond_0
+    :cond_11
     move-object v5, v0
 
     .line 150
     .local v5, "src":Landroid/view/View;
-    if-lez v3, :cond_d
+    if-lez v3, :cond_1c7
 
-    if-gtz v4, :cond_1
+    if-gtz v4, :cond_1d
 
     move-object v8, v2
 
@@ -1912,15 +1912,15 @@
 
     move/from16 v17, v4
 
-    goto/16 :goto_a
+    goto/16 :goto_1cc
 
     .line 151
-    :cond_1
+    :cond_1d
     invoke-virtual {v2}, Landroid/view/View;->getVisibility()I
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_1c1
 
     invoke-virtual {v2}, Landroid/view/View;->getAlpha()F
 
@@ -1930,7 +1930,7 @@
 
     cmpg-float v0, v0, v6
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_33
 
     move-object v8, v2
 
@@ -1938,10 +1938,10 @@
 
     move/from16 v17, v4
 
-    goto/16 :goto_9
+    goto/16 :goto_1c6
 
     .line 153
-    :cond_2
+    :cond_33
     iget-object v0, v1, Lio/nekohasekai/sagernet/widget/GlassEngine;->location:[I
 
     invoke-virtual {v2, v0}, Landroid/view/View;->getLocationInWindow([I)V
@@ -2024,9 +2024,9 @@
 
     .line 164
     .local v13, "cropB":I
-    if-le v12, v10, :cond_b
+    if-le v12, v10, :cond_1b7
 
-    if-gt v13, v11, :cond_3
+    if-gt v13, v11, :cond_86
 
     move-object v8, v2
 
@@ -2038,10 +2038,10 @@
 
     move/from16 v20, v13
 
-    goto/16 :goto_8
+    goto/16 :goto_1c0
 
     .line 166
-    :cond_3
+    :cond_86
     sub-int v0, v12, v10
 
     invoke-static {v8, v0}, Ljava/lang/Math;->max(II)I
@@ -2118,7 +2118,7 @@
 
     cmp-long v21, v2, v12
 
-    if-lez v21, :cond_4
+    if-lez v21, :cond_e6
 
     .line 176
     int-to-double v2, v0
@@ -2174,17 +2174,17 @@
 
     move v2, v0
 
-    goto :goto_0
+    goto :goto_e7
 
     .line 175
     .end local v2    # "f":D
-    :cond_4
+    :cond_e6
     move v2, v0
 
     .line 180
     .end local v0    # "sw":I
     .local v2, "sw":I
-    :goto_0
+    :goto_e7
     iget v0, v1, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshotScale:F
 
     int-to-float v3, v2
@@ -2203,32 +2203,32 @@
 
     .line 182
     .local v0, "bmp":Landroid/graphics/Bitmap;
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_104
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v12
 
-    if-ne v12, v2, :cond_6
+    if-ne v12, v2, :cond_104
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v12
 
-    if-eq v12, v6, :cond_5
+    if-eq v12, v6, :cond_101
 
-    goto :goto_1
+    goto :goto_104
 
-    :cond_5
+    :cond_101
     move-object v13, v0
 
     const/4 v12, 0x1
 
-    goto :goto_2
+    goto :goto_11c
 
     .line 183
-    :cond_6
-    :goto_1
+    :cond_104
+    :goto_104
     sget-object v12, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {v2, v6, v12}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
@@ -2262,19 +2262,19 @@
     .line 190
     .end local v0    # "bmp":Landroid/graphics/Bitmap;
     .local v13, "bmp":Landroid/graphics/Bitmap;
-    :goto_2
+    :goto_11c
     sput-boolean v12, Lio/nekohasekai/sagernet/widget/GlassEngine;->capturing:Z
 
     .line 191
     nop
 
     .line 192
-    :try_start_0
+    :try_start_11f
     new-instance v0, Landroid/graphics/Canvas;
 
     invoke-direct {v0, v13}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_124
+    .catchall {:try_start_11f .. :try_end_124} :catchall_1ac
 
     .line 193
     .local v0, "c":Landroid/graphics/Canvas;
@@ -2294,7 +2294,7 @@
 
     mul-float v4, v4, v3
 
-    :try_start_1
+    :try_start_12e
     invoke-virtual {v0, v12, v4}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 194
@@ -2302,8 +2302,8 @@
 
     .line 195
     invoke-virtual {v5, v0}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_137
+    .catchall {:try_start_12e .. :try_end_137} :catchall_1a6
 
     .line 197
     .end local v0    # "c":Landroid/graphics/Canvas;
@@ -2340,7 +2340,7 @@
 
     .line 202
     .local v0, "changed":Z
-    if-nez v0, :cond_9
+    if-nez v0, :cond_175
 
     .line 206
     const/4 v4, 0x0
@@ -2351,7 +2351,7 @@
 
     .line 208
     .local v12, "step":I
-    :goto_3
+    :goto_157
     move/from16 v21, v0
 
     .end local v0    # "changed":Z
@@ -2360,7 +2360,7 @@
 
     array-length v0, v0
 
-    if-ge v4, v0, :cond_8
+    if-ge v4, v0, :cond_172
 
     .line 209
     iget-object v0, v1, Lio/nekohasekai/sagernet/widget/GlassEngine;->pixels:[I
@@ -2375,7 +2375,7 @@
 
     aget v2, v2, v4
 
-    if-eq v0, v2, :cond_7
+    if-eq v0, v2, :cond_16c
 
     .line 210
     const/4 v0, 0x1
@@ -2383,29 +2383,29 @@
     .line 211
     .end local v21    # "changed":Z
     .restart local v0    # "changed":Z
-    goto :goto_5
+    goto :goto_17b
 
     .line 213
     .end local v0    # "changed":Z
     .restart local v21    # "changed":Z
-    :cond_7
+    :cond_16c
     add-int/2addr v4, v12
 
     move/from16 v0, v21
 
     move/from16 v2, v22
 
-    goto :goto_3
+    goto :goto_157
 
     .line 208
     .end local v22    # "sw":I
     .restart local v2    # "sw":I
-    :cond_8
+    :cond_172
     move/from16 v22, v2
 
     .end local v2    # "sw":I
     .restart local v22    # "sw":I
-    goto :goto_4
+    goto :goto_179
 
     .line 202
     .end local v4    # "i":I
@@ -2414,7 +2414,7 @@
     .end local v22    # "sw":I
     .restart local v0    # "changed":Z
     .restart local v2    # "sw":I
-    :cond_9
+    :cond_175
     move/from16 v21, v0
 
     move/from16 v22, v2
@@ -2424,13 +2424,13 @@
     .end local v2    # "sw":I
     .restart local v21    # "changed":Z
     .restart local v22    # "sw":I
-    :goto_4
+    :goto_179
     move/from16 v0, v21
 
     .end local v21    # "changed":Z
     .restart local v0    # "changed":Z
-    :goto_5
-    if-eqz v0, :cond_a
+    :goto_17b
+    if-eqz v0, :cond_1a1
 
     .line 217
     iget-object v2, v1, Lio/nekohasekai/sagernet/widget/GlassEngine;->pixels:[I
@@ -2477,14 +2477,14 @@
 
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
-    goto :goto_6
+    goto :goto_1a5
 
     .line 216
     .end local v16    # "changed":Z
     .end local v21    # "scale":F
     .restart local v0    # "changed":Z
     .restart local v3    # "scale":F
-    :cond_a
+    :cond_1a1
     move/from16 v16, v0
 
     move/from16 v21, v3
@@ -2494,7 +2494,7 @@
     .end local v3    # "scale":F
     .restart local v16    # "changed":Z
     .restart local v21    # "scale":F
-    :goto_6
+    :goto_1a5
     return-void
 
     .line 197
@@ -2503,7 +2503,7 @@
     .end local v22    # "sw":I
     .restart local v2    # "sw":I
     .restart local v3    # "scale":F
-    :catchall_0
+    :catchall_1a6
     move-exception v0
 
     move/from16 v22, v2
@@ -2514,7 +2514,7 @@
     .end local v3    # "scale":F
     .restart local v21    # "scale":F
     .restart local v22    # "sw":I
-    goto :goto_7
+    goto :goto_1b3
 
     .end local v17    # "height":I
     .end local v21    # "scale":F
@@ -2522,7 +2522,7 @@
     .restart local v2    # "sw":I
     .restart local v3    # "scale":F
     .local v4, "height":I
-    :catchall_1
+    :catchall_1ac
     move-exception v0
 
     move/from16 v22, v2
@@ -2537,7 +2537,7 @@
     .restart local v17    # "height":I
     .restart local v21    # "scale":F
     .restart local v22    # "sw":I
-    :goto_7
+    :goto_1b3
     const/4 v2, 0x0
 
     sput-boolean v2, Lio/nekohasekai/sagernet/widget/GlassEngine;->capturing:Z
@@ -2560,7 +2560,7 @@
     .restart local v4    # "height":I
     .local v12, "cropR":I
     .local v13, "cropB":I
-    :cond_b
+    :cond_1b7
     move-object v8, v2
 
     move/from16 v18, v3
@@ -2581,7 +2581,7 @@
     .restart local v18    # "w":I
     .restart local v19    # "cropR":I
     .restart local v20    # "cropB":I
-    :goto_8
+    :goto_1c0
     return-void
 
     .line 151
@@ -2597,7 +2597,7 @@
     .restart local v2    # "h":Landroid/view/View;
     .restart local v3    # "w":I
     .restart local v4    # "height":I
-    :cond_c
+    :cond_1c1
     move-object v8, v2
 
     move/from16 v18, v3
@@ -2610,7 +2610,7 @@
     .restart local v8    # "h":Landroid/view/View;
     .restart local v17    # "height":I
     .restart local v18    # "w":I
-    :goto_9
+    :goto_1c6
     return-void
 
     .line 150
@@ -2620,7 +2620,7 @@
     .restart local v2    # "h":Landroid/view/View;
     .restart local v3    # "w":I
     .restart local v4    # "height":I
-    :cond_d
+    :cond_1c7
     move-object v8, v2
 
     move/from16 v18, v3
@@ -2633,12 +2633,12 @@
     .restart local v8    # "h":Landroid/view/View;
     .restart local v17    # "height":I
     .restart local v18    # "w":I
-    :goto_a
+    :goto_1cc
     return-void
 .end method
 
 .method public final render(Landroid/graphics/Canvas;)V
-    .locals 4
+    .registers 6
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     const-string v0, "canvas"
@@ -2648,53 +2648,53 @@
     .line 229
     iget-object v0, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshot:Landroid/graphics/Bitmap;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     return-void
 
     .line 230
     .local v0, "bmp":Landroid/graphics/Bitmap;
-    :cond_0
+    :cond_a
     iget-object v1, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshotRect:Landroid/graphics/Rect;
 
     invoke-virtual {v1}, Landroid/graphics/Rect;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_13
 
     return-void
 
     .line 231
-    :cond_1
+    :cond_13
     iget v1, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->topLensPower:F
 
     const v2, 0x3f8020c5    # 1.001f
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_20
 
     .line 232
     invoke-direct {p0, p1, v0}, Lio/nekohasekai/sagernet/widget/GlassEngine;->renderTopLens(Landroid/graphics/Canvas;Landroid/graphics/Bitmap;)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 233
-    :cond_2
+    :cond_20
     iget v1, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->lensPower:F
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_3
+    if-lez v1, :cond_2a
 
     .line 234
     invoke-direct {p0, p1, v0}, Lio/nekohasekai/sagernet/widget/GlassEngine;->renderRadialLens(Landroid/graphics/Canvas;Landroid/graphics/Bitmap;)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 236
-    :cond_3
+    :cond_2a
     iget-object v1, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshotRect:Landroid/graphics/Rect;
 
     sget-object v2, Lio/nekohasekai/sagernet/widget/GlassEngine;->RENDER_PAINT:Landroid/graphics/Paint;
@@ -2704,12 +2704,12 @@
     invoke-virtual {p1, v0, v3, v1, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     .line 238
-    :goto_0
+    :goto_32
     return-void
 .end method
 
 .method public final renderEdgeLens(Landroid/graphics/Canvas;FF)V
-    .locals 26
+    .registers 30
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "magnify"    # F
     .param p3, "edgeDp"    # F
@@ -2727,25 +2727,25 @@
     .line 351
     iget-object v4, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshot:Landroid/graphics/Bitmap;
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_10
 
     return-void
 
     .line 352
     .local v4, "bmp":Landroid/graphics/Bitmap;
-    :cond_0
+    :cond_10
     iget-object v2, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshotRect:Landroid/graphics/Rect;
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_19
 
     return-void
 
     .line 353
-    :cond_1
+    :cond_19
     iget-object v2, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->host:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getWidth()I
@@ -2762,16 +2762,16 @@
 
     .line 355
     .local v13, "h":I
-    if-lez v2, :cond_11
+    if-lez v2, :cond_15c
 
-    if-gtz v13, :cond_2
+    if-gtz v13, :cond_2d
 
     move/from16 v21, v2
 
-    goto/16 :goto_7
+    goto/16 :goto_15e
 
     .line 356
-    :cond_2
+    :cond_2d
     int-to-float v3, v2
 
     const/high16 v5, 0x40000000    # 2.0f
@@ -2790,18 +2790,18 @@
 
     cmpg-float v6, v14, v3
 
-    if-ltz v6, :cond_10
+    if-ltz v6, :cond_159
 
     cmpg-float v6, v15, v3
 
-    if-gez v6, :cond_3
+    if-gez v6, :cond_43
 
     move/from16 v21, v2
 
-    goto/16 :goto_6
+    goto/16 :goto_15b
 
     .line 359
-    :cond_3
+    :cond_43
     iget-object v6, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->host:Landroid/view/View;
 
     invoke-virtual {v6}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
@@ -2852,36 +2852,36 @@
 
     cmpg-float v6, v6, v1
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_70
 
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_71
 
-    :cond_4
+    :cond_70
     const/4 v6, 0x0
 
-    :goto_0
-    if-eqz v6, :cond_6
+    :goto_71
+    if-eqz v6, :cond_7e
 
     iget v6, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->edgeBandX:F
 
     cmpg-float v6, v6, v10
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_7b
 
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_7c
 
-    :cond_5
+    :cond_7b
     const/4 v6, 0x0
 
-    :goto_1
-    if-nez v6, :cond_7
+    :goto_7c
+    if-nez v6, :cond_88
 
     .line 364
-    :cond_6
+    :cond_7e
     iput v1, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->edgeMag:F
 
     .line 365
@@ -2895,36 +2895,36 @@
     iput-object v6, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->edgeTableX:[F
 
     .line 368
-    :cond_7
+    :cond_88
     iget v6, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->edgeMag:F
 
     cmpg-float v6, v6, v1
 
-    if-nez v6, :cond_8
+    if-nez v6, :cond_90
 
     const/4 v6, 0x1
 
-    goto :goto_2
+    goto :goto_91
 
-    :cond_8
+    :cond_90
     const/4 v6, 0x0
 
-    :goto_2
-    if-eqz v6, :cond_a
+    :goto_91
+    if-eqz v6, :cond_9c
 
     iget v6, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->edgeBandY:F
 
     cmpg-float v6, v6, v9
 
-    if-nez v6, :cond_9
+    if-nez v6, :cond_9a
 
     const/4 v7, 0x1
 
-    :cond_9
-    if-nez v7, :cond_b
+    :cond_9a
+    if-nez v7, :cond_a6
 
     .line 369
-    :cond_a
+    :cond_9c
     iput v1, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->edgeMag:F
 
     .line 370
@@ -2938,18 +2938,18 @@
     iput-object v6, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->edgeTableY:[F
 
     .line 373
-    :cond_b
+    :cond_a6
     iget-object v6, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->edgeTableX:[F
 
     array-length v6, v6
 
-    if-eqz v6, :cond_f
+    if-eqz v6, :cond_151
 
     iget-object v6, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->edgeTableY:[F
 
     array-length v6, v6
 
-    if-nez v6, :cond_c
+    if-nez v6, :cond_b9
 
     move/from16 v21, v2
 
@@ -2959,10 +2959,10 @@
 
     move v1, v11
 
-    goto/16 :goto_5
+    goto/16 :goto_158
 
     .line 374
-    :cond_c
+    :cond_b9
     const/16 v8, 0x48
 
     .line 375
@@ -2992,7 +2992,7 @@
 
     .line 380
     .local v7, "gy":I
-    :goto_3
+    :goto_c9
     int-to-float v3, v7
 
     mul-float v3, v3, v18
@@ -3027,7 +3027,7 @@
 
     .line 383
     .local v5, "gx":I
-    :goto_4
+    :goto_e3
     move/from16 v21, v2
 
     .end local v2    # "w":I
@@ -3100,7 +3100,7 @@
     .line 382
     .end local v2    # "xSrc":F
     .end local v3    # "tx":F
-    if-eq v5, v8, :cond_d
+    if-eq v5, v8, :cond_124
 
     add-int/lit8 v5, v5, 0x1
 
@@ -3112,14 +3112,14 @@
 
     move/from16 v6, v25
 
-    goto :goto_4
+    goto :goto_e3
 
     .line 379
     .end local v1    # "ty":F
     .end local v5    # "gx":I
     .end local v22    # "ySrc":F
-    :cond_d
-    if-eq v7, v8, :cond_e
+    :cond_124
+    if-eq v7, v8, :cond_135
 
     add-int/lit8 v7, v7, 0x1
 
@@ -3135,11 +3135,11 @@
 
     const/high16 v5, 0x40000000    # 2.0f
 
-    goto :goto_3
+    goto :goto_c9
 
     .line 389
     .end local v7    # "gy":I
-    :cond_e
+    :cond_135
     iget-object v7, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->warpVerts:[F
 
     const/4 v1, 0x0
@@ -3198,7 +3198,7 @@
     .restart local v9    # "bandY":F
     .restart local v10    # "bandX":F
     .restart local v11    # "density":F
-    :cond_f
+    :cond_151
     move/from16 v21, v2
 
     move/from16 v22, v9
@@ -3215,7 +3215,7 @@
     .restart local v19    # "bandX":F
     .restart local v21    # "w":I
     .restart local v22    # "bandY":F
-    :goto_5
+    :goto_158
     return-void
 
     .line 358
@@ -3225,12 +3225,12 @@
     .end local v21    # "w":I
     .end local v22    # "bandY":F
     .restart local v2    # "w":I
-    :cond_10
+    :cond_159
     move/from16 v21, v2
 
     .end local v2    # "w":I
     .restart local v21    # "w":I
-    :goto_6
+    :goto_15b
     return-void
 
     .line 355
@@ -3238,17 +3238,17 @@
     .end local v15    # "hh":F
     .end local v21    # "w":I
     .restart local v2    # "w":I
-    :cond_11
+    :cond_15c
     move/from16 v21, v2
 
     .end local v2    # "w":I
     .restart local v21    # "w":I
-    :goto_7
+    :goto_15e
     return-void
 .end method
 
 .method public final renderGradientLens(Landroid/graphics/Canvas;F)V
-    .locals 24
+    .registers 27
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "falloff"    # F
 
@@ -3265,30 +3265,30 @@
     .line 502
     iget-object v4, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshot:Landroid/graphics/Bitmap;
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_10
 
     return-void
 
     .line 503
     .local v4, "bmp":Landroid/graphics/Bitmap;
-    :cond_0
+    :cond_10
     iget-object v2, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshotRect:Landroid/graphics/Rect;
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_19
 
     return-void
 
     .line 504
-    :cond_1
+    :cond_19
     const v2, 0x3f7fbe77    # 0.999f
 
     cmpl-float v2, v1, v2
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_24
 
     .line 505
     invoke-virtual/range {p0 .. p1}, Lio/nekohasekai/sagernet/widget/GlassEngine;->render(Landroid/graphics/Canvas;)V
@@ -3297,7 +3297,7 @@
     return-void
 
     .line 508
-    :cond_2
+    :cond_24
     iget-object v2, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->host:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getWidth()I
@@ -3314,16 +3314,16 @@
 
     .line 510
     .local v13, "h":I
-    if-lez v2, :cond_9
+    if-lez v2, :cond_e7
 
-    if-gtz v13, :cond_3
+    if-gtz v13, :cond_38
 
     move/from16 v23, v2
 
-    goto/16 :goto_4
+    goto/16 :goto_e9
 
     .line 511
-    :cond_3
+    :cond_38
     int-to-float v3, v2
 
     const/high16 v5, 0x40000000    # 2.0f
@@ -3354,18 +3354,18 @@
 
     cmpg-float v6, v16, v3
 
-    if-ltz v6, :cond_8
+    if-ltz v6, :cond_e4
 
     cmpg-float v6, v17, v3
 
-    if-gez v6, :cond_4
+    if-gez v6, :cond_54
 
     move/from16 v23, v2
 
-    goto/16 :goto_3
+    goto/16 :goto_e6
 
     .line 516
-    :cond_4
+    :cond_54
     const/16 v11, 0x40
 
     .line 517
@@ -3405,7 +3405,7 @@
 
     .line 523
     .local v7, "gy":I
-    :goto_0
+    :goto_6e
     int-to-float v8, v7
 
     mul-float v8, v8, v19
@@ -3420,7 +3420,7 @@
 
     .line 525
     .local v9, "gx":I
-    :goto_1
+    :goto_75
     int-to-float v10, v9
 
     mul-float v10, v10, v19
@@ -3455,7 +3455,7 @@
 
     cmpl-float v6, v3, v5
 
-    if-lez v6, :cond_5
+    if-lez v6, :cond_9c
 
     .line 528
     float-to-double v5, v3
@@ -3478,18 +3478,18 @@
 
     double-to-float v5, v1
 
-    goto :goto_2
+    goto :goto_9e
 
     .line 529
     .end local v23    # "w":I
     .restart local v2    # "w":I
-    :cond_5
+    :cond_9c
     move/from16 v23, v2
 
     .line 527
     .end local v2    # "w":I
     .restart local v23    # "w":I
-    :goto_2
+    :goto_9e
     move v1, v5
 
     .line 530
@@ -3527,7 +3527,7 @@
     .end local v1    # "scale":F
     .end local v3    # "s":F
     .end local v10    # "qx":F
-    if-eq v9, v11, :cond_6
+    if-eq v9, v11, :cond_c4
 
     add-int/lit8 v9, v9, 0x1
 
@@ -3541,13 +3541,13 @@
 
     const/high16 v5, 0x40000000    # 2.0f
 
-    goto :goto_1
+    goto :goto_75
 
     .line 522
     .end local v8    # "qy":F
     .end local v9    # "gx":I
-    :cond_6
-    if-eq v7, v11, :cond_7
+    :cond_c4
+    if-eq v7, v11, :cond_d3
 
     add-int/lit8 v7, v7, 0x1
 
@@ -3561,11 +3561,11 @@
 
     const/high16 v5, 0x40000000    # 2.0f
 
-    goto :goto_0
+    goto :goto_6e
 
     .line 534
     .end local v7    # "gy":I
-    :cond_7
+    :cond_d3
     iget-object v7, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->warpVerts:[F
 
     const/4 v10, 0x0
@@ -3600,12 +3600,12 @@
     .end local v22    # "idx":I
     .end local v23    # "w":I
     .local v2, "w":I
-    :cond_8
+    :cond_e4
     move/from16 v23, v2
 
     .end local v2    # "w":I
     .restart local v23    # "w":I
-    :goto_3
+    :goto_e6
     return-void
 
     .line 510
@@ -3615,17 +3615,17 @@
     .end local v17    # "hh":F
     .end local v23    # "w":I
     .restart local v2    # "w":I
-    :cond_9
+    :cond_e7
     move/from16 v23, v2
 
     .end local v2    # "w":I
     .restart local v23    # "w":I
-    :goto_4
+    :goto_e9
     return-void
 .end method
 
 .method public final renderTopHoldLens(Landroid/graphics/Canvas;FF)V
-    .locals 25
+    .registers 29
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "magnify"    # F
     .param p3, "edgeDp"    # F
@@ -3643,25 +3643,25 @@
     .line 460
     iget-object v4, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshot:Landroid/graphics/Bitmap;
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_10
 
     return-void
 
     .line 461
     .local v4, "bmp":Landroid/graphics/Bitmap;
-    :cond_0
+    :cond_10
     iget-object v2, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshotRect:Landroid/graphics/Rect;
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_19
 
     return-void
 
     .line 462
-    :cond_1
+    :cond_19
     iget-object v2, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->host:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getWidth()I
@@ -3678,14 +3678,14 @@
 
     .line 464
     .local v13, "h":I
-    if-lez v2, :cond_a
+    if-lez v2, :cond_e4
 
-    if-gtz v13, :cond_2
+    if-gtz v13, :cond_2b
 
-    goto/16 :goto_4
+    goto/16 :goto_e4
 
     .line 465
-    :cond_2
+    :cond_2b
     iget-object v3, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->host:Landroid/view/View;
 
     invoke-virtual {v3}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
@@ -3730,34 +3730,34 @@
 
     cmpg-float v3, v3, v1
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_54
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_55
 
-    :cond_3
+    :cond_54
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_5
+    :goto_55
+    if-eqz v3, :cond_61
 
     iget v3, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->holdBand:F
 
     cmpg-float v3, v3, v11
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_5e
 
-    goto :goto_1
+    goto :goto_5f
 
-    :cond_4
+    :cond_5e
     const/4 v7, 0x0
 
-    :goto_1
-    if-nez v7, :cond_6
+    :goto_5f
+    if-nez v7, :cond_6b
 
     .line 469
-    :cond_5
+    :cond_61
     iput v1, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->holdMag:F
 
     .line 470
@@ -3771,17 +3771,17 @@
     iput-object v3, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->holdTable:[F
 
     .line 473
-    :cond_6
+    :cond_6b
     iget-object v3, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->holdTable:[F
 
     array-length v3, v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_71
 
     return-void
 
     .line 474
-    :cond_7
+    :cond_71
     const/16 v10, 0x50
 
     .line 475
@@ -3825,7 +3825,7 @@
 
     .line 484
     .local v5, "gy":I
-    :goto_2
+    :goto_88
     int-to-float v7, v5
 
     mul-float v7, v7, v18
@@ -3866,7 +3866,7 @@
 
     .line 488
     .local v8, "gx":I
-    :goto_3
+    :goto_a1
     iget-object v3, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->warpVerts:[F
 
     add-int/lit8 v22, v20, 0x1
@@ -3901,7 +3901,7 @@
     aput v6, v1, v22
 
     .line 487
-    if-eq v8, v10, :cond_8
+    if-eq v8, v10, :cond_c1
 
     add-int/lit8 v8, v8, 0x1
 
@@ -3911,15 +3911,15 @@
 
     const/4 v3, 0x0
 
-    goto :goto_3
+    goto :goto_a1
 
     .line 482
     .end local v6    # "dy":F
     .end local v8    # "gx":I
     .end local v23    # "destFrac":F
     .end local v24    # "s":F
-    :cond_8
-    if-eq v5, v9, :cond_9
+    :cond_c1
+    if-eq v5, v9, :cond_ca
 
     add-int/lit8 v5, v5, 0x1
 
@@ -3927,11 +3927,11 @@
 
     move/from16 v3, v20
 
-    goto :goto_2
+    goto :goto_88
 
     .line 492
     .end local v5    # "gy":I
-    :cond_9
+    :cond_ca
     iget-object v7, v0, Lio/nekohasekai/sagernet/widget/GlassEngine;->warpVerts:[F
 
     const/4 v1, 0x0
@@ -3982,13 +3982,13 @@
     .end local v20    # "idx":I
     .end local v22    # "gridX":I
     .end local v23    # "gridY":I
-    :cond_a
-    :goto_4
+    :cond_e4
+    :goto_e4
     return-void
 .end method
 
 .method public final setLensFlip(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 77
@@ -3998,7 +3998,7 @@
 .end method
 
 .method public final setLensPower(F)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # F
 
     .line 63
@@ -4008,7 +4008,7 @@
 .end method
 
 .method public final setPaused(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 101
@@ -4019,13 +4019,13 @@
 .end method
 
 .method public final setRefreshIntervalMs(I)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public final setSnapshotScale(F)V
-    .locals 3
+    .registers 5
     .param p1, "value"    # F
 
     .line 87
@@ -4045,17 +4045,17 @@
 
     cmpg-float v1, v1, v0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_1
+    :goto_13
+    if-nez v1, :cond_21
 
     .line 89
     iput v0, p0, Lio/nekohasekai/sagernet/widget/GlassEngine;->snapshotScale:F
@@ -4074,12 +4074,12 @@
     invoke-virtual {v1}, Landroid/view/View;->invalidate()V
 
     .line 94
-    :cond_1
+    :cond_21
     return-void
 .end method
 
 .method public final setTopLensPower(F)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # F
 
     .line 70

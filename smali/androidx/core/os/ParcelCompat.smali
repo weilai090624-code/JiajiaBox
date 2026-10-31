@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 393
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public static readArray(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)[Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -46,7 +46,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 131
     invoke-static {p0, p1, p2}, Landroidx/core/os/ParcelCompat$Api33Impl;->readArray(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)[Ljava/lang/Object;
@@ -56,7 +56,7 @@
     return-object v0
 
     .line 133
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readArray(Ljava/lang/ClassLoader;)[Ljava/lang/Object;
 
     move-result-object v0
@@ -65,7 +65,7 @@
 .end method
 
 .method public static readArrayList(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/util/ArrayList;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -88,7 +88,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 105
     invoke-static {p0, p1, p2}, Landroidx/core/os/ParcelCompat$Api33Impl;->readArrayList(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/util/ArrayList;
@@ -98,7 +98,7 @@
     return-object v0
 
     .line 107
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readArrayList(Ljava/lang/ClassLoader;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -107,7 +107,7 @@
 .end method
 
 .method public static readBoolean(Landroid/os/Parcel;)Z
-    .locals 1
+    .registers 2
     .param p0, "in"    # Landroid/os/Parcel;
 
     .line 47
@@ -115,21 +115,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public static readHashMap(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/HashMap;
-    .locals 2
+    .registers 6
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -157,7 +157,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 205
     invoke-static {p0, p1, p2, p3}, Landroidx/core/os/ParcelCompat$Api33Impl;->readHashMap(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/HashMap;
@@ -167,7 +167,7 @@
     return-object v0
 
     .line 207
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readHashMap(Ljava/lang/ClassLoader;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -176,7 +176,7 @@
 .end method
 
 .method public static readList(Landroid/os/Parcel;Ljava/util/List;Ljava/lang/ClassLoader;Ljava/lang/Class;)V
-    .locals 2
+    .registers 6
     .param p0, "in"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -200,24 +200,24 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 79
     invoke-static {p0, p1, p2, p3}, Landroidx/core/os/ParcelCompat$Api33Impl;->readList(Landroid/os/Parcel;Ljava/util/List;Ljava/lang/ClassLoader;Ljava/lang/Class;)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 81
-    :cond_0
+    :cond_a
     invoke-virtual {p0, p1, p2}, Landroid/os/Parcel;->readList(Ljava/util/List;Ljava/lang/ClassLoader;)V
 
     .line 83
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 .method public static readMap(Landroid/os/Parcel;Ljava/util/Map;Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 2
+    .registers 7
     .param p0, "in"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -246,24 +246,24 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 180
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/core/os/ParcelCompat$Api33Impl;->readMap(Landroid/os/Parcel;Ljava/util/Map;Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/Class;)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 182
-    :cond_0
+    :cond_a
     invoke-virtual {p0, p1, p2}, Landroid/os/Parcel;->readMap(Ljava/util/Map;Ljava/lang/ClassLoader;)V
 
     .line 184
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 .method public static readParcelable(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Landroid/os/Parcelable;
-    .locals 4
+    .registers 7
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -284,7 +284,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 230
     invoke-static {p0, p1, p2}, Landroidx/core/os/ParcelCompat$Api33Impl;->readParcelable(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Landroid/os/Parcelable;
@@ -294,25 +294,25 @@
     return-object v0
 
     .line 232
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v0
 
     .line 233
     .local v0, "parcelable":Landroid/os/Parcelable;, "TT;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_49
 
     invoke-virtual {p2, v0}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_18
 
-    goto :goto_0
+    goto :goto_49
 
     .line 234
-    :cond_1
+    :cond_18
     new-instance v1, Landroid/os/BadParcelableException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -363,13 +363,13 @@
     throw v1
 
     .line 238
-    :cond_2
-    :goto_0
+    :cond_49
+    :goto_49
     return-object v0
 .end method
 
 .method public static readParcelableArray(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)[Ljava/lang/Object;
-    .locals 7
+    .registers 10
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -393,7 +393,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 292
     invoke-static {p0, p1, p2}, Landroidx/core/os/ParcelCompat$Api33Impl;->readParcelableArray(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)[Ljava/lang/Object;
@@ -403,7 +403,7 @@
     return-object v0
 
     .line 295
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
 
     move-result-object v0
@@ -416,7 +416,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     .line 297
     move-object v1, v0
@@ -426,7 +426,7 @@
     return-object v1
 
     .line 300
-    :cond_1
+    :cond_1b
     array-length v1, v0
 
     invoke-static {p2, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
@@ -440,13 +440,13 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_23
     array-length v3, v0
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_60
 
     .line 303
-    :try_start_0
+    :try_start_26
     aget-object v3, v0, v2
 
     invoke-virtual {p2, v3}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
@@ -454,8 +454,8 @@
     move-result-object v3
 
     aput-object v3, v1, v2
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2e
+    .catch Ljava/lang/ClassCastException; {:try_start_26 .. :try_end_2e} :catch_32
 
     .line 308
     nop
@@ -463,10 +463,10 @@
     .line 301
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 304
-    :catch_0
+    :catch_32
     move-exception v3
 
     .line 305
@@ -519,12 +519,12 @@
     .line 311
     .end local v2    # "i":I
     .end local v3    # "e":Ljava/lang/ClassCastException;
-    :cond_2
+    :cond_60
     return-object v1
 .end method
 
 .method public static readParcelableArrayTyped(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)[Landroid/os/Parcelable;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -546,7 +546,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 335
     invoke-static {p0, p1, p2}, Landroidx/core/os/ParcelCompat$Api33Impl;->readParcelableArray(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)[Ljava/lang/Object;
@@ -558,7 +558,7 @@
     return-object v0
 
     .line 337
-    :cond_0
+    :cond_d
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
 
     move-result-object v0
@@ -567,7 +567,7 @@
 .end method
 
 .method public static readParcelableCreator(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Landroid/os/Parcelable$Creator;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -590,7 +590,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 262
     invoke-static {p0, p1, p2}, Landroidx/core/os/ParcelCompat$Api33Impl;->readParcelableCreator(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Landroid/os/Parcelable$Creator;
@@ -600,7 +600,7 @@
     return-object v0
 
     .line 264
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Landroidx/core/os/ParcelCompat$Api30Impl;->readParcelableCreator(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/os/Parcelable$Creator;
 
     move-result-object v0
@@ -609,7 +609,7 @@
 .end method
 
 .method public static readParcelableList(Landroid/os/Parcel;Ljava/util/List;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/util/List;
-    .locals 2
+    .registers 6
     .param p0, "in"    # Landroid/os/Parcel;
     .param p2, "cl"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -635,7 +635,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 361
     invoke-static {p0, p1, p2, p3}, Landroidx/core/os/ParcelCompat$Api33Impl;->readParcelableList(Landroid/os/Parcel;Ljava/util/List;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/util/List;
@@ -645,7 +645,7 @@
     return-object v0
 
     .line 363
-    :cond_0
+    :cond_b
     invoke-static {p0, p1, p2}, Landroidx/core/os/ParcelCompat$Api29Impl;->readParcelableList(Landroid/os/Parcel;Ljava/util/List;Ljava/lang/ClassLoader;)Ljava/util/List;
 
     move-result-object v0
@@ -654,7 +654,7 @@
 .end method
 
 .method public static readSerializable(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/io/Serializable;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -675,7 +675,7 @@
 
     const/16 v1, 0x21
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 387
     invoke-static {p0, p1, p2}, Landroidx/core/os/ParcelCompat$Api33Impl;->readSerializable(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/io/Serializable;
@@ -685,7 +685,7 @@
     return-object v0
 
     .line 389
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
 
     move-result-object v0
@@ -694,7 +694,7 @@
 .end method
 
 .method public static readSparseArray(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Landroid/util/SparseArray;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -717,7 +717,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 156
     invoke-static {p0, p1, p2}, Landroidx/core/os/ParcelCompat$Api33Impl;->readSparseArray(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Landroid/util/SparseArray;
@@ -727,7 +727,7 @@
     return-object v0
 
     .line 158
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readSparseArray(Ljava/lang/ClassLoader;)Landroid/util/SparseArray;
 
     move-result-object v0
@@ -736,7 +736,7 @@
 .end method
 
 .method public static writeBoolean(Landroid/os/Parcel;Z)V
-    .locals 0
+    .registers 2
     .param p0, "out"    # Landroid/os/Parcel;
     .param p1, "value"    # Z
 

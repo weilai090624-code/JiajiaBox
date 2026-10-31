@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static final runSuspend(Lkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 3
     .param p0, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {

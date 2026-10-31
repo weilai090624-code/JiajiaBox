@@ -43,7 +43,7 @@
 
 # direct methods
 .method protected constructor <init>(J)V
-    .locals 0
+    .registers 3
     .param p1, "estimate"    # J
 
     .line 1336
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 1347
     .local p0, "this":Lj$/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>;"
@@ -70,7 +70,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 2
+    .registers 3
 
     .line 1342
     .local p0, "this":Lj$/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>;"
@@ -80,7 +80,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$forEachRemaining(Lj$/util/Spliterator;Ljava/util/function/Consumer;)V
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -108,7 +108,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 

@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 0
+    .registers 2
 
     .line 153
     iput-object p1, p0, Lj$/time/zone/ZoneRulesProvider$1;->val$loaded:Ljava/util/List;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()Ljava/lang/Object;
-    .locals 4
+    .registers 5
 
     .line 155
     const-string v0, "java.time.zone.DefaultZoneRulesProvider"
@@ -56,10 +56,10 @@
 
     .line 156
     .local v0, "prop":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_30
 
     .line 160
-    :try_start_0
+    :try_start_8
     const-class v1, Lj$/time/zone/ZoneRulesProvider;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -94,18 +94,18 @@
     iget-object v3, p0, Lj$/time/zone/ZoneRulesProvider$1;->val$loaded:Ljava/util/List;
 
     invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_27} :catch_29
 
     .line 166
     nop
 
     .end local v1    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v2    # "provider":Lj$/time/zone/ZoneRulesProvider;
-    goto :goto_0
+    goto :goto_38
 
     .line 164
-    :catch_0
+    :catch_29
     move-exception v1
 
     .line 165
@@ -118,7 +118,7 @@
 
     .line 170
     .end local v1    # "x":Ljava/lang/Exception;
-    :cond_0
+    :cond_30
     new-instance v1, Lj$/time/zone/ZoneRulesProvider$TimeZoneRulesProvider;
 
     invoke-direct {v1}, Lj$/time/zone/ZoneRulesProvider$TimeZoneRulesProvider;-><init>()V
@@ -126,7 +126,7 @@
     invoke-static {v1}, Lj$/time/zone/ZoneRulesProvider;->registerProvider(Lj$/time/zone/ZoneRulesProvider;)V
 
     .line 172
-    :goto_0
+    :goto_38
     const/4 v1, 0x0
 
     return-object v1

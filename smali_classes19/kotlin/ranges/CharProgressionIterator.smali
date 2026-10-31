@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(CCI)V
-    .locals 3
+    .registers 7
     .param p1, "first"    # C
     .param p2, "last"    # C
     .param p3, "step"    # I
@@ -68,45 +68,45 @@
 
     const/4 v2, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_14
 
     invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->compare(II)I
 
     move-result v0
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_1b
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_14
     invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->compare(II)I
 
     move-result v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_1b
 
-    :goto_0
-    goto :goto_1
+    :goto_1a
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_1c
     iput-boolean v1, p0, Lkotlin/ranges/CharProgressionIterator;->hasNext:Z
 
     .line 18
     iget-boolean v0, p0, Lkotlin/ranges/CharProgressionIterator;->hasNext:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_24
 
     move v0, p1
 
-    goto :goto_2
+    goto :goto_26
 
-    :cond_2
+    :cond_24
     iget v0, p0, Lkotlin/ranges/CharProgressionIterator;->finalElement:I
 
-    :goto_2
+    :goto_26
     iput v0, p0, Lkotlin/ranges/CharProgressionIterator;->next:I
 
     .line 15
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public final getStep()I
-    .locals 1
+    .registers 2
 
     .line 15
     iget v0, p0, Lkotlin/ranges/CharProgressionIterator;->step:I
@@ -125,7 +125,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 20
     iget-boolean v0, p0, Lkotlin/ranges/CharProgressionIterator;->hasNext:Z
@@ -134,7 +134,7 @@
 .end method
 
 .method public nextChar()C
-    .locals 3
+    .registers 4
 
     .line 23
     iget v0, p0, Lkotlin/ranges/CharProgressionIterator;->next:I
@@ -143,22 +143,22 @@
     .local v0, "value":I
     iget v1, p0, Lkotlin/ranges/CharProgressionIterator;->finalElement:I
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_14
 
     .line 25
     iget-boolean v1, p0, Lkotlin/ranges/CharProgressionIterator;->hasNext:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     .line 26
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lkotlin/ranges/CharProgressionIterator;->hasNext:Z
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 25
-    :cond_0
+    :cond_e
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -166,7 +166,7 @@
     throw v1
 
     .line 29
-    :cond_1
+    :cond_14
     iget v1, p0, Lkotlin/ranges/CharProgressionIterator;->next:I
 
     iget v2, p0, Lkotlin/ranges/CharProgressionIterator;->step:I
@@ -176,7 +176,7 @@
     iput v1, p0, Lkotlin/ranges/CharProgressionIterator;->next:I
 
     .line 31
-    :goto_0
+    :goto_1b
     int-to-char v1, v0
 
     return v1

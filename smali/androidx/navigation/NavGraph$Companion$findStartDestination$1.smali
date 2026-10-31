@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/navigation/NavGraph$Companion$findStartDestination$1;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final invoke(Landroidx/navigation/NavDestination;)Landroidx/navigation/NavDestination;
-    .locals 2
+    .registers 4
     .param p1, "it"    # Landroidx/navigation/NavDestination;
 
     const-string v0, "it"
@@ -86,7 +86,7 @@
     .line 409
     instance-of v0, p1, Landroidx/navigation/NavGraph;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 410
     move-object v0, p1
@@ -105,10 +105,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 412
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     move-object v1, v0
@@ -116,12 +116,12 @@
     check-cast v1, Landroidx/navigation/NavDestination;
 
     .line 409
-    :goto_0
+    :goto_1c
     return-object v0
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 408

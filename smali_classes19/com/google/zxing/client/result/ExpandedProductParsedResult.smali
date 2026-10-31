@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
-    .locals 16
+    .registers 32
     .param p1, "rawText"    # Ljava/lang/String;
     .param p2, "productID"    # Ljava/lang/String;
     .param p3, "sscc"    # Ljava/lang/String;
@@ -179,25 +179,25 @@
 .end method
 
 .method private static equalsOrNull(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "o1"    # Ljava/lang/Object;
     .param p1, "o2"    # Ljava/lang/Object;
 
     .line 117
-    if-nez p0, :cond_1
+    if-nez p0, :cond_8
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
     const/4 v0, 0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
     return v0
 
-    :cond_1
+    :cond_8
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -206,17 +206,17 @@
 .end method
 
 .method private static hashNotNull(Ljava/lang/Object;)I
-    .locals 1
+    .registers 2
     .param p0, "o"    # Ljava/lang/Object;
 
     .line 140
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
@@ -227,7 +227,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 95
@@ -235,13 +235,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 96
     return v1
 
     .line 99
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;
@@ -256,7 +256,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->sscc:Ljava/lang/String;
 
@@ -267,7 +267,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->lotNumber:Ljava/lang/String;
 
@@ -278,7 +278,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->productionDate:Ljava/lang/String;
 
@@ -289,7 +289,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->bestBeforeDate:Ljava/lang/String;
 
@@ -300,7 +300,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->expirationDate:Ljava/lang/String;
 
@@ -311,7 +311,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->weight:Ljava/lang/String;
 
@@ -322,7 +322,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->weightType:Ljava/lang/String;
 
@@ -333,7 +333,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->weightIncrement:Ljava/lang/String;
 
@@ -344,7 +344,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->price:Ljava/lang/String;
 
@@ -355,7 +355,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->priceIncrement:Ljava/lang/String;
 
@@ -366,7 +366,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->priceCurrency:Ljava/lang/String;
 
@@ -377,7 +377,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     iget-object v2, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->uncommonAIs:Ljava/util/Map;
 
@@ -388,13 +388,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_8d
 
     const/4 v1, 0x1
 
     return v1
 
-    :cond_1
+    :cond_8d
     nop
 
     .line 101
@@ -402,7 +402,7 @@
 .end method
 
 .method public getBestBeforeDate()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 168
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->bestBeforeDate:Ljava/lang/String;
@@ -411,7 +411,7 @@
 .end method
 
 .method public getDisplayResult()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 205
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->rawText:Ljava/lang/String;
@@ -424,7 +424,7 @@
 .end method
 
 .method public getExpirationDate()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 172
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->expirationDate:Ljava/lang/String;
@@ -433,7 +433,7 @@
 .end method
 
 .method public getLotNumber()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 156
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->lotNumber:Ljava/lang/String;
@@ -442,7 +442,7 @@
 .end method
 
 .method public getPackagingDate()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 164
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->packagingDate:Ljava/lang/String;
@@ -451,7 +451,7 @@
 .end method
 
 .method public getPrice()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 188
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->price:Ljava/lang/String;
@@ -460,7 +460,7 @@
 .end method
 
 .method public getPriceCurrency()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 196
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->priceCurrency:Ljava/lang/String;
@@ -469,7 +469,7 @@
 .end method
 
 .method public getPriceIncrement()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 192
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->priceIncrement:Ljava/lang/String;
@@ -478,7 +478,7 @@
 .end method
 
 .method public getProductID()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 148
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->productID:Ljava/lang/String;
@@ -487,7 +487,7 @@
 .end method
 
 .method public getProductionDate()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 160
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->productionDate:Ljava/lang/String;
@@ -496,7 +496,7 @@
 .end method
 
 .method public getRawText()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 144
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->rawText:Ljava/lang/String;
@@ -505,7 +505,7 @@
 .end method
 
 .method public getSscc()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 152
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->sscc:Ljava/lang/String;
@@ -514,7 +514,7 @@
 .end method
 
 .method public getUncommonAIs()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -532,7 +532,7 @@
 .end method
 
 .method public getWeight()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 176
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->weight:Ljava/lang/String;
@@ -541,7 +541,7 @@
 .end method
 
 .method public getWeightIncrement()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 184
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->weightIncrement:Ljava/lang/String;
@@ -550,7 +550,7 @@
 .end method
 
 .method public getWeightType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 180
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->weightType:Ljava/lang/String;
@@ -559,7 +559,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 123
     iget-object v0, p0, Lcom/google/zxing/client/result/ExpandedProductParsedResult;->productID:Ljava/lang/String;

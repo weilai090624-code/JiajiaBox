@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 36
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 37
     iget-object v0, p0, Lkotlinx/coroutines/internal/ContextScope;->coroutineContext:Lkotlin/coroutines/CoroutineContext;
@@ -65,7 +65,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 39
     new-instance v0, Ljava/lang/StringBuilder;

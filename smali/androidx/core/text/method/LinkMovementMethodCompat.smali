@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Landroid/text/method/LinkMovementMethod;-><init>()V
@@ -18,12 +18,12 @@
 .end method
 
 .method public static getInstance()Landroidx/core/text/method/LinkMovementMethodCompat;
-    .locals 1
+    .registers 1
 
     .line 88
     sget-object v0, Landroidx/core/text/method/LinkMovementMethodCompat;->sInstance:Landroidx/core/text/method/LinkMovementMethodCompat;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 89
     new-instance v0, Landroidx/core/text/method/LinkMovementMethodCompat;
@@ -33,7 +33,7 @@
     sput-object v0, Landroidx/core/text/method/LinkMovementMethodCompat;->sInstance:Landroidx/core/text/method/LinkMovementMethodCompat;
 
     .line 92
-    :cond_0
+    :cond_b
     sget-object v0, Landroidx/core/text/method/LinkMovementMethodCompat;->sInstance:Landroidx/core/text/method/LinkMovementMethodCompat;
 
     return-object v0
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onTouchEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
-    .locals 8
+    .registers 12
     .param p1, "widget"    # Landroid/widget/TextView;
     .param p2, "buffer"    # Landroid/text/Spannable;
     .param p3, "event"    # Landroid/view/MotionEvent;
@@ -52,7 +52,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_60
 
     .line 46
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getAction()I
@@ -63,12 +63,12 @@
     .local v0, "action":I
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_f
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_60
 
     .line 49
-    :cond_0
+    :cond_f
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getX()F
 
     move-result v2
@@ -119,18 +119,18 @@
 
     .line 60
     .local v4, "layout":Landroid/text/Layout;
-    if-ltz v3, :cond_4
+    if-ltz v3, :cond_55
 
     invoke-virtual {v4}, Landroid/text/Layout;->getHeight()I
 
     move-result v5
 
-    if-le v3, v5, :cond_1
+    if-le v3, v5, :cond_3a
 
-    goto :goto_2
+    goto :goto_55
 
     .line 63
-    :cond_1
+    :cond_3a
     invoke-virtual {v4, v3}, Landroid/text/Layout;->getLineForVertical(I)I
 
     move-result v5
@@ -145,7 +145,7 @@
 
     cmpg-float v6, v6, v7
 
-    if-ltz v6, :cond_3
+    if-ltz v6, :cond_53
 
     int-to-float v6, v2
 
@@ -156,34 +156,34 @@
 
     cmpl-float v6, v6, v7
 
-    if-lez v6, :cond_2
+    if-lez v6, :cond_51
 
-    goto :goto_0
+    goto :goto_53
 
-    :cond_2
+    :cond_51
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_54
 
-    :cond_3
-    :goto_0
+    :cond_53
+    :goto_53
     nop
 
     .local v1, "isOutOfLineBounds":Z
-    :goto_1
-    goto :goto_3
+    :goto_54
+    goto :goto_56
 
     .line 61
     .end local v1    # "isOutOfLineBounds":Z
     .end local v5    # "line":I
-    :cond_4
-    :goto_2
+    :cond_55
+    :goto_55
     const/4 v1, 0x1
 
     .line 68
     .restart local v1    # "isOutOfLineBounds":Z
-    :goto_3
-    if-eqz v1, :cond_5
+    :goto_56
+    if-eqz v1, :cond_60
 
     .line 69
     invoke-static {p2}, Landroid/text/Selection;->removeSelection(Landroid/text/Spannable;)V
@@ -201,7 +201,7 @@
     .end local v2    # "x":I
     .end local v3    # "y":I
     .end local v4    # "layout":Landroid/text/Layout;
-    :cond_5
+    :cond_60
     invoke-super {p0, p1, p2, p3}, Landroid/text/method/LinkMovementMethod;->onTouchEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
 
     move-result v0

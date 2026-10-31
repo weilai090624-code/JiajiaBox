@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method private static addAllImpl(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/AbstractMapBasedMultiset;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -53,7 +53,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 910
     const/4 v0, 0x0
@@ -61,7 +61,7 @@
     return v0
 
     .line 912
-    :cond_0
+    :cond_8
     invoke-virtual {p1, p0}, Lcom/google/common/collect/AbstractMapBasedMultiset;->addTo(Lcom/google/common/collect/Multiset;)V
 
     .line 913
@@ -71,7 +71,7 @@
 .end method
 
 .method private static addAllImpl(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -89,7 +89,7 @@
     .local p1, "elements":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<+TE;>;"
     instance-of v0, p1, Lcom/google/common/collect/AbstractMapBasedMultiset;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 892
     move-object v0, p1
@@ -103,12 +103,12 @@
     return v0
 
     .line 893
-    :cond_0
+    :cond_c
     invoke-interface {p1}, Lcom/google/common/collect/Multiset;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 894
     const/4 v0, 0x0
@@ -116,7 +116,7 @@
     return v0
 
     .line 896
-    :cond_1
+    :cond_14
     invoke-interface {p1}, Lcom/google/common/collect/Multiset;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -125,12 +125,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_34
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -152,17 +152,17 @@
 
     .line 898
     .end local v1    # "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<+TE;>;"
-    goto :goto_0
+    goto :goto_1c
 
     .line 899
-    :cond_2
+    :cond_34
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method static addAllImpl(Lcom/google/common/collect/Multiset;Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -186,7 +186,7 @@
     .line 877
     instance-of v0, p1, Lcom/google/common/collect/Multiset;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 878
     invoke-static {p1}, Lcom/google/common/collect/Multisets;->cast(Ljava/lang/Iterable;)Lcom/google/common/collect/Multiset;
@@ -200,12 +200,12 @@
     return v0
 
     .line 879
-    :cond_0
+    :cond_13
     invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 880
     const/4 v0, 0x0
@@ -213,7 +213,7 @@
     return v0
 
     .line 882
-    :cond_1
+    :cond_1b
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -226,7 +226,7 @@
 .end method
 
 .method static cast(Ljava/lang/Iterable;)Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -249,7 +249,7 @@
 .end method
 
 .method public static containsOccurrences(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -277,12 +277,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -306,7 +306,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_2a
 
     .line 670
     const/4 v0, 0x0
@@ -316,18 +316,18 @@
     .line 672
     .end local v1    # "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
     .end local v2    # "superCount":I
-    :cond_0
-    goto :goto_0
+    :cond_2a
+    goto :goto_e
 
     .line 673
-    :cond_1
+    :cond_2b
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static copyHighestCountFirst(Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/ImmutableMultiset;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -375,7 +375,7 @@
 .end method
 
 .method public static difference(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -407,7 +407,7 @@
 .end method
 
 .method static elementIterator(Ljava/util/Iterator;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -431,7 +431,7 @@
 .end method
 
 .method static equalsImpl(Lcom/google/common/collect/Multiset;Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -450,18 +450,18 @@
     .local p0, "multiset":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<*>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 849
     return v0
 
     .line 851
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/collect/Multiset;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4f
 
     .line 852
     move-object v1, p1
@@ -478,7 +478,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_4e
 
     invoke-interface {p0}, Lcom/google/common/collect/Multiset;->entrySet()Ljava/util/Set;
 
@@ -496,12 +496,12 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_29
 
-    goto :goto_1
+    goto :goto_4e
 
     .line 862
-    :cond_1
+    :cond_29
     invoke-interface {v1}, Lcom/google/common/collect/Multiset;->entrySet()Ljava/util/Set;
 
     move-result-object v3
@@ -510,12 +510,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_31
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4d
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -537,33 +537,33 @@
 
     move-result v6
 
-    if-eq v5, v6, :cond_2
+    if-eq v5, v6, :cond_4c
 
     .line 864
     return v2
 
     .line 866
     .end local v4    # "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
-    :cond_2
-    goto :goto_0
+    :cond_4c
+    goto :goto_31
 
     .line 867
-    :cond_3
+    :cond_4d
     return v0
 
     .line 860
-    :cond_4
-    :goto_1
+    :cond_4e
+    :goto_4e
     return v2
 
     .line 869
     .end local v1    # "that":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<*>;"
-    :cond_5
+    :cond_4f
     return v2
 .end method
 
 .method public static filter(Lcom/google/common/collect/Multiset;Lcom/google/common/base/Predicate;)Lcom/google/common/collect/Multiset;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -583,7 +583,7 @@
     .local p1, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TE;>;"
     instance-of v0, p0, Lcom/google/common/collect/Multisets$FilteredMultiset;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 283
     move-object v0, p0
@@ -611,7 +611,7 @@
     .line 287
     .end local v0    # "filtered":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
     .end local v1    # "combinedPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<TE;>;"
-    :cond_0
+    :cond_15
     new-instance v0, Lcom/google/common/collect/Multisets$FilteredMultiset;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Multisets$FilteredMultiset;-><init>(Lcom/google/common/collect/Multiset;Lcom/google/common/base/Predicate;)V
@@ -620,7 +620,7 @@
 .end method
 
 .method public static immutableEntry(Ljava/lang/Object;I)Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 3
     .param p0    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -646,7 +646,7 @@
 .end method
 
 .method static inferDistinctElements(Ljava/lang/Iterable;)I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -659,7 +659,7 @@
     .local p0, "elements":Ljava/lang/Iterable;, "Ljava/lang/Iterable<*>;"
     instance-of v0, p0, Lcom/google/common/collect/Multiset;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 367
     move-object v0, p0
@@ -677,14 +677,14 @@
     return v0
 
     .line 369
-    :cond_0
+    :cond_10
     const/16 v0, 0xb
 
     return v0
 .end method
 
 .method public static intersection(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -716,7 +716,7 @@
 .end method
 
 .method static iteratorImpl(Lcom/google/common/collect/Multiset;)Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -747,7 +747,7 @@
 .end method
 
 .method static linearTimeSizeImpl(Lcom/google/common/collect/Multiset;)I
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -770,12 +770,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_a
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -795,10 +795,10 @@
 
     .line 1131
     .end local v3    # "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
-    goto :goto_0
+    goto :goto_a
 
     .line 1132
-    :cond_0
+    :cond_1d
     invoke-static {v0, v1}, Lcom/google/common/primitives/Ints;->saturatedCast(J)I
 
     move-result v2
@@ -807,7 +807,7 @@
 .end method
 
 .method static removeAllImpl(Lcom/google/common/collect/Multiset;Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -823,7 +823,7 @@
     .local p1, "elementsToRemove":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     instance-of v0, p1, Lcom/google/common/collect/Multiset;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 920
     move-object v0, p1
@@ -834,13 +834,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_d
 
     .line 921
-    :cond_0
+    :cond_c
     move-object v0, p1
 
-    :goto_0
+    :goto_d
     nop
 
     .line 923
@@ -857,7 +857,7 @@
 .end method
 
 .method public static removeOccurrences(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -891,12 +891,12 @@
 
     .line 789
     .local v1, "entryIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+Lcom/google/common/collect/Multiset$Entry<*>;>;"
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_39
 
     .line 790
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -921,7 +921,7 @@
 
     move-result v4
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_2e
 
     .line 793
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
@@ -929,11 +929,11 @@
     .line 794
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_38
 
     .line 795
-    :cond_0
-    if-lez v3, :cond_1
+    :cond_2e
+    if-lez v3, :cond_38
 
     .line 796
     invoke-interface {v2}, Lcom/google/common/collect/Multiset$Entry;->getElement()Ljava/lang/Object;
@@ -948,17 +948,17 @@
     .line 799
     .end local v2    # "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
     .end local v3    # "removeCount":I
-    :cond_1
-    :goto_1
-    goto :goto_0
+    :cond_38
+    :goto_38
+    goto :goto_f
 
     .line 800
-    :cond_2
+    :cond_39
     return v0
 .end method
 
 .method public static removeOccurrences(Lcom/google/common/collect/Multiset;Ljava/lang/Iterable;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -974,7 +974,7 @@
     .local p1, "occurrencesToRemove":Ljava/lang/Iterable;, "Ljava/lang/Iterable<*>;"
     instance-of v0, p1, Lcom/google/common/collect/Multiset;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 747
     move-object v0, p1
@@ -988,7 +988,7 @@
     return v0
 
     .line 749
-    :cond_0
+    :cond_c
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 750
@@ -1003,12 +1003,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_17
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1024,15 +1024,15 @@
 
     .line 754
     .end local v2    # "o":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_17
 
     .line 755
-    :cond_1
+    :cond_27
     return v0
 .end method
 
 .method static retainAllImpl(Lcom/google/common/collect/Multiset;Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1051,7 +1051,7 @@
     .line 930
     instance-of v0, p1, Lcom/google/common/collect/Multiset;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 931
     move-object v0, p1
@@ -1062,13 +1062,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_10
 
     .line 932
-    :cond_0
+    :cond_f
     move-object v0, p1
 
-    :goto_0
+    :goto_10
     nop
 
     .line 934
@@ -1085,7 +1085,7 @@
 .end method
 
 .method public static retainOccurrences(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1107,7 +1107,7 @@
 .end method
 
 .method private static retainOccurrencesImpl(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1143,12 +1143,12 @@
 
     .line 706
     .local v1, "changed":Z
-    :goto_0
+    :goto_f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_39
 
     .line 707
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1169,7 +1169,7 @@
 
     .line 709
     .local v3, "retainCount":I
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2a
 
     .line 710
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -1177,15 +1177,15 @@
     .line 711
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_38
 
     .line 712
-    :cond_0
+    :cond_2a
     invoke-interface {v2}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_38
 
     .line 713
     invoke-interface {v2}, Lcom/google/common/collect/Multiset$Entry;->getElement()Ljava/lang/Object;
@@ -1200,17 +1200,17 @@
     .line 716
     .end local v2    # "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<TE;>;"
     .end local v3    # "retainCount":I
-    :cond_1
-    :goto_1
-    goto :goto_0
+    :cond_38
+    :goto_38
+    goto :goto_f
 
     .line 717
-    :cond_2
+    :cond_39
     return v1
 .end method
 
 .method static setCountImpl(Lcom/google/common/collect/Multiset;Ljava/lang/Object;I)I
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1244,16 +1244,16 @@
 
     .line 945
     .local v1, "delta":I
-    if-lez v1, :cond_0
+    if-lez v1, :cond_11
 
     .line 946
     invoke-interface {p0, p1, v1}, Lcom/google/common/collect/Multiset;->add(Ljava/lang/Object;I)I
 
-    goto :goto_0
+    goto :goto_17
 
     .line 947
-    :cond_0
-    if-gez v1, :cond_1
+    :cond_11
+    if-gez v1, :cond_17
 
     .line 948
     neg-int v2, v1
@@ -1261,13 +1261,13 @@
     invoke-interface {p0, p1, v2}, Lcom/google/common/collect/Multiset;->remove(Ljava/lang/Object;I)I
 
     .line 951
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     return v0
 .end method
 
 .method static setCountImpl(Lcom/google/common/collect/Multiset;Ljava/lang/Object;II)Z
-    .locals 1
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1301,7 +1301,7 @@
 
     move-result v0
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_15
 
     .line 961
     invoke-interface {p0, p1, p3}, Lcom/google/common/collect/Multiset;->setCount(Ljava/lang/Object;I)I
@@ -1312,14 +1312,14 @@
     return v0
 
     .line 964
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static sum(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1351,7 +1351,7 @@
 .end method
 
 .method public static union(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1383,7 +1383,7 @@
 .end method
 
 .method public static unmodifiableMultiset(Lcom/google/common/collect/ImmutableMultiset;)Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1411,7 +1411,7 @@
 .end method
 
 .method public static unmodifiableMultiset(Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/Multiset;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1428,16 +1428,16 @@
     .local p0, "multiset":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<+TE;>;"
     instance-of v0, p0, Lcom/google/common/collect/Multisets$UnmodifiableMultiset;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     instance-of v0, p0, Lcom/google/common/collect/ImmutableMultiset;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_15
 
     .line 79
-    :cond_0
+    :cond_9
     new-instance v0, Lcom/google/common/collect/Multisets$UnmodifiableMultiset;
 
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1451,8 +1451,8 @@
     return-object v0
 
     .line 76
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     move-object v0, p0
 
     .line 77
@@ -1461,7 +1461,7 @@
 .end method
 
 .method public static unmodifiableSortedMultiset(Lcom/google/common/collect/SortedMultiset;)Lcom/google/common/collect/SortedMultiset;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",

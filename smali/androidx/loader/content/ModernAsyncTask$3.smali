@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/loader/content/ModernAsyncTask;Ljava/util/concurrent/Callable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/loader/content/ModernAsyncTask;
 
     .line 153
@@ -43,13 +43,13 @@
 
 # virtual methods
 .method protected done()V
-    .locals 4
+    .registers 5
 
     .line 157
     .local p0, "this":Landroidx/loader/content/ModernAsyncTask$3;, "Landroidx/loader/content/ModernAsyncTask$3;"
     const-string v0, "An error occurred while executing doInBackground()"
 
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0}, Landroidx/loader/content/ModernAsyncTask$3;->get()Ljava/lang/Object;
 
     move-result-object v1
@@ -59,17 +59,17 @@
     iget-object v2, p0, Landroidx/loader/content/ModernAsyncTask$3;->this$0:Landroidx/loader/content/ModernAsyncTask;
 
     invoke-virtual {v2, v1}, Landroidx/loader/content/ModernAsyncTask;->postResultIfNotInvoked(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_b} :catch_26
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_2 .. :try_end_b} :catch_1b
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_2 .. :try_end_b} :catch_13
+    .catchall {:try_start_2 .. :try_end_b} :catchall_c
 
     .end local v1    # "result":Ljava/lang/Object;, "TResult;"
-    goto :goto_0
+    goto :goto_2c
 
     .line 167
-    :catchall_0
+    :catchall_c
     move-exception v1
 
     .line 168
@@ -82,7 +82,7 @@
 
     .line 165
     .end local v1    # "t":Ljava/lang/Throwable;
-    :catch_0
+    :catch_13
     move-exception v0
 
     .line 166
@@ -94,10 +94,10 @@
     invoke-virtual {v1, v2}, Landroidx/loader/content/ModernAsyncTask;->postResultIfNotInvoked(Ljava/lang/Object;)V
 
     .end local v0    # "e":Ljava/util/concurrent/CancellationException;
-    goto :goto_0
+    goto :goto_2c
 
     .line 162
-    :catch_1
+    :catch_1b
     move-exception v1
 
     .line 163
@@ -115,7 +115,7 @@
 
     .line 160
     .end local v1    # "e":Ljava/util/concurrent/ExecutionException;
-    :catch_2
+    :catch_26
     move-exception v0
 
     .line 161
@@ -126,7 +126,7 @@
 
     .line 170
     .end local v0    # "e":Ljava/lang/InterruptedException;
-    :goto_0
+    :goto_2c
     nop
 
     .line 171

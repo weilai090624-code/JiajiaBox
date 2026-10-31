@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/trusted/TrustedWebActivityCallback;)V
-    .locals 0
+    .registers 2
 
     .line 318
     iput-object p1, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$1;->val$callback:Landroidx/browser/trusted/TrustedWebActivityCallback;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onExtraCallback(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
     .param p1, "callbackName"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;

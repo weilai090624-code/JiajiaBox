@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/view/menu/MenuItemWrapperICS;Landroid/view/MenuItem$OnMenuItemClickListener;)V
-    .locals 0
+    .registers 3
     .param p2, "object"    # Landroid/view/MenuItem$OnMenuItemClickListener;
 
     .line 401
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .locals 2
+    .registers 4
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 407

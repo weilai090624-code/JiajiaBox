@@ -40,14 +40,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 14
+    .registers 14
 
     .line 207
     const/16 v0, 0x40
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_74
 
     sput-object v0, Lcom/google/common/math/LongMath;->maxLog10ForLeadingZeros:[B
 
@@ -56,14 +56,14 @@
 
     new-array v1, v0, [J
 
-    fill-array-data v1, :array_1
+    fill-array-data v1, :array_98
 
     sput-object v1, Lcom/google/common/math/LongMath;->powersOf10:[J
 
     .line 240
     new-array v0, v0, [J
 
-    fill-array-data v0, :array_2
+    fill-array-data v0, :array_e8
 
     sput-object v0, Lcom/google/common/math/LongMath;->halfPowersOf10:[J
 
@@ -72,7 +72,7 @@
 
     new-array v0, v0, [J
 
-    fill-array-data v0, :array_3
+    fill-array-data v0, :array_138
 
     sput-object v0, Lcom/google/common/math/LongMath;->factorials:[J
 
@@ -81,7 +81,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_4
+    fill-array-data v0, :array_190
 
     sput-object v0, Lcom/google/common/math/LongMath;->biggestBinomials:[I
 
@@ -90,7 +90,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_5
+    fill-array-data v0, :array_1d8
 
     sput-object v0, Lcom/google/common/math/LongMath;->biggestSimpleBinomials:[I
 
@@ -99,43 +99,43 @@
 
     new-array v1, v0, [J
 
-    fill-array-data v1, :array_6
+    fill-array-data v1, :array_21a
 
     const/4 v2, 0x3
 
     new-array v3, v2, [J
 
-    fill-array-data v3, :array_7
+    fill-array-data v3, :array_226
 
     const/4 v4, 0x4
 
     new-array v5, v4, [J
 
-    fill-array-data v5, :array_8
+    fill-array-data v5, :array_236
 
     const/4 v6, 0x5
 
     new-array v7, v6, [J
 
-    fill-array-data v7, :array_9
+    fill-array-data v7, :array_24a
 
     const/4 v8, 0x6
 
     new-array v9, v8, [J
 
-    fill-array-data v9, :array_a
+    fill-array-data v9, :array_262
 
     const/4 v10, 0x7
 
     new-array v11, v10, [J
 
-    fill-array-data v11, :array_b
+    fill-array-data v11, :array_27e
 
     const/16 v12, 0x8
 
     new-array v12, v12, [J
 
-    fill-array-data v12, :array_c
+    fill-array-data v12, :array_29e
 
     new-array v10, v10, [[J
 
@@ -161,7 +161,7 @@
 
     return-void
 
-    :array_0
+    :array_74
     .array-data 1
         0x13t
         0x12t
@@ -229,7 +229,7 @@
         0x0t
     .end array-data
 
-    :array_1
+    :array_98
     .array-data 8
         0x1
         0xa
@@ -252,7 +252,7 @@
         0xde0b6b3a7640000L
     .end array-data
 
-    :array_2
+    :array_e8
     .array-data 8
         0x3
         0x1f
@@ -275,7 +275,7 @@
         0x2be2aac7077d5bc3L    # 2.731041190138108E-97
     .end array-data
 
-    :array_3
+    :array_138
     .array-data 8
         0x1
         0x1
@@ -300,7 +300,7 @@
         0x21c3677c82b40000L
     .end array-data
 
-    :array_4
+    :array_190
     .array-data 4
         0x7fffffff
         0x7fffffff
@@ -338,7 +338,7 @@
         0x42
     .end array-data
 
-    :array_5
+    :array_1d8
     .array-data 4
         0x7fffffff
         0x7fffffff
@@ -373,20 +373,20 @@
         0x3d
     .end array-data
 
-    :array_6
+    :array_21a
     .array-data 8
         0x473f6
         0x1c1111acd0b9428L    # 3.1855675420061E-300
     .end array-data
 
-    :array_7
+    :array_226
     .array-data 8
         0x34c91838
         0xa10ad7d5c6610c1L
         0x318a8c12ce9c70e7L    # 4.808051585655767E-70
     .end array-data
 
-    :array_8
+    :array_236
     .array-data 8
         0x3fc6e038e0L
         0xf
@@ -394,7 +394,7 @@
         0x386c87553e12cL
     .end array-data
 
-    :array_9
+    :array_24a
     .array-data 8
         0x2b5343fd6a30L
         0x2
@@ -403,7 +403,7 @@
         0xdf8286ccL
     .end array-data
 
-    :array_a
+    :array_262
     .array-data 8
         0x1c6b470864f682L
         0x2
@@ -413,7 +413,7 @@
         0x370eb221a5f176ddL    # 1.7205605495331308E-43
     .end array-data
 
-    :array_b
+    :array_27e
     .array-data 8
         0x81f23f390affe88L
         0x2
@@ -424,7 +424,7 @@
         0x1189b3f265c2b0c7L
     .end array-data
 
-    :array_c
+    :array_29e
     .array-data 8
         0x7fffffffffffffffL
         0x2
@@ -438,7 +438,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1349
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -447,7 +447,7 @@
 .end method
 
 .method public static binomial(II)J
-    .locals 16
+    .registers 18
     .param p0, "n"    # I
     .param p1, "k"    # I
 
@@ -466,16 +466,16 @@
     invoke-static {v2, v1}, Lcom/google/common/math/MathPreconditions;->checkNonNegative(Ljava/lang/String;I)I
 
     .line 813
-    if-gt v1, v0, :cond_0
+    if-gt v1, v0, :cond_12
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_13
     const-string v3, "k (%s) > n (%s)"
 
     invoke-static {v2, v3, v1, v0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;II)V
@@ -483,7 +483,7 @@
     .line 814
     shr-int/lit8 v2, v0, 0x1
 
-    if-le v1, v2, :cond_1
+    if-le v1, v2, :cond_1e
 
     .line 815
     sub-int v1, v0, v1
@@ -491,15 +491,15 @@
     .line 817
     .end local p1    # "k":I
     .local v1, "k":I
-    :cond_1
-    packed-switch v1, :pswitch_data_0
+    :cond_1e
+    packed-switch v1, :pswitch_data_b6
 
     .line 823
     sget-object v2, Lcom/google/common/math/LongMath;->factorials:[J
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_2
+    if-ge v0, v2, :cond_3d
 
     .line 824
     sget-object v2, Lcom/google/common/math/LongMath;->factorials:[J
@@ -523,46 +523,46 @@
     return-wide v3
 
     .line 821
-    :pswitch_0
+    :pswitch_38
     int-to-long v2, v0
 
     return-wide v2
 
     .line 819
-    :pswitch_1
+    :pswitch_3a
     const-wide/16 v2, 0x1
 
     return-wide v2
 
     .line 825
-    :cond_2
+    :cond_3d
     sget-object v2, Lcom/google/common/math/LongMath;->biggestBinomials:[I
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_8
+    if-ge v1, v2, :cond_af
 
     sget-object v2, Lcom/google/common/math/LongMath;->biggestBinomials:[I
 
     aget v2, v2, v1
 
-    if-le v0, v2, :cond_3
+    if-le v0, v2, :cond_4a
 
-    goto/16 :goto_4
+    goto/16 :goto_af
 
     .line 827
-    :cond_3
+    :cond_4a
     sget-object v2, Lcom/google/common/math/LongMath;->biggestSimpleBinomials:[I
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_5
+    if-ge v1, v2, :cond_66
 
     sget-object v2, Lcom/google/common/math/LongMath;->biggestSimpleBinomials:[I
 
     aget v2, v2, v1
 
-    if-gt v0, v2, :cond_5
+    if-gt v0, v2, :cond_66
 
     .line 829
     add-int/lit8 v2, v0, -0x1
@@ -576,8 +576,8 @@
     const/4 v0, 0x2
 
     .local v0, "i":I
-    :goto_1
-    if-gt v0, v1, :cond_4
+    :goto_59
+    if-gt v0, v1, :cond_65
 
     .line 831
     int-to-long v5, v2
@@ -594,18 +594,18 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_59
 
     .line 834
     .end local v0    # "i":I
-    :cond_4
+    :cond_65
     return-wide v3
 
     .line 836
     .end local v2    # "n":I
     .end local v3    # "result":J
     .restart local p0    # "n":I
-    :cond_5
+    :cond_66
     int-to-long v2, v0
 
     sget-object v4, Ljava/math/RoundingMode;->CEILING:Ljava/math/RoundingMode;
@@ -657,15 +657,15 @@
     .local v11, "n":I
     .local v12, "numerator":J
     .local v14, "denominator":J
-    :goto_2
-    if-gt v7, v1, :cond_7
+    :goto_7b
+    if-gt v7, v1, :cond_a4
 
     .line 851
     add-int v3, v0, v2
 
     const/16 v4, 0x3f
 
-    if-ge v3, v4, :cond_6
+    if-ge v3, v4, :cond_8e
 
     .line 853
     int-to-long v3, v11
@@ -686,10 +686,10 @@
 
     move v0, v7
 
-    goto :goto_3
+    goto :goto_9d
 
     .line 859
-    :cond_6
+    :cond_8e
     move-wide v3, v9
 
     move-wide v5, v12
@@ -733,7 +733,7 @@
     .local v9, "numeratorBits":I
     .restart local v12    # "numerator":J
     .restart local v14    # "denominator":J
-    :goto_3
+    :goto_9d
     add-int/lit8 v7, v0, 0x1
 
     .end local v0    # "i":I
@@ -744,12 +744,12 @@
 
     move-wide v9, v3
 
-    goto :goto_2
+    goto :goto_7b
 
     .end local v3    # "result":J
     .local v0, "numeratorBits":I
     .local v9, "result":J
-    :cond_7
+    :cond_a4
     move/from16 p0, v0
 
     move v0, v7
@@ -777,23 +777,23 @@
     .end local v12    # "numerator":J
     .end local v14    # "denominator":J
     .local p0, "n":I
-    :cond_8
-    :goto_4
+    :cond_af
+    :goto_af
     const-wide v2, 0x7fffffffffffffffL
 
     return-wide v2
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_b6
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3a
+        :pswitch_38
     .end packed-switch
 .end method
 
 .method public static ceilingPowerOfTwo(J)J
-    .locals 4
+    .registers 6
     .param p0, "x"    # J
 
     .line 69
@@ -806,7 +806,7 @@
 
     cmp-long v2, p0, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_16
 
     .line 73
     const-wide/16 v0, 0x1
@@ -824,7 +824,7 @@
     return-wide v0
 
     .line 71
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/ArithmeticException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -859,7 +859,7 @@
 .end method
 
 .method public static checkedAdd(JJ)J
-    .locals 11
+    .registers 15
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -878,28 +878,28 @@
 
     cmp-long v8, v2, v6
 
-    if-gez v8, :cond_0
+    if-gez v8, :cond_e
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_f
     xor-long v8, p0, v0
 
     cmp-long v3, v8, v6
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_16
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_17
     or-int v5, v2, v4
 
     const-string v6, "checkedAdd"
@@ -915,7 +915,7 @@
 .end method
 
 .method public static checkedMultiply(JJ)J
-    .locals 17
+    .registers 21
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -958,7 +958,7 @@
     .local v10, "leadingZeros":I
     const/16 v0, 0x41
 
-    if-le v10, v0, :cond_0
+    if-le v10, v0, :cond_21
 
     .line 588
     mul-long v0, v6, v8
@@ -966,23 +966,23 @@
     return-wide v0
 
     .line 590
-    :cond_0
+    :cond_21
     const/16 v0, 0x40
 
     const/4 v11, 0x1
 
     const/4 v12, 0x0
 
-    if-lt v10, v0, :cond_1
+    if-lt v10, v0, :cond_29
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_1
+    :cond_29
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_2a
     const-string v1, "checkedMultiply"
 
     move-wide/from16 v2, p0
@@ -996,30 +996,30 @@
 
     cmp-long v0, v6, v13
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_3b
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_3c
 
-    :cond_2
+    :cond_3b
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_3c
     const-wide/high16 v1, -0x8000000000000000L
 
     cmp-long v3, v8, v1
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_44
 
     const/4 v1, 0x1
 
-    goto :goto_2
+    goto :goto_45
 
-    :cond_3
+    :cond_44
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_45
     or-int/2addr v0, v1
 
     const-string v1, "checkedMultiply"
@@ -1037,26 +1037,26 @@
     .local v15, "result":J
     cmp-long v0, v6, v13
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_5e
 
     div-long v0, v15, v6
 
     cmp-long v2, v0, v8
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_5c
 
-    goto :goto_3
+    goto :goto_5e
 
-    :cond_4
+    :cond_5c
     const/4 v0, 0x0
 
-    goto :goto_4
+    goto :goto_5f
 
-    :cond_5
-    :goto_3
+    :cond_5e
+    :goto_5e
     const/4 v0, 0x1
 
-    :goto_4
+    :goto_5f
     const-string v1, "checkedMultiply"
 
     move-wide/from16 v2, p0
@@ -1070,7 +1070,7 @@
 .end method
 
 .method public static checkedPow(JI)J
-    .locals 13
+    .registers 16
     .param p0, "b"    # J
     .param p2, "k"    # I
 
@@ -1088,33 +1088,33 @@
 
     cmp-long v4, p0, v0
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     const-wide/16 v4, 0x2
 
     cmp-long v1, p0, v4
 
-    if-gtz v1, :cond_1
+    if-gtz v1, :cond_18
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_19
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_60
 
     .line 607
     long-to-int v0, p0
@@ -1123,7 +1123,7 @@
 
     const-wide/16 v11, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_a2
 
     .line 621
     new-instance v0, Ljava/lang/AssertionError;
@@ -1133,19 +1133,19 @@
     throw v0
 
     .line 615
-    :pswitch_0
+    :pswitch_2a
     const/16 v0, 0x3f
 
-    if-ge p2, v0, :cond_2
+    if-ge p2, v0, :cond_30
 
     const/4 v0, 0x1
 
-    goto :goto_2
+    goto :goto_31
 
-    :cond_2
+    :cond_30
     const/4 v0, 0x0
 
-    :goto_2
+    :goto_31
     const-string v1, "checkedPow"
 
     int-to-long v4, p2
@@ -1160,46 +1160,46 @@
     return-wide v0
 
     .line 611
-    :pswitch_1
+    :pswitch_3b
     return-wide v11
 
     .line 609
-    :pswitch_2
-    if-nez p2, :cond_3
+    :pswitch_3c
+    if-nez p2, :cond_3f
 
-    goto :goto_3
+    goto :goto_41
 
-    :cond_3
+    :cond_3f
     const-wide/16 v11, 0x0
 
-    :goto_3
+    :goto_41
     return-wide v11
 
     .line 613
-    :pswitch_3
+    :pswitch_42
     and-int/lit8 v0, p2, 0x1
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_47
 
     move-wide v9, v11
 
-    :cond_4
+    :cond_47
     return-wide v9
 
     .line 618
-    :pswitch_4
+    :pswitch_48
     const/16 v0, 0x40
 
-    if-ge p2, v0, :cond_5
+    if-ge p2, v0, :cond_4e
 
     const/4 v0, 0x1
 
-    goto :goto_4
+    goto :goto_4f
 
-    :cond_5
+    :cond_4e
     const/4 v0, 0x0
 
-    :goto_4
+    :goto_4f
     const-string v1, "checkedPow"
 
     int-to-long v4, p2
@@ -1211,20 +1211,20 @@
     .line 619
     and-int/lit8 v0, p2, 0x1
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_5d
 
     shl-long v0, v11, p2
 
-    goto :goto_5
+    goto :goto_5f
 
-    :cond_6
+    :cond_5d
     shl-long v0, v9, p2
 
-    :goto_5
+    :goto_5f
     return-wide v0
 
     .line 624
-    :cond_7
+    :cond_60
     const-wide/16 v0, 0x1
 
     move v8, p2
@@ -1239,13 +1239,13 @@
     .local v0, "b":J
     .local v4, "accum":J
     .local v8, "k":I
-    :goto_6
-    packed-switch v8, :pswitch_data_1
+    :goto_65
+    packed-switch v8, :pswitch_data_b0
 
     .line 632
     and-int/lit8 v6, v8, 0x1
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_78
 
     .line 633
     invoke-static {v4, v5, v0, v1}, Lcom/google/common/math/LongMath;->checkedMultiply(JJ)J
@@ -1254,10 +1254,10 @@
 
     move-wide v10, v4
 
-    goto :goto_7
+    goto :goto_79
 
     .line 630
-    :pswitch_5
+    :pswitch_72
     invoke-static {v4, v5, v0, v1}, Lcom/google/common/math/LongMath;->checkedMultiply(JJ)J
 
     move-result-wide v2
@@ -1265,45 +1265,45 @@
     return-wide v2
 
     .line 628
-    :pswitch_6
+    :pswitch_77
     return-wide v4
 
     .line 632
-    :cond_8
+    :cond_78
     move-wide v10, v4
 
     .line 635
     .end local v4    # "accum":J
     .local v10, "accum":J
-    :goto_7
+    :goto_79
     shr-int/lit8 v12, v8, 0x1
 
     .line 636
     .end local v8    # "k":I
     .local v12, "k":I
-    if-lez v12, :cond_a
+    if-lez v12, :cond_9e
 
     .line 637
     const-wide v4, -0xb504f333L
 
     cmp-long v6, v4, v0
 
-    if-gtz v6, :cond_9
+    if-gtz v6, :cond_91
 
     const-wide v4, 0xb504f333L
 
     cmp-long v6, v0, v4
 
-    if-gtz v6, :cond_9
+    if-gtz v6, :cond_91
 
     const/4 v4, 0x1
 
-    goto :goto_8
+    goto :goto_92
 
-    :cond_9
+    :cond_91
     const/4 v4, 0x0
 
-    :goto_8
+    :goto_92
     const-string v5, "checkedPow"
 
     int-to-long v8, v12
@@ -1319,36 +1319,36 @@
 
     move v8, v12
 
-    goto :goto_6
+    goto :goto_65
 
     .line 636
-    :cond_a
+    :cond_9e
     move-wide v4, v10
 
     move v8, v12
 
-    goto :goto_6
+    goto :goto_65
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a2
     .packed-switch -0x2
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_48
+        :pswitch_42
+        :pswitch_3c
+        :pswitch_3b
+        :pswitch_2a
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_b0
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_5
+        :pswitch_77
+        :pswitch_72
     .end packed-switch
 .end method
 
 .method public static checkedSubtract(JJ)J
-    .locals 11
+    .registers 15
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -1367,28 +1367,28 @@
 
     cmp-long v8, v2, v6
 
-    if-ltz v8, :cond_0
+    if-ltz v8, :cond_e
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_f
     xor-long v8, p0, v0
 
     cmp-long v3, v8, v6
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_16
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_17
     or-int v5, v2, v4
 
     const-string v6, "checkedSubtract"
@@ -1404,7 +1404,7 @@
 .end method
 
 .method public static divide(JJLjava/math/RoundingMode;)J
-    .locals 19
+    .registers 24
     .param p0, "p"    # J
     .param p2, "q"    # J
     .param p4, "mode"    # Ljava/math/RoundingMode;
@@ -1429,13 +1429,13 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_12
 
     .line 392
     return-wide v1
 
     .line 402
-    :cond_0
+    :cond_12
     xor-long v7, p0, p2
 
     const/16 v9, 0x3f
@@ -1460,7 +1460,7 @@
 
     const/4 v10, 0x0
 
-    packed-switch v9, :pswitch_data_0
+    packed-switch v9, :pswitch_data_80
 
     .line 434
     new-instance v5, Ljava/lang/AssertionError;
@@ -1470,7 +1470,7 @@
     throw v5
 
     .line 423
-    :pswitch_0
+    :pswitch_2c
     invoke-static {v3, v4}, Ljava/lang/Math;->abs(J)J
 
     move-result-wide v11
@@ -1489,135 +1489,135 @@
     .local v13, "cmpRemToHalfDivisor":J
     cmp-long v9, v13, v5
 
-    if-nez v9, :cond_4
+    if-nez v9, :cond_57
 
     .line 428
     sget-object v9, Ljava/math/RoundingMode;->HALF_UP:Ljava/math/RoundingMode;
 
-    if-ne v0, v9, :cond_1
+    if-ne v0, v9, :cond_41
 
     const/4 v9, 0x1
 
-    goto :goto_0
+    goto :goto_42
 
-    :cond_1
+    :cond_41
     const/4 v9, 0x0
 
-    :goto_0
+    :goto_42
     sget-object v15, Ljava/math/RoundingMode;->HALF_EVEN:Ljava/math/RoundingMode;
 
-    if-ne v0, v15, :cond_2
+    if-ne v0, v15, :cond_48
 
     const/4 v15, 0x1
 
-    goto :goto_1
+    goto :goto_49
 
-    :cond_2
+    :cond_48
     const/4 v15, 0x0
 
-    :goto_1
+    :goto_49
     const-wide/16 v16, 0x1
 
     and-long v16, v1, v16
 
     cmp-long v18, v16, v5
 
-    if-eqz v18, :cond_3
+    if-eqz v18, :cond_52
 
-    goto :goto_2
+    goto :goto_53
 
-    :cond_3
+    :cond_52
     const/4 v7, 0x0
 
-    :goto_2
+    :goto_53
     and-int v5, v15, v7
 
     or-int/2addr v5, v9
 
     .local v5, "increment":Z
-    goto :goto_7
+    goto :goto_78
 
     .line 430
     .end local v5    # "increment":Z
-    :cond_4
+    :cond_57
     cmp-long v9, v13, v5
 
-    if-lez v9, :cond_5
+    if-lez v9, :cond_5c
 
-    goto :goto_3
+    goto :goto_5d
 
-    :cond_5
+    :cond_5c
     const/4 v7, 0x0
 
-    :goto_3
+    :goto_5d
     move v5, v7
 
     .line 432
     .restart local v5    # "increment":Z
-    goto :goto_7
+    goto :goto_78
 
     .line 415
     .end local v5    # "increment":Z
     .end local v11    # "absRem":J
     .end local v13    # "cmpRemToHalfDivisor":J
-    :pswitch_1
-    if-lez v8, :cond_6
+    :pswitch_5f
+    if-lez v8, :cond_62
 
-    goto :goto_4
+    goto :goto_63
 
-    :cond_6
+    :cond_62
     const/4 v7, 0x0
 
-    :goto_4
+    :goto_63
     move v5, v7
 
     .line 416
     .restart local v5    # "increment":Z
-    goto :goto_7
+    goto :goto_78
 
     .line 412
     .end local v5    # "increment":Z
-    :pswitch_2
+    :pswitch_65
     const/4 v5, 0x1
 
     .line 413
     .restart local v5    # "increment":Z
-    goto :goto_7
+    goto :goto_78
 
     .line 418
     .end local v5    # "increment":Z
-    :pswitch_3
-    if-gez v8, :cond_7
+    :pswitch_67
+    if-gez v8, :cond_6a
 
-    goto :goto_5
+    goto :goto_6b
 
-    :cond_7
+    :cond_6a
     const/4 v7, 0x0
 
-    :goto_5
+    :goto_6b
     move v5, v7
 
     .line 419
     .restart local v5    # "increment":Z
-    goto :goto_7
+    goto :goto_78
 
     .line 406
     .end local v5    # "increment":Z
-    :pswitch_4
+    :pswitch_6d
     cmp-long v9, v3, v5
 
-    if-nez v9, :cond_8
+    if-nez v9, :cond_72
 
-    goto :goto_6
+    goto :goto_73
 
-    :cond_8
+    :cond_72
     const/4 v7, 0x0
 
-    :goto_6
+    :goto_73
     invoke-static {v7}, Lcom/google/common/math/MathPreconditions;->checkRoundingUnnecessary(Z)V
 
     .line 409
-    :pswitch_5
+    :pswitch_76
     const/4 v5, 0x0
 
     .line 410
@@ -1625,38 +1625,38 @@
     nop
 
     .line 436
-    :goto_7
-    if-eqz v5, :cond_9
+    :goto_78
+    if-eqz v5, :cond_7d
 
     int-to-long v6, v8
 
     add-long/2addr v6, v1
 
-    goto :goto_8
+    goto :goto_7e
 
-    :cond_9
+    :cond_7d
     move-wide v6, v1
 
-    :goto_8
+    :goto_7e
     return-wide v6
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_80
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_5
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_6d
+        :pswitch_76
+        :pswitch_67
+        :pswitch_65
+        :pswitch_5f
+        :pswitch_2c
+        :pswitch_2c
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public static factorial(I)J
-    .locals 3
+    .registers 4
     .param p0, "n"    # I
 
     .line 776
@@ -1669,23 +1669,23 @@
 
     array-length v0, v0
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_f
 
     sget-object v0, Lcom/google/common/math/LongMath;->factorials:[J
 
     aget-wide v1, v0, p0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_f
     const-wide v1, 0x7fffffffffffffffL
 
-    :goto_0
+    :goto_14
     return-wide v1
 .end method
 
 .method static fitsInInt(J)Z
-    .locals 3
+    .registers 5
     .param p0, "x"    # J
 
     .line 965
@@ -1695,21 +1695,21 @@
 
     cmp-long v2, v0, p0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public static floorPowerOfTwo(J)J
-    .locals 3
+    .registers 5
     .param p0, "x"    # J
 
     .line 85
@@ -1732,7 +1732,7 @@
 .end method
 
 .method public static gcd(JJ)J
-    .locals 8
+    .registers 12
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -1751,22 +1751,22 @@
 
     cmp-long v2, p0, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_11
 
     .line 507
     return-wide p2
 
     .line 508
-    :cond_0
+    :cond_11
     cmp-long v2, p2, v0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_16
 
     .line 509
     return-wide p0
 
     .line 515
-    :cond_1
+    :cond_16
     invoke-static {p0, p1}, Ljava/lang/Long;->numberOfTrailingZeros(J)I
 
     move-result v0
@@ -1785,10 +1785,10 @@
     shr-long/2addr p2, v1
 
     .line 519
-    :goto_0
+    :goto_20
     cmp-long v2, p0, p2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_36
 
     .line 527
     sub-long v2, p0, p2
@@ -1824,10 +1824,10 @@
     .end local v4    # "minDeltaOrZero":J
     .end local v6    # "a":J
     .restart local p0    # "a":J
-    goto :goto_0
+    goto :goto_20
 
     .line 538
-    :cond_2
+    :cond_36
     invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
     move-result v2
@@ -1838,7 +1838,7 @@
 .end method
 
 .method public static isPowerOfTwo(J)Z
-    .locals 8
+    .registers 10
     .param p0, "x"    # J
 
     .line 99
@@ -1850,16 +1850,16 @@
 
     cmp-long v4, p0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_a
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_b
     const-wide/16 v5, 0x1
 
     sub-long v5, p0, v5
@@ -1868,21 +1868,21 @@
 
     cmp-long v7, v5, v2
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_15
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_16
     and-int/2addr v0, v4
 
     return v0
 .end method
 
 .method public static isPrime(J)Z
-    .locals 10
+    .registers 12
     .param p0, "n"    # J
 
     .line 1005
@@ -1892,7 +1892,7 @@
 
     cmp-long v3, p0, v0
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_d
 
     .line 1006
     const-string v0, "n"
@@ -1903,7 +1903,7 @@
     return v2
 
     .line 1009
-    :cond_0
+    :cond_d
     const-wide/16 v0, 0x42
 
     const-wide/16 v3, 0x0
@@ -1912,7 +1912,7 @@
 
     cmp-long v6, p0, v0
 
-    if-gez v6, :cond_2
+    if-gez v6, :cond_29
 
     .line 1011
     const-wide v0, 0xa08228828228a2bL
@@ -1931,16 +1931,16 @@
 
     cmp-long v8, v6, v3
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_28
 
     const/4 v2, 0x1
 
-    :cond_1
+    :cond_28
     return v2
 
     .line 1034
     .end local v0    # "mask":J
-    :cond_2
+    :cond_29
     const-wide/16 v0, 0x1e
 
     rem-long v0, p0, v0
@@ -1953,20 +1953,20 @@
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_37
 
     .line 1035
     return v2
 
     .line 1037
-    :cond_3
+    :cond_37
     const-wide/16 v0, 0x7
 
     rem-long v0, p0, v0
 
     cmp-long v6, v0, v3
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_7f
 
     const-wide/16 v0, 0xb
 
@@ -1974,7 +1974,7 @@
 
     cmp-long v6, v0, v3
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_7f
 
     const-wide/16 v0, 0xd
 
@@ -1982,31 +1982,31 @@
 
     cmp-long v6, v0, v3
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_50
 
-    goto :goto_2
+    goto :goto_7f
 
     .line 1040
-    :cond_4
+    :cond_50
     const-wide/16 v0, 0x121
 
     cmp-long v3, p0, v0
 
-    if-gez v3, :cond_5
+    if-gez v3, :cond_57
 
     .line 1041
     return v5
 
     .line 1044
-    :cond_5
+    :cond_57
     sget-object v0, Lcom/google/common/math/LongMath;->millerRabinBaseSets:[[J
 
     array-length v1, v0
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_9
+    :goto_5b
+    if-ge v3, v1, :cond_79
 
     aget-object v4, v0, v3
 
@@ -2016,16 +2016,16 @@
 
     cmp-long v8, p0, v6
 
-    if-gtz v8, :cond_8
+    if-gtz v8, :cond_76
 
     .line 1046
     const/4 v0, 0x1
 
     .local v0, "i":I
-    :goto_1
+    :goto_66
     array-length v1, v4
 
-    if-ge v0, v1, :cond_7
+    if-ge v0, v1, :cond_75
 
     .line 1047
     aget-wide v6, v4, v0
@@ -2034,31 +2034,31 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_72
 
     .line 1048
     return v2
 
     .line 1046
-    :cond_6
+    :cond_72
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_66
 
     .line 1051
     .end local v0    # "i":I
-    :cond_7
+    :cond_75
     return v5
 
     .line 1044
     .end local v4    # "baseSet":[J
-    :cond_8
+    :cond_76
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 1054
-    :cond_9
+    :cond_79
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -2066,13 +2066,13 @@
     throw v0
 
     .line 1038
-    :cond_a
-    :goto_2
+    :cond_7f
+    :goto_7f
     return v2
 .end method
 
 .method static lessThanBranchFree(JJ)I
-    .locals 3
+    .registers 7
     .param p0, "x"    # J
     .param p2, "y"    # J
 
@@ -2093,7 +2093,7 @@
 .end method
 
 .method public static log10(JLjava/math/RoundingMode;)I
-    .locals 6
+    .registers 9
     .param p0, "x"    # J
     .param p2, "mode"    # Ljava/math/RoundingMode;
 
@@ -2123,7 +2123,7 @@
 
     aget v1, v1, v4
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_3a
 
     .line 184
     new-instance v1, Ljava/lang/AssertionError;
@@ -2133,7 +2133,7 @@
     throw v1
 
     .line 182
-    :pswitch_0
+    :pswitch_1e
     sget-object v1, Lcom/google/common/math/LongMath;->halfPowersOf10:[J
 
     aget-wide v4, v1, v0
@@ -2147,7 +2147,7 @@
     return v1
 
     .line 177
-    :pswitch_1
+    :pswitch_28
     invoke-static {v2, v3, p0, p1}, Lcom/google/common/math/LongMath;->lessThanBranchFree(JJ)I
 
     move-result v1
@@ -2157,42 +2157,42 @@
     return v1
 
     .line 170
-    :pswitch_2
+    :pswitch_2e
     cmp-long v1, p0, v2
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_34
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_0
+    :cond_34
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_35
     invoke-static {v1}, Lcom/google/common/math/MathPreconditions;->checkRoundingUnnecessary(Z)V
 
     .line 174
-    :pswitch_3
+    :pswitch_38
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3a
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_3
-        :pswitch_3
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_2e
+        :pswitch_38
+        :pswitch_38
+        :pswitch_28
+        :pswitch_28
+        :pswitch_1e
+        :pswitch_1e
+        :pswitch_1e
     .end packed-switch
 .end method
 
 .method static log10Floor(J)I
-    .locals 4
+    .registers 6
     .param p0, "x"    # J
 
     .line 197
@@ -2220,7 +2220,7 @@
 .end method
 
 .method public static log2(JLjava/math/RoundingMode;)I
-    .locals 5
+    .registers 8
     .param p0, "x"    # J
     .param p2, "mode"    # Ljava/math/RoundingMode;
 
@@ -2238,7 +2238,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_44
 
     .line 147
     new-instance v0, Ljava/lang/AssertionError;
@@ -2250,7 +2250,7 @@
     throw v0
 
     .line 140
-    :pswitch_0
+    :pswitch_18
     invoke-static {p0, p1}, Ljava/lang/Long;->numberOfLeadingZeros(J)I
 
     move-result v0
@@ -2279,7 +2279,7 @@
     .end local v0    # "leadingZeros":I
     .end local v1    # "cmp":J
     .end local v3    # "logFloor":I
-    :pswitch_1
+    :pswitch_2a
     const-wide/16 v0, 0x1
 
     sub-long v0, p0, v0
@@ -2293,7 +2293,7 @@
     return v0
 
     .line 126
-    :pswitch_2
+    :pswitch_35
     invoke-static {p0, p1}, Lcom/google/common/math/LongMath;->isPowerOfTwo(J)Z
 
     move-result v0
@@ -2301,7 +2301,7 @@
     invoke-static {v0}, Lcom/google/common/math/MathPreconditions;->checkRoundingUnnecessary(Z)V
 
     .line 130
-    :pswitch_3
+    :pswitch_3c
     invoke-static {p0, p1}, Ljava/lang/Long;->numberOfLeadingZeros(J)I
 
     move-result v0
@@ -2312,21 +2312,21 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_44
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_3
-        :pswitch_3
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_35
+        :pswitch_3c
+        :pswitch_3c
+        :pswitch_2a
+        :pswitch_2a
+        :pswitch_18
+        :pswitch_18
+        :pswitch_18
     .end packed-switch
 .end method
 
 .method public static mean(JJ)J
-    .locals 5
+    .registers 9
     .param p0, "x"    # J
     .param p2, "y"    # J
 
@@ -2345,7 +2345,7 @@
 .end method
 
 .method public static mod(JI)I
-    .locals 2
+    .registers 5
     .param p0, "x"    # J
     .param p2, "m"    # I
 
@@ -2362,7 +2362,7 @@
 .end method
 
 .method public static mod(JJ)J
-    .locals 5
+    .registers 9
     .param p0, "x"    # J
     .param p2, "m"    # J
 
@@ -2371,7 +2371,7 @@
 
     cmp-long v2, p2, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_11
 
     .line 486
     rem-long v2, p0, p2
@@ -2380,21 +2380,21 @@
     .local v2, "result":J
     cmp-long v4, v2, v0
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_e
 
     move-wide v0, v2
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_e
     add-long v0, v2, p2
 
-    :goto_0
+    :goto_10
     return-wide v0
 
     .line 484
     .end local v2    # "result":J
-    :cond_1
+    :cond_11
     new-instance v0, Ljava/lang/ArithmeticException;
 
     const-string v1, "Modulus must be positive"
@@ -2405,7 +2405,7 @@
 .end method
 
 .method static multiplyFraction(JJJ)J
-    .locals 4
+    .registers 10
     .param p0, "x"    # J
     .param p2, "numerator"    # J
     .param p4, "denominator"    # J
@@ -2415,7 +2415,7 @@
 
     cmp-long v2, p0, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_9
 
     .line 873
     div-long v0, p2, p4
@@ -2423,7 +2423,7 @@
     return-wide v0
 
     .line 875
-    :cond_0
+    :cond_9
     invoke-static {p0, p1, p4, p5}, Lcom/google/common/math/LongMath;->gcd(JJ)J
 
     move-result-wide v0
@@ -2444,7 +2444,7 @@
 .end method
 
 .method public static pow(JI)J
-    .locals 6
+    .registers 9
     .param p0, "b"    # J
     .param p2, "k"    # I
 
@@ -2460,13 +2460,13 @@
 
     cmp-long v4, v0, p0
 
-    if-gtz v4, :cond_5
+    if-gtz v4, :cond_42
 
     const-wide/16 v0, 0x2
 
     cmp-long v4, p0, v0
 
-    if-gtz v4, :cond_5
+    if-gtz v4, :cond_42
 
     .line 273
     long-to-int v0, p0
@@ -2475,7 +2475,7 @@
 
     const-wide/16 v4, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_5a
 
     .line 289
     new-instance v0, Ljava/lang/AssertionError;
@@ -2485,102 +2485,102 @@
     throw v0
 
     .line 281
-    :pswitch_0
-    if-ge p2, v1, :cond_0
+    :pswitch_21
+    if-ge p2, v1, :cond_25
 
     shl-long v4, v2, p2
 
-    :cond_0
+    :cond_25
     return-wide v4
 
     .line 277
-    :pswitch_1
+    :pswitch_26
     return-wide v2
 
     .line 275
-    :pswitch_2
-    if-nez p2, :cond_1
+    :pswitch_27
+    if-nez p2, :cond_2a
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_1
+    :cond_2a
     move-wide v2, v4
 
-    :goto_0
+    :goto_2b
     return-wide v2
 
     .line 279
-    :pswitch_3
+    :pswitch_2c
     and-int/lit8 v0, p2, 0x1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_31
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_2
+    :cond_31
     const-wide/16 v2, -0x1
 
-    :goto_1
+    :goto_33
     return-wide v2
 
     .line 283
-    :pswitch_4
-    if-ge p2, v1, :cond_4
+    :pswitch_34
+    if-ge p2, v1, :cond_41
 
     .line 284
     and-int/lit8 v0, p2, 0x1
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_3d
 
     shl-long v0, v2, p2
 
-    goto :goto_2
+    goto :goto_40
 
-    :cond_3
+    :cond_3d
     shl-long v0, v2, p2
 
     neg-long v0, v0
 
-    :goto_2
+    :goto_40
     return-wide v0
 
     .line 286
-    :cond_4
+    :cond_41
     return-wide v4
 
     .line 292
-    :cond_5
+    :cond_42
     const-wide/16 v0, 0x1
 
     .line 293
     .local v0, "accum":J
-    :goto_3
-    packed-switch p2, :pswitch_data_1
+    :goto_44
+    packed-switch p2, :pswitch_data_68
 
     .line 299
     and-int/lit8 v4, p2, 0x1
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_51
 
     move-wide v4, v2
 
-    goto :goto_4
+    goto :goto_52
 
     .line 297
-    :pswitch_5
+    :pswitch_4d
     mul-long v2, v0, p0
 
     return-wide v2
 
     .line 295
-    :pswitch_6
+    :pswitch_50
     return-wide v0
 
     .line 299
-    :cond_6
+    :cond_51
     move-wide v4, p0
 
-    :goto_4
+    :goto_52
     mul-long v0, v0, v4
 
     .line 300
@@ -2589,28 +2589,28 @@
     .line 292
     shr-int/lit8 p2, p2, 0x1
 
-    goto :goto_3
+    goto :goto_44
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5a
     .packed-switch -0x2
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_34
+        :pswitch_2c
+        :pswitch_27
+        :pswitch_26
+        :pswitch_21
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_68
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_5
+        :pswitch_50
+        :pswitch_4d
     .end packed-switch
 .end method
 
 .method public static roundToDouble(JLjava/math/RoundingMode;)D
-    .locals 27
+    .registers 30
     .param p0, "x"    # J
     .param p2, "mode"    # Ljava/math/RoundingMode;
 
@@ -2629,24 +2629,24 @@
 
     cmp-long v8, v4, v6
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_f
 
     .line 1264
     const/4 v8, -0x1
 
     .local v8, "cmpXToRoundArbitrarily":I
-    goto :goto_0
+    goto :goto_13
 
     .line 1266
     .end local v8    # "cmpXToRoundArbitrarily":I
-    :cond_0
+    :cond_f
     invoke-static {v0, v1, v4, v5}, Lcom/google/common/primitives/Longs;->compare(JJ)I
 
     move-result v8
 
     .line 1269
     .restart local v8    # "cmpXToRoundArbitrarily":I
-    :goto_0
+    :goto_13
     sget-object v9, Lcom/google/common/math/LongMath$1;->$SwitchMap$java$math$RoundingMode:[I
 
     invoke-virtual/range {p2 .. p2}, Ljava/math/RoundingMode;->ordinal()I
@@ -2657,7 +2657,7 @@
 
     const-string v10, "impossible"
 
-    packed-switch v9, :pswitch_data_0
+    packed-switch v9, :pswitch_data_fa
 
     .line 1346
     move-wide/from16 v21, v4
@@ -2673,8 +2673,8 @@
     .line 1304
     .end local v21    # "roundArbitrarilyAsLong":J
     .restart local v4    # "roundArbitrarilyAsLong":J
-    :pswitch_0
-    if-ltz v8, :cond_1
+    :pswitch_28
+    if-ltz v8, :cond_37
 
     .line 1305
     move-wide v13, v2
@@ -2700,14 +2700,14 @@
     move-wide v6, v15
 
     .local v11, "roundCeiling":J
-    goto :goto_1
+    goto :goto_43
 
     .line 1310
     .end local v11    # "roundCeiling":J
     .end local v13    # "roundFloorAsDouble":D
     .end local v15    # "roundFloor":J
     .end local v17    # "roundCeilingAsDouble":D
-    :cond_1
+    :cond_37
     move-wide/from16 v17, v2
 
     .line 1311
@@ -2730,7 +2730,7 @@
 
     .line 1316
     .local v6, "roundFloor":J
-    :goto_1
+    :goto_43
     move-wide/from16 v21, v4
 
     .end local v4    # "roundArbitrarilyAsLong":J
@@ -2749,7 +2749,7 @@
 
     cmp-long v9, v11, v15
 
-    if-nez v9, :cond_2
+    if-nez v9, :cond_5a
 
     .line 1322
     add-long v23, v23, v25
@@ -2758,10 +2758,10 @@
 
     move-wide/from16 v6, v23
 
-    goto :goto_2
+    goto :goto_5d
 
     .line 1319
-    :cond_2
+    :cond_5a
     move-wide v15, v6
 
     move-wide/from16 v6, v23
@@ -2770,27 +2770,27 @@
     .end local v23    # "deltaToCeiling":J
     .local v6, "deltaToCeiling":J
     .restart local v15    # "roundFloor":J
-    :goto_2
+    :goto_5d
     invoke-static {v4, v5, v6, v7}, Lcom/google/common/primitives/Longs;->compare(JJ)I
 
     move-result v9
 
     .line 1326
     .local v9, "diff":I
-    if-gez v9, :cond_3
+    if-gez v9, :cond_64
 
     .line 1327
     return-wide v13
 
     .line 1328
-    :cond_3
-    if-lez v9, :cond_4
+    :cond_64
+    if-lez v9, :cond_67
 
     .line 1329
     return-wide v17
 
     .line 1332
-    :cond_4
+    :cond_67
     sget-object v23, Lcom/google/common/math/LongMath$1;->$SwitchMap$java$math$RoundingMode:[I
 
     invoke-virtual/range {p2 .. p2}, Ljava/math/RoundingMode;->ordinal()I
@@ -2799,7 +2799,7 @@
 
     aget v23, v23, v24
 
-    packed-switch v23, :pswitch_data_1
+    packed-switch v23, :pswitch_data_10e
 
     .line 1342
     move-wide/from16 v19, v4
@@ -2815,7 +2815,7 @@
     .line 1334
     .end local v19    # "deltaToFloor":J
     .restart local v4    # "deltaToFloor":J
-    :pswitch_1
+    :pswitch_7a
     invoke-static {v13, v14}, Lcom/google/common/math/DoubleUtils;->getSignificand(D)J
 
     move-result-wide v23
@@ -2826,55 +2826,55 @@
 
     cmp-long v10, v23, v19
 
-    if-nez v10, :cond_5
+    if-nez v10, :cond_89
 
     .line 1335
     move-wide/from16 v19, v13
 
-    goto :goto_3
+    goto :goto_8b
 
     .line 1336
-    :cond_5
+    :cond_89
     move-wide/from16 v19, v17
 
     .line 1334
-    :goto_3
+    :goto_8b
     return-wide v19
 
     .line 1340
-    :pswitch_2
+    :pswitch_8c
     const-wide/16 v19, 0x0
 
     cmp-long v10, v0, v19
 
-    if-ltz v10, :cond_6
+    if-ltz v10, :cond_95
 
     move-wide/from16 v19, v17
 
-    goto :goto_4
+    goto :goto_97
 
-    :cond_6
+    :cond_95
     move-wide/from16 v19, v13
 
-    :goto_4
+    :goto_97
     return-wide v19
 
     .line 1338
-    :pswitch_3
+    :pswitch_98
     const-wide/16 v19, 0x0
 
     cmp-long v10, v0, v19
 
-    if-ltz v10, :cond_7
+    if-ltz v10, :cond_a1
 
     move-wide/from16 v19, v13
 
-    goto :goto_5
+    goto :goto_a3
 
-    :cond_7
+    :cond_a1
     move-wide/from16 v19, v17
 
-    :goto_5
+    :goto_a3
     return-wide v19
 
     .line 1278
@@ -2886,29 +2886,29 @@
     .end local v17    # "roundCeilingAsDouble":D
     .end local v21    # "roundArbitrarilyAsLong":J
     .local v4, "roundArbitrarilyAsLong":J
-    :pswitch_4
+    :pswitch_a4
     move-wide/from16 v21, v4
 
     .end local v4    # "roundArbitrarilyAsLong":J
     .restart local v21    # "roundArbitrarilyAsLong":J
-    if-gtz v8, :cond_8
+    if-gtz v8, :cond_aa
 
     move-wide v4, v2
 
-    goto :goto_6
+    goto :goto_ae
 
-    :cond_8
+    :cond_aa
     invoke-static {v2, v3}, Ljava/lang/Math;->nextUp(D)D
 
     move-result-wide v4
 
-    :goto_6
+    :goto_ae
     return-wide v4
 
     .line 1288
     .end local v21    # "roundArbitrarilyAsLong":J
     .restart local v4    # "roundArbitrarilyAsLong":J
-    :pswitch_5
+    :pswitch_af
     move-wide/from16 v21, v4
 
     .end local v4    # "roundArbitrarilyAsLong":J
@@ -2917,71 +2917,71 @@
 
     cmp-long v6, v0, v4
 
-    if-ltz v6, :cond_a
+    if-ltz v6, :cond_c0
 
     .line 1289
-    if-gtz v8, :cond_9
+    if-gtz v8, :cond_bb
 
     move-wide v4, v2
 
-    goto :goto_7
+    goto :goto_bf
 
-    :cond_9
+    :cond_bb
     invoke-static {v2, v3}, Ljava/lang/Math;->nextUp(D)D
 
     move-result-wide v4
 
-    :goto_7
+    :goto_bf
     return-wide v4
 
     .line 1291
-    :cond_a
-    if-ltz v8, :cond_b
+    :cond_c0
+    if-ltz v8, :cond_c4
 
     .line 1292
     move-wide v4, v2
 
-    goto :goto_8
+    goto :goto_c8
 
     .line 1293
-    :cond_b
+    :cond_c4
     invoke-static {v2, v3}, Lcom/google/common/math/DoubleUtils;->nextDown(D)D
 
     move-result-wide v4
 
     .line 1291
-    :goto_8
+    :goto_c8
     return-wide v4
 
     .line 1274
     .end local v21    # "roundArbitrarilyAsLong":J
     .restart local v4    # "roundArbitrarilyAsLong":J
-    :pswitch_6
+    :pswitch_c9
     move-wide/from16 v21, v4
 
     .end local v4    # "roundArbitrarilyAsLong":J
     .restart local v21    # "roundArbitrarilyAsLong":J
-    if-ltz v8, :cond_c
+    if-ltz v8, :cond_cf
 
     .line 1275
     move-wide v4, v2
 
-    goto :goto_9
+    goto :goto_d3
 
     .line 1276
-    :cond_c
+    :cond_cf
     invoke-static {v2, v3}, Lcom/google/common/math/DoubleUtils;->nextDown(D)D
 
     move-result-wide v4
 
     .line 1274
-    :goto_9
+    :goto_d3
     return-wide v4
 
     .line 1280
     .end local v21    # "roundArbitrarilyAsLong":J
     .restart local v4    # "roundArbitrarilyAsLong":J
-    :pswitch_7
+    :pswitch_d4
     move-wide/from16 v21, v4
 
     .end local v4    # "roundArbitrarilyAsLong":J
@@ -2990,60 +2990,60 @@
 
     cmp-long v6, v0, v4
 
-    if-ltz v6, :cond_e
+    if-ltz v6, :cond_e5
 
     .line 1281
-    if-ltz v8, :cond_d
+    if-ltz v8, :cond_e0
 
     .line 1282
     move-wide v4, v2
 
-    goto :goto_a
+    goto :goto_e4
 
     .line 1283
-    :cond_d
+    :cond_e0
     invoke-static {v2, v3}, Lcom/google/common/math/DoubleUtils;->nextDown(D)D
 
     move-result-wide v4
 
     .line 1281
-    :goto_a
+    :goto_e4
     return-wide v4
 
     .line 1285
-    :cond_e
-    if-gtz v8, :cond_f
+    :cond_e5
+    if-gtz v8, :cond_e9
 
     move-wide v4, v2
 
-    goto :goto_b
+    goto :goto_ed
 
-    :cond_f
+    :cond_e9
     invoke-static {v2, v3}, Ljava/lang/Math;->nextUp(D)D
 
     move-result-wide v4
 
-    :goto_b
+    :goto_ed
     return-wide v4
 
     .line 1271
     .end local v21    # "roundArbitrarilyAsLong":J
     .restart local v4    # "roundArbitrarilyAsLong":J
-    :pswitch_8
+    :pswitch_ee
     move-wide/from16 v21, v4
 
     .end local v4    # "roundArbitrarilyAsLong":J
     .restart local v21    # "roundArbitrarilyAsLong":J
-    if-nez v8, :cond_10
+    if-nez v8, :cond_f4
 
     const/4 v4, 0x1
 
-    goto :goto_c
+    goto :goto_f5
 
-    :cond_10
+    :cond_f4
     const/4 v4, 0x0
 
-    :goto_c
+    :goto_f5
     invoke-static {v4}, Lcom/google/common/math/MathPreconditions;->checkRoundingUnnecessary(Z)V
 
     .line 1272
@@ -3051,28 +3051,28 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_fa
     .packed-switch 0x1
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_ee
+        :pswitch_d4
+        :pswitch_c9
+        :pswitch_af
+        :pswitch_a4
+        :pswitch_28
+        :pswitch_28
+        :pswitch_28
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_10e
     .packed-switch 0x6
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_98
+        :pswitch_8c
+        :pswitch_7a
     .end packed-switch
 .end method
 
 .method public static saturatedAdd(JJ)J
-    .locals 10
+    .registers 14
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -3091,37 +3091,37 @@
 
     cmp-long v8, v2, v6
 
-    if-gez v8, :cond_0
+    if-gez v8, :cond_e
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_f
     xor-long v8, p0, v0
 
     cmp-long v3, v8, v6
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_16
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_17
     or-int/2addr v2, v4
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1b
 
     .line 657
     return-wide v0
 
     .line 660
-    :cond_2
+    :cond_1b
     const/16 v2, 0x3f
 
     ushr-long v2, v0, v2
@@ -3138,7 +3138,7 @@
 .end method
 
 .method public static saturatedMultiply(JJ)J
-    .locals 12
+    .registers 16
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -3179,7 +3179,7 @@
     .local v0, "leadingZeros":I
     const/16 v1, 0x41
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_1d
 
     .line 696
     mul-long v1, p0, p2
@@ -3187,7 +3187,7 @@
     return-wide v1
 
     .line 699
-    :cond_0
+    :cond_1d
     xor-long v1, p0, p2
 
     const/16 v3, 0x3f
@@ -3206,81 +3206,81 @@
 
     const/4 v5, 0x0
 
-    if-ge v0, v3, :cond_1
+    if-ge v0, v3, :cond_30
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_1
+    :cond_30
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_31
     const-wide/16 v6, 0x0
 
     cmp-long v8, p0, v6
 
-    if-gez v8, :cond_2
+    if-gez v8, :cond_39
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_2
+    :cond_39
     const/4 v8, 0x0
 
-    :goto_1
+    :goto_3a
     const-wide/high16 v9, -0x8000000000000000L
 
     cmp-long v11, p2, v9
 
-    if-nez v11, :cond_3
+    if-nez v11, :cond_41
 
-    goto :goto_2
+    goto :goto_42
 
-    :cond_3
+    :cond_41
     const/4 v4, 0x0
 
-    :goto_2
+    :goto_42
     and-int/2addr v4, v8
 
     or-int/2addr v3, v4
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_47
 
     .line 702
     return-wide v1
 
     .line 704
-    :cond_4
+    :cond_47
     mul-long v3, p0, p2
 
     .line 705
     .local v3, "result":J
     cmp-long v5, p0, v6
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_55
 
     div-long v5, v3, p0
 
     cmp-long v7, v5, p2
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_54
 
-    goto :goto_3
+    goto :goto_55
 
     .line 708
-    :cond_5
+    :cond_54
     return-wide v1
 
     .line 706
-    :cond_6
-    :goto_3
+    :cond_55
+    :goto_55
     return-wide v3
 .end method
 
 .method public static saturatedPow(JI)J
-    .locals 10
+    .registers 13
     .param p0, "b"    # J
     .param p2, "k"    # I
 
@@ -3298,37 +3298,37 @@
 
     cmp-long v4, p0, v0
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     const-wide/16 v4, 0x2
 
     cmp-long v1, p0, v4
 
-    if-gtz v1, :cond_1
+    if-gtz v1, :cond_18
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_19
     and-int/2addr v0, v1
 
     const/16 v1, 0x3f
 
     const-wide v4, 0x7fffffffffffffffL
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_57
 
     .line 721
     long-to-int v0, p0
@@ -3337,7 +3337,7 @@
 
     const-wide/16 v6, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_96
 
     .line 739
     new-instance v0, Ljava/lang/AssertionError;
@@ -3347,50 +3347,50 @@
     throw v0
 
     .line 729
-    :pswitch_0
-    if-lt p2, v1, :cond_2
+    :pswitch_31
+    if-lt p2, v1, :cond_34
 
     .line 730
     return-wide v4
 
     .line 732
-    :cond_2
+    :cond_34
     shl-long v0, v6, p2
 
     return-wide v0
 
     .line 725
-    :pswitch_1
+    :pswitch_37
     return-wide v6
 
     .line 723
-    :pswitch_2
-    if-nez p2, :cond_3
+    :pswitch_38
+    if-nez p2, :cond_3b
 
-    goto :goto_2
+    goto :goto_3d
 
-    :cond_3
+    :cond_3b
     const-wide/16 v6, 0x0
 
-    :goto_2
+    :goto_3d
     return-wide v6
 
     .line 727
-    :pswitch_3
+    :pswitch_3e
     and-int/lit8 v0, p2, 0x1
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_43
 
     move-wide v2, v6
 
-    :cond_4
+    :cond_43
     return-wide v2
 
     .line 734
-    :pswitch_4
+    :pswitch_44
     const/16 v0, 0x40
 
-    if-lt p2, v0, :cond_5
+    if-lt p2, v0, :cond_4d
 
     .line 735
     and-int/lit8 v0, p2, 0x1
@@ -3402,23 +3402,23 @@
     return-wide v0
 
     .line 737
-    :cond_5
+    :cond_4d
     and-int/lit8 v0, p2, 0x1
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_54
 
     shl-long v0, v6, p2
 
-    goto :goto_3
+    goto :goto_56
 
-    :cond_6
+    :cond_54
     shl-long v0, v2, p2
 
-    :goto_3
+    :goto_56
     return-wide v0
 
     .line 742
-    :cond_7
+    :cond_57
     const-wide/16 v6, 0x1
 
     .line 744
@@ -3435,14 +3435,14 @@
 
     .line 746
     .local v0, "limit":J
-    :cond_8
-    :goto_4
-    packed-switch p2, :pswitch_data_1
+    :cond_60
+    :goto_60
+    packed-switch p2, :pswitch_data_a4
 
     .line 752
     and-int/lit8 v4, p2, 0x1
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_73
 
     .line 753
     invoke-static {v6, v7, p0, p1}, Lcom/google/common/math/LongMath;->saturatedMultiply(JJ)J
@@ -3453,12 +3453,12 @@
 
     .end local v6    # "accum":J
     .local v4, "accum":J
-    goto :goto_5
+    goto :goto_73
 
     .line 750
     .end local v4    # "accum":J
     .restart local v6    # "accum":J
-    :pswitch_5
+    :pswitch_6d
     invoke-static {v6, v7, p0, p1}, Lcom/google/common/math/LongMath;->saturatedMultiply(JJ)J
 
     move-result-wide v2
@@ -3466,77 +3466,77 @@
     return-wide v2
 
     .line 748
-    :pswitch_6
+    :pswitch_72
     return-wide v6
 
     .line 755
-    :cond_9
-    :goto_5
+    :cond_73
+    :goto_73
     shr-int/lit8 p2, p2, 0x1
 
     .line 756
-    if-lez p2, :cond_8
+    if-lez p2, :cond_60
 
     .line 757
     const-wide v4, -0xb504f333L
 
     cmp-long v8, v4, p0
 
-    if-lez v8, :cond_a
+    if-lez v8, :cond_82
 
     const/4 v4, 0x1
 
-    goto :goto_6
+    goto :goto_83
 
-    :cond_a
+    :cond_82
     const/4 v4, 0x0
 
-    :goto_6
+    :goto_83
     const-wide v8, 0xb504f333L
 
     cmp-long v5, p0, v8
 
-    if-lez v5, :cond_b
+    if-lez v5, :cond_8e
 
     const/4 v5, 0x1
 
-    goto :goto_7
+    goto :goto_8f
 
-    :cond_b
+    :cond_8e
     const/4 v5, 0x0
 
-    :goto_7
+    :goto_8f
     or-int/2addr v4, v5
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_93
 
     .line 758
     return-wide v0
 
     .line 760
-    :cond_c
+    :cond_93
     mul-long p0, p0, p0
 
-    goto :goto_4
+    goto :goto_60
 
-    :pswitch_data_0
+    :pswitch_data_96
     .packed-switch -0x2
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_44
+        :pswitch_3e
+        :pswitch_38
+        :pswitch_37
+        :pswitch_31
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_a4
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_5
+        :pswitch_72
+        :pswitch_6d
     .end packed-switch
 .end method
 
 .method public static saturatedSubtract(JJ)J
-    .locals 10
+    .registers 14
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -3555,37 +3555,37 @@
 
     cmp-long v8, v2, v6
 
-    if-ltz v8, :cond_0
+    if-ltz v8, :cond_e
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_f
     xor-long v8, p0, v0
 
     cmp-long v3, v8, v6
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_16
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_17
     or-int/2addr v2, v4
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1b
 
     .line 675
     return-wide v0
 
     .line 678
-    :cond_2
+    :cond_1b
     const/16 v2, 0x3f
 
     ushr-long v2, v0, v2
@@ -3602,7 +3602,7 @@
 .end method
 
 .method public static sqrt(JLjava/math/RoundingMode;)J
-    .locals 10
+    .registers 13
     .param p0, "x"    # J
     .param p2, "mode"    # Ljava/math/RoundingMode;
 
@@ -3616,7 +3616,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 317
     long-to-int v0, p0
@@ -3630,7 +3630,7 @@
     return-wide v0
 
     .line 334
-    :cond_0
+    :cond_12
     long-to-double v0, p0
 
     invoke-static {v0, v1}, Ljava/lang/Math;->sqrt(D)D
@@ -3659,7 +3659,7 @@
 
     const/4 v8, 0x0
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_5c
 
     .line 373
     new-instance v4, Ljava/lang/AssertionError;
@@ -3669,17 +3669,17 @@
     throw v4
 
     .line 358
-    :pswitch_0
+    :pswitch_2f
     cmp-long v4, p0, v2
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_34
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_1
+    :cond_34
     const/4 v7, 0x0
 
-    :goto_0
+    :goto_35
     int-to-long v4, v7
 
     sub-long v4, v0, v4
@@ -3705,10 +3705,10 @@
     .line 351
     .end local v4    # "sqrtFloor":J
     .end local v6    # "halfSquare":J
-    :pswitch_1
+    :pswitch_42
     cmp-long v4, p0, v2
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_48
 
     .line 352
     add-long/2addr v5, v0
@@ -3716,14 +3716,14 @@
     return-wide v5
 
     .line 354
-    :cond_2
+    :cond_48
     return-wide v0
 
     .line 345
-    :pswitch_2
+    :pswitch_49
     cmp-long v4, p0, v2
 
-    if-gez v4, :cond_3
+    if-gez v4, :cond_50
 
     .line 346
     sub-long v4, v0, v5
@@ -3731,21 +3731,21 @@
     return-wide v4
 
     .line 348
-    :cond_3
+    :cond_50
     return-wide v0
 
     .line 341
-    :pswitch_3
+    :pswitch_51
     cmp-long v4, v2, p0
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_56
 
-    goto :goto_1
+    goto :goto_57
 
-    :cond_4
+    :cond_56
     const/4 v7, 0x0
 
-    :goto_1
+    :goto_57
     invoke-static {v7}, Lcom/google/common/math/MathPreconditions;->checkRoundingUnnecessary(Z)V
 
     .line 342
@@ -3753,15 +3753,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5c
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_51
+        :pswitch_49
+        :pswitch_49
+        :pswitch_42
+        :pswitch_42
+        :pswitch_2f
+        :pswitch_2f
+        :pswitch_2f
     .end packed-switch
 .end method

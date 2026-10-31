@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)V
-    .locals 0
+    .registers 3
     .param p1, "$initialValue"    # Ljava/lang/Object;
     .param p2, "$onChange"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method protected afterChange(Lkotlin/reflect/KProperty;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "property"    # Lkotlin/reflect/KProperty;
     .param p2, "oldValue"    # Ljava/lang/Object;
     .param p3, "newValue"    # Ljava/lang/Object;

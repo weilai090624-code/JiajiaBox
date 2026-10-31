@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Tables$TransformedTable;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/Tables$TransformedTable;
 
     .line 428
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/common/collect/Table$Cell;)Lcom/google/common/collect/Table$Cell;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,7 +95,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 428
     .local p0, "this":Lcom/google/common/collect/Tables$TransformedTable$1;, "Lcom/google/common/collect/Tables$TransformedTable$1;"

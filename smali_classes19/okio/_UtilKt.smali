@@ -74,7 +74,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 169
     new-instance v0, Lokio/Buffer$UnsafeCursor;
@@ -92,7 +92,7 @@
 .end method
 
 .method public static final and(BI)I
-    .locals 2
+    .registers 4
     .param p0, "$this$and"    # B
     .param p1, "other"    # I
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public static final and(BJ)J
-    .locals 3
+    .registers 6
     .param p0, "$this$and"    # B
     .param p1, "other"    # J
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public static final and(IJ)J
-    .locals 3
+    .registers 6
     .param p0, "$this$and"    # I
     .param p1, "other"    # J
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public static final arrayRangeEquals([BI[BII)Z
-    .locals 6
+    .registers 11
     .param p0, "a"    # [B
     .param p1, "aOffset"    # I
     .param p2, "b"    # [B
@@ -156,13 +156,13 @@
     .line 96
     const/4 v0, 0x1
 
-    if-lez p4, :cond_2
+    if-lez p4, :cond_1e
 
     const/4 v1, 0x0
 
     const/4 v2, 0x0
 
-    :cond_0
+    :cond_f
     move v3, v2
 
     .local v3, "i":I
@@ -177,22 +177,22 @@
 
     aget-byte v5, p2, v5
 
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_1c
 
     return v1
 
     .line 96
-    :cond_1
-    if-lt v2, p4, :cond_0
+    :cond_1c
+    if-lt v2, p4, :cond_f
 
     .line 99
     .end local v3    # "i":I
-    :cond_2
+    :cond_1e
     return v0
 .end method
 
 .method public static final checkOffsetAndCount(JJJ)V
-    .locals 5
+    .registers 11
     .param p0, "size"    # J
     .param p2, "offset"    # J
     .param p4, "byteCount"    # J
@@ -204,23 +204,23 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_13
 
     cmp-long v0, p2, p0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_13
 
     sub-long v0, p0, p2
 
     cmp-long v2, v0, p4
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_13
 
     .line 26
     return-void
 
     .line 24
-    :cond_0
+    :cond_13
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -267,7 +267,7 @@
 .end method
 
 .method public static final getDEFAULT__ByteString_size()I
-    .locals 1
+    .registers 1
 
     .line 175
     sget v0, Lokio/_UtilKt;->DEFAULT__ByteString_size:I
@@ -276,7 +276,7 @@
 .end method
 
 .method public static final getDEFAULT__new_UnsafeCursor()Lokio/Buffer$UnsafeCursor;
-    .locals 1
+    .registers 1
 
     .line 169
     sget-object v0, Lokio/_UtilKt;->DEFAULT__new_UnsafeCursor:Lokio/Buffer$UnsafeCursor;
@@ -285,13 +285,13 @@
 .end method
 
 .method public static synthetic getDEFAULT__new_UnsafeCursor$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final leftRotate(II)I
-    .locals 3
+    .registers 5
     .param p0, "$this$leftRotate"    # I
     .param p1, "bitCount"    # I
 
@@ -311,7 +311,7 @@
 .end method
 
 .method public static final minOf(IJ)J
-    .locals 3
+    .registers 6
     .param p0, "a"    # I
     .param p1, "b"    # J
 
@@ -329,7 +329,7 @@
 .end method
 
 .method public static final minOf(JI)J
-    .locals 3
+    .registers 6
     .param p0, "a"    # J
     .param p2, "b"    # I
 
@@ -347,7 +347,7 @@
 .end method
 
 .method public static final resolveDefaultParameter(Lokio/ByteString;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$resolveDefaultParameter"    # Lokio/ByteString;
     .param p1, "position"    # I
 
@@ -358,7 +358,7 @@
     .line 177
     sget v0, Lokio/_UtilKt;->DEFAULT__ByteString_size:I
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_e
 
     invoke-virtual {p0}, Lokio/ByteString;->size()I
 
@@ -367,12 +367,12 @@
     return v0
 
     .line 178
-    :cond_0
+    :cond_e
     return p1
 .end method
 
 .method public static final resolveDefaultParameter(Lokio/Buffer$UnsafeCursor;)Lokio/Buffer$UnsafeCursor;
-    .locals 1
+    .registers 2
     .param p0, "unsafeCursor"    # Lokio/Buffer$UnsafeCursor;
 
     const-string v0, "unsafeCursor"
@@ -382,7 +382,7 @@
     .line 171
     sget-object v0, Lokio/_UtilKt;->DEFAULT__new_UnsafeCursor:Lokio/Buffer$UnsafeCursor;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_f
 
     new-instance v0, Lokio/Buffer$UnsafeCursor;
 
@@ -391,12 +391,12 @@
     return-object v0
 
     .line 172
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method public static final reverseBytes(I)I
-    .locals 2
+    .registers 3
     .param p0, "$this$reverseBytes"    # I
 
     .line 38
@@ -438,7 +438,7 @@
 .end method
 
 .method public static final reverseBytes(J)J
-    .locals 8
+    .registers 10
     .param p0, "$this$reverseBytes"    # J
 
     .line 45
@@ -530,7 +530,7 @@
 .end method
 
 .method public static final reverseBytes(S)S
-    .locals 3
+    .registers 4
     .param p0, "$this$reverseBytes"    # S
 
     .line 31
@@ -562,7 +562,7 @@
 .end method
 
 .method public static final rightRotate(JI)J
-    .locals 5
+    .registers 8
     .param p0, "$this$rightRotate"    # J
     .param p2, "bitCount"    # I
 
@@ -582,7 +582,7 @@
 .end method
 
 .method public static final shl(BI)I
-    .locals 2
+    .registers 4
     .param p0, "$this$shl"    # B
     .param p1, "other"    # I
 
@@ -596,7 +596,7 @@
 .end method
 
 .method public static final shr(BI)I
-    .locals 2
+    .registers 4
     .param p0, "$this$shr"    # B
     .param p1, "other"    # I
 
@@ -610,7 +610,7 @@
 .end method
 
 .method public static final toHexString(B)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "$this$toHexString"    # B
 
     .line 103
@@ -681,18 +681,18 @@
 .end method
 
 .method public static final toHexString(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "$this$toHexString"    # I
 
     .line 110
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     const-string v0, "0"
 
     return-object v0
 
     .line 112
-    :cond_0
+    :cond_5
     const/16 v0, 0x8
 
     new-array v0, v0, [C
@@ -821,29 +821,29 @@
 
     .line 124
     .local v1, "i":I
-    :goto_0
+    :goto_70
     array-length v2, v0
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_7d
 
     .line 125
     aget-char v2, v0, v1
 
     const/16 v3, 0x30
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_7a
 
-    goto :goto_1
+    goto :goto_7d
 
     .line 126
-    :cond_1
+    :cond_7a
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_70
 
     .line 129
-    :cond_2
-    :goto_1
+    :cond_7d
+    :goto_7d
     array-length v2, v0
 
     invoke-static {v0, v1, v2}, Lkotlin/text/StringsKt;->concatToString([CII)Ljava/lang/String;
@@ -854,7 +854,7 @@
 .end method
 
 .method public static final toHexString(J)Ljava/lang/String;
-    .locals 10
+    .registers 12
     .param p0, "$this$toHexString"    # J
 
     .line 133
@@ -862,14 +862,14 @@
 
     cmp-long v2, p0, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_9
 
     const-string v0, "0"
 
     return-object v0
 
     .line 135
-    :cond_0
+    :cond_9
     const/16 v0, 0x10
 
     new-array v1, v0, [C
@@ -1174,27 +1174,27 @@
 
     .line 155
     .local v0, "i":I
-    :goto_0
+    :goto_fd
     array-length v2, v1
 
-    if-ge v0, v2, :cond_2
+    if-ge v0, v2, :cond_108
 
     .line 156
     aget-char v2, v1, v0
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_105
 
-    goto :goto_1
+    goto :goto_108
 
     .line 157
-    :cond_1
+    :cond_105
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_fd
 
     .line 160
-    :cond_2
-    :goto_1
+    :cond_108
+    :goto_108
     array-length v2, v1
 
     invoke-static {v1, v0, v2}, Lkotlin/text/StringsKt;->concatToString([CII)Ljava/lang/String;
@@ -1205,7 +1205,7 @@
 .end method
 
 .method public static final xor(BB)B
-    .locals 2
+    .registers 4
     .param p0, "$this$xor"    # B
     .param p1, "other"    # B
 

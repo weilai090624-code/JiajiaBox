@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static contains(Lkotlin/ranges/ClosedFloatingPointRange;Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/ranges/ClosedFloatingPointRange;
     .param p1, "value"    # Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;
@@ -52,7 +52,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     invoke-interface {p0}, Lkotlin/ranges/ClosedFloatingPointRange;->getEndInclusive()Ljava/lang/Comparable;
 
@@ -62,21 +62,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1c
     return v0
 .end method
 
 .method public static isEmpty(Lkotlin/ranges/ClosedFloatingPointRange;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this"    # Lkotlin/ranges/ClosedFloatingPointRange;
     .annotation system Ldalvik/annotation/Signature;
         value = {

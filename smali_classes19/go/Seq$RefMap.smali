@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 306
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method private grow()V
-    .locals 6
+    .registers 7
 
     .line 361
     iget v0, p0, Lgo/Seq$RefMap;->live:I
@@ -72,7 +72,7 @@
 
     array-length v1, v1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_1c
 
     .line 363
     iget-object v0, p0, Lgo/Seq$RefMap;->keys:[I
@@ -92,17 +92,17 @@
 
     new-array v1, v1, [Lgo/Seq$Ref;
 
-    goto :goto_0
+    goto :goto_20
 
     .line 366
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Lgo/Seq$RefMap;->keys:[I
 
     .line 367
     iget-object v1, p0, Lgo/Seq$RefMap;->objs:[Lgo/Seq$Ref;
 
     .line 370
-    :goto_0
+    :goto_20
     nop
 
     .line 371
@@ -112,19 +112,19 @@
 
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_24
     iget-object v5, p0, Lgo/Seq$RefMap;->keys:[I
 
     array-length v5, v5
 
-    if-ge v3, v5, :cond_2
+    if-ge v3, v5, :cond_40
 
     .line 372
     iget-object v5, p0, Lgo/Seq$RefMap;->objs:[Lgo/Seq$Ref;
 
     aget-object v5, v5, v3
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_3d
 
     .line 373
     iget-object v5, p0, Lgo/Seq$RefMap;->keys:[I
@@ -144,19 +144,19 @@
     add-int/lit8 v4, v4, 0x1
 
     .line 371
-    :cond_1
+    :cond_3d
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
     .line 378
-    :cond_2
+    :cond_40
     move v3, v4
 
-    :goto_2
+    :goto_41
     array-length v5, v0
 
-    if-ge v3, v5, :cond_3
+    if-ge v3, v5, :cond_4c
 
     .line 379
     aput v2, v0, v3
@@ -169,10 +169,10 @@
     .line 378
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_41
 
     .line 383
-    :cond_3
+    :cond_4c
     iput-object v0, p0, Lgo/Seq$RefMap;->keys:[I
 
     .line 384
@@ -186,13 +186,13 @@
 
     iget v1, p0, Lgo/Seq$RefMap;->next:I
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_59
 
     .line 390
     return-void
 
     .line 388
-    :cond_4
+    :cond_59
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -233,29 +233,29 @@
 .end method
 
 .method private static roundPow2(I)I
-    .locals 1
+    .registers 2
 
     .line 393
     const/4 v0, 0x1
 
     .line 394
-    :goto_0
-    if-ge v0, p0, :cond_0
+    :goto_1
+    if-ge v0, p0, :cond_6
 
     .line 395
     mul-int/lit8 v0, v0, 0x2
 
-    goto :goto_0
+    goto :goto_1
 
     .line 397
-    :cond_0
+    :cond_6
     return v0
 .end method
 
 
 # virtual methods
 .method get(I)Lgo/Seq$Ref;
-    .locals 3
+    .registers 5
 
     .line 309
     iget-object v0, p0, Lgo/Seq$RefMap;->keys:[I
@@ -269,7 +269,7 @@
     move-result p1
 
     .line 310
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_10
 
     .line 311
     iget-object v0, p0, Lgo/Seq$RefMap;->objs:[Lgo/Seq$Ref;
@@ -279,19 +279,19 @@
     return-object p1
 
     .line 313
-    :cond_0
+    :cond_10
     const/4 p1, 0x0
 
     return-object p1
 .end method
 
 .method put(ILgo/Seq$Ref;)V
-    .locals 5
+    .registers 8
 
     .line 327
     const-string v0, ")"
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_85
 
     .line 330
     iget-object v1, p0, Lgo/Seq$RefMap;->keys:[I
@@ -305,14 +305,14 @@
     move-result v1
 
     .line 331
-    if-ltz v1, :cond_2
+    if-ltz v1, :cond_43
 
     .line 332
     iget-object v2, p0, Lgo/Seq$RefMap;->objs:[Lgo/Seq$Ref;
 
     aget-object v2, v2, v1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1f
 
     .line 333
     iget-object v2, p0, Lgo/Seq$RefMap;->objs:[Lgo/Seq$Ref;
@@ -327,18 +327,18 @@
     iput v2, p0, Lgo/Seq$RefMap;->live:I
 
     .line 336
-    :cond_0
+    :cond_1f
     iget-object v2, p0, Lgo/Seq$RefMap;->objs:[Lgo/Seq$Ref;
 
     aget-object v1, v2, v1
 
-    if-ne v1, p2, :cond_1
+    if-ne v1, p2, :cond_26
 
     .line 339
     return-void
 
     .line 337
-    :cond_1
+    :cond_26
     new-instance p2, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -368,14 +368,14 @@
     throw p2
 
     .line 341
-    :cond_2
+    :cond_43
     iget v0, p0, Lgo/Seq$RefMap;->next:I
 
     iget-object v2, p0, Lgo/Seq$RefMap;->keys:[I
 
     array-length v2, v2
 
-    if-lt v0, v2, :cond_3
+    if-lt v0, v2, :cond_55
 
     .line 342
     invoke-direct {p0}, Lgo/Seq$RefMap;->grow()V
@@ -390,13 +390,13 @@
     move-result v1
 
     .line 345
-    :cond_3
+    :cond_55
     not-int v0, v1
 
     .line 346
     iget v1, p0, Lgo/Seq$RefMap;->next:I
 
-    if-ge v0, v1, :cond_4
+    if-ge v0, v1, :cond_70
 
     .line 348
     iget-object v1, p0, Lgo/Seq$RefMap;->keys:[I
@@ -423,7 +423,7 @@
     invoke-static {v1, v0, v2, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 351
-    :cond_4
+    :cond_70
     iget-object v1, p0, Lgo/Seq$RefMap;->keys:[I
 
     aput p1, v1, v0
@@ -451,7 +451,7 @@
     return-void
 
     .line 328
-    :cond_5
+    :cond_85
     new-instance p2, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -482,7 +482,7 @@
 .end method
 
 .method remove(I)V
-    .locals 3
+    .registers 5
 
     .line 317
     iget-object v0, p0, Lgo/Seq$RefMap;->keys:[I
@@ -496,14 +496,14 @@
     move-result p1
 
     .line 318
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_1c
 
     .line 319
     iget-object v0, p0, Lgo/Seq$RefMap;->objs:[Lgo/Seq$Ref;
 
     aget-object v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 320
     iget-object v0, p0, Lgo/Seq$RefMap;->objs:[Lgo/Seq$Ref;
@@ -520,6 +520,6 @@
     iput p1, p0, Lgo/Seq$RefMap;->live:I
 
     .line 324
-    :cond_0
+    :cond_1c
     return-void
 .end method

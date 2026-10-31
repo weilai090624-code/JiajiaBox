@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "line"    # I
 
     .line 19

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1717
     .local p0, "this":Lcom/google/common/collect/Multimaps$Entries;, "Lcom/google/common/collect/Multimaps$Entries<TK;TV;>;"
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 1746
     .local p0, "this":Lcom/google/common/collect/Multimaps$Entries;, "Lcom/google/common/collect/Multimaps$Entries<TK;TV;>;"
@@ -56,7 +56,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -66,7 +66,7 @@
     .local p0, "this":Lcom/google/common/collect/Multimaps$Entries;, "Lcom/google/common/collect/Multimaps$Entries<TK;TV;>;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 1729
     move-object v0, p1
@@ -95,7 +95,7 @@
 
     .line 1732
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     return v0
@@ -112,7 +112,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -122,7 +122,7 @@
     .local p0, "this":Lcom/google/common/collect/Multimaps$Entries;, "Lcom/google/common/collect/Multimaps$Entries<TK;TV;>;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 1738
     move-object v0, p1
@@ -151,14 +151,14 @@
 
     .line 1741
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1723
     .local p0, "this":Lcom/google/common/collect/Multimaps$Entries;, "Lcom/google/common/collect/Multimaps$Entries<TK;TV;>;"

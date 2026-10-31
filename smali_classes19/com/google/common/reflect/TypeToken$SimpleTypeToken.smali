@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Type;)V
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/reflect/Type;
 
     .line 1319

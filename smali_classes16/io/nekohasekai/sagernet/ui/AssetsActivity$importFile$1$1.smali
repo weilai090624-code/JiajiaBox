@@ -73,7 +73,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/File;Ljava/lang/String;Lio/nekohasekai/sagernet/ui/AssetsActivity;Landroid/net/Uri;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -141,7 +141,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -155,7 +155,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -184,14 +184,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 113
     iget v0, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity$importFile$1$1;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_90
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -201,7 +201,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 114
@@ -225,7 +225,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2c
 
     invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
 
@@ -237,7 +237,7 @@
 
     .line 116
     .end local v1    # "$this$invokeSuspend_u24lambda_u240":Ljava/io/File;
-    :cond_0
+    :cond_2c
     nop
 
     .line 114
@@ -258,7 +258,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_46
 
     new-instance v2, Ljava/io/FileOutputStream;
 
@@ -269,7 +269,7 @@
     invoke-static {v1, v2}, Lio/nekohasekai/sagernet/ktx/LogsKt;->use(Ljava/io/InputStream;Ljava/io/OutputStream;)V
 
     .line 120
-    :cond_1
+    :cond_46
     new-instance v1, Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->getParentFile()Ljava/io/File;
@@ -312,12 +312,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_71
 
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
     .line 122
-    :cond_2
+    :cond_71
     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
 
     .line 123
@@ -359,8 +359,8 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_90
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

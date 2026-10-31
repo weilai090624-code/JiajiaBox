@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/EndCompoundLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/textfield/EndCompoundLayout;
 
     .line 115
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 1
+    .registers 3
     .param p1, "s"    # Landroid/text/Editable;
 
     .line 123
@@ -51,7 +51,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "s"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I

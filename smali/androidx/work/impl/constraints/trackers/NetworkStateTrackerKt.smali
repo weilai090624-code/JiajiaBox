@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 67
     const-string v0, "NetworkStateTracker"
@@ -64,7 +64,7 @@
 .end method
 
 .method public static final NetworkStateTracker(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/work/impl/constraints/trackers/ConstraintTracker;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
     .annotation system Ldalvik/annotation/Signature;
@@ -92,7 +92,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_19
 
     .line 61
     new-instance v0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;
@@ -101,10 +101,10 @@
 
     check-cast v0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;
 
-    goto :goto_0
+    goto :goto_20
 
     .line 63
-    :cond_0
+    :cond_19
     new-instance v0, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerPre24;
 
     invoke-direct {v0, p0, p1}, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerPre24;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
@@ -112,12 +112,12 @@
     check-cast v0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;
 
     .line 60
-    :goto_0
+    :goto_20
     return-object v0
 .end method
 
 .method public static final synthetic access$getTAG$p()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->TAG:Ljava/lang/String;
@@ -126,7 +126,7 @@
 .end method
 
 .method public static final getActiveNetworkState(Landroid/net/ConnectivityManager;)Landroidx/work/impl/constraints/NetworkState;
-    .locals 7
+    .registers 8
     .param p0, "$this$activeNetworkState"    # Landroid/net/ConnectivityManager;
 
     const-string v0, "<this>"
@@ -144,24 +144,24 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_15
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v3, 0x0
 
     .line 88
     .local v3, "isConnected":Z
-    :goto_0
+    :goto_16
     invoke-static {p0}, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->isActiveNetworkValidated(Landroid/net/ConnectivityManager;)Z
 
     move-result v4
@@ -174,22 +174,22 @@
 
     .line 90
     .local v5, "isMetered":Z
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isRoaming()Z
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_27
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     const/4 v1, 0x0
 
     .line 91
     .local v1, "isNotRoaming":Z
-    :goto_1
+    :goto_28
     new-instance v2, Landroidx/work/impl/constraints/NetworkState;
 
     invoke-direct {v2, v3, v4, v5, v1}, Landroidx/work/impl/constraints/NetworkState;-><init>(ZZZZ)V
@@ -198,13 +198,13 @@
 .end method
 
 .method public static synthetic getActiveNetworkState$annotations(Landroid/net/ConnectivityManager;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static final isActiveNetworkValidated(Landroid/net/ConnectivityManager;)Z
-    .locals 6
+    .registers 7
     .param p0, "$this$isActiveNetworkValidated"    # Landroid/net/ConnectivityManager;
 
     const-string v0, "<this>"
@@ -218,17 +218,17 @@
 
     const/4 v2, 0x0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_d
 
     .line 71
-    goto :goto_1
+    goto :goto_30
 
     .line 72
-    :cond_0
+    :cond_d
     nop
 
     .line 73
-    :try_start_0
+    :try_start_e
     invoke-static {p0}, Landroidx/work/impl/utils/NetworkApi23;->getActiveNetworkCompat(Landroid/net/ConnectivityManager;)Landroid/net/Network;
 
     move-result-object v0
@@ -241,22 +241,22 @@
 
     .line 75
     .local v1, "capabilities":Landroid/net/NetworkCapabilities;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2f
 
     const/16 v3, 0x10
 
     invoke-static {v1, v3}, Landroidx/work/impl/utils/NetworkApi21;->hasCapabilityCompat(Landroid/net/NetworkCapabilities;I)Z
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/lang/SecurityException; {:try_start_e .. :try_end_1e} :catch_1f
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 76
     .end local v0    # "network":Landroid/net/Network;
     .end local v1    # "capabilities":Landroid/net/NetworkCapabilities;
-    :catch_0
+    :catch_1f
     move-exception v0
 
     .line 78
@@ -279,11 +279,11 @@
     nop
 
     .end local v0    # "exception":Ljava/lang/SecurityException;
-    :cond_1
-    :goto_0
+    :cond_2f
+    :goto_2f
     nop
 
     .line 80
-    :goto_1
+    :goto_30
     return v2
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/ToolbarActionBar;)V
-    .locals 0
+    .registers 2
 
     .line 556
     iput-object p1, p0, Landroidx/appcompat/app/ToolbarActionBar$ActionMenuPresenterCallback;->this$0:Landroidx/appcompat/app/ToolbarActionBar;
@@ -39,20 +39,20 @@
 
 # virtual methods
 .method public onCloseMenu(Landroidx/appcompat/view/menu/MenuBuilder;Z)V
-    .locals 2
+    .registers 5
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "allMenusAreClosing"    # Z
 
     .line 567
     iget-boolean v0, p0, Landroidx/appcompat/app/ToolbarActionBar$ActionMenuPresenterCallback;->mClosingActionMenu:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 568
     return-void
 
     .line 571
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroidx/appcompat/app/ToolbarActionBar$ActionMenuPresenterCallback;->mClosingActionMenu:Z
@@ -83,7 +83,7 @@
 .end method
 
 .method public onOpenSubMenu(Landroidx/appcompat/view/menu/MenuBuilder;)Z
-    .locals 2
+    .registers 4
     .param p1, "subMenu"    # Landroidx/appcompat/view/menu/MenuBuilder;
 
     .line 561

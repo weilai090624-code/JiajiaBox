@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;Landroidx/fragment/app/Fragment;I)V
-    .locals 2
+    .registers 6
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "targetFragment"    # Landroidx/fragment/app/Fragment;
     .param p3, "requestCode"    # I
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method public final getRequestCode()I
-    .locals 1
+    .registers 2
 
     .line 32
     iget v0, p0, Landroidx/fragment/app/strictmode/SetTargetFragmentUsageViolation;->requestCode:I
@@ -136,7 +136,7 @@
 .end method
 
 .method public final getTargetFragment()Landroidx/fragment/app/Fragment;
-    .locals 1
+    .registers 2
 
     .line 28
     iget-object v0, p0, Landroidx/fragment/app/strictmode/SetTargetFragmentUsageViolation;->targetFragment:Landroidx/fragment/app/Fragment;

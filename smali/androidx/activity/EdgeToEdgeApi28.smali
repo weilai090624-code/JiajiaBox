@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 298
     invoke-direct {p0}, Landroidx/activity/EdgeToEdgeApi26;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public adjustLayoutInDisplayCutoutMode(Landroid/view/Window;)V
-    .locals 2
+    .registers 4
     .param p1, "window"    # Landroid/view/Window;
 
     const-string/jumbo v0, "window"

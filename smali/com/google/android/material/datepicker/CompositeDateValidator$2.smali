@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public getId()I
-    .locals 1
+    .registers 2
 
     .line 84
     const/4 v0, 0x2
@@ -39,7 +39,7 @@
 .end method
 
 .method public isValid(Ljava/util/List;J)Z
-    .locals 3
+    .registers 7
     .param p2, "date"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -56,12 +56,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -71,18 +71,18 @@
 
     .line 71
     .local v1, "validator":Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
     .line 72
-    goto :goto_0
+    goto :goto_4
 
     .line 74
-    :cond_0
+    :cond_13
     invoke-interface {v1, p2, p3}, Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;->isValid(J)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1b
 
     .line 75
     const/4 v0, 0x0
@@ -91,11 +91,11 @@
 
     .line 77
     .end local v1    # "validator":Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;
-    :cond_1
-    goto :goto_0
+    :cond_1b
+    goto :goto_4
 
     .line 79
-    :cond_2
+    :cond_1c
     const/4 v0, 0x1
 
     return v0

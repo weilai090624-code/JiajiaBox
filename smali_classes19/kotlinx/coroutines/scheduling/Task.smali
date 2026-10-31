@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 89
     const-wide/16 v0, 0x0
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(JLkotlinx/coroutines/scheduling/TaskContext;)V
-    .locals 0
+    .registers 4
     .param p1, "submissionTime"    # J
     .param p3, "taskContext"    # Lkotlinx/coroutines/scheduling/TaskContext;
 
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public final getMode$kotlinx_coroutines_core()I
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 

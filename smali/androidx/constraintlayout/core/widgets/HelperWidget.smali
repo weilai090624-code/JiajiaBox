@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 29
     invoke-direct {p0}, Landroidx/constraintlayout/core/widgets/ConstraintWidget;-><init>()V
@@ -37,18 +37,18 @@
 
 # virtual methods
 .method public add(Landroidx/constraintlayout/core/widgets/ConstraintWidget;)V
-    .locals 2
+    .registers 4
     .param p1, "widget"    # Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
     .line 44
-    if-eq p1, p0, :cond_2
+    if-eq p1, p0, :cond_2a
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 47
-    :cond_0
+    :cond_5
     iget v0, p0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgetsCount:I
 
     add-int/lit8 v0, v0, 0x1
@@ -57,7 +57,7 @@
 
     array-length v1, v1
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_1d
 
     .line 48
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgets:[Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -77,7 +77,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgets:[Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
     .line 50
-    :cond_1
+    :cond_1d
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgets:[Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
     iget v1, p0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgetsCount:I
@@ -95,13 +95,13 @@
     return-void
 
     .line 45
-    :cond_2
-    :goto_0
+    :cond_2a
+    :goto_2a
     return-void
 .end method
 
 .method public addDependents(Ljava/util/ArrayList;ILandroidx/constraintlayout/core/widgets/analyzer/WidgetGroup;)V
-    .locals 2
+    .registers 6
     .param p2, "orientation"    # I
     .param p3, "group"    # Landroidx/constraintlayout/core/widgets/analyzer/WidgetGroup;
     .annotation system Ldalvik/annotation/Signature;
@@ -120,10 +120,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget v1, p0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgetsCount:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_f
 
     .line 75
     iget-object v1, p0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgets:[Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -138,18 +138,18 @@
     .end local v1    # "widget":Landroidx/constraintlayout/core/widgets/ConstraintWidget;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 78
     .end local v0    # "i":I
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_1
+    :goto_10
     iget v1, p0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgetsCount:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1e
 
     .line 79
     iget-object v1, p0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgets:[Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -164,16 +164,16 @@
     .end local v1    # "widget":Landroidx/constraintlayout/core/widgets/ConstraintWidget;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_10
 
     .line 82
     .end local v0    # "i":I
-    :cond_1
+    :cond_1e
     return-void
 .end method
 
 .method public copy(Landroidx/constraintlayout/core/widgets/ConstraintWidget;Ljava/util/HashMap;)V
-    .locals 4
+    .registers 7
     .param p1, "src"    # Landroidx/constraintlayout/core/widgets/ConstraintWidget;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -209,8 +209,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_c
+    if-ge v2, v1, :cond_1e
 
     .line 61
     iget-object v3, v0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgets:[Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -228,28 +228,28 @@
     .line 60
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 63
     .end local v2    # "i":I
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public findGroupInDependents(I)I
-    .locals 4
+    .registers 6
     .param p1, "orientation"    # I
 
     .line 85
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget v1, p0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgetsCount:I
 
     const/4 v2, -0x1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_20
 
     .line 86
     iget-object v1, p0, Landroidx/constraintlayout/core/widgets/HelperWidget;->mWidgets:[Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -258,11 +258,11 @@
 
     .line 87
     .local v1, "widget":Landroidx/constraintlayout/core/widgets/ConstraintWidget;
-    if-nez p1, :cond_0
+    if-nez p1, :cond_13
 
     iget v3, v1, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->horizontalGroup:I
 
-    if-eq v3, v2, :cond_0
+    if-eq v3, v2, :cond_13
 
     .line 88
     iget v2, v1, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->horizontalGroup:I
@@ -270,14 +270,14 @@
     return v2
 
     .line 90
-    :cond_0
+    :cond_13
     const/4 v3, 0x1
 
-    if-ne p1, v3, :cond_1
+    if-ne p1, v3, :cond_1d
 
     iget v3, v1, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->verticalGroup:I
 
-    if-eq v3, v2, :cond_1
+    if-eq v3, v2, :cond_1d
 
     .line 91
     iget v2, v1, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->verticalGroup:I
@@ -286,19 +286,19 @@
 
     .line 85
     .end local v1    # "widget":Landroidx/constraintlayout/core/widgets/ConstraintWidget;
-    :cond_1
+    :cond_1d
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 94
     .end local v0    # "i":I
-    :cond_2
+    :cond_20
     return v2
 .end method
 
 .method public removeAllIds()V
-    .locals 2
+    .registers 3
 
     .line 69
     const/4 v0, 0x0
@@ -317,7 +317,7 @@
 .end method
 
 .method public updateConstraints(Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;)V
-    .locals 0
+    .registers 2
     .param p1, "container"    # Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;
 
     .line 36

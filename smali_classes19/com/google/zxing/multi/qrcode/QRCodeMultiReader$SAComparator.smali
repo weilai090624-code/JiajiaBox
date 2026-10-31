@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 166
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/zxing/multi/qrcode/QRCodeMultiReader$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/zxing/multi/qrcode/QRCodeMultiReader$1;
 
     .line 166
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public compare(Lcom/google/zxing/Result;Lcom/google/zxing/Result;)I
-    .locals 3
+    .registers 6
     .param p1, "a"    # Lcom/google/zxing/Result;
     .param p2, "b"    # Lcom/google/zxing/Result;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 166
     check-cast p1, Lcom/google/zxing/Result;

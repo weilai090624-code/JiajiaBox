@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public final apply(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p1}, Lj$/util/stream/SliceOps$2;->lambda$opEvaluateParallelLazy$0(I)[Ljava/lang/Integer;
 

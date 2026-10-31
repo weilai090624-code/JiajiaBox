@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public addInEdge(Ljava/lang/Object;Ljava/lang/Object;Z)V
-    .locals 0
+    .registers 4
     .param p3, "isSelfLoop"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -79,18 +79,18 @@
     .local p0, "this":Lcom/google/common/graph/AbstractUndirectedNetworkConnections;, "Lcom/google/common/graph/AbstractUndirectedNetworkConnections<TN;TE;>;"
     .local p1, "edge":Ljava/lang/Object;, "TE;"
     .local p2, "node":Ljava/lang/Object;, "TN;"
-    if-nez p3, :cond_0
+    if-nez p3, :cond_5
 
     .line 94
     invoke-virtual {p0, p1, p2}, Lcom/google/common/graph/AbstractUndirectedNetworkConnections;->addOutEdge(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 96
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public addOutEdge(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TN;)V"
@@ -109,16 +109,16 @@
 
     .line 101
     .local v0, "previousNode":Ljava/lang/Object;, "TN;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_b
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 102
@@ -126,7 +126,7 @@
 .end method
 
 .method public adjacentNode(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TN;"
@@ -150,7 +150,7 @@
 .end method
 
 .method public inEdges()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -169,7 +169,7 @@
 .end method
 
 .method public incidentEdges()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -194,7 +194,7 @@
 .end method
 
 .method public outEdges()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -213,7 +213,7 @@
 .end method
 
 .method public predecessors()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -232,7 +232,7 @@
 .end method
 
 .method public removeInEdge(Ljava/lang/Object;Z)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p2, "isSelfLoop"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -246,7 +246,7 @@
     .line 78
     .local p0, "this":Lcom/google/common/graph/AbstractUndirectedNetworkConnections;, "Lcom/google/common/graph/AbstractUndirectedNetworkConnections<TN;TE;>;"
     .local p1, "edge":Ljava/lang/Object;, "TE;"
-    if-nez p2, :cond_0
+    if-nez p2, :cond_7
 
     .line 79
     invoke-virtual {p0, p1}, Lcom/google/common/graph/AbstractUndirectedNetworkConnections;->removeOutEdge(Ljava/lang/Object;)Ljava/lang/Object;
@@ -256,14 +256,14 @@
     return-object v0
 
     .line 81
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public removeOutEdge(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TN;"
@@ -289,7 +289,7 @@
 .end method
 
 .method public successors()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

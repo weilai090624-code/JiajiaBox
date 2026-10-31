@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/collections/builders/SerializedMap$Companion;
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 700
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "map"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -117,7 +117,7 @@
 .end method
 
 .method private final readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 727
     iget-object v0, p0, Lkotlin/collections/builders/SerializedMap;->map:Ljava/util/Map;
@@ -128,7 +128,7 @@
 
 # virtual methods
 .method public readExternal(Ljava/io/ObjectInput;)V
-    .locals 10
+    .registers 12
     .param p1, "input"    # Ljava/io/ObjectInput;
 
     const-string v0, "input"
@@ -142,7 +142,7 @@
 
     .line 713
     .local v0, "flags":I
-    if-nez v0, :cond_2
+    if-nez v0, :cond_52
 
     .line 716
     invoke-interface {p1}, Ljava/io/ObjectInput;->readInt()I
@@ -151,7 +151,7 @@
 
     .line 717
     .local v1, "size":I
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_33
 
     .line 718
     invoke-static {v1}, Lkotlin/collections/MapsKt;->createMapBuilder(I)Ljava/util/Map;
@@ -167,8 +167,8 @@
     .local v4, "$i$a$-buildMap-SerializedMap$readExternal$1":I
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v1, :cond_0
+    :goto_18
+    if-ge v5, v1, :cond_2b
 
     move v6, v5
 
@@ -201,10 +201,10 @@
     .end local v9    # "value":Ljava/lang/Object;
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 724
-    :cond_0
+    :cond_2b
     nop
 
     .line 718
@@ -220,7 +220,7 @@
     return-void
 
     .line 717
-    :cond_1
+    :cond_33
     new-instance v2, Ljava/io/InvalidObjectException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -253,7 +253,7 @@
 
     .line 714
     .end local v1    # "size":I
-    :cond_2
+    :cond_52
     new-instance v1, Ljava/io/InvalidObjectException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -280,7 +280,7 @@
 .end method
 
 .method public writeExternal(Ljava/io/ObjectOutput;)V
-    .locals 3
+    .registers 5
     .param p1, "output"    # Ljava/io/ObjectOutput;
 
     const-string v0, "output"
@@ -312,12 +312,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_37
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -341,9 +341,9 @@
     invoke-interface {p1, v2}, Ljava/io/ObjectOutput;->writeObject(Ljava/lang/Object;)V
 
     .end local v1    # "entry":Ljava/util/Map$Entry;
-    goto :goto_0
+    goto :goto_1c
 
     .line 709
-    :cond_0
+    :cond_37
     return-void
 .end method

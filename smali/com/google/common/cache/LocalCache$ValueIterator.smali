@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/LocalCache;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/cache/LocalCache;
 
     .line 4299
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 692
     nop
@@ -68,7 +68,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 691
     .local p0, "this":Lcom/google/common/reflect/Types$NativeTypeVariableEquals;, "Lcom/google/common/reflect/Types$NativeTypeVariableEquals<TX;>;"

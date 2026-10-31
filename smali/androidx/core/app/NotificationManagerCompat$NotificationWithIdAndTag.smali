@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(ILandroid/app/Notification;)V
-    .locals 1
+    .registers 4
     .param p1, "id"    # I
     .param p2, "notification"    # Landroid/app/Notification;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ILandroid/app/Notification;)V
-    .locals 0
+    .registers 4
     .param p1, "tag"    # Ljava/lang/String;
     .param p2, "id"    # I
     .param p3, "notification"    # Landroid/app/Notification;

@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/concurrent/ThreadFactory;)V
-    .locals 9
+    .registers 11
     .param p1, "threadFactory"    # Ljava/util/concurrent/ThreadFactory;
 
     const-string v0, "threadFactory"
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public beforeTask(Lokhttp3/internal/concurrent/TaskRunner;)V
-    .locals 1
+    .registers 3
     .param p1, "taskRunner"    # Lokhttp3/internal/concurrent/TaskRunner;
 
     const-string v0, "taskRunner"
@@ -131,7 +131,7 @@
 .end method
 
 .method public coordinatorNotify(Lokhttp3/internal/concurrent/TaskRunner;)V
-    .locals 3
+    .registers 5
     .param p1, "taskRunner"    # Lokhttp3/internal/concurrent/TaskRunner;
 
     const-string v0, "taskRunner"
@@ -159,7 +159,7 @@
 .end method
 
 .method public coordinatorWait(Lokhttp3/internal/concurrent/TaskRunner;J)V
-    .locals 7
+    .registers 11
     .param p1, "taskRunner"    # Lokhttp3/internal/concurrent/TaskRunner;
     .param p2, "nanos"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -189,14 +189,14 @@
 
     cmp-long v6, v2, v4
 
-    if-gtz v6, :cond_0
+    if-gtz v6, :cond_18
 
     cmp-long v6, p2, v4
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_1f
 
     .line 296
-    :cond_0
+    :cond_18
     move-object v4, p1
 
     check-cast v4, Ljava/lang/Object;
@@ -206,12 +206,12 @@
     invoke-virtual {v4, v2, v3, v5}, Ljava/lang/Object;->wait(JI)V
 
     .line 298
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     const-string v0, "runnable"
@@ -228,7 +228,7 @@
 .end method
 
 .method public nanoTime()J
-    .locals 2
+    .registers 3
 
     .line 280
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -239,7 +239,7 @@
 .end method
 
 .method public final shutdown()V
-    .locals 1
+    .registers 2
 
     .line 305
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskRunner$RealBackend;->executor:Ljava/util/concurrent/ThreadPoolExecutor;

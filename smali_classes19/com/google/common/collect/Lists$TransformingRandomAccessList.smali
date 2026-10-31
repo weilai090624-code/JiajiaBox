@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Lcom/google/common/base/Function;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 602
     .local p0, "this":Lcom/google/common/collect/Lists$TransformingRandomAccessList;, "Lcom/google/common/collect/Lists$TransformingRandomAccessList<TF;TT;>;"
@@ -113,7 +113,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -142,7 +142,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 628
     .local p0, "this":Lcom/google/common/collect/Lists$TransformingRandomAccessList;, "Lcom/google/common/collect/Lists$TransformingRandomAccessList<TF;TT;>;"
@@ -156,7 +156,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -175,7 +175,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -201,7 +201,7 @@
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -227,7 +227,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 638
     .local p0, "this":Lcom/google/common/collect/Lists$TransformingRandomAccessList;, "Lcom/google/common/collect/Lists$TransformingRandomAccessList<TF;TT;>;"

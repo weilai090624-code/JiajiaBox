@@ -33,7 +33,7 @@
 
 # direct methods
 .method private static synthetic $values()[Landroidx/profileinstaller/FileSectionType;
-    .locals 3
+    .registers 3
 
     .line 22
     const/4 v0, 0x5
@@ -74,7 +74,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 24
     new-instance v0, Landroidx/profileinstaller/FileSectionType;
@@ -152,7 +152,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IJ)V
-    .locals 0
+    .registers 5
     .param p3, "value"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -184,7 +184,7 @@
 .end method
 
 .method static fromValue(J)Landroidx/profileinstaller/FileSectionType;
-    .locals 5
+    .registers 7
     .param p0, "value"    # J
 
     .line 46
@@ -197,10 +197,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_5
     array-length v2, v0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_18
 
     .line 48
     aget-object v2, v0, v1
@@ -211,7 +211,7 @@
 
     cmp-long v4, v2, p0
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_15
 
     .line 49
     aget-object v2, v0, v1
@@ -219,14 +219,14 @@
     return-object v2
 
     .line 47
-    :cond_0
+    :cond_15
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 52
     .end local v1    # "i":I
-    :cond_1
+    :cond_18
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -253,7 +253,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/profileinstaller/FileSectionType;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -277,7 +277,7 @@
 .end method
 
 .method public static values()[Landroidx/profileinstaller/FileSectionType;
-    .locals 1
+    .registers 1
 
     .line 22
     sget-object v0, Landroidx/profileinstaller/FileSectionType;->$VALUES:[Landroidx/profileinstaller/FileSectionType;
@@ -294,7 +294,7 @@
 
 # virtual methods
 .method public getValue()J
-    .locals 2
+    .registers 3
 
     .line 42
     iget-wide v0, p0, Landroidx/profileinstaller/FileSectionType;->mValue:J

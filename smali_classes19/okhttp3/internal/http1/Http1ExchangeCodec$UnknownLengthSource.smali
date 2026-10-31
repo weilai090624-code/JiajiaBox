@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/http1/Http1ExchangeCodec;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -78,28 +78,28 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 479
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$UnknownLengthSource;->getClosed()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 480
-    :cond_0
+    :cond_7
     iget-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$UnknownLengthSource;->inputExhausted:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     .line 481
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$UnknownLengthSource;->responseBodyComplete()V
 
     .line 483
-    :cond_1
+    :cond_e
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lokhttp3/internal/http1/Http1ExchangeCodec$UnknownLengthSource;->setClosed(Z)V
@@ -109,7 +109,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 6
+    .registers 10
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -124,36 +124,36 @@
 
     cmp-long v3, p2, v0
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_4
+    :goto_f
+    if-eqz v0, :cond_3d
 
     .line 466
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$UnknownLengthSource;->getClosed()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2d
 
     .line 467
     iget-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$UnknownLengthSource;->inputExhausted:Z
 
     const-wide/16 v3, -0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     return-wide v3
 
     .line 469
-    :cond_1
+    :cond_1e
     invoke-super {p0, p1, p2, p3}, Lokhttp3/internal/http1/Http1ExchangeCodec$AbstractSource;->read(Lokio/Buffer;J)J
 
     move-result-wide v0
@@ -162,7 +162,7 @@
     .local v0, "read":J
     cmp-long v5, v0, v3
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_2c
 
     .line 471
     iput-boolean v2, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$UnknownLengthSource;->inputExhausted:Z
@@ -174,12 +174,12 @@
     return-wide v3
 
     .line 475
-    :cond_2
+    :cond_2c
     return-wide v0
 
     .line 500
     .end local v0    # "read":J
-    :cond_3
+    :cond_2d
     const/4 v0, 0x0
 
     .line 466
@@ -202,7 +202,7 @@
     throw v0
 
     .line 500
-    :cond_4
+    :cond_3d
     const/4 v0, 0x0
 
     .line 465

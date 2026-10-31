@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static fold(Lkotlin/coroutines/ContinuationInterceptor;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this"    # Lkotlin/coroutines/ContinuationInterceptor;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -62,7 +62,7 @@
 .end method
 
 .method public static get(Lkotlin/coroutines/ContinuationInterceptor;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
-    .locals 3
+    .registers 5
     .param p0, "$this"    # Lkotlin/coroutines/ContinuationInterceptor;
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
@@ -85,7 +85,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 57
     move-object v0, p1
@@ -100,7 +100,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     move-object v0, p1
 
@@ -116,18 +116,18 @@
 
     instance-of v2, v0, Lkotlin/coroutines/CoroutineContext$Element;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     move-object v1, v0
 
-    :cond_0
+    :cond_26
     return-object v1
 
     .line 60
-    :cond_1
+    :cond_27
     sget-object v0, Lkotlin/coroutines/ContinuationInterceptor;->Key:Lkotlin/coroutines/ContinuationInterceptor$Key;
 
-    if-ne v0, p1, :cond_2
+    if-ne v0, p1, :cond_33
 
     const-string v0, "null cannot be cast to non-null type E of kotlin.coroutines.ContinuationInterceptor.get"
 
@@ -137,12 +137,12 @@
 
     check-cast v1, Lkotlin/coroutines/CoroutineContext$Element;
 
-    :cond_2
+    :cond_33
     return-object v1
 .end method
 
 .method public static minusKey(Lkotlin/coroutines/ContinuationInterceptor;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
-    .locals 2
+    .registers 4
     .param p0, "$this"    # Lkotlin/coroutines/ContinuationInterceptor;
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
@@ -162,7 +162,7 @@
     .line 67
     instance-of v0, p1, Lkotlin/coroutines/AbstractCoroutineContextKey;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     .line 68
     move-object v0, p1
@@ -177,7 +177,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     move-object v0, p1
 
@@ -191,45 +191,45 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_27
     move-object v0, p0
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    :goto_0
+    :goto_2a
     return-object v0
 
     .line 70
-    :cond_1
+    :cond_2b
     sget-object v0, Lkotlin/coroutines/ContinuationInterceptor;->Key:Lkotlin/coroutines/ContinuationInterceptor$Key;
 
-    if-ne v0, p1, :cond_2
+    if-ne v0, p1, :cond_34
 
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_2
+    :cond_34
     move-object v0, p0
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    :goto_1
+    :goto_37
     return-object v0
 .end method
 
 .method public static plus(Lkotlin/coroutines/ContinuationInterceptor;Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/coroutines/ContinuationInterceptor;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
@@ -251,7 +251,7 @@
 .end method
 
 .method public static releaseInterceptedContinuation(Lkotlin/coroutines/ContinuationInterceptor;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/coroutines/ContinuationInterceptor;
     .param p1, "continuation"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;

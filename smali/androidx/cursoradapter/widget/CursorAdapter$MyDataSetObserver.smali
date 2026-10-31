@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/cursoradapter/widget/CursorAdapter;)V
-    .locals 0
+    .registers 2
 
     .line 492
     iput-object p1, p0, Landroidx/cursoradapter/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroidx/cursoradapter/widget/CursorAdapter;
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 2
+    .registers 3
 
     .line 497
     iget-object v0, p0, Landroidx/cursoradapter/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroidx/cursoradapter/widget/CursorAdapter;
@@ -53,7 +53,7 @@
 .end method
 
 .method public onInvalidated()V
-    .locals 2
+    .registers 3
 
     .line 503
     iget-object v0, p0, Landroidx/cursoradapter/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroidx/cursoradapter/widget/CursorAdapter;

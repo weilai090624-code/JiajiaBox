@@ -41,7 +41,7 @@
 
 # direct methods
 .method public static final whenCreated(Landroidx/lifecycle/Lifecycle;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$whenCreated"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -80,7 +80,7 @@
 .end method
 
 .method public static final whenCreated(Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$whenCreated"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -121,7 +121,7 @@
 .end method
 
 .method public static final whenResumed(Landroidx/lifecycle/Lifecycle;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$whenResumed"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -160,7 +160,7 @@
 .end method
 
 .method public static final whenResumed(Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$whenResumed"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -201,7 +201,7 @@
 .end method
 
 .method public static final whenStarted(Landroidx/lifecycle/Lifecycle;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$whenStarted"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -240,7 +240,7 @@
 .end method
 
 .method public static final whenStarted(Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$whenStarted"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -281,7 +281,7 @@
 .end method
 
 .method public static final whenStateAtLeast(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .param p0, "$this$whenStateAtLeast"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "minState"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;

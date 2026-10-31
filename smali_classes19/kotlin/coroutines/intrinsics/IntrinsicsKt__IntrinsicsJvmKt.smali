@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -63,7 +63,7 @@
 .end method
 
 .method private static final createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt(Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 5
     .param p0, "completion"    # Lkotlin/coroutines/Continuation;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -97,7 +97,7 @@
     .local v1, "context":Lkotlin/coroutines/CoroutineContext;
     sget-object v2, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_11
 
     .line 207
     new-instance v2, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineFromSuspendFunction$1;
@@ -106,10 +106,10 @@
 
     check-cast v2, Lkotlin/coroutines/Continuation;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 225
-    :cond_0
+    :cond_11
     new-instance v2, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineFromSuspendFunction$2;
 
     invoke-direct {v2, p0, v1, p1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineFromSuspendFunction$2;-><init>(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;)V
@@ -117,12 +117,12 @@
     check-cast v2, Lkotlin/coroutines/Continuation;
 
     .line 206
-    :goto_0
+    :goto_18
     return-object v2
 .end method
 
 .method public static final createCoroutineUnintercepted(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 6
     .param p0, "$this$createCoroutineUnintercepted"    # Lkotlin/jvm/functions/Function1;
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -161,7 +161,7 @@
     .local v0, "probeCompletion":Lkotlin/coroutines/Continuation;
     instance-of v1, p0, Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 128
     move-object v1, p0
@@ -172,10 +172,10 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_33
 
     .line 130
-    :cond_0
+    :cond_1a
     const/4 v1, 0x0
 
     .line 270
@@ -188,7 +188,7 @@
     .local v2, "context$iv":Lkotlin/coroutines/CoroutineContext;
     sget-object v3, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_2b
 
     .line 273
     new-instance v3, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$1;
@@ -197,10 +197,10 @@
 
     check-cast v3, Lkotlin/coroutines/Continuation;
 
-    goto :goto_0
+    goto :goto_32
 
     .line 274
-    :cond_1
+    :cond_2b
     new-instance v3, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$2;
 
     invoke-direct {v3, v0, v2, p0}, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$2;-><init>(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;)V
@@ -208,18 +208,18 @@
     check-cast v3, Lkotlin/coroutines/Continuation;
 
     .line 272
-    :goto_0
+    :goto_32
     move-object v1, v3
 
     .line 127
     .end local v1    # "$i$f$createCoroutineFromSuspendFunction":I
     .end local v2    # "context$iv":Lkotlin/coroutines/CoroutineContext;
-    :goto_1
+    :goto_33
     return-object v1
 .end method
 
 .method public static final createCoroutineUnintercepted(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .param p0, "$this$createCoroutineUnintercepted"    # Lkotlin/jvm/functions/Function2;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "completion"    # Lkotlin/coroutines/Continuation;
@@ -261,7 +261,7 @@
     .local v0, "probeCompletion":Lkotlin/coroutines/Continuation;
     instance-of v1, p0, Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 163
     move-object v1, p0
@@ -272,10 +272,10 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_33
 
     .line 165
-    :cond_0
+    :cond_1a
     const/4 v1, 0x0
 
     .line 275
@@ -288,7 +288,7 @@
     .local v2, "context$iv":Lkotlin/coroutines/CoroutineContext;
     sget-object v3, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_2b
 
     .line 278
     new-instance v3, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$3;
@@ -297,10 +297,10 @@
 
     check-cast v3, Lkotlin/coroutines/Continuation;
 
-    goto :goto_0
+    goto :goto_32
 
     .line 279
-    :cond_1
+    :cond_2b
     new-instance v3, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4;
 
     invoke-direct {v3, v0, v2, p0, p1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4;-><init>(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Ljava/lang/Object;)V
@@ -308,18 +308,18 @@
     check-cast v3, Lkotlin/coroutines/Continuation;
 
     .line 277
-    :goto_0
+    :goto_32
     move-object v1, v3
 
     .line 162
     .end local v1    # "$i$f$createCoroutineFromSuspendFunction":I
     .end local v2    # "context$iv":Lkotlin/coroutines/CoroutineContext;
-    :goto_1
+    :goto_33
     return-object v1
 .end method
 
 .method private static final createSimpleCoroutineForSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 3
     .param p0, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -342,7 +342,7 @@
     .local v0, "context":Lkotlin/coroutines/CoroutineContext;
     sget-object v1, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 258
     new-instance v1, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createSimpleCoroutineForSuspendFunction$1;
@@ -351,10 +351,10 @@
 
     check-cast v1, Lkotlin/coroutines/Continuation;
 
-    goto :goto_0
+    goto :goto_17
 
     .line 264
-    :cond_0
+    :cond_10
     new-instance v1, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createSimpleCoroutineForSuspendFunction$2;
 
     invoke-direct {v1, p0, v0}, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt$createSimpleCoroutineForSuspendFunction$2;-><init>(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;)V
@@ -362,12 +362,12 @@
     check-cast v1, Lkotlin/coroutines/Continuation;
 
     .line 257
-    :goto_0
+    :goto_17
     return-object v1
 .end method
 
 .method public static final intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 2
     .param p0, "$this$intercepted"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -388,35 +388,35 @@
     .line 182
     instance-of v0, p0, Lkotlin/coroutines/jvm/internal/ContinuationImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     move-object v0, p0
 
     check-cast v0, Lkotlin/coroutines/jvm/internal/ContinuationImpl;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_16
 
     invoke-virtual {v0}, Lkotlin/coroutines/jvm/internal/ContinuationImpl;->intercepted()Lkotlin/coroutines/Continuation;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_17
 
-    :cond_1
+    :cond_16
     move-object v0, p0
 
-    :cond_2
+    :cond_17
     return-object v0
 .end method
 
 .method private static final startCoroutineUninterceptedOrReturn(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$startCoroutineUninterceptedOrReturn"    # Lkotlin/jvm/functions/Function1;
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -447,16 +447,16 @@
     .line 34
     instance-of v0, p0, Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     invoke-static {p0, p1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->wrapWithContinuationImpl(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 35
-    :cond_0
+    :cond_13
     const/4 v0, 0x1
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
@@ -469,12 +469,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1e
     return-object v0
 .end method
 
 .method private static final startCoroutineUninterceptedOrReturn(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$startCoroutineUninterceptedOrReturn"    # Lkotlin/jvm/functions/Function2;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "completion"    # Lkotlin/coroutines/Continuation;
@@ -508,16 +508,16 @@
     .line 65
     instance-of v0, p0, Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     invoke-static {p0, p1, p2}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->wrapWithContinuationImpl(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 66
-    :cond_0
+    :cond_13
     const/4 v0, 0x2
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
@@ -530,12 +530,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1e
     return-object v0
 .end method
 
 .method private static final startCoroutineUninterceptedOrReturn(Lkotlin/jvm/functions/Function3;Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p0, "$this$startCoroutineUninterceptedOrReturn"    # Lkotlin/jvm/functions/Function3;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "param"    # Ljava/lang/Object;
@@ -572,16 +572,16 @@
     .line 85
     instance-of v0, p0, Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     invoke-static {p0, p1, p2, p3}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->wrapWithContinuationImpl(Lkotlin/jvm/functions/Function3;Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 86
-    :cond_0
+    :cond_13
     const/4 v0, 0x3
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
@@ -594,12 +594,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1e
     return-object v0
 .end method
 
 .method public static final wrapWithContinuationImpl(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$wrapWithContinuationImpl"    # Lkotlin/jvm/functions/Function1;
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -654,7 +654,7 @@
 .end method
 
 .method public static final wrapWithContinuationImpl(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$wrapWithContinuationImpl"    # Lkotlin/jvm/functions/Function2;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "completion"    # Lkotlin/coroutines/Continuation;
@@ -712,7 +712,7 @@
 .end method
 
 .method public static final wrapWithContinuationImpl(Lkotlin/jvm/functions/Function3;Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "$this$wrapWithContinuationImpl"    # Lkotlin/jvm/functions/Function3;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "param"    # Ljava/lang/Object;

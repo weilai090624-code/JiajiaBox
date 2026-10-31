@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     .local p0, "this":Lcom/google/common/graph/AbstractNetwork;, "Lcom/google/common/graph/AbstractNetwork<TN;TE;>;"
@@ -36,7 +36,7 @@
 .end method
 
 .method private connectedPredicate(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/base/Predicate;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TN;)",
@@ -57,7 +57,7 @@
 .end method
 
 .method private static edgeIncidentNodesMap(Lcom/google/common/graph/Network;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public adjacentEdges(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",
@@ -151,7 +151,7 @@
 .end method
 
 .method public asGraph()Lcom/google/common/graph/Graph;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -170,7 +170,7 @@
 .end method
 
 .method public degree(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)I"
@@ -184,7 +184,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 149
     invoke-virtual {p0, p1}, Lcom/google/common/graph/AbstractNetwork;->inEdges(Ljava/lang/Object;)Ljava/util/Set;
@@ -210,7 +210,7 @@
     return v0
 
     .line 151
-    :cond_0
+    :cond_1b
     invoke-virtual {p0, p1}, Lcom/google/common/graph/AbstractNetwork;->incidentEdges(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
@@ -235,7 +235,7 @@
 .end method
 
 .method public edgeConnectingOrNull(Lcom/google/common/graph/EndpointPair;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -269,7 +269,7 @@
 .end method
 
 .method public edgeConnectingOrNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TN;)TE;"
@@ -293,7 +293,7 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_2c
 
     .line 207
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -321,7 +321,7 @@
     throw v1
 
     .line 205
-    :pswitch_0
+    :pswitch_20
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -333,22 +333,22 @@
     return-object v1
 
     .line 203
-    :pswitch_1
+    :pswitch_29
     const/4 v1, 0x0
 
     return-object v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_29
+        :pswitch_20
     .end packed-switch
 .end method
 
 .method public edgesConnecting(Lcom/google/common/graph/EndpointPair;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -381,7 +381,7 @@
 .end method
 
 .method public edgesConnecting(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TN;)",
@@ -414,7 +414,7 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_0
+    if-gt v2, v3, :cond_1f
 
     .line 178
     invoke-direct {p0, p1, p2}, Lcom/google/common/graph/AbstractNetwork;->connectedPredicate(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/base/Predicate;
@@ -429,10 +429,10 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 179
-    :cond_0
+    :cond_1f
     invoke-direct {p0, p2, p1}, Lcom/google/common/graph/AbstractNetwork;->connectedPredicate(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/base/Predicate;
 
     move-result-object v2
@@ -446,12 +446,12 @@
     move-result-object v2
 
     .line 177
-    :goto_0
+    :goto_2b
     return-object v2
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -461,24 +461,24 @@
     .local p0, "this":Lcom/google/common/graph/AbstractNetwork;, "Lcom/google/common/graph/AbstractNetwork<TN;TE;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 250
     return v0
 
     .line 252
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/graph/Network;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 253
     return v2
 
     .line 255
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/common/graph/Network;
@@ -493,7 +493,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_34
 
     .line 258
     invoke-virtual {p0}, Lcom/google/common/graph/AbstractNetwork;->nodes()Ljava/util/Set;
@@ -508,7 +508,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_34
 
     .line 259
     invoke-static {p0}, Lcom/google/common/graph/AbstractNetwork;->edgeIncidentNodesMap(Lcom/google/common/graph/Network;)Ljava/util/Map;
@@ -523,20 +523,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_34
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_2
+    :cond_34
     const/4 v0, 0x0
 
     .line 257
-    :goto_0
+    :goto_35
     return v0
 .end method
 
 .method public hasEdgeConnecting(Lcom/google/common/graph/EndpointPair;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -555,7 +555,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 229
     const/4 v0, 0x0
@@ -563,7 +563,7 @@
     return v0
 
     .line 231
-    :cond_0
+    :cond_b
     invoke-virtual {p1}, Lcom/google/common/graph/EndpointPair;->nodeU()Ljava/lang/Object;
 
     move-result-object v0
@@ -580,7 +580,7 @@
 .end method
 
 .method public hasEdgeConnecting(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TN;)Z"
@@ -605,7 +605,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     invoke-virtual {p0, p1}, Lcom/google/common/graph/AbstractNetwork;->successors(Ljava/lang/Object;)Ljava/util/Set;
 
@@ -615,21 +615,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1d
     return v0
 .end method
 
 .method public final hashCode()I
-    .locals 1
+    .registers 2
 
     .line 264
     .local p0, "this":Lcom/google/common/graph/AbstractNetwork;, "Lcom/google/common/graph/AbstractNetwork<TN;TE;>;"
@@ -645,7 +645,7 @@
 .end method
 
 .method public inDegree(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)I"
@@ -659,7 +659,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-virtual {p0, p1}, Lcom/google/common/graph/AbstractNetwork;->inEdges(Ljava/lang/Object;)Ljava/util/Set;
 
@@ -669,19 +669,19 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_f
     invoke-virtual {p0, p1}, Lcom/google/common/graph/AbstractNetwork;->degree(Ljava/lang/Object;)I
 
     move-result v0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method protected final isOrderingCompatible(Lcom/google/common/graph/EndpointPair;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -697,31 +697,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/graph/AbstractNetwork;->isDirected()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public outDegree(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)I"
@@ -735,7 +735,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-virtual {p0, p1}, Lcom/google/common/graph/AbstractNetwork;->outEdges(Ljava/lang/Object;)Ljava/util/Set;
 
@@ -745,19 +745,19 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_f
     invoke-virtual {p0, p1}, Lcom/google/common/graph/AbstractNetwork;->degree(Ljava/lang/Object;)I
 
     move-result v0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public bridge synthetic predecessors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/google/common/graph/Network$-CC;->$default$predecessors(Lcom/google/common/graph/Network;Ljava/lang/Object;)Ljava/lang/Iterable;
 
@@ -767,7 +767,7 @@
 .end method
 
 .method public bridge synthetic successors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/google/common/graph/Network$-CC;->$default$successors(Lcom/google/common/graph/Network;Ljava/lang/Object;)Ljava/lang/Iterable;
 
@@ -777,7 +777,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 270
     .local p0, "this":Lcom/google/common/graph/AbstractNetwork;, "Lcom/google/common/graph/AbstractNetwork<TN;TE;>;"
@@ -899,7 +899,7 @@
 .end method
 
 .method protected final validateEndpoints(Lcom/google/common/graph/EndpointPair;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

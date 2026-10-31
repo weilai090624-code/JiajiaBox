@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(ZLkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 3
     .param p1, "$enabled"    # Z
     .param p2, "$onBackPressed"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public handleOnBackPressed()V
-    .locals 1
+    .registers 2
 
     .line 392
     iget-object v0, p0, Landroidx/activity/OnBackPressedDispatcherKt$addCallback$callback$1;->$onBackPressed:Lkotlin/jvm/functions/Function1;

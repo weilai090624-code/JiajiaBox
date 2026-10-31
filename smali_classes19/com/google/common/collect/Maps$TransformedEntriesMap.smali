@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Lcom/google/common/collect/Maps$EntryTransformer;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 2090
     .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesMap;, "Lcom/google/common/collect/Maps$TransformedEntriesMap<TK;TV1;TV2;>;"
@@ -105,7 +105,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -123,7 +123,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -161,7 +161,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -187,7 +187,7 @@
 
     .line 2070
     .local v0, "value":Ljava/lang/Object;, "TV1;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object v1, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->fromMap:Ljava/util/Map;
 
@@ -195,19 +195,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
     .line 2074
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2072
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     iget-object v1, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->transformer:Lcom/google/common/collect/Maps$EntryTransformer;
 
     invoke-static {v0}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
@@ -222,7 +222,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -243,7 +243,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -267,7 +267,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 2084
     iget-object v0, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->transformer:Lcom/google/common/collect/Maps$EntryTransformer;
@@ -286,19 +286,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 2085
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
     .line 2082
-    :goto_0
+    :goto_1a
     return-object v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 2056
     .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesMap;, "Lcom/google/common/collect/Maps$TransformedEntriesMap<TK;TV1;TV2;>;"
@@ -312,7 +312,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

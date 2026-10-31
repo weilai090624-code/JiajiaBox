@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/HashBiMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -63,7 +63,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 1047
     move-object v0, p1
@@ -94,7 +94,7 @@
     .local v4, "eIndex":I
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_26
 
     iget-object v5, p0, Lcom/google/common/collect/HashBiMap$InverseEntrySet;->biMap:Lcom/google/common/collect/HashBiMap;
 
@@ -106,11 +106,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_26
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_26
     return v1
 
     .line 1053
@@ -118,12 +118,12 @@
     .end local v2    # "v":Ljava/lang/Object;
     .end local v3    # "k":Ljava/lang/Object;
     .end local v4    # "eIndex":I
-    :cond_1
+    :cond_27
     return v1
 .end method
 
 .method bridge synthetic forEntry(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 1038
     .local p0, "this":Lcom/google/common/collect/HashBiMap$InverseEntrySet;, "Lcom/google/common/collect/HashBiMap$InverseEntrySet<TK;TV;>;"
@@ -135,7 +135,7 @@
 .end method
 
 .method forEntry(I)Ljava/util/Map$Entry;
-    .locals 2
+    .registers 4
     .param p1, "entry"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -157,7 +157,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -167,7 +167,7 @@
     .local p0, "this":Lcom/google/common/collect/HashBiMap$InverseEntrySet;, "Lcom/google/common/collect/HashBiMap$InverseEntrySet<TK;TV;>;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2f
 
     .line 1059
     move-object v0, p1
@@ -204,7 +204,7 @@
     .local v4, "eIndex":I
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_2f
 
     iget-object v5, p0, Lcom/google/common/collect/HashBiMap$InverseEntrySet;->biMap:Lcom/google/common/collect/HashBiMap;
 
@@ -216,7 +216,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2f
 
     .line 1065
     iget-object v5, p0, Lcom/google/common/collect/HashBiMap$InverseEntrySet;->biMap:Lcom/google/common/collect/HashBiMap;
@@ -234,7 +234,7 @@
     .end local v2    # "k":Ljava/lang/Object;
     .end local v3    # "vHash":I
     .end local v4    # "eIndex":I
-    :cond_0
+    :cond_2f
     const/4 v0, 0x0
 
     return v0

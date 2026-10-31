@@ -13,22 +13,22 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     .line 35
     const/4 v0, 0x3
 
     new-array v1, v0, [D
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_3e
 
     new-array v2, v0, [D
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_4e
 
     new-array v3, v0, [D
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_5e
 
     new-array v4, v0, [[D
 
@@ -49,15 +49,15 @@
     .line 42
     new-array v3, v0, [D
 
-    fill-array-data v3, :array_3
+    fill-array-data v3, :array_6e
 
     new-array v4, v0, [D
 
-    fill-array-data v4, :array_4
+    fill-array-data v4, :array_7e
 
     new-array v6, v0, [D
 
-    fill-array-data v6, :array_5
+    fill-array-data v6, :array_8e
 
     new-array v7, v0, [[D
 
@@ -72,55 +72,55 @@
     .line 55
     new-array v0, v0, [D
 
-    fill-array-data v0, :array_6
+    fill-array-data v0, :array_9e
 
     sput-object v0, Lcom/google/android/material/color/utilities/ColorUtils;->WHITE_POINT_D65:[D
 
     return-void
 
-    :array_0
+    :array_3e
     .array-data 8
         0x3fda63c2e8477c96L    # 0.41233895
         0x3fd6e341ae4b2c79L    # 0.35762064
         0x3fc71af7273e5d5eL    # 0.18051042
     .end array-data
 
-    :array_1
+    :array_4e
     .array-data 8
         0x3fcb367a0f9096bcL    # 0.2126
         0x3fe6e2eb1c432ca5L    # 0.7152
         0x3fb27bb2fec56d5dL    # 0.0722
     .end array-data
 
-    :array_2
+    :array_5e
     .array-data 8
         0x3f93c8fde0401c25L    # 0.01932141
         0x3fbe818525c434ceL    # 0.11916382
         0x3fee693974c0c730L    # 0.95034478
     .end array-data
 
-    :array_3
+    :array_6e
     .array-data 8
         0x4009ee5750da932bL    # 3.2413774792388685
         -0x400765b9220c7764L    # -1.5376652402851851
         -0x402012c8101da46cL    # -0.49885366846268053
     .end array-data
 
-    :array_4
+    :array_7e
     .array-data 8
         -0x4010fcc31912e57cL    # -0.9691452513005321
         0x3ffe03a05a04781dL    # 1.8758853451067872
         0x3fa5481eb1c0d367L    # 0.04156585616912061
     .end array-data
 
-    :array_5
+    :array_8e
     .array-data 8
         0x3fac7a58f1e3e6efL    # 0.05562093689691305
         -0x4035e4cb650c5ffeL    # -0.20395524564742123
         0x3ff0ea357b841dfcL    # 1.0571799111220335
     .end array-data
 
-    :array_6
+    :array_9e
     .array-data 8
         0x4057c3020c49ba5eL    # 95.047
         0x4059000000000000L    # 100.0
@@ -129,7 +129,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -138,7 +138,7 @@
 .end method
 
 .method public static alphaFromArgb(I)I
-    .locals 1
+    .registers 2
     .param p0, "argb"    # I
 
     .line 72
@@ -150,7 +150,7 @@
 .end method
 
 .method public static argbFromLab(DDD)I
-    .locals 25
+    .registers 31
     .param p0, "l"    # D
     .param p2, "a"    # D
     .param p4, "b"    # D
@@ -242,7 +242,7 @@
 .end method
 
 .method public static argbFromLinrgb([D)I
-    .locals 4
+    .registers 5
     .param p0, "linrgb"    # [D
 
     .line 64
@@ -284,7 +284,7 @@
 .end method
 
 .method public static argbFromLstar(D)I
-    .locals 4
+    .registers 6
     .param p0, "lstar"    # D
 
     .line 164
@@ -308,7 +308,7 @@
 .end method
 
 .method public static argbFromRgb(III)I
-    .locals 2
+    .registers 5
     .param p0, "red"    # I
     .param p1, "green"    # I
     .param p2, "blue"    # I
@@ -336,7 +336,7 @@
 .end method
 
 .method public static argbFromXyz(DDD)I
-    .locals 12
+    .registers 18
     .param p0, "x"    # D
     .param p2, "y"    # D
     .param p4, "z"    # D
@@ -450,7 +450,7 @@
 .end method
 
 .method public static blueFromArgb(I)I
-    .locals 1
+    .registers 2
     .param p0, "argb"    # I
 
     .line 87
@@ -460,7 +460,7 @@
 .end method
 
 .method public static delinearized(D)I
-    .locals 8
+    .registers 10
     .param p0, "rgbComponent"    # D
 
     .line 217
@@ -478,7 +478,7 @@
 
     cmpg-double v6, v0, v4
 
-    if-gtz v6, :cond_0
+    if-gtz v6, :cond_17
 
     .line 220
     const-wide v4, 0x4029d70a3d70a3d7L    # 12.92
@@ -487,12 +487,12 @@
 
     .end local v2    # "delinearized":D
     .local v4, "delinearized":D
-    goto :goto_0
+    goto :goto_2d
 
     .line 222
     .end local v4    # "delinearized":D
     .restart local v2    # "delinearized":D
-    :cond_0
+    :cond_17
     const-wide v4, 0x3fdaaaaaaaaaaaabL    # 0.4166666666666667
 
     invoke-static {v0, v1, v4, v5}, Ljava/lang/Math;->pow(DD)D
@@ -510,7 +510,7 @@
     .line 224
     .end local v2    # "delinearized":D
     .restart local v4    # "delinearized":D
-    :goto_0
+    :goto_2d
     const-wide v2, 0x406fe00000000000L    # 255.0
 
     mul-double v2, v2, v4
@@ -533,7 +533,7 @@
 .end method
 
 .method public static greenFromArgb(I)I
-    .locals 1
+    .registers 2
     .param p0, "argb"    # I
 
     .line 82
@@ -545,7 +545,7 @@
 .end method
 
 .method public static isOpaque(I)Z
-    .locals 2
+    .registers 3
     .param p0, "argb"    # I
 
     .line 92
@@ -555,21 +555,21 @@
 
     const/16 v1, 0xff
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method static labF(D)D
-    .locals 8
+    .registers 10
     .param p0, "t"    # D
 
     .line 237
@@ -583,7 +583,7 @@
     .local v2, "kappa":D
     cmpl-double v4, p0, v0
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_18
 
     .line 240
     const-wide v4, 0x3fd5555555555555L    # 0.3333333333333333
@@ -595,7 +595,7 @@
     return-wide v4
 
     .line 242
-    :cond_0
+    :cond_18
     mul-double v4, v2, p0
 
     const-wide/high16 v6, 0x4030000000000000L    # 16.0
@@ -610,7 +610,7 @@
 .end method
 
 .method public static labFromArgb(I)[D
-    .locals 37
+    .registers 38
     .param p0, "argb"    # I
 
     .line 137
@@ -808,7 +808,7 @@
 .end method
 
 .method static labInvf(D)D
-    .locals 10
+    .registers 12
     .param p0, "ft"    # D
 
     .line 247
@@ -828,13 +828,13 @@
     .local v4, "ft3":D
     cmpl-double v6, v4, v0
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_13
 
     .line 251
     return-wide v4
 
     .line 253
-    :cond_0
+    :cond_13
     const-wide/high16 v6, 0x405d000000000000L    # 116.0
 
     mul-double v6, v6, p0
@@ -849,7 +849,7 @@
 .end method
 
 .method public static linearized(I)D
-    .locals 8
+    .registers 9
     .param p0, "rgbComponent"    # I
 
     .line 202
@@ -867,7 +867,7 @@
 
     cmpg-double v6, v0, v2
 
-    if-gtz v6, :cond_0
+    if-gtz v6, :cond_1c
 
     .line 204
     const-wide v2, 0x4029d70a3d70a3d7L    # 12.92
@@ -879,7 +879,7 @@
     return-wide v2
 
     .line 206
-    :cond_0
+    :cond_1c
     const-wide v2, 0x3fac28f5c28f5c29L    # 0.055
 
     add-double/2addr v2, v0
@@ -900,7 +900,7 @@
 .end method
 
 .method public static lstarFromArgb(I)D
-    .locals 7
+    .registers 8
     .param p0, "argb"    # I
 
     .line 176
@@ -934,7 +934,7 @@
 .end method
 
 .method public static redFromArgb(I)I
-    .locals 1
+    .registers 2
     .param p0, "argb"    # I
 
     .line 77
@@ -946,7 +946,7 @@
 .end method
 
 .method public static whitePointD65()[D
-    .locals 1
+    .registers 1
 
     .line 233
     sget-object v0, Lcom/google/android/material/color/utilities/ColorUtils;->WHITE_POINT_D65:[D
@@ -955,7 +955,7 @@
 .end method
 
 .method public static xyzFromArgb(I)[D
-    .locals 8
+    .registers 9
     .param p0, "argb"    # I
 
     .line 109
@@ -1015,7 +1015,7 @@
 .end method
 
 .method public static yFromLstar(D)D
-    .locals 4
+    .registers 6
     .param p0, "lstar"    # D
 
     .line 192

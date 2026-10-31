@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/StandardTable$RowMap;)V
-    .locals 2
+    .registers 4
     .param p1, "this$1"    # Lcom/google/common/collect/StandardTable$RowMap;
 
     .line 823
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -62,7 +62,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 844
     move-object v0, p1
@@ -75,7 +75,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     .line 846
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -84,7 +84,7 @@
 
     instance-of v2, v2, Ljava/util/Map;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     iget-object v2, p0, Lcom/google/common/collect/StandardTable$RowMap$EntrySet;->this$1:Lcom/google/common/collect/StandardTable$RowMap;
 
@@ -101,27 +101,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_28
     nop
 
     .line 845
-    :goto_0
+    :goto_29
     return v1
 
     .line 849
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_1
+    :cond_2a
     return v1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -159,7 +159,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -171,7 +171,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 855
     move-object v0, p1
@@ -184,7 +184,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     .line 857
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -193,7 +193,7 @@
 
     instance-of v2, v2, Ljava/util/Map;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     iget-object v2, p0, Lcom/google/common/collect/StandardTable$RowMap$EntrySet;->this$1:Lcom/google/common/collect/StandardTable$RowMap;
 
@@ -210,27 +210,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_28
     nop
 
     .line 856
-    :goto_0
+    :goto_29
     return v1
 
     .line 860
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_1
+    :cond_2a
     return v1
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 838
     .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap.EntrySet;"

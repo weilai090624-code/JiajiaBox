@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/PreferenceRecyclerViewAccessibilityDelegate;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/preference/PreferenceRecyclerViewAccessibilityDelegate;
 
     .line 61
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 4
+    .registers 7
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -68,13 +68,13 @@
     .local v1, "adapter":Landroidx/recyclerview/widget/RecyclerView$Adapter;
     instance-of v2, v1, Landroidx/preference/PreferenceGroupAdapter;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1c
 
     .line 69
     return-void
 
     .line 72
-    :cond_0
+    :cond_1c
     move-object v2, v1
 
     check-cast v2, Landroidx/preference/PreferenceGroupAdapter;
@@ -87,13 +87,13 @@
 
     .line 74
     .local v3, "preference":Landroidx/preference/Preference;
-    if-nez v3, :cond_1
+    if-nez v3, :cond_26
 
     .line 75
     return-void
 
     .line 78
-    :cond_1
+    :cond_26
     invoke-virtual {v3, p2}, Landroidx/preference/Preference;->onInitializeAccessibilityNodeInfo(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
 
     .line 79
@@ -101,7 +101,7 @@
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
     .param p1, "host"    # Landroid/view/View;
     .param p2, "action"    # I
     .param p3, "args"    # Landroid/os/Bundle;

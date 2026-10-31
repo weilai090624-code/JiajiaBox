@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 34
     nop
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Lcom/google/zxing/client/result/ResultParser;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/GeoParsedResult;
-    .locals 19
+    .registers 21
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 39
@@ -69,13 +69,13 @@
 
     const/4 v3, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 42
     return-object v3
 
     .line 45
-    :cond_0
+    :cond_14
     const/4 v0, 0x4
 
     invoke-virtual {v2, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -86,7 +86,7 @@
     .local v12, "query":Ljava/lang/String;
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_1a
     invoke-virtual {v2, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v0
@@ -109,18 +109,18 @@
 
     cmpl-double v0, v4, v8
 
-    if-gtz v0, :cond_6
+    if-gtz v0, :cond_82
 
     const-wide v4, -0x3fa9800000000000L    # -90.0
 
     cmpg-double v0, v13, v4
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_39
 
-    goto :goto_2
+    goto :goto_82
 
     .line 55
-    :cond_1
+    :cond_39
     const/4 v0, 0x2
 
     invoke-virtual {v2, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -143,25 +143,25 @@
 
     cmpl-double v0, v4, v8
 
-    if-gtz v0, :cond_5
+    if-gtz v0, :cond_81
 
     const-wide v4, -0x3f99800000000000L    # -180.0
 
     cmpg-double v0, v15, v4
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_57
 
-    goto :goto_1
+    goto :goto_81
 
     .line 59
-    :cond_2
+    :cond_57
     const/4 v0, 0x3
 
     invoke-virtual {v2, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_63
 
     .line 60
     const-wide/16 v3, 0x0
@@ -169,11 +169,11 @@
     move-wide/from16 v17, v3
 
     .local v3, "altitude":D
-    goto :goto_0
+    goto :goto_75
 
     .line 62
     .end local v3    # "altitude":D
-    :cond_3
+    :cond_63
     invoke-virtual {v2, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v0
@@ -181,8 +181,8 @@
     invoke-static {v0}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
     move-result-wide v4
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6b
+    .catch Ljava/lang/NumberFormatException; {:try_start_1a .. :try_end_6b} :catch_83
 
     .line 63
     .local v6, "altitude":D
@@ -192,19 +192,19 @@
 
     cmpg-double v0, v4, v8
 
-    if-gez v0, :cond_4
+    if-gez v0, :cond_73
 
     .line 64
     return-object v3
 
     .line 69
-    :cond_4
+    :cond_73
     move-wide/from16 v17, v6
 
     .line 70
     .end local v6    # "altitude":D
     .local v17, "altitude":D
-    :goto_0
+    :goto_75
     new-instance v0, Lcom/google/zxing/client/result/GeoParsedResult;
 
     move-object v4, v0
@@ -223,19 +223,19 @@
 
     .line 57
     .end local v17    # "altitude":D
-    :cond_5
-    :goto_1
+    :cond_81
+    :goto_81
     return-object v3
 
     .line 53
     .end local v15    # "longitude":D
-    :cond_6
-    :goto_2
+    :cond_82
+    :goto_82
     return-object v3
 
     .line 67
     .end local v13    # "latitude":D
-    :catch_0
+    :catch_83
     move-exception v0
 
     .line 68
@@ -243,7 +243,7 @@
 .end method
 
 .method public bridge synthetic parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/ParsedResult;
-    .locals 0
+    .registers 2
 
     .line 32
     invoke-virtual {p0, p1}, Lcom/google/zxing/client/result/GeoResultParser;->parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/GeoParsedResult;

@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public static addDefaultSerializers(Lcom/esotericsoftware/kryo/Kryo;)V
-    .locals 1
+    .registers 2
     .param p0, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
 
     .line 37
@@ -34,7 +34,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 38
     invoke-static {p0}, Lcom/esotericsoftware/kryo/serializers/ImmutableCollectionsSerializers$JdkImmutableListSerializer;->addDefaultSerializers(Lcom/esotericsoftware/kryo/Kryo;)V
@@ -46,6 +46,6 @@
     invoke-static {p0}, Lcom/esotericsoftware/kryo/serializers/ImmutableCollectionsSerializers$JdkImmutableSetSerializer;->addDefaultSerializers(Lcom/esotericsoftware/kryo/Kryo;)V
 
     .line 42
-    :cond_0
+    :cond_11
     return-void
 .end method

@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 11
+    .registers 11
 
     .line 42
     new-instance v0, Lorg/ini4j/spi/AbstractBeanInvocationHandler$Prefix;
@@ -199,7 +199,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p3, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -227,7 +227,7 @@
 .end method
 
 .method public static parse(Ljava/lang/String;)Lorg/ini4j/spi/AbstractBeanInvocationHandler$Prefix;
-    .locals 6
+    .registers 7
     .param p0, "str"    # Ljava/lang/String;
 
     .line 61
@@ -246,8 +246,8 @@
     const/4 v3, 0x0
 
     .local v3, "i$":I
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_7
+    if-ge v3, v2, :cond_1a
 
     aget-object v4, v1, v3
 
@@ -261,32 +261,32 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_17
 
     .line 67
     move-object v0, v4
 
     .line 69
-    goto :goto_1
+    goto :goto_1a
 
     .line 63
     .end local v4    # "p":Lorg/ini4j/spi/AbstractBeanInvocationHandler$Prefix;
-    :cond_0
+    :cond_17
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 73
     .end local v1    # "arr$":[Lorg/ini4j/spi/AbstractBeanInvocationHandler$Prefix;
     .end local v2    # "len$":I
     .end local v3    # "i$":I
-    :cond_1
-    :goto_1
+    :cond_1a
+    :goto_1a
     return-object v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/ini4j/spi/AbstractBeanInvocationHandler$Prefix;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 40
@@ -302,7 +302,7 @@
 .end method
 
 .method public static values()[Lorg/ini4j/spi/AbstractBeanInvocationHandler$Prefix;
-    .locals 1
+    .registers 1
 
     .line 40
     sget-object v0, Lorg/ini4j/spi/AbstractBeanInvocationHandler$Prefix;->$VALUES:[Lorg/ini4j/spi/AbstractBeanInvocationHandler$Prefix;
@@ -319,7 +319,7 @@
 
 # virtual methods
 .method public getTail(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/lang/String;
 
     .line 78
@@ -337,7 +337,7 @@
 .end method
 
 .method public getValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 83
     iget-object v0, p0, Lorg/ini4j/spi/AbstractBeanInvocationHandler$Prefix;->_value:Ljava/lang/String;

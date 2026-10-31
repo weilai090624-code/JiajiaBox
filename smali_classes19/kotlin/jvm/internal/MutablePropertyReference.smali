@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Lkotlin/jvm/internal/PropertyReference;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "receiver"    # Ljava/lang/Object;
 
     .line 18
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 0
+    .registers 6
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "owner"    # Ljava/lang/Class;
     .param p3, "name"    # Ljava/lang/String;

@@ -70,7 +70,7 @@
 
 # direct methods
 .method constructor <init>([F)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # [F
 
     iput-object p1, p0, Lkotlin/collections/ArraysKt___ArraysJvmKt$asList$5;->$this_asList:[F
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public contains(F)Z
-    .locals 11
+    .registers 13
     .param p1, "element"    # F
 
     .line 199
@@ -101,8 +101,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_2
+    :goto_6
+    if-ge v4, v2, :cond_21
 
     aget v5, v0, v4
 
@@ -124,56 +124,56 @@
 
     const/4 v10, 0x1
 
-    if-ne v8, v9, :cond_0
+    if-ne v8, v9, :cond_19
 
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v6, 0x0
 
     .line 3106
     .end local v6    # "it":F
     .end local v7    # "$i$a$-any-ArraysKt___ArraysJvmKt$asList$5$contains$1":I
-    :goto_1
-    if-eqz v6, :cond_1
+    :goto_1a
+    if-eqz v6, :cond_1e
 
     const/4 v3, 0x1
 
-    goto :goto_2
+    goto :goto_22
 
     .end local v5    # "element$iv":F
-    :cond_1
+    :cond_1e
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 3107
-    :cond_2
+    :cond_21
     nop
 
     .line 199
     .end local v0    # "$this$any$iv":[F
     .end local v1    # "$i$f$any":I
-    :goto_2
+    :goto_22
     return v3
 .end method
 
 .method public final bridge contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 196
     instance-of v0, p1, Ljava/lang/Float;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Number;
@@ -190,7 +190,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Float;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 200
@@ -206,7 +206,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 196
@@ -218,7 +218,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 197
     iget-object v0, p0, Lkotlin/collections/ArraysKt___ArraysJvmKt$asList$5;->$this_asList:[F
@@ -229,7 +229,7 @@
 .end method
 
 .method public indexOf(F)I
-    .locals 8
+    .registers 10
     .param p1, "element"    # F
 
     .line 201
@@ -245,8 +245,8 @@
     .local v2, "index$iv":I
     array-length v3, v0
 
-    :goto_0
-    if-ge v2, v3, :cond_2
+    :goto_5
+    if-ge v2, v3, :cond_1d
 
     .line 3109
     aget v4, v0, v2
@@ -264,56 +264,56 @@
 
     move-result v7
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_16
 
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v6, 0x0
 
     .line 3109
     .end local v4    # "it":F
     .end local v5    # "$i$a$-indexOfFirst-ArraysKt___ArraysJvmKt$asList$5$indexOf$1":I
-    :goto_1
-    if-eqz v6, :cond_1
+    :goto_17
+    if-eqz v6, :cond_1a
 
     .line 3110
-    goto :goto_2
+    goto :goto_1e
 
     .line 3108
-    :cond_1
+    :cond_1a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 3113
     .end local v2    # "index$iv":I
-    :cond_2
+    :cond_1d
     const/4 v2, -0x1
 
     .line 201
     .end local v0    # "$this$indexOfFirst$iv":[F
     .end local v1    # "$i$f$indexOfFirst":I
-    :goto_2
+    :goto_1e
     return v2
 .end method
 
 .method public final bridge indexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 196
     instance-of v0, p1, Ljava/lang/Float;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Number;
@@ -330,28 +330,28 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 198
     iget-object v0, p0, Lkotlin/collections/ArraysKt___ArraysJvmKt$asList$5;->$this_asList:[F
 
     array-length v0, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public lastIndexOf(F)I
-    .locals 9
+    .registers 11
     .param p1, "element"    # F
 
     .line 202
@@ -368,9 +368,9 @@
 
     add-int/2addr v2, v3
 
-    if-ltz v2, :cond_3
+    if-ltz v2, :cond_20
 
-    :cond_0
+    :cond_8
     move v4, v2
 
     .local v4, "index$iv":I
@@ -392,56 +392,56 @@
 
     move-result v8
 
-    if-ne v7, v8, :cond_1
+    if-ne v7, v8, :cond_19
 
     const/4 v7, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v7, 0x0
 
     .line 3115
     .end local v5    # "it":F
     .end local v6    # "$i$a$-indexOfLast-ArraysKt___ArraysJvmKt$asList$5$lastIndexOf$1":I
-    :goto_0
-    if-eqz v7, :cond_2
+    :goto_1a
+    if-eqz v7, :cond_1e
 
     .line 3116
     move v3, v4
 
-    goto :goto_1
+    goto :goto_21
 
     .line 3114
-    :cond_2
-    if-gez v2, :cond_0
+    :cond_1e
+    if-gez v2, :cond_8
 
     .line 3119
     .end local v4    # "index$iv":I
-    :cond_3
+    :cond_20
     nop
 
     .line 202
     .end local v0    # "$this$indexOfLast$iv":[F
     .end local v1    # "$i$f$indexOfLast":I
-    :goto_1
+    :goto_21
     return v3
 .end method
 
 .method public final bridge lastIndexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 196
     instance-of v0, p1, Ljava/lang/Float;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Number;

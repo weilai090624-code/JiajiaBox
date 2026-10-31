@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/internal/ScrimInsetsFrameLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/internal/ScrimInsetsFrameLayout;
 
     .line 76
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 5
+    .registers 8
     .param p1, "v"    # Landroid/view/View;
     .param p2, "insets"    # Landroidx/core/view/WindowInsetsCompat;
 
@@ -46,7 +46,7 @@
 
     iget-object v0, v0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->insets:Landroid/graphics/Rect;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 81
     iget-object v0, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout$1;->this$0:Lcom/google/android/material/internal/ScrimInsetsFrameLayout;
@@ -58,7 +58,7 @@
     iput-object v1, v0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->insets:Landroid/graphics/Rect;
 
     .line 83
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout$1;->this$0:Lcom/google/android/material/internal/ScrimInsetsFrameLayout;
 
     iget-object v0, v0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->insets:Landroid/graphics/Rect;
@@ -98,26 +98,26 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3c
 
     iget-object v1, p0, Lcom/google/android/material/internal/ScrimInsetsFrameLayout$1;->this$0:Lcom/google/android/material/internal/ScrimInsetsFrameLayout;
 
     iget-object v1, v1, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->insetForeground:Landroid/graphics/drawable/Drawable;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3a
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_1
+    :cond_3a
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_3d
 
-    :cond_2
-    :goto_0
+    :cond_3c
+    :goto_3c
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_3d
     invoke-virtual {v0, v1}, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->setWillNotDraw(Z)V
 
     .line 90

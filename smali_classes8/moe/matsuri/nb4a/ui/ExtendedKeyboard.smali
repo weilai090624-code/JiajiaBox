@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -126,27 +126,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 29
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 31
     const/4 p2, 0x0
 
     .line 29
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     .line 32
     const/4 p3, 0x0
 
     .line 29
-    :cond_1
+    :cond_a
     invoke-direct {p0, p1, p2, p3}, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 33
@@ -156,7 +156,7 @@
 
 # virtual methods
 .method public final setKeyListener(Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$OnKeyListener;)V
-    .locals 1
+    .registers 3
     .param p1, "keyListener"    # Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$OnKeyListener;
 
     const-string v0, "keyListener"
@@ -173,7 +173,7 @@
     .line 39
     iget-object v0, p0, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard;->keyAdapter:Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     const-string v0, "keyAdapter"
 
@@ -181,7 +181,7 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_16
     check-cast v0, Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     invoke-virtual {p0, v0}, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
@@ -191,7 +191,7 @@
 .end method
 
 .method public final submitList(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "keys"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -209,7 +209,7 @@
     .line 43
     iget-object v0, p0, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard;->keyAdapter:Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const-string v0, "keyAdapter"
 
@@ -217,7 +217,7 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_f
     invoke-virtual {v0, p1}, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter;->submitList(Ljava/util/List;)V
 
     .line 44

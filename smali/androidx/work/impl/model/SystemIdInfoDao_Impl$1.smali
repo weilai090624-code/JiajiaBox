@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/SystemIdInfoDao_Impl;Landroidx/room/RoomDatabase;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/model/SystemIdInfoDao_Impl;
     .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public bind(Landroidx/sqlite/db/SupportSQLiteStatement;Landroidx/work/impl/model/SystemIdInfo;)V
-    .locals 3
+    .registers 6
     .param p1, "stmt"    # Landroidx/sqlite/db/SupportSQLiteStatement;
     .param p2, "value"    # Landroidx/work/impl/model/SystemIdInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -72,21 +72,21 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 40
     invoke-interface {p1, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_e
 
     .line 42
-    :cond_0
+    :cond_9
     iget-object v0, p2, Landroidx/work/impl/model/SystemIdInfo;->workSpecId:Ljava/lang/String;
 
     invoke-interface {p1, v1, v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 44
-    :goto_0
+    :goto_e
     invoke-virtual {p2}, Landroidx/work/impl/model/SystemIdInfo;->getGeneration()I
 
     move-result v0
@@ -111,7 +111,7 @@
 .end method
 
 .method public bridge synthetic bind(Landroidx/sqlite/db/SupportSQLiteStatement;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -132,7 +132,7 @@
 .end method
 
 .method public createQuery()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 34
     const-string v0, "INSERT OR REPLACE INTO `SystemIdInfo` (`work_spec_id`,`generation`,`system_id`) VALUES (?,?,?)"

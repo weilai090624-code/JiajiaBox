@@ -75,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/random/XorWowRandom$Companion;
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 7
+    .registers 10
     .param p1, "seed1"    # I
     .param p2, "seed2"    # I
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public constructor <init>(IIIIII)V
-    .locals 3
+    .registers 10
     .param p1, "x"    # I
     .param p2, "y"    # I
     .param p3, "z"    # I
@@ -171,25 +171,25 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_24
+    if-eqz v0, :cond_35
 
     .line 34
     nop
 
-    :goto_1
+    :goto_27
     const/16 v0, 0x40
 
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_33
 
     move v0, v1
 
@@ -205,17 +205,17 @@
     .end local v2    # "$i$a$-repeat-XorWowRandom$2":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_27
 
     .line 35
-    :cond_1
+    :cond_33
     nop
 
     .line 18
     return-void
 
     .line 61
-    :cond_2
+    :cond_35
     const/4 v0, 0x0
 
     .line 31
@@ -239,7 +239,7 @@
 
 # virtual methods
 .method public nextBits(I)I
-    .locals 1
+    .registers 3
     .param p1, "bitCount"    # I
 
     .line 54
@@ -255,7 +255,7 @@
 .end method
 
 .method public nextInt()I
-    .locals 4
+    .registers 5
 
     .line 40
     iget v0, p0, Lkotlin/random/XorWowRandom;->x:I

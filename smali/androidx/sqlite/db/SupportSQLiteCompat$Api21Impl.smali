@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/sqlite/db/SupportSQLiteCompat$Api21Impl;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 217
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method public static final getNoBackupFilesDir(Landroid/content/Context;)Ljava/io/File;
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation

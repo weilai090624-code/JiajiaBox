@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/FragmentTransitionSupport;Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/transition/FragmentTransitionSupport;
 
     .line 268
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onCancel()V
-    .locals 1
+    .registers 2
 
     .line 271
     iget-object v0, p0, Landroidx/transition/FragmentTransitionSupport$4;->val$realTransition:Landroidx/transition/Transition;

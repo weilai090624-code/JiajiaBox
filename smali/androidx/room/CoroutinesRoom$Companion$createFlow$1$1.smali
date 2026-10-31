@@ -94,7 +94,7 @@
 
 # direct methods
 .method constructor <init>(ZLandroidx/room/RoomDatabase;Lkotlinx/coroutines/flow/FlowCollector;[Ljava/lang/String;Ljava/util/concurrent/Callable;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -131,7 +131,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -170,7 +170,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -184,7 +184,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -213,7 +213,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 20
+    .registers 22
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -224,7 +224,7 @@
 
     iget v2, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_a2
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -234,7 +234,7 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_13
     move-object/from16 v0, p0
 
     .local v0, "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
@@ -243,11 +243,11 @@
     .local v2, "$result":Ljava/lang/Object;
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_9f
 
     .end local v0    # "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
     .end local v2    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1c
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p0
@@ -301,19 +301,19 @@
 
     check-cast v5, Landroidx/room/TransactionElement;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_50
 
     invoke-virtual {v5}, Landroidx/room/TransactionElement;->getTransactionDispatcher$room_ktx_release()Lkotlin/coroutines/ContinuationInterceptor;
 
     move-result-object v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_63
 
     .line 121
-    :cond_0
+    :cond_50
     iget-boolean v5, v2, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$inTransaction:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_5b
 
     iget-object v5, v2, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$db:Landroidx/room/RoomDatabase;
 
@@ -321,20 +321,20 @@
 
     move-result-object v5
 
-    goto :goto_0
+    goto :goto_61
 
-    :cond_1
+    :cond_5b
     iget-object v5, v2, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$db:Landroidx/room/RoomDatabase;
 
     invoke-static {v5}, Landroidx/room/CoroutinesRoomKt;->getQueryDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v5
 
-    :goto_0
+    :goto_61
     check-cast v5, Lkotlin/coroutines/ContinuationInterceptor;
 
     .line 120
-    :cond_2
+    :cond_63
     move-object/from16 v18, v5
 
     .line 122
@@ -413,13 +413,13 @@
     move-result-object v4
 
     .end local v19    # "resultChannel":Lkotlinx/coroutines/channels/Channel;
-    if-ne v4, v0, :cond_3
+    if-ne v4, v0, :cond_9d
 
     .line 111
     return-object v0
 
     .line 137
-    :cond_3
+    :cond_9d
     move-object v0, v2
 
     move-object v2, v3
@@ -428,14 +428,14 @@
     .end local v3    # "$result":Ljava/lang/Object;
     .restart local v0    # "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
     .local v2, "$result":Ljava/lang/Object;
-    :goto_1
+    :goto_9f
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v3
 
-    :pswitch_data_0
+    :pswitch_data_a2
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1c
+        :pswitch_13
     .end packed-switch
 .end method

@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/jvm/internal/ShortCompanionObject;
 
@@ -58,7 +58,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,13 +67,13 @@
 .end method
 
 .method public static synthetic getSIZE_BITS$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getSIZE_BYTES$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

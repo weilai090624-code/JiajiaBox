@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/AssetsActivity;)V
-    .locals 2
+    .registers 4
     .param p1, "$receiver"    # Lio/nekohasekai/sagernet/ui/AssetsActivity;
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity$onCreate$3;->this$0:Lio/nekohasekai/sagernet/ui/AssetsActivity;
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public getSwipeDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
-    .locals 2
+    .registers 5
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -95,14 +95,14 @@
     .local v0, "index":I
     const/4 v1, 0x2
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_13
 
     const/4 v1, 0x0
 
     return v1
 
     .line 69
-    :cond_0
+    :cond_13
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/ItemTouchHelper$SimpleCallback;->getSwipeDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
 
     move-result v1
@@ -111,7 +111,7 @@
 .end method
 
 .method public onMove(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
-    .locals 1
+    .registers 5
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p3, "target"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
@@ -135,7 +135,7 @@
 .end method
 
 .method public onSwiped(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 5
+    .registers 8
     .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "direction"    # I
 

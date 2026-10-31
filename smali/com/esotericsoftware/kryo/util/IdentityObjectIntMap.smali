@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;, "Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap<TK;>;"
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "initialCapacity"    # I
 
     .line 46
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(IF)V
-    .locals 0
+    .registers 3
     .param p1, "initialCapacity"    # I
     .param p2, "loadFactor"    # F
 
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public hashCode()I
-    .locals 8
+    .registers 9
 
     .line 76
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;, "Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap<TK;>;"
@@ -96,15 +96,15 @@
     array-length v4, v1
 
     .local v4, "n":I
-    :goto_0
-    if-ge v3, v4, :cond_1
+    :goto_8
+    if-ge v3, v4, :cond_19
 
     .line 80
     aget-object v5, v1, v3
 
     .line 81
     .local v5, "key":Ljava/lang/Object;, "TK;"
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_16
 
     invoke-static {v5}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
@@ -118,20 +118,20 @@
 
     .line 79
     .end local v5    # "key":Ljava/lang/Object;, "TK;"
-    :cond_0
+    :cond_16
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 83
     .end local v3    # "i":I
     .end local v4    # "n":I
-    :cond_1
+    :cond_19
     return v0
 .end method
 
 .method locateKey(Ljava/lang/Object;)I
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)I"
@@ -141,7 +141,7 @@
     .line 66
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;, "Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap<TK;>;"
     .local p1, "key":Ljava/lang/Object;, "TK;"
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1a
 
     .line 67
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;->keyTable:[Ljava/lang/Object;
@@ -154,12 +154,12 @@
 
     .line 69
     .local v1, "i":I
-    :goto_0
+    :goto_8
     aget-object v2, v0, v1
 
     .line 70
     .local v2, "other":Ljava/lang/Object;, "TK;"
-    if-nez v2, :cond_0
+    if-nez v2, :cond_10
 
     add-int/lit8 v3, v1, 0x1
 
@@ -168,26 +168,26 @@
     return v3
 
     .line 71
-    :cond_0
-    if-ne v2, p1, :cond_1
+    :cond_10
+    if-ne v2, p1, :cond_13
 
     return v1
 
     .line 68
     .end local v2    # "other":Ljava/lang/Object;, "TK;"
-    :cond_1
+    :cond_13
     add-int/lit8 v2, v1, 0x1
 
     iget v3, p0, Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;->mask:I
 
     and-int v1, v2, v3
 
-    goto :goto_0
+    goto :goto_8
 
     .line 66
     .end local v0    # "keyTable":[Ljava/lang/Object;, "[TK;"
     .end local v1    # "i":I
-    :cond_2
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "key cannot be null."
@@ -198,7 +198,7 @@
 .end method
 
 .method protected place(Ljava/lang/Object;)I
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)I"

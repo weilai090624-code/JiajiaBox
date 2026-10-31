@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lkotlinx/coroutines/channels/ProducerScope;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 11
+    .registers 21
 
     .line 0
     move-object v0, p0

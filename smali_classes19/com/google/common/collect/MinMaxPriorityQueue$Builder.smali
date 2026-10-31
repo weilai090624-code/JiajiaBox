@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Comparator;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,7 +82,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/Comparator;Lcom/google/common/collect/MinMaxPriorityQueue$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/util/Comparator;
     .param p2, "x1"    # Lcom/google/common/collect/MinMaxPriorityQueue$1;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/collect/MinMaxPriorityQueue$Builder;)Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/MinMaxPriorityQueue$Builder;
 
     .line 166
@@ -106,7 +106,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/common/collect/MinMaxPriorityQueue$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/MinMaxPriorityQueue$Builder;
 
     .line 166
@@ -116,7 +116,7 @@
 .end method
 
 .method private ordering()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>()",
@@ -139,7 +139,7 @@
 
 # virtual methods
 .method public create()Lcom/google/common/collect/MinMaxPriorityQueue;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>()",
@@ -162,7 +162,7 @@
 .end method
 
 .method public create(Ljava/lang/Iterable;)Lcom/google/common/collect/MinMaxPriorityQueue;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -197,12 +197,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_12
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -214,15 +214,15 @@
 
     .line 223
     .end local v2    # "element":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_12
 
     .line 224
-    :cond_0
+    :cond_20
     return-object v0
 .end method
 
 .method public expectedSize(I)Lcom/google/common/collect/MinMaxPriorityQueue$Builder;
-    .locals 1
+    .registers 3
     .param p1, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -234,16 +234,16 @@
 
     .line 187
     .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$Builder;, "Lcom/google/common/collect/MinMaxPriorityQueue$Builder<TB;>;"
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 188
@@ -254,7 +254,7 @@
 .end method
 
 .method public maximumSize(I)Lcom/google/common/collect/MinMaxPriorityQueue$Builder;
-    .locals 1
+    .registers 3
     .param p1, "maximumSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -266,16 +266,16 @@
 
     .line 200
     .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$Builder;, "Lcom/google/common/collect/MinMaxPriorityQueue$Builder<TB;>;"
-    if-lez p1, :cond_0
+    if-lez p1, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 201

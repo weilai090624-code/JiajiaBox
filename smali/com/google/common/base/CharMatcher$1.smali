@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/CharMatcher;Lcom/google/common/base/CharMatcher;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/base/CharMatcher;
     .param p2, "original"    # Lcom/google/common/base/CharMatcher;
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 435
     iget-object v0, p0, Lcom/google/common/base/CharMatcher$1;->val$description:Ljava/lang/String;

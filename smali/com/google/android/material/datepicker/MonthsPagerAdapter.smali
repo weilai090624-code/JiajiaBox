@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Lcom/google/android/material/datepicker/DateSelector;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/datepicker/DayViewDecorator;Lcom/google/android/material/datepicker/MaterialCalendar$OnDayClickListener;)V
-    .locals 6
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p3, "calendarConstraints"    # Lcom/google/android/material/datepicker/CalendarConstraints;
     .param p4, "dayViewDecorator"    # Lcom/google/android/material/datepicker/DayViewDecorator;
@@ -85,14 +85,14 @@
 
     move-result v3
 
-    if-gtz v3, :cond_2
+    if-gtz v3, :cond_48
 
     .line 60
     invoke-virtual {v2, v1}, Lcom/google/android/material/datepicker/Month;->compareTo(Lcom/google/android/material/datepicker/Month;)I
 
     move-result v3
 
-    if-gtz v3, :cond_1
+    if-gtz v3, :cond_40
 
     .line 64
     sget v3, Lcom/google/android/material/datepicker/MonthAdapter;->MAXIMUM_WEEKS:I
@@ -109,20 +109,20 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2e
 
     invoke-static {p1}, Lcom/google/android/material/datepicker/MaterialCalendar;->getDayHeight(Landroid/content/Context;)I
 
     move-result v4
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_0
+    :cond_2e
     const/4 v4, 0x0
 
     .line 68
     .local v4, "labelHeight":I
-    :goto_0
+    :goto_2f
     add-int v5, v3, v4
 
     iput v5, p0, Lcom/google/android/material/datepicker/MonthsPagerAdapter;->itemHeight:I
@@ -150,7 +150,7 @@
     .line 61
     .end local v3    # "daysHeight":I
     .end local v4    # "labelHeight":I
-    :cond_1
+    :cond_40
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string v4, "currentPage cannot be after lastPage"
@@ -160,7 +160,7 @@
     throw v3
 
     .line 58
-    :cond_2
+    :cond_48
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string v4, "firstPage cannot be after currentPage"
@@ -171,7 +171,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/datepicker/MonthsPagerAdapter;)Lcom/google/android/material/datepicker/MaterialCalendar$OnDayClickListener;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/datepicker/MonthsPagerAdapter;
 
     .line 39
@@ -183,7 +183,7 @@
 
 # virtual methods
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 142
     iget-object v0, p0, Lcom/google/android/material/datepicker/MonthsPagerAdapter;->calendarConstraints:Lcom/google/android/material/datepicker/CalendarConstraints;
@@ -196,7 +196,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 137
@@ -218,7 +218,7 @@
 .end method
 
 .method getPageMonth(I)Lcom/google/android/material/datepicker/Month;
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 152
@@ -236,7 +236,7 @@
 .end method
 
 .method getPageTitle(I)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 147
@@ -252,7 +252,7 @@
 .end method
 
 .method getPosition(Lcom/google/android/material/datepicker/Month;)I
-    .locals 1
+    .registers 3
     .param p1, "month"    # Lcom/google/android/material/datepicker/Month;
 
     .line 156
@@ -270,7 +270,7 @@
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
+    .registers 3
 
     .line 39
     check-cast p1, Lcom/google/android/material/datepicker/MonthsPagerAdapter$ViewHolder;
@@ -281,7 +281,7 @@
 .end method
 
 .method public onBindViewHolder(Lcom/google/android/material/datepicker/MonthsPagerAdapter$ViewHolder;I)V
-    .locals 6
+    .registers 9
     .param p1, "viewHolder"    # Lcom/google/android/material/datepicker/MonthsPagerAdapter$ViewHolder;
     .param p2, "position"    # I
 
@@ -323,7 +323,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3a
 
     invoke-virtual {v1}, Lcom/google/android/material/datepicker/MaterialCalendarGridView;->getAdapter()Lcom/google/android/material/datepicker/MonthAdapter;
 
@@ -335,7 +335,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3a
 
     .line 115
     invoke-virtual {v1}, Lcom/google/android/material/datepicker/MaterialCalendarGridView;->invalidate()V
@@ -347,10 +347,10 @@
 
     invoke-virtual {v2, v1}, Lcom/google/android/material/datepicker/MonthAdapter;->updateSelectedStates(Lcom/google/android/material/datepicker/MaterialCalendarGridView;)V
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 118
-    :cond_0
+    :cond_3a
     new-instance v2, Lcom/google/android/material/datepicker/MonthAdapter;
 
     iget-object v3, p0, Lcom/google/android/material/datepicker/MonthsPagerAdapter;->dateSelector:Lcom/google/android/material/datepicker/DateSelector;
@@ -372,7 +372,7 @@
 
     .line 124
     .end local v2    # "monthAdapter":Lcom/google/android/material/datepicker/MonthAdapter;
-    :goto_0
+    :goto_4d
     new-instance v2, Lcom/google/android/material/datepicker/MonthsPagerAdapter$1;
 
     invoke-direct {v2, p0, v1}, Lcom/google/android/material/datepicker/MonthsPagerAdapter$1;-><init>(Lcom/google/android/material/datepicker/MonthsPagerAdapter;Lcom/google/android/material/datepicker/MaterialCalendarGridView;)V
@@ -384,7 +384,7 @@
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 0
+    .registers 3
 
     .line 39
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/datepicker/MonthsPagerAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/google/android/material/datepicker/MonthsPagerAdapter$ViewHolder;
@@ -395,7 +395,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/google/android/material/datepicker/MonthsPagerAdapter$ViewHolder;
-    .locals 4
+    .registers 7
     .param p1, "viewGroup"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -432,7 +432,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2e
 
     .line 101
     new-instance v1, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;
@@ -455,7 +455,7 @@
     return-object v1
 
     .line 104
-    :cond_0
+    :cond_2e
     new-instance v1, Lcom/google/android/material/datepicker/MonthsPagerAdapter$ViewHolder;
 
     invoke-direct {v1, v0, v2}, Lcom/google/android/material/datepicker/MonthsPagerAdapter$ViewHolder;-><init>(Landroid/widget/LinearLayout;Z)V

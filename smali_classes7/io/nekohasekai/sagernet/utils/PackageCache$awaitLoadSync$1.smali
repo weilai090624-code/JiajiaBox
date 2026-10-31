@@ -79,7 +79,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,7 +123,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -166,7 +166,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -175,7 +175,7 @@
     .line 78
     iget v1, p0, Lio/nekohasekai/sagernet/utils/PackageCache$awaitLoadSync$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_4a
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -186,7 +186,7 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     const/4 v0, 0x0
 
     .local v0, "$i$f$withLock":I
@@ -200,13 +200,13 @@
     .local v2, "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_37
 
     .end local v0    # "$i$f$withLock":I
     .end local v1    # "owner$iv":Ljava/lang/Object;
     .end local v2    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1b
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 79
@@ -243,19 +243,19 @@
 
     move-result-object v4
 
-    if-ne v4, v0, :cond_0
+    if-ne v4, v0, :cond_36
 
     .line 78
     return-object v0
 
     .line 101
-    :cond_0
+    :cond_36
     move v0, v3
 
     .line 102
     .end local v3    # "$i$f$withLock":I
     .restart local v0    # "$i$f$withLock":I
-    :goto_0
+    :goto_37
     nop
 
     .line 103
@@ -266,10 +266,10 @@
     nop
 
     .end local v3    # "$i$a$-withLock$default-PackageCache$awaitLoadSync$1$1":I
-    :try_start_0
+    :try_start_3a
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3c
+    .catchall {:try_start_3a .. :try_end_3c} :catchall_44
 
     .line 103
     nop
@@ -292,7 +292,7 @@
     .restart local v0    # "$i$f$withLock":I
     .restart local v1    # "owner$iv":Ljava/lang/Object;
     .restart local v2    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
-    :catchall_0
+    :catchall_44
     move-exception v3
 
     invoke-interface {v2, v1}, Lkotlinx/coroutines/sync/Mutex;->unlock(Ljava/lang/Object;)V
@@ -301,9 +301,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_11
     .end packed-switch
 .end method

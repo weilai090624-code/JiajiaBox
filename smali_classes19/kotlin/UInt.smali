@@ -184,7 +184,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/UInt$Companion;
 
@@ -198,7 +198,7 @@
 .end method
 
 .method private synthetic constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "data"    # I
 
     .line 17
@@ -210,7 +210,7 @@
 .end method
 
 .method private static final and-WZ4Q5Ns(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -225,7 +225,7 @@
 .end method
 
 .method public static final synthetic box-impl(I)Lkotlin/UInt;
-    .locals 1
+    .registers 2
 
     new-instance v0, Lkotlin/UInt;
 
@@ -235,7 +235,7 @@
 .end method
 
 .method private static final compareTo-7apg3OU(IB)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # B
 
@@ -254,7 +254,7 @@
 .end method
 
 .method private static final compareTo-VKZWuLQ(IJ)I
-    .locals 4
+    .registers 7
     .param p0, "arg0"    # I
     .param p1, "other"    # J
 
@@ -277,7 +277,7 @@
 .end method
 
 .method private compareTo-WZ4Q5Ns(I)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # I
 
     invoke-virtual {p0}, Lkotlin/UInt;->unbox-impl()I
@@ -293,7 +293,7 @@
 .end method
 
 .method private static compareTo-WZ4Q5Ns(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -306,7 +306,7 @@
 .end method
 
 .method private static final compareTo-xj2QHRw(IS)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # S
 
@@ -327,13 +327,13 @@
 .end method
 
 .method public static constructor-impl(I)I
-    .locals 0
+    .registers 1
 
     return p0
 .end method
 
 .method private static final dec-pVg5ArA(I)I
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # I
 
     .line 235
@@ -347,7 +347,7 @@
 .end method
 
 .method private static final div-7apg3OU(IB)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # B
 
@@ -366,7 +366,7 @@
 .end method
 
 .method private static final div-VKZWuLQ(IJ)J
-    .locals 4
+    .registers 7
     .param p0, "arg0"    # I
     .param p1, "other"    # J
 
@@ -389,7 +389,7 @@
 .end method
 
 .method private static final div-WZ4Q5Ns(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -402,7 +402,7 @@
 .end method
 
 .method private static final div-xj2QHRw(IS)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # S
 
@@ -423,17 +423,17 @@
 .end method
 
 .method public static equals-impl(ILjava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     instance-of v0, p1, Lkotlin/UInt;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lkotlin/UInt;
@@ -442,34 +442,34 @@
 
     move-result v0
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_10
 
     return v1
 
-    :cond_1
+    :cond_10
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static final equals-impl0(II)Z
-    .locals 1
+    .registers 3
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method private static final floorDiv-7apg3OU(IB)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # B
 
@@ -488,7 +488,7 @@
 .end method
 
 .method private static final floorDiv-VKZWuLQ(IJ)J
-    .locals 4
+    .registers 7
     .param p0, "arg0"    # I
     .param p1, "other"    # J
 
@@ -511,7 +511,7 @@
 .end method
 
 .method private static final floorDiv-WZ4Q5Ns(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -524,7 +524,7 @@
 .end method
 
 .method private static final floorDiv-xj2QHRw(IS)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # S
 
@@ -545,19 +545,19 @@
 .end method
 
 .method public static synthetic getData$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static hashCode-impl(I)I
-    .locals 0
+    .registers 1
 
     return p0
 .end method
 
 .method private static final inc-pVg5ArA(I)I
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # I
 
     .line 227
@@ -571,7 +571,7 @@
 .end method
 
 .method private static final inv-pVg5ArA(I)I
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # I
 
     .line 280
@@ -585,7 +585,7 @@
 .end method
 
 .method private static final minus-7apg3OU(IB)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # B
 
@@ -606,7 +606,7 @@
 .end method
 
 .method private static final minus-VKZWuLQ(IJ)J
-    .locals 4
+    .registers 7
     .param p0, "arg0"    # I
     .param p1, "other"    # J
 
@@ -631,7 +631,7 @@
 .end method
 
 .method private static final minus-WZ4Q5Ns(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -646,7 +646,7 @@
 .end method
 
 .method private static final minus-xj2QHRw(IS)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # S
 
@@ -669,7 +669,7 @@
 .end method
 
 .method private static final mod-7apg3OU(IB)B
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # B
 
@@ -694,7 +694,7 @@
 .end method
 
 .method private static final mod-VKZWuLQ(IJ)J
-    .locals 4
+    .registers 7
     .param p0, "arg0"    # I
     .param p1, "other"    # J
 
@@ -717,7 +717,7 @@
 .end method
 
 .method private static final mod-WZ4Q5Ns(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -730,7 +730,7 @@
 .end method
 
 .method private static final mod-xj2QHRw(IS)S
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # S
 
@@ -757,7 +757,7 @@
 .end method
 
 .method private static final or-WZ4Q5Ns(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -772,7 +772,7 @@
 .end method
 
 .method private static final plus-7apg3OU(IB)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # B
 
@@ -793,7 +793,7 @@
 .end method
 
 .method private static final plus-VKZWuLQ(IJ)J
-    .locals 4
+    .registers 7
     .param p0, "arg0"    # I
     .param p1, "other"    # J
 
@@ -818,7 +818,7 @@
 .end method
 
 .method private static final plus-WZ4Q5Ns(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -833,7 +833,7 @@
 .end method
 
 .method private static final plus-xj2QHRw(IS)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # S
 
@@ -856,7 +856,7 @@
 .end method
 
 .method private static final rangeTo-WZ4Q5Ns(II)Lkotlin/ranges/UIntRange;
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -871,7 +871,7 @@
 .end method
 
 .method private static final rangeUntil-WZ4Q5Ns(II)Lkotlin/ranges/UIntRange;
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -884,7 +884,7 @@
 .end method
 
 .method private static final rem-7apg3OU(IB)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # B
 
@@ -903,7 +903,7 @@
 .end method
 
 .method private static final rem-VKZWuLQ(IJ)J
-    .locals 4
+    .registers 7
     .param p0, "arg0"    # I
     .param p1, "other"    # J
 
@@ -926,7 +926,7 @@
 .end method
 
 .method private static final rem-WZ4Q5Ns(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -939,7 +939,7 @@
 .end method
 
 .method private static final rem-xj2QHRw(IS)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # S
 
@@ -960,7 +960,7 @@
 .end method
 
 .method private static final shl-pVg5ArA(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "bitCount"    # I
 
@@ -975,7 +975,7 @@
 .end method
 
 .method private static final shr-pVg5ArA(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "bitCount"    # I
 
@@ -990,7 +990,7 @@
 .end method
 
 .method private static final times-7apg3OU(IB)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # B
 
@@ -1011,7 +1011,7 @@
 .end method
 
 .method private static final times-VKZWuLQ(IJ)J
-    .locals 4
+    .registers 7
     .param p0, "arg0"    # I
     .param p1, "other"    # J
 
@@ -1036,7 +1036,7 @@
 .end method
 
 .method private static final times-WZ4Q5Ns(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -1051,7 +1051,7 @@
 .end method
 
 .method private static final times-xj2QHRw(IS)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # S
 
@@ -1074,7 +1074,7 @@
 .end method
 
 .method private static final toByte-impl(I)B
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # I
 
     .line 292
@@ -1084,7 +1084,7 @@
 .end method
 
 .method private static final toDouble-impl(I)D
-    .locals 2
+    .registers 3
     .param p0, "arg0"    # I
 
     .line 374
@@ -1096,7 +1096,7 @@
 .end method
 
 .method private static final toFloat-impl(I)F
-    .locals 2
+    .registers 3
     .param p0, "arg0"    # I
 
     .line 367
@@ -1110,7 +1110,7 @@
 .end method
 
 .method private static final toInt-impl(I)I
-    .locals 0
+    .registers 1
     .param p0, "arg0"    # I
 
     .line 313
@@ -1118,7 +1118,7 @@
 .end method
 
 .method private static final toLong-impl(I)J
-    .locals 4
+    .registers 5
     .param p0, "arg0"    # I
 
     .line 323
@@ -1132,7 +1132,7 @@
 .end method
 
 .method private static final toShort-impl(I)S
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # I
 
     .line 303
@@ -1142,7 +1142,7 @@
 .end method
 
 .method public static toString-impl(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "arg0"    # I
 
     .line 376
@@ -1160,7 +1160,7 @@
 .end method
 
 .method private static final toUByte-w2LRezQ(I)B
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # I
 
     .line 334
@@ -1174,7 +1174,7 @@
 .end method
 
 .method private static final toUInt-pVg5ArA(I)I
-    .locals 0
+    .registers 1
     .param p0, "arg0"    # I
 
     .line 347
@@ -1182,7 +1182,7 @@
 .end method
 
 .method private static final toULong-s-VKNKU(I)J
-    .locals 4
+    .registers 5
     .param p0, "arg0"    # I
 
     .line 357
@@ -1200,7 +1200,7 @@
 .end method
 
 .method private static final toUShort-Mh2AYeg(I)S
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # I
 
     .line 344
@@ -1214,7 +1214,7 @@
 .end method
 
 .method private static final xor-WZ4Q5Ns(II)I
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # I
     .param p1, "other"    # I
 
@@ -1231,7 +1231,7 @@
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 14
@@ -1255,7 +1255,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     iget v0, p0, Lkotlin/UInt;->data:I
 
@@ -1267,7 +1267,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lkotlin/UInt;->data:I
 
@@ -1279,7 +1279,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 376
     iget v0, p0, Lkotlin/UInt;->data:I
@@ -1292,7 +1292,7 @@
 .end method
 
 .method public final synthetic unbox-impl()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lkotlin/UInt;->data:I
 

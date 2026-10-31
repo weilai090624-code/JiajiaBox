@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 117
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/FutureChain;, "Landroidx/camera/core/impl/utils/futures/FutureChain<TV;>;"
@@ -63,7 +63,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -100,7 +100,7 @@
 .end method
 
 .method public static from(Lcom/google/common/util/concurrent/ListenableFuture;)Landroidx/camera/core/impl/utils/futures/FutureChain;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -126,29 +126,29 @@
     .local p0, "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
     instance-of v0, p0, Landroidx/camera/core/impl/utils/futures/FutureChain;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 63
     move-object v0, p0
 
     check-cast v0, Landroidx/camera/core/impl/utils/futures/FutureChain;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_8
     new-instance v0, Landroidx/camera/core/impl/utils/futures/FutureChain;
 
     invoke-direct {v0, p0}, Landroidx/camera/core/impl/utils/futures/FutureChain;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
 
     .line 62
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 
 # virtual methods
 .method public final addCallback(Landroidx/camera/core/impl/utils/futures/FutureCallback;Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 3
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -181,7 +181,7 @@
 .end method
 
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p1, "listener"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -206,7 +206,7 @@
 .end method
 
 .method public cancel(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "mayInterruptIfRunning"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -229,7 +229,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -255,7 +255,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -297,7 +297,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 143
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/FutureChain;, "Landroidx/camera/core/impl/utils/futures/FutureChain<TV;>;"
@@ -311,7 +311,7 @@
 .end method
 
 .method public isDone()Z
-    .locals 1
+    .registers 2
 
     .line 148
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/FutureChain;, "Landroidx/camera/core/impl/utils/futures/FutureChain<TV;>;"
@@ -325,7 +325,7 @@
 .end method
 
 .method set(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -346,7 +346,7 @@
     .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/FutureChain;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 167
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/FutureChain;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -358,14 +358,14 @@
     return v0
 
     .line 170
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method setException(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "throwable"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -380,7 +380,7 @@
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/FutureChain;, "Landroidx/camera/core/impl/utils/futures/FutureChain<TV;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/FutureChain;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 175
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/FutureChain;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -392,14 +392,14 @@
     return v0
 
     .line 178
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public final transform(Landroidx/arch/core/util/Function;Ljava/util/concurrent/Executor;)Landroidx/camera/core/impl/utils/futures/FutureChain;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -439,7 +439,7 @@
 .end method
 
 .method public final transformAsync(Landroidx/camera/core/impl/utils/futures/AsyncFunction;Ljava/util/concurrent/Executor;)Landroidx/camera/core/impl/utils/futures/FutureChain;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

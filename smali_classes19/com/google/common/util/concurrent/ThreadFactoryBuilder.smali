@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Ljava/lang/String;
     .param p1, "x1"    # [Ljava/lang/Object;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method private static doBuild(Lcom/google/common/util/concurrent/ThreadFactoryBuilder;)Ljava/util/concurrent/ThreadFactory;
-    .locals 12
+    .registers 13
     .param p0, "builder"    # Lcom/google/common/util/concurrent/ThreadFactoryBuilder;
 
     .line 154
@@ -99,29 +99,29 @@
     .local v10, "uncaughtExceptionHandler":Ljava/lang/Thread$UncaughtExceptionHandler;
     iget-object v0, p0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder;->backingThreadFactory:Ljava/util/concurrent/ThreadFactory;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 160
     iget-object v0, p0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder;->backingThreadFactory:Ljava/util/concurrent/ThreadFactory;
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_15
 
     .line 161
-    :cond_0
+    :cond_10
     invoke-static {}, Ljava/util/concurrent/Executors;->defaultThreadFactory()Ljava/util/concurrent/ThreadFactory;
 
     move-result-object v0
 
     move-object v1, v0
 
-    :goto_0
+    :goto_15
     nop
 
     .line 162
     .local v1, "backingThreadFactory":Ljava/util/concurrent/ThreadFactory;
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_20
 
     new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
 
@@ -129,12 +129,12 @@
 
     invoke-direct {v0, v2, v3}, Ljava/util/concurrent/atomic/AtomicLong;-><init>(J)V
 
-    goto :goto_1
+    goto :goto_21
 
-    :cond_1
+    :cond_20
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_21
     move-object v3, v0
 
     .line 163
@@ -157,7 +157,7 @@
 .end method
 
 .method private static varargs format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "format"    # Ljava/lang/String;
     .param p1, "args"    # [Ljava/lang/Object;
 
@@ -174,7 +174,7 @@
 
 # virtual methods
 .method public build()Ljava/util/concurrent/ThreadFactory;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
     .end annotation
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public setDaemon(Z)Lcom/google/common/util/concurrent/ThreadFactoryBuilder;
-    .locals 1
+    .registers 3
     .param p1, "daemon"    # Z
 
     .line 85
@@ -202,7 +202,7 @@
 .end method
 
 .method public setNameFormat(Ljava/lang/String;)Lcom/google/common/util/concurrent/ThreadFactoryBuilder;
-    .locals 3
+    .registers 5
     .param p1, "nameFormat"    # Ljava/lang/String;
 
     .line 73
@@ -231,7 +231,7 @@
 .end method
 
 .method public setPriority(I)Lcom/google/common/util/concurrent/ThreadFactoryBuilder;
-    .locals 4
+    .registers 6
     .param p1, "priority"    # I
 
     .line 98
@@ -239,16 +239,16 @@
 
     const/4 v1, 0x1
 
-    if-lt p1, v1, :cond_0
+    if-lt p1, v1, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_7
     const-string v3, "Thread priority (%s) must be >= %s"
 
     invoke-static {v2, v3, p1, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;II)V
@@ -256,11 +256,11 @@
     .line 103
     const/16 v2, 0xa
 
-    if-gt p1, v2, :cond_1
+    if-gt p1, v2, :cond_11
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_11
     const-string v1, "Thread priority (%s) must be <= %s"
 
     invoke-static {v0, v1, p1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;II)V
@@ -277,7 +277,7 @@
 .end method
 
 .method public setThreadFactory(Ljava/util/concurrent/ThreadFactory;)Lcom/google/common/util/concurrent/ThreadFactoryBuilder;
-    .locals 1
+    .registers 3
     .param p1, "backingThreadFactory"    # Ljava/util/concurrent/ThreadFactory;
 
     .line 135
@@ -294,7 +294,7 @@
 .end method
 
 .method public setUncaughtExceptionHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)Lcom/google/common/util/concurrent/ThreadFactoryBuilder;
-    .locals 1
+    .registers 3
     .param p1, "uncaughtExceptionHandler"    # Ljava/lang/Thread$UncaughtExceptionHandler;
 
     .line 121

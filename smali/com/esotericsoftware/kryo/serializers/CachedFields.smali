@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 74
     const/4 v0, 0x0
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Lcom/esotericsoftware/kryo/serializers/FieldSerializer;)V
-    .locals 2
+    .registers 4
     .param p1, "serializer"    # Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
     .line 82
@@ -89,7 +89,7 @@
 .end method
 
 .method private addField(Ljava/lang/reflect/Field;ZLjava/util/ArrayList;Ljava/util/ArrayList;)V
-    .locals 20
+    .registers 25
     .param p1, "field"    # Ljava/lang/reflect/Field;
     .param p2, "asm"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -127,12 +127,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     return-void
 
     .line 117
-    :cond_0
+    :cond_13
     iget-object v0, v1, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
     iget-object v6, v0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer;->config:Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;
@@ -143,16 +143,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     iget-boolean v0, v6, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->ignoreSyntheticFields:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     return-void
 
     .line 120
-    :cond_1
+    :cond_22
     invoke-virtual/range {p1 .. p1}, Ljava/lang/reflect/Field;->isAccessible()Z
 
     move-result v0
@@ -161,27 +161,27 @@
 
     const-string v8, "kryo"
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_52
 
     .line 121
     iget-boolean v0, v6, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->setFieldsAsAccessible:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_30
 
     return-void
 
     .line 123
-    :cond_2
-    :try_start_0
+    :cond_30
+    :try_start_30
     invoke-virtual {v2, v7}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/security/AccessControlException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_33
+    .catch Ljava/security/AccessControlException; {:try_start_30 .. :try_end_33} :catch_34
 
     .line 127
-    goto :goto_0
+    goto :goto_52
 
     .line 124
-    :catch_0
+    :catch_34
     move-exception v0
 
     move-object v7, v0
@@ -192,7 +192,7 @@
     .local v0, "ex":Ljava/security/AccessControlException;
     sget-boolean v7, Lcom/esotericsoftware/minlog/Log;->DEBUG:Z
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_51
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -215,13 +215,13 @@
     invoke-static {v8, v7}, Lcom/esotericsoftware/minlog/Log;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 126
-    :cond_3
+    :cond_51
     return-void
 
     .line 130
     .end local v0    # "ex":Ljava/security/AccessControlException;
-    :cond_4
-    :goto_0
+    :cond_52
+    :goto_52
     const-class v0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$Optional;
 
     invoke-virtual {v2, v0}, Ljava/lang/reflect/Field;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
@@ -234,7 +234,7 @@
 
     .line 131
     .local v9, "optional":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$Optional;
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_70
 
     iget-object v0, v1, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
@@ -252,44 +252,44 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_70
 
     return-void
 
     .line 133
-    :cond_5
+    :cond_70
     iget-object v0, v1, Lcom/esotericsoftware/kryo/serializers/CachedFields;->removedFields:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_79
 
     return-void
 
     .line 135
-    :cond_6
+    :cond_79
     invoke-static {v5}, Ljava/lang/reflect/Modifier;->isTransient(I)Z
 
     move-result v10
 
     .line 136
     .local v10, "isTransient":Z
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_88
 
     iget-boolean v0, v6, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->serializeTransient:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_88
 
     iget-boolean v0, v6, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->copyTransient:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_88
 
     return-void
 
     .line 138
-    :cond_7
+    :cond_88
     invoke-virtual/range {p1 .. p1}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
 
     move-result-object v11
@@ -318,7 +318,7 @@
 
     instance-of v0, v0, Ljava/lang/Class;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_a9
 
     invoke-virtual {v12}, Lcom/esotericsoftware/kryo/util/Generics$GenericType;->getType()Ljava/lang/reflect/Type;
 
@@ -326,14 +326,14 @@
 
     check-cast v0, Ljava/lang/Class;
 
-    goto :goto_1
+    goto :goto_ad
 
-    :cond_8
+    :cond_a9
     invoke-virtual/range {p1 .. p1}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
     move-result-object v0
 
-    :goto_1
+    :goto_ad
     move-object v13, v0
 
     .line 141
@@ -342,21 +342,21 @@
 
     .line 142
     .local v14, "accessIndex":I
-    if-eqz p2, :cond_a
+    if-eqz p2, :cond_e9
 
     .line 143
     invoke-static {v5}, Ljava/lang/reflect/Modifier;->isFinal(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_e9
 
     .line 144
     invoke-static {v5}, Ljava/lang/reflect/Modifier;->isPublic(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_e9
 
     .line 145
     invoke-virtual {v13}, Ljava/lang/Class;->getModifiers()I
@@ -367,13 +367,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_e9
 
     .line 147
-    :try_start_1
+    :try_start_c7
     iget-object v0, v1, Lcom/esotericsoftware/kryo/serializers/CachedFields;->access:Ljava/lang/Object;
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_d5
 
     iget-object v0, v1, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
@@ -386,7 +386,7 @@
     iput-object v0, v1, Lcom/esotericsoftware/kryo/serializers/CachedFields;->access:Ljava/lang/Object;
 
     .line 148
-    :cond_9
+    :cond_d5
     iget-object v0, v1, Lcom/esotericsoftware/kryo/serializers/CachedFields;->access:Ljava/lang/Object;
 
     check-cast v0, Lcom/esotericsoftware/reflectasm/FieldAccess;
@@ -394,23 +394,23 @@
     invoke-virtual {v0, v2}, Lcom/esotericsoftware/reflectasm/FieldAccess;->getIndex(Ljava/lang/reflect/Field;)I
 
     move-result v0
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_dd
+    .catch Ljava/lang/RuntimeException; {:try_start_c7 .. :try_end_dd} :catch_df
 
     move v14, v0
 
     .line 151
-    goto :goto_2
+    goto :goto_e9
 
     .line 149
-    :catch_1
+    :catch_df
     move-exception v0
 
     .line 150
     .local v0, "ex":Ljava/lang/RuntimeException;
     sget-boolean v15, Lcom/esotericsoftware/minlog/Log;->DEBUG:Z
 
-    if-eqz v15, :cond_a
+    if-eqz v15, :cond_e9
 
     const-string v15, "Unable to use ReflectASM."
 
@@ -418,11 +418,11 @@
 
     .line 155
     .end local v0    # "ex":Ljava/lang/RuntimeException;
-    :cond_a
-    :goto_2
+    :cond_e9
+    :goto_e9
     sget-boolean v0, Lcom/esotericsoftware/kryo/util/Util;->unsafe:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_f2
 
     .line 156
     invoke-direct {v1, v2, v13, v12}, Lcom/esotericsoftware/kryo/serializers/CachedFields;->newUnsafeField(Ljava/lang/reflect/Field;Ljava/lang/Class;Lcom/esotericsoftware/kryo/util/Generics$GenericType;)Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -430,14 +430,14 @@
     move-result-object v0
 
     .local v0, "cachedField":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    goto :goto_3
+    goto :goto_106
 
     .line 157
     .end local v0    # "cachedField":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    :cond_b
+    :cond_f2
     const/4 v0, -0x1
 
-    if-eq v14, v0, :cond_c
+    if-eq v14, v0, :cond_102
 
     .line 158
     invoke-direct {v1, v2, v13, v12}, Lcom/esotericsoftware/kryo/serializers/CachedFields;->newAsmField(Ljava/lang/reflect/Field;Ljava/lang/Class;Lcom/esotericsoftware/kryo/util/Generics$GenericType;)Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -455,18 +455,18 @@
     .line 160
     iput v14, v0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->accessIndex:I
 
-    goto :goto_3
+    goto :goto_106
 
     .line 162
     .end local v0    # "cachedField":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    :cond_c
+    :cond_102
     invoke-direct {v1, v2, v13, v12}, Lcom/esotericsoftware/kryo/serializers/CachedFields;->newReflectField(Ljava/lang/reflect/Field;Ljava/lang/Class;Lcom/esotericsoftware/kryo/util/Generics$GenericType;)Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     move-result-object v0
 
     .line 164
     .restart local v0    # "cachedField":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    :goto_3
+    :goto_106
     iget-boolean v15, v6, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->varEncoding:Z
 
     iput-boolean v15, v0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->varEncoding:Z
@@ -474,7 +474,7 @@
     .line 165
     iget-boolean v15, v6, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->extendedFieldNames:Z
 
-    if-eqz v15, :cond_d
+    if-eqz v15, :cond_130
 
     .line 166
     new-instance v15, Ljava/lang/StringBuilder;
@@ -509,10 +509,10 @@
 
     iput-object v7, v0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->name:Ljava/lang/String;
 
-    goto :goto_4
+    goto :goto_136
 
     .line 168
-    :cond_d
+    :cond_130
     invoke-virtual/range {p1 .. p1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
     move-result-object v7
@@ -520,7 +520,7 @@
     iput-object v7, v0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->name:Ljava/lang/String;
 
     .line 170
-    :goto_4
+    :goto_136
     instance-of v7, v0, Lcom/esotericsoftware/kryo/serializers/ReflectField;
 
     const-string v15, ")"
@@ -545,12 +545,12 @@
 
     const/16 v19, 0x0
 
-    if-eqz v7, :cond_11
+    if-eqz v7, :cond_1a4
 
     .line 171
     iget-boolean v7, v6, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->fieldsCanBeNull:Z
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_158
 
     const-class v7, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$NotNull;
 
@@ -558,16 +558,16 @@
 
     move-result v7
 
-    if-nez v7, :cond_e
+    if-nez v7, :cond_158
 
     const/4 v7, 0x1
 
-    goto :goto_5
+    goto :goto_159
 
-    :cond_e
+    :cond_158
     const/4 v7, 0x0
 
-    :goto_5
+    :goto_159
     iput-boolean v7, v0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->canBeNull:Z
 
     .line 172
@@ -579,20 +579,20 @@
 
     move-result v7
 
-    if-nez v7, :cond_f
+    if-nez v7, :cond_169
 
     iget-boolean v7, v6, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->fixedFieldTypes:Z
 
-    if-eqz v7, :cond_10
+    if-eqz v7, :cond_16b
 
-    :cond_f
+    :cond_169
     iput-object v13, v0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->valueClass:Ljava/lang/Class;
 
     .line 174
-    :cond_10
+    :cond_16b
     sget-boolean v7, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v7, :cond_13
+    if-eqz v7, :cond_1eb
 
     .line 175
     new-instance v7, Ljava/lang/StringBuilder;
@@ -647,26 +647,26 @@
     .line 175
     invoke-static {v8, v5}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_7
+    goto :goto_1eb
 
     .line 179
-    :cond_11
+    :cond_1a4
     const-class v7, Ljava/lang/String;
 
-    if-ne v13, v7, :cond_12
+    if-ne v13, v7, :cond_1ae
 
     iget-boolean v7, v6, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->fieldsCanBeNull:Z
 
-    if-eqz v7, :cond_12
+    if-eqz v7, :cond_1ae
 
     const/4 v7, 0x1
 
-    goto :goto_6
+    goto :goto_1af
 
-    :cond_12
+    :cond_1ae
     const/4 v7, 0x0
 
-    :goto_6
+    :goto_1af
     iput-boolean v7, v0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->canBeNull:Z
 
     .line 180
@@ -675,7 +675,7 @@
     .line 182
     sget-boolean v7, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v7, :cond_13
+    if-eqz v7, :cond_1eb
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -730,45 +730,45 @@
     invoke-static {v8, v5}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 186
-    :cond_13
-    :goto_7
+    :cond_1eb
+    :goto_1eb
     invoke-direct {v1, v0}, Lcom/esotericsoftware/kryo/serializers/CachedFields;->applyAnnotations(Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;)V
 
     .line 188
-    if-eqz v10, :cond_15
+    if-eqz v10, :cond_1ff
 
     .line 189
     iget-boolean v5, v6, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->serializeTransient:Z
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_1f7
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 190
-    :cond_14
+    :cond_1f7
     iget-boolean v5, v6, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->copyTransient:Z
 
-    if-eqz v5, :cond_16
+    if-eqz v5, :cond_205
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_8
+    goto :goto_205
 
     .line 192
-    :cond_15
+    :cond_1ff
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 193
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 195
-    :cond_16
-    :goto_8
+    :cond_205
+    :goto_205
     return-void
 .end method
 
 .method private applyAnnotations(Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;)V
-    .locals 8
+    .registers 10
     .param p1, "cachedField"    # Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     .line 317
@@ -784,12 +784,12 @@
 
     const-string v2, "."
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_7e
 
     .line 321
     iget-object v1, p1, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->serializer:Lcom/esotericsoftware/kryo/Serializer;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4d
 
     .line 325
     const-class v1, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$Bind;
@@ -810,18 +810,18 @@
     .local v3, "valueClass":Ljava/lang/Class;
     const-class v4, Ljava/lang/Object;
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_21
 
     const/4 v3, 0x0
 
     .line 329
-    :cond_0
-    if-eqz v3, :cond_1
+    :cond_21
+    if-eqz v3, :cond_26
 
     invoke-virtual {p1, v3}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->setValueClass(Ljava/lang/Class;)V
 
     .line 331
-    :cond_1
+    :cond_26
     invoke-interface {v1}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$Bind;->serializer()Ljava/lang/Class;
 
     move-result-object v4
@@ -836,12 +836,12 @@
 
     .line 332
     .local v4, "serializer":Lcom/esotericsoftware/kryo/Serializer;
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_37
 
     invoke-virtual {p1, v4}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->setSerializer(Lcom/esotericsoftware/kryo/Serializer;)V
 
     .line 334
-    :cond_2
+    :cond_37
     invoke-interface {v1}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$Bind;->canBeNull()Z
 
     move-result v5
@@ -862,13 +862,13 @@
 
     invoke-virtual {p1, v5}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->setOptimizePositive(Z)V
 
-    goto :goto_0
+    goto :goto_7e
 
     .line 322
     .end local v1    # "annotation":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$Bind;
     .end local v3    # "valueClass":Ljava/lang/Class;
     .end local v4    # "serializer":Lcom/esotericsoftware/kryo/Serializer;
-    :cond_3
+    :cond_4d
     new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -919,20 +919,20 @@
     throw v1
 
     .line 340
-    :cond_4
-    :goto_0
+    :cond_7e
+    :goto_7e
     const-class v1, Lcom/esotericsoftware/kryo/serializers/CollectionSerializer$BindCollection;
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->isAnnotationPresent(Ljava/lang/Class;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_11f
 
     .line 341
     iget-object v1, p1, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->serializer:Lcom/esotericsoftware/kryo/Serializer;
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_ee
 
     .line 345
     const-class v1, Ljava/util/Collection;
@@ -945,7 +945,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_cd
 
     .line 347
     const-class v1, Lcom/esotericsoftware/kryo/serializers/CollectionSerializer$BindCollection;
@@ -966,12 +966,12 @@
     .local v3, "elementClass":Ljava/lang/Class;
     const-class v4, Ljava/lang/Object;
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v4, :cond_a7
 
     const/4 v3, 0x0
 
     .line 351
-    :cond_5
+    :cond_a7
     invoke-interface {v1}, Lcom/esotericsoftware/kryo/serializers/CollectionSerializer$BindCollection;->elementSerializer()Ljava/lang/Class;
 
     move-result-object v4
@@ -1001,28 +1001,28 @@
     invoke-virtual {v5, v6}, Lcom/esotericsoftware/kryo/serializers/CollectionSerializer;->setElementsCanBeNull(Z)V
 
     .line 356
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_c4
 
     invoke-virtual {v5, v3}, Lcom/esotericsoftware/kryo/serializers/CollectionSerializer;->setElementClass(Ljava/lang/Class;)V
 
     .line 357
-    :cond_6
-    if-eqz v4, :cond_7
+    :cond_c4
+    if-eqz v4, :cond_c9
 
     invoke-virtual {v5, v4}, Lcom/esotericsoftware/kryo/serializers/CollectionSerializer;->setElementSerializer(Lcom/esotericsoftware/kryo/Serializer;)V
 
     .line 358
-    :cond_7
+    :cond_c9
     invoke-virtual {p1, v5}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->setSerializer(Lcom/esotericsoftware/kryo/Serializer;)V
 
-    goto :goto_1
+    goto :goto_11f
 
     .line 345
     .end local v1    # "annotation":Lcom/esotericsoftware/kryo/serializers/CollectionSerializer$BindCollection;
     .end local v3    # "elementClass":Ljava/lang/Class;
     .end local v4    # "elementSerializer":Lcom/esotericsoftware/kryo/Serializer;
     .end local v5    # "serializer":Lcom/esotericsoftware/kryo/serializers/CollectionSerializer;
-    :cond_8
+    :cond_cd
     new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1057,7 +1057,7 @@
     throw v1
 
     .line 342
-    :cond_9
+    :cond_ee
     new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1108,20 +1108,20 @@
     throw v1
 
     .line 362
-    :cond_a
-    :goto_1
+    :cond_11f
+    :goto_11f
     const-class v1, Lcom/esotericsoftware/kryo/serializers/MapSerializer$BindMap;
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->isAnnotationPresent(Ljava/lang/Class;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1e6
 
     .line 363
     iget-object v1, p1, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->serializer:Lcom/esotericsoftware/kryo/Serializer;
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_1b5
 
     .line 367
     const-class v1, Ljava/util/Map;
@@ -1134,7 +1134,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_194
 
     .line 369
     const-class v1, Lcom/esotericsoftware/kryo/serializers/MapSerializer$BindMap;
@@ -1155,12 +1155,12 @@
     .local v2, "valueClass":Ljava/lang/Class;
     const-class v3, Ljava/lang/Object;
 
-    if-ne v2, v3, :cond_b
+    if-ne v2, v3, :cond_148
 
     const/4 v2, 0x0
 
     .line 373
-    :cond_b
+    :cond_148
     invoke-interface {v1}, Lcom/esotericsoftware/kryo/serializers/MapSerializer$BindMap;->valueSerializer()Ljava/lang/Class;
 
     move-result-object v3
@@ -1185,12 +1185,12 @@
     .local v4, "keyClass":Ljava/lang/Class;
     const-class v5, Ljava/lang/Object;
 
-    if-ne v4, v5, :cond_c
+    if-ne v4, v5, :cond_15d
 
     const/4 v4, 0x0
 
     .line 378
-    :cond_c
+    :cond_15d
     invoke-interface {v1}, Lcom/esotericsoftware/kryo/serializers/MapSerializer$BindMap;->keySerializer()Ljava/lang/Class;
 
     move-result-object v5
@@ -1225,33 +1225,33 @@
     invoke-virtual {v6, v7}, Lcom/esotericsoftware/kryo/serializers/MapSerializer;->setValuesCanBeNull(Z)V
 
     .line 383
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_181
 
     invoke-virtual {v6, v4}, Lcom/esotericsoftware/kryo/serializers/MapSerializer;->setKeyClass(Ljava/lang/Class;)V
 
     .line 384
-    :cond_d
-    if-eqz v5, :cond_e
+    :cond_181
+    if-eqz v5, :cond_186
 
     invoke-virtual {v6, v5}, Lcom/esotericsoftware/kryo/serializers/MapSerializer;->setKeySerializer(Lcom/esotericsoftware/kryo/Serializer;)V
 
     .line 385
-    :cond_e
-    if-eqz v2, :cond_f
+    :cond_186
+    if-eqz v2, :cond_18b
 
     invoke-virtual {v6, v2}, Lcom/esotericsoftware/kryo/serializers/MapSerializer;->setValueClass(Ljava/lang/Class;)V
 
     .line 386
-    :cond_f
-    if-eqz v3, :cond_10
+    :cond_18b
+    if-eqz v3, :cond_190
 
     invoke-virtual {v6, v3}, Lcom/esotericsoftware/kryo/serializers/MapSerializer;->setValueSerializer(Lcom/esotericsoftware/kryo/Serializer;)V
 
     .line 387
-    :cond_10
+    :cond_190
     invoke-virtual {p1, v6}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->setSerializer(Lcom/esotericsoftware/kryo/Serializer;)V
 
-    goto :goto_2
+    goto :goto_1e6
 
     .line 368
     .end local v1    # "annotation":Lcom/esotericsoftware/kryo/serializers/MapSerializer$BindMap;
@@ -1260,7 +1260,7 @@
     .end local v4    # "keyClass":Ljava/lang/Class;
     .end local v5    # "keySerializer":Lcom/esotericsoftware/kryo/Serializer;
     .end local v6    # "serializer":Lcom/esotericsoftware/kryo/serializers/MapSerializer;
-    :cond_11
+    :cond_194
     new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1294,7 +1294,7 @@
     throw v1
 
     .line 364
-    :cond_12
+    :cond_1b5
     new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1345,13 +1345,13 @@
     throw v1
 
     .line 389
-    :cond_13
-    :goto_2
+    :cond_1e6
+    :goto_1e6
     return-void
 .end method
 
 .method private newAsmField(Ljava/lang/reflect/Field;Ljava/lang/Class;Lcom/esotericsoftware/kryo/util/Generics$GenericType;)Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    .locals 2
+    .registers 6
     .param p1, "field"    # Ljava/lang/reflect/Field;
     .param p2, "fieldClass"    # Ljava/lang/Class;
     .param p3, "genericType"    # Lcom/esotericsoftware/kryo/util/Generics$GenericType;
@@ -1361,12 +1361,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_56
 
     .line 216
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_10
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/AsmField$IntAsmField;
 
@@ -1375,10 +1375,10 @@
     return-object v0
 
     .line 217
-    :cond_0
+    :cond_10
     sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_1a
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/AsmField$FloatAsmField;
 
@@ -1387,10 +1387,10 @@
     return-object v0
 
     .line 218
-    :cond_1
+    :cond_1a
     sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_2
+    if-ne p2, v0, :cond_24
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/AsmField$BooleanAsmField;
 
@@ -1399,10 +1399,10 @@
     return-object v0
 
     .line 219
-    :cond_2
+    :cond_24
     sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_3
+    if-ne p2, v0, :cond_2e
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/AsmField$LongAsmField;
 
@@ -1411,10 +1411,10 @@
     return-object v0
 
     .line 220
-    :cond_3
+    :cond_2e
     sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_4
+    if-ne p2, v0, :cond_38
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/AsmField$DoubleAsmField;
 
@@ -1423,10 +1423,10 @@
     return-object v0
 
     .line 221
-    :cond_4
+    :cond_38
     sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_5
+    if-ne p2, v0, :cond_42
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/AsmField$ShortAsmField;
 
@@ -1435,10 +1435,10 @@
     return-object v0
 
     .line 222
-    :cond_5
+    :cond_42
     sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_6
+    if-ne p2, v0, :cond_4c
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/AsmField$CharAsmField;
 
@@ -1447,10 +1447,10 @@
     return-object v0
 
     .line 223
-    :cond_6
+    :cond_4c
     sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_7
+    if-ne p2, v0, :cond_56
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/AsmField$ByteAsmField;
 
@@ -1459,10 +1459,10 @@
     return-object v0
 
     .line 225
-    :cond_7
+    :cond_56
     const-class v0, Ljava/lang/String;
 
-    if-ne p2, v0, :cond_9
+    if-ne p2, v0, :cond_7a
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
@@ -1473,7 +1473,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_74
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
@@ -1489,10 +1489,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_7a
 
     .line 227
-    :cond_8
+    :cond_74
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/AsmField$StringAsmField;
 
     invoke-direct {v0, p1}, Lcom/esotericsoftware/kryo/serializers/AsmField$StringAsmField;-><init>(Ljava/lang/reflect/Field;)V
@@ -1500,7 +1500,7 @@
     return-object v0
 
     .line 228
-    :cond_9
+    :cond_7a
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/AsmField;
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
@@ -1511,7 +1511,7 @@
 .end method
 
 .method private newReflectField(Ljava/lang/reflect/Field;Ljava/lang/Class;Lcom/esotericsoftware/kryo/util/Generics$GenericType;)Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    .locals 2
+    .registers 6
     .param p1, "field"    # Ljava/lang/reflect/Field;
     .param p2, "fieldClass"    # Ljava/lang/Class;
     .param p3, "genericType"    # Lcom/esotericsoftware/kryo/util/Generics$GenericType;
@@ -1521,12 +1521,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_56
 
     .line 233
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_10
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/ReflectField$IntReflectField;
 
@@ -1535,10 +1535,10 @@
     return-object v0
 
     .line 234
-    :cond_0
+    :cond_10
     sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_1a
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/ReflectField$FloatReflectField;
 
@@ -1547,10 +1547,10 @@
     return-object v0
 
     .line 235
-    :cond_1
+    :cond_1a
     sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_2
+    if-ne p2, v0, :cond_24
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/ReflectField$BooleanReflectField;
 
@@ -1559,10 +1559,10 @@
     return-object v0
 
     .line 236
-    :cond_2
+    :cond_24
     sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_3
+    if-ne p2, v0, :cond_2e
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/ReflectField$LongReflectField;
 
@@ -1571,10 +1571,10 @@
     return-object v0
 
     .line 237
-    :cond_3
+    :cond_2e
     sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_4
+    if-ne p2, v0, :cond_38
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/ReflectField$DoubleReflectField;
 
@@ -1583,10 +1583,10 @@
     return-object v0
 
     .line 238
-    :cond_4
+    :cond_38
     sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_5
+    if-ne p2, v0, :cond_42
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/ReflectField$ShortReflectField;
 
@@ -1595,10 +1595,10 @@
     return-object v0
 
     .line 239
-    :cond_5
+    :cond_42
     sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_6
+    if-ne p2, v0, :cond_4c
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/ReflectField$CharReflectField;
 
@@ -1607,10 +1607,10 @@
     return-object v0
 
     .line 240
-    :cond_6
+    :cond_4c
     sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_7
+    if-ne p2, v0, :cond_56
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/ReflectField$ByteReflectField;
 
@@ -1619,7 +1619,7 @@
     return-object v0
 
     .line 242
-    :cond_7
+    :cond_56
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/ReflectField;
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
@@ -1630,7 +1630,7 @@
 .end method
 
 .method private newSerializer(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
-    .locals 2
+    .registers 6
     .param p1, "valueClass"    # Ljava/lang/Class;
     .param p2, "serializerClass"    # Ljava/lang/Class;
     .param p3, "factoryClass"    # Ljava/lang/Class;
@@ -1638,36 +1638,36 @@
     .line 392
     const-class v0, Lcom/esotericsoftware/kryo/Serializer;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_5
 
     const/4 p2, 0x0
 
     .line 393
-    :cond_0
+    :cond_5
     const-class v0, Lcom/esotericsoftware/kryo/SerializerFactory;
 
-    if-ne p3, v0, :cond_1
+    if-ne p3, v0, :cond_a
 
     const/4 p3, 0x0
 
     .line 394
-    :cond_1
-    if-nez p3, :cond_2
+    :cond_a
+    if-nez p3, :cond_10
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_10
 
     const-class p3, Lcom/esotericsoftware/kryo/SerializerFactory$ReflectionSerializerFactory;
 
     .line 395
-    :cond_2
-    if-nez p3, :cond_3
+    :cond_10
+    if-nez p3, :cond_14
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 396
-    :cond_3
+    :cond_14
     invoke-static {p3, p2}, Lcom/esotericsoftware/kryo/util/Util;->newFactory(Ljava/lang/Class;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/SerializerFactory;
 
     move-result-object v0
@@ -1684,7 +1684,7 @@
 .end method
 
 .method private newUnsafeField(Ljava/lang/reflect/Field;Ljava/lang/Class;Lcom/esotericsoftware/kryo/util/Generics$GenericType;)Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    .locals 2
+    .registers 6
     .param p1, "field"    # Ljava/lang/reflect/Field;
     .param p2, "fieldClass"    # Ljava/lang/Class;
     .param p3, "genericType"    # Lcom/esotericsoftware/kryo/util/Generics$GenericType;
@@ -1694,12 +1694,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_56
 
     .line 199
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_10
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$IntUnsafeField;
 
@@ -1708,10 +1708,10 @@
     return-object v0
 
     .line 200
-    :cond_0
+    :cond_10
     sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_1a
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$FloatUnsafeField;
 
@@ -1720,10 +1720,10 @@
     return-object v0
 
     .line 201
-    :cond_1
+    :cond_1a
     sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_2
+    if-ne p2, v0, :cond_24
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$BooleanUnsafeField;
 
@@ -1732,10 +1732,10 @@
     return-object v0
 
     .line 202
-    :cond_2
+    :cond_24
     sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_3
+    if-ne p2, v0, :cond_2e
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$LongUnsafeField;
 
@@ -1744,10 +1744,10 @@
     return-object v0
 
     .line 203
-    :cond_3
+    :cond_2e
     sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_4
+    if-ne p2, v0, :cond_38
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$DoubleUnsafeField;
 
@@ -1756,10 +1756,10 @@
     return-object v0
 
     .line 204
-    :cond_4
+    :cond_38
     sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_5
+    if-ne p2, v0, :cond_42
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$ShortUnsafeField;
 
@@ -1768,10 +1768,10 @@
     return-object v0
 
     .line 205
-    :cond_5
+    :cond_42
     sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_6
+    if-ne p2, v0, :cond_4c
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$CharUnsafeField;
 
@@ -1780,10 +1780,10 @@
     return-object v0
 
     .line 206
-    :cond_6
+    :cond_4c
     sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v0, :cond_7
+    if-ne p2, v0, :cond_56
 
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$ByteUnsafeField;
 
@@ -1792,10 +1792,10 @@
     return-object v0
 
     .line 208
-    :cond_7
+    :cond_56
     const-class v0, Ljava/lang/String;
 
-    if-ne p2, v0, :cond_9
+    if-ne p2, v0, :cond_7a
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
@@ -1806,7 +1806,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_74
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
@@ -1822,10 +1822,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_7a
 
     .line 210
-    :cond_8
+    :cond_74
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$StringUnsafeField;
 
     invoke-direct {v0, p1}, Lcom/esotericsoftware/kryo/serializers/UnsafeField$StringUnsafeField;-><init>(Ljava/lang/reflect/Field;)V
@@ -1833,7 +1833,7 @@
     return-object v0
 
     .line 211
-    :cond_9
+    :cond_7a
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/UnsafeField;
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
@@ -1846,7 +1846,7 @@
 
 # virtual methods
 .method public compare(Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;)I
-    .locals 2
+    .registers 5
     .param p1, "o1"    # Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
     .param p2, "o2"    # Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
@@ -1863,7 +1863,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 73
     check-cast p1, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -1878,7 +1878,7 @@
 .end method
 
 .method public rebuild()V
-    .locals 9
+    .registers 10
 
     .line 87
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
@@ -1889,7 +1889,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 88
     sget-object v0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->emptyCachedFields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -1910,7 +1910,7 @@
     return-void
 
     .line 94
-    :cond_0
+    :cond_18
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -1926,11 +1926,11 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_3b
 
     sget-boolean v2, Lcom/esotericsoftware/kryo/util/Util;->isAndroid:Z
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_3b
 
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
@@ -1944,28 +1944,28 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3b
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_1
+    :cond_3b
     const/4 v2, 0x0
 
     .line 96
     .local v2, "asm":Z
-    :goto_0
+    :goto_3c
     iget-object v4, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->serializer:Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
 
     iget-object v4, v4, Lcom/esotericsoftware/kryo/serializers/FieldSerializer;->type:Ljava/lang/Class;
 
     .line 97
     .local v4, "nextClass":Ljava/lang/Class;
-    :goto_1
+    :goto_40
     const-class v5, Ljava/lang/Object;
 
-    if-eq v4, v5, :cond_3
+    if-eq v4, v5, :cond_59
 
     .line 98
     invoke-virtual {v4}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
@@ -1976,8 +1976,8 @@
 
     const/4 v7, 0x0
 
-    :goto_2
-    if-ge v7, v6, :cond_2
+    :goto_4a
+    if-ge v7, v6, :cond_54
 
     aget-object v8, v5, v7
 
@@ -1989,18 +1989,18 @@
     .end local v8    # "field":Ljava/lang/reflect/Field;
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_2
+    goto :goto_4a
 
     .line 100
-    :cond_2
+    :cond_54
     invoke-virtual {v4}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v4
 
-    goto :goto_1
+    goto :goto_40
 
     .line 103
-    :cond_3
+    :cond_59
     iget-object v3, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->fields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     array-length v3, v3
@@ -2009,7 +2009,7 @@
 
     move-result v5
 
-    if-eq v3, v5, :cond_4
+    if-eq v3, v5, :cond_6a
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -2020,7 +2020,7 @@
     iput-object v3, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->fields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     .line 104
-    :cond_4
+    :cond_6a
     iget-object v3, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->fields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -2039,7 +2039,7 @@
 
     move-result v5
 
-    if-eq v3, v5, :cond_5
+    if-eq v3, v5, :cond_85
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -2050,7 +2050,7 @@
     iput-object v3, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->copyFields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     .line 108
-    :cond_5
+    :cond_85
     iget-object v3, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->copyFields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -2070,7 +2070,7 @@
 .end method
 
 .method public removeField(Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;)V
-    .locals 8
+    .registers 10
     .param p1, "removeField"    # Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     .line 283
@@ -2081,14 +2081,14 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->fields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     array-length v2, v2
 
     const/4 v3, 0x0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_31
 
     .line 285
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->fields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -2097,7 +2097,7 @@
 
     .line 286
     .local v2, "cachedField":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    if-ne v2, p1, :cond_0
+    if-ne v2, p1, :cond_2e
 
     .line 287
     iget-object v4, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->fields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -2139,29 +2139,29 @@
     const/4 v0, 0x1
 
     .line 293
-    goto :goto_1
+    goto :goto_31
 
     .line 284
     .end local v2    # "cachedField":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
     .end local v4    # "newFields":[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    :cond_0
+    :cond_2e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 296
     .end local v1    # "i":I
-    :cond_1
-    :goto_1
+    :cond_31
+    :goto_31
     const/4 v1, 0x0
 
     .restart local v1    # "i":I
-    :goto_2
+    :goto_32
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->copyFields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_60
 
     .line 297
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->copyFields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -2170,7 +2170,7 @@
 
     .line 298
     .restart local v2    # "cachedField":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    if-ne v2, p1, :cond_2
+    if-ne v2, p1, :cond_5d
 
     .line 299
     iget-object v4, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->copyFields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -2212,27 +2212,27 @@
     const/4 v0, 0x1
 
     .line 305
-    goto :goto_3
+    goto :goto_60
 
     .line 296
     .end local v2    # "cachedField":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
     .end local v4    # "newFields":[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    :cond_2
+    :cond_5d
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_32
 
     .line 308
     .end local v1    # "i":I
-    :cond_3
-    :goto_3
-    if-eqz v0, :cond_4
+    :cond_60
+    :goto_60
+    if-eqz v0, :cond_63
 
     .line 310
     return-void
 
     .line 309
-    :cond_4
+    :cond_63
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2277,7 +2277,7 @@
 .end method
 
 .method public removeField(Ljava/lang/String;)V
-    .locals 8
+    .registers 10
     .param p1, "fieldName"    # Ljava/lang/String;
 
     .line 252
@@ -2288,14 +2288,14 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->fields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     array-length v2, v2
 
     const/4 v3, 0x0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_37
 
     .line 254
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->fields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -2310,7 +2310,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_34
 
     .line 256
     iget-object v4, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->fields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -2352,29 +2352,29 @@
     const/4 v0, 0x1
 
     .line 262
-    goto :goto_1
+    goto :goto_37
 
     .line 253
     .end local v2    # "cachedField":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
     .end local v4    # "newFields":[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    :cond_0
+    :cond_34
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 265
     .end local v1    # "i":I
-    :cond_1
-    :goto_1
+    :cond_37
+    :goto_37
     const/4 v1, 0x0
 
     .restart local v1    # "i":I
-    :goto_2
+    :goto_38
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->copyFields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_6c
 
     .line 266
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->copyFields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -2389,7 +2389,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_69
 
     .line 268
     iget-object v4, p0, Lcom/esotericsoftware/kryo/serializers/CachedFields;->copyFields:[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
@@ -2431,27 +2431,27 @@
     const/4 v0, 0x1
 
     .line 274
-    goto :goto_3
+    goto :goto_6c
 
     .line 265
     .end local v2    # "cachedField":Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
     .end local v4    # "newFields":[Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
-    :cond_2
+    :cond_69
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_38
 
     .line 277
     .end local v1    # "i":I
-    :cond_3
-    :goto_3
-    if-eqz v0, :cond_4
+    :cond_6c
+    :goto_6c
+    if-eqz v0, :cond_6f
 
     .line 279
     return-void
 
     .line 278
-    :cond_4
+    :cond_6f
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;

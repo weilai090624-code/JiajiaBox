@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 748
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static rebase(Landroid/content/res/Resources$Theme;)V
-    .locals 0
+    .registers 1
     .param p0, "theme"    # Landroid/content/res/Resources$Theme;
 
     .line 754

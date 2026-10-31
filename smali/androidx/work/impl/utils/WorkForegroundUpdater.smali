@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 51
     const-string v0, "WMFgUpdater"
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/foreground/ForegroundProcessor;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 1
+    .registers 5
     .param p1, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
     .param p2, "foregroundProcessor"    # Landroidx/work/impl/foreground/ForegroundProcessor;
     .param p3, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public setForegroundAsync(Landroid/content/Context;Ljava/util/UUID;Landroidx/work/ForegroundInfo;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 9
+    .registers 13
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "id"    # Ljava/util/UUID;
     .param p3, "foregroundInfo"    # Landroidx/work/ForegroundInfo;

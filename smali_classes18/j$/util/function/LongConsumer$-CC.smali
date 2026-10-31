@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$andThen(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/LongConsumer;
     .param p1, "after"    # Ljava/util/function/LongConsumer;
 
@@ -21,7 +21,7 @@
 .end method
 
 .method public static synthetic $private$lambda$andThen$0(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;J)V
-    .locals 0
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/LongConsumer;
     .param p1, "after"    # Ljava/util/function/LongConsumer;
     .param p2, "t"    # J

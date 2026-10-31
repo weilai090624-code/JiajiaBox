@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 119
     .local p0, "this":Lcom/google/common/collect/ObjectCountHashMap;, "Lcom/google/common/collect/ObjectCountHashMap<TK;>;"
@@ -75,7 +75,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "capacity"    # I
 
     .line 136
@@ -89,7 +89,7 @@
 .end method
 
 .method constructor <init>(IF)V
-    .locals 0
+    .registers 3
     .param p1, "expectedSize"    # I
     .param p2, "loadFactor"    # F
 
@@ -105,7 +105,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/ObjectCountHashMap;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -134,10 +134,10 @@
     move-result v0
 
     .local v0, "i":I
-    :goto_0
+    :goto_10
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_23
 
     .line 126
     invoke-virtual {p1, v0}, Lcom/google/common/collect/ObjectCountHashMap;->getKey(I)Ljava/lang/Object;
@@ -155,16 +155,16 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_10
 
     .line 128
     .end local v0    # "i":I
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method static create()Lcom/google/common/collect/ObjectCountHashMap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -184,7 +184,7 @@
 .end method
 
 .method static createWithExpectedSize(I)Lcom/google/common/collect/ObjectCountHashMap;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -205,7 +205,7 @@
 .end method
 
 .method private static getHash(J)I
-    .locals 2
+    .registers 4
     .param p0, "entry"    # J
 
     .line 259
@@ -219,7 +219,7 @@
 .end method
 
 .method private static getNext(J)I
-    .locals 1
+    .registers 3
     .param p0, "entry"    # J
 
     .line 264
@@ -229,7 +229,7 @@
 .end method
 
 .method private hashTableMask()I
-    .locals 1
+    .registers 2
 
     .line 170
     .local p0, "this":Lcom/google/common/collect/ObjectCountHashMap;, "Lcom/google/common/collect/ObjectCountHashMap<TK;>;"
@@ -243,7 +243,7 @@
 .end method
 
 .method private static newEntries(I)[J
-    .locals 3
+    .registers 4
     .param p0, "size"    # I
 
     .line 164
@@ -260,7 +260,7 @@
 .end method
 
 .method private static newTable(I)[I
-    .locals 2
+    .registers 3
     .param p0, "size"    # I
 
     .line 158
@@ -277,7 +277,7 @@
 .end method
 
 .method private remove(Ljava/lang/Object;I)I
-    .locals 10
+    .registers 13
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -304,18 +304,18 @@
 
     const/4 v3, -0x1
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_e
 
     .line 420
     return v2
 
     .line 422
-    :cond_0
+    :cond_e
     const/4 v4, -0x1
 
     .line 424
     .local v4, "last":I
-    :cond_1
+    :cond_f
     iget-object v5, p0, Lcom/google/common/collect/ObjectCountHashMap;->entries:[J
 
     aget-wide v6, v5, v1
@@ -324,7 +324,7 @@
 
     move-result v5
 
-    if-ne v5, p2, :cond_3
+    if-ne v5, p2, :cond_5a
 
     .line 425
     iget-object v5, p0, Lcom/google/common/collect/ObjectCountHashMap;->keys:[Ljava/lang/Object;
@@ -335,7 +335,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_5a
 
     .line 426
     iget-object v2, p0, Lcom/google/common/collect/ObjectCountHashMap;->values:[I
@@ -344,7 +344,7 @@
 
     .line 428
     .local v2, "oldValue":I
-    if-ne v4, v3, :cond_2
+    if-ne v4, v3, :cond_36
 
     .line 430
     iget-object v3, p0, Lcom/google/common/collect/ObjectCountHashMap;->table:[I
@@ -359,10 +359,10 @@
 
     aput v5, v3, v0
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 433
-    :cond_2
+    :cond_36
     iget-object v3, p0, Lcom/google/common/collect/ObjectCountHashMap;->entries:[J
 
     iget-object v5, p0, Lcom/google/common/collect/ObjectCountHashMap;->entries:[J
@@ -384,7 +384,7 @@
     aput-wide v5, v3, v4
 
     .line 436
-    :goto_0
+    :goto_4a
     invoke-virtual {p0, v1}, Lcom/google/common/collect/ObjectCountHashMap;->moveLastEntry(I)V
 
     .line 437
@@ -406,7 +406,7 @@
 
     .line 442
     .end local v2    # "oldValue":I
-    :cond_3
+    :cond_5a
     move v4, v1
 
     .line 443
@@ -419,14 +419,14 @@
     move-result v1
 
     .line 444
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_f
 
     .line 445
     return v2
 .end method
 
 .method private resizeMeMaybe(I)V
-    .locals 3
+    .registers 5
     .param p1, "newSize"    # I
 
     .line 336
@@ -437,7 +437,7 @@
 
     .line 337
     .local v0, "entriesSize":I
-    if-le p1, v0, :cond_1
+    if-le p1, v0, :cond_17
 
     .line 338
     ushr-int/lit8 v1, v0, 0x1
@@ -452,26 +452,26 @@
 
     .line 339
     .local v1, "newCapacity":I
-    if-gez v1, :cond_0
+    if-gez v1, :cond_12
 
     .line 340
     const v1, 0x7fffffff
 
     .line 342
-    :cond_0
-    if-eq v1, v0, :cond_1
+    :cond_12
+    if-eq v1, v0, :cond_17
 
     .line 343
     invoke-virtual {p0, v1}, Lcom/google/common/collect/ObjectCountHashMap;->resizeEntries(I)V
 
     .line 346
     .end local v1    # "newCapacity":I
-    :cond_1
+    :cond_17
     return-void
 .end method
 
 .method private resizeTable(I)V
-    .locals 20
+    .registers 22
     .param p1, "newCapacity"    # I
 
     .line 365
@@ -488,7 +488,7 @@
     .local v2, "oldCapacity":I
     const/high16 v3, 0x40000000    # 2.0f
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_f
 
     .line 368
     const v3, 0x7fffffff
@@ -499,7 +499,7 @@
     return-void
 
     .line 371
-    :cond_0
+    :cond_f
     move/from16 v3, p1
 
     int-to-float v4, v3
@@ -533,10 +533,10 @@
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_0
+    :goto_23
     iget v9, v0, Lcom/google/common/collect/ObjectCountHashMap;->size:I
 
-    if-ge v8, v9, :cond_1
+    if-ge v8, v9, :cond_4e
 
     .line 377
     aget-wide v9, v6, v8
@@ -595,7 +595,7 @@
 
     move/from16 v2, v19
 
-    goto :goto_0
+    goto :goto_23
 
     .line 385
     .end local v8    # "i":I
@@ -603,7 +603,7 @@
     .end local v19    # "oldCapacity":I
     .restart local v1    # "oldTable":[I
     .restart local v2    # "oldCapacity":I
-    :cond_1
+    :cond_4e
     iput v4, v0, Lcom/google/common/collect/ObjectCountHashMap;->threshold:I
 
     .line 386
@@ -614,7 +614,7 @@
 .end method
 
 .method private static swapNext(JI)J
-    .locals 6
+    .registers 9
     .param p0, "entry"    # J
     .param p2, "newNext"    # I
 
@@ -637,7 +637,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 4
+    .registers 5
 
     .line 496
     .local p0, "this":Lcom/google/common/collect/ObjectCountHashMap;, "Lcom/google/common/collect/ObjectCountHashMap<TK;>;"
@@ -687,7 +687,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -701,21 +701,21 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method ensureCapacity(I)V
-    .locals 2
+    .registers 4
     .param p1, "minCapacity"    # I
 
     .line 273
@@ -724,16 +724,16 @@
 
     array-length v0, v0
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_8
 
     .line 274
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ObjectCountHashMap;->resizeEntries(I)V
 
     .line 276
-    :cond_0
+    :cond_8
     iget v0, p0, Lcom/google/common/collect/ObjectCountHashMap;->threshold:I
 
-    if-lt p1, v0, :cond_1
+    if-lt p1, v0, :cond_1c
 
     .line 277
     add-int/lit8 v0, p1, -0x1
@@ -756,32 +756,32 @@
 
     .line 280
     .end local v0    # "newTableSize":I
-    :cond_1
+    :cond_1c
     return-void
 .end method
 
 .method firstIndex()I
-    .locals 1
+    .registers 2
 
     .line 174
     .local p0, "this":Lcom/google/common/collect/ObjectCountHashMap;, "Lcom/google/common/collect/ObjectCountHashMap<TK;>;"
     iget v0, p0, Lcom/google/common/collect/ObjectCountHashMap;->size:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public get(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -797,23 +797,23 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_9
     iget-object v1, p0, Lcom/google/common/collect/ObjectCountHashMap;->values:[I
 
     aget v1, v1, v0
 
-    :goto_0
+    :goto_d
     return v1
 .end method
 
 .method getEntry(I)Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -838,7 +838,7 @@
 .end method
 
 .method getKey(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -864,7 +864,7 @@
 .end method
 
 .method getValue(I)I
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 197
@@ -882,7 +882,7 @@
 .end method
 
 .method indexOf(Ljava/lang/Object;)I
-    .locals 5
+    .registers 7
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -908,10 +908,10 @@
 
     .line 392
     .local v1, "next":I
-    :goto_0
+    :goto_d
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_2a
 
     .line 393
     iget-object v2, p0, Lcom/google/common/collect/ObjectCountHashMap;->entries:[J
@@ -924,7 +924,7 @@
 
     move-result v2
 
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_25
 
     iget-object v2, p0, Lcom/google/common/collect/ObjectCountHashMap;->keys:[Ljava/lang/Object;
 
@@ -934,28 +934,28 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_25
 
     .line 395
     return v1
 
     .line 397
-    :cond_0
+    :cond_25
     invoke-static {v3, v4}, Lcom/google/common/collect/ObjectCountHashMap;->getNext(J)I
 
     move-result v1
 
     .line 398
     .end local v3    # "entry":J
-    goto :goto_0
+    goto :goto_d
 
     .line 399
-    :cond_1
+    :cond_2a
     return v2
 .end method
 
 .method init(IF)V
-    .locals 4
+    .registers 7
     .param p1, "expectedSize"    # I
     .param p2, "loadFactor"    # F
 
@@ -965,16 +965,16 @@
 
     const/4 v1, 0x1
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_7
     const-string v3, "Initial capacity must be non-negative"
 
     invoke-static {v2, v3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -984,11 +984,11 @@
 
     cmpl-float v2, p2, v2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_12
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_12
     const-string v2, "Illegal load factor"
 
     invoke-static {v0, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -1046,7 +1046,7 @@
 .end method
 
 .method insertEntry(ILjava/lang/Object;II)V
-    .locals 5
+    .registers 10
     .param p1, "entryIndex"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -1092,7 +1092,7 @@
 .end method
 
 .method moveLastEntry(I)V
-    .locals 11
+    .registers 13
     .param p1, "dstIndex"    # I
 
     .line 457
@@ -1111,7 +1111,7 @@
 
     const/4 v4, 0x0
 
-    if-ge p1, v0, :cond_1
+    if-ge p1, v0, :cond_5a
 
     .line 460
     iget-object v5, p0, Lcom/google/common/collect/ObjectCountHashMap;->keys:[Ljava/lang/Object;
@@ -1176,17 +1176,17 @@
 
     .line 474
     .local v1, "lastNext":I
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_45
 
     .line 476
     iget-object v2, p0, Lcom/google/common/collect/ObjectCountHashMap;->table:[I
 
     aput p1, v2, v7
 
-    goto :goto_0
+    goto :goto_59
 
     .line 482
-    :cond_0
+    :cond_45
     move v2, v1
 
     .line 483
@@ -1203,7 +1203,7 @@
     move-result v1
 
     .line 484
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_45
 
     .line 486
     iget-object v8, p0, Lcom/google/common/collect/ObjectCountHashMap;->entries:[J
@@ -1220,11 +1220,11 @@
     .end local v3    # "entry":J
     .end local v5    # "lastEntry":J
     .end local v7    # "tableIndex":I
-    :goto_0
-    goto :goto_1
+    :goto_59
+    goto :goto_66
 
     .line 489
-    :cond_1
+    :cond_5a
     iget-object v5, p0, Lcom/google/common/collect/ObjectCountHashMap;->keys:[Ljava/lang/Object;
 
     aput-object v4, v5, p1
@@ -1240,12 +1240,12 @@
     aput-wide v1, v3, p1
 
     .line 493
-    :goto_1
+    :goto_66
     return-void
 .end method
 
 .method nextIndex(I)I
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 178
@@ -1254,21 +1254,21 @@
 
     iget v1, p0, Lcom/google/common/collect/ObjectCountHashMap;->size:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_9
 
     add-int/lit8 v0, p1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method nextIndexAfterRemove(II)I
-    .locals 1
+    .registers 4
     .param p1, "oldNextIndex"    # I
     .param p2, "removedIndex"    # I
 
@@ -1280,7 +1280,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;I)I
-    .locals 13
+    .registers 16
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1338,17 +1338,17 @@
     .local v6, "next":I
     const/4 v7, -0x1
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_22
 
     .line 294
     iget-object v7, p0, Lcom/google/common/collect/ObjectCountHashMap;->table:[I
 
     aput v5, v7, v4
 
-    goto :goto_0
+    goto :goto_44
 
     .line 299
-    :cond_0
+    :cond_22
     move v8, v6
 
     .line 300
@@ -1361,7 +1361,7 @@
 
     move-result v11
 
-    if-ne v11, v3, :cond_1
+    if-ne v11, v3, :cond_38
 
     aget-object v11, v1, v6
 
@@ -1369,7 +1369,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_38
 
     .line 302
     aget v7, v2, v6
@@ -1383,13 +1383,13 @@
 
     .line 307
     .end local v7    # "oldValue":I
-    :cond_1
+    :cond_38
     invoke-static {v9, v10}, Lcom/google/common/collect/ObjectCountHashMap;->getNext(J)I
 
     move-result v6
 
     .line 308
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_22
 
     .line 309
     invoke-static {v9, v10, v5}, Lcom/google/common/collect/ObjectCountHashMap;->swapNext(JI)J
@@ -1401,10 +1401,10 @@
     .line 311
     .end local v8    # "last":I
     .end local v9    # "entry":J
-    :goto_0
+    :goto_44
     const v7, 0x7fffffff
 
-    if-eq v5, v7, :cond_3
+    if-eq v5, v7, :cond_67
 
     .line 314
     add-int/lit8 v7, v5, 0x1
@@ -1422,7 +1422,7 @@
     .line 318
     iget v8, p0, Lcom/google/common/collect/ObjectCountHashMap;->threshold:I
 
-    if-lt v5, v8, :cond_2
+    if-lt v5, v8, :cond_5f
 
     .line 319
     iget-object v8, p0, Lcom/google/common/collect/ObjectCountHashMap;->table:[I
@@ -1434,7 +1434,7 @@
     invoke-direct {p0, v8}, Lcom/google/common/collect/ObjectCountHashMap;->resizeTable(I)V
 
     .line 321
-    :cond_2
+    :cond_5f
     iget v8, p0, Lcom/google/common/collect/ObjectCountHashMap;->modCount:I
 
     add-int/lit8 v8, v8, 0x1
@@ -1448,7 +1448,7 @@
 
     .line 312
     .end local v7    # "newSize":I
-    :cond_3
+    :cond_67
     new-instance v7, Ljava/lang/IllegalStateException;
 
     const-string v8, "Cannot contain more than Integer.MAX_VALUE elements!"
@@ -1459,7 +1459,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1479,7 +1479,7 @@
 .end method
 
 .method removeEntry(I)I
-    .locals 4
+    .registers 6
     .param p1, "entryIndex"    # I
 
     .line 450
@@ -1504,7 +1504,7 @@
 .end method
 
 .method resizeEntries(I)V
-    .locals 4
+    .registers 6
     .param p1, "newCapacity"    # I
 
     .line 353
@@ -1540,7 +1540,7 @@
     move-result-object v0
 
     .line 358
-    if-le p1, v1, :cond_0
+    if-le p1, v1, :cond_1e
 
     .line 359
     const-wide/16 v2, -0x1
@@ -1548,7 +1548,7 @@
     invoke-static {v0, v1, p1, v2, v3}, Ljava/util/Arrays;->fill([JIIJ)V
 
     .line 361
-    :cond_0
+    :cond_1e
     iput-object v0, p0, Lcom/google/common/collect/ObjectCountHashMap;->entries:[J
 
     .line 362
@@ -1556,7 +1556,7 @@
 .end method
 
 .method setValue(II)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "newValue"    # I
 
@@ -1576,7 +1576,7 @@
 .end method
 
 .method size()I
-    .locals 1
+    .registers 2
 
     .line 186
     .local p0, "this":Lcom/google/common/collect/ObjectCountHashMap;, "Lcom/google/common/collect/ObjectCountHashMap<TK;>;"

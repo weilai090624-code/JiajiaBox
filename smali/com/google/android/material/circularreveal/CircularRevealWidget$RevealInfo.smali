@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 144
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(FFF)V
-    .locals 0
+    .registers 4
     .param p1, "centerX"    # F
     .param p2, "centerY"    # F
     .param p3, "radius"    # F
@@ -59,7 +59,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/circularreveal/CircularRevealWidget$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/android/material/circularreveal/CircularRevealWidget$1;
 
     .line 132
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V
-    .locals 3
+    .registers 5
     .param p1, "other"    # Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
     .line 153
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public isInvalid()Z
-    .locals 2
+    .registers 3
 
     .line 171
     iget v0, p0, Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;->radius:F
@@ -97,21 +97,21 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method public set(FFF)V
-    .locals 0
+    .registers 4
     .param p1, "centerX"    # F
     .param p2, "centerY"    # F
     .param p3, "radius"    # F
@@ -130,7 +130,7 @@
 .end method
 
 .method public set(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V
-    .locals 3
+    .registers 5
     .param p1, "other"    # Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
     .line 163

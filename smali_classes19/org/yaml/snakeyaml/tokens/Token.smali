@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 2
+    .registers 5
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p2, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
@@ -27,9 +27,9 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 63
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_c
 
     .line 66
     iput-object p1, p0, Lorg/yaml/snakeyaml/tokens/Token;->startMark:Lorg/yaml/snakeyaml/error/Mark;
@@ -41,7 +41,7 @@
     return-void
 
     .line 64
-    :cond_0
+    :cond_c
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     const-string v1, "Token requires marks."
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public getEndMark()Lorg/yaml/snakeyaml/error/Mark;
-    .locals 1
+    .registers 2
 
     .line 75
     iget-object v0, p0, Lorg/yaml/snakeyaml/tokens/Token;->endMark:Lorg/yaml/snakeyaml/error/Mark;
@@ -63,7 +63,7 @@
 .end method
 
 .method public getStartMark()Lorg/yaml/snakeyaml/error/Mark;
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Lorg/yaml/snakeyaml/tokens/Token;->startMark:Lorg/yaml/snakeyaml/error/Mark;

@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/work/impl/constraints/controllers/NetworkMeteredController$Companion;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
-    .locals 1
+    .registers 3
     .param p1, "tracker"    # Landroidx/work/impl/constraints/trackers/ConstraintTracker;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method public hasConstraint(Landroidx/work/impl/model/WorkSpec;)Z
-    .locals 2
+    .registers 4
     .param p1, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
 
     const-string/jumbo v0, "workSpec"
@@ -124,21 +124,21 @@
 
     sget-object v1, Landroidx/work/NetworkType;->METERED:Landroidx/work/NetworkType;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public isConstrained(Landroidx/work/impl/constraints/NetworkState;)Z
-    .locals 5
+    .registers 7
     .param p1, "value"    # Landroidx/work/impl/constraints/NetworkState;
 
     const-string/jumbo v0, "value"
@@ -154,7 +154,7 @@
 
     const/4 v3, 0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_21
 
     .line 139
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -174,37 +174,37 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2e
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 144
-    :cond_0
+    :cond_21
     invoke-virtual {p1}, Landroidx/work/impl/constraints/NetworkState;->isConnected()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     invoke-virtual {p1}, Landroidx/work/impl/constraints/NetworkState;->isMetered()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2e
 
-    :cond_1
+    :cond_2d
     const/4 v2, 0x1
 
     .line 138
-    :cond_2
-    :goto_0
+    :cond_2e
+    :goto_2e
     return v2
 .end method
 
 .method public bridge synthetic isConstrained(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 128

@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 17
     :try_start_0
@@ -56,12 +56,12 @@
     invoke-static {v1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_0 .. :try_end_d} :catchall_e
 
-    goto :goto_0
+    goto :goto_19
 
-    :catchall_0
+    :catchall_e
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -74,7 +74,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_19
     invoke-static {v0}, Lkotlin/Result;->isSuccess-impl(Ljava/lang/Object;)Z
 
     move-result v0
@@ -85,7 +85,7 @@
 .end method
 
 .method public static final getANDROID_DETECTED()Z
-    .locals 1
+    .registers 1
 
     .line 17
     sget-boolean v0, Lkotlinx/coroutines/internal/FastServiceLoaderKt;->ANDROID_DETECTED:Z

@@ -26,25 +26,25 @@
 
 # direct methods
 .method public static synthetic callsInPlace$default(Lkotlin/contracts/ContractBuilder;Lkotlin/Function;Lkotlin/contracts/InvocationKind;ILjava/lang/Object;)Lkotlin/contracts/CallsInPlace;
-    .locals 0
+    .registers 5
 
     .line 85
-    if-nez p4, :cond_1
+    if-nez p4, :cond_d
 
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_8
 
     sget-object p2, Lkotlin/contracts/InvocationKind;->UNKNOWN:Lkotlin/contracts/InvocationKind;
 
-    :cond_0
+    :cond_8
     invoke-interface {p0, p1, p2}, Lkotlin/contracts/ContractBuilder;->callsInPlace(Lkotlin/Function;Lkotlin/contracts/InvocationKind;)Lkotlin/contracts/CallsInPlace;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1
+    :cond_d
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: callsInPlace"

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
 
     .line 836
     iput-object p1, p0, Lj$/util/stream/Streams$1;->val$a:Ljava/lang/Runnable;
@@ -40,15 +40,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 840
     :try_start_0
     iget-object v0, p0, Lj$/util/stream/Streams$1;->val$a:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catchall {:try_start_0 .. :try_end_5} :catchall_c
 
     .line 852
     nop
@@ -62,43 +62,43 @@
     return-void
 
     .line 842
-    :catchall_0
+    :catchall_c
     move-exception v0
 
     .line 844
     .local v0, "e1":Ljava/lang/Throwable;
-    :try_start_1
+    :try_start_d
     iget-object v1, p0, Lj$/util/stream/Streams$1;->val$b:Ljava/lang/Runnable;
 
     invoke-interface {v1}, Ljava/lang/Runnable;->run()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_12
+    .catchall {:try_start_d .. :try_end_12} :catchall_13
 
     .line 850
-    goto :goto_1
+    goto :goto_1a
 
     .line 846
-    :catchall_1
+    :catchall_13
     move-exception v1
 
     .line 848
     .local v1, "e2":Ljava/lang/Throwable;
-    :try_start_2
+    :try_start_14
     invoke-virtual {v0, v1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_17
+    .catchall {:try_start_14 .. :try_end_17} :catchall_18
 
     .line 849
-    :goto_0
-    goto :goto_1
+    :goto_17
+    goto :goto_1a
 
-    :catchall_2
+    :catchall_18
     move-exception v2
 
-    goto :goto_0
+    goto :goto_17
 
     .line 851
     .end local v1    # "e2":Ljava/lang/Throwable;
-    :goto_1
+    :goto_1a
     throw v0
 .end method

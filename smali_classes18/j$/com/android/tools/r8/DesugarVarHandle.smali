@@ -17,7 +17,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/lang/Class;)V
-    .locals 3
+    .registers 5
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,7 +43,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_9a
 
     invoke-virtual {p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
@@ -53,25 +53,25 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_7d
 
     invoke-virtual {v0}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_5e
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_5e
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_33
 
-    goto :goto_0
+    goto :goto_5e
 
-    :cond_0
+    :cond_33
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -114,8 +114,8 @@
 
     throw p1
 
-    :cond_1
-    :goto_0
+    :cond_5e
+    :goto_5e
     iput-object p1, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     invoke-virtual {p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
@@ -150,7 +150,7 @@
 
     return-void
 
-    :cond_2
+    :cond_7d
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -179,7 +179,7 @@
 
     throw p1
 
-    :cond_3
+    :cond_9a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -210,7 +210,7 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V
-    .locals 2
+    .registers 6
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -248,19 +248,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_52
 
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-eq p3, v0, :cond_1
+    if-eq p3, v0, :cond_52
 
     sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p3, v0, :cond_0
+    if-ne p3, v0, :cond_2f
 
-    goto :goto_0
+    goto :goto_52
 
-    :cond_0
+    :cond_2f
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -295,8 +295,8 @@
 
     throw p1
 
-    :cond_1
-    :goto_0
+    :cond_52
+    :goto_52
     iget-object p3, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     invoke-virtual {p1, p2}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
@@ -319,7 +319,7 @@
 
 # virtual methods
 .method public synthetic arrayRequiringNativeSupport()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     const-string v0, "requires native VarHandle support available from Android 13. VarHandle desugaring only supports single dimensional arrays of primitive typesint and long and reference types."
 
@@ -327,11 +327,11 @@
 .end method
 
 .method public synthetic boxIntIfPossible(ILjava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     const-class v0, Ljava/lang/Long;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_a
 
     int-to-long p1, p1
 
@@ -341,10 +341,10 @@
 
     return-object p1
 
-    :cond_0
+    :cond_a
     const-class v0, Ljava/lang/Float;
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_14
 
     int-to-float p1, p1
 
@@ -354,10 +354,10 @@
 
     return-object p1
 
-    :cond_1
+    :cond_14
     const-class v0, Ljava/lang/Double;
 
-    if-ne p2, v0, :cond_2
+    if-ne p2, v0, :cond_1e
 
     int-to-double p1, p1
 
@@ -367,7 +367,7 @@
 
     return-object p1
 
-    :cond_2
+    :cond_1e
     invoke-virtual {p0}, Lj$/com/android/tools/r8/DesugarVarHandle;->desugarWrongMethodTypeException()Ljava/lang/RuntimeException;
 
     move-result-object p1
@@ -376,11 +376,11 @@
 .end method
 
 .method public synthetic boxLongIfPossible(JLjava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
 
     const-class v0, Ljava/lang/Float;
 
-    if-ne p3, v0, :cond_0
+    if-ne p3, v0, :cond_a
 
     long-to-float p1, p1
 
@@ -390,10 +390,10 @@
 
     return-object p1
 
-    :cond_0
+    :cond_a
     const-class v0, Ljava/lang/Double;
 
-    if-ne p3, v0, :cond_1
+    if-ne p3, v0, :cond_14
 
     long-to-double p1, p1
 
@@ -403,7 +403,7 @@
 
     return-object p1
 
-    :cond_1
+    :cond_14
     invoke-virtual {p0}, Lj$/com/android/tools/r8/DesugarVarHandle;->desugarWrongMethodTypeException()Ljava/lang/RuntimeException;
 
     move-result-object p1
@@ -412,13 +412,13 @@
 .end method
 
 .method public synthetic compareAndSet(Ljava/lang/Object;II)Z
-    .locals 10
+    .registers 14
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -436,12 +436,12 @@
 
     return p1
 
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_24
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -459,7 +459,7 @@
 
     return p1
 
-    :cond_1
+    :cond_24
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p2
@@ -476,7 +476,7 @@
 .end method
 
 .method public synthetic compareAndSet(Ljava/lang/Object;ILjava/lang/Object;Ljava/lang/Object;)Z
-    .locals 13
+    .registers 18
 
     move-object v0, p0
 
@@ -490,7 +490,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5b
 
     iget-object v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -498,7 +498,7 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_5b
 
     iget-wide v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -518,7 +518,7 @@
 
     const/4 v3, 0x0
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_37
 
     iget-object v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -540,12 +540,12 @@
 
     return v1
 
-    :cond_0
+    :cond_37
     iget-object v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v2, [J
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_4e
 
     iget-object v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -567,7 +567,7 @@
 
     return v1
 
-    :cond_1
+    :cond_4e
     iget-object v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     move-object v2, p1
@@ -584,7 +584,7 @@
 
     return v1
 
-    :cond_2
+    :cond_5b
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -593,13 +593,13 @@
 .end method
 
 .method public synthetic compareAndSet(Ljava/lang/Object;JJ)Z
-    .locals 10
+    .registers 16
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -617,7 +617,7 @@
 
     return p1
 
-    :cond_0
+    :cond_12
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p2
@@ -634,7 +634,7 @@
 .end method
 
 .method public synthetic compareAndSet(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 11
+    .registers 15
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
@@ -642,7 +642,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     iget-object v3, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -664,12 +664,12 @@
 
     return p1
 
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_31
 
     iget-object v3, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -691,7 +691,7 @@
 
     return p1
 
-    :cond_1
+    :cond_31
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     iget-wide v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
@@ -710,13 +710,13 @@
 .end method
 
 .method public synthetic compareAndSet([IIII)Z
-    .locals 10
+    .registers 15
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -742,7 +742,7 @@
 
     return p1
 
-    :cond_0
+    :cond_19
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -751,7 +751,7 @@
 .end method
 
 .method public synthetic compareAndSet([JIJJ)Z
-    .locals 13
+    .registers 20
 
     move-object v0, p0
 
@@ -759,7 +759,7 @@
 
     const-class v2, [J
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1d
 
     iget-wide v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -787,7 +787,7 @@
 
     return v1
 
-    :cond_0
+    :cond_1d
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -796,7 +796,7 @@
 .end method
 
 .method public synthetic desugarWrongMethodTypeException()Ljava/lang/RuntimeException;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -808,13 +808,13 @@
 .end method
 
 .method public synthetic get(Ljava/lang/Object;)I
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -826,12 +826,12 @@
 
     return p1
 
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_23
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -849,7 +849,7 @@
 
     return p1
 
-    :cond_1
+    :cond_23
     invoke-virtual {p0}, Lj$/com/android/tools/r8/DesugarVarHandle;->desugarWrongMethodTypeException()Ljava/lang/RuntimeException;
 
     move-result-object p1
@@ -858,13 +858,13 @@
 .end method
 
 .method public synthetic get([II)I
-    .locals 6
+    .registers 9
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -884,7 +884,7 @@
 
     return p1
 
-    :cond_0
+    :cond_15
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -893,13 +893,13 @@
 .end method
 
 .method public synthetic get(Ljava/lang/Object;)J
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -911,12 +911,12 @@
 
     return-wide v0
 
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1f
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -930,7 +930,7 @@
 
     return-wide v0
 
-    :cond_1
+    :cond_1f
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     iget-wide v1, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
@@ -949,13 +949,13 @@
 .end method
 
 .method public synthetic get([JI)J
-    .locals 6
+    .registers 9
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [J
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -975,7 +975,7 @@
 
     return-wide p1
 
-    :cond_0
+    :cond_15
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -984,13 +984,13 @@
 .end method
 
 .method public synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1006,12 +1006,12 @@
 
     return-object p1
 
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_26
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1027,7 +1027,7 @@
 
     return-object p1
 
-    :cond_1
+    :cond_26
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     iget-wide v1, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
@@ -1040,7 +1040,7 @@
 .end method
 
 .method public synthetic get(Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 6
+    .registers 9
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -1048,7 +1048,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -1056,7 +1056,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_42
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -1072,7 +1072,7 @@
 
     sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v2, :cond_0
+    if-ne p2, v2, :cond_29
 
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1086,12 +1086,12 @@
 
     return-object p1
 
-    :cond_0
+    :cond_29
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v2, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v2, :cond_1
+    if-ne p2, v2, :cond_3b
 
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1107,7 +1107,7 @@
 
     return-object p1
 
-    :cond_1
+    :cond_3b
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     invoke-virtual {p2, p1, v0, v1}, Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object;
@@ -1116,7 +1116,7 @@
 
     return-object p1
 
-    :cond_2
+    :cond_42
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -1125,7 +1125,7 @@
 .end method
 
 .method public synthetic get(Ljava/lang/Object;ILjava/lang/Class;)Ljava/lang/Object;
-    .locals 6
+    .registers 10
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -1133,7 +1133,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_66
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -1141,7 +1141,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_66
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -1157,7 +1157,7 @@
 
     sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v2, :cond_0
+    if-ne p2, v2, :cond_29
 
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1171,12 +1171,12 @@
 
     return-object p1
 
-    :cond_0
+    :cond_29
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v2, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v2, :cond_1
+    if-ne p2, v2, :cond_3a
 
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1190,7 +1190,7 @@
 
     return-object p1
 
-    :cond_1
+    :cond_3a
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     invoke-virtual {p2, p1, v0, v1}, Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object;
@@ -1199,11 +1199,11 @@
 
     instance-of p2, p1, Ljava/lang/Integer;
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_53
 
     const-class p2, Ljava/lang/Integer;
 
-    if-eq p3, p2, :cond_2
+    if-eq p3, p2, :cond_53
 
     check-cast p1, Ljava/lang/Integer;
 
@@ -1217,14 +1217,14 @@
 
     return-object p1
 
-    :cond_2
+    :cond_53
     instance-of p2, p1, Ljava/lang/Long;
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_65
 
     const-class p2, Ljava/lang/Long;
 
-    if-eq p3, p2, :cond_3
+    if-eq p3, p2, :cond_65
 
     check-cast p1, Ljava/lang/Long;
 
@@ -1236,10 +1236,10 @@
 
     move-result-object p1
 
-    :cond_3
+    :cond_65
     return-object p1
 
-    :cond_4
+    :cond_66
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -1248,13 +1248,13 @@
 .end method
 
 .method public synthetic get(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1270,12 +1270,12 @@
 
     return-object p1
 
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_26
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1291,7 +1291,7 @@
 
     return-object p1
 
-    :cond_1
+    :cond_26
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
@@ -1304,7 +1304,7 @@
 .end method
 
 .method public synthetic getUnsafeField()Ljava/lang/reflect/Field;
-    .locals 7
+    .registers 8
 
     :try_start_0
     const-class v0, Lsun/misc/Unsafe;
@@ -1314,12 +1314,12 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
-    :catch_0
+    :catch_9
     move-exception v0
 
     const-class v1, Lsun/misc/Unsafe;
@@ -1332,8 +1332,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_12
+    if-ge v3, v2, :cond_30
 
     aget-object v4, v1, v3
 
@@ -1345,7 +1345,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2d
 
     const-class v5, Lsun/misc/Unsafe;
 
@@ -1357,16 +1357,16 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2d
 
     return-object v4
 
-    :cond_0
+    :cond_2d
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_1
+    :cond_30
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     const-string v2, "Couldn\'t find the Unsafe"
@@ -1377,13 +1377,13 @@
 .end method
 
 .method public synthetic getVolatile(Ljava/lang/Object;)I
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1395,12 +1395,12 @@
 
     return p1
 
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_23
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1418,7 +1418,7 @@
 
     return p1
 
-    :cond_1
+    :cond_23
     invoke-virtual {p0}, Lj$/com/android/tools/r8/DesugarVarHandle;->desugarWrongMethodTypeException()Ljava/lang/RuntimeException;
 
     move-result-object p1
@@ -1427,13 +1427,13 @@
 .end method
 
 .method public synthetic getVolatile([II)I
-    .locals 6
+    .registers 9
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -1453,7 +1453,7 @@
 
     return p1
 
-    :cond_0
+    :cond_15
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -1462,13 +1462,13 @@
 .end method
 
 .method public synthetic getVolatile(Ljava/lang/Object;)J
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1480,12 +1480,12 @@
 
     return-wide v0
 
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1f
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1499,7 +1499,7 @@
 
     return-wide v0
 
-    :cond_1
+    :cond_1f
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     iget-wide v1, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
@@ -1518,13 +1518,13 @@
 .end method
 
 .method public synthetic getVolatile([JI)J
-    .locals 6
+    .registers 9
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [J
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -1544,7 +1544,7 @@
 
     return-wide p1
 
-    :cond_0
+    :cond_15
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -1553,13 +1553,13 @@
 .end method
 
 .method public synthetic getVolatile(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1575,12 +1575,12 @@
 
     return-object p1
 
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_26
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1596,7 +1596,7 @@
 
     return-object p1
 
-    :cond_1
+    :cond_26
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     iget-wide v1, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
@@ -1609,7 +1609,7 @@
 .end method
 
 .method public synthetic getVolatile(Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 6
+    .registers 9
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -1617,7 +1617,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -1625,7 +1625,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_42
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -1641,7 +1641,7 @@
 
     sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v2, :cond_0
+    if-ne p2, v2, :cond_29
 
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1655,12 +1655,12 @@
 
     return-object p1
 
-    :cond_0
+    :cond_29
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v2, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v2, :cond_1
+    if-ne p2, v2, :cond_3b
 
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1676,7 +1676,7 @@
 
     return-object p1
 
-    :cond_1
+    :cond_3b
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     invoke-virtual {p2, p1, v0, v1}, Lsun/misc/Unsafe;->getObjectVolatile(Ljava/lang/Object;J)Ljava/lang/Object;
@@ -1685,7 +1685,7 @@
 
     return-object p1
 
-    :cond_2
+    :cond_42
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -1694,7 +1694,7 @@
 .end method
 
 .method public synthetic getVolatile(Ljava/lang/Object;ILjava/lang/Class;)Ljava/lang/Object;
-    .locals 6
+    .registers 10
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -1702,7 +1702,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_66
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -1710,7 +1710,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_66
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -1726,7 +1726,7 @@
 
     sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v2, :cond_0
+    if-ne p2, v2, :cond_29
 
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1740,12 +1740,12 @@
 
     return-object p1
 
-    :cond_0
+    :cond_29
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v2, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v2, :cond_1
+    if-ne p2, v2, :cond_3a
 
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1759,7 +1759,7 @@
 
     return-object p1
 
-    :cond_1
+    :cond_3a
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     invoke-virtual {p2, p1, v0, v1}, Lsun/misc/Unsafe;->getObjectVolatile(Ljava/lang/Object;J)Ljava/lang/Object;
@@ -1768,11 +1768,11 @@
 
     instance-of p2, p1, Ljava/lang/Integer;
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_53
 
     const-class p2, Ljava/lang/Integer;
 
-    if-eq p3, p2, :cond_2
+    if-eq p3, p2, :cond_53
 
     check-cast p1, Ljava/lang/Integer;
 
@@ -1786,14 +1786,14 @@
 
     return-object p1
 
-    :cond_2
+    :cond_53
     instance-of p2, p1, Ljava/lang/Long;
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_65
 
     const-class p2, Ljava/lang/Long;
 
-    if-eq p3, p2, :cond_3
+    if-eq p3, p2, :cond_65
 
     check-cast p1, Ljava/lang/Long;
 
@@ -1805,10 +1805,10 @@
 
     move-result-object p1
 
-    :cond_3
+    :cond_65
     return-object p1
 
-    :cond_4
+    :cond_66
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -1817,13 +1817,13 @@
 .end method
 
 .method public synthetic getVolatile(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1839,12 +1839,12 @@
 
     return-object p1
 
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_26
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1860,7 +1860,7 @@
 
     return-object p1
 
-    :cond_1
+    :cond_26
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
@@ -1873,13 +1873,13 @@
 .end method
 
 .method public synthetic set(Ljava/lang/Object;I)V
-    .locals 8
+    .registers 11
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1887,14 +1887,14 @@
 
     invoke-virtual {v0, p1, v1, v2, p2}, Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1e
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1906,21 +1906,21 @@
 
     invoke-virtual/range {v2 .. v7}, Lsun/misc/Unsafe;->putLong(Ljava/lang/Object;JJ)V
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
+    :cond_1e
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p2
 
     invoke-virtual {p0, p1, p2}, Lj$/com/android/tools/r8/DesugarVarHandle;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method public synthetic set(Ljava/lang/Object;ILjava/lang/Object;)V
-    .locals 10
+    .registers 14
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -1928,7 +1928,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_41
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -1936,7 +1936,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_41
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -1954,7 +1954,7 @@
 
     const/4 v1, 0x0
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_2a
 
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1964,14 +1964,14 @@
 
     invoke-virtual {p2, p1, v6, v7, p3}, Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_0
+    :cond_2a
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v0, [J
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_3b
 
     iget-object v4, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -1983,17 +1983,17 @@
 
     invoke-virtual/range {v4 .. v9}, Lsun/misc/Unsafe;->putLong(Ljava/lang/Object;JJ)V
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_1
+    :cond_3b
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     invoke-virtual {p2, p1, v6, v7, p3}, Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    :goto_0
+    :goto_40
     return-void
 
-    :cond_2
+    :cond_41
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -2002,13 +2002,13 @@
 .end method
 
 .method public synthetic set(Ljava/lang/Object;J)V
-    .locals 8
+    .registers 12
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2020,14 +2020,14 @@
 
     invoke-virtual/range {v2 .. v7}, Lsun/misc/Unsafe;->putLong(Ljava/lang/Object;JJ)V
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_22
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2039,10 +2039,10 @@
 
     invoke-virtual {v0, p1, v1, v2, p2}, Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    :goto_0
+    :goto_21
     return-void
 
-    :cond_1
+    :cond_22
     invoke-virtual {p0}, Lj$/com/android/tools/r8/DesugarVarHandle;->desugarWrongMethodTypeException()Ljava/lang/RuntimeException;
 
     move-result-object p1
@@ -2051,7 +2051,7 @@
 .end method
 
 .method public synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
@@ -2059,7 +2059,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     invoke-virtual {p0, p2, v2}, Lj$/com/android/tools/r8/DesugarVarHandle;->toIntIfPossible(Ljava/lang/Object;Z)I
 
@@ -2067,14 +2067,14 @@
 
     invoke-virtual {p0, p1, p2}, Lj$/com/android/tools/r8/DesugarVarHandle;->set(Ljava/lang/Object;I)V
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1d
 
     invoke-virtual {p0, p2, v2}, Lj$/com/android/tools/r8/DesugarVarHandle;->toLongIfPossible(Ljava/lang/Object;Z)J
 
@@ -2082,27 +2082,27 @@
 
     invoke-virtual {p0, p1, v0, v1}, Lj$/com/android/tools/r8/DesugarVarHandle;->set(Ljava/lang/Object;J)V
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_1d
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     iget-wide v1, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
     invoke-virtual {v0, p1, v1, v2, p2}, Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    :goto_0
+    :goto_24
     return-void
 .end method
 
 .method public synthetic set([III)V
-    .locals 6
+    .registers 10
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -2120,7 +2120,7 @@
 
     return-void
 
-    :cond_0
+    :cond_14
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -2129,13 +2129,13 @@
 .end method
 
 .method public synthetic set([JIJ)V
-    .locals 10
+    .registers 15
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [J
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -2157,7 +2157,7 @@
 
     return-void
 
-    :cond_0
+    :cond_17
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -2166,13 +2166,13 @@
 .end method
 
 .method public synthetic setRelease(Ljava/lang/Object;I)V
-    .locals 8
+    .registers 11
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2180,14 +2180,14 @@
 
     invoke-virtual {v0, p1, v1, v2, p2}, Lsun/misc/Unsafe;->putOrderedInt(Ljava/lang/Object;JI)V
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1e
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2199,21 +2199,21 @@
 
     invoke-virtual/range {v2 .. v7}, Lsun/misc/Unsafe;->putOrderedLong(Ljava/lang/Object;JJ)V
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
+    :cond_1e
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p2
 
     invoke-virtual {p0, p1, p2}, Lj$/com/android/tools/r8/DesugarVarHandle;->setRelease(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method public synthetic setRelease(Ljava/lang/Object;ILjava/lang/Object;)V
-    .locals 10
+    .registers 14
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -2221,7 +2221,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_41
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -2229,7 +2229,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_41
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -2247,7 +2247,7 @@
 
     const/4 v1, 0x0
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_2a
 
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2257,14 +2257,14 @@
 
     invoke-virtual {p2, p1, v6, v7, p3}, Lsun/misc/Unsafe;->putOrderedInt(Ljava/lang/Object;JI)V
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_0
+    :cond_2a
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v0, [J
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_3b
 
     iget-object v4, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2276,17 +2276,17 @@
 
     invoke-virtual/range {v4 .. v9}, Lsun/misc/Unsafe;->putOrderedLong(Ljava/lang/Object;JJ)V
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_1
+    :cond_3b
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     invoke-virtual {p2, p1, v6, v7, p3}, Lsun/misc/Unsafe;->putOrderedObject(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    :goto_0
+    :goto_40
     return-void
 
-    :cond_2
+    :cond_41
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -2295,13 +2295,13 @@
 .end method
 
 .method public synthetic setRelease(Ljava/lang/Object;J)V
-    .locals 8
+    .registers 12
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2313,14 +2313,14 @@
 
     invoke-virtual/range {v2 .. v7}, Lsun/misc/Unsafe;->putOrderedLong(Ljava/lang/Object;JJ)V
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_22
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2332,10 +2332,10 @@
 
     invoke-virtual {v0, p1, v1, v2, p2}, Lsun/misc/Unsafe;->putOrderedObject(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    :goto_0
+    :goto_21
     return-void
 
-    :cond_1
+    :cond_22
     invoke-virtual {p0}, Lj$/com/android/tools/r8/DesugarVarHandle;->desugarWrongMethodTypeException()Ljava/lang/RuntimeException;
 
     move-result-object p1
@@ -2344,7 +2344,7 @@
 .end method
 
 .method public synthetic setRelease(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
@@ -2352,7 +2352,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     invoke-virtual {p0, p2, v2}, Lj$/com/android/tools/r8/DesugarVarHandle;->toIntIfPossible(Ljava/lang/Object;Z)I
 
@@ -2360,14 +2360,14 @@
 
     invoke-virtual {p0, p1, p2}, Lj$/com/android/tools/r8/DesugarVarHandle;->setRelease(Ljava/lang/Object;I)V
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1d
 
     invoke-virtual {p0, p2, v2}, Lj$/com/android/tools/r8/DesugarVarHandle;->toLongIfPossible(Ljava/lang/Object;Z)J
 
@@ -2375,27 +2375,27 @@
 
     invoke-virtual {p0, p1, v0, v1}, Lj$/com/android/tools/r8/DesugarVarHandle;->setRelease(Ljava/lang/Object;J)V
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_1d
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     iget-wide v1, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
     invoke-virtual {v0, p1, v1, v2, p2}, Lsun/misc/Unsafe;->putOrderedObject(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    :goto_0
+    :goto_24
     return-void
 .end method
 
 .method public synthetic setRelease([III)V
-    .locals 6
+    .registers 10
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -2413,7 +2413,7 @@
 
     return-void
 
-    :cond_0
+    :cond_14
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -2422,13 +2422,13 @@
 .end method
 
 .method public synthetic setRelease([JIJ)V
-    .locals 10
+    .registers 15
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [J
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -2450,7 +2450,7 @@
 
     return-void
 
-    :cond_0
+    :cond_17
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -2459,13 +2459,13 @@
 .end method
 
 .method public synthetic setVolatile(Ljava/lang/Object;I)V
-    .locals 8
+    .registers 11
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2473,14 +2473,14 @@
 
     invoke-virtual {v0, p1, v1, v2, p2}, Lsun/misc/Unsafe;->putIntVolatile(Ljava/lang/Object;JI)V
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1e
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2492,21 +2492,21 @@
 
     invoke-virtual/range {v2 .. v7}, Lsun/misc/Unsafe;->putLongVolatile(Ljava/lang/Object;JJ)V
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
+    :cond_1e
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p2
 
     invoke-virtual {p0, p1, p2}, Lj$/com/android/tools/r8/DesugarVarHandle;->setVolatile(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method public synthetic setVolatile(Ljava/lang/Object;ILjava/lang/Object;)V
-    .locals 10
+    .registers 14
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -2514,7 +2514,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_41
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -2522,7 +2522,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_41
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -2540,7 +2540,7 @@
 
     const/4 v1, 0x0
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_2a
 
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2550,14 +2550,14 @@
 
     invoke-virtual {p2, p1, v6, v7, p3}, Lsun/misc/Unsafe;->putIntVolatile(Ljava/lang/Object;JI)V
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_0
+    :cond_2a
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v0, [J
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_3b
 
     iget-object v4, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2569,17 +2569,17 @@
 
     invoke-virtual/range {v4 .. v9}, Lsun/misc/Unsafe;->putLongVolatile(Ljava/lang/Object;JJ)V
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_1
+    :cond_3b
     iget-object p2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     invoke-virtual {p2, p1, v6, v7, p3}, Lsun/misc/Unsafe;->putObjectVolatile(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    :goto_0
+    :goto_40
     return-void
 
-    :cond_2
+    :cond_41
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -2588,13 +2588,13 @@
 .end method
 
 .method public synthetic setVolatile(Ljava/lang/Object;J)V
-    .locals 8
+    .registers 12
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2606,14 +2606,14 @@
 
     invoke-virtual/range {v2 .. v7}, Lsun/misc/Unsafe;->putLongVolatile(Ljava/lang/Object;JJ)V
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_22
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2625,10 +2625,10 @@
 
     invoke-virtual {v0, p1, v1, v2, p2}, Lsun/misc/Unsafe;->putObjectVolatile(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    :goto_0
+    :goto_21
     return-void
 
-    :cond_1
+    :cond_22
     invoke-virtual {p0}, Lj$/com/android/tools/r8/DesugarVarHandle;->desugarWrongMethodTypeException()Ljava/lang/RuntimeException;
 
     move-result-object p1
@@ -2637,7 +2637,7 @@
 .end method
 
 .method public synthetic setVolatile(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
@@ -2645,7 +2645,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     invoke-virtual {p0, p2, v2}, Lj$/com/android/tools/r8/DesugarVarHandle;->toIntIfPossible(Ljava/lang/Object;Z)I
 
@@ -2653,14 +2653,14 @@
 
     invoke-virtual {p0, p1, p2}, Lj$/com/android/tools/r8/DesugarVarHandle;->setVolatile(Ljava/lang/Object;I)V
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1d
 
     invoke-virtual {p0, p2, v2}, Lj$/com/android/tools/r8/DesugarVarHandle;->toLongIfPossible(Ljava/lang/Object;Z)J
 
@@ -2668,27 +2668,27 @@
 
     invoke-virtual {p0, p1, v0, v1}, Lj$/com/android/tools/r8/DesugarVarHandle;->setVolatile(Ljava/lang/Object;J)V
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_1d
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     iget-wide v1, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
     invoke-virtual {v0, p1, v1, v2, p2}, Lsun/misc/Unsafe;->putObjectVolatile(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    :goto_0
+    :goto_24
     return-void
 .end method
 
 .method public synthetic setVolatile([III)V
-    .locals 6
+    .registers 10
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -2706,7 +2706,7 @@
 
     return-void
 
-    :cond_0
+    :cond_14
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -2715,13 +2715,13 @@
 .end method
 
 .method public synthetic setVolatile([JIJ)V
-    .locals 10
+    .registers 15
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [J
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -2743,7 +2743,7 @@
 
     return-void
 
-    :cond_0
+    :cond_17
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -2752,11 +2752,11 @@
 .end method
 
 .method public synthetic toIntIfPossible(Ljava/lang/Object;Z)I
-    .locals 1
+    .registers 4
 
     instance-of v0, p1, Ljava/lang/Integer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p1, Ljava/lang/Integer;
 
@@ -2766,10 +2766,10 @@
 
     return p1
 
-    :cond_0
+    :cond_b
     instance-of v0, p1, Ljava/lang/Byte;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     check-cast p1, Ljava/lang/Byte;
 
@@ -2779,10 +2779,10 @@
 
     return p1
 
-    :cond_1
+    :cond_16
     instance-of v0, p1, Ljava/lang/Character;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     check-cast p1, Ljava/lang/Character;
 
@@ -2792,10 +2792,10 @@
 
     return p1
 
-    :cond_2
+    :cond_21
     instance-of v0, p1, Ljava/lang/Short;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2c
 
     check-cast p1, Ljava/lang/Short;
 
@@ -2805,8 +2805,8 @@
 
     return p1
 
-    :cond_3
-    if-eqz p2, :cond_4
+    :cond_2c
+    if-eqz p2, :cond_34
 
     new-instance p1, Ljava/lang/ClassCastException;
 
@@ -2814,7 +2814,7 @@
 
     throw p1
 
-    :cond_4
+    :cond_34
     invoke-virtual {p0}, Lj$/com/android/tools/r8/DesugarVarHandle;->desugarWrongMethodTypeException()Ljava/lang/RuntimeException;
 
     move-result-object p1
@@ -2823,11 +2823,11 @@
 .end method
 
 .method public synthetic toLongIfPossible(Ljava/lang/Object;Z)J
-    .locals 1
+    .registers 4
 
     instance-of v0, p1, Ljava/lang/Long;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p1, Ljava/lang/Long;
 
@@ -2837,7 +2837,7 @@
 
     return-wide p1
 
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1, p2}, Lj$/com/android/tools/r8/DesugarVarHandle;->toIntIfPossible(Ljava/lang/Object;Z)I
 
     move-result p1
@@ -2848,13 +2848,13 @@
 .end method
 
 .method public synthetic weakCompareAndSet(Ljava/lang/Object;II)Z
-    .locals 10
+    .registers 14
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2872,12 +2872,12 @@
 
     return p1
 
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_24
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2895,7 +2895,7 @@
 
     return p1
 
-    :cond_1
+    :cond_24
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p2
@@ -2912,7 +2912,7 @@
 .end method
 
 .method public synthetic weakCompareAndSet(Ljava/lang/Object;ILjava/lang/Object;Ljava/lang/Object;)Z
-    .locals 13
+    .registers 18
 
     move-object v0, p0
 
@@ -2926,7 +2926,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5b
 
     iget-object v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
@@ -2934,7 +2934,7 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_5b
 
     iget-wide v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -2954,7 +2954,7 @@
 
     const/4 v3, 0x0
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_37
 
     iget-object v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -2976,12 +2976,12 @@
 
     return v1
 
-    :cond_0
+    :cond_37
     iget-object v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v2, [J
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_4e
 
     iget-object v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -3003,7 +3003,7 @@
 
     return v1
 
-    :cond_1
+    :cond_4e
     iget-object v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     move-object v2, p1
@@ -3020,7 +3020,7 @@
 
     return v1
 
-    :cond_2
+    :cond_5b
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -3029,13 +3029,13 @@
 .end method
 
 .method public synthetic weakCompareAndSet(Ljava/lang/Object;JJ)Z
-    .locals 10
+    .registers 16
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     iget-object v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -3053,7 +3053,7 @@
 
     return p1
 
-    :cond_0
+    :cond_12
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p2
@@ -3070,7 +3070,7 @@
 .end method
 
 .method public synthetic weakCompareAndSet(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 11
+    .registers 15
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
@@ -3078,7 +3078,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     iget-object v3, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -3100,12 +3100,12 @@
 
     return p1
 
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->type:Ljava/lang/Class;
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_31
 
     iget-object v3, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
@@ -3127,7 +3127,7 @@
 
     return p1
 
-    :cond_1
+    :cond_31
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->U:Lsun/misc/Unsafe;
 
     iget-wide v2, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
@@ -3146,13 +3146,13 @@
 .end method
 
 .method public synthetic weakCompareAndSet([IIII)Z
-    .locals 10
+    .registers 15
 
     iget-object v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->recv:Ljava/lang/Class;
 
     const-class v1, [I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     iget-wide v0, p0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -3178,7 +3178,7 @@
 
     return p1
 
-    :cond_0
+    :cond_19
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -3187,7 +3187,7 @@
 .end method
 
 .method public synthetic weakCompareAndSet([JIJJ)Z
-    .locals 13
+    .registers 20
 
     move-object v0, p0
 
@@ -3195,7 +3195,7 @@
 
     const-class v2, [J
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1d
 
     iget-wide v1, v0, Lj$/com/android/tools/r8/DesugarVarHandle;->offset:J
 
@@ -3223,7 +3223,7 @@
 
     return v1
 
-    :cond_0
+    :cond_1d
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v1}, Ljava/lang/UnsupportedOperationException;-><init>()V

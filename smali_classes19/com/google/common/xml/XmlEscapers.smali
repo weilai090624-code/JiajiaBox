@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 108
     invoke-static {}, Lcom/google/common/escape/Escapers;->builder()Lcom/google/common/escape/Escapers$Builder;
@@ -46,7 +46,7 @@
     const/4 v2, 0x0
 
     .local v2, "c":C
-    :goto_0
+    :goto_11
     const/16 v3, 0x1f
 
     const/16 v4, 0xd
@@ -55,29 +55,29 @@
 
     const/16 v6, 0x9
 
-    if-gt v2, v3, :cond_1
+    if-gt v2, v3, :cond_28
 
     .line 126
-    if-eq v2, v6, :cond_0
+    if-eq v2, v6, :cond_24
 
-    if-eq v2, v5, :cond_0
+    if-eq v2, v5, :cond_24
 
-    if-eq v2, v4, :cond_0
+    if-eq v2, v4, :cond_24
 
     .line 127
     invoke-virtual {v0, v2, v1}, Lcom/google/common/escape/Escapers$Builder;->addEscape(CLjava/lang/String;)Lcom/google/common/escape/Escapers$Builder;
 
     .line 125
-    :cond_0
+    :cond_24
     add-int/lit8 v3, v2, 0x1
 
     int-to-char v2, v3
 
-    goto :goto_0
+    goto :goto_11
 
     .line 133
     .end local v2    # "c":C
-    :cond_1
+    :cond_28
     const/16 v1, 0x26
 
     const-string v2, "&amp;"
@@ -154,7 +154,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -163,7 +163,7 @@
 .end method
 
 .method public static xmlAttributeEscaper()Lcom/google/common/escape/Escaper;
-    .locals 1
+    .registers 1
 
     .line 100
     sget-object v0, Lcom/google/common/xml/XmlEscapers;->XML_ATTRIBUTE_ESCAPER:Lcom/google/common/escape/Escaper;
@@ -172,7 +172,7 @@
 .end method
 
 .method public static xmlContentEscaper()Lcom/google/common/escape/Escaper;
-    .locals 1
+    .registers 1
 
     .line 76
     sget-object v0, Lcom/google/common/xml/XmlEscapers;->XML_CONTENT_ESCAPER:Lcom/google/common/escape/Escaper;

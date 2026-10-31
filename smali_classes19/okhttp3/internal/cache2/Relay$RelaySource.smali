@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/cache2/Relay;)V
-    .locals 3
+    .registers 5
     .param p1, "this$0"    # Lokhttp3/internal/cache2/Relay;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -128,12 +128,12 @@
     .line 276
     iget-object v0, p0, Lokhttp3/internal/cache2/Relay$RelaySource;->fileOperator:Lokhttp3/internal/cache2/FileOperator;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 277
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     iput-object v0, p0, Lokhttp3/internal/cache2/Relay$RelaySource;->fileOperator:Lokhttp3/internal/cache2/FileOperator;
@@ -153,7 +153,7 @@
 
     .line 281
     .local v4, "$i$a$-synchronized-Relay$RelaySource$close$1":I
-    :try_start_0
+    :try_start_f
     invoke-virtual {v3}, Lokhttp3/internal/cache2/Relay;->getSourceCount()I
 
     move-result v5
@@ -167,7 +167,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_26
 
     .line 283
     invoke-virtual {v3}, Lokhttp3/internal/cache2/Relay;->getFile()Ljava/io/RandomAccessFile;
@@ -180,23 +180,23 @@
     invoke-virtual {v3, v0}, Lokhttp3/internal/cache2/Relay;->setFile(Ljava/io/RandomAccessFile;)V
 
     .line 286
-    :cond_1
+    :cond_26
     nop
 
     .end local v4    # "$i$a$-synchronized-Relay$RelaySource$close$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_f .. :try_end_29} :catchall_34
 
     .line 280
     monitor-exit v2
 
     .line 288
-    if-nez v1, :cond_2
+    if-nez v1, :cond_2d
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_2
+    :cond_2d
     move-object v0, v1
 
     check-cast v0, Ljava/io/Closeable;
@@ -204,11 +204,11 @@
     invoke-static {v0}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 289
-    :goto_0
+    :goto_33
     return-void
 
     .line 280
-    :catchall_0
+    :catchall_34
     move-exception v0
 
     monitor-exit v2
@@ -217,7 +217,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 25
+    .registers 29
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -241,17 +241,17 @@
 
     const/4 v4, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_8
+    :goto_13
+    if-eqz v0, :cond_1b5
 
     .line 190
     iget-object v11, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
@@ -266,11 +266,11 @@
 
     .line 192
     .local v12, "$i$a$-synchronized-Relay$RelaySource$read$source$1":I
-    :goto_1
+    :goto_1c
     nop
 
     .line 193
-    :try_start_0
+    :try_start_1d
     invoke-virtual {v0}, Lokhttp3/internal/cache2/Relay;->getUpstreamPos()J
 
     move-result-wide v5
@@ -285,7 +285,7 @@
 
     cmp-long v15, v7, v5
 
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_62
 
     .line 210
     .end local v5    # "upstreamPos":J
@@ -309,15 +309,15 @@
 
     cmp-long v6, v4, v15
 
-    if-gez v6, :cond_1
+    if-gez v6, :cond_40
 
     .line 214
     const/4 v4, 0x2
 
-    goto :goto_2
+    goto :goto_7e
 
     .line 218
-    :cond_1
+    :cond_40
     invoke-virtual {v0}, Lokhttp3/internal/cache2/Relay;->getUpstreamPos()J
 
     move-result-wide v4
@@ -354,8 +354,8 @@
     add-long/2addr v4, v13
 
     iput-wide v4, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->sourcePos:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_7
+    :try_end_5f
+    .catchall {:try_start_1d .. :try_end_5f} :catchall_1b2
 
     .line 221
     nop
@@ -370,15 +370,15 @@
     .line 197
     .restart local v5    # "upstreamPos":J
     .restart local v12    # "$i$a$-synchronized-Relay$RelaySource$read$source$1":I
-    :cond_2
-    :try_start_1
+    :cond_62
+    :try_start_62
     invoke-virtual {v0}, Lokhttp3/internal/cache2/Relay;->getComplete()Z
 
     move-result v7
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_7
+    :try_end_66
+    .catchall {:try_start_62 .. :try_end_66} :catchall_1b2
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_6a
 
     .end local v5    # "upstreamPos":J
     .end local v12    # "$i$a$-synchronized-Relay$RelaySource$read$source$1":I
@@ -389,13 +389,13 @@
     .line 200
     .restart local v5    # "upstreamPos":J
     .restart local v12    # "$i$a$-synchronized-Relay$RelaySource$read$source$1":I
-    :cond_3
-    :try_start_2
+    :cond_6a
+    :try_start_6a
     invoke-virtual {v0}, Lokhttp3/internal/cache2/Relay;->getUpstreamReader()Ljava/lang/Thread;
 
     move-result-object v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_76
 
     .line 201
     iget-object v7, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->timeout:Lokio/Timeout;
@@ -403,17 +403,17 @@
     invoke-virtual {v7, v0}, Lokio/Timeout;->waitUntilNotified(Ljava/lang/Object;)V
 
     .line 202
-    goto :goto_1
+    goto :goto_1c
 
     .line 206
-    :cond_4
+    :cond_76
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v7
 
     invoke-virtual {v0, v7}, Lokhttp3/internal/cache2/Relay;->setUpstreamReader(Ljava/lang/Thread;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_7
+    :try_end_7d
+    .catchall {:try_start_6a .. :try_end_7d} :catchall_1b2
 
     .line 207
     nop
@@ -421,7 +421,7 @@
     .line 190
     .end local v5    # "upstreamPos":J
     .end local v12    # "$i$a$-synchronized-Relay$RelaySource$read$source$1":I
-    :goto_2
+    :goto_7e
     monitor-exit v11
 
     move v11, v4
@@ -430,7 +430,7 @@
     .local v11, "source":I
     const-wide/16 v15, 0x20
 
-    if-ne v11, v9, :cond_5
+    if-ne v11, v9, :cond_a5
 
     .line 226
     iget-object v0, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
@@ -475,13 +475,13 @@
 
     .line 234
     .end local v12    # "bytesToRead":J
-    :cond_5
+    :cond_a5
     nop
 
     .line 235
     const/4 v12, 0x0
 
-    :try_start_3
+    :try_start_a7
     iget-object v0, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
 
     invoke-virtual {v0}, Lokhttp3/internal/cache2/Relay;->getUpstream()Lokio/Source;
@@ -512,7 +512,7 @@
     .local v8, "upstreamBytesRead":J
     cmp-long v0, v8, v13
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_eb
 
     .line 239
     iget-object v0, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
@@ -524,8 +524,8 @@
     move-result-wide v4
 
     invoke-virtual {v0, v4, v5}, Lokhttp3/internal/cache2/Relay;->commit(J)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_5
+    :try_end_d0
+    .catchall {:try_start_a7 .. :try_end_d0} :catchall_197
 
     .line 240
     nop
@@ -542,7 +542,7 @@
 
     .line 266
     .local v5, "$i$a$-synchronized-Relay$RelaySource$read$2":I
-    :try_start_4
+    :try_start_d7
     invoke-virtual {v0, v12}, Lokhttp3/internal/cache2/Relay;->setUpstreamReader(Ljava/lang/Thread;)V
 
     .line 267
@@ -566,8 +566,8 @@
 
     .end local v5    # "$i$a$-synchronized-Relay$RelaySource$read$2":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_e5
+    .catchall {:try_start_d7 .. :try_end_e5} :catchall_e8
 
     .line 265
     monitor-exit v4
@@ -580,7 +580,7 @@
 
     .line 265
     .end local v4    # "upstreamBytesRead":J
-    :catchall_0
+    :catchall_e8
     move-exception v0
 
     monitor-exit v4
@@ -589,8 +589,8 @@
 
     .line 244
     .restart local v8    # "upstreamBytesRead":J
-    :cond_6
-    :try_start_5
+    :cond_eb
+    :try_start_eb
     invoke-static {v8, v9, v2, v3}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v4
@@ -661,14 +661,14 @@
     iget-object v0, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
 
     monitor-enter v4
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_5
+    :try_end_128
+    .catchall {:try_start_eb .. :try_end_128} :catchall_197
 
     const/4 v5, 0x0
 
     .line 254
     .local v5, "$i$a$-synchronized-Relay$RelaySource$read$1":I
-    :try_start_6
+    :try_start_129
     invoke-virtual {v0}, Lokhttp3/internal/cache2/Relay;->getBuffer()Lokio/Buffer;
 
     move-result-object v6
@@ -676,14 +676,14 @@
     invoke-virtual {v0}, Lokhttp3/internal/cache2/Relay;->getUpstreamBuffer()Lokio/Buffer;
 
     move-result-object v7
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_4
+    :try_end_131
+    .catchall {:try_start_129 .. :try_end_131} :catchall_190
 
     move-wide/from16 v8, v23
 
     .end local v23    # "upstreamBytesRead":J
     .restart local v8    # "upstreamBytesRead":J
-    :try_start_7
+    :try_start_133
     invoke-virtual {v6, v7, v8, v9}, Lokio/Buffer;->write(Lokio/Buffer;J)V
 
     .line 255
@@ -701,7 +701,7 @@
 
     cmp-long v17, v6, v15
 
-    if-lez v17, :cond_7
+    if-lez v17, :cond_15e
 
     .line 256
     invoke-virtual {v0}, Lokhttp3/internal/cache2/Relay;->getBuffer()Lokio/Buffer;
@@ -719,8 +719,8 @@
     invoke-virtual {v0}, Lokhttp3/internal/cache2/Relay;->getBufferMaxSize()J
 
     move-result-wide v17
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_3
+    :try_end_156
+    .catchall {:try_start_133 .. :try_end_156} :catchall_18c
 
     move-wide/from16 v19, v13
 
@@ -728,21 +728,21 @@
     .local v19, "bytesRead":J
     sub-long v12, v15, v17
 
-    :try_start_8
+    :try_start_15a
     invoke-virtual {v6, v12, v13}, Lokio/Buffer;->skip(J)V
 
-    goto :goto_3
+    goto :goto_160
 
     .line 255
     .end local v19    # "bytesRead":J
     .restart local v13    # "bytesRead":J
-    :cond_7
+    :cond_15e
     move-wide/from16 v19, v13
 
     .line 260
     .end local v13    # "bytesRead":J
     .restart local v19    # "bytesRead":J
-    :goto_3
+    :goto_160
     invoke-virtual {v0}, Lokhttp3/internal/cache2/Relay;->getUpstreamPos()J
 
     move-result-wide v12
@@ -756,14 +756,14 @@
 
     .end local v5    # "$i$a$-synchronized-Relay$RelaySource$read$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_2
+    :try_end_16b
+    .catchall {:try_start_15a .. :try_end_16b} :catchall_18a
 
     .line 252
-    :try_start_9
+    :try_start_16b
     monitor-exit v4
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_5
+    :try_end_16c
+    .catchall {:try_start_16b .. :try_end_16c} :catchall_197
 
     .line 263
     nop
@@ -783,7 +783,7 @@
     .local v5, "$i$a$-synchronized-Relay$RelaySource$read$2":I
     const/4 v6, 0x0
 
-    :try_start_a
+    :try_start_174
     invoke-virtual {v0, v6}, Lokhttp3/internal/cache2/Relay;->setUpstreamReader(Ljava/lang/Thread;)V
 
     .line 267
@@ -807,8 +807,8 @@
 
     .end local v5    # "$i$a$-synchronized-Relay$RelaySource$read$2":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_1
+    :try_end_182
+    .catchall {:try_start_174 .. :try_end_182} :catchall_187
 
     .line 265
     monitor-exit v4
@@ -825,7 +825,7 @@
     .line 265
     .end local v4    # "bytesRead":J
     .end local v6    # "upstreamBytesRead":J
-    :catchall_1
+    :catchall_187
     move-exception v0
 
     monitor-exit v4
@@ -835,27 +835,27 @@
     .line 252
     .restart local v8    # "upstreamBytesRead":J
     .restart local v19    # "bytesRead":J
-    :catchall_2
+    :catchall_18a
     move-exception v0
 
-    goto :goto_4
+    goto :goto_195
 
     .end local v19    # "bytesRead":J
     .restart local v13    # "bytesRead":J
-    :catchall_3
+    :catchall_18c
     move-exception v0
 
     move-wide/from16 v19, v13
 
     .end local v13    # "bytesRead":J
     .restart local v19    # "bytesRead":J
-    goto :goto_4
+    goto :goto_195
 
     .end local v8    # "upstreamBytesRead":J
     .end local v19    # "bytesRead":J
     .restart local v13    # "bytesRead":J
     .restart local v23    # "upstreamBytesRead":J
-    :catchall_4
+    :catchall_190
     move-exception v0
 
     move-wide/from16 v19, v13
@@ -866,16 +866,16 @@
     .end local v23    # "upstreamBytesRead":J
     .restart local v8    # "upstreamBytesRead":J
     .restart local v19    # "bytesRead":J
-    :goto_4
-    :try_start_b
+    :goto_195
+    :try_start_195
     monitor-exit v4
 
     .end local v11    # "source":I
     .end local p1    # "sink":Lokio/Buffer;
     .end local p2    # "byteCount":J
     throw v0
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_5
+    :try_end_197
+    .catchall {:try_start_195 .. :try_end_197} :catchall_197
 
     .line 263
     .end local v8    # "upstreamBytesRead":J
@@ -883,7 +883,7 @@
     .restart local v11    # "source":I
     .restart local p1    # "sink":Lokio/Buffer;
     .restart local p2    # "byteCount":J
-    :catchall_5
+    :catchall_197
     move-exception v0
 
     .line 265
@@ -899,7 +899,7 @@
     .local v6, "$i$a$-synchronized-Relay$RelaySource$read$2":I
     const/4 v7, 0x0
 
-    :try_start_c
+    :try_start_19f
     invoke-virtual {v5, v7}, Lokhttp3/internal/cache2/Relay;->setUpstreamReader(Ljava/lang/Thread;)V
 
     .line 267
@@ -923,15 +923,15 @@
 
     .end local v6    # "$i$a$-synchronized-Relay$RelaySource$read$2":I
     sget-object v5, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_6
+    :try_end_1ad
+    .catchall {:try_start_19f .. :try_end_1ad} :catchall_1af
 
     .line 265
     monitor-exit v4
 
     throw v0
 
-    :catchall_6
+    :catchall_1af
     move-exception v0
 
     monitor-exit v4
@@ -940,7 +940,7 @@
 
     .line 190
     .end local v11    # "source":I
-    :catchall_7
+    :catchall_1b2
     move-exception v0
 
     monitor-exit v11
@@ -948,7 +948,7 @@
     throw v0
 
     .line 188
-    :cond_8
+    :cond_1b5
     const-string v0, "Check failed."
 
     new-instance v4, Ljava/lang/IllegalStateException;
@@ -965,7 +965,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 272
     iget-object v0, p0, Lokhttp3/internal/cache2/Relay$RelaySource;->timeout:Lokio/Timeout;

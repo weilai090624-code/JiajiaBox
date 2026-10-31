@@ -132,7 +132,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$J9lHZFhkxYwPJrsMfT_nmtoILzY(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->createPreferences$lambda$8(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$V76GNV9ARbnLC4r0F7_Se9OgKt0(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;)Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->child_delegate$lambda$12(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;)Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat;
 
@@ -152,7 +152,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$ZomRdxywm109aCU6WWRrWF76p18(Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->createPreferences$lambda$7(Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$acfBmLu5pzFX4wDSFRxbEdmMqPI(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/activity/result/ActivityResult;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->selectProfileForAddLanding$lambda$15(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/activity/result/ActivityResult;)V
 
@@ -170,7 +170,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$jLyS49UgkMLfJG7gYo6DGcaU5xo(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/activity/result/ActivityResult;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->selectProfileForAddFront$lambda$14(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/activity/result/ActivityResult;)V
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$kJDN31i4hJK_xilfaQbMV5GIjeQ(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->createPreferences$lambda$3$lambda$2(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -188,7 +188,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$uXpsMyQqkXZ_16h-t_4MHLKXDmg(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->createPreferences$lambda$5$lambda$4(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -198,7 +198,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$vn1FEg-qLg67oLkRPQsJkyIKD1U(Landroidx/preference/PreferenceCategory;Landroidx/preference/PreferenceCategory;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->createPreferences$lambda$6(Landroidx/preference/PreferenceCategory;Landroidx/preference/PreferenceCategory;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -208,7 +208,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$Companion;
 
@@ -222,7 +222,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -236,7 +236,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "resId"    # I
 
     .line 38
@@ -306,18 +306,18 @@
 .end method
 
 .method public synthetic constructor <init>(IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     .line 36
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     .line 37
     const p1, 0x7f0d003f
 
     .line 36
-    :cond_0
+    :cond_7
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;-><init>(I)V
 
     .line 38
@@ -325,7 +325,7 @@
 .end method
 
 .method public static final synthetic access$getFrontProxyPreference$p(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;)Lio/nekohasekai/sagernet/widget/OutboundPreference;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
 
     .line 35
@@ -335,7 +335,7 @@
 .end method
 
 .method public static final synthetic access$getLandingProxyPreference$p(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;)Lio/nekohasekai/sagernet/widget/OutboundPreference;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
 
     .line 35
@@ -345,7 +345,7 @@
 .end method
 
 .method private static final child_delegate$lambda$12(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;)Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat;
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
 
     .line 264
@@ -369,7 +369,7 @@
 .end method
 
 .method private static final createPreferences$lambda$3$lambda$2(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 3
+    .registers 6
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -388,7 +388,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_22
 
     .line 105
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->selectProfileForAddFront:Landroidx/activity/result/ActivityResultLauncher;
@@ -410,19 +410,19 @@
     .line 108
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_23
 
     .line 110
-    :cond_0
+    :cond_22
     const/4 p1, 0x1
 
     .line 111
-    :goto_0
+    :goto_23
     return p1
 .end method
 
 .method private static final createPreferences$lambda$5$lambda$4(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 3
+    .registers 6
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -441,7 +441,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_22
 
     .line 120
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->selectProfileForAddLanding:Landroidx/activity/result/ActivityResultLauncher;
@@ -463,19 +463,19 @@
     .line 123
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_23
 
     .line 125
-    :cond_0
+    :cond_22
     const/4 p1, 0x1
 
     .line 126
-    :goto_0
+    :goto_23
     return p1
 .end method
 
 .method private static final createPreferences$lambda$6(Landroidx/preference/PreferenceCategory;Landroidx/preference/PreferenceCategory;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 5
     .param p0, "$groupSubscription"    # Landroidx/preference/PreferenceCategory;
     .param p1, "$subscriptionUpdate"    # Landroidx/preference/PreferenceCategory;
     .param p3, "newValue"    # Ljava/lang/Object;
@@ -506,7 +506,7 @@
 .end method
 
 .method private static final createPreferences$lambda$7(Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "newValue"    # Ljava/lang/Object;
 
     const-string v0, "<unused var>"
@@ -530,31 +530,31 @@
     .local p0, "delay":Ljava/lang/Integer;
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_15
 
     .line 154
-    goto :goto_0
+    goto :goto_1e
 
     .line 156
-    :cond_0
+    :cond_15
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
     const/16 v2, 0xf
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_1e
 
     const/4 v0, 0x1
 
     .line 157
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     return v0
 .end method
 
 .method private static final createPreferences$lambda$8(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "$subscriptionAutoUpdateDelay"    # Landroidx/preference/EditTextPreference;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -584,7 +584,7 @@
 .end method
 
 .method private static final createPreferences$updateGroupType(Landroidx/preference/PreferenceCategory;Landroidx/preference/PreferenceCategory;I)V
-    .locals 1
+    .registers 4
     .param p0, "groupSubscription"    # Landroidx/preference/PreferenceCategory;
     .param p1, "subscriptionUpdate"    # Landroidx/preference/PreferenceCategory;
     .param p2, "groupType"    # I
@@ -592,16 +592,16 @@
     .line 135
     const/4 v0, 0x1
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_4
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .line 136
     .local v0, "isSubscription":Z
-    :goto_0
+    :goto_5
     invoke-virtual {p0, v0}, Landroidx/preference/PreferenceCategory;->setVisible(Z)V
 
     .line 137
@@ -612,12 +612,12 @@
 .end method
 
 .method static synthetic createPreferences$updateGroupType$default(Landroidx/preference/PreferenceCategory;Landroidx/preference/PreferenceCategory;IILjava/lang/Object;)V
-    .locals 0
+    .registers 5
 
     .line 134
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_a
 
     sget-object p2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -625,14 +625,14 @@
 
     move-result p2
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->createPreferences$updateGroupType(Landroidx/preference/PreferenceCategory;Landroidx/preference/PreferenceCategory;I)V
 
     return-void
 .end method
 
 .method private static final selectProfileForAddFront$lambda$14(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/activity/result/ActivityResult;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     .param p1, "it"    # Landroidx/activity/result/ActivityResult;
 
@@ -647,7 +647,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$selectProfileForAddFront$1$1;
 
@@ -660,12 +660,12 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 371
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method private static final selectProfileForAddLanding$lambda$15(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Landroidx/activity/result/ActivityResult;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     .param p1, "it"    # Landroidx/activity/result/ActivityResult;
 
@@ -680,7 +680,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$selectProfileForAddLanding$1$1;
 
@@ -693,14 +693,14 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 385
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 
 # virtual methods
 .method public final createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 6
+    .registers 10
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -734,7 +734,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     const-string v0, "frontProxyPreference"
 
@@ -743,7 +743,7 @@
     move-object v0, v1
 
     .local v0, "$this$createPreferences_u24lambda_u243":Lio/nekohasekai/sagernet/widget/OutboundPreference;
-    :cond_0
+    :cond_25
     const/4 v2, 0x0
 
     .line 101
@@ -790,7 +790,7 @@
     .line 115
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->landingProxyPreference:Lio/nekohasekai/sagernet/widget/OutboundPreference;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_55
 
     const-string v0, "landingProxyPreference"
 
@@ -799,7 +799,7 @@
     move-object v0, v1
 
     .local v0, "$this$createPreferences_u24lambda_u245":Lio/nekohasekai/sagernet/widget/OutboundPreference;
-    :cond_1
+    :cond_55
     const/4 v2, 0x0
 
     .line 116
@@ -940,7 +940,7 @@
 .end method
 
 .method public final getChild()Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat;
-    .locals 1
+    .registers 2
 
     .line 264
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->child$delegate:Lkotlin/Lazy;
@@ -955,7 +955,7 @@
 .end method
 
 .method public final getSelectProfileForAddFront()Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -972,7 +972,7 @@
 .end method
 
 .method public final getSelectProfileForAddLanding()Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -989,7 +989,7 @@
 .end method
 
 .method public final init(Lio/nekohasekai/sagernet/database/ProxyGroup;)V
-    .locals 8
+    .registers 10
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     const-string v0, "<this>"
@@ -1003,11 +1003,11 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     const-string v1, ""
 
-    :cond_0
+    :cond_f
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setGroupName(Ljava/lang/String;)V
 
     .line 46
@@ -1070,16 +1070,16 @@
 
     cmp-long v7, v1, v5
 
-    if-ltz v7, :cond_1
+    if-ltz v7, :cond_4f
 
     const/4 v1, 0x3
 
-    goto :goto_0
+    goto :goto_50
 
-    :cond_1
+    :cond_4f
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_50
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setFrontProxyTmp(I)V
 
     .line 53
@@ -1091,14 +1091,14 @@
 
     cmp-long v7, v1, v5
 
-    if-ltz v7, :cond_2
+    if-ltz v7, :cond_5e
 
-    goto :goto_1
+    goto :goto_5f
 
-    :cond_2
+    :cond_5e
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_5f
     invoke-virtual {v0, v3}, Lio/nekohasekai/sagernet/database/DataStore;->setLandingProxyTmp(I)V
 
     .line 55
@@ -1106,7 +1106,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_75
 
     new-instance v0, Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
@@ -1122,7 +1122,7 @@
 
     .line 56
     .local v0, "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
-    :cond_3
+    :cond_75
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     iget-object v2, v0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->link:Ljava/lang/String;
@@ -1196,7 +1196,7 @@
 .end method
 
 .method public final needSave()Z
-    .locals 1
+    .registers 2
 
     .line 89
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1205,28 +1205,28 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, 0x0
 
     return v0
 
     .line 90
-    :cond_0
+    :cond_a
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public onBackPressed()V
-    .locals 6
+    .registers 7
 
     .line 274
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->needSave()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 275
     new-instance v0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$UnsavedChangesDialogFragment;
@@ -1259,19 +1259,19 @@
 
     invoke-virtual {v0, v1, v5}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$UnsavedChangesDialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 276
-    :cond_0
+    :cond_1d
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onBackPressed()V
 
     .line 277
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .registers 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 201
@@ -1293,7 +1293,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .local v0, "$this$onCreate_u24lambda_u249":Landroidx/appcompat/app/ActionBar;
     const/4 v1, 0x0
@@ -1323,8 +1323,8 @@
     nop
 
     .line 209
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_28
+    if-nez p1, :cond_46
 
     .line 210
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->getIntent()Landroid/content/Intent;
@@ -1358,12 +1358,12 @@
 
     .line 238
     .end local v0    # "editingId":J
-    :cond_1
+    :cond_46
     return-void
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .locals 2
+    .registers 4
     .param p1, "menu"    # Landroid/view/Menu;
 
     const-string v0, "menu"
@@ -1386,7 +1386,7 @@
 .end method
 
 .method protected onDestroy()V
-    .locals 2
+    .registers 3
 
     .line 285
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1409,7 +1409,7 @@
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 3
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -1429,7 +1429,7 @@
 .end method
 
 .method public onPreferenceDataStoreChanged(Landroidx/preference/PreferenceDataStore;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "store"    # Landroidx/preference/PreferenceDataStore;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -1448,7 +1448,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 291
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1458,31 +1458,31 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setDirty(Z)V
 
     .line 293
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public onSupportNavigateUp()Z
-    .locals 1
+    .registers 2
 
     .line 280
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onSupportNavigateUp()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->finish()V
 
     .line 281
-    :cond_0
+    :cond_9
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public final saveAndExit(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 28
+    .registers 30
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1499,7 +1499,7 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$saveAndExit$1;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
@@ -1511,7 +1511,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v1, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$saveAndExit$1;->label:I
 
@@ -1521,9 +1521,9 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v1, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$saveAndExit$1;
 
     move-object/from16 v2, p0
@@ -1531,7 +1531,7 @@
     invoke-direct {v1, v2, v0}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$saveAndExit$1;-><init>(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;Lkotlin/coroutines/Continuation;)V
 
     .local v1, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_1f
     iget-object v3, v1, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$saveAndExit$1;->result:Ljava/lang/Object;
 
     .local v3, "$result":Ljava/lang/Object;
@@ -1542,7 +1542,7 @@
     .line 240
     iget v5, v1, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$saveAndExit$1;->label:I
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_f4
 
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v3    # "$result":Ljava/lang/Object;
@@ -1556,7 +1556,7 @@
 
     .restart local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_32
     iget-object v4, v1, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$saveAndExit$1;->L$0:Ljava/lang/Object;
 
     check-cast v4, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
@@ -1564,10 +1564,10 @@
     .local v4, "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_ed
 
     .end local v4    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
-    :pswitch_1
+    :pswitch_3b
     iget-object v4, v1, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$saveAndExit$1;->L$0:Ljava/lang/Object;
 
     check-cast v4, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
@@ -1575,10 +1575,10 @@
     .restart local v4    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_86
 
     .end local v4    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
-    :pswitch_2
+    :pswitch_43
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v5, p0
@@ -1600,7 +1600,7 @@
     cmp-long v11, v6, v8
 
     .end local v6    # "editingId":J
-    if-nez v11, :cond_2
+    if-nez v11, :cond_88
 
     .line 244
     sget-object v6, Lio/nekohasekai/sagernet/database/GroupManager;->INSTANCE:Lio/nekohasekai/sagernet/database/GroupManager;
@@ -1655,31 +1655,31 @@
 
     move-result-object v6
 
-    if-ne v6, v4, :cond_1
+    if-ne v6, v4, :cond_85
 
     .line 240
     return-object v4
 
     .line 244
-    :cond_1
+    :cond_85
     move-object v4, v5
 
     .end local v5    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     .restart local v4    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
-    :goto_1
+    :goto_86
     move-object v5, v4
 
-    goto :goto_5
+    goto :goto_ee
 
     .line 245
     .end local v4    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     .restart local v5    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
-    :cond_2
+    :cond_88
     invoke-virtual {v5}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->needSave()Z
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_ee
 
     .line 246
     sget-object v6, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
@@ -1700,7 +1700,7 @@
 
     .line 247
     .local v6, "entity":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    if-nez v6, :cond_3
+    if-nez v6, :cond_a6
 
     .line 248
     .end local v6    # "entity":Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -1715,12 +1715,12 @@
     .line 251
     .restart local v5    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     .restart local v6    # "entity":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :cond_3
+    :cond_a6
     invoke-virtual {v6}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getType()I
 
     move-result v7
 
-    if-ne v7, v10, :cond_5
+    if-ne v7, v10, :cond_cb
 
     .line 252
     sget-object v7, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1729,23 +1729,23 @@
 
     move-result v7
 
-    if-ne v7, v10, :cond_5
+    if-ne v7, v10, :cond_cb
 
     .line 253
     invoke-virtual {v6}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getSubscription()Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
     move-result-object v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_bd
 
     iget-object v7, v7, Lio/nekohasekai/sagernet/database/SubscriptionBean;->link:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_be
 
-    :cond_4
+    :cond_bd
     const/4 v7, 0x0
 
-    :goto_2
+    :goto_be
     sget-object v8, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v8}, Lio/nekohasekai/sagernet/database/DataStore;->getSubscriptionLink()Ljava/lang/String;
@@ -1756,20 +1756,20 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_cb
 
-    goto :goto_3
+    goto :goto_cc
 
-    :cond_5
+    :cond_cb
     const/4 v10, 0x0
 
     .line 251
-    :goto_3
+    :goto_cc
     move v7, v10
 
     .line 254
     .local v7, "keepUserInfo":Z
-    if-nez v7, :cond_6
+    if-nez v7, :cond_d9
 
     .line 255
     .end local v7    # "keepUserInfo":Z
@@ -1777,14 +1777,14 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_d9
 
     const-string v8, ""
 
     iput-object v8, v7, Lio/nekohasekai/sagernet/database/SubscriptionBean;->subscriptionUserinfo:Ljava/lang/String;
 
     .line 257
-    :cond_6
+    :cond_d9
     sget-object v7, Lio/nekohasekai/sagernet/database/GroupManager;->INSTANCE:Lio/nekohasekai/sagernet/database/GroupManager;
 
     .end local v6    # "entity":Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -1810,25 +1810,25 @@
 
     move-result-object v6
 
-    if-ne v6, v4, :cond_7
+    if-ne v6, v4, :cond_ec
 
     .line 240
     return-object v4
 
     .line 257
-    :cond_7
+    :cond_ec
     move-object v4, v5
 
     .line 260
     .end local v5    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     .restart local v4    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
-    :goto_4
+    :goto_ed
     move-object v5, v4
 
     .end local v4    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     .restart local v5    # "this":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
-    :cond_8
-    :goto_5
+    :cond_ee
+    :goto_ee
     invoke-virtual {v5}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->finish()V
 
     .line 262
@@ -1836,16 +1836,16 @@
 
     return-object v4
 
-    :pswitch_data_0
+    :pswitch_data_f4
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_43
+        :pswitch_3b
+        :pswitch_32
     .end packed-switch
 .end method
 
 .method public final serialize(Lio/nekohasekai/sagernet/database/ProxyGroup;)V
-    .locals 6
+    .registers 8
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     const-string v0, "<this>"
@@ -1877,19 +1877,19 @@
 
     .end local v1    # "it":Ljava/lang/String;
     .end local v2    # "$i$a$-takeIf-GroupSettingsActivity$serialize$1":I
-    if-nez v3, :cond_0
+    if-nez v3, :cond_17
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_18
+    if-nez v0, :cond_1c
 
     const-string v0, "My group"
 
-    :cond_1
+    :cond_1c
     invoke-virtual {p1, v0}, Lio/nekohasekai/sagernet/database/ProxyGroup;->setName(Ljava/lang/String;)V
 
     .line 67
@@ -1930,7 +1930,7 @@
 
     const/4 v3, 0x3
 
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_4c
 
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -1938,12 +1938,12 @@
 
     move-result-wide v4
 
-    goto :goto_1
+    goto :goto_4d
 
-    :cond_2
+    :cond_4c
     move-wide v4, v1
 
-    :goto_1
+    :goto_4d
     invoke-virtual {p1, v4, v5}, Lio/nekohasekai/sagernet/database/ProxyGroup;->setFrontProxy(J)V
 
     .line 72
@@ -1953,7 +1953,7 @@
 
     move-result v0
 
-    if-ne v0, v3, :cond_3
+    if-ne v0, v3, :cond_5e
 
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -1961,7 +1961,7 @@
 
     move-result-wide v1
 
-    :cond_3
+    :cond_5e
     invoke-virtual {p1, v1, v2}, Lio/nekohasekai/sagernet/database/ProxyGroup;->setLandingProxy(J)V
 
     .line 74
@@ -1971,26 +1971,26 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_69
 
-    goto :goto_2
+    goto :goto_6a
 
-    :cond_4
+    :cond_69
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_6a
     move v0, v1
 
     .line 75
     .local v0, "isSubscription":Z
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_d2
 
     .line 76
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getSubscription()Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
     move-result-object v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_80
 
     new-instance v1, Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
@@ -2004,7 +2004,7 @@
 
     check-cast v1, Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
-    :cond_5
+    :cond_80
     move-object v2, v1
 
     .local v2, "$this$serialize_u24lambda_u241":Lio/nekohasekai/sagernet/database/SubscriptionBean;
@@ -2103,6 +2103,6 @@
     invoke-virtual {p1, v1}, Lio/nekohasekai/sagernet/database/ProxyGroup;->setSubscription(Lio/nekohasekai/sagernet/database/SubscriptionBean;)V
 
     .line 86
-    :cond_6
+    :cond_d2
     return-void
 .end method

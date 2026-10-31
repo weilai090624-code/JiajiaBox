@@ -67,7 +67,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "sharedElements"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public final getSharedElements()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -27,7 +27,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedSetMultimap;, "Lcom/google/common/collect/ForwardingSortedSetMultimap<TK;TV;>;"
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
 
     .line 37
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedSetMultimap;, "Lcom/google/common/collect/ForwardingSortedSetMultimap<TK;TV;>;"
@@ -51,7 +51,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Lcom/google/common/collect/SetMultimap;
-    .locals 1
+    .registers 2
 
     .line 37
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedSetMultimap;, "Lcom/google/common/collect/ForwardingSortedSetMultimap<TK;TV;>;"
@@ -73,7 +73,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 37
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedSetMultimap;, "Lcom/google/common/collect/ForwardingSortedSetMultimap<TK;TV;>;"
@@ -85,7 +85,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -101,7 +101,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -117,7 +117,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -145,7 +145,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -161,7 +161,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -177,7 +177,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -206,7 +206,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -222,7 +222,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -238,7 +238,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -269,7 +269,7 @@
 .end method
 
 .method public valueComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

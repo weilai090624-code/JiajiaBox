@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 3
+    .registers 5
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
 
     const-string v0, "recyclerView"
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public final getRecyclerView()Landroidx/recyclerview/widget/RecyclerView;
-    .locals 1
+    .registers 2
 
     .line 6
     iget-object v0, p0, Lio/nekohasekai/sagernet/ktx/FixedLinearLayoutManager;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
@@ -80,7 +80,7 @@
 .end method
 
 .method public onLayoutChildren(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)V
-    .locals 1
+    .registers 4
     .param p1, "recycler"    # Landroidx/recyclerview/widget/RecyclerView$Recycler;
     .param p2, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
 
@@ -88,24 +88,24 @@
     nop
 
     .line 11
-    :try_start_0
+    :try_start_1
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/LinearLayoutManager;->onLayoutChildren(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)V
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_4} :catch_5
 
-    goto :goto_0
+    goto :goto_6
 
     .line 12
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 14
-    :goto_0
+    :goto_6
     return-void
 .end method
 
 .method public scrollVerticallyBy(ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)I
-    .locals 1
+    .registers 5
     .param p1, "dx"    # I
     .param p2, "recycler"    # Landroidx/recyclerview/widget/RecyclerView$Recycler;
     .param p3, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;

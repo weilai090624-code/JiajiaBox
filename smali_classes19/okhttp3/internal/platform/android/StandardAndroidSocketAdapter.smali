@@ -70,7 +70,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/platform/android/StandardAndroidSocketAdapter$Companion;
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 1
+    .registers 5
     .param p1, "sslSocketClass"    # Ljava/lang/Class;
     .param p2, "sslSocketFactoryClass"    # Ljava/lang/Class;
     .param p3, "paramClass"    # Ljava/lang/Class;
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public matchesSocketFactory(Ljavax/net/ssl/SSLSocketFactory;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     const-string v0, "sslSocketFactory"
@@ -150,7 +150,7 @@
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 4
+    .registers 6
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     const-string v0, "sslSocketFactory"
@@ -190,7 +190,7 @@
 
     .line 45
     .local v1, "x509TrustManager":Ljavax/net/ssl/X509TrustManager;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2a
 
     const-class v2, Ljavax/net/ssl/X509TrustManager;
 
@@ -206,11 +206,11 @@
 
     check-cast v2, Ljavax/net/ssl/X509TrustManager;
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_2a
     move-object v2, v1
 
-    :goto_0
+    :goto_2b
     return-object v2
 .end method

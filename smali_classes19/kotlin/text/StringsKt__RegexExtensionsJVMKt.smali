@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/text/StringsKt__IndentKt;-><init>()V
 
@@ -35,7 +35,7 @@
 .end method
 
 .method private static final toRegex(Ljava/util/regex/Pattern;)Lkotlin/text/Regex;
-    .locals 1
+    .registers 2
     .param p0, "$this$toRegex"    # Ljava/util/regex/Pattern;
 
     const-string v0, "<this>"

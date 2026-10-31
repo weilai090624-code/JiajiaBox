@@ -64,7 +64,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Landroidx/room/RoomDatabase$JournalMode;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x3
 
@@ -92,7 +92,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 648
     new-instance v0, Landroidx/room/RoomDatabase$JournalMode;
@@ -137,7 +137,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -153,7 +153,7 @@
 .end method
 
 .method private final isLowRamDevice(Landroid/app/ActivityManager;)Z
-    .locals 1
+    .registers 3
     .param p1, "activityManager"    # Landroid/app/ActivityManager;
 
     .line 678
@@ -169,7 +169,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/room/RoomDatabase$JournalMode;
-    .locals 1
+    .registers 2
 
     const-class v0, Landroidx/room/RoomDatabase$JournalMode;
 
@@ -183,7 +183,7 @@
 .end method
 
 .method public static values()[Landroidx/room/RoomDatabase$JournalMode;
-    .locals 1
+    .registers 1
 
     sget-object v0, Landroidx/room/RoomDatabase$JournalMode;->$VALUES:[Landroidx/room/RoomDatabase$JournalMode;
 
@@ -199,7 +199,7 @@
 
 # virtual methods
 .method public final resolve$room_runtime_release(Landroid/content/Context;)Landroidx/room/RoomDatabase$JournalMode;
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -209,13 +209,13 @@
     .line 664
     sget-object v0, Landroidx/room/RoomDatabase$JournalMode;->AUTOMATIC:Landroidx/room/RoomDatabase$JournalMode;
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_a
 
     .line 665
     return-object p0
 
     .line 667
-    :cond_0
+    :cond_a
     nop
 
     .line 669
@@ -227,28 +227,28 @@
 
     instance-of v1, v0, Landroid/app/ActivityManager;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_18
 
     check-cast v0, Landroid/app/ActivityManager;
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     .line 668
-    :goto_0
+    :goto_19
     nop
 
     .line 670
     .local v0, "manager":Landroid/app/ActivityManager;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_25
 
     invoke-direct {p0, v0}, Landroidx/room/RoomDatabase$JournalMode;->isLowRamDevice(Landroid/app/ActivityManager;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_25
 
     .line 671
     sget-object v1, Landroidx/room/RoomDatabase$JournalMode;->WRITE_AHEAD_LOGGING:Landroidx/room/RoomDatabase$JournalMode;
@@ -257,7 +257,7 @@
 
     .line 674
     .end local v0    # "manager":Landroid/app/ActivityManager;
-    :cond_2
+    :cond_25
     sget-object v0, Landroidx/room/RoomDatabase$JournalMode;->TRUNCATE:Landroidx/room/RoomDatabase$JournalMode;
 
     return-object v0

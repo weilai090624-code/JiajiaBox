@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public getBoolean(Ljava/lang/String;Z)Z
-    .locals 0
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defValue"    # Z
 
@@ -25,7 +25,7 @@
 .end method
 
 .method public getFloat(Ljava/lang/String;F)F
-    .locals 0
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defValue"    # F
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public getInt(Ljava/lang/String;I)I
-    .locals 0
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defValue"    # I
 
@@ -43,7 +43,7 @@
 .end method
 
 .method public getLong(Ljava/lang/String;J)J
-    .locals 0
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defValue"    # J
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defValue"    # Ljava/lang/String;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public getStringSet(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
-    .locals 0
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -82,7 +82,7 @@
 .end method
 
 .method public putBoolean(Ljava/lang/String;Z)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Z
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public putFloat(Ljava/lang/String;F)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # F
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public putInt(Ljava/lang/String;I)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # I
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public putLong(Ljava/lang/String;J)V
-    .locals 2
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # J
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public putString(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public putStringSet(Ljava/lang/String;Ljava/util/Set;)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {

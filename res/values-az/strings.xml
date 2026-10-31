@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Gələn zəng</string>
     <string name="call_notification_ongoing_text">Davam edən zəng</string>
     <string name="call_notification_screening_text">Gələn zəng göstərilir</string>
-    <string name="character_counter_content_description" formatted="false">%1$d/%2$d simvol daxil edilib</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Simvol limiti %1$d/%2$d dəyərini keçdi</string>
+    <string name="character_counter_content_description">%1$d/%2$d simvol daxil edilib</string>
+    <string name="character_counter_overflowed_content_description">Simvol limiti %1$d/%2$d dəyərini keçdi</string>
     <string name="clear_text_end_icon_content_description">Mətni silin</string>
     <string name="copy">Kopyalayın</string>
     <string name="copy_toast_msg">Link buferə kopyalandı</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Əhatə dairəsindən kənar: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Başlama tarixi – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Bitmə tarixi</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s: %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s: %2$s</string>
     <string name="mtrl_picker_range_header_title">Aralıq seçin</string>
     <string name="mtrl_picker_range_header_unselected">Başlama tarixi - Bitmə tarixi</string>
     <string name="mtrl_picker_save">Saxlayın</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" buferə kopyalandı.</string>
     <string name="search_menu_title">Axtarın</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">DEAKTİV</string>
     <string name="v7_preference_on">AKTİV</string>
 </resources>

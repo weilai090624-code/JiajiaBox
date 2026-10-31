@@ -74,7 +74,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public static final maxOf-5PvTz6A(SS)S
-    .locals 2
+    .registers 4
     .param p0, "a"    # S
     .param p1, "b"    # S
 
@@ -97,21 +97,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_e
 
     move v0, p0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     move v0, p1
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public static final maxOf-J1ME1BU(II)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # I
     .param p1, "b"    # I
 
@@ -120,21 +120,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_8
 
     move v0, p0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move v0, p1
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public static final maxOf-Kr8caGY(BB)B
-    .locals 2
+    .registers 4
     .param p0, "a"    # B
     .param p1, "b"    # B
 
@@ -147,21 +147,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_c
 
     move v0, p0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move v0, p1
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public static final varargs maxOf-Md2H83M(I[I)I
-    .locals 4
+    .registers 6
     .param p0, "a"    # I
     .param p1, "other"    # [I
 
@@ -180,8 +180,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_b
+    if-ge v2, v1, :cond_18
 
     invoke-static {p1, v2}, Lkotlin/UIntArray;->get-pVg5ArA([II)I
 
@@ -195,15 +195,15 @@
     .end local v3    # "e":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 103
-    :cond_0
+    :cond_18
     return v0
 .end method
 
 .method public static final varargs maxOf-R03FKyM(J[J)J
-    .locals 6
+    .registers 9
     .param p0, "a"    # J
     .param p2, "other"    # [J
 
@@ -222,8 +222,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_b
+    if-ge v3, v2, :cond_18
 
     invoke-static {p2, v3}, Lkotlin/ULongArray;->get-s-VKNKU([JI)J
 
@@ -237,15 +237,15 @@
     .end local v4    # "e":J
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 114
-    :cond_0
+    :cond_18
     return-wide v0
 .end method
 
 .method private static final maxOf-VKSA0NQ(SSS)S
-    .locals 1
+    .registers 4
     .param p0, "a"    # S
     .param p1, "b"    # S
     .param p2, "c"    # S
@@ -263,7 +263,7 @@
 .end method
 
 .method private static final maxOf-WZ9TVnA(III)I
-    .locals 1
+    .registers 4
     .param p0, "a"    # I
     .param p1, "b"    # I
     .param p2, "c"    # I
@@ -281,7 +281,7 @@
 .end method
 
 .method public static final varargs maxOf-Wr6uiD8(B[B)B
-    .locals 4
+    .registers 6
     .param p0, "a"    # B
     .param p1, "other"    # [B
 
@@ -300,8 +300,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_b
+    if-ge v2, v1, :cond_18
 
     invoke-static {p1, v2}, Lkotlin/UByteArray;->get-w2LRezQ([BI)B
 
@@ -315,15 +315,15 @@
     .end local v3    # "e":B
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 125
-    :cond_0
+    :cond_18
     return v0
 .end method
 
 .method private static final maxOf-b33U2AM(BBB)B
-    .locals 1
+    .registers 4
     .param p0, "a"    # B
     .param p1, "b"    # B
     .param p2, "c"    # B
@@ -341,7 +341,7 @@
 .end method
 
 .method public static final maxOf-eb3DHEI(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -350,21 +350,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_8
 
     move-wide v0, p0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-wide v0, p2
 
-    :goto_0
+    :goto_9
     return-wide v0
 .end method
 
 .method private static final maxOf-sambcqE(JJJ)J
-    .locals 2
+    .registers 8
     .param p0, "a"    # J
     .param p2, "b"    # J
     .param p4, "c"    # J
@@ -382,7 +382,7 @@
 .end method
 
 .method public static final varargs maxOf-t1qELG4(S[S)S
-    .locals 4
+    .registers 6
     .param p0, "a"    # S
     .param p1, "other"    # [S
 
@@ -401,8 +401,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_b
+    if-ge v2, v1, :cond_18
 
     invoke-static {p1, v2}, Lkotlin/UShortArray;->get-Mh2AYeg([SI)S
 
@@ -416,15 +416,15 @@
     .end local v3    # "e":S
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 136
-    :cond_0
+    :cond_18
     return v0
 .end method
 
 .method public static final minOf-5PvTz6A(SS)S
-    .locals 2
+    .registers 4
     .param p0, "a"    # S
     .param p1, "b"    # S
 
@@ -439,21 +439,21 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_e
 
     move v0, p0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     move v0, p1
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public static final minOf-J1ME1BU(II)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # I
     .param p1, "b"    # I
 
@@ -462,21 +462,21 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_8
 
     move v0, p0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move v0, p1
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public static final minOf-Kr8caGY(BB)B
-    .locals 2
+    .registers 4
     .param p0, "a"    # B
     .param p1, "b"    # B
 
@@ -489,21 +489,21 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_c
 
     move v0, p0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move v0, p1
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public static final varargs minOf-Md2H83M(I[I)I
-    .locals 4
+    .registers 6
     .param p0, "a"    # I
     .param p1, "other"    # [I
 
@@ -522,8 +522,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_b
+    if-ge v2, v1, :cond_18
 
     invoke-static {p1, v2}, Lkotlin/UIntArray;->get-pVg5ArA([II)I
 
@@ -537,15 +537,15 @@
     .end local v3    # "e":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 223
-    :cond_0
+    :cond_18
     return v0
 .end method
 
 .method public static final varargs minOf-R03FKyM(J[J)J
-    .locals 6
+    .registers 9
     .param p0, "a"    # J
     .param p2, "other"    # [J
 
@@ -564,8 +564,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_b
+    if-ge v3, v2, :cond_18
 
     invoke-static {p2, v3}, Lkotlin/ULongArray;->get-s-VKNKU([JI)J
 
@@ -579,15 +579,15 @@
     .end local v4    # "e":J
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 234
-    :cond_0
+    :cond_18
     return-wide v0
 .end method
 
 .method private static final minOf-VKSA0NQ(SSS)S
-    .locals 1
+    .registers 4
     .param p0, "a"    # S
     .param p1, "b"    # S
     .param p2, "c"    # S
@@ -605,7 +605,7 @@
 .end method
 
 .method private static final minOf-WZ9TVnA(III)I
-    .locals 1
+    .registers 4
     .param p0, "a"    # I
     .param p1, "b"    # I
     .param p2, "c"    # I
@@ -623,7 +623,7 @@
 .end method
 
 .method public static final varargs minOf-Wr6uiD8(B[B)B
-    .locals 4
+    .registers 6
     .param p0, "a"    # B
     .param p1, "other"    # [B
 
@@ -642,8 +642,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_b
+    if-ge v2, v1, :cond_18
 
     invoke-static {p1, v2}, Lkotlin/UByteArray;->get-w2LRezQ([BI)B
 
@@ -657,15 +657,15 @@
     .end local v3    # "e":B
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 245
-    :cond_0
+    :cond_18
     return v0
 .end method
 
 .method private static final minOf-b33U2AM(BBB)B
-    .locals 1
+    .registers 4
     .param p0, "a"    # B
     .param p1, "b"    # B
     .param p2, "c"    # B
@@ -683,7 +683,7 @@
 .end method
 
 .method public static final minOf-eb3DHEI(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -692,21 +692,21 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_8
 
     move-wide v0, p0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-wide v0, p2
 
-    :goto_0
+    :goto_9
     return-wide v0
 .end method
 
 .method private static final minOf-sambcqE(JJJ)J
-    .locals 2
+    .registers 8
     .param p0, "a"    # J
     .param p2, "b"    # J
     .param p4, "c"    # J
@@ -724,7 +724,7 @@
 .end method
 
 .method public static final varargs minOf-t1qELG4(S[S)S
-    .locals 4
+    .registers 6
     .param p0, "a"    # S
     .param p1, "other"    # [S
 
@@ -743,8 +743,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_b
+    if-ge v2, v1, :cond_18
 
     invoke-static {p1, v2}, Lkotlin/UShortArray;->get-Mh2AYeg([SI)S
 
@@ -758,9 +758,9 @@
     .end local v3    # "e":S
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 256
-    :cond_0
+    :cond_18
     return v0
 .end method

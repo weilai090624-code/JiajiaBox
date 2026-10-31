@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;)V
-    .locals 0
+    .registers 2
 
     .line 3097
     iput-object p1, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionMenuPresenterCallback;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onCloseMenu(Landroidx/appcompat/view/menu/MenuBuilder;Z)V
-    .locals 1
+    .registers 4
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "allMenusAreClosing"    # Z
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public onOpenSubMenu(Landroidx/appcompat/view/menu/MenuBuilder;)Z
-    .locals 2
+    .registers 4
     .param p1, "subMenu"    # Landroidx/appcompat/view/menu/MenuBuilder;
 
     .line 3102
@@ -63,7 +63,7 @@
 
     .line 3103
     .local v0, "cb":Landroid/view/Window$Callback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 3104
     const/16 v1, 0x6c
@@ -71,7 +71,7 @@
     invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onMenuOpened(ILandroid/view/Menu;)Z
 
     .line 3106
-    :cond_0
+    :cond_d
     const/4 v1, 0x1
 
     return v1

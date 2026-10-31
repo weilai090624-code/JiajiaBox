@@ -83,7 +83,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$9L5KfEsnh2CF69B5DLV4JKO2Ix4(Lcom/blacksquircle/ui/editorkit/utils/StylingTask;Ljava/util/List;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/blacksquircle/ui/editorkit/utils/StylingTask;->execute$lambda$1$lambda$0(Lcom/blacksquircle/ui/editorkit/utils/StylingTask;Ljava/util/List;)V
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$a78RxU2N8MX7fZJAlq51gA0URUU(Lcom/blacksquircle/ui/editorkit/utils/StylingTask;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lcom/blacksquircle/ui/editorkit/utils/StylingTask;->execute$lambda$1(Lcom/blacksquircle/ui/editorkit/utils/StylingTask;)V
 
@@ -99,7 +99,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/utils/StylingTask$Companion;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 5
     .param p1, "doAsync"    # Lkotlin/jvm/functions/Function0;
     .param p2, "onSuccess"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -174,7 +174,7 @@
 .end method
 
 .method private static final execute$lambda$1(Lcom/blacksquircle/ui/editorkit/utils/StylingTask;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Lcom/blacksquircle/ui/editorkit/utils/StylingTask;
 
     const-string/jumbo v0, "this$0"
@@ -205,7 +205,7 @@
 .end method
 
 .method private static final execute$lambda$1$lambda$0(Lcom/blacksquircle/ui/editorkit/utils/StylingTask;Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lcom/blacksquircle/ui/editorkit/utils/StylingTask;
     .param p1, "$syntaxHighlightSpans"    # Ljava/util/List;
 
@@ -224,7 +224,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 38
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/utils/StylingTask;->onSuccess:Lkotlin/jvm/functions/Function1;
@@ -232,14 +232,14 @@
     invoke-interface {v0, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 40
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 
 # virtual methods
 .method public final cancel()V
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/utils/StylingTask;->singleThreadExecutor:Ljava/util/concurrent/ExecutorService;
@@ -251,13 +251,13 @@
 .end method
 
 .method public final execute()V
-    .locals 2
+    .registers 3
 
     .line 33
     nop
 
     .line 34
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/utils/StylingTask;->singleThreadExecutor:Ljava/util/concurrent/ExecutorService;
 
     new-instance v1, Lcom/blacksquircle/ui/editorkit/utils/StylingTask$$ExternalSyntheticLambda1;
@@ -265,13 +265,13 @@
     invoke-direct {v1, p0}, Lcom/blacksquircle/ui/editorkit/utils/StylingTask$$ExternalSyntheticLambda1;-><init>(Lcom/blacksquircle/ui/editorkit/utils/StylingTask;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_b} :catch_c
 
-    goto :goto_0
+    goto :goto_10
 
     .line 42
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 43
@@ -280,6 +280,6 @@
 
     .line 45
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_10
     return-void
 .end method

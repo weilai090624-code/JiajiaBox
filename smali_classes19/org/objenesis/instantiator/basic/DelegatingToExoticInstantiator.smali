@@ -32,7 +32,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;Ljava/lang/Class;)V
-    .locals 3
+    .registers 6
     .param p1, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,7 +72,7 @@
 .end method
 
 .method private instantiator(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Lorg/objenesis/instantiator/ObjectInstantiator;
-    .locals 4
+    .registers 8
     .param p1, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -94,7 +94,7 @@
     .local p3, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<Lorg/objenesis/instantiator/ObjectInstantiator<TT;>;>;"
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_1
     new-array v0, v0, [Ljava/lang/Object;
 
     const/4 v1, 0x0
@@ -106,30 +106,30 @@
     move-result-object v0
 
     check-cast v0, Lorg/objenesis/instantiator/ObjectInstantiator;
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/InstantiationException; {:try_start_1 .. :try_end_c} :catch_11
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_c} :catch_f
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_c} :catch_d
 
     return-object v0
 
     .line 58
-    :catch_0
+    :catch_d
     move-exception v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :catch_1
+    :catch_f
     move-exception v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :catch_2
+    :catch_11
     move-exception v0
 
     .line 59
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_12
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -156,7 +156,7 @@
 .end method
 
 .method private instantiatorClass(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 4
+    .registers 6
     .param p1, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -175,8 +175,8 @@
     invoke-static {p1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_4} :catch_5
 
     .line 67
     .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lorg/objenesis/instantiator/ObjectInstantiator<TT;>;>;"
@@ -184,7 +184,7 @@
 
     .line 68
     .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lorg/objenesis/instantiator/ObjectInstantiator<TT;>;>;"
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 69
@@ -223,7 +223,7 @@
 .end method
 
 .method private instantiatorConstructor(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
-    .locals 4
+    .registers 7
     .param p1, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -243,7 +243,7 @@
     .local p2, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lorg/objenesis/instantiator/ObjectInstantiator<TT;>;>;"
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_1
     new-array v0, v0, [Ljava/lang/Class;
 
     const-class v1, Ljava/lang/Class;
@@ -255,13 +255,13 @@
     invoke-virtual {p2, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_c} :catch_d
 
     return-object v0
 
     .line 76
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 77
@@ -300,7 +300,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"

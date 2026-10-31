@@ -93,7 +93,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/Sequence;Lkotlin/random/Random;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -150,7 +150,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlin/sequences/SequenceScope;
 
@@ -164,7 +164,7 @@
 .end method
 
 .method public final invoke(Lkotlin/sequences/SequenceScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -194,7 +194,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -203,7 +203,7 @@
     .line 139
     iget v1, p0, Lkotlin/sequences/SequencesKt__SequencesKt$shuffled$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_68
 
     .end local p0    # "this":Lkotlin/sequences/SequencesKt__SequencesKt$shuffled$1;
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -216,7 +216,7 @@
 
     .restart local p0    # "this":Lkotlin/sequences/SequencesKt__SequencesKt$shuffled$1;
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     iget-object v1, p0, Lkotlin/sequences/SequencesKt__SequencesKt$shuffled$1;->L$1:Ljava/lang/Object;
 
     check-cast v1, Ljava/util/List;
@@ -231,12 +231,12 @@
 
     move-object v3, p0
 
-    goto :goto_1
+    goto :goto_64
 
     .end local v1    # "buffer":Ljava/util/List;
     .end local v2    # "$this$sequence":Lkotlin/sequences/SequenceScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1e
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .restart local p1    # "$result":Ljava/lang/Object;
@@ -265,7 +265,7 @@
     .local v1, "buffer":Ljava/util/List;
     .restart local v2    # "$this$sequence":Lkotlin/sequences/SequenceScope;
     .local v3, "this":Lkotlin/sequences/SequencesKt__SequencesKt$shuffled$1;
-    :goto_0
+    :goto_2f
     move-object v4, v1
 
     check-cast v4, Ljava/util/Collection;
@@ -274,7 +274,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_65
 
     .line 142
     iget-object v4, v3, Lkotlin/sequences/SequencesKt__SequencesKt$shuffled$1;->$random:Lkotlin/random/Random;
@@ -299,7 +299,7 @@
 
     move-result v6
 
-    if-ge v4, v6, :cond_0
+    if-ge v4, v6, :cond_52
 
     invoke-interface {v1, v4, v5}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
@@ -311,7 +311,7 @@
 
     .end local v4    # "j":I
     .end local v5    # "last":Ljava/lang/Object;
-    :cond_0
+    :cond_52
     move-object v4, v5
 
     .line 145
@@ -333,25 +333,25 @@
     move-result-object v4
 
     .end local v4    # "value":Ljava/lang/Object;
-    if-ne v4, v0, :cond_1
+    if-ne v4, v0, :cond_64
 
     .line 139
     return-object v0
 
     .line 145
-    :cond_1
-    :goto_1
-    goto :goto_0
+    :cond_64
+    :goto_64
+    goto :goto_2f
 
     .line 147
-    :cond_2
+    :cond_65
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_68
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1e
+        :pswitch_11
     .end packed-switch
 .end method

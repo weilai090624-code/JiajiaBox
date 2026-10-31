@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "string"    # Ljava/lang/String;
 
     .line 694
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 699
     iget-object v0, p0, Lcom/google/common/base/Predicates$ContainsPatternFromStringPredicate;->pattern:Lcom/google/common/base/CommonPattern;

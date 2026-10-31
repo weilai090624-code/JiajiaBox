@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 589
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/Serializer;-><init>()V
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public bridge synthetic copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 589
     check-cast p2, Ljava/util/Calendar;
@@ -63,7 +63,7 @@
 .end method
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/Calendar;)Ljava/util/Calendar;
-    .locals 1
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "original"    # Ljava/util/Calendar;
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 589
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$CalendarSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Calendar;
@@ -89,7 +89,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Calendar;
-    .locals 6
+    .registers 10
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .annotation system Ldalvik/annotation/Signature;
@@ -163,12 +163,12 @@
 
     cmp-long v5, v1, v3
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_46
 
     .line 615
     instance-of v3, v0, Ljava/util/GregorianCalendar;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_46
 
     move-object v3, v0
 
@@ -181,12 +181,12 @@
     invoke-virtual {v3, v4}, Ljava/util/GregorianCalendar;->setGregorianChange(Ljava/util/Date;)V
 
     .line 616
-    :cond_0
+    :cond_46
     return-object v0
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 589
     check-cast p3, Ljava/util/Calendar;
@@ -197,7 +197,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/Calendar;)V
-    .locals 4
+    .registers 8
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # Ljava/util/Calendar;
@@ -246,7 +246,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3a
 
     .line 602
     move-object v0, p3
@@ -263,15 +263,15 @@
 
     invoke-virtual {p2, v2, v3, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
 
-    goto :goto_0
+    goto :goto_42
 
     .line 604
-    :cond_0
+    :cond_3a
     const-wide v2, -0xb1d069b5400L
 
     invoke-virtual {p2, v2, v3, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
 
     .line 605
-    :goto_0
+    :goto_42
     return-void
 .end method

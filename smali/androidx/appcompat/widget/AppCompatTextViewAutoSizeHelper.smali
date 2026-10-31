@@ -80,7 +80,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 66
     new-instance v0, Landroid/graphics/RectF;
@@ -107,7 +107,7 @@
 .end method
 
 .method constructor <init>(Landroid/widget/TextView;)V
-    .locals 2
+    .registers 4
     .param p1, "textView"    # Landroid/widget/TextView;
 
     .line 154
@@ -157,7 +157,7 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_2e
 
     .line 158
     new-instance v0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Impl29;
@@ -166,15 +166,15 @@
 
     iput-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mImpl:Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Impl;
 
-    goto :goto_0
+    goto :goto_43
 
     .line 159
-    :cond_0
+    :cond_2e
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_3c
 
     .line 160
     new-instance v0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Impl23;
@@ -183,10 +183,10 @@
 
     iput-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mImpl:Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Impl;
 
-    goto :goto_0
+    goto :goto_43
 
     .line 162
-    :cond_1
+    :cond_3c
     new-instance v0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Impl;
 
     invoke-direct {v0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Impl;-><init>()V
@@ -194,12 +194,12 @@
     iput-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mImpl:Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Impl;
 
     .line 164
-    :goto_0
+    :goto_43
     return-void
 .end method
 
 .method private static accessAndReturnWithDefault(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "object"    # Ljava/lang/Object;
     .param p1, "fieldName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -222,24 +222,24 @@
 
     .line 832
     .local v0, "field":Ljava/lang/reflect/Field;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 833
     return-object p2
 
     .line 836
-    :cond_0
+    :cond_7
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_b} :catch_c
 
     return-object v1
 
     .line 837
     .end local v0    # "field":Ljava/lang/reflect/Field;
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 838
@@ -277,7 +277,7 @@
 .end method
 
 .method private cleanupAutoSizePresetSizes([I)[I
-    .locals 6
+    .registers 8
     .param p1, "presetValues"    # [I
 
     .line 512
@@ -285,13 +285,13 @@
 
     .line 513
     .local v0, "presetValuesLength":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4
 
     .line 514
     return-object p1
 
     .line 516
-    :cond_0
+    :cond_4
     invoke-static {p1}, Ljava/util/Arrays;->sort([I)V
 
     .line 518
@@ -304,15 +304,15 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_2
+    :goto_d
+    if-ge v2, v0, :cond_27
 
     .line 520
     aget v3, p1, v2
 
     .line 522
     .local v3, "currentPresetValue":I
-    if-lez v3, :cond_1
+    if-lez v3, :cond_24
 
     .line 523
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -323,7 +323,7 @@
 
     move-result v4
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_24
 
     .line 524
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -334,25 +334,25 @@
 
     .line 519
     .end local v3    # "currentPresetValue":I
-    :cond_1
+    :cond_24
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 528
     .end local v2    # "i":I
-    :cond_2
+    :cond_27
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_2e
 
     .line 529
     return-object p1
 
     .line 531
-    :cond_3
+    :cond_2e
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v2
@@ -366,8 +366,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_1
-    if-ge v4, v2, :cond_4
+    :goto_35
+    if-ge v4, v2, :cond_46
 
     .line 534
     invoke-interface {v1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -385,16 +385,16 @@
     .line 533
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_35
 
     .line 536
     .end local v4    # "i":I
-    :cond_4
+    :cond_46
     return-object v3
 .end method
 
 .method private clearAutoSizeConfiguration()V
-    .locals 2
+    .registers 3
 
     .line 642
     const/4 v0, 0x0
@@ -425,7 +425,7 @@
 .end method
 
 .method private createStaticLayoutForMeasuringPre16(Ljava/lang/CharSequence;Landroid/text/Layout$Alignment;I)Landroid/text/StaticLayout;
-    .locals 12
+    .registers 16
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "alignment"    # Landroid/text/Layout$Alignment;
     .param p3, "availableWidth"    # I
@@ -527,7 +527,7 @@
 .end method
 
 .method private findLargestTextSizeWhichFits(Landroid/graphics/RectF;)I
-    .locals 6
+    .registers 8
     .param p1, "availableSpace"    # Landroid/graphics/RectF;
 
     .line 699
@@ -537,7 +537,7 @@
 
     .line 700
     .local v0, "sizesCount":I
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_27
 
     .line 704
     const/4 v1, 0x0
@@ -552,8 +552,8 @@
 
     .line 708
     .local v3, "highIndex":I
-    :goto_0
-    if-gt v2, v3, :cond_1
+    :goto_a
+    if-gt v2, v3, :cond_22
 
     .line 709
     add-int v4, v2, v3
@@ -570,7 +570,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1e
 
     .line 711
     move v1, v2
@@ -578,20 +578,20 @@
     .line 712
     add-int/lit8 v2, v4, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 714
-    :cond_0
+    :cond_1e
     add-int/lit8 v3, v4, -0x1
 
     .line 715
     move v1, v3
 
-    goto :goto_0
+    goto :goto_a
 
     .line 719
     .end local v4    # "sizeToTryIndex":I
-    :cond_1
+    :cond_22
     iget-object v4, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeTextSizesInPx:[I
 
     aget v4, v4, v1
@@ -602,7 +602,7 @@
     .end local v1    # "bestSizeIndex":I
     .end local v2    # "lowIndex":I
     .end local v3    # "highIndex":I
-    :cond_2
+    :cond_27
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "No available text sizes to choose from."
@@ -613,7 +613,7 @@
 .end method
 
 .method private static getTextViewField(Ljava/lang/String;)Ljava/lang/reflect/Field;
-    .locals 3
+    .registers 4
     .param p0, "fieldName"    # Ljava/lang/String;
 
     .line 866
@@ -628,7 +628,7 @@
 
     .line 867
     .local v0, "field":Ljava/lang/reflect/Field;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     .line 868
     const-class v1, Landroid/widget/TextView;
@@ -640,7 +640,7 @@
     move-object v0, v1
 
     .line 869
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 870
     const/4 v1, 0x1
@@ -651,16 +651,16 @@
     sget-object v1, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->sTextViewFieldByNameCache:Lj$/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v1, p0, v0}, Lj$/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1c
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_1c} :catch_1d
 
     .line 875
-    :cond_0
+    :cond_1c
     return-object v0
 
     .line 876
     .end local v0    # "field":Ljava/lang/reflect/Field;
-    :catch_0
+    :catch_1d
     move-exception v0
 
     .line 877
@@ -700,7 +700,7 @@
 .end method
 
 .method private static getTextViewMethod(Ljava/lang/String;)Ljava/lang/reflect/Method;
-    .locals 3
+    .registers 4
     .param p0, "methodName"    # Ljava/lang/String;
 
     .line 846
@@ -715,7 +715,7 @@
 
     .line 847
     .local v0, "method":Ljava/lang/reflect/Method;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 848
     const-class v1, Landroid/widget/TextView;
@@ -731,7 +731,7 @@
     move-object v0, v1
 
     .line 849
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 850
     const/4 v1, 0x1
@@ -742,16 +742,16 @@
     sget-object v1, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->sTextViewMethodByNameCache:Lj$/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v1, p0, v0}, Lj$/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_1f} :catch_20
 
     .line 856
-    :cond_0
+    :cond_1f
     return-object v0
 
     .line 857
     .end local v0    # "method":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_20
     move-exception v0
 
     .line 858
@@ -791,7 +791,7 @@
 .end method
 
 .method static invokeAndReturnWithDefault(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p0, "object"    # Ljava/lang/Object;
     .param p1, "methodName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -815,7 +815,7 @@
 
     .line 813
     .local v1, "exceptionThrown":Z
-    :try_start_0
+    :try_start_2
     invoke-static {p1}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->getTextViewMethod(Ljava/lang/String;)Ljava/lang/reflect/Method;
 
     move-result-object v2
@@ -829,32 +829,32 @@
     invoke-virtual {v2, p0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_d} :catch_16
+    .catchall {:try_start_2 .. :try_end_d} :catchall_14
 
     move-object v0, v3
 
     .line 819
     .end local v2    # "method":Ljava/lang/reflect/Method;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3c
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3c
 
     .line 820
-    :goto_0
+    :goto_12
     move-object v0, p2
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 819
-    :catchall_0
+    :catchall_14
     move-exception v2
 
-    goto :goto_2
+    goto :goto_3d
 
     .line 815
-    :catch_0
+    :catch_16
     move-exception v2
 
     .line 816
@@ -862,7 +862,7 @@
     const/4 v1, 0x1
 
     .line 817
-    :try_start_1
+    :try_start_18
     const-string v3, "ACTVAutoSizeHelper"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -890,41 +890,41 @@
     move-result-object v4
 
     invoke-static {v3, v4, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_36
+    .catchall {:try_start_18 .. :try_end_36} :catchall_14
 
     .line 819
     nop
 
     .end local v2    # "ex":Ljava/lang/Exception;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3c
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3c
 
     .line 820
-    goto :goto_0
+    goto :goto_12
 
     .line 824
-    :cond_0
-    :goto_1
+    :cond_3c
+    :goto_3c
     return-object v0
 
     .line 819
-    :goto_2
-    if-nez v0, :cond_1
+    :goto_3d
+    if-nez v0, :cond_42
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_42
 
     .line 820
     move-object v0, p2
 
     .line 822
-    :cond_1
+    :cond_42
     throw v2
 .end method
 
 .method private setRawTextSize(F)V
-    .locals 5
+    .registers 7
     .param p1, "size"    # F
 
     .line 661
@@ -940,7 +940,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_56
 
     .line 662
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
@@ -972,7 +972,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_56
 
     .line 671
     const/4 v1, 0x0
@@ -984,7 +984,7 @@
 
     .line 675
     .local v2, "methodName":Ljava/lang/String;
-    :try_start_0
+    :try_start_2c
     const-string v3, "nullLayouts"
 
     invoke-static {v3}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->getTextViewMethod(Ljava/lang/String;)Ljava/lang/reflect/Method;
@@ -993,7 +993,7 @@
 
     .line 676
     .local v3, "method":Ljava/lang/reflect/Method;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3b
 
     .line 677
     iget-object v4, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
@@ -1001,16 +1001,16 @@
     new-array v1, v1, [Ljava/lang/Object;
 
     invoke-virtual {v3, v4, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3b
+    .catch Ljava/lang/Exception; {:try_start_2c .. :try_end_3b} :catch_3c
 
     .line 681
     .end local v3    # "method":Ljava/lang/reflect/Method;
-    :cond_0
-    goto :goto_0
+    :cond_3b
+    goto :goto_44
 
     .line 679
-    :catch_0
+    :catch_3c
     move-exception v1
 
     .line 680
@@ -1023,24 +1023,24 @@
 
     .line 683
     .end local v1    # "ex":Ljava/lang/Exception;
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_44
+    if-nez v0, :cond_4c
 
     .line 684
     iget-object v1, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->requestLayout()V
 
-    goto :goto_1
+    goto :goto_51
 
     .line 686
-    :cond_1
+    :cond_4c
     iget-object v1, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->forceLayout()V
 
     .line 689
-    :goto_1
+    :goto_51
     iget-object v1, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->invalidate()V
@@ -1048,39 +1048,39 @@
     .line 692
     .end local v0    # "isInLayout":Z
     .end local v2    # "methodName":Ljava/lang/String;
-    :cond_2
+    :cond_56
     return-void
 .end method
 
 .method private setupAutoSizeText()Z
-    .locals 7
+    .registers 8
 
     .line 575
     invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->supportsAutoSizeText()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_42
 
     iget v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeTextType:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_42
 
     .line 579
     iget-boolean v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mHasPresetAutoSizeValues:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeTextSizesInPx:[I
 
     array-length v0, v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3f
 
     .line 581
-    :cond_0
+    :cond_14
     iget v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeMaxTextSizeInPx:F
 
     iget v2, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeMinTextSizeInPx:F
@@ -1110,8 +1110,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v0, :cond_1
+    :goto_26
+    if-ge v3, v0, :cond_39
 
     .line 585
     iget v4, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeMinTextSizeInPx:F
@@ -1133,11 +1133,11 @@
     .line 584
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 588
     .end local v3    # "i":I
-    :cond_1
+    :cond_39
     invoke-direct {p0, v2}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->cleanupAutoSizePresetSizes([I)[I
 
     move-result-object v3
@@ -1147,26 +1147,26 @@
     .line 590
     .end local v0    # "autoSizeValuesLength":I
     .end local v2    # "autoSizeTextSizesInPx":[I
-    :cond_2
+    :cond_3f
     iput-boolean v1, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mNeedsAutoSizeText:Z
 
-    goto :goto_1
+    goto :goto_45
 
     .line 592
-    :cond_3
+    :cond_42
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mNeedsAutoSizeText:Z
 
     .line 595
-    :goto_1
+    :goto_45
     iget-boolean v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mNeedsAutoSizeText:Z
 
     return v0
 .end method
 
 .method private setupAutoSizeUniformPresetSizes(Landroid/content/res/TypedArray;)V
-    .locals 4
+    .registers 6
     .param p1, "textSizes"    # Landroid/content/res/TypedArray;
 
     .line 486
@@ -1180,14 +1180,14 @@
 
     .line 489
     .local v1, "parsedSizes":[I
-    if-lez v0, :cond_1
+    if-lez v0, :cond_1e
 
     .line 490
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_9
+    if-ge v2, v0, :cond_15
 
     .line 491
     const/4 v3, -0x1
@@ -1201,11 +1201,11 @@
     .line 490
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 493
     .end local v2    # "i":I
-    :cond_0
+    :cond_15
     invoke-direct {p0, v1}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->cleanupAutoSizePresetSizes([I)[I
 
     move-result-object v2
@@ -1216,12 +1216,12 @@
     invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->setupAutoSizeUniformPresetSizesConfiguration()Z
 
     .line 496
-    :cond_1
+    :cond_1e
     return-void
 .end method
 
 .method private setupAutoSizeUniformPresetSizesConfiguration()Z
-    .locals 4
+    .registers 5
 
     .line 499
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeTextSizesInPx:[I
@@ -1234,22 +1234,22 @@
 
     const/4 v2, 0x1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_9
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_a
     iput-boolean v3, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mHasPresetAutoSizeValues:Z
 
     .line 501
     iget-boolean v3, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mHasPresetAutoSizeValues:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_26
 
     .line 502
     iput v2, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeTextType:I
@@ -1280,14 +1280,14 @@
     iput v1, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeStepGranularityInPx:F
 
     .line 507
-    :cond_1
+    :cond_26
     iget-boolean v1, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mHasPresetAutoSizeValues:Z
 
     return v1
 .end method
 
 .method private suggestedSizeFitsInSpace(ILandroid/graphics/RectF;)Z
-    .locals 9
+    .registers 12
     .param p1, "suggestedSizeInPx"    # I
     .param p2, "availableSpace"    # Landroid/graphics/RectF;
 
@@ -1308,7 +1308,7 @@
 
     .line 755
     .local v1, "transformationMethod":Landroid/text/method/TransformationMethod;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 756
     iget-object v2, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
@@ -1319,14 +1319,14 @@
 
     .line 757
     .local v2, "transformedText":Ljava/lang/CharSequence;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     .line 758
     move-object v0, v2
 
     .line 762
     .end local v2    # "transformedText":Ljava/lang/CharSequence;
-    :cond_0
+    :cond_17
     iget-object v2, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
 
     invoke-static {v2}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Api16Impl;->getMaxLines(Landroid/widget/TextView;)I
@@ -1370,13 +1370,13 @@
 
     const/4 v7, 0x1
 
-    if-eq v2, v5, :cond_2
+    if-eq v2, v5, :cond_51
 
     invoke-virtual {v4}, Landroid/text/StaticLayout;->getLineCount()I
 
     move-result v5
 
-    if-gt v5, v2, :cond_1
+    if-gt v5, v2, :cond_50
 
     .line 772
     invoke-virtual {v4}, Landroid/text/StaticLayout;->getLineCount()I
@@ -1393,14 +1393,14 @@
 
     move-result v8
 
-    if-eq v5, v8, :cond_2
+    if-eq v5, v8, :cond_51
 
     .line 773
-    :cond_1
+    :cond_50
     return v6
 
     .line 777
-    :cond_2
+    :cond_51
     invoke-virtual {v4}, Landroid/text/StaticLayout;->getHeight()I
 
     move-result v5
@@ -1411,18 +1411,18 @@
 
     cmpl-float v5, v5, v8
 
-    if-lez v5, :cond_3
+    if-lez v5, :cond_5d
 
     .line 778
     return v6
 
     .line 781
-    :cond_3
+    :cond_5d
     return v7
 .end method
 
 .method private supportsAutoSizeText()Z
-    .locals 1
+    .registers 2
 
     .line 899
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
@@ -1435,7 +1435,7 @@
 .end method
 
 .method private validateAndSetAutoSizeTextTypeUniformConfiguration(FFF)V
-    .locals 4
+    .registers 8
     .param p1, "autoSizeMinTextSizeInPx"    # F
     .param p2, "autoSizeMaxTextSizeInPx"    # F
     .param p3, "autoSizeStepGranularityInPx"    # F
@@ -1452,17 +1452,17 @@
 
     cmpg-float v2, p1, v1
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_62
 
     .line 555
     cmpg-float v2, p2, p1
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_39
 
     .line 561
     cmpg-float v1, p3, v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1c
 
     .line 567
     const/4 v0, 0x1
@@ -1487,7 +1487,7 @@
     return-void
 
     .line 562
-    :cond_0
+    :cond_1c
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1517,7 +1517,7 @@
     throw v1
 
     .line 556
-    :cond_1
+    :cond_39
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1559,7 +1559,7 @@
     throw v0
 
     .line 551
-    :cond_2
+    :cond_62
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1592,23 +1592,23 @@
 
 # virtual methods
 .method autoSizeText()V
-    .locals 6
+    .registers 7
 
     .line 605
     invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->isAutoSizeEnabled()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 606
     return-void
 
     .line 609
-    :cond_0
+    :cond_7
     iget-boolean v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mNeedsAutoSizeText:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_85
 
     .line 610
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
@@ -1617,7 +1617,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_6
+    if-lez v0, :cond_84
 
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
 
@@ -1625,12 +1625,12 @@
 
     move-result v0
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_1c
 
-    goto :goto_2
+    goto :goto_84
 
     .line 614
-    :cond_1
+    :cond_1c
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mImpl:Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Impl;
 
     iget-object v1, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
@@ -1641,15 +1641,15 @@
 
     .line 615
     .local v0, "horizontallyScrolling":Z
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
     .line 616
     const/high16 v1, 0x100000
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 618
-    :cond_2
+    :cond_29
     iget-object v1, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
 
     .line 617
@@ -1674,7 +1674,7 @@
 
     sub-int/2addr v1, v2
 
-    :goto_0
+    :goto_3d
     nop
 
     .line 619
@@ -1704,20 +1704,20 @@
 
     .line 622
     .local v2, "availableHeight":I
-    if-lez v1, :cond_5
+    if-lez v1, :cond_83
 
-    if-gtz v2, :cond_3
+    if-gtz v2, :cond_57
 
-    goto :goto_1
+    goto :goto_83
 
     .line 626
-    :cond_3
+    :cond_57
     sget-object v3, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->TEMP_RECTF:Landroid/graphics/RectF;
 
     monitor-enter v3
 
     .line 627
-    :try_start_0
+    :try_start_5a
     sget-object v4, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->TEMP_RECTF:Landroid/graphics/RectF;
 
     invoke-virtual {v4}, Landroid/graphics/RectF;->setEmpty()V
@@ -1755,7 +1755,7 @@
 
     cmpl-float v5, v4, v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_7e
 
     .line 632
     const/4 v5, 0x0
@@ -1764,36 +1764,36 @@
 
     .line 634
     .end local v4    # "optimalTextSize":F
-    :cond_4
+    :cond_7e
     monitor-exit v3
 
-    goto :goto_3
+    goto :goto_85
 
-    :catchall_0
+    :catchall_80
     move-exception v4
 
     monitor-exit v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_82
+    .catchall {:try_start_5a .. :try_end_82} :catchall_80
 
     throw v4
 
     .line 623
-    :cond_5
-    :goto_1
+    :cond_83
+    :goto_83
     return-void
 
     .line 611
     .end local v0    # "horizontallyScrolling":Z
     .end local v1    # "availableWidth":I
     .end local v2    # "availableHeight":I
-    :cond_6
-    :goto_2
+    :cond_84
+    :goto_84
     return-void
 
     .line 638
-    :cond_7
-    :goto_3
+    :cond_85
+    :goto_85
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mNeedsAutoSizeText:Z
@@ -1803,7 +1803,7 @@
 .end method
 
 .method createLayout(Ljava/lang/CharSequence;Landroid/text/Layout$Alignment;II)Landroid/text/StaticLayout;
-    .locals 9
+    .registers 14
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "alignment"    # Landroid/text/Layout$Alignment;
     .param p3, "availableWidth"    # I
@@ -1814,7 +1814,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_15
 
     .line 742
     iget-object v6, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
@@ -1838,7 +1838,7 @@
     return-object v0
 
     .line 744
-    :cond_0
+    :cond_15
     nop
 
     .line 745
@@ -1854,7 +1854,7 @@
 .end method
 
 .method getAutoSizeMaxTextSize()I
-    .locals 1
+    .registers 2
 
     .line 469
     iget v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeMaxTextSizeInPx:F
@@ -1867,7 +1867,7 @@
 .end method
 
 .method getAutoSizeMinTextSize()I
-    .locals 1
+    .registers 2
 
     .line 453
     iget v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeMinTextSizeInPx:F
@@ -1880,7 +1880,7 @@
 .end method
 
 .method getAutoSizeStepGranularity()I
-    .locals 1
+    .registers 2
 
     .line 437
     iget v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeStepGranularityInPx:F
@@ -1893,7 +1893,7 @@
 .end method
 
 .method getAutoSizeTextAvailableSizes()[I
-    .locals 1
+    .registers 2
 
     .line 482
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeTextSizesInPx:[I
@@ -1902,7 +1902,7 @@
 .end method
 
 .method getAutoSizeTextType()I
-    .locals 1
+    .registers 2
 
     .line 423
     iget v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeTextType:I
@@ -1911,13 +1911,13 @@
 .end method
 
 .method initTempTextPaint(I)V
-    .locals 2
+    .registers 4
     .param p1, "suggestedSizeInPx"    # I
 
     .line 724
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTempTextPaint:Landroid/text/TextPaint;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 725
     new-instance v0, Landroid/text/TextPaint;
@@ -1926,16 +1926,16 @@
 
     iput-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTempTextPaint:Landroid/text/TextPaint;
 
-    goto :goto_0
+    goto :goto_11
 
     .line 727
-    :cond_0
+    :cond_c
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTempTextPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v0}, Landroid/text/TextPaint;->reset()V
 
     .line 729
-    :goto_0
+    :goto_11
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTempTextPaint:Landroid/text/TextPaint;
 
     iget-object v1, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
@@ -1958,32 +1958,32 @@
 .end method
 
 .method isAutoSizeEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 890
     invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->supportsAutoSizeText()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeTextType:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method loadFromAttributes(Landroid/util/AttributeSet;I)V
-    .locals 13
+    .registers 16
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyleAttr"    # I
 
@@ -2039,7 +2039,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_30
 
     .line 177
     sget v4, Landroidx/appcompat/R$styleable;->AppCompatTextView_autoSizeTextType:I
@@ -2051,7 +2051,7 @@
     iput v4, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeTextType:I
 
     .line 180
-    :cond_0
+    :cond_30
     sget v4, Landroidx/appcompat/R$styleable;->AppCompatTextView_autoSizeStepGranularity:I
 
     invoke-virtual {v3, v4}, Landroid/content/res/TypedArray;->hasValue(I)Z
@@ -2060,7 +2060,7 @@
 
     const/high16 v6, -0x40800000    # -1.0f
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_40
 
     .line 181
     sget v4, Landroidx/appcompat/R$styleable;->AppCompatTextView_autoSizeStepGranularity:I
@@ -2070,14 +2070,14 @@
     move-result v2
 
     .line 185
-    :cond_1
+    :cond_40
     sget v4, Landroidx/appcompat/R$styleable;->AppCompatTextView_autoSizeMinTextSize:I
 
     invoke-virtual {v3, v4}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4e
 
     .line 186
     sget v4, Landroidx/appcompat/R$styleable;->AppCompatTextView_autoSizeMinTextSize:I
@@ -2087,14 +2087,14 @@
     move-result v0
 
     .line 190
-    :cond_2
+    :cond_4e
     sget v4, Landroidx/appcompat/R$styleable;->AppCompatTextView_autoSizeMaxTextSize:I
 
     invoke-virtual {v3, v4}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_5c
 
     .line 191
     sget v4, Landroidx/appcompat/R$styleable;->AppCompatTextView_autoSizeMaxTextSize:I
@@ -2104,14 +2104,14 @@
     move-result v1
 
     .line 195
-    :cond_3
+    :cond_5c
     sget v4, Landroidx/appcompat/R$styleable;->AppCompatTextView_autoSizePresetSizes:I
 
     invoke-virtual {v3, v4}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_7a
 
     .line 196
     sget v4, Landroidx/appcompat/R$styleable;->AppCompatTextView_autoSizePresetSizes:I
@@ -2122,7 +2122,7 @@
 
     .line 198
     .local v4, "autoSizeStepSizeArrayResId":I
-    if-lez v4, :cond_4
+    if-lez v4, :cond_7a
 
     .line 199
     invoke-virtual {v3}, Landroid/content/res/TypedArray;->getResources()Landroid/content/res/Resources;
@@ -2144,7 +2144,7 @@
     .line 205
     .end local v4    # "autoSizeStepSizeArrayResId":I
     .end local v7    # "autoSizePreDefTextSizes":Landroid/content/res/TypedArray;
-    :cond_4
+    :cond_7a
     invoke-virtual {v3}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 207
@@ -2152,19 +2152,19 @@
 
     move-result v4
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_b8
 
     .line 208
     iget v4, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeTextType:I
 
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_a
+    if-ne v4, v5, :cond_ba
 
     .line 212
     iget-boolean v4, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mHasPresetAutoSizeValues:Z
 
-    if-nez v4, :cond_8
+    if-nez v4, :cond_b4
 
     .line 213
     iget-object v4, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mContext:Landroid/content/Context;
@@ -2184,7 +2184,7 @@
 
     cmpl-float v7, v0, v6
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_a1
 
     .line 217
     const/high16 v7, 0x41400000    # 12.0f
@@ -2194,10 +2194,10 @@
     move-result v0
 
     .line 223
-    :cond_5
+    :cond_a1
     cmpl-float v7, v1, v6
 
-    if-nez v7, :cond_6
+    if-nez v7, :cond_ab
 
     .line 224
     const/high16 v7, 0x42e00000    # 112.0f
@@ -2207,37 +2207,37 @@
     move-result v1
 
     .line 230
-    :cond_6
+    :cond_ab
     cmpl-float v5, v2, v6
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_b1
 
     .line 232
     const/high16 v2, 0x3f800000    # 1.0f
 
     .line 235
-    :cond_7
+    :cond_b1
     invoke-direct {p0, v0, v1, v2}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->validateAndSetAutoSizeTextTypeUniformConfiguration(FFF)V
 
     .line 240
     .end local v4    # "displayMetrics":Landroid/util/DisplayMetrics;
-    :cond_8
+    :cond_b4
     invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->setupAutoSizeText()Z
 
-    goto :goto_0
+    goto :goto_ba
 
     .line 243
-    :cond_9
+    :cond_b8
     iput v5, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mAutoSizeTextType:I
 
     .line 245
-    :cond_a
-    :goto_0
+    :cond_ba
+    :goto_ba
     return-void
 .end method
 
 .method setAutoSizeTextTypeUniformWithConfiguration(IIII)V
-    .locals 5
+    .registers 10
     .param p1, "autoSizeMinTextSize"    # I
     .param p2, "autoSizeMaxTextSize"    # I
     .param p3, "autoSizeStepGranularity"    # I
@@ -2253,7 +2253,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 331
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mContext:Landroid/content/Context;
@@ -2299,7 +2299,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2b
 
     .line 343
     invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->autoSizeText()V
@@ -2309,12 +2309,12 @@
     .end local v1    # "autoSizeMinTextSizeInPx":F
     .end local v2    # "autoSizeMaxTextSizeInPx":F
     .end local v3    # "autoSizeStepGranularityInPx":F
-    :cond_0
+    :cond_2b
     return-void
 .end method
 
 .method setAutoSizeTextTypeUniformWithPresetSizes([II)V
-    .locals 5
+    .registers 8
     .param p1, "presetSizes"    # [I
     .param p2, "unit"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -2328,31 +2328,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_65
 
     .line 374
     array-length v0, p1
 
     .line 375
     .local v0, "presetSizesLength":I
-    if-lez v0, :cond_3
+    if-lez v0, :cond_59
 
     .line 376
     new-array v1, v0, [I
 
     .line 378
     .local v1, "presetSizesInPx":[I
-    if-nez p2, :cond_0
+    if-nez p2, :cond_12
 
     .line 379
     invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([II)[I
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 381
-    :cond_0
+    :cond_12
     iget-object v2, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mContext:Landroid/content/Context;
 
     .line 382
@@ -2369,8 +2369,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v0, :cond_1
+    :goto_1d
+    if-ge v3, v0, :cond_2f
 
     .line 385
     aget v4, p1, v3
@@ -2390,13 +2390,13 @@
     .line 384
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 390
     .end local v2    # "displayMetrics":Landroid/util/DisplayMetrics;
     .end local v3    # "i":I
-    :cond_1
-    :goto_1
+    :cond_2f
+    :goto_2f
     invoke-direct {p0, v1}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->cleanupAutoSizePresetSizes([I)[I
 
     move-result-object v2
@@ -2408,15 +2408,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3c
 
     .line 395
     .end local v1    # "presetSizesInPx":[I
-    goto :goto_2
+    goto :goto_5c
 
     .line 392
     .restart local v1    # "presetSizesInPx":[I
-    :cond_2
+    :cond_3c
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2448,30 +2448,30 @@
 
     .line 396
     .end local v1    # "presetSizesInPx":[I
-    :cond_3
+    :cond_59
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mHasPresetAutoSizeValues:Z
 
     .line 399
-    :goto_2
+    :goto_5c
     invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->setupAutoSizeText()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_65
 
     .line 400
     invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->autoSizeText()V
 
     .line 403
     .end local v0    # "presetSizesLength":I
-    :cond_4
+    :cond_65
     return-void
 .end method
 
 .method setAutoSizeTextTypeWithDefaults(I)V
-    .locals 4
+    .registers 6
     .param p1, "autoSizeTextType"    # I
 
     .line 263
@@ -2479,10 +2479,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4c
 
     .line 264
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_4e
 
     .line 289
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -2510,7 +2510,7 @@
     throw v0
 
     .line 269
-    :pswitch_0
+    :pswitch_22
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mContext:Landroid/content/Context;
 
     .line 270
@@ -2551,63 +2551,63 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_4c
 
     .line 285
     invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->autoSizeText()V
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 266
     .end local v0    # "displayMetrics":Landroid/util/DisplayMetrics;
     .end local v1    # "autoSizeMinTextSizeInPx":F
     .end local v2    # "autoSizeMaxTextSizeInPx":F
-    :pswitch_1
+    :pswitch_48
     invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->clearAutoSizeConfiguration()V
 
     .line 267
     nop
 
     .line 293
-    :cond_0
-    :goto_0
+    :cond_4c
+    :goto_4c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_48
+        :pswitch_22
     .end packed-switch
 .end method
 
 .method setTextSizeInternal(IF)V
-    .locals 2
+    .registers 5
     .param p1, "unit"    # I
     .param p2, "size"    # F
 
     .line 653
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mContext:Landroid/content/Context;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 654
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 655
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     nop
 
     .line 657

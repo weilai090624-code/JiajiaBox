@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "message"    # Ljava/lang/String;
 
     .line 146
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Lcom/google/common/util/concurrent/TimeoutFuture$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/TimeoutFuture$1;
 
@@ -40,19 +40,19 @@
 
 # virtual methods
 .method public declared-synchronized fillInStackTrace()Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 151
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_2
     new-array v0, v0, [Ljava/lang/StackTraceElement;
 
     invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;->setStackTrace([Ljava/lang/StackTraceElement;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_2 .. :try_end_7} :catchall_9
 
     .line 152
     monitor-exit p0
@@ -61,13 +61,13 @@
 
     .line 150
     .end local p0    # "this":Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;
-    :catchall_0
+    :catchall_9
     move-exception v0
 
-    :try_start_1
+    :try_start_a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v0
 .end method

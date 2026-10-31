@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator$OfInt;Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt;)V
-    .locals 0
+    .registers 3
     .param p1, "s"    # Lj$/util/Spliterator$OfInt;
     .param p2, "parent"    # Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt;
 
@@ -28,7 +28,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator$OfInt;ZLjava/util/function/IntPredicate;)V
-    .locals 0
+    .registers 4
     .param p1, "s"    # Lj$/util/Spliterator$OfInt;
     .param p2, "noSplitting"    # Z
     .param p3, "p"    # Ljava/util/function/IntPredicate;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method makeSpliterator(Lj$/util/Spliterator$OfInt;)Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 3
     .param p1, "s"    # Lj$/util/Spliterator$OfInt;
 
     .line 923
@@ -55,7 +55,7 @@
 .end method
 
 .method bridge synthetic makeSpliterator(Lj$/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 0
+    .registers 2
 
     .line 885
     check-cast p1, Lj$/util/Spliterator$OfInt;
@@ -68,7 +68,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 885
     check-cast p1, Ljava/util/function/IntConsumer;
@@ -81,13 +81,13 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/IntConsumer;)Z
-    .locals 4
+    .registers 6
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 896
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt$Dropping;->takeOrDrop:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_35
 
     .line 897
     const/4 v0, 0x0
@@ -99,7 +99,7 @@
 
     .line 900
     .local v0, "dropped":Z
-    :goto_0
+    :goto_8
     iget-object v1, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt$Dropping;->s:Lj$/util/Spliterator;
 
     check-cast v1, Lj$/util/Spliterator$OfInt;
@@ -111,14 +111,14 @@
     move v2, v1
 
     .local v2, "adv":Z
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 901
     invoke-virtual {p0}, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt$Dropping;->checkCancelOnCount()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     iget-object v1, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt$Dropping;->p:Ljava/util/function/IntPredicate;
 
@@ -129,19 +129,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 903
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 907
-    :cond_0
-    if-eqz v2, :cond_2
+    :cond_25
+    if-eqz v2, :cond_34
 
     .line 910
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     .line 911
     iget-object v1, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt$Dropping;->cancel:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -151,19 +151,19 @@
     invoke-virtual {v1, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     .line 912
-    :cond_1
+    :cond_2f
     iget v1, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt$Dropping;->t:I
 
     invoke-interface {p1, v1}, Ljava/util/function/IntConsumer;->accept(I)V
 
     .line 914
-    :cond_2
+    :cond_34
     return v2
 
     .line 917
     .end local v0    # "dropped":Z
     .end local v2    # "adv":Z
-    :cond_3
+    :cond_35
     iget-object v0, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt$Dropping;->s:Lj$/util/Spliterator;
 
     check-cast v0, Lj$/util/Spliterator$OfInt;
@@ -176,7 +176,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 2
 
     .line 885
     invoke-super {p0}, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt;->trySplit()Lj$/util/Spliterator;
@@ -189,7 +189,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 885
     invoke-super {p0}, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt;->trySplit()Lj$/util/Spliterator;

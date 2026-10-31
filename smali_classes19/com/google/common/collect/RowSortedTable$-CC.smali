@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$rowKeySet(Lcom/google/common/collect/RowSortedTable;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/collect/RowSortedTable;
 
     .line 36
@@ -18,7 +18,7 @@
 .end method
 
 .method public static bridge synthetic $default$rowMap(Lcom/google/common/collect/RowSortedTable;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/collect/RowSortedTable;
 
     .line 36

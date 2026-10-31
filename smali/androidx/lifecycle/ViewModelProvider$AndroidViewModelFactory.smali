@@ -81,7 +81,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory$Companion;
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 267
     const/4 v0, 0x0
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/Application;)V
-    .locals 1
+    .registers 3
     .param p1, "application"    # Landroid/app/Application;
 
     const-string v0, "application"
@@ -131,7 +131,7 @@
 .end method
 
 .method private constructor <init>(Landroid/app/Application;I)V
-    .locals 0
+    .registers 3
     .param p1, "application"    # Landroid/app/Application;
     .param p2, "unused"    # I
 
@@ -146,7 +146,7 @@
 .end method
 
 .method public static final synthetic access$getSInstance$cp()Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;
-    .locals 1
+    .registers 1
 
     .line 252
     sget-object v0, Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;->sInstance:Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;
@@ -155,7 +155,7 @@
 .end method
 
 .method public static final synthetic access$setSInstance$cp(Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;
 
     .line 252
@@ -165,7 +165,7 @@
 .end method
 
 .method private final create(Ljava/lang/Class;Landroid/app/Application;)Landroidx/lifecycle/ViewModel;
-    .locals 5
+    .registers 8
     .param p1, "modelClass"    # Ljava/lang/Class;
     .param p2, "app"    # Landroid/app/Application;
     .annotation system Ldalvik/annotation/Signature;
@@ -189,7 +189,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_98
 
     .line 313
     nop
@@ -197,7 +197,7 @@
     .line 314
     const/4 v1, 0x1
 
-    :try_start_0
+    :try_start_c
     new-array v2, v1, [Ljava/lang/Class;
 
     const-class v3, Landroid/app/Application;
@@ -219,46 +219,46 @@
     move-result-object v1
 
     check-cast v1, Landroidx/lifecycle/ViewModel;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_c .. :try_end_21} :catch_2e
+    .catch Ljava/lang/IllegalAccessException; {:try_start_c .. :try_end_21} :catch_2c
+    .catch Ljava/lang/InstantiationException; {:try_start_c .. :try_end_21} :catch_2a
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_c .. :try_end_21} :catch_28
 
     .line 312
     const-string/jumbo v0, "{\n                try {\n\u2026          }\n            }"
 
     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_4
+    goto :goto_9c
 
     .line 321
-    :catch_0
+    :catch_28
     move-exception v1
 
-    goto :goto_0
+    goto :goto_30
 
     .line 319
-    :catch_1
+    :catch_2a
     move-exception v1
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 317
-    :catch_2
+    :catch_2c
     move-exception v1
 
-    goto :goto_2
+    goto :goto_64
 
     .line 315
-    :catch_3
+    :catch_2e
     move-exception v1
 
-    goto :goto_3
+    goto :goto_7e
 
     .line 322
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    :goto_0
+    :goto_30
     new-instance v2, Ljava/lang/RuntimeException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -287,7 +287,7 @@
 
     .line 320
     .local v1, "e":Ljava/lang/InstantiationException;
-    :goto_1
+    :goto_4a
     new-instance v2, Ljava/lang/RuntimeException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -316,7 +316,7 @@
 
     .line 318
     .local v1, "e":Ljava/lang/IllegalAccessException;
-    :goto_2
+    :goto_64
     new-instance v2, Ljava/lang/RuntimeException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -345,7 +345,7 @@
 
     .line 316
     .local v1, "e":Ljava/lang/NoSuchMethodException;
-    :goto_3
+    :goto_7e
     new-instance v2, Ljava/lang/RuntimeException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -374,18 +374,18 @@
 
     .line 324
     .end local v1    # "e":Ljava/lang/NoSuchMethodException;
-    :cond_0
+    :cond_98
     invoke-super {p0, p1}, Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory;->create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
     move-result-object v1
 
     .line 312
-    :goto_4
+    :goto_9c
     return-object v1
 .end method
 
 .method public static final getInstance(Landroid/app/Application;)Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -401,7 +401,7 @@
 
 # virtual methods
 .method public create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 2
+    .registers 4
     .param p1, "modelClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -420,7 +420,7 @@
     .line 299
     iget-object v0, p0, Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;->application:Landroid/app/Application;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 306
     iget-object v0, p0, Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;->application:Landroid/app/Application;
@@ -433,7 +433,7 @@
     return-object v0
 
     .line 300
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     .line 301
@@ -448,7 +448,7 @@
 .end method
 
 .method public create(Ljava/lang/Class;Landroidx/lifecycle/viewmodel/CreationExtras;)Landroidx/lifecycle/ViewModel;
-    .locals 3
+    .registers 6
     .param p1, "modelClass"    # Ljava/lang/Class;
     .param p2, "extras"    # Landroidx/lifecycle/viewmodel/CreationExtras;
     .annotation system Ldalvik/annotation/Signature;
@@ -474,17 +474,17 @@
     .line 279
     iget-object v0, p0, Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;->application:Landroid/app/Application;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 280
     invoke-virtual {p0, p1}, Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;->create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_30
 
     .line 282
-    :cond_0
+    :cond_13
     sget-object v0, Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;->APPLICATION_KEY:Landroidx/lifecycle/viewmodel/CreationExtras$Key;
 
     invoke-virtual {p2, v0}, Landroidx/lifecycle/viewmodel/CreationExtras;->get(Landroidx/lifecycle/viewmodel/CreationExtras$Key;)Ljava/lang/Object;
@@ -495,7 +495,7 @@
 
     .line 283
     .local v0, "application":Landroid/app/Application;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 284
     invoke-direct {p0, p1, v0}, Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;->create(Ljava/lang/Class;Landroid/app/Application;)Landroidx/lifecycle/ViewModel;
@@ -504,17 +504,17 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_30
 
     .line 287
-    :cond_1
+    :cond_23
     const-class v1, Landroidx/lifecycle/AndroidViewModel;
 
     invoke-virtual {v1, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_31
 
     .line 292
     invoke-super {p0, p1}, Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory;->create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
@@ -525,12 +525,12 @@
 
     .line 279
     .end local v0    # "application":Landroid/app/Application;
-    :goto_0
+    :goto_30
     return-object v0
 
     .line 288
     .restart local v0    # "application":Landroid/app/Application;
-    :cond_2
+    :cond_31
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     .line 289

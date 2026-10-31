@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public deinit()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -102,19 +102,19 @@
     monitor-enter v0
 
     .line 80
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/impl/CameraRepository;->mCameras:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_19
 
     .line 81
     iget-object v1, p0, Landroidx/camera/core/impl/CameraRepository;->mDeinitFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     const/4 v1, 0x0
 
@@ -122,23 +122,23 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     iget-object v1, p0, Landroidx/camera/core/impl/CameraRepository;->mDeinitFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    :goto_0
+    :goto_17
     monitor-exit v0
 
     return-object v1
 
     .line 83
-    :cond_1
+    :cond_19
     iget-object v1, p0, Landroidx/camera/core/impl/CameraRepository;->mDeinitFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 84
     .local v1, "currentFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Void;>;"
-    if-nez v1, :cond_2
+    if-nez v1, :cond_29
 
     .line 90
     new-instance v2, Landroidx/camera/core/impl/CameraRepository$$ExternalSyntheticLambda0;
@@ -155,7 +155,7 @@
     iput-object v1, p0, Landroidx/camera/core/impl/CameraRepository;->mDeinitFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 100
-    :cond_2
+    :cond_29
     iget-object v2, p0, Landroidx/camera/core/impl/CameraRepository;->mReleasingCameras:Ljava/util/Set;
 
     iget-object v3, p0, Landroidx/camera/core/impl/CameraRepository;->mCameras:Ljava/util/Map;
@@ -177,12 +177,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_3e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_5b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -210,10 +210,10 @@
 
     .line 121
     .end local v3    # "cameraInternal":Landroidx/camera/core/impl/CameraInternal;
-    goto :goto_1
+    goto :goto_3e
 
     .line 124
-    :cond_3
+    :cond_5b
     iget-object v2, p0, Landroidx/camera/core/impl/CameraRepository;->mCameras:Ljava/util/Map;
 
     invoke-interface {v2}, Ljava/util/Map;->clear()V
@@ -225,18 +225,18 @@
 
     .line 126
     .end local v1    # "currentFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Void;>;"
-    :catchall_0
+    :catchall_62
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_64
+    .catchall {:try_start_3 .. :try_end_64} :catchall_62
 
     throw v1
 .end method
 
 .method public getCamera(Ljava/lang/String;)Landroidx/camera/core/impl/CameraInternal;
-    .locals 5
+    .registers 7
     .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -253,7 +253,7 @@
     monitor-enter v0
 
     .line 138
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/impl/CameraRepository;->mCameras:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -264,7 +264,7 @@
 
     .line 139
     .local v1, "cameraInternal":Landroidx/camera/core/impl/CameraInternal;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 142
     monitor-exit v0
@@ -272,7 +272,7 @@
     return-object v1
 
     .line 140
-    :cond_0
+    :cond_f
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -301,18 +301,18 @@
     .line 143
     .end local v1    # "cameraInternal":Landroidx/camera/core/impl/CameraInternal;
     .restart local p1    # "cameraId":Ljava/lang/String;
-    :catchall_0
+    :catchall_28
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_3 .. :try_end_2a} :catchall_28
 
     throw v1
 .end method
 
 .method getCameraIds()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -328,7 +328,7 @@
     monitor-enter v0
 
     .line 164
-    :try_start_0
+    :try_start_3
     new-instance v1, Ljava/util/LinkedHashSet;
 
     iget-object v2, p0, Landroidx/camera/core/impl/CameraRepository;->mCameras:Ljava/util/Map;
@@ -344,18 +344,18 @@
     return-object v1
 
     .line 165
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_3 .. :try_end_12} :catchall_10
 
     throw v1
 .end method
 
 .method public getCameras()Ljava/util/LinkedHashSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -371,7 +371,7 @@
     monitor-enter v0
 
     .line 153
-    :try_start_0
+    :try_start_3
     new-instance v1, Ljava/util/LinkedHashSet;
 
     iget-object v2, p0, Landroidx/camera/core/impl/CameraRepository;->mCameras:Ljava/util/Map;
@@ -387,18 +387,18 @@
     return-object v1
 
     .line 154
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_3 .. :try_end_12} :catchall_10
 
     throw v1
 .end method
 
 .method public init(Landroidx/camera/core/impl/CameraFactory;)V
-    .locals 7
+    .registers 9
     .param p1, "cameraFactory"    # Landroidx/camera/core/impl/CameraFactory;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -421,7 +421,7 @@
     monitor-enter v0
 
     .line 61
-    :try_start_0
+    :try_start_3
     invoke-interface {p1}, Landroidx/camera/core/impl/CameraFactory;->getAvailableCameraIds()Ljava/util/Set;
 
     move-result-object v1
@@ -432,12 +432,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_b
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -477,36 +477,36 @@
     move-result-object v5
 
     invoke-interface {v4, v3, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Landroidx/camera/core/CameraUnavailableException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_38
+    .catch Landroidx/camera/core/CameraUnavailableException; {:try_start_3 .. :try_end_38} :catch_3f
+    .catchall {:try_start_3 .. :try_end_38} :catchall_3d
 
     .line 65
     nop
 
     .end local v3    # "id":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_b
 
     .line 68
     .end local v1    # "camerasList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    :cond_0
+    :cond_3a
     nop
 
     .line 69
-    :try_start_1
+    :try_start_3b
     monitor-exit v0
 
     .line 70
     return-void
 
     .line 69
-    :catchall_0
+    :catchall_3d
     move-exception v1
 
-    goto :goto_1
+    goto :goto_46
 
     .line 66
-    :catch_0
+    :catch_3f
     move-exception v1
 
     .line 67
@@ -521,16 +521,16 @@
     .line 69
     .end local v1    # "e":Landroidx/camera/core/CameraUnavailableException;
     .restart local p1    # "cameraFactory":Landroidx/camera/core/impl/CameraFactory;
-    :goto_1
+    :goto_46
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_47
+    .catchall {:try_start_3b .. :try_end_47} :catchall_3d
 
     throw v1
 .end method
 
 .method synthetic lambda$deinit$0$androidx-camera-core-impl-CameraRepository(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -544,13 +544,13 @@
     monitor-enter v0
 
     .line 92
-    :try_start_0
+    :try_start_3
     iput-object p1, p0, Landroidx/camera/core/impl/CameraRepository;->mDeinitCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 93
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_3 .. :try_end_6} :catchall_9
 
     .line 94
     const-string v0, "CameraRepository-deinit"
@@ -558,19 +558,19 @@
     return-object v0
 
     .line 93
-    :catchall_0
+    :catchall_9
     move-exception v1
 
-    :try_start_1
+    :try_start_a
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v1
 .end method
 
 .method synthetic lambda$deinit$1$androidx-camera-core-impl-CameraRepository(Landroidx/camera/core/impl/CameraInternal;)V
-    .locals 3
+    .registers 5
     .param p1, "cameraInternal"    # Landroidx/camera/core/impl/CameraInternal;
 
     .line 105
@@ -579,7 +579,7 @@
     monitor-enter v0
 
     .line 110
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/impl/CameraRepository;->mReleasingCameras:Ljava/util/Set;
 
     invoke-interface {v1, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
@@ -591,7 +591,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     .line 112
     iget-object v1, p0, Landroidx/camera/core/impl/CameraRepository;->mDeinitCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -612,19 +612,19 @@
     iput-object v2, p0, Landroidx/camera/core/impl/CameraRepository;->mDeinitFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 119
-    :cond_0
+    :cond_1f
     monitor-exit v0
 
     .line 120
     return-void
 
     .line 119
-    :catchall_0
+    :catchall_21
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_3 .. :try_end_23} :catchall_21
 
     throw v1
 .end method

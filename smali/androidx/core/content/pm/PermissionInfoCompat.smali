@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static getProtection(Landroid/content/pm/PermissionInfo;)I
-    .locals 2
+    .registers 3
     .param p0, "permissionInfo"    # Landroid/content/pm/PermissionInfo;
 
     .line 74
@@ -33,7 +33,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 75
     invoke-static {p0}, Landroidx/core/content/pm/PermissionInfoCompat$Api28Impl;->getProtection(Landroid/content/pm/PermissionInfo;)I
@@ -43,7 +43,7 @@
     return v0
 
     .line 77
-    :cond_0
+    :cond_b
     iget v0, p0, Landroid/content/pm/PermissionInfo;->protectionLevel:I
 
     and-int/lit8 v0, v0, 0xf
@@ -52,7 +52,7 @@
 .end method
 
 .method public static getProtectionFlags(Landroid/content/pm/PermissionInfo;)I
-    .locals 2
+    .registers 3
     .param p0, "permissionInfo"    # Landroid/content/pm/PermissionInfo;
 
     .line 88
@@ -60,7 +60,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 89
     invoke-static {p0}, Landroidx/core/content/pm/PermissionInfoCompat$Api28Impl;->getProtectionFlags(Landroid/content/pm/PermissionInfo;)I
@@ -70,7 +70,7 @@
     return v0
 
     .line 91
-    :cond_0
+    :cond_b
     iget v0, p0, Landroid/content/pm/PermissionInfo;->protectionLevel:I
 
     and-int/lit8 v0, v0, -0x10

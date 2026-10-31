@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 40
     const/4 v0, 0x0
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method private static extractPureBits(Lcom/google/zxing/common/BitMatrix;)Lcom/google/zxing/common/BitMatrix;
-    .locals 14
+    .registers 15
     .param p0, "image"    # Lcom/google/zxing/common/BitMatrix;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -68,7 +68,7 @@
     .local v1, "enclosingRectangle":[I
     move-object v1, v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_47
 
     .line 100
     const/4 v0, 0x0
@@ -108,8 +108,8 @@
     const/4 v9, 0x0
 
     .local v9, "y":I
-    :goto_0
-    if-ge v9, v8, :cond_2
+    :goto_1e
+    if-ge v9, v8, :cond_46
 
     .line 108
     mul-int v10, v9, v5
@@ -127,8 +127,8 @@
     const/4 v11, 0x0
 
     .local v11, "x":I
-    :goto_1
-    if-ge v11, v7, :cond_1
+    :goto_28
+    if-ge v11, v7, :cond_43
 
     .line 110
     mul-int v12, v11, v4
@@ -155,29 +155,29 @@
 
     move-result v13
 
-    if-eqz v13, :cond_0
+    if-eqz v13, :cond_40
 
     .line 112
     invoke-virtual {v6, v11, v9}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 109
     .end local v12    # "ix":I
-    :cond_0
+    :cond_40
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_1
+    goto :goto_28
 
     .line 107
     .end local v10    # "iy":I
     .end local v11    # "x":I
-    :cond_1
+    :cond_43
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 116
     .end local v9    # "y":I
-    :cond_2
+    :cond_46
     return-object v6
 
     .line 97
@@ -186,7 +186,7 @@
     .end local v4    # "width":I
     .end local v5    # "height":I
     .end local v6    # "bits":Lcom/google/zxing/common/BitMatrix;
-    :cond_3
+    :cond_47
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v0
@@ -197,7 +197,7 @@
 
 # virtual methods
 .method public decode(Lcom/google/zxing/BinaryBitmap;)Lcom/google/zxing/Result;
-    .locals 1
+    .registers 3
     .param p1, "image"    # Lcom/google/zxing/BinaryBitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -218,7 +218,7 @@
 .end method
 
 .method public decode(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;)Lcom/google/zxing/Result;
-    .locals 6
+    .registers 9
     .param p1, "image"    # Lcom/google/zxing/BinaryBitmap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -241,7 +241,7 @@
 
     .line 63
     .local p2, "hints":Ljava/util/Map;, "Ljava/util/Map<Lcom/google/zxing/DecodeHintType;*>;"
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_38
 
     sget-object v0, Lcom/google/zxing/DecodeHintType;->PURE_BARCODE:Lcom/google/zxing/DecodeHintType;
 
@@ -249,7 +249,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_38
 
     .line 64
     invoke-virtual {p1}, Lcom/google/zxing/BinaryBitmap;->getBlackMatrix()Lcom/google/zxing/common/BitMatrix;
@@ -301,7 +301,7 @@
     .local v3, "ecLevel":Ljava/lang/String;
     move-object v3, v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_37
 
     .line 74
     sget-object v2, Lcom/google/zxing/ResultMetadataType;->ERROR_CORRECTION_LEVEL:Lcom/google/zxing/ResultMetadataType;
@@ -309,14 +309,14 @@
     invoke-virtual {v1, v2, v3}, Lcom/google/zxing/Result;->putMetadata(Lcom/google/zxing/ResultMetadataType;Ljava/lang/Object;)V
 
     .line 76
-    :cond_0
+    :cond_37
     return-object v1
 
     .line 67
     .end local v0    # "decoderResult":Lcom/google/zxing/common/DecoderResult;
     .end local v1    # "result":Lcom/google/zxing/Result;
     .end local v3    # "ecLevel":Ljava/lang/String;
-    :cond_1
+    :cond_38
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v0
@@ -325,7 +325,7 @@
 .end method
 
 .method public reset()V
-    .locals 0
+    .registers 1
 
     .line 82
     return-void

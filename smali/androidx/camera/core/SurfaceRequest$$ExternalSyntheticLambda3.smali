@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public final attachCompleter(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
 
     .line 0
     iget-object v0, p0, Landroidx/camera/core/SurfaceRequest$$ExternalSyntheticLambda3;->f$0:Ljava/util/concurrent/atomic/AtomicReference;

@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 176
     const-class v0, Lj$/util/stream/Streams;
@@ -44,7 +44,7 @@
 .end method
 
 .method private constructor <init>(JJI)V
-    .locals 0
+    .registers 6
     .param p1, "from"    # J
     .param p3, "upTo"    # J
     .param p5, "last"    # I
@@ -69,7 +69,7 @@
 .end method
 
 .method constructor <init>(JJZ)V
-    .locals 0
+    .registers 6
     .param p1, "from"    # J
     .param p3, "upTo"    # J
     .param p5, "closed"    # Z
@@ -82,7 +82,7 @@
 .end method
 
 .method private splitPoint(J)J
-    .locals 4
+    .registers 7
     .param p1, "size"    # J
 
     .line 285
@@ -90,18 +90,18 @@
 
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_a
 
     const-wide/16 v0, 0x2
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     const-wide/16 v0, 0x8
 
     .line 287
     .local v0, "d":J
-    :goto_0
+    :goto_c
     div-long v2, p1, v0
 
     return-wide v2
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 241
     const/16 v0, 0x4555
@@ -119,7 +119,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 4
+    .registers 5
 
     .line 236
     iget-wide v0, p0, Lj$/util/stream/Streams$RangeLongSpliterator;->upTo:J
@@ -138,7 +138,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 176
     check-cast p1, Ljava/util/function/LongConsumer;
@@ -149,7 +149,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfLong$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfLong;Ljava/util/function/Consumer;)V
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/LongConsumer;)V
-    .locals 7
+    .registers 9
     .param p1, "consumer"    # Ljava/util/function/LongConsumer;
 
     .line 218
@@ -186,10 +186,10 @@
     iput v5, p0, Lj$/util/stream/Streams$RangeLongSpliterator;->last:I
 
     .line 225
-    :goto_0
+    :goto_10
     cmp-long v5, v0, v2
 
-    if-gez v5, :cond_0
+    if-gez v5, :cond_1c
 
     .line 226
     const-wide/16 v5, 0x1
@@ -202,24 +202,24 @@
 
     move-wide v0, v5
 
-    goto :goto_0
+    goto :goto_10
 
     .line 228
     .end local v5    # "i":J
     .restart local v0    # "i":J
-    :cond_0
-    if-lez v4, :cond_1
+    :cond_1c
+    if-lez v4, :cond_21
 
     .line 230
     invoke-interface {p1, v0, v1}, Ljava/util/function/LongConsumer;->accept(J)V
 
     .line 232
-    :cond_1
+    :cond_21
     return-void
 .end method
 
 .method public getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -237,7 +237,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -247,7 +247,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -257,7 +257,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 176
     check-cast p1, Ljava/util/function/LongConsumer;
@@ -270,7 +270,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfLong$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfLong;Ljava/util/function/Consumer;)Z
 
@@ -280,7 +280,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/LongConsumer;)Z
-    .locals 7
+    .registers 9
     .param p1, "consumer"    # Ljava/util/function/LongConsumer;
 
     .line 200
@@ -297,7 +297,7 @@
 
     cmp-long v5, v0, v2
 
-    if-gez v5, :cond_0
+    if-gez v5, :cond_17
 
     .line 204
     iget-wide v2, p0, Lj$/util/stream/Streams$RangeLongSpliterator;->from:J
@@ -315,12 +315,12 @@
     return v4
 
     .line 208
-    :cond_0
+    :cond_17
     iget v2, p0, Lj$/util/stream/Streams$RangeLongSpliterator;->last:I
 
     const/4 v3, 0x0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_22
 
     .line 209
     iput v3, p0, Lj$/util/stream/Streams$RangeLongSpliterator;->last:I
@@ -332,12 +332,12 @@
     return v4
 
     .line 213
-    :cond_1
+    :cond_22
     return v3
 .end method
 
 .method public trySplit()Lj$/util/Spliterator$OfLong;
-    .locals 10
+    .registers 11
 
     .line 253
     invoke-virtual {p0}, Lj$/util/stream/Streams$RangeLongSpliterator;->estimateSize()J
@@ -350,15 +350,15 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_c
 
     .line 255
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 257
-    :cond_0
+    :cond_c
     new-instance v2, Lj$/util/stream/Streams$RangeLongSpliterator;
 
     iget-wide v4, p0, Lj$/util/stream/Streams$RangeLongSpliterator;->from:J
@@ -380,12 +380,12 @@
     invoke-direct/range {v3 .. v8}, Lj$/util/stream/Streams$RangeLongSpliterator;-><init>(JJI)V
 
     .line 254
-    :goto_0
+    :goto_1e
     return-object v2
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 176
     invoke-virtual {p0}, Lj$/util/stream/Streams$RangeLongSpliterator;->trySplit()Lj$/util/Spliterator$OfLong;
@@ -396,7 +396,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 176
     invoke-virtual {p0}, Lj$/util/stream/Streams$RangeLongSpliterator;->trySplit()Lj$/util/Spliterator$OfLong;

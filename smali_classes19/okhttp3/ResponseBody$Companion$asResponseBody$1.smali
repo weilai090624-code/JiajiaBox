@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/MediaType;JLokio/BufferedSource;)V
-    .locals 0
+    .registers 5
     .param p1, "$contentType"    # Lokhttp3/MediaType;
     .param p2, "$contentLength"    # J
     .param p4, "$receiver"    # Lokio/BufferedSource;
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public contentLength()J
-    .locals 2
+    .registers 3
 
     .line 271
     iget-wide v0, p0, Lokhttp3/ResponseBody$Companion$asResponseBody$1;->$contentLength:J
@@ -77,7 +77,7 @@
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 1
+    .registers 2
 
     .line 269
     iget-object v0, p0, Lokhttp3/ResponseBody$Companion$asResponseBody$1;->$contentType:Lokhttp3/MediaType;
@@ -86,7 +86,7 @@
 .end method
 
 .method public source()Lokio/BufferedSource;
-    .locals 1
+    .registers 2
 
     .line 273
     iget-object v0, p0, Lokhttp3/ResponseBody$Companion$asResponseBody$1;->$this_asResponseBody:Lokio/BufferedSource;

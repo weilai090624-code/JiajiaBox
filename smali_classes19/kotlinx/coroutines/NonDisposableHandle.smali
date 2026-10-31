@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/NonDisposableHandle;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 662
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public childCancelled(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 677
@@ -80,14 +80,14 @@
 .end method
 
 .method public dispose()V
-    .locals 0
+    .registers 1
 
     .line 671
     return-void
 .end method
 
 .method public getParent()Lkotlinx/coroutines/Job;
-    .locals 1
+    .registers 2
 
     .line 665
     const/4 v0, 0x0
@@ -96,7 +96,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 683
     const-string v0, "NonDisposableHandle"

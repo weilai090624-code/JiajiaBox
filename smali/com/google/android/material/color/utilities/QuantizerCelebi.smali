@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static quantize([II)Ljava/util/Map;
-    .locals 9
+    .registers 11
     .param p0, "pixels"    # [I
     .param p1, "maxColors"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -64,12 +64,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_1a
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_30
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -93,12 +93,12 @@
     .end local v6    # "argb":Ljava/lang/Integer;
     move v3, v7
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 62
     .end local v7    # "index":I
     .restart local v3    # "index":I
-    :cond_0
+    :cond_30
     invoke-static {p0, v4, p1}, Lcom/google/android/material/color/utilities/QuantizerWsmeans;->quantize([I[II)Ljava/util/Map;
 
     move-result-object v5

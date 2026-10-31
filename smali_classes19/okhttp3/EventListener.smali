@@ -101,7 +101,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/EventListener$Companion;
 
@@ -124,7 +124,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public cacheConditionalHit(Lokhttp3/Call;Lokhttp3/Response;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "cachedResponse"    # Lokhttp3/Response;
 
@@ -152,7 +152,7 @@
 .end method
 
 .method public cacheHit(Lokhttp3/Call;Lokhttp3/Response;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "response"    # Lokhttp3/Response;
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public cacheMiss(Lokhttp3/Call;)V
-    .locals 1
+    .registers 3
     .param p1, "call"    # Lokhttp3/Call;
 
     const-string v0, "call"
@@ -181,7 +181,7 @@
 .end method
 
 .method public callEnd(Lokhttp3/Call;)V
-    .locals 1
+    .registers 3
     .param p1, "call"    # Lokhttp3/Call;
 
     const-string v0, "call"
@@ -193,7 +193,7 @@
 .end method
 
 .method public callFailed(Lokhttp3/Call;Ljava/io/IOException;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "ioe"    # Ljava/io/IOException;
 
@@ -210,7 +210,7 @@
 .end method
 
 .method public callStart(Lokhttp3/Call;)V
-    .locals 1
+    .registers 3
     .param p1, "call"    # Lokhttp3/Call;
 
     const-string v0, "call"
@@ -222,7 +222,7 @@
 .end method
 
 .method public canceled(Lokhttp3/Call;)V
-    .locals 1
+    .registers 3
     .param p1, "call"    # Lokhttp3/Call;
 
     const-string v0, "call"
@@ -234,7 +234,7 @@
 .end method
 
 .method public connectEnd(Lokhttp3/Call;Ljava/net/InetSocketAddress;Ljava/net/Proxy;Lokhttp3/Protocol;)V
-    .locals 1
+    .registers 6
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "inetSocketAddress"    # Ljava/net/InetSocketAddress;
     .param p3, "proxy"    # Ljava/net/Proxy;
@@ -257,7 +257,7 @@
 .end method
 
 .method public connectFailed(Lokhttp3/Call;Ljava/net/InetSocketAddress;Ljava/net/Proxy;Lokhttp3/Protocol;Ljava/io/IOException;)V
-    .locals 1
+    .registers 7
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "inetSocketAddress"    # Ljava/net/InetSocketAddress;
     .param p3, "proxy"    # Ljava/net/Proxy;
@@ -285,7 +285,7 @@
 .end method
 
 .method public connectStart(Lokhttp3/Call;Ljava/net/InetSocketAddress;Ljava/net/Proxy;)V
-    .locals 1
+    .registers 5
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "inetSocketAddress"    # Ljava/net/InetSocketAddress;
     .param p3, "proxy"    # Ljava/net/Proxy;
@@ -307,7 +307,7 @@
 .end method
 
 .method public connectionAcquired(Lokhttp3/Call;Lokhttp3/Connection;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "connection"    # Lokhttp3/Connection;
 
@@ -324,7 +324,7 @@
 .end method
 
 .method public connectionReleased(Lokhttp3/Call;Lokhttp3/Connection;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "connection"    # Lokhttp3/Connection;
 
@@ -341,7 +341,7 @@
 .end method
 
 .method public dnsEnd(Lokhttp3/Call;Ljava/lang/String;Ljava/util/List;)V
-    .locals 1
+    .registers 5
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "domainName"    # Ljava/lang/String;
     .param p3, "inetAddressList"    # Ljava/util/List;
@@ -373,7 +373,7 @@
 .end method
 
 .method public dnsStart(Lokhttp3/Call;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "domainName"    # Ljava/lang/String;
 
@@ -390,7 +390,7 @@
 .end method
 
 .method public proxySelectEnd(Lokhttp3/Call;Lokhttp3/HttpUrl;Ljava/util/List;)V
-    .locals 1
+    .registers 5
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "url"    # Lokhttp3/HttpUrl;
     .param p3, "proxies"    # Ljava/util/List;
@@ -422,7 +422,7 @@
 .end method
 
 .method public proxySelectStart(Lokhttp3/Call;Lokhttp3/HttpUrl;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "url"    # Lokhttp3/HttpUrl;
 
@@ -439,7 +439,7 @@
 .end method
 
 .method public requestBodyEnd(Lokhttp3/Call;J)V
-    .locals 1
+    .registers 5
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "byteCount"    # J
 
@@ -452,7 +452,7 @@
 .end method
 
 .method public requestBodyStart(Lokhttp3/Call;)V
-    .locals 1
+    .registers 3
     .param p1, "call"    # Lokhttp3/Call;
 
     const-string v0, "call"
@@ -464,7 +464,7 @@
 .end method
 
 .method public requestFailed(Lokhttp3/Call;Ljava/io/IOException;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "ioe"    # Ljava/io/IOException;
 
@@ -481,7 +481,7 @@
 .end method
 
 .method public requestHeadersEnd(Lokhttp3/Call;Lokhttp3/Request;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "request"    # Lokhttp3/Request;
 
@@ -498,7 +498,7 @@
 .end method
 
 .method public requestHeadersStart(Lokhttp3/Call;)V
-    .locals 1
+    .registers 3
     .param p1, "call"    # Lokhttp3/Call;
 
     const-string v0, "call"
@@ -510,7 +510,7 @@
 .end method
 
 .method public responseBodyEnd(Lokhttp3/Call;J)V
-    .locals 1
+    .registers 5
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "byteCount"    # J
 
@@ -523,7 +523,7 @@
 .end method
 
 .method public responseBodyStart(Lokhttp3/Call;)V
-    .locals 1
+    .registers 3
     .param p1, "call"    # Lokhttp3/Call;
 
     const-string v0, "call"
@@ -535,7 +535,7 @@
 .end method
 
 .method public responseFailed(Lokhttp3/Call;Ljava/io/IOException;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "ioe"    # Ljava/io/IOException;
 
@@ -552,7 +552,7 @@
 .end method
 
 .method public responseHeadersEnd(Lokhttp3/Call;Lokhttp3/Response;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "response"    # Lokhttp3/Response;
 
@@ -569,7 +569,7 @@
 .end method
 
 .method public responseHeadersStart(Lokhttp3/Call;)V
-    .locals 1
+    .registers 3
     .param p1, "call"    # Lokhttp3/Call;
 
     const-string v0, "call"
@@ -581,7 +581,7 @@
 .end method
 
 .method public satisfactionFailure(Lokhttp3/Call;Lokhttp3/Response;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "response"    # Lokhttp3/Response;
 
@@ -598,7 +598,7 @@
 .end method
 
 .method public secureConnectEnd(Lokhttp3/Call;Lokhttp3/Handshake;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "handshake"    # Lokhttp3/Handshake;
 
@@ -611,7 +611,7 @@
 .end method
 
 .method public secureConnectStart(Lokhttp3/Call;)V
-    .locals 1
+    .registers 3
     .param p1, "call"    # Lokhttp3/Call;
 
     const-string v0, "call"

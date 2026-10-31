@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 45
     const-wide v0, 0x4046800000000000L    # 45.0
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/graphics/drawable/Drawable;FFF)V
-    .locals 3
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "content"    # Landroid/graphics/drawable/Drawable;
     .param p3, "radius"    # F
@@ -179,7 +179,7 @@
 .end method
 
 .method private buildComponents(Landroid/graphics/Rect;)V
-    .locals 6
+    .registers 8
     .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .line 361
@@ -263,7 +263,7 @@
 .end method
 
 .method private buildShadowCorners()V
-    .locals 17
+    .registers 18
 
     .line 310
     move-object/from16 v0, p0
@@ -305,7 +305,7 @@
     .line 314
     iget-object v3, v0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->cornerShadowPath:Landroid/graphics/Path;
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2b
 
     .line 315
     new-instance v3, Landroid/graphics/Path;
@@ -314,16 +314,16 @@
 
     iput-object v3, v0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->cornerShadowPath:Landroid/graphics/Path;
 
-    goto :goto_0
+    goto :goto_30
 
     .line 317
-    :cond_0
+    :cond_2b
     iget-object v3, v0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->cornerShadowPath:Landroid/graphics/Path;
 
     invoke-virtual {v3}, Landroid/graphics/Path;->reset()V
 
     .line 319
-    :goto_0
+    :goto_30
     iget-object v3, v0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->cornerShadowPath:Landroid/graphics/Path;
 
     sget-object v4, Landroid/graphics/Path$FillType;->EVEN_ODD:Landroid/graphics/Path$FillType;
@@ -386,7 +386,7 @@
 
     cmpl-float v6, v3, v5
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_a2
 
     .line 330
     iget v6, v0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->cornerRadius:F
@@ -464,7 +464,7 @@
     .line 345
     .end local v6    # "startRatio":F
     .end local v15    # "midRatio":F
-    :cond_1
+    :cond_a2
     iget-object v4, v0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->edgeShadowPaint:Landroid/graphics/Paint;
 
     new-instance v13, Landroid/graphics/LinearGradient;
@@ -487,7 +487,7 @@
 
     new-array v11, v5, [F
 
-    fill-array-data v11, :array_0
+    fill-array-data v11, :array_cc
 
     sget-object v12, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
@@ -511,7 +511,7 @@
     .line 355
     return-void
 
-    :array_0
+    :array_cc
     .array-data 4
         0x0
         0x3f000000    # 0.5f
@@ -520,13 +520,13 @@
 .end method
 
 .method public static calculateHorizontalPadding(FFZ)F
-    .locals 6
+    .registers 9
     .param p0, "maxShadowSize"    # F
     .param p1, "cornerRadius"    # F
     .param p2, "addPaddingForCorners"    # Z
 
     .line 181
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_e
 
     .line 182
     float-to-double v0, p0
@@ -548,12 +548,12 @@
     return v0
 
     .line 184
-    :cond_0
+    :cond_e
     return p0
 .end method
 
 .method public static calculateVerticalPadding(FFZ)F
-    .locals 6
+    .registers 9
     .param p0, "maxShadowSize"    # F
     .param p1, "cornerRadius"    # F
     .param p2, "addPaddingForCorners"    # Z
@@ -561,7 +561,7 @@
     .line 172
     const/high16 v0, 0x3fc00000    # 1.5f
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_12
 
     .line 173
     mul-float v0, v0, p0
@@ -585,14 +585,14 @@
     return v0
 
     .line 175
-    :cond_0
+    :cond_12
     mul-float v0, v0, p0
 
     return v0
 .end method
 
 .method private drawShadow(Landroid/graphics/Canvas;)V
-    .locals 24
+    .registers 26
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 222
@@ -657,16 +657,16 @@
 
     cmpl-float v1, v1, v4
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_36
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_37
 
-    :cond_0
+    :cond_36
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_37
     move v12, v1
 
     .line 228
@@ -683,14 +683,14 @@
 
     cmpl-float v1, v1, v4
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_46
 
-    goto :goto_1
+    goto :goto_47
 
-    :cond_1
+    :cond_46
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_47
     move v13, v2
 
     .line 230
@@ -780,7 +780,7 @@
     invoke-virtual {v7, v1, v11}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     .line 243
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_c1
 
     .line 245
     div-float v1, v6, v5
@@ -849,7 +849,7 @@
     .local v19, "shadowOffsetHorizontal":F
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    goto :goto_2
+    goto :goto_cd
 
     .line 243
     .end local v11    # "shadowScaleHorizontal":F
@@ -863,7 +863,7 @@
     .restart local v5    # "shadowScaleHorizontal":F
     .local v14, "shadowOffsetTop":F
     .restart local v15    # "shadowOffsetHorizontal":F
-    :cond_2
+    :cond_c1
     move/from16 v22, v3
 
     move/from16 v23, v4
@@ -890,7 +890,7 @@
     .restart local v21    # "shadowOffsetTop":F
     .restart local v22    # "shadowScaleBottom":F
     .restart local v23    # "shadowScaleTop":F
-    :goto_2
+    :goto_cd
     invoke-virtual {v7, v14}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     .line 255
@@ -933,7 +933,7 @@
     invoke-virtual {v7, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     .line 260
-    if-eqz v12, :cond_3
+    if-eqz v12, :cond_11b
 
     .line 262
     div-float v1, v15, v11
@@ -981,18 +981,18 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    goto :goto_3
+    goto :goto_11c
 
     .line 260
     .end local v15    # "shadowScaleBottom":F
     .restart local v6    # "shadowScaleBottom":F
-    :cond_3
+    :cond_11b
     move v15, v6
 
     .line 270
     .end local v6    # "shadowScaleBottom":F
     .restart local v15    # "shadowScaleBottom":F
-    :goto_3
+    :goto_11c
     invoke-virtual {v7, v14}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     .line 272
@@ -1031,7 +1031,7 @@
     invoke-virtual {v7, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     .line 277
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_160
 
     .line 279
     const/high16 v1, 0x3f800000    # 1.0f
@@ -1070,7 +1070,7 @@
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
     .line 287
-    :cond_4
+    :cond_160
     invoke-virtual {v7, v14}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     .line 289
@@ -1113,7 +1113,7 @@
     invoke-virtual {v7, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     .line 294
-    if-eqz v13, :cond_5
+    if-eqz v13, :cond_1ad
 
     .line 296
     const/high16 v1, 0x3f800000    # 1.0f
@@ -1159,18 +1159,18 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    goto :goto_4
+    goto :goto_1af
 
     .line 294
     .end local v18    # "shadowScaleTop":F
     .restart local v6    # "shadowScaleTop":F
-    :cond_5
+    :cond_1ad
     move/from16 v18, v6
 
     .line 304
     .end local v6    # "shadowScaleTop":F
     .restart local v18    # "shadowScaleTop":F
-    :goto_4
+    :goto_1af
     invoke-virtual {v7, v14}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     .line 306
@@ -1181,7 +1181,7 @@
 .end method
 
 .method private static toEven(F)I
-    .locals 3
+    .registers 4
     .param p0, "value"    # F
 
     .line 104
@@ -1195,29 +1195,29 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_c
 
     add-int/lit8 v1, v0, -0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move v1, v0
 
-    :goto_0
+    :goto_d
     return v1
 .end method
 
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 1
+    .registers 3
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 205
     iget-boolean v0, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->dirty:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 206
     invoke-virtual {p0}, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->getBounds()Landroid/graphics/Rect;
@@ -1232,7 +1232,7 @@
     iput-boolean v0, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->dirty:Z
 
     .line 209
-    :cond_0
+    :cond_e
     invoke-direct {p0, p1}, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->drawShadow(Landroid/graphics/Canvas;)V
 
     .line 211
@@ -1243,7 +1243,7 @@
 .end method
 
 .method public getCornerRadius()F
-    .locals 1
+    .registers 2
 
     .line 379
     iget v0, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->cornerRadius:F
@@ -1252,7 +1252,7 @@
 .end method
 
 .method public getMaxShadowSize()F
-    .locals 1
+    .registers 2
 
     .line 387
     iget v0, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->rawMaxShadowSize:F
@@ -1261,7 +1261,7 @@
 .end method
 
 .method public getMinHeight()F
-    .locals 5
+    .registers 6
 
     .line 396
     iget v0, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->rawMaxShadowSize:F
@@ -1301,7 +1301,7 @@
 .end method
 
 .method public getMinWidth()F
-    .locals 4
+    .registers 5
 
     .line 391
     iget v0, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->rawMaxShadowSize:F
@@ -1334,7 +1334,7 @@
 .end method
 
 .method public getOpacity()I
-    .locals 1
+    .registers 2
 
     .line 190
     const/4 v0, -0x3
@@ -1343,7 +1343,7 @@
 .end method
 
 .method public getPadding(Landroid/graphics/Rect;)Z
-    .locals 4
+    .registers 6
     .param p1, "padding"    # Landroid/graphics/Rect;
 
     .line 158
@@ -1400,7 +1400,7 @@
 .end method
 
 .method public getShadowSize()F
-    .locals 1
+    .registers 2
 
     .line 153
     iget v0, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->rawShadowSize:F
@@ -1409,7 +1409,7 @@
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
-    .locals 1
+    .registers 3
     .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .line 122
@@ -1422,7 +1422,7 @@
 .end method
 
 .method public setAddPaddingForCorners(Z)V
-    .locals 0
+    .registers 2
     .param p1, "addPaddingForCorners"    # Z
 
     .line 109
@@ -1436,7 +1436,7 @@
 .end method
 
 .method public setAlpha(I)V
-    .locals 1
+    .registers 3
     .param p1, "alpha"    # I
 
     .line 115
@@ -1457,7 +1457,7 @@
 .end method
 
 .method public setCornerRadius(F)V
-    .locals 1
+    .registers 3
     .param p1, "radius"    # F
 
     .line 194
@@ -1472,13 +1472,13 @@
 
     cmpl-float v0, v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 196
     return-void
 
     .line 198
-    :cond_0
+    :cond_c
     iput p1, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->cornerRadius:F
 
     .line 199
@@ -1494,7 +1494,7 @@
 .end method
 
 .method public setMaxShadowSize(F)V
-    .locals 1
+    .registers 3
     .param p1, "size"    # F
 
     .line 383
@@ -1507,7 +1507,7 @@
 .end method
 
 .method public final setRotation(F)V
-    .locals 1
+    .registers 3
     .param p1, "rotation"    # F
 
     .line 215
@@ -1515,7 +1515,7 @@
 
     cmpl-float v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 216
     iput p1, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->rotation:F
@@ -1524,12 +1524,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->invalidateSelf()V
 
     .line 219
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setShadowSize(F)V
-    .locals 1
+    .registers 3
     .param p1, "size"    # F
 
     .line 149
@@ -1542,7 +1542,7 @@
 .end method
 
 .method public setShadowSize(FF)V
-    .locals 2
+    .registers 5
     .param p1, "shadowSize"    # F
     .param p2, "maxShadowSize"    # F
 
@@ -1551,11 +1551,11 @@
 
     cmpg-float v1, p1, v0
 
-    if-ltz v1, :cond_2
+    if-ltz v1, :cond_43
 
     cmpg-float v0, p2, v0
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_43
 
     .line 129
     invoke-static {p1}, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->toEven(F)I
@@ -1576,7 +1576,7 @@
 
     cmpl-float v1, p1, p2
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1f
 
     .line 132
     move p1, p2
@@ -1584,30 +1584,30 @@
     .line 133
     iget-boolean v1, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->printedShadowClipWarning:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1f
 
     .line 134
     iput-boolean v0, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->printedShadowClipWarning:Z
 
     .line 137
-    :cond_0
+    :cond_1f
     iget v1, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->rawShadowSize:F
 
     cmpl-float v1, v1, p1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2c
 
     iget v1, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->rawMaxShadowSize:F
 
     cmpl-float v1, v1, p2
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2c
 
     .line 138
     return-void
 
     .line 140
-    :cond_1
+    :cond_2c
     iput p1, p0, Lcom/google/android/material/shadow/ShadowDrawableWrapper;->rawShadowSize:F
 
     .line 141
@@ -1639,7 +1639,7 @@
     return-void
 
     .line 127
-    :cond_2
+    :cond_43
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "invalid shadow size"

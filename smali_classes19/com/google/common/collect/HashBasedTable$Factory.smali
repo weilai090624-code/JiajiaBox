@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "expectedSize"    # I
 
     .line 55
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 52
     .local p0, "this":Lcom/google/common/collect/HashBasedTable$Factory;, "Lcom/google/common/collect/HashBasedTable$Factory<TC;TV;>;"
@@ -72,7 +72,7 @@
 .end method
 
 .method public get()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

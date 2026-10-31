@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     .local p0, "this":Lcom/google/common/collect/IndexedImmutableSet;, "Lcom/google/common/collect/IndexedImmutableSet<TE;>;"
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method copyIntoArray([Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1, "dst"    # [Ljava/lang/Object;
     .param p2, "offset"    # I
 
@@ -50,7 +50,7 @@
 .end method
 
 .method createAsList()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -77,7 +77,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -100,7 +100,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 23
     .local p0, "this":Lcom/google/common/collect/IndexedImmutableSet;, "Lcom/google/common/collect/IndexedImmutableSet<TE;>;"

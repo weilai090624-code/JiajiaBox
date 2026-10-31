@@ -76,7 +76,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 11
+    .registers 11
 
     new-instance v0, Landroidx/room/util/FtsTableInfo$Companion;
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/util/Set;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "columns"    # Ljava/util/Set;
     .param p3, "createSql"    # Ljava/lang/String;
@@ -178,7 +178,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "columns"    # Ljava/util/Set;
     .param p3, "options"    # Ljava/util/Set;
@@ -224,7 +224,7 @@
 .end method
 
 .method public static final synthetic access$getFTS_OPTIONS$cp()[Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 27
     sget-object v0, Landroidx/room/util/FtsTableInfo;->FTS_OPTIONS:[Ljava/lang/String;
@@ -233,7 +233,7 @@
 .end method
 
 .method public static final parseOptions(Ljava/lang/String;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -258,7 +258,7 @@
 .end method
 
 .method public static final read(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Landroidx/room/util/FtsTableInfo;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -274,28 +274,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 52
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 53
-    :cond_0
+    :cond_4
     instance-of v0, p1, Landroidx/room/util/FtsTableInfo;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a
 
     return v1
 
     .line 54
-    :cond_1
+    :cond_a
     move-object v0, p1
 
     .line 55
@@ -312,12 +312,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_19
 
     return v1
 
     .line 56
-    :cond_2
+    :cond_19
     iget-object v2, p0, Landroidx/room/util/FtsTableInfo;->columns:Ljava/util/Set;
 
     move-object v3, v0
@@ -330,12 +330,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_27
 
     return v1
 
     .line 57
-    :cond_3
+    :cond_27
     iget-object v1, p0, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
 
     move-object v2, v0
@@ -352,7 +352,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 61
     iget-object v0, p0, Landroidx/room/util/FtsTableInfo;->name:Ljava/lang/String;
@@ -393,7 +393,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 68
     new-instance v0, Ljava/lang/StringBuilder;

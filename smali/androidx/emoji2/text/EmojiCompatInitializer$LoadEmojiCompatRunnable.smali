@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 131
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 137
     :try_start_0
@@ -43,7 +43,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 139
     invoke-static {}, Landroidx/emoji2/text/EmojiCompat;->get()Landroidx/emoji2/text/EmojiCompat;
@@ -51,11 +51,11 @@
     move-result-object v0
 
     invoke-virtual {v0}, Landroidx/emoji2/text/EmojiCompat;->load()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_0 .. :try_end_12} :catchall_17
 
     .line 142
-    :cond_0
+    :cond_12
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
 
     .line 143
@@ -65,7 +65,7 @@
     return-void
 
     .line 142
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V

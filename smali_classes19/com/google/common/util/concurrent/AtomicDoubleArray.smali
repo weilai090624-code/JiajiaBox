@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "length"    # I
 
     .line 60
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>([D)V
-    .locals 5
+    .registers 7
     .param p1, "array"    # [D
 
     .line 71
@@ -57,8 +57,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_7
+    if-ge v2, v0, :cond_14
 
     .line 75
     aget-wide v3, p1, v2
@@ -72,11 +72,11 @@
     .line 74
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 77
     .end local v2    # "i":I
-    :cond_0
+    :cond_14
     new-instance v2, Ljava/util/concurrent/atomic/AtomicLongArray;
 
     invoke-direct {v2, v1}, Ljava/util/concurrent/atomic/AtomicLongArray;-><init>([J)V
@@ -88,7 +88,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 5
+    .registers 7
     .param p1, "s"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -116,8 +116,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_c
+    if-ge v2, v0, :cond_1c
 
     .line 256
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readDouble()D
@@ -133,11 +133,11 @@
     .line 255
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 258
     .end local v2    # "i":I
-    :cond_0
+    :cond_1c
     new-instance v2, Ljava/util/concurrent/atomic/AtomicLongArray;
 
     invoke-virtual {v1}, Lcom/google/common/primitives/ImmutableLongArray$Builder;->build()Lcom/google/common/primitives/ImmutableLongArray;
@@ -157,7 +157,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 4
+    .registers 6
     .param p1, "s"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -181,8 +181,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_b
+    if-ge v1, v0, :cond_17
 
     .line 244
     invoke-virtual {p0, v1}, Lcom/google/common/util/concurrent/AtomicDoubleArray;->get(I)D
@@ -194,25 +194,25 @@
     .line 243
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 246
     .end local v1    # "i":I
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 
 # virtual methods
 .method public addAndGet(ID)D
-    .locals 17
+    .registers 21
     .param p1, "i"    # I
     .param p2, "delta"    # D
 
     .line 195
     move-object/from16 v0, p0
 
-    :goto_0
+    :goto_2
     iget-object v1, v0, Lcom/google/common/util/concurrent/AtomicDoubleArray;->longs:Ljava/util/concurrent/atomic/AtomicLongArray;
 
     move/from16 v8, p1
@@ -251,7 +251,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 200
     return-wide v13
@@ -261,12 +261,12 @@
     .end local v11    # "currentVal":D
     .end local v13    # "nextVal":D
     .end local v15    # "next":J
-    :cond_0
-    goto :goto_0
+    :cond_21
+    goto :goto_2
 .end method
 
 .method public final compareAndSet(IDD)Z
-    .locals 6
+    .registers 12
     .param p1, "i"    # I
     .param p2, "expect"    # D
     .param p4, "update"    # D
@@ -292,7 +292,7 @@
 .end method
 
 .method public final get(I)D
-    .locals 2
+    .registers 4
     .param p1, "i"    # I
 
     .line 96
@@ -310,14 +310,14 @@
 .end method
 
 .method public final getAndAdd(ID)D
-    .locals 17
+    .registers 21
     .param p1, "i"    # I
     .param p2, "delta"    # D
 
     .line 175
     move-object/from16 v0, p0
 
-    :goto_0
+    :goto_2
     iget-object v1, v0, Lcom/google/common/util/concurrent/AtomicDoubleArray;->longs:Ljava/util/concurrent/atomic/AtomicLongArray;
 
     move/from16 v8, p1
@@ -356,7 +356,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 180
     return-wide v11
@@ -366,12 +366,12 @@
     .end local v11    # "currentVal":D
     .end local v13    # "nextVal":D
     .end local v15    # "next":J
-    :cond_0
-    goto :goto_0
+    :cond_21
+    goto :goto_2
 .end method
 
 .method public final getAndSet(ID)D
-    .locals 4
+    .registers 8
     .param p1, "i"    # I
     .param p2, "newValue"    # D
 
@@ -396,7 +396,7 @@
 .end method
 
 .method public final lazySet(ID)V
-    .locals 3
+    .registers 7
     .param p1, "i"    # I
     .param p2, "newValue"    # D
 
@@ -416,7 +416,7 @@
 .end method
 
 .method public final length()I
-    .locals 1
+    .registers 2
 
     .line 86
     iget-object v0, p0, Lcom/google/common/util/concurrent/AtomicDoubleArray;->longs:Ljava/util/concurrent/atomic/AtomicLongArray;
@@ -429,7 +429,7 @@
 .end method
 
 .method public final set(ID)V
-    .locals 3
+    .registers 7
     .param p1, "i"    # I
     .param p2, "newValue"    # D
 
@@ -449,7 +449,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 212
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AtomicDoubleArray;->length()I
@@ -462,7 +462,7 @@
     .local v0, "iMax":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     .line 214
     const-string v1, "[]"
@@ -470,7 +470,7 @@
     return-object v1
 
     .line 218
-    :cond_0
+    :cond_c
     new-instance v1, Ljava/lang/StringBuilder;
 
     add-int/lit8 v2, v0, 0x1
@@ -490,7 +490,7 @@
 
     .line 221
     .local v2, "i":I
-    :goto_0
+    :goto_1b
     iget-object v3, p0, Lcom/google/common/util/concurrent/AtomicDoubleArray;->longs:Ljava/util/concurrent/atomic/AtomicLongArray;
 
     invoke-virtual {v3, v2}, Ljava/util/concurrent/atomic/AtomicLongArray;->get(I)J
@@ -504,7 +504,7 @@
     invoke-virtual {v1, v3, v4}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
     .line 222
-    if-ne v2, v0, :cond_1
+    if-ne v2, v0, :cond_35
 
     .line 223
     const/16 v3, 0x5d
@@ -520,7 +520,7 @@
     return-object v3
 
     .line 225
-    :cond_1
+    :cond_35
     const/16 v3, 0x2c
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -534,11 +534,11 @@
     .line 220
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 .end method
 
 .method public final weakCompareAndSet(IDD)Z
-    .locals 6
+    .registers 12
     .param p1, "i"    # I
     .param p2, "expect"    # D
     .param p4, "update"    # D

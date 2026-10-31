@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 612
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap<TK;TV;>;"
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method createEntrySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -60,7 +60,7 @@
 .end method
 
 .method createKeySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -79,7 +79,7 @@
 .end method
 
 .method createValues()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -109,7 +109,7 @@
 .end method
 
 .method public bridge synthetic entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 612
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap<TK;TV;>;"
@@ -121,7 +121,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 612
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap<TK;TV;>;"
@@ -133,7 +133,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 612
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap<TK;TV;>;"

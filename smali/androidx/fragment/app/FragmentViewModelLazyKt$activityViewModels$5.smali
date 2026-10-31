@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function0;Landroidx/fragment/app/Fragment;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,12 +93,12 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/viewmodel/CreationExtras;
-    .locals 2
+    .registers 3
 
     .line 177
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewModelLazyKt$activityViewModels$5;->$extrasProducer:Lkotlin/jvm/functions/Function0;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     invoke-interface {v0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
@@ -106,9 +106,9 @@
 
     check-cast v0, Landroidx/lifecycle/viewmodel/CreationExtras;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
-    :cond_0
+    :cond_c
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewModelLazyKt$activityViewModels$5;->$this_activityViewModels:Landroidx/fragment/app/Fragment;
 
     invoke-virtual {v0}, Landroidx/fragment/app/Fragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -123,12 +123,12 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_1b
     return-object v0
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 175
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentViewModelLazyKt$activityViewModels$5;->invoke()Landroidx/lifecycle/viewmodel/CreationExtras;

@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 33
     const/4 v0, -0x1
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -107,7 +107,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -123,7 +123,7 @@
 .end method
 
 .method public copy(Landroidx/constraintlayout/core/motion/key/MotionKey;)Landroidx/constraintlayout/core/motion/key/MotionKey;
-    .locals 1
+    .registers 3
     .param p1, "src"    # Landroidx/constraintlayout/core/motion/key/MotionKey;
 
     .line 116
@@ -162,7 +162,7 @@
 .end method
 
 .method public getFramePosition()I
-    .locals 1
+    .registers 2
 
     .line 145
     iget v0, p0, Landroidx/constraintlayout/core/motion/key/MotionKey;->mFramePosition:I
@@ -171,20 +171,20 @@
 .end method
 
 .method matches(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "constraintTag"    # Ljava/lang/String;
 
     .line 60
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/key/MotionKey;->mTargetString:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
-    goto :goto_0
+    goto :goto_e
 
     .line 61
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/key/MotionKey;->mTargetString:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
@@ -194,15 +194,15 @@
     return v0
 
     .line 60
-    :cond_1
-    :goto_0
+    :cond_e
+    :goto_e
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public setCustomAttribute(Ljava/lang/String;IF)V
-    .locals 2
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # F
@@ -221,7 +221,7 @@
 .end method
 
 .method public setCustomAttribute(Ljava/lang/String;II)V
-    .locals 2
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # I
@@ -240,7 +240,7 @@
 .end method
 
 .method public setCustomAttribute(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 2
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # Ljava/lang/String;
@@ -259,7 +259,7 @@
 .end method
 
 .method public setCustomAttribute(Ljava/lang/String;IZ)V
-    .locals 2
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # Z
@@ -278,7 +278,7 @@
 .end method
 
 .method public setFramePosition(I)V
-    .locals 0
+    .registers 2
     .param p1, "pos"    # I
 
     .line 136
@@ -289,7 +289,7 @@
 .end method
 
 .method public setInterpolation(Ljava/util/HashMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -306,7 +306,7 @@
 .end method
 
 .method public setValue(IF)Z
-    .locals 1
+    .registers 4
     .param p1, "type"    # I
     .param p2, "value"    # F
 
@@ -317,12 +317,12 @@
 .end method
 
 .method public setValue(II)Z
-    .locals 1
+    .registers 4
     .param p1, "type"    # I
     .param p2, "value"    # I
 
     .line 150
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_a
 
     .line 155
     const/4 v0, 0x0
@@ -330,7 +330,7 @@
     return v0
 
     .line 152
-    :pswitch_0
+    :pswitch_5
     iput p2, p0, Landroidx/constraintlayout/core/motion/key/MotionKey;->mFramePosition:I
 
     .line 153
@@ -340,19 +340,19 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a
     .packed-switch 0x64
-        :pswitch_0
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public setValue(ILjava/lang/String;)Z
-    .locals 1
+    .registers 4
     .param p1, "type"    # I
     .param p2, "value"    # Ljava/lang/String;
 
     .line 163
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_a
 
     .line 168
     const/4 v0, 0x0
@@ -360,7 +360,7 @@
     return v0
 
     .line 165
-    :pswitch_0
+    :pswitch_5
     iput-object p2, p0, Landroidx/constraintlayout/core/motion/key/MotionKey;->mTargetString:Ljava/lang/String;
 
     .line 166
@@ -370,14 +370,14 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a
     .packed-switch 0x65
-        :pswitch_0
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public setValue(IZ)Z
-    .locals 1
+    .registers 4
     .param p1, "type"    # I
     .param p2, "value"    # Z
 
@@ -388,7 +388,7 @@
 .end method
 
 .method public setViewId(I)Landroidx/constraintlayout/core/motion/key/MotionKey;
-    .locals 0
+    .registers 2
     .param p1, "id"    # I
 
     .line 126
@@ -399,13 +399,13 @@
 .end method
 
 .method toBoolean(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 103
     instance-of v0, p1, Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     move-object v0, p1
 
@@ -415,9 +415,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_c
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -426,18 +426,18 @@
 
     move-result v0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method toFloat(Ljava/lang/Object;)F
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 81
     instance-of v0, p1, Ljava/lang/Float;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     move-object v0, p1
 
@@ -447,9 +447,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_c
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -458,18 +458,18 @@
 
     move-result v0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method toInt(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 92
     instance-of v0, p1, Ljava/lang/Integer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     move-object v0, p1
 
@@ -479,9 +479,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_c
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -490,6 +490,6 @@
 
     move-result v0
 
-    :goto_0
+    :goto_14
     return v0
 .end method

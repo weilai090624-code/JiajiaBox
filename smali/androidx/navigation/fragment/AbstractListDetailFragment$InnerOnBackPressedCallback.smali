@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/slidingpanelayout/widget/SlidingPaneLayout;)V
-    .locals 2
+    .registers 4
     .param p1, "slidingPaneLayout"    # Landroidx/slidingpanelayout/widget/SlidingPaneLayout;
 
     const-string/jumbo v0, "slidingPaneLayout"
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public handleOnBackPressed()V
-    .locals 1
+    .registers 2
 
     .line 84
     iget-object v0, p0, Landroidx/navigation/fragment/AbstractListDetailFragment$InnerOnBackPressedCallback;->slidingPaneLayout:Landroidx/slidingpanelayout/widget/SlidingPaneLayout;
@@ -103,7 +103,7 @@
 .end method
 
 .method public onPanelClosed(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "panel"    # Landroid/view/View;
 
     const-string v0, "panel"
@@ -120,7 +120,7 @@
 .end method
 
 .method public onPanelOpened(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "panel"    # Landroid/view/View;
 
     const-string v0, "panel"
@@ -137,7 +137,7 @@
 .end method
 
 .method public onPanelSlide(Landroid/view/View;F)V
-    .locals 1
+    .registers 4
     .param p1, "panel"    # Landroid/view/View;
     .param p2, "slideOffset"    # F
 

@@ -40,7 +40,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/collect/Maps$EntryFunction;
-    .locals 3
+    .registers 3
 
     .line 88
     const/4 v0, 0x2
@@ -63,7 +63,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 89
     new-instance v0, Lcom/google/common/collect/Maps$EntryFunction$1;
@@ -98,7 +98,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -112,7 +112,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/collect/Maps$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # I
     .param p3, "x2"    # Lcom/google/common/collect/Maps$1;
@@ -124,7 +124,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/collect/Maps$EntryFunction;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 88
@@ -140,7 +140,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/collect/Maps$EntryFunction;
-    .locals 1
+    .registers 1
 
     .line 88
     sget-object v0, Lcom/google/common/collect/Maps$EntryFunction;->$VALUES:[Lcom/google/common/collect/Maps$EntryFunction;

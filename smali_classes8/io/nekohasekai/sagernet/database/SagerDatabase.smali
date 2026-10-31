@@ -54,7 +54,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$3dJPJXBHKasu_7b8Ic2sx8egm88(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/database/SagerDatabase;->instance_delegate$lambda$1$lambda$0(Ljava/lang/Runnable;)V
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$kHADiVshzlmqRUDJ0dyHi9piW7k()Lio/nekohasekai/sagernet/database/SagerDatabase;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/SagerDatabase;->instance_delegate$lambda$1()Lio/nekohasekai/sagernet/database/SagerDatabase;
 
@@ -72,7 +72,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Landroidx/room/RoomDatabase;-><init>()V
@@ -107,7 +107,7 @@
 .end method
 
 .method public static final synthetic access$getInstance$delegate$cp()Lkotlin/Lazy;
-    .locals 1
+    .registers 1
 
     .line 17
     sget-object v0, Lio/nekohasekai/sagernet/database/SagerDatabase;->instance$delegate:Lkotlin/Lazy;
@@ -116,7 +116,7 @@
 .end method
 
 .method private static final instance_delegate$lambda$1()Lio/nekohasekai/sagernet/database/SagerDatabase;
-    .locals 3
+    .registers 3
 
     .line 34
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -135,12 +135,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     .line 35
-    :cond_0
+    :cond_15
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getApplication()Lio/nekohasekai/sagernet/SagerNet;
@@ -197,7 +197,7 @@
 .end method
 
 .method private static final instance_delegate$lambda$1$lambda$0(Ljava/lang/Runnable;)V
-    .locals 7
+    .registers 8
     .param p0, "it"    # Ljava/lang/Runnable;
 
     .line 41

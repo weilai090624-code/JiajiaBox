@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 44
     const-string v0, "ConstraintsCmdHandler"
@@ -34,7 +34,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;ILandroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "startId"    # I
     .param p3, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method handleConstraintsChanged()V
-    .locals 12
+    .registers 13
 
     .line 65
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/ConstraintsCommandHandler;->mDispatcher:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -146,12 +146,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_2d
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_55
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -173,13 +173,13 @@
     .local v7, "triggerAt":J
     cmp-long v9, v2, v7
 
-    if-ltz v9, :cond_1
+    if-ltz v9, :cond_54
 
     invoke-virtual {v5}, Landroidx/work/impl/model/WorkSpec;->hasConstraints()Z
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_51
 
     iget-object v9, p0, Landroidx/work/impl/background/systemalarm/ConstraintsCommandHandler;->mWorkConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;
 
@@ -188,31 +188,31 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_54
 
     .line 84
-    :cond_0
+    :cond_51
     invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 86
     .end local v5    # "workSpec":Landroidx/work/impl/model/WorkSpec;
     .end local v6    # "workSpecId":Ljava/lang/String;
     .end local v7    # "triggerAt":J
-    :cond_1
-    goto :goto_0
+    :cond_54
+    goto :goto_2d
 
     .line 88
-    :cond_2
+    :cond_55
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :goto_1
+    :goto_59
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_aa
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -295,10 +295,10 @@
     .end local v5    # "workSpec":Landroidx/work/impl/model/WorkSpec;
     .end local v6    # "workSpecId":Ljava/lang/String;
     .end local v7    # "intent":Landroid/content/Intent;
-    goto :goto_1
+    goto :goto_59
 
     .line 96
-    :cond_3
+    :cond_aa
     iget-object v4, p0, Landroidx/work/impl/background/systemalarm/ConstraintsCommandHandler;->mWorkConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;
 
     invoke-virtual {v4}, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;->reset()V

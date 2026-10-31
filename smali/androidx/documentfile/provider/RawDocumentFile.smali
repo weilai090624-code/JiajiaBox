@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/documentfile/provider/DocumentFile;Ljava/io/File;)V
-    .locals 0
+    .registers 3
     .param p1, "parent"    # Landroidx/documentfile/provider/DocumentFile;
     .param p2, "file"    # Ljava/io/File;
 
@@ -24,7 +24,7 @@
 .end method
 
 .method private static deleteContents(Ljava/io/File;)Z
-    .locals 7
+    .registers 8
     .param p0, "dir"    # Ljava/io/File;
 
     .line 169
@@ -38,15 +38,15 @@
 
     .line 171
     .local v1, "success":Z
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3a
 
     .line 172
     array-length v2, v0
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_2
+    :goto_9
+    if-ge v3, v2, :cond_3a
 
     aget-object v4, v0, v3
 
@@ -56,7 +56,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_18
 
     .line 174
     invoke-static {v4}, Landroidx/documentfile/provider/RawDocumentFile;->deleteContents(Ljava/io/File;)Z
@@ -66,12 +66,12 @@
     and-int/2addr v1, v5
 
     .line 176
-    :cond_0
+    :cond_18
     invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_37
 
     .line 177
     new-instance v5, Ljava/lang/StringBuilder;
@@ -101,18 +101,18 @@
 
     .line 172
     .end local v4    # "file":Ljava/io/File;
-    :cond_1
+    :cond_37
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 182
-    :cond_2
+    :cond_3a
     return v1
 .end method
 
 .method private static getTypeForName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "name"    # Ljava/lang/String;
 
     .line 156
@@ -124,7 +124,7 @@
 
     .line 157
     .local v0, "lastDot":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1d
 
     .line 158
     add-int/lit8 v1, v0, 0x1
@@ -149,7 +149,7 @@
 
     .line 160
     .local v2, "mime":Ljava/lang/String;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     .line 161
     return-object v2
@@ -157,7 +157,7 @@
     .line 165
     .end local v1    # "extension":Ljava/lang/String;
     .end local v2    # "mime":Ljava/lang/String;
-    :cond_0
+    :cond_1d
     const-string v1, "application/octet-stream"
 
     return-object v1
@@ -166,7 +166,7 @@
 
 # virtual methods
 .method public canRead()Z
-    .locals 1
+    .registers 2
 
     .line 113
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -179,7 +179,7 @@
 .end method
 
 .method public canWrite()Z
-    .locals 1
+    .registers 2
 
     .line 118
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -192,7 +192,7 @@
 .end method
 
 .method public createDirectory(Ljava/lang/String;)Landroidx/documentfile/provider/DocumentFile;
-    .locals 2
+    .registers 4
     .param p1, "displayName"    # Ljava/lang/String;
 
     .line 58
@@ -208,25 +208,25 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_16
 
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
-    goto :goto_0
+    goto :goto_16
 
     .line 62
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
     return-object v1
 
     .line 60
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     new-instance v1, Landroidx/documentfile/provider/RawDocumentFile;
 
     invoke-direct {v1, p0, v0}, Landroidx/documentfile/provider/RawDocumentFile;-><init>(Landroidx/documentfile/provider/DocumentFile;Ljava/io/File;)V
@@ -235,7 +235,7 @@
 .end method
 
 .method public createFile(Ljava/lang/String;Ljava/lang/String;)Landroidx/documentfile/provider/DocumentFile;
-    .locals 5
+    .registers 8
     .param p1, "mimeType"    # Ljava/lang/String;
     .param p2, "displayName"    # Ljava/lang/String;
 
@@ -250,7 +250,7 @@
 
     .line 42
     .local v0, "extension":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 43
     new-instance v1, Ljava/lang/StringBuilder;
@@ -276,7 +276,7 @@
     move-result-object p2
 
     .line 45
-    :cond_0
+    :cond_21
     new-instance v1, Ljava/io/File;
 
     iget-object v2, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -285,20 +285,20 @@
 
     .line 47
     .local v1, "target":Ljava/io/File;
-    :try_start_0
+    :try_start_28
     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
 
     .line 48
     new-instance v2, Landroidx/documentfile/provider/RawDocumentFile;
 
     invoke-direct {v2, p0, v1}, Landroidx/documentfile/provider/RawDocumentFile;-><init>(Landroidx/documentfile/provider/DocumentFile;Ljava/io/File;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_30
+    .catch Ljava/io/IOException; {:try_start_28 .. :try_end_30} :catch_31
 
     return-object v2
 
     .line 49
-    :catch_0
+    :catch_31
     move-exception v2
 
     .line 50
@@ -332,7 +332,7 @@
 .end method
 
 .method public delete()Z
-    .locals 1
+    .registers 2
 
     .line 123
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -350,7 +350,7 @@
 .end method
 
 .method public exists()Z
-    .locals 1
+    .registers 2
 
     .line 129
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -363,7 +363,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 73
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -376,7 +376,7 @@
 .end method
 
 .method public getType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 79
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -385,7 +385,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 80
     const/4 v0, 0x0
@@ -393,7 +393,7 @@
     return-object v0
 
     .line 82
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -408,7 +408,7 @@
 .end method
 
 .method public getUri()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -421,7 +421,7 @@
 .end method
 
 .method public isDirectory()Z
-    .locals 1
+    .registers 2
 
     .line 88
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -434,7 +434,7 @@
 .end method
 
 .method public isFile()Z
-    .locals 1
+    .registers 2
 
     .line 93
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -447,7 +447,7 @@
 .end method
 
 .method public isVirtual()Z
-    .locals 1
+    .registers 2
 
     .line 98
     const/4 v0, 0x0
@@ -456,7 +456,7 @@
 .end method
 
 .method public lastModified()J
-    .locals 2
+    .registers 3
 
     .line 103
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -469,7 +469,7 @@
 .end method
 
 .method public length()J
-    .locals 2
+    .registers 3
 
     .line 108
     iget-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -482,7 +482,7 @@
 .end method
 
 .method public listFiles()[Landroidx/documentfile/provider/DocumentFile;
-    .locals 6
+    .registers 7
 
     .line 134
     new-instance v0, Ljava/util/ArrayList;
@@ -499,15 +499,15 @@
 
     .line 136
     .local v1, "files":[Ljava/io/File;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     .line 137
     array-length v2, v1
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_f
+    if-ge v3, v2, :cond_1e
 
     aget-object v4, v1, v3
 
@@ -523,10 +523,10 @@
     .end local v4    # "file":Ljava/io/File;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 141
-    :cond_0
+    :cond_1e
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v2
@@ -543,7 +543,7 @@
 .end method
 
 .method public renameTo(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "displayName"    # Ljava/lang/String;
 
     .line 146
@@ -565,7 +565,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 148
     iput-object v0, p0, Landroidx/documentfile/provider/RawDocumentFile;->mFile:Ljava/io/File;
@@ -576,7 +576,7 @@
     return v1
 
     .line 151
-    :cond_0
+    :cond_17
     const/4 v1, 0x0
 
     return v1

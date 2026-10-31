@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/ChangeBounds;Landroid/view/ViewGroup;Landroid/graphics/drawable/BitmapDrawable;Landroid/view/View;F)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Landroidx/transition/ChangeBounds;
 
     .line 448
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 451

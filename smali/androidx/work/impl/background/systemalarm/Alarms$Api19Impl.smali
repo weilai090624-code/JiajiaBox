@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 145
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static setExact(Landroid/app/AlarmManager;IJLandroid/app/PendingIntent;)V
-    .locals 0
+    .registers 5
     .param p0, "alarmManager"    # Landroid/app/AlarmManager;
     .param p1, "type"    # I
     .param p2, "triggerAtMillis"    # J

@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/core/impl/CameraCaptureFailure$Reason;)V
-    .locals 0
+    .registers 2
     .param p1, "reason"    # Landroidx/camera/core/impl/CameraCaptureFailure$Reason;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public getReason()Landroidx/camera/core/impl/CameraCaptureFailure$Reason;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Landroidx/camera/core/impl/CameraCaptureFailure;->mReason:Landroidx/camera/core/impl/CameraCaptureFailure$Reason;

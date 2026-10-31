@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/hash/PrimitiveSink;)V
-    .locals 1
+    .registers 3
     .param p1, "sink"    # Lcom/google/common/hash/PrimitiveSink;
 
     .line 249
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 270
     iget-object v0, p0, Lcom/google/common/hash/Funnels$SinkAsStream;->sink:Lcom/google/common/hash/PrimitiveSink;
@@ -89,7 +89,7 @@
 .end method
 
 .method public write(I)V
-    .locals 2
+    .registers 4
     .param p1, "b"    # I
 
     .line 255
@@ -104,7 +104,7 @@
 .end method
 
 .method public write([B)V
-    .locals 1
+    .registers 3
     .param p1, "bytes"    # [B
 
     .line 260
@@ -117,7 +117,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 1
+    .registers 5
     .param p1, "bytes"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I

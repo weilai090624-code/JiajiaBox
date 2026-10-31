@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/ReferencePipeline$2;Lj$/util/stream/Sink;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lj$/util/stream/ReferencePipeline$2;
 
     .line 168
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TP_OUT;)V"
@@ -61,7 +61,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 177
     iget-object v0, p0, Lj$/util/stream/ReferencePipeline$2$1;->downstream:Lj$/util/stream/Sink;
@@ -69,12 +69,12 @@
     invoke-interface {v0, p1}, Lj$/util/stream/Sink;->accept(Ljava/lang/Object;)V
 
     .line 178
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public begin(J)V
-    .locals 3
+    .registers 6
     .param p1, "size"    # J
 
     .line 171

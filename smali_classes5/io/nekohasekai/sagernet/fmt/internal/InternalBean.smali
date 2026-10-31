@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public canICMPing()Z
-    .locals 1
+    .registers 2
 
     .line 14
     const/4 v0, 0x0
@@ -25,7 +25,7 @@
 .end method
 
 .method public canMapping()Z
-    .locals 1
+    .registers 2
 
     .line 24
     const/4 v0, 0x0
@@ -34,7 +34,7 @@
 .end method
 
 .method public canTCPing()Z
-    .locals 1
+    .registers 2
 
     .line 19
     const/4 v0, 0x0
@@ -43,7 +43,7 @@
 .end method
 
 .method public displayAddress()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 9
     const-string v0, ""

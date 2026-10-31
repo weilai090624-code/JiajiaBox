@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3694
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static cancelPendingInputEvents(Landroid/view/View;)V
-    .locals 0
+    .registers 1
     .param p0, "view"    # Landroid/view/View;
 
     .line 3697

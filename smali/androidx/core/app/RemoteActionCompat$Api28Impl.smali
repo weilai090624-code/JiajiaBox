@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 209
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static setShouldShowIcon(Landroid/app/RemoteAction;Z)V
-    .locals 0
+    .registers 2
     .param p0, "remoteAction"    # Landroid/app/RemoteAction;
     .param p1, "shouldShowIcon"    # Z
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static shouldShowIcon(Landroid/app/RemoteAction;)Z
-    .locals 1
+    .registers 2
     .param p0, "remoteAction"    # Landroid/app/RemoteAction;
 
     .line 215

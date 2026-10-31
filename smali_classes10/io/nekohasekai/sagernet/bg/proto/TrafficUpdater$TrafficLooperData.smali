@@ -92,7 +92,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;JJJJJJJZ)V
-    .locals 16
+    .registers 33
     .param p1, "tag"    # Ljava/lang/String;
     .param p2, "tx"    # J
     .param p4, "rx"    # J
@@ -162,7 +162,7 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;JJJJJJJZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 16
+    .registers 35
 
     .line 8
     move/from16 v0, p17
@@ -171,114 +171,114 @@
 
     const-wide/16 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     .line 11
     move-wide v4, v2
 
-    goto :goto_0
+    goto :goto_c
 
     .line 8
-    :cond_0
+    :cond_a
     move-wide/from16 v4, p2
 
-    :goto_0
+    :goto_c
     and-int/lit8 v1, v0, 0x4
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_12
 
     .line 12
     move-wide v6, v2
 
-    goto :goto_1
+    goto :goto_14
 
     .line 8
-    :cond_1
+    :cond_12
     move-wide/from16 v6, p4
 
-    :goto_1
+    :goto_14
     and-int/lit8 v1, v0, 0x8
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1a
 
     .line 13
     move-wide v8, v2
 
-    goto :goto_2
+    goto :goto_1c
 
     .line 8
-    :cond_2
+    :cond_1a
     move-wide/from16 v8, p6
 
-    :goto_2
+    :goto_1c
     and-int/lit8 v1, v0, 0x10
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_22
 
     .line 14
     move-wide v10, v2
 
-    goto :goto_3
+    goto :goto_24
 
     .line 8
-    :cond_3
+    :cond_22
     move-wide/from16 v10, p8
 
-    :goto_3
+    :goto_24
     and-int/lit8 v1, v0, 0x20
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2a
 
     .line 15
     move-wide v12, v2
 
-    goto :goto_4
+    goto :goto_2c
 
     .line 8
-    :cond_4
+    :cond_2a
     move-wide/from16 v12, p10
 
-    :goto_4
+    :goto_2c
     and-int/lit8 v1, v0, 0x40
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_32
 
     .line 16
     move-wide v14, v2
 
-    goto :goto_5
+    goto :goto_34
 
     .line 8
-    :cond_5
+    :cond_32
     move-wide/from16 v14, p12
 
-    :goto_5
+    :goto_34
     and-int/lit16 v1, v0, 0x80
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_39
 
     .line 17
-    goto :goto_6
+    goto :goto_3b
 
     .line 8
-    :cond_6
+    :cond_39
     move-wide/from16 v2, p14
 
-    :goto_6
+    :goto_3b
     and-int/lit16 v0, v0, 0x100
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_41
 
     .line 18
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_43
 
     .line 8
-    :cond_7
+    :cond_41
     move/from16 v0, p16
 
-    :goto_7
+    :goto_43
     move-object/from16 p2, p0
 
     move-object/from16 p3, p1
@@ -308,7 +308,7 @@
 
 # virtual methods
 .method public final getIgnore()Z
-    .locals 1
+    .registers 2
 
     .line 18
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->ignore:Z
@@ -317,7 +317,7 @@
 .end method
 
 .method public final getLastUpdate()J
-    .locals 2
+    .registers 3
 
     .line 17
     iget-wide v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->lastUpdate:J
@@ -326,7 +326,7 @@
 .end method
 
 .method public final getRx()J
-    .locals 2
+    .registers 3
 
     .line 12
     iget-wide v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->rx:J
@@ -335,7 +335,7 @@
 .end method
 
 .method public final getRxBase()J
-    .locals 2
+    .registers 3
 
     .line 14
     iget-wide v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->rxBase:J
@@ -344,7 +344,7 @@
 .end method
 
 .method public final getRxRate()J
-    .locals 2
+    .registers 3
 
     .line 16
     iget-wide v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->rxRate:J
@@ -353,7 +353,7 @@
 .end method
 
 .method public final getTag()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 10
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->tag:Ljava/lang/String;
@@ -362,7 +362,7 @@
 .end method
 
 .method public final getTx()J
-    .locals 2
+    .registers 3
 
     .line 11
     iget-wide v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->tx:J
@@ -371,7 +371,7 @@
 .end method
 
 .method public final getTxBase()J
-    .locals 2
+    .registers 3
 
     .line 13
     iget-wide v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->txBase:J
@@ -380,7 +380,7 @@
 .end method
 
 .method public final getTxRate()J
-    .locals 2
+    .registers 3
 
     .line 15
     iget-wide v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->txRate:J
@@ -389,7 +389,7 @@
 .end method
 
 .method public final setIgnore(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 18
@@ -399,7 +399,7 @@
 .end method
 
 .method public final setLastUpdate(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 17
@@ -409,7 +409,7 @@
 .end method
 
 .method public final setRx(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 12
@@ -419,7 +419,7 @@
 .end method
 
 .method public final setRxBase(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 14
@@ -429,7 +429,7 @@
 .end method
 
 .method public final setRxRate(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 16
@@ -439,7 +439,7 @@
 .end method
 
 .method public final setTag(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -453,7 +453,7 @@
 .end method
 
 .method public final setTx(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 11
@@ -463,7 +463,7 @@
 .end method
 
 .method public final setTxBase(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 13
@@ -473,7 +473,7 @@
 .end method
 
 .method public final setTxRate(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 15

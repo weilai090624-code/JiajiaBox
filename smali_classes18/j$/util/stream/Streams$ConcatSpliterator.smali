@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>(Lj$/util/Spliterator;Lj$/util/Spliterator;)V
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_SP",
@@ -109,14 +109,14 @@
 
     cmp-long v5, v1, v3
 
-    if-gez v5, :cond_0
+    if-gez v5, :cond_1a
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     iput-boolean v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->unsized:Z
 
     .line 704
@@ -126,13 +126,13 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 2
+    .registers 3
 
     .line 751
     .local p0, "this":Lj$/util/stream/Streams$ConcatSpliterator;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>;"
     iget-boolean v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 753
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->aSpliterator:Lj$/util/Spliterator;
@@ -152,16 +152,16 @@
     .line 755
     iget-boolean v1, p0, Lj$/util/stream/Streams$ConcatSpliterator;->unsized:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     const/16 v1, 0x4040
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_19
     or-int/lit8 v1, v1, 0x5
 
     not-int v1, v1
@@ -172,7 +172,7 @@
     return v0
 
     .line 758
-    :cond_1
+    :cond_1e
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->bSpliterator:Lj$/util/Spliterator;
 
     invoke-interface {v0}, Lj$/util/Spliterator;->characteristics()I
@@ -183,13 +183,13 @@
 .end method
 
 .method public estimateSize()J
-    .locals 5
+    .registers 6
 
     .line 738
     .local p0, "this":Lj$/util/stream/Streams$ConcatSpliterator;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>;"
     iget-boolean v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 741
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->aSpliterator:Lj$/util/Spliterator;
@@ -212,21 +212,21 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_19
 
     move-wide v2, v0
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_19
     const-wide v2, 0x7fffffffffffffffL
 
-    :goto_0
+    :goto_1e
     return-wide v2
 
     .line 745
     .end local v0    # "size":J
-    :cond_1
+    :cond_1f
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->bSpliterator:Lj$/util/Spliterator;
 
     invoke-interface {v0}, Lj$/util/Spliterator;->estimateSize()J
@@ -237,7 +237,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -251,7 +251,7 @@
     .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     iget-boolean v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 732
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->aSpliterator:Lj$/util/Spliterator;
@@ -259,7 +259,7 @@
     invoke-interface {v0, p1}, Lj$/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
     .line 733
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->bSpliterator:Lj$/util/Spliterator;
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
@@ -269,7 +269,7 @@
 .end method
 
 .method public getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -282,7 +282,7 @@
     .local p0, "this":Lj$/util/stream/Streams$ConcatSpliterator;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>;"
     iget-boolean v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 766
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->bSpliterator:Lj$/util/Spliterator;
@@ -294,7 +294,7 @@
     return-object v0
 
     .line 765
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -303,7 +303,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -313,7 +313,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -323,7 +323,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -337,7 +337,7 @@
     .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     iget-boolean v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 718
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->aSpliterator:Lj$/util/Spliterator;
@@ -348,7 +348,7 @@
 
     .line 719
     .local v0, "hasNext":Z
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     .line 720
     const/4 v1, 0x0
@@ -362,11 +362,11 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 725
     .end local v0    # "hasNext":Z
-    :cond_0
+    :cond_16
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->bSpliterator:Lj$/util/Spliterator;
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
@@ -375,13 +375,13 @@
 
     .line 726
     .restart local v0    # "hasNext":Z
-    :cond_1
-    :goto_0
+    :cond_1c
+    :goto_1c
     return v0
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT_SP",
@@ -393,13 +393,13 @@
     .local p0, "this":Lj$/util/stream/Streams$ConcatSpliterator;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>;"
     iget-boolean v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->aSpliterator:Lj$/util/Spliterator;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator;->bSpliterator:Lj$/util/Spliterator;
 
     invoke-interface {v0}, Lj$/util/Spliterator;->trySplit()Lj$/util/Spliterator;
@@ -408,7 +408,7 @@
 
     .line 710
     .local v0, "ret":Lj$/util/Spliterator;, "TT_SPLITR;"
-    :goto_0
+    :goto_d
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lj$/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z

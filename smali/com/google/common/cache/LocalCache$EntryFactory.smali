@@ -52,7 +52,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/cache/LocalCache$EntryFactory;
-    .locals 3
+    .registers 3
 
     .line 439
     const/16 v0, 0x8
@@ -111,7 +111,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     .line 440
     new-instance v0, Lcom/google/common/cache/LocalCache$EntryFactory$1;
@@ -251,7 +251,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -265,7 +265,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/cache/LocalCache$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # I
     .param p3, "x2"    # Lcom/google/common/cache/LocalCache$1;
@@ -277,7 +277,7 @@
 .end method
 
 .method static getFactory(Lcom/google/common/cache/LocalCache$Strength;ZZ)Lcom/google/common/cache/LocalCache$EntryFactory;
-    .locals 2
+    .registers 5
     .param p0, "keyStrength"    # Lcom/google/common/cache/LocalCache$Strength;
     .param p1, "usesAccessQueue"    # Z
     .param p2, "usesWriteQueue"    # Z
@@ -287,25 +287,25 @@
 
     const/4 v1, 0x0
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_7
 
     const/4 v0, 0x4
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     .line 569
-    :goto_0
+    :goto_8
     or-int/2addr v0, p1
 
     .line 570
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_c
 
     const/4 v1, 0x2
 
-    :cond_1
+    :cond_c
     or-int/2addr v0, v1
 
     .line 571
@@ -318,7 +318,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/cache/LocalCache$EntryFactory;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 439
@@ -334,7 +334,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/cache/LocalCache$EntryFactory;
-    .locals 1
+    .registers 1
 
     .line 439
     sget-object v0, Lcom/google/common/cache/LocalCache$EntryFactory;->$VALUES:[Lcom/google/common/cache/LocalCache$EntryFactory;
@@ -351,7 +351,7 @@
 
 # virtual methods
 .method copyAccessEntry(Lcom/google/common/cache/ReferenceEntry;Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -397,7 +397,7 @@
 .end method
 
 .method copyEntry(Lcom/google/common/cache/LocalCache$Segment;Lcom/google/common/cache/ReferenceEntry;Lcom/google/common/cache/ReferenceEntry;)Lcom/google/common/cache/ReferenceEntry;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -436,7 +436,7 @@
 .end method
 
 .method copyWriteEntry(Lcom/google/common/cache/ReferenceEntry;Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",

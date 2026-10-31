@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
 
     .line 50
     .local p1, "dateClass":Ljava/lang/Class;, "Ljava/lang/Class<Ljava/sql/Timestamp;>;"
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method protected deserialize(Ljava/util/Date;)Ljava/sql/Timestamp;
-    .locals 3
+    .registers 5
     .param p1, "date"    # Ljava/util/Date;
 
     .line 52
@@ -52,7 +52,7 @@
 .end method
 
 .method protected bridge synthetic deserialize(Ljava/util/Date;)Ljava/util/Date;
-    .locals 0
+    .registers 2
 
     .line 50
     invoke-virtual {p0, p1}, Lcom/google/gson/internal/sql/SqlTypesSupport$2;->deserialize(Ljava/util/Date;)Ljava/sql/Timestamp;

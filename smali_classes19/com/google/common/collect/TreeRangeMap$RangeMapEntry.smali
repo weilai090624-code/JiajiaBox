@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Cut;Lcom/google/common/collect/Cut;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/Range;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)Z"
@@ -123,7 +123,7 @@
 .end method
 
 .method public getKey()Lcom/google/common/collect/Range;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 67
     .local p0, "this":Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;, "Lcom/google/common/collect/TreeRangeMap$RangeMapEntry<TK;TV;>;"
@@ -152,7 +152,7 @@
 .end method
 
 .method getLowerBound()Lcom/google/common/collect/Cut;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -171,7 +171,7 @@
 .end method
 
 .method getUpperBound()Lcom/google/common/collect/Cut;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -190,7 +190,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

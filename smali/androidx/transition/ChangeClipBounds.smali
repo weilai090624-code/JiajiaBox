@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 43
     const-string v0, "android:clipBounds:clip"
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     invoke-direct {p0}, Landroidx/transition/Transition;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method private captureValues(Landroidx/transition/TransitionValues;)V
-    .locals 6
+    .registers 8
     .param p1, "values"    # Landroidx/transition/TransitionValues;
 
     .line 61
@@ -64,13 +64,13 @@
 
     const/16 v2, 0x8
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_b
 
     .line 63
     return-void
 
     .line 66
-    :cond_0
+    :cond_b
     invoke-static {v0}, Landroidx/core/view/ViewCompat;->getClipBounds(Landroid/view/View;)Landroid/graphics/Rect;
 
     move-result-object v1
@@ -84,7 +84,7 @@
     invoke-interface {v2, v3, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 68
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2d
 
     .line 69
     new-instance v2, Landroid/graphics/Rect;
@@ -111,14 +111,14 @@
 
     .line 72
     .end local v2    # "bounds":Landroid/graphics/Rect;
-    :cond_1
+    :cond_2d
     return-void
 .end method
 
 
 # virtual methods
 .method public captureEndValues(Landroidx/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 81
@@ -129,7 +129,7 @@
 .end method
 
 .method public captureStartValues(Landroidx/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 76
@@ -140,7 +140,7 @@
 .end method
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 9
+    .registers 13
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "startValues"    # Landroidx/transition/TransitionValues;
     .param p3, "endValues"    # Landroidx/transition/TransitionValues;
@@ -148,9 +148,9 @@
     .line 89
     const/4 v0, 0x0
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_7f
 
-    if-eqz p3, :cond_7
+    if-eqz p3, :cond_7f
 
     iget-object v1, p2, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
 
@@ -161,7 +161,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_7f
 
     iget-object v1, p3, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
 
@@ -170,12 +170,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
-    goto :goto_2
+    goto :goto_7f
 
     .line 94
-    :cond_0
+    :cond_18
     iget-object v1, p2, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
 
     invoke-interface {v1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -200,30 +200,30 @@
 
     const/4 v4, 0x0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2e
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_1
+    :cond_2e
     const/4 v5, 0x0
 
     .line 97
     .local v5, "endIsNull":Z
-    :goto_0
-    if-nez v1, :cond_2
+    :goto_2f
+    if-nez v1, :cond_34
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_34
 
     .line 98
     return-object v0
 
     .line 101
-    :cond_2
+    :cond_34
     const-string v6, "android:clipBounds:bounds"
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_42
 
     .line 102
     iget-object v7, p2, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
@@ -236,11 +236,11 @@
 
     check-cast v1, Landroid/graphics/Rect;
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 103
-    :cond_3
-    if-nez v2, :cond_4
+    :cond_42
+    if-nez v2, :cond_4d
 
     .line 104
     iget-object v7, p3, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
@@ -254,19 +254,19 @@
     check-cast v2, Landroid/graphics/Rect;
 
     .line 106
-    :cond_4
-    :goto_1
+    :cond_4d
+    :goto_4d
     invoke-virtual {v1, v2}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_54
 
     .line 107
     return-object v0
 
     .line 110
-    :cond_5
+    :cond_54
     iget-object v0, p3, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
 
     invoke-static {v0, v1}, Landroidx/core/view/ViewCompat;->setClipBounds(Landroid/view/View;Landroid/graphics/Rect;)V
@@ -300,7 +300,7 @@
 
     .line 114
     .local v3, "animator":Landroid/animation/ObjectAnimator;
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_7e
 
     .line 115
     iget-object v4, p3, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
@@ -315,7 +315,7 @@
 
     .line 123
     .end local v4    # "endView":Landroid/view/View;
-    :cond_6
+    :cond_7e
     return-object v3
 
     .line 92
@@ -324,13 +324,13 @@
     .end local v2    # "end":Landroid/graphics/Rect;
     .end local v3    # "animator":Landroid/animation/ObjectAnimator;
     .end local v5    # "endIsNull":Z
-    :cond_7
-    :goto_2
+    :cond_7f
+    :goto_7f
     return-object v0
 .end method
 
 .method public getTransitionProperties()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 50
     sget-object v0, Landroidx/transition/ChangeClipBounds;->sTransitionProperties:[Ljava/lang/String;

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture;Landroidx/camera/core/ImageCapture$OutputFileOptions;Ljava/util/concurrent/Executor;Landroidx/camera/core/ImageSaver$OnImageSavedCallback;Landroidx/camera/core/ImageCapture$OnImageSavedCallback;)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Landroidx/camera/core/ImageCapture;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public onCaptureSuccess(Landroidx/camera/core/ImageProxy;)V
-    .locals 9
+    .registers 11
     .param p1, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -117,7 +117,7 @@
 .end method
 
 .method public onError(Landroidx/camera/core/ImageCaptureException;)V
-    .locals 1
+    .registers 3
     .param p1, "exception"    # Landroidx/camera/core/ImageCaptureException;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

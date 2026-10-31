@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final createEventLoop()Lkotlinx/coroutines/EventLoop;
-    .locals 2
+    .registers 2
 
     .line 29
     new-instance v0, Lkotlinx/coroutines/BlockingEventLoop;
@@ -52,20 +52,20 @@
 .end method
 
 .method public static final isIoDispatcherThread(Ljava/lang/Thread;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isIoDispatcherThread"    # Ljava/lang/Thread;
 
     .line 125
     instance-of v0, p0, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
     .line 126
-    :cond_0
+    :cond_6
     move-object v0, p0
 
     check-cast v0, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final platformAutoreleasePool(Lkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .registers 2
     .param p0, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -99,7 +99,7 @@
 .end method
 
 .method public static final processNextEventInCurrentThread()J
-    .locals 2
+    .registers 2
 
     .line 54
     sget-object v0, Lkotlinx/coroutines/ThreadLocalEventLoop;->INSTANCE:Lkotlinx/coroutines/ThreadLocalEventLoop;
@@ -108,23 +108,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     invoke-virtual {v0}, Lkotlinx/coroutines/EventLoop;->processNextEvent()J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_d
     const-wide v0, 0x7fffffffffffffffL
 
-    :goto_0
+    :goto_12
     return-wide v0
 .end method
 
 .method public static final runSingleTaskFromCurrentSystemDispatcher()J
-    .locals 4
+    .registers 4
 
     .line 108
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -135,7 +135,7 @@
     .local v0, "thread":Ljava/lang/Thread;
     instance-of v1, v0, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 110
     move-object v1, v0
@@ -149,7 +149,7 @@
     return-wide v1
 
     .line 109
-    :cond_0
+    :cond_10
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;

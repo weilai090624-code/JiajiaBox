@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Iterable;Ljava/lang/Iterable;)V
-    .locals 0
+    .registers 3
 
     .line 147
     .local p1, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

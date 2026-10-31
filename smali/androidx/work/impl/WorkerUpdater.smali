@@ -54,7 +54,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$-2EjVz8P-O3AZDsOsRS0eKn91Gg(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/impl/OperationImpl;Lkotlin/jvm/functions/Function0;Landroidx/work/WorkRequest;)V
-    .locals 0
+    .registers 5
 
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/work/impl/WorkerUpdater;->enqueueUniquelyNamedPeriodic$lambda$3(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/impl/OperationImpl;Lkotlin/jvm/functions/Function0;Landroidx/work/WorkRequest;)V
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$FUn6YS1VRiK4aM8XL-KC2eKp2D0(Landroidx/work/impl/utils/futures/SettableFuture;Landroidx/work/impl/WorkManagerImpl;Landroidx/work/WorkRequest;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/work/impl/WorkerUpdater;->updateWorkImpl$lambda$2(Landroidx/work/impl/utils/futures/SettableFuture;Landroidx/work/impl/WorkManagerImpl;Landroidx/work/WorkRequest;)V
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Y6RWQqWjpYNXuQTFaKU0a9eyqpg(Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/model/WorkSpec;Landroidx/work/impl/model/WorkSpec;Ljava/util/List;Ljava/lang/String;Ljava/util/Set;Z)V
-    .locals 0
+    .registers 7
 
     invoke-static/range {p0 .. p6}, Landroidx/work/impl/WorkerUpdater;->updateWorkImpl$lambda$1(Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/model/WorkSpec;Landroidx/work/impl/model/WorkSpec;Ljava/util/List;Ljava/lang/String;Ljava/util/Set;Z)V
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final enqueueUniquelyNamedPeriodic(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/WorkRequest;)Landroidx/work/Operation;
-    .locals 10
+    .registers 13
     .param p0, "$this$enqueueUniquelyNamedPeriodic"    # Landroidx/work/impl/WorkManagerImpl;
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "workRequest"    # Landroidx/work/WorkRequest;
@@ -147,7 +147,7 @@
 .end method
 
 .method private static final enqueueUniquelyNamedPeriodic$lambda$3(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/impl/OperationImpl;Lkotlin/jvm/functions/Function0;Landroidx/work/WorkRequest;)V
-    .locals 46
+    .registers 51
     .param p0, "$this_enqueueUniquelyNamedPeriodic"    # Landroidx/work/impl/WorkManagerImpl;
     .param p1, "$name"    # Ljava/lang/String;
     .param p2, "$operation"    # Landroidx/work/impl/OperationImpl;
@@ -207,7 +207,7 @@
 
     const/4 v8, 0x1
 
-    if-le v0, v8, :cond_0
+    if-le v0, v8, :cond_3c
 
     .line 120
     const-string v0, "Can\'t apply UPDATE policy to the chains of work."
@@ -218,7 +218,7 @@
     return-void
 
     .line 123
-    :cond_0
+    :cond_3c
     invoke-static {v7}, Lkotlin/collections/CollectionsKt;->firstOrNull(Ljava/util/List;)Ljava/lang/Object;
 
     move-result-object v0
@@ -229,7 +229,7 @@
 
     .line 124
     .local v8, "current":Landroidx/work/impl/model/WorkSpec$IdAndState;
-    if-nez v8, :cond_1
+    if-nez v8, :cond_49
 
     .line 125
     invoke-interface/range {p3 .. p3}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
@@ -238,7 +238,7 @@
     return-void
 
     .line 128
-    :cond_1
+    :cond_49
     iget-object v0, v8, Landroidx/work/impl/model/WorkSpec$IdAndState;->id:Ljava/lang/String;
 
     invoke-interface {v6, v0}, Landroidx/work/impl/model/WorkSpecDao;->getWorkSpec(Ljava/lang/String;)Landroidx/work/impl/model/WorkSpec;
@@ -247,7 +247,7 @@
 
     .line 129
     .local v9, "spec":Landroidx/work/impl/model/WorkSpec;
-    if-nez v9, :cond_2
+    if-nez v9, :cond_8b
 
     .line 130
     nop
@@ -318,12 +318,12 @@
     return-void
 
     .line 138
-    :cond_2
+    :cond_8b
     invoke-virtual {v9}, Landroidx/work/impl/model/WorkSpec;->isPeriodic()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_97
 
     .line 139
     const-string v0, "Can\'t update OneTimeWorker to Periodic Worker. Update operation must preserve worker\'s type."
@@ -334,12 +334,12 @@
     return-void
 
     .line 143
-    :cond_3
+    :cond_97
     iget-object v0, v8, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
 
     sget-object v10, Landroidx/work/WorkInfo$State;->CANCELLED:Landroidx/work/WorkInfo$State;
 
-    if-ne v0, v10, :cond_4
+    if-ne v0, v10, :cond_a6
 
     .line 144
     iget-object v0, v8, Landroidx/work/impl/model/WorkSpec$IdAndState;->id:Ljava/lang/String;
@@ -353,7 +353,7 @@
     return-void
 
     .line 148
-    :cond_4
+    :cond_a6
     invoke-virtual/range {p4 .. p4}, Landroidx/work/WorkRequest;->getWorkSpec()Landroidx/work/impl/model/WorkSpec;
 
     move-result-object v10
@@ -411,7 +411,7 @@
     nop
 
     .line 151
-    :try_start_0
+    :try_start_d8
     invoke-virtual/range {p0 .. p0}, Landroidx/work/impl/WorkManagerImpl;->getProcessor()Landroidx/work/impl/Processor;
 
     move-result-object v0
@@ -467,13 +467,13 @@
     check-cast v0, Landroidx/work/Operation$State;
 
     invoke-virtual {v2, v0}, Landroidx/work/impl/OperationImpl;->markState(Landroidx/work/Operation$State;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_115
+    .catchall {:try_start_d8 .. :try_end_115} :catchall_116
 
-    goto :goto_0
+    goto :goto_121
 
     .line 154
-    :catchall_0
+    :catchall_116
     move-exception v0
 
     .line 155
@@ -488,12 +488,12 @@
 
     .line 157
     .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_121
     return-void
 .end method
 
 .method private static final failWorkTypeChanged(Landroidx/work/impl/OperationImpl;Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$failWorkTypeChanged"    # Landroidx/work/impl/OperationImpl;
     .param p1, "message"    # Ljava/lang/String;
 
@@ -521,7 +521,7 @@
 .end method
 
 .method private static final updateWorkImpl(Landroidx/work/impl/Processor;Landroidx/work/impl/WorkDatabase;Landroidx/work/Configuration;Ljava/util/List;Landroidx/work/impl/model/WorkSpec;Ljava/util/Set;)Landroidx/work/WorkManager$UpdateResult;
-    .locals 16
+    .registers 22
     .param p0, "processor"    # Landroidx/work/impl/Processor;
     .param p1, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
     .param p2, "configuration"    # Landroidx/work/Configuration;
@@ -565,7 +565,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_b0
 
     move-object v12, v0
 
@@ -577,14 +577,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     sget-object v0, Landroidx/work/WorkManager$UpdateResult;->NOT_APPLIED:Landroidx/work/WorkManager$UpdateResult;
 
     return-object v0
 
     .line 47
-    :cond_0
+    :cond_1e
     invoke-virtual {v12}, Landroidx/work/impl/model/WorkSpec;->isPeriodic()Z
 
     move-result v0
@@ -595,7 +595,7 @@
 
     xor-int/2addr v0, v1
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_73
 
     .line 54
     move-object/from16 v13, p0
@@ -606,7 +606,7 @@
 
     .line 55
     .local v14, "isEnqueued":Z
-    if-nez v14, :cond_2
+    if-nez v14, :cond_4d
 
     move-object v0, v9
 
@@ -621,12 +621,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_39
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_4c
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -650,16 +650,16 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_39
 
     .line 165
-    :cond_1
+    :cond_4c
     nop
 
     .line 56
     .end local v0    # "$this$forEach$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$forEach":I
-    :cond_2
+    :cond_4d
     new-instance v15, Landroidx/work/impl/WorkerUpdater$$ExternalSyntheticLambda0;
 
     move-object v0, v15
@@ -683,34 +683,34 @@
     invoke-virtual {v8, v15}, Landroidx/work/impl/WorkDatabase;->runInTransaction(Ljava/lang/Runnable;)V
 
     .line 77
-    if-nez v14, :cond_3
+    if-nez v14, :cond_69
 
     move-object/from16 v0, p2
 
     invoke-static {v0, v8, v9}, Landroidx/work/impl/Schedulers;->schedule(Landroidx/work/Configuration;Landroidx/work/impl/WorkDatabase;Ljava/util/List;)V
 
-    goto :goto_1
+    goto :goto_6b
 
-    :cond_3
+    :cond_69
     move-object/from16 v0, p2
 
     .line 78
-    :goto_1
-    if-eqz v14, :cond_4
+    :goto_6b
+    if-eqz v14, :cond_70
 
     sget-object v1, Landroidx/work/WorkManager$UpdateResult;->APPLIED_FOR_NEXT_RUN:Landroidx/work/WorkManager$UpdateResult;
 
-    goto :goto_2
+    goto :goto_72
 
-    :cond_4
+    :cond_70
     sget-object v1, Landroidx/work/WorkManager$UpdateResult;->APPLIED_IMMEDIATELY:Landroidx/work/WorkManager$UpdateResult;
 
-    :goto_2
+    :goto_72
     return-object v1
 
     .line 48
     .end local v14    # "isEnqueued":Z
-    :cond_5
+    :cond_73
     move-object/from16 v13, p0
 
     move-object/from16 v0, p2
@@ -778,7 +778,7 @@
     .line 45
     .end local v1    # "type":Lkotlin/jvm/functions/Function1;
     .end local v12    # "oldWorkSpec":Landroidx/work/impl/model/WorkSpec;
-    :cond_6
+    :cond_b0
     move-object/from16 v13, p0
 
     move-object/from16 v0, p2
@@ -815,7 +815,7 @@
 .end method
 
 .method public static final updateWorkImpl(Landroidx/work/impl/WorkManagerImpl;Landroidx/work/WorkRequest;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .param p0, "$this$updateWorkImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .param p1, "workRequest"    # Landroidx/work/WorkRequest;
     .annotation system Ldalvik/annotation/Signature;
@@ -872,7 +872,7 @@
 .end method
 
 .method private static final updateWorkImpl$lambda$1(Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/model/WorkSpec;Landroidx/work/impl/model/WorkSpec;Ljava/util/List;Ljava/lang/String;Ljava/util/Set;Z)V
-    .locals 36
+    .registers 43
     .param p0, "$workDatabase"    # Landroidx/work/impl/WorkDatabase;
     .param p1, "$newWorkSpec"    # Landroidx/work/impl/model/WorkSpec;
     .param p2, "$oldWorkSpec"    # Landroidx/work/impl/model/WorkSpec;
@@ -1037,7 +1037,7 @@
     invoke-interface {v5, v2, v3}, Landroidx/work/impl/model/WorkTagDao;->insertTags(Ljava/lang/String;Ljava/util/Set;)V
 
     .line 72
-    if-nez p6, :cond_0
+    if-nez p6, :cond_91
 
     .line 73
     const-wide/16 v7, -0x1
@@ -1052,12 +1052,12 @@
     invoke-interface {v7, v2}, Landroidx/work/impl/model/WorkProgressDao;->delete(Ljava/lang/String;)V
 
     .line 76
-    :cond_0
+    :cond_91
     return-void
 .end method
 
 .method private static final updateWorkImpl$lambda$2(Landroidx/work/impl/utils/futures/SettableFuture;Landroidx/work/impl/WorkManagerImpl;Landroidx/work/WorkRequest;)V
-    .locals 7
+    .registers 10
     .param p0, "$future"    # Landroidx/work/impl/utils/futures/SettableFuture;
     .param p1, "$this_updateWorkImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .param p2, "$workRequest"    # Landroidx/work/WorkRequest;
@@ -1075,16 +1075,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     return-void
 
     .line 87
-    :cond_0
+    :cond_11
     nop
 
     .line 89
-    :try_start_0
+    :try_start_12
     invoke-virtual {p1}, Landroidx/work/impl/WorkManagerImpl;->getProcessor()Landroidx/work/impl/Processor;
 
     move-result-object v1
@@ -1134,14 +1134,14 @@
     .line 92
     .local v0, "result":Landroidx/work/WorkManager$UpdateResult;
     invoke-virtual {p0, v0}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_46
+    .catchall {:try_start_12 .. :try_end_46} :catchall_47
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 93
     .end local v0    # "result":Landroidx/work/WorkManager$UpdateResult;
-    :catchall_0
+    :catchall_47
     move-exception v0
 
     .line 94
@@ -1150,6 +1150,6 @@
 
     .line 96
     .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_4b
     return-void
 .end method

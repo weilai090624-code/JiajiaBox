@@ -93,7 +93,7 @@
 
 # direct methods
 .method public constructor <init>(ILkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function4;)V
-    .locals 0
+    .registers 5
     .param p1, "$maxSize"    # I
     .param p2, "$sizeOf"    # Lkotlin/jvm/functions/Function2;
     .param p3, "$create"    # Lkotlin/jvm/functions/Function1;
@@ -131,7 +131,7 @@
 
 # virtual methods
 .method protected create(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -150,7 +150,7 @@
 .end method
 
 .method protected entryRemoved(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .registers 7
     .param p1, "evicted"    # Z
     .param p2, "key"    # Ljava/lang/Object;
     .param p3, "oldValue"    # Ljava/lang/Object;
@@ -175,7 +175,7 @@
 .end method
 
 .method protected sizeOf(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

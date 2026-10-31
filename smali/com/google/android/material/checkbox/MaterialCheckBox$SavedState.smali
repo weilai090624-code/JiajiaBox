@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 923
     new-instance v0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState$1;
@@ -45,7 +45,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 904
@@ -77,7 +77,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/google/android/material/checkbox/MaterialCheckBox$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Landroid/os/Parcel;
     .param p2, "x1"    # Lcom/google/android/material/checkbox/MaterialCheckBox$1;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 897
@@ -99,12 +99,12 @@
 .end method
 
 .method private getCheckedStateString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 938
     iget v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;->checkedState:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_10
 
     .line 945
     const-string/jumbo v0, "unchecked"
@@ -112,30 +112,30 @@
     return-object v0
 
     .line 942
-    :pswitch_0
+    :pswitch_9
     const-string v0, "indeterminate"
 
     return-object v0
 
     .line 940
-    :pswitch_1
+    :pswitch_c
     const-string v0, "checked"
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_10
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_c
+        :pswitch_9
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 917
     new-instance v0, Ljava/lang/StringBuilder;
@@ -191,7 +191,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

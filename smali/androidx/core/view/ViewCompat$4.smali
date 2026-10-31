@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/Class;I)V
-    .locals 0
+    .registers 4
     .param p1, "tagKey"    # I
     .param p3, "frameworkMinimumSdk"    # I
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method frameworkGet(Landroid/view/View;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 4789
@@ -54,7 +54,7 @@
 .end method
 
 .method bridge synthetic frameworkGet(Landroid/view/View;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 4784
     invoke-virtual {p0, p1}, Landroidx/core/view/ViewCompat$4;->frameworkGet(Landroid/view/View;)Ljava/lang/Boolean;
@@ -65,7 +65,7 @@
 .end method
 
 .method frameworkSet(Landroid/view/View;Ljava/lang/Boolean;)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "value"    # Ljava/lang/Boolean;
 
@@ -81,7 +81,7 @@
 .end method
 
 .method bridge synthetic frameworkSet(Landroid/view/View;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 4784
     check-cast p2, Ljava/lang/Boolean;
@@ -92,7 +92,7 @@
 .end method
 
 .method shouldUpdate(Ljava/lang/Boolean;Ljava/lang/Boolean;)Z
-    .locals 1
+    .registers 4
     .param p1, "oldValue"    # Ljava/lang/Boolean;
     .param p2, "newValue"    # Ljava/lang/Boolean;
 
@@ -107,7 +107,7 @@
 .end method
 
 .method bridge synthetic shouldUpdate(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     .line 4784
     check-cast p1, Ljava/lang/Boolean;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 48
     invoke-direct {p0}, Landroidx/work/impl/WorkDatabase;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method static synthetic access$000(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkDatabase_Impl;
 
     .line 48
@@ -42,7 +42,7 @@
 .end method
 
 .method static synthetic access$100(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkDatabase_Impl;
 
     .line 48
@@ -52,7 +52,7 @@
 .end method
 
 .method static synthetic access$1000(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkDatabase_Impl;
 
     .line 48
@@ -62,7 +62,7 @@
 .end method
 
 .method static synthetic access$200(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkDatabase_Impl;
 
     .line 48
@@ -72,7 +72,7 @@
 .end method
 
 .method static synthetic access$300(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkDatabase_Impl;
 
     .line 48
@@ -82,7 +82,7 @@
 .end method
 
 .method static synthetic access$400(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkDatabase_Impl;
 
     .line 48
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$500(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkDatabase_Impl;
 
     .line 48
@@ -102,7 +102,7 @@
 .end method
 
 .method static synthetic access$602(Landroidx/work/impl/WorkDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkDatabase_Impl;
     .param p1, "x1"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method static synthetic access$700(Landroidx/work/impl/WorkDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkDatabase_Impl;
     .param p1, "x1"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -124,7 +124,7 @@
 .end method
 
 .method static synthetic access$800(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkDatabase_Impl;
 
     .line 48
@@ -134,7 +134,7 @@
 .end method
 
 .method static synthetic access$900(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkDatabase_Impl;
 
     .line 48
@@ -146,7 +146,7 @@
 
 # virtual methods
 .method public clearAllTables()V
-    .locals 6
+    .registers 7
 
     .line 277
     invoke-super {p0}, Landroidx/work/impl/WorkDatabase;->assertNotMainThread()V
@@ -172,20 +172,20 @@
 
     const-string v4, "PRAGMA wal_checkpoint(FULL)"
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_19
 
     .line 282
-    :try_start_0
+    :try_start_14
     const-string v5, "PRAGMA foreign_keys = FALSE"
 
     invoke-interface {v0, v5}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 284
-    :cond_0
+    :cond_19
     invoke-super {p0}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 285
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     .line 286
     const-string v5, "PRAGMA defer_foreign_keys = TRUE"
@@ -193,7 +193,7 @@
     invoke-interface {v0, v5}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 288
-    :cond_1
+    :cond_23
     const-string v5, "DELETE FROM `Dependency`"
 
     invoke-interface {v0, v5}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
@@ -230,20 +230,20 @@
 
     .line 295
     invoke-super {p0}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_49
+    .catchall {:try_start_14 .. :try_end_49} :catchall_62
 
     .line 297
     invoke-super {p0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
 
     .line 298
-    if-nez v1, :cond_2
+    if-nez v1, :cond_51
 
     .line 299
     invoke-interface {v0, v3}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 301
-    :cond_2
+    :cond_51
     invoke-interface {v0, v4}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v3
@@ -255,29 +255,29 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_61
 
     .line 303
     invoke-interface {v0, v2}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 306
-    :cond_3
+    :cond_61
     return-void
 
     .line 297
-    :catchall_0
+    :catchall_62
     move-exception v5
 
     invoke-super {p0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
 
     .line 298
-    if-nez v1, :cond_4
+    if-nez v1, :cond_6b
 
     .line 299
     invoke-interface {v0, v3}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 301
-    :cond_4
+    :cond_6b
     invoke-interface {v0, v4}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v3
@@ -289,18 +289,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_7b
 
     .line 303
     invoke-interface {v0, v2}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 305
-    :cond_5
+    :cond_7b
     throw v5
 .end method
 
 .method protected createInvalidationTracker()Landroidx/room/InvalidationTracker;
-    .locals 10
+    .registers 11
 
     .line 270
     new-instance v0, Ljava/util/HashMap;
@@ -345,7 +345,7 @@
 .end method
 
 .method protected createOpenHelper(Landroidx/room/DatabaseConfiguration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 4
+    .registers 6
     .param p1, "configuration"    # Landroidx/room/DatabaseConfiguration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -410,12 +410,12 @@
 .end method
 
 .method public dependencyDao()Landroidx/work/impl/model/DependencyDao;
-    .locals 1
+    .registers 2
 
     .line 351
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_dependencyDao:Landroidx/work/impl/model/DependencyDao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 352
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_dependencyDao:Landroidx/work/impl/model/DependencyDao;
@@ -423,14 +423,14 @@
     return-object v0
 
     .line 354
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 355
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_dependencyDao:Landroidx/work/impl/model/DependencyDao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 356
     new-instance v0, Landroidx/work/impl/model/DependencyDao_Impl;
@@ -440,7 +440,7 @@
     iput-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_dependencyDao:Landroidx/work/impl/model/DependencyDao;
 
     .line 358
-    :cond_1
+    :cond_13
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_dependencyDao:Landroidx/work/impl/model/DependencyDao;
 
     monitor-exit p0
@@ -448,18 +448,18 @@
     return-object v0
 
     .line 359
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method
 
 .method public getAutoMigrations(Ljava/util/Map;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -515,7 +515,7 @@
 .end method
 
 .method public getRequiredAutoMigrationSpecs()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -538,7 +538,7 @@
 .end method
 
 .method protected getRequiredTypeConverters()Ljava/util/Map;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -634,12 +634,12 @@
 .end method
 
 .method public preferenceDao()Landroidx/work/impl/model/PreferenceDao;
-    .locals 1
+    .registers 2
 
     .line 421
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_preferenceDao:Landroidx/work/impl/model/PreferenceDao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 422
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_preferenceDao:Landroidx/work/impl/model/PreferenceDao;
@@ -647,14 +647,14 @@
     return-object v0
 
     .line 424
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 425
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_preferenceDao:Landroidx/work/impl/model/PreferenceDao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 426
     new-instance v0, Landroidx/work/impl/model/PreferenceDao_Impl;
@@ -664,7 +664,7 @@
     iput-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_preferenceDao:Landroidx/work/impl/model/PreferenceDao;
 
     .line 428
-    :cond_1
+    :cond_13
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_preferenceDao:Landroidx/work/impl/model/PreferenceDao;
 
     monitor-exit p0
@@ -672,23 +672,23 @@
     return-object v0
 
     .line 429
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method
 
 .method public rawWorkInfoDao()Landroidx/work/impl/model/RawWorkInfoDao;
-    .locals 1
+    .registers 2
 
     .line 435
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_rawWorkInfoDao:Landroidx/work/impl/model/RawWorkInfoDao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 436
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_rawWorkInfoDao:Landroidx/work/impl/model/RawWorkInfoDao;
@@ -696,14 +696,14 @@
     return-object v0
 
     .line 438
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 439
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_rawWorkInfoDao:Landroidx/work/impl/model/RawWorkInfoDao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 440
     new-instance v0, Landroidx/work/impl/model/RawWorkInfoDao_Impl;
@@ -713,7 +713,7 @@
     iput-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_rawWorkInfoDao:Landroidx/work/impl/model/RawWorkInfoDao;
 
     .line 442
-    :cond_1
+    :cond_13
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_rawWorkInfoDao:Landroidx/work/impl/model/RawWorkInfoDao;
 
     monitor-exit p0
@@ -721,23 +721,23 @@
     return-object v0
 
     .line 443
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method
 
 .method public systemIdInfoDao()Landroidx/work/impl/model/SystemIdInfoDao;
-    .locals 1
+    .registers 2
 
     .line 379
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_systemIdInfoDao:Landroidx/work/impl/model/SystemIdInfoDao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 380
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_systemIdInfoDao:Landroidx/work/impl/model/SystemIdInfoDao;
@@ -745,14 +745,14 @@
     return-object v0
 
     .line 382
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 383
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_systemIdInfoDao:Landroidx/work/impl/model/SystemIdInfoDao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 384
     new-instance v0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;
@@ -762,7 +762,7 @@
     iput-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_systemIdInfoDao:Landroidx/work/impl/model/SystemIdInfoDao;
 
     .line 386
-    :cond_1
+    :cond_13
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_systemIdInfoDao:Landroidx/work/impl/model/SystemIdInfoDao;
 
     monitor-exit p0
@@ -770,23 +770,23 @@
     return-object v0
 
     .line 387
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method
 
 .method public workNameDao()Landroidx/work/impl/model/WorkNameDao;
-    .locals 1
+    .registers 2
 
     .line 393
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workNameDao:Landroidx/work/impl/model/WorkNameDao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 394
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workNameDao:Landroidx/work/impl/model/WorkNameDao;
@@ -794,14 +794,14 @@
     return-object v0
 
     .line 396
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 397
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workNameDao:Landroidx/work/impl/model/WorkNameDao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 398
     new-instance v0, Landroidx/work/impl/model/WorkNameDao_Impl;
@@ -811,7 +811,7 @@
     iput-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workNameDao:Landroidx/work/impl/model/WorkNameDao;
 
     .line 400
-    :cond_1
+    :cond_13
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workNameDao:Landroidx/work/impl/model/WorkNameDao;
 
     monitor-exit p0
@@ -819,23 +819,23 @@
     return-object v0
 
     .line 401
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method
 
 .method public workProgressDao()Landroidx/work/impl/model/WorkProgressDao;
-    .locals 1
+    .registers 2
 
     .line 407
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workProgressDao:Landroidx/work/impl/model/WorkProgressDao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 408
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workProgressDao:Landroidx/work/impl/model/WorkProgressDao;
@@ -843,14 +843,14 @@
     return-object v0
 
     .line 410
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 411
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workProgressDao:Landroidx/work/impl/model/WorkProgressDao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 412
     new-instance v0, Landroidx/work/impl/model/WorkProgressDao_Impl;
@@ -860,7 +860,7 @@
     iput-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workProgressDao:Landroidx/work/impl/model/WorkProgressDao;
 
     .line 414
-    :cond_1
+    :cond_13
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workProgressDao:Landroidx/work/impl/model/WorkProgressDao;
 
     monitor-exit p0
@@ -868,23 +868,23 @@
     return-object v0
 
     .line 415
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method
 
 .method public workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
-    .locals 1
+    .registers 2
 
     .line 337
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workSpecDao:Landroidx/work/impl/model/WorkSpecDao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 338
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workSpecDao:Landroidx/work/impl/model/WorkSpecDao;
@@ -892,14 +892,14 @@
     return-object v0
 
     .line 340
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 341
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workSpecDao:Landroidx/work/impl/model/WorkSpecDao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 342
     new-instance v0, Landroidx/work/impl/model/WorkSpecDao_Impl;
@@ -909,7 +909,7 @@
     iput-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workSpecDao:Landroidx/work/impl/model/WorkSpecDao;
 
     .line 344
-    :cond_1
+    :cond_13
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workSpecDao:Landroidx/work/impl/model/WorkSpecDao;
 
     monitor-exit p0
@@ -917,23 +917,23 @@
     return-object v0
 
     .line 345
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method
 
 .method public workTagDao()Landroidx/work/impl/model/WorkTagDao;
-    .locals 1
+    .registers 2
 
     .line 365
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workTagDao:Landroidx/work/impl/model/WorkTagDao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 366
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workTagDao:Landroidx/work/impl/model/WorkTagDao;
@@ -941,14 +941,14 @@
     return-object v0
 
     .line 368
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 369
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workTagDao:Landroidx/work/impl/model/WorkTagDao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 370
     new-instance v0, Landroidx/work/impl/model/WorkTagDao_Impl;
@@ -958,7 +958,7 @@
     iput-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workTagDao:Landroidx/work/impl/model/WorkTagDao;
 
     .line 372
-    :cond_1
+    :cond_13
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl;->_workTagDao:Landroidx/work/impl/model/WorkTagDao;
 
     monitor-exit p0
@@ -966,12 +966,12 @@
     return-object v0
 
     .line 373
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method

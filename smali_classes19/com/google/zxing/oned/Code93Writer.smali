@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Lcom/google/zxing/oned/OneDimensionalCodeWriter;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method private static appendPattern([ZI[I)I
-    .locals 6
+    .registers 9
     .param p0, "target"    # [Z
     .param p1, "pos"    # I
     .param p2, "pattern"    # [I
@@ -26,8 +26,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_3
+    if-ge v2, v0, :cond_14
 
     aget v3, p2, v2
 
@@ -37,16 +37,16 @@
 
     .end local p1    # "pos":I
     .local v4, "pos":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
     const/4 v5, 0x1
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v5, 0x0
 
-    :goto_1
+    :goto_e
     aput-boolean v5, p0, p1
 
     .line 109
@@ -55,19 +55,19 @@
 
     move p1, v4
 
-    goto :goto_0
+    goto :goto_3
 
     .line 112
     .end local v4    # "pos":I
     .restart local p1    # "pos":I
-    :cond_1
+    :cond_14
     const/16 v0, 0x9
 
     return v0
 .end method
 
 .method protected static appendPattern([ZI[IZ)I
-    .locals 1
+    .registers 5
     .param p0, "target"    # [Z
     .param p1, "pos"    # I
     .param p2, "pattern"    # [I
@@ -84,7 +84,7 @@
 .end method
 
 .method private static computeChecksumIndex(Ljava/lang/String;I)I
-    .locals 5
+    .registers 7
     .param p0, "contents"    # Ljava/lang/String;
     .param p1, "maxWeight"    # I
 
@@ -104,8 +104,8 @@
     add-int/lit8 v2, v2, -0x1
 
     .local v2, "i":I
-    :goto_0
-    if-ltz v2, :cond_1
+    :goto_8
+    if-ltz v2, :cond_1f
 
     .line 120
     const-string v3, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%abcd*"
@@ -127,28 +127,28 @@
     .line 122
     add-int/lit8 v0, v0, 0x1
 
-    if-le v0, p1, :cond_0
+    if-le v0, p1, :cond_1c
 
     .line 123
     const/4 v0, 0x1
 
     .line 119
     .end local v3    # "indexInString":I
-    :cond_0
+    :cond_1c
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 126
     .end local v2    # "i":I
-    :cond_1
+    :cond_1f
     rem-int/lit8 v2, v1, 0x2f
 
     return v2
 .end method
 
 .method private static toIntArray(I[I)V
-    .locals 3
+    .registers 5
     .param p0, "a"    # I
     .param p1, "toReturn"    # [I
 
@@ -156,10 +156,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     const/16 v1, 0x9
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_13
 
     .line 90
     rsub-int/lit8 v1, v0, 0x8
@@ -172,29 +172,29 @@
 
     .line 91
     .local v1, "temp":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     const/4 v2, 0x0
 
-    :cond_0
+    :cond_e
     aput v2, p1, v0
 
     .line 89
     .end local v1    # "temp":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 93
     .end local v0    # "i":I
-    :cond_1
+    :cond_13
     return-void
 .end method
 
 
 # virtual methods
 .method public encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;)Lcom/google/zxing/common/BitMatrix;
-    .locals 3
+    .registers 9
     .param p1, "contents"    # Ljava/lang/String;
     .param p2, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p3, "width"    # I
@@ -222,7 +222,7 @@
     .local p5, "hints":Ljava/util/Map;, "Ljava/util/Map<Lcom/google/zxing/EncodeHintType;*>;"
     sget-object v0, Lcom/google/zxing/BarcodeFormat;->CODE_93:Lcom/google/zxing/BarcodeFormat;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_9
 
     .line 38
     invoke-super/range {p0 .. p5}, Lcom/google/zxing/oned/OneDimensionalCodeWriter;->encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;)Lcom/google/zxing/common/BitMatrix;
@@ -232,7 +232,7 @@
     return-object v0
 
     .line 36
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Can only encode CODE_93, but got "
@@ -251,7 +251,7 @@
 .end method
 
 .method public encode(Ljava/lang/String;)[Z
-    .locals 10
+    .registers 12
     .param p1, "contents"    # Ljava/lang/String;
 
     .line 43
@@ -267,7 +267,7 @@
 
     const/16 v2, 0x50
 
-    if-gt v0, v2, :cond_1
+    if-gt v0, v2, :cond_90
 
     .line 49
     const/16 v0, 0x9
@@ -320,10 +320,10 @@
     const/4 v7, 0x0
 
     .local v7, "i":I
-    :goto_0
+    :goto_2d
     const-string v8, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%abcd*"
 
-    if-ge v7, v1, :cond_0
+    if-ge v7, v1, :cond_48
 
     .line 61
     invoke-virtual {p1, v7}, Ljava/lang/String;->charAt(I)C
@@ -353,11 +353,11 @@
     .end local v8    # "indexInString":I
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 67
     .end local v7    # "i":I
-    :cond_0
+    :cond_48
     const/16 v7, 0x14
 
     invoke-static {p1, v7}, Lcom/google/zxing/oned/Code93Writer;->computeChecksumIndex(Ljava/lang/String;I)I
@@ -449,7 +449,7 @@
     .end local v6    # "result":[Z
     .end local v7    # "check1":I
     .end local v8    # "check2":I
-    :cond_1
+    :cond_90
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Requested contents should be less than 80 digits long, but got "

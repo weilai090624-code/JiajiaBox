@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 50
     new-instance v0, Landroidx/work/multiprocess/parcelable/ParcelableResult$1;
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 3
+    .registers 5
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 42
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/ListenableWorker$Result;)V
-    .locals 0
+    .registers 2
     .param p1, "result"    # Landroidx/work/ListenableWorker$Result;
 
     .line 38
@@ -85,7 +85,7 @@
 .end method
 
 .method private static intToResultType(ILandroidx/work/Data;)Landroidx/work/ListenableWorker$Result;
-    .locals 4
+    .registers 6
     .param p0, "resultType"    # I
     .param p1, "data"    # Landroidx/work/Data;
 
@@ -96,33 +96,33 @@
     .local v0, "result":Landroidx/work/ListenableWorker$Result;
     const/4 v1, 0x1
 
-    if-ne p0, v1, :cond_0
+    if-ne p0, v1, :cond_9
 
     .line 102
     invoke-static {}, Landroidx/work/ListenableWorker$Result;->retry()Landroidx/work/ListenableWorker$Result;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_18
 
     .line 103
-    :cond_0
+    :cond_9
     const/4 v1, 0x2
 
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_11
 
     .line 104
     invoke-static {p1}, Landroidx/work/ListenableWorker$Result;->success(Landroidx/work/Data;)Landroidx/work/ListenableWorker$Result;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_18
 
     .line 105
-    :cond_1
+    :cond_11
     const/4 v1, 0x3
 
-    if-ne p0, v1, :cond_2
+    if-ne p0, v1, :cond_19
 
     .line 106
     invoke-static {p1}, Landroidx/work/ListenableWorker$Result;->failure(Landroidx/work/Data;)Landroidx/work/ListenableWorker$Result;
@@ -130,11 +130,11 @@
     move-result-object v0
 
     .line 111
-    :goto_0
+    :goto_18
     return-object v0
 
     .line 109
-    :cond_2
+    :cond_19
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -161,13 +161,13 @@
 .end method
 
 .method private static resultTypeOf(Landroidx/work/ListenableWorker$Result;)I
-    .locals 3
+    .registers 4
     .param p0, "result"    # Landroidx/work/ListenableWorker$Result;
 
     .line 86
     instance-of v0, p0, Landroidx/work/ListenableWorker$Result$Retry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     .line 87
     const/4 v0, 0x1
@@ -175,10 +175,10 @@
     return v0
 
     .line 88
-    :cond_0
+    :cond_6
     instance-of v0, p0, Landroidx/work/ListenableWorker$Result$Success;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_c
 
     .line 89
     const/4 v0, 0x2
@@ -186,10 +186,10 @@
     return v0
 
     .line 90
-    :cond_1
+    :cond_c
     instance-of v0, p0, Landroidx/work/ListenableWorker$Result$Failure;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_12
 
     .line 91
     const/4 v0, 0x3
@@ -197,7 +197,7 @@
     return v0
 
     .line 94
-    :cond_2
+    :cond_12
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -226,7 +226,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 66
     const/4 v0, 0x0
@@ -235,7 +235,7 @@
 .end method
 
 .method public getResult()Landroidx/work/ListenableWorker$Result;
-    .locals 1
+    .registers 2
 
     .line 82
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableResult;->mResult:Landroidx/work/ListenableWorker$Result;
@@ -244,7 +244,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 3
+    .registers 6
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

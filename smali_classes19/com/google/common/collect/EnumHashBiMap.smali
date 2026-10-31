@@ -37,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Class;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,7 +77,7 @@
 .end method
 
 .method public static create(Ljava/lang/Class;)Lcom/google/common/collect/EnumHashBiMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -102,7 +102,7 @@
 .end method
 
 .method public static create(Ljava/util/Map;)Lcom/google/common/collect/EnumHashBiMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -136,7 +136,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 3
+    .registers 5
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -195,7 +195,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -222,7 +222,7 @@
 
 # virtual methods
 .method checkKey(Ljava/lang/Enum;)Ljava/lang/Enum;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
@@ -242,7 +242,7 @@
 .end method
 
 .method bridge synthetic checkKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/collect/EnumHashBiMap;, "Lcom/google/common/collect/EnumHashBiMap<TK;TV;>;"
@@ -256,7 +256,7 @@
 .end method
 
 .method public bridge synthetic clear()V
-    .locals 0
+    .registers 1
 
     .line 44
     .local p0, "this":Lcom/google/common/collect/EnumHashBiMap;, "Lcom/google/common/collect/EnumHashBiMap<TK;TV;>;"
@@ -266,7 +266,7 @@
 .end method
 
 .method public bridge synthetic containsValue(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -282,7 +282,7 @@
 .end method
 
 .method public bridge synthetic entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/collect/EnumHashBiMap;, "Lcom/google/common/collect/EnumHashBiMap<TK;TV;>;"
@@ -294,7 +294,7 @@
 .end method
 
 .method public forcePut(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -320,7 +320,7 @@
 .end method
 
 .method public bridge synthetic forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -340,7 +340,7 @@
 .end method
 
 .method public bridge synthetic inverse()Lcom/google/common/collect/BiMap;
-    .locals 1
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/collect/EnumHashBiMap;, "Lcom/google/common/collect/EnumHashBiMap<TK;TV;>;"
@@ -352,7 +352,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/collect/EnumHashBiMap;, "Lcom/google/common/collect/EnumHashBiMap<TK;TV;>;"
@@ -364,7 +364,7 @@
 .end method
 
 .method public keyType()Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -381,7 +381,7 @@
 .end method
 
 .method public put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -407,7 +407,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -427,7 +427,7 @@
 .end method
 
 .method public bridge synthetic putAll(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/collect/EnumHashBiMap;, "Lcom/google/common/collect/EnumHashBiMap<TK;TV;>;"
@@ -437,7 +437,7 @@
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -455,7 +455,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/collect/EnumHashBiMap;, "Lcom/google/common/collect/EnumHashBiMap<TK;TV;>;"

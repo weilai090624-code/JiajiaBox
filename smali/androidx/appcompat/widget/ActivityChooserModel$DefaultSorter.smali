@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 922
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public sort(Landroid/content/Intent;Ljava/util/List;Ljava/util/List;)V
-    .locals 10
+    .registers 14
     .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,8 +89,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_a
+    if-ge v2, v1, :cond_2c
 
     .line 934
     invoke-interface {p2, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -131,11 +131,11 @@
     .end local v4    # "componentName":Landroid/content/ComponentName;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 942
     .end local v2    # "i":I
-    :cond_0
+    :cond_2c
     invoke-interface {p3}, Ljava/util/List;->size()I
 
     move-result v2
@@ -151,8 +151,8 @@
     move v4, v2
 
     .local v4, "i":I
-    :goto_1
-    if-ltz v4, :cond_2
+    :goto_35
+    if-ltz v4, :cond_58
 
     .line 945
     invoke-interface {p3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -175,7 +175,7 @@
 
     .line 948
     .local v7, "activity":Landroidx/appcompat/widget/ActivityChooserModel$ActivityResolveInfo;
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_55
 
     .line 949
     iget v8, v7, Landroidx/appcompat/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
@@ -197,14 +197,14 @@
     .end local v5    # "historicalRecord":Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;
     .end local v6    # "componentName":Landroid/content/ComponentName;
     .end local v7    # "activity":Landroidx/appcompat/widget/ActivityChooserModel$ActivityResolveInfo;
-    :cond_1
+    :cond_55
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_1
+    goto :goto_35
 
     .line 954
     .end local v4    # "i":I
-    :cond_2
+    :cond_58
     invoke-static {p2}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
     .line 961

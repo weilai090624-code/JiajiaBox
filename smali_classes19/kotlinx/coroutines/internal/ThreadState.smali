@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;I)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "n"    # I
 
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public final append(Lkotlinx/coroutines/ThreadContextElement;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "element"    # Lkotlinx/coroutines/ThreadContextElement;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -128,7 +128,7 @@
 .end method
 
 .method public final restore(Lkotlin/coroutines/CoroutineContext;)V
-    .locals 4
+    .registers 6
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 26
@@ -138,9 +138,9 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_1a
 
-    :cond_0
+    :cond_7
     move v1, v0
 
     .local v1, "i":I
@@ -160,10 +160,10 @@
     invoke-interface {v2, p1, v3}, Lkotlinx/coroutines/ThreadContextElement;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
 
     .line 26
-    if-gez v0, :cond_0
+    if-gez v0, :cond_7
 
     .line 29
     .end local v1    # "i":I
-    :cond_1
+    :cond_1a
     return-void
 .end method

@@ -61,7 +61,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$WmI2xq1zuZqWG7ltTw1YiH9k8FU(Lmoe/matsuri/nb4a/ui/ColorPickerPreference;ILkotlin/jvm/internal/Ref$ObjectRef;Landroid/view/View;)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lmoe/matsuri/nb4a/ui/ColorPickerPreference;->onClick$lambda$3$lambda$2$lambda$1(Lmoe/matsuri/nb4a/ui/ColorPickerPreference;ILkotlin/jvm/internal/Ref$ObjectRef;Landroid/view/View;)V
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -95,7 +95,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
@@ -145,21 +145,21 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 26
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 27
     const/4 p2, 0x0
 
     .line 26
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_17
 
     .line 27
     nop
@@ -183,7 +183,7 @@
     move-result p3
 
     .line 26
-    :cond_1
+    :cond_17
     invoke-direct {p0, p1, p2, p3}, Lmoe/matsuri/nb4a/ui/ColorPickerPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 32
@@ -191,7 +191,7 @@
 .end method
 
 .method private static final onClick$lambda$3$lambda$2$lambda$1(Lmoe/matsuri/nb4a/ui/ColorPickerPreference;ILkotlin/jvm/internal/Ref$ObjectRef;Landroid/view/View;)V
-    .locals 1
+    .registers 5
     .param p0, "this$0"    # Lmoe/matsuri/nb4a/ui/ColorPickerPreference;
     .param p1, "$themeId"    # I
     .param p2, "$dialog"    # Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -203,7 +203,7 @@
     .line 98
     iget-object v0, p2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const-string v0, "dialog"
 
@@ -211,14 +211,14 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_e
     iget-object v0, p2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     check-cast v0, Landroidx/appcompat/app/AlertDialog;
 
-    :goto_0
+    :goto_12
     invoke-virtual {v0}, Landroidx/appcompat/app/AlertDialog;->dismiss()V
 
     .line 99
@@ -235,7 +235,7 @@
 
 # virtual methods
 .method public final getInited()Z
-    .locals 1
+    .registers 2
 
     .line 36
     iget-boolean v0, p0, Lmoe/matsuri/nb4a/ui/ColorPickerPreference;->inited:Z
@@ -244,7 +244,7 @@
 .end method
 
 .method public final getNekoAtColor(Landroid/content/res/Resources;I)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 5
     .param p1, "res"    # Landroid/content/res/Resources;
     .param p2, "color"    # I
 
@@ -288,7 +288,7 @@
 .end method
 
 .method public final getNekoImageViewAtColor(III)Landroid/widget/ImageView;
-    .locals 8
+    .registers 12
     .param p1, "color"    # I
     .param p2, "sizeDp"    # I
     .param p3, "paddingDp"    # I
@@ -393,7 +393,7 @@
 .end method
 
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 4
+    .registers 6
     .param p1, "holder"    # Landroidx/preference/PreferenceViewHolder;
 
     const-string v0, "holder"
@@ -420,7 +420,7 @@
     .local v0, "widgetFrame":Landroid/widget/LinearLayout;
     iget-boolean v1, p0, Lmoe/matsuri/nb4a/ui/ColorPickerPreference;->inited:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_40
 
     .line 44
     const/4 v1, 0x1
@@ -472,12 +472,12 @@
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     .line 55
-    :cond_0
+    :cond_40
     return-void
 .end method
 
 .method protected onClick()V
-    .locals 15
+    .registers 16
 
     .line 81
     invoke-super {p0}, Landroidx/preference/Preference;->onClick()V
@@ -539,8 +539,8 @@
 
     const/4 v8, 0x0
 
-    :goto_0
-    if-ge v8, v6, :cond_0
+    :goto_2f
+    if-ge v8, v6, :cond_51
 
     aget v9, v4, v8
 
@@ -594,10 +594,10 @@
     .end local v11    # "view":Landroid/widget/ImageView;
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 105
-    :cond_0
+    :cond_51
     nop
 
     .line 85
@@ -701,7 +701,7 @@
 .end method
 
 .method public final setInited(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 36

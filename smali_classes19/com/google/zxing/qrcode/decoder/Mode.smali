@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .registers 16
 
     .line 27
     new-instance v0, Lcom/google/zxing/qrcode/decoder/Mode;
@@ -258,7 +258,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I[II)V
-    .locals 0
+    .registers 5
     .param p3, "characterCountBitsForVersions"    # [I
     .param p4, "bits"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -281,14 +281,14 @@
 .end method
 
 .method public static forBits(I)Lcom/google/zxing/qrcode/decoder/Mode;
-    .locals 1
+    .registers 2
     .param p0, "bits"    # I
 
     .line 53
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_28
 
     .line 76
-    :pswitch_0
+    :pswitch_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -296,88 +296,88 @@
     throw v0
 
     .line 74
-    :pswitch_1
+    :pswitch_9
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->HANZI:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v0
 
     .line 71
-    :pswitch_2
+    :pswitch_c
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->FNC1_SECOND_POSITION:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v0
 
     .line 69
-    :pswitch_3
+    :pswitch_f
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->KANJI:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v0
 
     .line 67
-    :pswitch_4
+    :pswitch_12
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->ECI:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v0
 
     .line 65
-    :pswitch_5
+    :pswitch_15
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->FNC1_FIRST_POSITION:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v0
 
     .line 63
-    :pswitch_6
+    :pswitch_18
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->BYTE:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v0
 
     .line 61
-    :pswitch_7
+    :pswitch_1b
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->STRUCTURED_APPEND:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v0
 
     .line 59
-    :pswitch_8
+    :pswitch_1e
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->ALPHANUMERIC:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v0
 
     .line 57
-    :pswitch_9
+    :pswitch_21
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->NUMERIC:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v0
 
     .line 55
-    :pswitch_a
+    :pswitch_24
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->TERMINATOR:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_28
     .packed-switch 0x0
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_0
-        :pswitch_4
+        :pswitch_24
+        :pswitch_21
+        :pswitch_1e
+        :pswitch_1b
+        :pswitch_18
+        :pswitch_15
         :pswitch_3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
+        :pswitch_12
+        :pswitch_f
+        :pswitch_c
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_9
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/zxing/qrcode/decoder/Mode;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 25
@@ -393,7 +393,7 @@
 .end method
 
 .method public static values()[Lcom/google/zxing/qrcode/decoder/Mode;
-    .locals 1
+    .registers 1
 
     .line 25
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->$VALUES:[Lcom/google/zxing/qrcode/decoder/Mode;
@@ -410,7 +410,7 @@
 
 # virtual methods
 .method public getBits()I
-    .locals 1
+    .registers 2
 
     .line 99
     iget v0, p0, Lcom/google/zxing/qrcode/decoder/Mode;->bits:I
@@ -419,7 +419,7 @@
 .end method
 
 .method public getCharacterCountBits(Lcom/google/zxing/qrcode/decoder/Version;)I
-    .locals 3
+    .registers 5
     .param p1, "version"    # Lcom/google/zxing/qrcode/decoder/Version;
 
     .line 86
@@ -435,35 +435,35 @@
 
     const/16 v2, 0x9
 
-    if-gt v0, v2, :cond_0
+    if-gt v0, v2, :cond_c
 
     .line 89
     const/4 v0, 0x0
 
     .local v0, "offset":I
-    goto :goto_0
+    goto :goto_13
 
     .line 90
     .end local v0    # "offset":I
-    :cond_0
+    :cond_c
     const/16 v0, 0x1a
 
-    if-gt v1, v0, :cond_1
+    if-gt v1, v0, :cond_12
 
     .line 91
     const/4 v0, 0x1
 
     .restart local v0    # "offset":I
-    goto :goto_0
+    goto :goto_13
 
     .line 93
     .end local v0    # "offset":I
-    :cond_1
+    :cond_12
     const/4 v0, 0x2
 
     .line 95
     .restart local v0    # "offset":I
-    :goto_0
+    :goto_13
     iget-object v2, p0, Lcom/google/zxing/qrcode/decoder/Mode;->characterCountBitsForVersions:[I
 
     aget v2, v2, v0

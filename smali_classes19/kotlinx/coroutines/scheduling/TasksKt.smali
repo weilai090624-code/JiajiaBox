@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     .line 16
     nop
@@ -235,7 +235,7 @@
 .end method
 
 .method public static final isBlocking(Lkotlinx/coroutines/scheduling/Task;)Z
-    .locals 3
+    .registers 4
     .param p0, "$this$isBlocking"    # Lkotlinx/coroutines/scheduling/Task;
 
     const/4 v0, 0x0
@@ -250,13 +250,13 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_b
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_c
     return v2
 .end method

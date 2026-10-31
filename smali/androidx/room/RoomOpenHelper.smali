@@ -77,7 +77,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/room/RoomOpenHelper$Companion;
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/room/DatabaseConfiguration;Landroidx/room/RoomOpenHelper$Delegate;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "configuration"    # Landroidx/room/DatabaseConfiguration;
     .param p2, "delegate"    # Landroidx/room/RoomOpenHelper$Delegate;
     .param p3, "legacyHash"    # Ljava/lang/String;
@@ -117,7 +117,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/room/DatabaseConfiguration;Landroidx/room/RoomOpenHelper$Delegate;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 6
     .param p1, "configuration"    # Landroidx/room/DatabaseConfiguration;
     .param p2, "delegate"    # Landroidx/room/RoomOpenHelper$Delegate;
     .param p3, "identityHash"    # Ljava/lang/String;
@@ -167,7 +167,7 @@
 .end method
 
 .method private final checkIdentity(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 7
+    .registers 9
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     .line 134
@@ -177,7 +177,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_73
 
     .line 135
     nop
@@ -211,7 +211,7 @@
 
     check-cast v2, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_1c
     move-object v3, v2
 
     check-cast v3, Landroid/database/Cursor;
@@ -227,7 +227,7 @@
 
     const/4 v6, 0x0
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2d
 
     .line 139
     const/4 v5, 0x0
@@ -235,17 +235,17 @@
     invoke-interface {v3, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_1c .. :try_end_2c} :catchall_6c
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 141
-    :cond_0
+    :cond_2d
     move-object v5, v6
 
     .line 138
-    :goto_0
+    :goto_2e
     nop
 
     .line 249
@@ -269,7 +269,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_85
 
     iget-object v1, p0, Landroidx/room/RoomOpenHelper;->legacyHash:Ljava/lang/String;
 
@@ -277,12 +277,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_45
 
-    goto :goto_1
+    goto :goto_85
 
     .line 146
-    :cond_1
+    :cond_45
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 147
@@ -334,21 +334,21 @@
     .line 249
     .local v0, "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
-    :catchall_0
+    :catchall_6c
     move-exception v3
 
     .end local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .end local v1    # "$i$f$useCursor":I
     .end local p1    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :try_start_1
+    :try_start_6d
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_6e
+    .catchall {:try_start_6d .. :try_end_6e} :catchall_6e
 
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
     .restart local p1    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :catchall_1
+    :catchall_6e
     move-exception v4
 
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -358,7 +358,7 @@
     .line 156
     .end local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .end local v1    # "$i$f$useCursor":I
-    :cond_2
+    :cond_73
     iget-object v0, p0, Landroidx/room/RoomOpenHelper;->delegate:Landroidx/room/RoomOpenHelper$Delegate;
 
     invoke-virtual {v0, p1}, Landroidx/room/RoomOpenHelper$Delegate;->onValidateSchema(Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/room/RoomOpenHelper$ValidationResult;
@@ -369,7 +369,7 @@
     .local v0, "result":Landroidx/room/RoomOpenHelper$ValidationResult;
     iget-boolean v1, v0, Landroidx/room/RoomOpenHelper$ValidationResult;->isValid:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_86
 
     .line 162
     iget-object v1, p0, Landroidx/room/RoomOpenHelper;->delegate:Landroidx/room/RoomOpenHelper$Delegate;
@@ -381,13 +381,13 @@
 
     .line 165
     .end local v0    # "result":Landroidx/room/RoomOpenHelper$ValidationResult;
-    :cond_3
-    :goto_1
+    :cond_85
+    :goto_85
     return-void
 
     .line 158
     .restart local v0    # "result":Landroidx/room/RoomOpenHelper$ValidationResult;
-    :cond_4
+    :cond_86
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 159
@@ -418,7 +418,7 @@
 .end method
 
 .method private final createMasterTableIfNotExists(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     .line 173
@@ -431,7 +431,7 @@
 .end method
 
 .method private final updateIdentity(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     .line 168
@@ -453,7 +453,7 @@
 
 # virtual methods
 .method public onConfigure(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -468,7 +468,7 @@
 .end method
 
 .method public onCreate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 5
+    .registers 7
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -489,7 +489,7 @@
     invoke-virtual {v1, p1}, Landroidx/room/RoomOpenHelper$Delegate;->createAllTables(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
 
     .line 66
-    if-nez v0, :cond_1
+    if-nez v0, :cond_38
 
     .line 71
     iget-object v1, p0, Landroidx/room/RoomOpenHelper;->delegate:Landroidx/room/RoomOpenHelper$Delegate;
@@ -502,12 +502,12 @@
     .local v1, "result":Landroidx/room/RoomOpenHelper$ValidationResult;
     iget-boolean v2, v1, Landroidx/room/RoomOpenHelper$ValidationResult;->isValid:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
-    goto :goto_0
+    goto :goto_38
 
     .line 73
-    :cond_0
+    :cond_1d
     new-instance v2, Ljava/lang/IllegalStateException;
 
     .line 74
@@ -538,8 +538,8 @@
 
     .line 78
     .end local v1    # "result":Landroidx/room/RoomOpenHelper$ValidationResult;
-    :cond_1
-    :goto_0
+    :cond_38
+    :goto_38
     invoke-direct {p0, p1}, Landroidx/room/RoomOpenHelper;->updateIdentity(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
 
     .line 79
@@ -552,7 +552,7 @@
 .end method
 
 .method public onDowngrade(Landroidx/sqlite/db/SupportSQLiteDatabase;II)V
-    .locals 1
+    .registers 5
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p2, "oldVersion"    # I
     .param p3, "newVersion"    # I
@@ -569,7 +569,7 @@
 .end method
 
 .method public onOpen(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -597,7 +597,7 @@
 .end method
 
 .method public onUpgrade(Landroidx/sqlite/db/SupportSQLiteDatabase;II)V
-    .locals 10
+    .registers 14
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p2, "oldVersion"    # I
     .param p3, "newVersion"    # I
@@ -613,7 +613,7 @@
     .local v0, "migrated":Z
     iget-object v1, p0, Landroidx/room/RoomOpenHelper;->configuration:Landroidx/room/DatabaseConfiguration;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_66
 
     .local v1, "config":Landroidx/room/DatabaseConfiguration;
     const/4 v2, 0x0
@@ -632,7 +632,7 @@
 
     .line 88
     .local v3, "migrations":Ljava/util/List;
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_64
 
     .line 89
     iget-object v4, p0, Landroidx/room/RoomOpenHelper;->delegate:Landroidx/room/RoomOpenHelper$Delegate;
@@ -653,12 +653,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_21
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_34
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -682,10 +682,10 @@
     nop
 
     .end local v7    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_21
 
     .line 247
-    :cond_0
+    :cond_34
     nop
 
     .line 91
@@ -701,7 +701,7 @@
     .local v4, "result":Landroidx/room/RoomOpenHelper$ValidationResult;
     iget-boolean v5, v4, Landroidx/room/RoomOpenHelper$ValidationResult;->isValid:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_49
 
     .line 98
     iget-object v5, p0, Landroidx/room/RoomOpenHelper;->delegate:Landroidx/room/RoomOpenHelper$Delegate;
@@ -714,10 +714,10 @@
     .line 100
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_64
 
     .line 93
-    :cond_1
+    :cond_49
     new-instance v5, Ljava/lang/IllegalStateException;
 
     .line 94
@@ -750,8 +750,8 @@
 
     .line 102
     .end local v4    # "result":Landroidx/room/RoomOpenHelper$ValidationResult;
-    :cond_2
-    :goto_1
+    :cond_64
+    :goto_64
     nop
 
     .line 84
@@ -761,21 +761,21 @@
     nop
 
     .line 103
-    :cond_3
-    if-nez v0, :cond_5
+    :cond_66
+    if-nez v0, :cond_a6
 
     .line 104
     iget-object v1, p0, Landroidx/room/RoomOpenHelper;->configuration:Landroidx/room/DatabaseConfiguration;
 
     .line 105
     .restart local v1    # "config":Landroidx/room/DatabaseConfiguration;
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_7d
 
     invoke-virtual {v1, p2, p3}, Landroidx/room/DatabaseConfiguration;->isMigrationRequired(II)Z
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_7d
 
     .line 106
     iget-object v2, p0, Landroidx/room/RoomOpenHelper;->delegate:Landroidx/room/RoomOpenHelper$Delegate;
@@ -787,10 +787,10 @@
 
     invoke-virtual {v2, p1}, Landroidx/room/RoomOpenHelper$Delegate;->createAllTables(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
 
-    goto :goto_2
+    goto :goto_a6
 
     .line 109
-    :cond_4
+    :cond_7d
     new-instance v2, Ljava/lang/IllegalStateException;
 
     .line 110
@@ -835,7 +835,7 @@
 
     .line 119
     .end local v1    # "config":Landroidx/room/DatabaseConfiguration;
-    :cond_5
-    :goto_2
+    :cond_a6
+    :goto_a6
     return-void
 .end method

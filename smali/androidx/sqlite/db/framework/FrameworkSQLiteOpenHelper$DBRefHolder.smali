@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p1, "db"    # Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;
 
     .line 340
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final getDb()Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;
-    .locals 1
+    .registers 2
 
     .line 340
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$DBRefHolder;->db:Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;
@@ -67,7 +67,7 @@
 .end method
 
 .method public final setDb(Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;
 
     .line 340

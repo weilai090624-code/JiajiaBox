@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Lkotlin/internal/jdk7/JDK7PlatformImplementations;-><init>()V
@@ -54,13 +54,13 @@
 .end method
 
 .method private final sdkIsNullOrAtLeast(I)Z
-    .locals 1
+    .registers 3
     .param p1, "version"    # I
 
     .line 40
     sget-object v0, Lkotlin/internal/jdk8/JDK8PlatformImplementations$ReflectSdkVersion;->sdkVersion:Ljava/lang/Integer;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     sget-object v0, Lkotlin/internal/jdk8/JDK8PlatformImplementations$ReflectSdkVersion;->sdkVersion:Ljava/lang/Integer;
 
@@ -68,27 +68,27 @@
 
     move-result v0
 
-    if-lt v0, p1, :cond_0
+    if-lt v0, p1, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 
 # virtual methods
 .method public defaultPlatformRandom()Lkotlin/random/Random;
-    .locals 1
+    .registers 2
 
     .line 58
     const/16 v0, 0x22
@@ -97,7 +97,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     new-instance v0, Lkotlin/random/jdk8/PlatformThreadLocalRandom;
 
@@ -105,19 +105,19 @@
 
     check-cast v0, Lkotlin/random/Random;
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_10
     invoke-super {p0}, Lkotlin/internal/jdk7/JDK7PlatformImplementations;->defaultPlatformRandom()Lkotlin/random/Random;
 
     move-result-object v0
 
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method public getMatchResultNamedGroup(Ljava/util/regex/MatchResult;Ljava/lang/String;)Lkotlin/text/MatchGroup;
-    .locals 5
+    .registers 8
     .param p1, "matchResult"    # Ljava/util/regex/MatchResult;
     .param p2, "name"    # Ljava/lang/String;
 
@@ -134,19 +134,19 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     move-object v0, p1
 
     check-cast v0, Ljava/util/regex/Matcher;
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     move-object v0, v1
 
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_14
+    if-eqz v0, :cond_40
 
     .line 45
     .local v0, "matcher":Ljava/util/regex/Matcher;
@@ -174,7 +174,7 @@
 
     move-result v3
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_3e
 
     .line 47
     new-instance v1, Lkotlin/text/MatchGroup;
@@ -189,20 +189,20 @@
 
     invoke-direct {v1, v3, v2}, Lkotlin/text/MatchGroup;-><init>(Ljava/lang/String;Lkotlin/ranges/IntRange;)V
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 49
-    :cond_1
+    :cond_3e
     nop
 
     .line 46
-    :goto_1
+    :goto_3f
     return-object v1
 
     .line 43
     .end local v0    # "matcher":Ljava/util/regex/Matcher;
     .end local v2    # "range":Lkotlin/ranges/IntRange;
-    :cond_2
+    :cond_40
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Retrieving groups by name is not supported on this platform."

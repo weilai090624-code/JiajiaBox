@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/window/core/Version;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/window/core/Version$bigInteger$2;->this$0:Landroidx/window/core/Version;
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-virtual {p0}, Landroidx/window/core/Version$bigInteger$2;->invoke()Ljava/math/BigInteger;
@@ -76,7 +76,7 @@
 .end method
 
 .method public final invoke()Ljava/math/BigInteger;
-    .locals 4
+    .registers 5
 
     .line 33
     iget-object v0, p0, Landroidx/window/core/Version$bigInteger$2;->this$0:Landroidx/window/core/Version;

@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 584
     const/16 v0, 0x700
@@ -47,8 +47,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_7
+    if-ge v1, v0, :cond_14
 
     .line 586
     sget-object v2, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->DIR_TYPE_CACHE:[B
@@ -62,16 +62,16 @@
     .line 585
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 588
     .end local v1    # "i":I
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/CharSequence;Z)V
-    .locals 1
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "isHtml"    # Z
 
@@ -96,43 +96,43 @@
 .end method
 
 .method private static getCachedDirectionality(C)B
-    .locals 1
+    .registers 2
     .param p0, "c"    # C
 
     .line 803
     const/16 v0, 0x700
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_9
 
     sget-object v0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->DIR_TYPE_CACHE:[B
 
     aget-byte v0, v0, p0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_9
     invoke-static {p0}, Ljava/lang/Character;->getDirectionality(C)B
 
     move-result v0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method private skipEntityBackward()B
-    .locals 4
+    .registers 5
 
     .line 944
     iget v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     .line 945
     .local v0, "initialCharIndex":I
-    :cond_0
+    :cond_2
     iget v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     const/16 v2, 0x3b
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_24
 
     .line 946
     iget-object v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->text:Ljava/lang/CharSequence;
@@ -154,7 +154,7 @@
 
     const/16 v3, 0x26
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_1f
 
     .line 948
     const/16 v1, 0xc
@@ -162,16 +162,16 @@
     return v1
 
     .line 950
-    :cond_1
+    :cond_1f
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_2
 
     .line 951
     nop
 
     .line 954
-    :cond_2
+    :cond_24
     iput v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     .line 955
@@ -184,7 +184,7 @@
 .end method
 
 .method private skipEntityForward()B
-    .locals 3
+    .registers 4
 
     .line 929
     :goto_0
@@ -192,7 +192,7 @@
 
     iget v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->length:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_19
 
     iget-object v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->text:Ljava/lang/CharSequence;
 
@@ -210,32 +210,32 @@
 
     const/16 v1, 0x3b
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_19
 
     goto :goto_0
 
     .line 930
-    :cond_0
+    :cond_19
     const/16 v0, 0xc
 
     return v0
 .end method
 
 .method private skipTagBackward()B
-    .locals 4
+    .registers 5
 
     .line 901
     iget v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     .line 902
     .local v0, "initialCharIndex":I
-    :cond_0
-    :goto_0
+    :cond_2
+    :goto_2
     iget v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     const/16 v2, 0x3e
 
-    if-lez v1, :cond_5
+    if-lez v1, :cond_48
 
     .line 903
     iget-object v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->text:Ljava/lang/CharSequence;
@@ -257,7 +257,7 @@
 
     const/16 v3, 0x3c
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_1f
 
     .line 906
     const/16 v1, 0xc
@@ -265,38 +265,38 @@
     return v1
 
     .line 908
-    :cond_1
+    :cond_1f
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_24
 
     .line 909
-    goto :goto_2
+    goto :goto_48
 
     .line 911
-    :cond_2
+    :cond_24
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     const/16 v2, 0x22
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_30
 
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     const/16 v2, 0x27
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_2
 
     .line 913
-    :cond_3
+    :cond_30
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     .line 914
     .local v1, "quote":C
-    :goto_1
+    :goto_32
     iget v2, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
-    if-lez v2, :cond_4
+    if-lez v2, :cond_47
 
     iget-object v2, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->text:Ljava/lang/CharSequence;
 
@@ -312,18 +312,18 @@
 
     iput-char v2, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
-    if-eq v2, v1, :cond_4
+    if-eq v2, v1, :cond_47
 
-    goto :goto_1
+    goto :goto_32
 
     .line 915
     .end local v1    # "quote":C
-    :cond_4
-    goto :goto_0
+    :cond_47
+    goto :goto_2
 
     .line 918
-    :cond_5
-    :goto_2
+    :cond_48
+    :goto_48
     iput v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     .line 919
@@ -336,20 +336,20 @@
 .end method
 
 .method private skipTagForward()B
-    .locals 5
+    .registers 6
 
     .line 872
     iget v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     .line 873
     .local v0, "initialCharIndex":I
-    :cond_0
-    :goto_0
+    :cond_2
+    :goto_2
     iget v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     iget v2, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->length:I
 
-    if-ge v1, v2, :cond_4
+    if-ge v1, v2, :cond_45
 
     .line 874
     iget-object v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->text:Ljava/lang/CharSequence;
@@ -371,7 +371,7 @@
 
     const/16 v2, 0x3e
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1f
 
     .line 877
     const/16 v1, 0xc
@@ -379,31 +379,31 @@
     return v1
 
     .line 879
-    :cond_1
+    :cond_1f
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     const/16 v2, 0x22
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_2b
 
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     const/16 v2, 0x27
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_2
 
     .line 881
-    :cond_2
+    :cond_2b
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     .line 882
     .local v1, "quote":C
-    :goto_1
+    :goto_2d
     iget v2, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     iget v3, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->length:I
 
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_44
 
     iget-object v2, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->text:Ljava/lang/CharSequence;
 
@@ -419,17 +419,17 @@
 
     iput-char v2, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
-    if-eq v2, v1, :cond_3
+    if-eq v2, v1, :cond_44
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 883
     .end local v1    # "quote":C
-    :cond_3
-    goto :goto_0
+    :cond_44
+    goto :goto_2
 
     .line 886
-    :cond_4
+    :cond_45
     iput v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     .line 887
@@ -446,7 +446,7 @@
 
 # virtual methods
 .method dirTypeBackward()B
-    .locals 3
+    .registers 4
 
     .line 846
     iget-object v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->text:Ljava/lang/CharSequence;
@@ -468,7 +468,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     .line 848
     iget-object v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->text:Ljava/lang/CharSequence;
@@ -500,7 +500,7 @@
 
     .line 852
     .end local v0    # "codePoint":I
-    :cond_0
+    :cond_2a
     iget v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     add-int/lit8 v0, v0, -0x1
@@ -518,29 +518,29 @@
     .local v0, "dirType":B
     iget-boolean v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->isHtml:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4f
 
     .line 856
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     const/16 v2, 0x3e
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_45
 
     .line 857
     invoke-direct {p0}, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->skipTagBackward()B
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 858
-    :cond_1
+    :cond_45
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     const/16 v2, 0x3b
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_4f
 
     .line 859
     invoke-direct {p0}, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->skipEntityBackward()B
@@ -548,13 +548,13 @@
     move-result v0
 
     .line 862
-    :cond_2
-    :goto_0
+    :cond_4f
+    :goto_4f
     return v0
 .end method
 
 .method dirTypeForward()B
-    .locals 3
+    .registers 4
 
     .line 816
     iget-object v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->text:Ljava/lang/CharSequence;
@@ -574,7 +574,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 818
     iget-object v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->text:Ljava/lang/CharSequence;
@@ -606,7 +606,7 @@
 
     .line 822
     .end local v0    # "codePoint":I
-    :cond_0
+    :cond_28
     iget v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     add-int/lit8 v0, v0, 0x1
@@ -624,29 +624,29 @@
     .local v0, "dirType":B
     iget-boolean v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->isHtml:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4d
 
     .line 826
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     const/16 v2, 0x3c
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_43
 
     .line 827
     invoke-direct {p0}, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->skipTagForward()B
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 828
-    :cond_1
+    :cond_43
     iget-char v1, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     const/16 v2, 0x26
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_4d
 
     .line 829
     invoke-direct {p0}, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->skipEntityForward()B
@@ -654,13 +654,13 @@
     move-result v0
 
     .line 832
-    :cond_2
-    :goto_0
+    :cond_4d
+    :goto_4d
     return v0
 .end method
 
 .method getEntryDir()I
-    .locals 8
+    .registers 9
 
     .line 646
     const/4 v0, 0x0
@@ -680,7 +680,7 @@
 
     .line 650
     .local v3, "firstNonEmptyEmbeddingLevel":I
-    :goto_0
+    :goto_6
     iget v4, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     iget v5, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->length:I
@@ -689,184 +689,184 @@
 
     const/4 v7, 0x1
 
-    if-ge v4, v5, :cond_2
+    if-ge v4, v5, :cond_30
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_30
 
     .line 651
     invoke-virtual {p0}, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->dirTypeForward()B
 
     move-result v4
 
-    sparse-switch v4, :sswitch_data_0
+    sparse-switch v4, :sswitch_data_54
 
     .line 685
     move v3, v1
 
     .line 686
-    goto :goto_0
+    goto :goto_6
 
     .line 663
-    :sswitch_0
+    :sswitch_19
     add-int/lit8 v1, v1, -0x1
 
     .line 667
     const/4 v2, 0x0
 
     .line 668
-    goto :goto_0
+    goto :goto_6
 
     .line 659
-    :sswitch_1
+    :sswitch_1d
     add-int/lit8 v1, v1, 0x1
 
     .line 660
     const/4 v2, 0x1
 
     .line 661
-    goto :goto_0
+    goto :goto_6
 
     .line 654
-    :sswitch_2
+    :sswitch_21
     add-int/lit8 v1, v1, 0x1
 
     .line 655
     const/4 v2, -0x1
 
     .line 656
-    goto :goto_0
+    goto :goto_6
 
     .line 670
-    :sswitch_3
-    goto :goto_0
+    :sswitch_25
+    goto :goto_6
 
     .line 679
-    :sswitch_4
-    if-nez v1, :cond_0
+    :sswitch_26
+    if-nez v1, :cond_29
 
     .line 680
     return v7
 
     .line 682
-    :cond_0
+    :cond_29
     move v3, v1
 
     .line 683
-    goto :goto_0
+    goto :goto_6
 
     .line 672
-    :sswitch_5
-    if-nez v1, :cond_1
+    :sswitch_2b
+    if-nez v1, :cond_2e
 
     .line 673
     return v6
 
     .line 675
-    :cond_1
+    :cond_2e
     move v3, v1
 
     .line 676
-    goto :goto_0
+    goto :goto_6
 
     .line 692
-    :cond_2
-    if-nez v3, :cond_3
+    :cond_30
+    if-nez v3, :cond_33
 
     .line 695
     return v0
 
     .line 699
-    :cond_3
-    if-eqz v2, :cond_4
+    :cond_33
+    if-eqz v2, :cond_36
 
     .line 701
     return v2
 
     .line 706
-    :cond_4
-    :goto_1
+    :cond_36
+    :goto_36
     iget v4, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
-    if-lez v4, :cond_7
+    if-lez v4, :cond_52
 
     .line 707
     invoke-virtual {p0}, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->dirTypeBackward()B
 
     move-result v4
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_7a
 
-    goto :goto_2
+    goto :goto_51
 
     .line 723
-    :pswitch_0
+    :pswitch_42
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_51
 
     .line 717
-    :pswitch_1
-    if-ne v3, v1, :cond_5
+    :pswitch_45
+    if-ne v3, v1, :cond_48
 
     .line 718
     return v7
 
     .line 720
-    :cond_5
+    :cond_48
     add-int/lit8 v1, v1, -0x1
 
     .line 721
-    goto :goto_2
+    goto :goto_51
 
     .line 710
-    :pswitch_2
-    if-ne v3, v1, :cond_6
+    :pswitch_4b
+    if-ne v3, v1, :cond_4e
 
     .line 711
     return v6
 
     .line 713
-    :cond_6
+    :cond_4e
     add-int/lit8 v1, v1, -0x1
 
     .line 714
     nop
 
     .line 724
-    :goto_2
-    goto :goto_1
+    :goto_51
+    goto :goto_36
 
     .line 728
-    :cond_7
+    :cond_52
     return v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_54
     .sparse-switch
-        0x0 -> :sswitch_5
-        0x1 -> :sswitch_4
-        0x2 -> :sswitch_4
-        0x9 -> :sswitch_3
-        0xe -> :sswitch_2
-        0xf -> :sswitch_2
-        0x10 -> :sswitch_1
-        0x11 -> :sswitch_1
-        0x12 -> :sswitch_0
+        0x0 -> :sswitch_2b
+        0x1 -> :sswitch_26
+        0x2 -> :sswitch_26
+        0x9 -> :sswitch_25
+        0xe -> :sswitch_21
+        0xf -> :sswitch_21
+        0x10 -> :sswitch_1d
+        0x11 -> :sswitch_1d
+        0x12 -> :sswitch_19
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_7a
     .packed-switch 0xe
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4b
+        :pswitch_4b
+        :pswitch_45
+        :pswitch_45
+        :pswitch_42
     .end packed-switch
 .end method
 
 .method getExitDir()I
-    .locals 5
+    .registers 6
 
     .line 744
     iget v0, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->length:I
@@ -882,11 +882,11 @@
 
     .line 747
     .local v1, "lastNonEmptyEmbeddingLevel":I
-    :cond_0
-    :goto_0
+    :cond_6
+    :goto_6
     iget v2, p0, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
-    if-lez v2, :cond_5
+    if-lez v2, :cond_35
 
     .line 748
     invoke-virtual {p0}, Landroidx/core/text/BidiFormatter$DirectionalityEstimator;->dirTypeBackward()B
@@ -897,105 +897,105 @@
 
     const/4 v4, -0x1
 
-    sparse-switch v2, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_38
 
     .line 786
-    if-nez v1, :cond_0
+    if-nez v1, :cond_6
 
     .line 787
     move v1, v0
 
-    goto :goto_0
+    goto :goto_6
 
     .line 781
-    :sswitch_0
+    :sswitch_17
     add-int/lit8 v0, v0, 0x1
 
     .line 782
-    goto :goto_0
+    goto :goto_6
 
     .line 775
-    :sswitch_1
-    if-ne v1, v0, :cond_1
+    :sswitch_1a
+    if-ne v1, v0, :cond_1d
 
     .line 776
     return v3
 
     .line 778
-    :cond_1
+    :cond_1d
     add-int/lit8 v0, v0, -0x1
 
     .line 779
-    goto :goto_0
+    goto :goto_6
 
     .line 759
-    :sswitch_2
-    if-ne v1, v0, :cond_2
+    :sswitch_20
+    if-ne v1, v0, :cond_23
 
     .line 760
     return v4
 
     .line 762
-    :cond_2
+    :cond_23
     add-int/lit8 v0, v0, -0x1
 
     .line 763
-    goto :goto_0
+    goto :goto_6
 
     .line 784
-    :sswitch_3
-    goto :goto_0
+    :sswitch_26
+    goto :goto_6
 
     .line 766
-    :sswitch_4
-    if-nez v0, :cond_3
+    :sswitch_27
+    if-nez v0, :cond_2a
 
     .line 767
     return v3
 
     .line 769
-    :cond_3
-    if-nez v1, :cond_0
+    :cond_2a
+    if-nez v1, :cond_6
 
     .line 770
     move v1, v0
 
-    goto :goto_0
+    goto :goto_6
 
     .line 750
-    :sswitch_5
-    if-nez v0, :cond_4
+    :sswitch_2e
+    if-nez v0, :cond_31
 
     .line 751
     return v4
 
     .line 753
-    :cond_4
-    if-nez v1, :cond_0
+    :cond_31
+    if-nez v1, :cond_6
 
     .line 754
     move v1, v0
 
-    goto :goto_0
+    goto :goto_6
 
     .line 792
-    :cond_5
+    :cond_35
     const/4 v2, 0x0
 
     return v2
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_38
     .sparse-switch
-        0x0 -> :sswitch_5
-        0x1 -> :sswitch_4
-        0x2 -> :sswitch_4
-        0x9 -> :sswitch_3
-        0xe -> :sswitch_2
-        0xf -> :sswitch_2
-        0x10 -> :sswitch_1
-        0x11 -> :sswitch_1
-        0x12 -> :sswitch_0
+        0x0 -> :sswitch_2e
+        0x1 -> :sswitch_27
+        0x2 -> :sswitch_27
+        0x9 -> :sswitch_26
+        0xe -> :sswitch_20
+        0xf -> :sswitch_20
+        0x10 -> :sswitch_1a
+        0x11 -> :sswitch_1a
+        0x12 -> :sswitch_17
     .end sparse-switch
 .end method

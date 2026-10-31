@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/emoji2/text/EmojiCompatInitializer;Landroidx/lifecycle/Lifecycle;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/emoji2/text/EmojiCompatInitializer;
 
     .line 107
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public synthetic onCreate(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/lifecycle/DefaultLifecycleObserver$-CC;->$default$onCreate(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleOwner;)V
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public synthetic onDestroy(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/lifecycle/DefaultLifecycleObserver$-CC;->$default$onDestroy(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleOwner;)V
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public synthetic onPause(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/lifecycle/DefaultLifecycleObserver$-CC;->$default$onPause(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleOwner;)V
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public onResume(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 
     .line 110
@@ -83,7 +83,7 @@
 .end method
 
 .method public synthetic onStart(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/lifecycle/DefaultLifecycleObserver$-CC;->$default$onStart(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleOwner;)V
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public synthetic onStop(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/lifecycle/DefaultLifecycleObserver$-CC;->$default$onStop(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleOwner;)V
 

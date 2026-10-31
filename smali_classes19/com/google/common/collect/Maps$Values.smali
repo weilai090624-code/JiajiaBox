@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 4044
     .local p0, "this":Lcom/google/common/collect/Maps$Values;, "Lcom/google/common/collect/Maps$Values<TK;TV;>;"
@@ -84,7 +84,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -104,7 +104,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 4034
     .local p0, "this":Lcom/google/common/collect/Maps$Values;, "Lcom/google/common/collect/Maps$Values<TK;TV;>;"
@@ -120,7 +120,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -151,7 +151,7 @@
 .end method
 
 .method final map()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -168,7 +168,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -180,13 +180,13 @@
     invoke-super {p0, p1}, Ljava/util/AbstractCollection;->remove(Ljava/lang/Object;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_4} :catch_5
 
     return v0
 
     .line 3986
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 3987
@@ -203,12 +203,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_12
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_36
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -226,7 +226,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_35
 
     .line 3989
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$Values;->map()Ljava/util/Map;
@@ -246,18 +246,18 @@
 
     .line 3992
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_35
+    goto :goto_12
 
     .line 3993
-    :cond_1
+    :cond_36
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -279,13 +279,13 @@
     invoke-super {p0, v0}, Ljava/util/AbstractCollection;->removeAll(Ljava/util/Collection;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_a} :catch_b
 
     return v0
 
     .line 4001
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 4002
@@ -308,12 +308,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -331,7 +331,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_39
 
     .line 4005
     invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -342,11 +342,11 @@
 
     .line 4007
     .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_39
+    goto :goto_1c
 
     .line 4008
-    :cond_1
+    :cond_3a
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$Values;->map()Ljava/util/Map;
 
     move-result-object v2
@@ -363,7 +363,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -385,13 +385,13 @@
     invoke-super {p0, v0}, Ljava/util/AbstractCollection;->retainAll(Ljava/util/Collection;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_a} :catch_b
 
     return v0
 
     .line 4016
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 4017
@@ -414,12 +414,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -437,7 +437,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_39
 
     .line 4020
     invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -448,11 +448,11 @@
 
     .line 4022
     .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_39
+    goto :goto_1c
 
     .line 4023
-    :cond_1
+    :cond_3a
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$Values;->map()Ljava/util/Map;
 
     move-result-object v2
@@ -469,7 +469,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 4029
     .local p0, "this":Lcom/google/common/collect/Maps$Values;, "Lcom/google/common/collect/Maps$Values<TK;TV;>;"

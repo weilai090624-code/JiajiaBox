@@ -96,7 +96,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     new-instance v0, Landroidx/window/core/Version$Companion;
 
@@ -142,7 +142,7 @@
 .end method
 
 .method private constructor <init>(IIILjava/lang/String;)V
-    .locals 1
+    .registers 6
     .param p1, "major"    # I
     .param p2, "minor"    # I
     .param p3, "patch"    # I
@@ -181,7 +181,7 @@
 .end method
 
 .method public synthetic constructor <init>(IIILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/window/core/Version;-><init>(IIILjava/lang/String;)V
 
@@ -189,7 +189,7 @@
 .end method
 
 .method public static final synthetic access$getCURRENT$cp()Landroidx/window/core/Version;
-    .locals 1
+    .registers 1
 
     .line 24
     sget-object v0, Landroidx/window/core/Version;->CURRENT:Landroidx/window/core/Version;
@@ -198,7 +198,7 @@
 .end method
 
 .method public static final synthetic access$getUNKNOWN$cp()Landroidx/window/core/Version;
-    .locals 1
+    .registers 1
 
     .line 24
     sget-object v0, Landroidx/window/core/Version;->UNKNOWN:Landroidx/window/core/Version;
@@ -207,7 +207,7 @@
 .end method
 
 .method public static final synthetic access$getVERSION_0_1$cp()Landroidx/window/core/Version;
-    .locals 1
+    .registers 1
 
     .line 24
     sget-object v0, Landroidx/window/core/Version;->VERSION_0_1:Landroidx/window/core/Version;
@@ -216,7 +216,7 @@
 .end method
 
 .method public static final synthetic access$getVERSION_1_0$cp()Landroidx/window/core/Version;
-    .locals 1
+    .registers 1
 
     .line 24
     sget-object v0, Landroidx/window/core/Version;->VERSION_1_0:Landroidx/window/core/Version;
@@ -225,7 +225,7 @@
 .end method
 
 .method private final getBigInteger()Ljava/math/BigInteger;
-    .locals 2
+    .registers 3
 
     .line 32
     iget-object v0, p0, Landroidx/window/core/Version;->bigInteger$delegate:Lkotlin/Lazy;
@@ -244,7 +244,7 @@
 .end method
 
 .method public static final parse(Ljava/lang/String;)Landroidx/window/core/Version;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -260,7 +260,7 @@
 
 # virtual methods
 .method public compareTo(Landroidx/window/core/Version;)I
-    .locals 2
+    .registers 4
     .param p1, "other"    # Landroidx/window/core/Version;
 
     const-string v0, "other"
@@ -284,7 +284,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 24
@@ -300,7 +300,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 60
@@ -308,13 +308,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 61
     return v1
 
     .line 65
-    :cond_0
+    :cond_6
     iget v0, p0, Landroidx/window/core/Version;->major:I
 
     move-object v2, p1
@@ -323,7 +323,7 @@
 
     iget v2, v2, Landroidx/window/core/Version;->major:I
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_22
 
     iget v0, p0, Landroidx/window/core/Version;->minor:I
 
@@ -333,7 +333,7 @@
 
     iget v2, v2, Landroidx/window/core/Version;->minor:I
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_22
 
     iget v0, p0, Landroidx/window/core/Version;->patch:I
 
@@ -343,16 +343,16 @@
 
     iget v2, v2, Landroidx/window/core/Version;->patch:I
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_22
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_22
     return v1
 .end method
 
 .method public final getDescription()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 28
     iget-object v0, p0, Landroidx/window/core/Version;->description:Ljava/lang/String;
@@ -361,7 +361,7 @@
 .end method
 
 .method public final getMajor()I
-    .locals 1
+    .registers 2
 
     .line 25
     iget v0, p0, Landroidx/window/core/Version;->major:I
@@ -370,7 +370,7 @@
 .end method
 
 .method public final getMinor()I
-    .locals 1
+    .registers 2
 
     .line 26
     iget v0, p0, Landroidx/window/core/Version;->minor:I
@@ -379,7 +379,7 @@
 .end method
 
 .method public final getPatch()I
-    .locals 1
+    .registers 2
 
     .line 27
     iget v0, p0, Landroidx/window/core/Version;->patch:I
@@ -388,7 +388,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 70
     const/16 v0, 0x11
@@ -426,7 +426,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 40
     iget-object v0, p0, Landroidx/window/core/Version;->description:Ljava/lang/String;
@@ -437,7 +437,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 41
     const-string v0, "-"
@@ -448,14 +448,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_15
 
     .line 43
-    :cond_0
+    :cond_13
     const-string v0, ""
 
     .line 40
-    :goto_0
+    :goto_15
     nop
 
     .line 45

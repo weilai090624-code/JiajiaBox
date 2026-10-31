@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,41 +34,41 @@
 .end method
 
 .method private static isParserOutdated(Lorg/xmlpull/v1/XmlPullParser;)Z
-    .locals 3
+    .registers 4
     .param p0, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
 
     .line 108
     const/4 v0, 0x1
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_15
 
-    :try_start_0
+    :try_start_3
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v1
 
     const/4 v2, 0x3
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_15
 
     .line 109
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v1
-    :try_end_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_e} :catch_13
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_11
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_16
 
     .line 110
-    :catch_0
+    :catch_13
     move-exception v1
 
     .line 111
@@ -77,17 +77,17 @@
 
     .line 109
     .end local v1    # "e":Lorg/xmlpull/v1/XmlPullParserException;
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     nop
 
     .line 108
-    :goto_1
+    :goto_16
     return v0
 .end method
 
 .method private static popOutdatedAttrHolders(Ljava/util/Deque;)Lorg/xmlpull/v1/XmlPullParser;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -103,12 +103,12 @@
     .local p0, "xmlParserStack":Ljava/util/Deque;, "Ljava/util/Deque<Ljava/lang/ref/WeakReference<Lorg/xmlpull/v1/XmlPullParser;>;>;"
     nop
 
-    :goto_0
+    :goto_1
     invoke-interface {p0}, Ljava/util/Deque;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     .line 96
     invoke-interface {p0}, Ljava/util/Deque;->peek()Ljava/lang/Object;
@@ -129,47 +129,47 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 98
     invoke-interface {p0}, Ljava/util/Deque;->pop()Ljava/lang/Object;
 
     .line 102
     .end local v0    # "parser":Lorg/xmlpull/v1/XmlPullParser;
-    goto :goto_0
+    goto :goto_1
 
     .line 100
     .restart local v0    # "parser":Lorg/xmlpull/v1/XmlPullParser;
-    :cond_0
+    :cond_1d
     return-object v0
 
     .line 103
     .end local v0    # "parser":Lorg/xmlpull/v1/XmlPullParser;
-    :cond_1
+    :cond_1e
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private static shouldInheritContext(Lorg/xmlpull/v1/XmlPullParser;Lorg/xmlpull/v1/XmlPullParser;)Z
-    .locals 2
+    .registers 4
     .param p0, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p1, "previousParser"    # Lorg/xmlpull/v1/XmlPullParser;
 
     .line 66
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_18
 
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_18
 
     .line 75
-    :try_start_0
+    :try_start_4
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v0
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     .line 78
     const-string v0, "include"
@@ -181,22 +181,22 @@
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
-    :try_end_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_15} :catch_17
 
     return v0
 
     .line 81
-    :cond_0
-    goto :goto_0
+    :cond_16
+    goto :goto_18
 
     .line 80
-    :catch_0
+    :catch_17
     move-exception v0
 
     .line 83
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v0, 0x0
 
     return v0
@@ -205,13 +205,13 @@
 
 # virtual methods
 .method detect(Landroid/util/AttributeSet;)Z
-    .locals 5
+    .registers 7
     .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .line 45
     instance-of v0, p1, Lorg/xmlpull/v1/XmlPullParser;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 46
     move-object v0, p1
@@ -226,7 +226,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_25
 
     .line 51
     iget-object v1, p0, Landroidx/appcompat/app/LayoutIncludeDetector;->mXmlParserStack:Ljava/util/Deque;
@@ -250,7 +250,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_25
 
     .line 57
     return v2
@@ -258,7 +258,7 @@
     .line 61
     .end local v0    # "xmlAttrs":Lorg/xmlpull/v1/XmlPullParser;
     .end local v1    # "ancestorXmlAttrs":Lorg/xmlpull/v1/XmlPullParser;
-    :cond_0
+    :cond_25
     const/4 v0, 0x0
 
     return v0

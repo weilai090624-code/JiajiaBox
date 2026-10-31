@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 721
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public static rebase(Landroid/content/res/Resources$Theme;)V
-    .locals 2
+    .registers 3
     .param p0, "theme"    # Landroid/content/res/Resources$Theme;
 
     .line 739
@@ -41,26 +41,26 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 740
     invoke-static {p0}, Landroidx/core/content/res/ResourcesCompat$ThemeCompat$Api29Impl;->rebase(Landroid/content/res/Resources$Theme;)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 741
-    :cond_0
+    :cond_a
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_13
 
     .line 742
     invoke-static {p0}, Landroidx/core/content/res/ResourcesCompat$ThemeCompat$Api23Impl;->rebase(Landroid/content/res/Resources$Theme;)V
 
     .line 744
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     return-void
 .end method

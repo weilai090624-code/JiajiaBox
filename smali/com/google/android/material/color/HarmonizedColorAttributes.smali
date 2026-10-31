@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 34
     sget v0, Lcom/google/android/material/R$attr;->colorError:I
@@ -36,7 +36,7 @@
 .end method
 
 .method private constructor <init>([II)V
-    .locals 2
+    .registers 5
     .param p1, "attributes"    # [I
     .param p2, "themeOverlay"    # I
 
@@ -44,16 +44,16 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 90
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_11
 
     array-length v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_11
 
     .line 91
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Theme overlay should be used with the accompanying int[] attributes."
@@ -63,8 +63,8 @@
     throw v0
 
     .line 94
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     iput-object p1, p0, Lcom/google/android/material/color/HarmonizedColorAttributes;->attributes:[I
 
     .line 95
@@ -75,7 +75,7 @@
 .end method
 
 .method public static create([I)Lcom/google/android/material/color/HarmonizedColorAttributes;
-    .locals 2
+    .registers 3
     .param p0, "attributes"    # [I
 
     .line 50
@@ -89,7 +89,7 @@
 .end method
 
 .method public static create([II)Lcom/google/android/material/color/HarmonizedColorAttributes;
-    .locals 1
+    .registers 3
     .param p0, "attributes"    # [I
     .param p1, "themeOverlay"    # I
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public static createMaterialDefaults()Lcom/google/android/material/color/HarmonizedColorAttributes;
-    .locals 2
+    .registers 2
 
     .line 85
     sget-object v0, Lcom/google/android/material/color/HarmonizedColorAttributes;->HARMONIZED_MATERIAL_ATTRIBUTES:[I
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public getAttributes()[I
-    .locals 1
+    .registers 2
 
     .line 101
     iget-object v0, p0, Lcom/google/android/material/color/HarmonizedColorAttributes;->attributes:[I
@@ -128,7 +128,7 @@
 .end method
 
 .method public getThemeOverlay()I
-    .locals 1
+    .registers 2
 
     .line 107
     iget v0, p0, Lcom/google/android/material/color/HarmonizedColorAttributes;->themeOverlay:I

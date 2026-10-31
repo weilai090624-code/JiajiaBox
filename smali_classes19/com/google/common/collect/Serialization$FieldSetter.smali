@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/reflect/Field;)V
-    .locals 1
+    .registers 3
     .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 203
@@ -49,7 +49,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/reflect/Field;Lcom/google/common/collect/Serialization$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/lang/reflect/Field;
     .param p2, "x1"    # Lcom/google/common/collect/Serialization$1;
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method set(Ljava/lang/Object;I)V
-    .locals 2
+    .registers 5
     .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -82,8 +82,8 @@
     move-result-object v1
 
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_9} :catch_b
 
     .line 221
     nop
@@ -92,7 +92,7 @@
     return-void
 
     .line 219
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 220
@@ -105,7 +105,7 @@
 .end method
 
 .method set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -122,8 +122,8 @@
     iget-object v0, p0, Lcom/google/common/collect/Serialization$FieldSetter;->field:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p1, p2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 213
     nop
@@ -132,7 +132,7 @@
     return-void
 
     .line 211
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 212

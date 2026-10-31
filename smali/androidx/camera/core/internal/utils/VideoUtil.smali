@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public static getAbsolutePathFromUri(Landroid/content/ContentResolver;Landroid/net/Uri;)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p0, "resolver"    # Landroid/content/ContentResolver;
     .param p1, "contentUri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -39,7 +39,7 @@
 
     .line 47
     .local v1, "cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_3
     filled-new-array {v0}, [Ljava/lang/String;
 
     move-result-object v4
@@ -84,29 +84,29 @@
     invoke-interface {v1, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_23} :catch_29
+    .catchall {:try_start_3 .. :try_end_23} :catchall_4e
 
     .line 59
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     .line 60
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     .line 52
-    :cond_0
+    :cond_28
     return-object v2
 
     .line 53
     .end local v0    # "columnIndex":I
     .end local v4    # "proj":[Ljava/lang/String;
-    :catch_0
+    :catch_29
     move-exception v0
 
     .line 54
     .local v0, "e":Ljava/lang/RuntimeException;
-    :try_start_1
+    :try_start_2a
     const-string v2, "VideoUtil"
 
     const-string v3, "Failed in getting absolute path for Uri %s with Exception %s"
@@ -141,30 +141,30 @@
 
     .line 57
     const-string v2, ""
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_48
+    .catchall {:try_start_2a .. :try_end_48} :catchall_4e
 
     .line 59
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4d
 
     .line 60
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     .line 57
-    :cond_1
+    :cond_4d
     return-object v2
 
     .line 59
     .end local v0    # "e":Ljava/lang/RuntimeException;
-    :catchall_0
+    :catchall_4e
     move-exception v0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_54
 
     .line 60
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     .line 62
-    :cond_2
+    :cond_54
     throw v0
 .end method

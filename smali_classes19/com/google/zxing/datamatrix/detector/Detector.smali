@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/zxing/common/BitMatrix;)V
-    .locals 1
+    .registers 3
     .param p1, "image"    # Lcom/google/zxing/common/BitMatrix;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -46,7 +46,7 @@
 .end method
 
 .method private correctTopRight(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;I)Lcom/google/zxing/ResultPoint;
-    .locals 9
+    .registers 15
     .param p1, "bottomLeft"    # Lcom/google/zxing/ResultPoint;
     .param p2, "bottomRight"    # Lcom/google/zxing/ResultPoint;
     .param p3, "topLeft"    # Lcom/google/zxing/ResultPoint;
@@ -206,37 +206,37 @@
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_77
 
     .line 288
     invoke-direct {p0, v3}, Lcom/google/zxing/datamatrix/detector/Detector;->isValid(Lcom/google/zxing/ResultPoint;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_75
 
     .line 289
     return-object v3
 
     .line 291
-    :cond_0
+    :cond_75
     const/4 v6, 0x0
 
     return-object v6
 
     .line 293
-    :cond_1
+    :cond_77
     invoke-direct {p0, v3}, Lcom/google/zxing/datamatrix/detector/Detector;->isValid(Lcom/google/zxing/ResultPoint;)Z
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_7e
 
     .line 294
     return-object v4
 
     .line 297
-    :cond_2
+    :cond_7e
     invoke-direct {p0, p3, v4}, Lcom/google/zxing/datamatrix/detector/Detector;->transitionsBetween(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;)Lcom/google/zxing/datamatrix/detector/Detector$ResultPointsAndTransitions;
 
     move-result-object v6
@@ -289,16 +289,16 @@
 
     .line 302
     .local v7, "l2":I
-    if-gt v6, v7, :cond_3
+    if-gt v6, v7, :cond_ab
 
     return-object v4
 
-    :cond_3
+    :cond_ab
     return-object v3
 .end method
 
 .method private correctTopRightRectangular(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;II)Lcom/google/zxing/ResultPoint;
-    .locals 9
+    .registers 16
     .param p1, "bottomLeft"    # Lcom/google/zxing/ResultPoint;
     .param p2, "bottomRight"    # Lcom/google/zxing/ResultPoint;
     .param p3, "topLeft"    # Lcom/google/zxing/ResultPoint;
@@ -459,37 +459,37 @@
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_77
 
     .line 242
     invoke-direct {p0, v3}, Lcom/google/zxing/datamatrix/detector/Detector;->isValid(Lcom/google/zxing/ResultPoint;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_75
 
     .line 243
     return-object v3
 
     .line 245
-    :cond_0
+    :cond_75
     const/4 v6, 0x0
 
     return-object v6
 
     .line 247
-    :cond_1
+    :cond_77
     invoke-direct {p0, v3}, Lcom/google/zxing/datamatrix/detector/Detector;->isValid(Lcom/google/zxing/ResultPoint;)Z
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_7e
 
     .line 248
     return-object v4
 
     .line 251
-    :cond_2
+    :cond_7e
     invoke-direct {p0, p3, v4}, Lcom/google/zxing/datamatrix/detector/Detector;->transitionsBetween(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;)Lcom/google/zxing/datamatrix/detector/Detector$ResultPointsAndTransitions;
 
     move-result-object v6
@@ -556,18 +556,18 @@
 
     .line 256
     .local v7, "l2":I
-    if-gt v6, v7, :cond_3
+    if-gt v6, v7, :cond_bb
 
     .line 257
     return-object v4
 
     .line 260
-    :cond_3
+    :cond_bb
     return-object v3
 .end method
 
 .method private static distance(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # Lcom/google/zxing/ResultPoint;
     .param p1, "b"    # Lcom/google/zxing/ResultPoint;
 
@@ -584,7 +584,7 @@
 .end method
 
 .method private static increment(Ljava/util/Map;Lcom/google/zxing/ResultPoint;)V
-    .locals 3
+    .registers 5
     .param p1, "key"    # Lcom/google/zxing/ResultPoint;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -610,18 +610,18 @@
     .local v0, "value":Ljava/lang/Integer;
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
     add-int/2addr v1, v2
 
-    :goto_0
+    :goto_f
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -633,7 +633,7 @@
 .end method
 
 .method private isValid(Lcom/google/zxing/ResultPoint;)Z
-    .locals 3
+    .registers 5
     .param p1, "p"    # Lcom/google/zxing/ResultPoint;
 
     .line 306
@@ -645,7 +645,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_31
 
     invoke-virtual {p1}, Lcom/google/zxing/ResultPoint;->getX()F
 
@@ -661,7 +661,7 @@
 
     cmpg-float v0, v0, v2
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_31
 
     invoke-virtual {p1}, Lcom/google/zxing/ResultPoint;->getY()F
 
@@ -669,7 +669,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_31
 
     invoke-virtual {p1}, Lcom/google/zxing/ResultPoint;->getY()F
 
@@ -685,20 +685,20 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_31
 
     const/4 v0, 0x1
 
     return v0
 
-    :cond_0
+    :cond_31
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private static sampleGrid(Lcom/google/zxing/common/BitMatrix;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;II)Lcom/google/zxing/common/BitMatrix;
-    .locals 21
+    .registers 28
     .param p0, "image"    # Lcom/google/zxing/common/BitMatrix;
     .param p1, "topLeft"    # Lcom/google/zxing/ResultPoint;
     .param p2, "bottomLeft"    # Lcom/google/zxing/ResultPoint;
@@ -803,7 +803,7 @@
 .end method
 
 .method private transitionsBetween(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;)Lcom/google/zxing/datamatrix/detector/Detector$ResultPointsAndTransitions;
-    .locals 18
+    .registers 21
     .param p1, "from"    # Lcom/google/zxing/ResultPoint;
     .param p2, "to"    # Lcom/google/zxing/ResultPoint;
 
@@ -862,23 +862,23 @@
 
     const/4 v8, 0x1
 
-    if-le v4, v7, :cond_0
+    if-le v4, v7, :cond_29
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_29
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_2a
     move v7, v5
 
     .line 362
     .local v7, "steep":Z
     move v7, v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_34
 
     .line 363
     move v4, v1
@@ -901,7 +901,7 @@
 
     .line 371
     .end local v4    # "temp":I
-    :cond_1
+    :cond_34
     sub-int v4, v3, v1
 
     invoke-static {v4}, Ljava/lang/Math;->abs(I)I
@@ -926,54 +926,54 @@
     .local v10, "error":I
     const/4 v11, -0x1
 
-    if-ge v2, v6, :cond_2
+    if-ge v2, v6, :cond_48
 
     const/4 v12, 0x1
 
-    goto :goto_1
+    goto :goto_49
 
-    :cond_2
+    :cond_48
     const/4 v12, -0x1
 
     .line 375
     .local v12, "ystep":I
-    :goto_1
-    if-ge v1, v3, :cond_3
+    :goto_49
+    if-ge v1, v3, :cond_4c
 
-    goto :goto_2
+    goto :goto_4d
 
-    :cond_3
+    :cond_4c
     const/4 v8, -0x1
 
     .line 376
     .local v8, "xstep":I
-    :goto_2
+    :goto_4d
     const/4 v11, 0x0
 
     .line 377
     .local v11, "transitions":I
     iget-object v13, v0, Lcom/google/zxing/datamatrix/detector/Detector;->image:Lcom/google/zxing/common/BitMatrix;
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_54
 
     move v14, v2
 
-    goto :goto_3
+    goto :goto_55
 
-    :cond_4
+    :cond_54
     move v14, v1
 
-    :goto_3
-    if-eqz v7, :cond_5
+    :goto_55
+    if-eqz v7, :cond_59
 
     move v15, v1
 
-    goto :goto_4
+    goto :goto_5a
 
-    :cond_5
+    :cond_59
     move v15, v2
 
-    :goto_4
+    :goto_5a
     invoke-virtual {v13, v14, v15}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v13
@@ -986,8 +986,8 @@
     move v15, v2
 
     .local v15, "y":I
-    :goto_5
-    if-eq v14, v3, :cond_a
+    :goto_60
+    if-eq v14, v3, :cond_8f
 
     .line 379
     move/from16 v16, v1
@@ -996,30 +996,30 @@
     .local v16, "fromX":I
     iget-object v1, v0, Lcom/google/zxing/datamatrix/detector/Detector;->image:Lcom/google/zxing/common/BitMatrix;
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_6a
 
     move v0, v15
 
-    goto :goto_6
+    goto :goto_6b
 
-    :cond_6
+    :cond_6a
     move v0, v14
 
-    :goto_6
+    :goto_6b
     move/from16 v17, v2
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_71
 
     move v2, v14
 
-    goto :goto_7
+    goto :goto_72
 
-    :cond_7
+    :cond_71
     move v2, v15
 
     .end local v2    # "fromY":I
     .local v17, "fromY":I
-    :goto_7
+    :goto_72
     invoke-virtual {v1, v0, v2}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v0
@@ -1032,7 +1032,7 @@
 
     .end local v1    # "isBlack":Z
     .local v5, "isBlack":Z
-    if-eq v0, v13, :cond_8
+    if-eq v0, v13, :cond_7e
 
     .line 381
     add-int/lit8 v11, v11, 0x1
@@ -1043,16 +1043,16 @@
     move v13, v0
 
     .line 384
-    :cond_8
+    :cond_7e
     add-int v0, v10, v9
 
     .line 385
     move v10, v0
 
-    if-lez v0, :cond_9
+    if-lez v0, :cond_87
 
     .line 386
-    if-eq v15, v6, :cond_b
+    if-eq v15, v6, :cond_93
 
     .line 389
     add-int/2addr v15, v12
@@ -1062,7 +1062,7 @@
 
     .line 378
     .end local v5    # "isBlack":Z
-    :cond_9
+    :cond_87
     add-int/2addr v14, v8
 
     move-object/from16 v0, p0
@@ -1071,13 +1071,13 @@
 
     move/from16 v2, v17
 
-    goto :goto_5
+    goto :goto_60
 
     .end local v16    # "fromX":I
     .end local v17    # "fromY":I
     .local v1, "fromX":I
     .restart local v2    # "fromY":I
-    :cond_a
+    :cond_8f
     move/from16 v16, v1
 
     move/from16 v17, v2
@@ -1089,7 +1089,7 @@
     .end local v15    # "y":I
     .restart local v16    # "fromX":I
     .restart local v17    # "fromY":I
-    :cond_b
+    :cond_93
     new-instance v0, Lcom/google/zxing/datamatrix/detector/Detector$ResultPointsAndTransitions;
 
     const/4 v1, 0x0
@@ -1106,7 +1106,7 @@
 
 # virtual methods
 .method public detect()Lcom/google/zxing/common/DetectorResult;
-    .locals 23
+    .registers 24
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/NotFoundException;
@@ -1255,12 +1255,12 @@
 
     move-object v14, v5
 
-    :goto_0
+    :goto_79
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v15
 
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_a3
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1287,38 +1287,38 @@
 
     move-result v15
 
-    if-ne v15, v10, :cond_0
+    if-ne v15, v10, :cond_9a
 
     .line 95
     move-object/from16 v5, v16
 
-    goto :goto_0
+    goto :goto_79
 
     .line 98
-    :cond_0
-    if-nez v6, :cond_1
+    :cond_9a
+    if-nez v6, :cond_9f
 
     .line 99
     move-object/from16 v6, v16
 
-    goto :goto_0
+    goto :goto_79
 
     .line 101
-    :cond_1
+    :cond_9f
     nop
 
     .line 104
     move-object/from16 v14, v16
 
-    goto :goto_0
+    goto :goto_79
 
     .line 106
-    :cond_2
-    if-eqz v6, :cond_f
+    :cond_a3
+    if-eqz v6, :cond_19c
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_19c
 
-    if-eqz v14, :cond_f
+    if-eqz v14, :cond_19c
 
     .line 111
     new-array v4, v11, [Lcom/google/zxing/ResultPoint;
@@ -1346,45 +1346,45 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_c2
 
     .line 123
     move-object v13, v1
 
-    goto :goto_1
+    goto :goto_d3
 
     .line 124
-    :cond_3
+    :cond_c2
     invoke-interface {v13, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_ca
 
     .line 125
     move-object v13, v2
 
-    goto :goto_1
+    goto :goto_d3
 
     .line 126
-    :cond_4
+    :cond_ca
     invoke-interface {v13, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_d2
 
     .line 127
     move-object v13, v3
 
-    goto :goto_1
+    goto :goto_d3
 
     .line 129
-    :cond_5
+    :cond_d2
     move-object v13, v0
 
     .line 141
-    :goto_1
+    :goto_d3
     invoke-direct {v7, v6, v13}, Lcom/google/zxing/datamatrix/detector/Detector;->transitionsBetween(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;)Lcom/google/zxing/datamatrix/detector/Detector$ResultPointsAndTransitions;
 
     move-result-object v0
@@ -1405,25 +1405,25 @@
     .line 144
     and-int/lit8 v2, v0, 0x1
 
-    if-ne v2, v9, :cond_6
+    if-ne v2, v9, :cond_e9
 
     .line 146
     add-int/lit8 v0, v0, 0x1
 
     .line 148
-    :cond_6
+    :cond_e9
     add-int/lit8 v5, v0, 0x2
 
     .line 150
     and-int/lit8 v0, v1, 0x1
 
-    if-ne v0, v9, :cond_7
+    if-ne v0, v9, :cond_f1
 
     .line 152
     add-int/lit8 v1, v1, 0x1
 
     .line 154
-    :cond_7
+    :cond_f1
     add-int/lit8 v15, v1, 0x2
 
     .line 162
@@ -1431,18 +1431,18 @@
 
     mul-int/lit8 v1, v15, 0x7
 
-    if-ge v0, v1, :cond_b
+    if-ge v0, v1, :cond_145
 
     mul-int/lit8 v0, v15, 0x4
 
     mul-int/lit8 v1, v5, 0x7
 
-    if-lt v0, v1, :cond_8
+    if-lt v0, v1, :cond_100
 
-    goto :goto_4
+    goto :goto_145
 
     .line 189
-    :cond_8
+    :cond_100
     invoke-static {v15, v5}, Ljava/lang/Math;->min(II)I
 
     move-result v5
@@ -1463,17 +1463,17 @@
     move-result-object v0
 
     .line 192
-    if-nez v0, :cond_9
+    if-nez v0, :cond_112
 
     .line 193
-    goto :goto_2
+    goto :goto_113
 
     .line 192
-    :cond_9
+    :cond_112
     move-object v13, v0
 
     .line 197
-    :goto_2
+    :goto_113
     invoke-direct {v7, v6, v13}, Lcom/google/zxing/datamatrix/detector/Detector;->transitionsBetween(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;)Lcom/google/zxing/datamatrix/detector/Detector$ResultPointsAndTransitions;
 
     move-result-object v0
@@ -1502,21 +1502,21 @@
     .line 200
     and-int/lit8 v1, v0, 0x1
 
-    if-ne v1, v9, :cond_a
+    if-ne v1, v9, :cond_131
 
     .line 201
     add-int/lit8 v0, v0, 0x1
 
     move/from16 v21, v0
 
-    goto :goto_3
+    goto :goto_133
 
     .line 200
-    :cond_a
+    :cond_131
     move/from16 v21, v0
 
     .line 204
-    :goto_3
+    :goto_133
     iget-object v15, v7, Lcom/google/zxing/datamatrix/detector/Detector;->image:Lcom/google/zxing/common/BitMatrix;
 
     move-object/from16 v16, v6
@@ -1535,11 +1535,11 @@
 
     move-object v11, v6
 
-    goto :goto_8
+    goto :goto_18b
 
     .line 165
-    :cond_b
-    :goto_4
+    :cond_145
+    :goto_145
     nop
 
     .line 166
@@ -1562,17 +1562,17 @@
     move-result-object v0
 
     .line 167
-    if-nez v0, :cond_c
+    if-nez v0, :cond_156
 
     .line 168
-    goto :goto_5
+    goto :goto_157
 
     .line 167
-    :cond_c
+    :cond_156
     move-object v13, v0
 
     .line 171
-    :goto_5
+    :goto_157
     invoke-direct {v7, v11, v13}, Lcom/google/zxing/datamatrix/detector/Detector;->transitionsBetween(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;)Lcom/google/zxing/datamatrix/detector/Detector$ResultPointsAndTransitions;
 
     move-result-object v0
@@ -1593,38 +1593,38 @@
     .line 174
     and-int/lit8 v2, v0, 0x1
 
-    if-ne v2, v9, :cond_d
+    if-ne v2, v9, :cond_170
 
     .line 176
     add-int/lit8 v0, v0, 0x1
 
     move/from16 v20, v0
 
-    goto :goto_6
+    goto :goto_172
 
     .line 174
-    :cond_d
+    :cond_170
     move/from16 v20, v0
 
     .line 179
-    :goto_6
+    :goto_172
     and-int/lit8 v0, v1, 0x1
 
-    if-ne v0, v9, :cond_e
+    if-ne v0, v9, :cond_17b
 
     .line 181
     add-int/lit8 v1, v1, 0x1
 
     move/from16 v21, v1
 
-    goto :goto_7
+    goto :goto_17d
 
     .line 179
-    :cond_e
+    :cond_17b
     move/from16 v21, v1
 
     .line 184
-    :goto_7
+    :goto_17d
     iget-object v15, v7, Lcom/google/zxing/datamatrix/detector/Detector;->image:Lcom/google/zxing/common/BitMatrix;
 
     move-object/from16 v16, v11
@@ -1640,7 +1640,7 @@
     move-result-object v0
 
     .line 213
-    :goto_8
+    :goto_18b
     new-instance v1, Lcom/google/zxing/common/DetectorResult;
 
     new-array v2, v12, [Lcom/google/zxing/ResultPoint;
@@ -1660,7 +1660,7 @@
     return-object v1
 
     .line 107
-    :cond_f
+    :cond_19c
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v0

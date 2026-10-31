@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/viewpager2/widget/ViewPager2;
 
     .line 230
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onPageSelected(I)V
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 233
@@ -49,7 +49,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 235
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$3;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -61,6 +61,6 @@
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView;->requestFocus(I)Z
 
     .line 237
-    :cond_0
+    :cond_15
     return-void
 .end method

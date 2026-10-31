@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getImageTintList(Landroid/widget/ImageView;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
     .param p0, "imageView"    # Landroid/widget/ImageView;
 
     .line 120
@@ -38,7 +38,7 @@
 .end method
 
 .method static getImageTintMode(Landroid/widget/ImageView;)Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
     .param p0, "imageView"    # Landroid/widget/ImageView;
 
     .line 130
@@ -50,7 +50,7 @@
 .end method
 
 .method static setImageTintList(Landroid/widget/ImageView;Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p0, "imageView"    # Landroid/widget/ImageView;
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method static setImageTintMode(Landroid/widget/ImageView;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p0, "imageView"    # Landroid/widget/ImageView;
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 

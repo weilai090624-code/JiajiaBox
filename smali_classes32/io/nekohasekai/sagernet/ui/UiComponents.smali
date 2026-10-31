@@ -7,7 +7,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lio/nekohasekai/sagernet/ui/UiComponents$Style;,
-        Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+        Lio/nekohasekai/sagernet/ui/UiComponents$Role;,
+        Lio/nekohasekai/sagernet/ui/UiComponents$Palette;
     }
 .end annotation
 
@@ -17,15 +18,17 @@
 
 .field public static final ACTION_MIN_WIDTH:I = 0x58
 
-.field public static final CELL_RADIUS:I = 0x10
+.field public static final CELL_RADIUS:I = 0xe
 
 .field public static final CONTENT_PAD:I = 0x14
 
 .field public static final GAP:I = 0x8
 
-.field public static final PANEL_RADIUS:I = 0x1a
+.field public static final PANEL_RADIUS:I = 0x16
 
 .field public static final TRANSITION_MS:I = 0xdc
+
+.field private static final palettes:[Lio/nekohasekai/sagernet/ui/UiComponents$Palette;
 
 .field private static final styles:Ljava/util/WeakHashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -43,12 +46,19 @@
 .method static constructor <clinit>()V
     .registers 1
 
-    .line 38
+    .line 26
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/UiComponents;->styles:Ljava/util/WeakHashMap;
+
+    const/4 v0, 0x2
+
+    .line 361
+    new-array v0, v0, [Lio/nekohasekai/sagernet/ui/UiComponents$Palette;
+
+    sput-object v0, Lio/nekohasekai/sagernet/ui/UiComponents;->palettes:[Lio/nekohasekai/sagernet/ui/UiComponents$Palette;
 
     return-void
 .end method
@@ -56,16 +66,16 @@
 .method public constructor <init>()V
     .registers 1
 
-    .line 27
+    .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 .method public static action(Landroid/view/View;)V
-    .registers 14
+    .registers 15
 
-    .line 105
+    .line 190
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
 
     move-result v0
@@ -74,7 +84,7 @@
 
     return-void
 
-    .line 106
+    .line 193
     :cond_7
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -82,7 +92,7 @@
 
     const/high16 v1, 0x42b00000    # 88.0f
 
-    .line 107
+    .line 194
     invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v2
@@ -91,168 +101,176 @@
 
     const/high16 v2, 0x42400000    # 48.0f
 
+    .line 195
     invoke-static {v0, v2}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v3
 
     invoke-virtual {p0, v3}, Landroid/view/View;->setMinimumHeight(I)V
 
-    .line 108
+    .line 196
     instance-of v3, p0, Landroid/widget/TextView;
 
-    const/16 v4, 0x11
+    const/high16 v4, 0x41600000    # 14.0f
 
-    const/high16 v5, 0x41800000    # 16.0f
+    const/16 v5, 0x11
 
-    const/4 v6, 0x0
+    const/high16 v6, 0x41800000    # 16.0f
+
+    const/4 v7, 0x0
 
     if-eqz v3, :cond_49
 
-    .line 109
+    .line 197
     move-object v1, p0
 
     check-cast v1, Landroid/widget/TextView;
 
-    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setGravity(I)V
+    .line 198
+    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setGravity(I)V
 
-    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setIncludeFontPadding(Z)V
+    .line 199
+    invoke-virtual {v1, v7}, Landroid/widget/TextView;->setIncludeFontPadding(Z)V
 
-    const/high16 v2, 0x41600000    # 14.0f
+    .line 200
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 110
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextSize(F)V
-
+    .line 201
     const-string v2, "sans-serif-medium"
 
-    invoke-static {v2, v6}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
+    invoke-static {v2, v7}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    invoke-static {v0, v5}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
+    .line 202
+    invoke-static {v0, v6}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v2
 
-    invoke-static {v0, v5}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
+    invoke-static {v0, v6}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v0
 
-    invoke-virtual {v1, v2, v6, v0, v6}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
+    invoke-virtual {v1, v2, v7, v0, v7}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
 
     goto :goto_a3
 
-    .line 111
+    .line 203
     :cond_49
     instance-of v3, p0, Landroid/view/ViewGroup;
 
     if-eqz v3, :cond_a3
 
-    .line 112
+    .line 204
     move-object v3, p0
 
     check-cast v3, Landroid/view/ViewGroup;
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    .line 113
+    .line 205
     :goto_51
     invoke-virtual {v3}, Landroid/view/ViewGroup;->getChildCount()I
 
-    move-result v8
+    move-result v9
 
-    if-ge v7, v8, :cond_a3
+    if-ge v8, v9, :cond_a3
 
-    .line 114
-    invoke-virtual {v3, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    .line 206
+    invoke-virtual {v3, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v8
+    move-result-object v9
 
-    .line 115
-    instance-of v9, v8, Landroid/widget/TextView;
+    .line 207
+    instance-of v10, v9, Landroid/widget/TextView;
 
-    if-eqz v9, :cond_a0
+    if-eqz v10, :cond_a0
 
-    .line 116
-    move-object v9, v8
+    .line 208
+    move-object v10, v9
 
-    check-cast v9, Landroid/widget/TextView;
+    check-cast v10, Landroid/widget/TextView;
 
-    invoke-virtual {v9, v4}, Landroid/widget/TextView;->setGravity(I)V
+    .line 209
+    invoke-virtual {v10, v5}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 117
-    invoke-virtual {v9, v6}, Landroid/widget/TextView;->setIncludeFontPadding(Z)V
+    .line 210
+    invoke-virtual {v10, v7}, Landroid/widget/TextView;->setIncludeFontPadding(Z)V
 
-    const/high16 v10, 0x41700000    # 15.0f
+    const/high16 v11, 0x41700000    # 15.0f
 
-    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setTextSize(F)V
+    .line 211
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 118
-    invoke-static {v0, v5}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
-
-    move-result v10
-
-    invoke-static {v0, v5}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
+    .line 212
+    invoke-static {v0, v6}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v11
 
-    invoke-virtual {v9, v10, v6, v11, v6}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
-
-    .line 119
-    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
-
-    move-result v10
-
-    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setMinimumWidth(I)V
-
-    .line 120
-    instance-of v10, p0, Landroid/widget/FrameLayout;
-
-    const/4 v11, -0x2
-
-    if-eqz v10, :cond_91
-
-    new-instance v10, Landroid/widget/FrameLayout$LayoutParams;
-
-    invoke-static {v0, v2}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
+    invoke-static {v0, v6}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v12
 
-    invoke-direct {v10, v11, v12, v4}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+    invoke-virtual {v10, v11, v7, v12, v7}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
 
-    invoke-virtual {v8, v10}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    .line 213
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setMinimumWidth(I)V
+
+    .line 214
+    instance-of v11, p0, Landroid/widget/FrameLayout;
+
+    const/4 v12, -0x2
+
+    if-eqz v11, :cond_91
+
+    .line 215
+    new-instance v11, Landroid/widget/FrameLayout$LayoutParams;
+
+    invoke-static {v0, v2}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
+
+    move-result v13
+
+    invoke-direct {v11, v12, v13, v5}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+
+    invoke-virtual {v9, v11}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     goto :goto_9d
 
-    .line 121
+    .line 217
     :cond_91
-    new-instance v10, Landroid/widget/LinearLayout$LayoutParams;
+    new-instance v11, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-static {v0, v2}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
-    move-result v12
+    move-result v13
 
-    invoke-direct {v10, v11, v12}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v11, v12, v13}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v8, v10}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v9, v11}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 122
+    .line 219
     :goto_9d
-    invoke-static {v9}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
+    invoke-static {v10}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
 
     :cond_a0
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_51
 
-    .line 126
+    .line 223
     :cond_a3
     :goto_a3
     instance-of v0, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
 
     if-eqz v0, :cond_bb
 
-    .line 127
+    .line 224
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents;->styles:Ljava/util/WeakHashMap;
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/UiComponents$Style;
@@ -265,16 +283,16 @@
 
     invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 128
+    .line 225
     move-object v0, p0
 
     check-cast v0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
 
-    invoke-virtual {v0, v5}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setCornerRadiusDp(F)V
+    invoke-virtual {v0, v4}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setCornerRadiusDp(F)V
 
     goto :goto_c1
 
-    .line 129
+    .line 227
     :cond_bb
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ACTION:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
@@ -282,7 +300,7 @@
 
     invoke-static {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->register(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Role;Z)V
 
-    .line 130
+    .line 229
     :goto_c1
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
 
@@ -292,17 +310,19 @@
 .method public static actions(Landroid/content/Context;)Landroid/widget/LinearLayout;
     .registers 2
 
-    .line 167
+    .line 280
     new-instance v0, Landroid/widget/LinearLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     const/4 p0, 0x0
 
+    .line 281
     invoke-virtual {v0, p0}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     const p0, 0x800015
 
+    .line 282
     invoke-virtual {v0, p0}, Landroid/widget/LinearLayout;->setGravity(I)V
 
     return-object v0
@@ -311,10 +331,10 @@
 .method public static addAction(Landroid/widget/LinearLayout;Landroid/view/View;)V
     .registers 5
 
-    .line 171
+    .line 287
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/UiComponents;->action(Landroid/view/View;)V
 
-    .line 172
+    .line 288
     new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
@@ -331,13 +351,14 @@
 
     invoke-direct {v0, v2, v1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 173
+    .line 289
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getChildCount()I
 
     move-result v1
 
     if-lez v1, :cond_26
 
+    .line 290
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -350,7 +371,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout$LayoutParams;->setMarginStart(I)V
 
-    .line 174
+    .line 292
     :cond_26
     invoke-virtual {p0, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
@@ -360,18 +381,19 @@
 .method public static choice(Landroid/view/View;)V
     .registers 15
 
-    .line 144
+    .line 248
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
 
     move-result v0
 
     if-eqz v0, :cond_a
 
+    .line 249
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
 
     return-void
 
-    .line 145
+    .line 252
     :cond_a
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -379,13 +401,14 @@
 
     const/high16 v1, 0x42400000    # 48.0f
 
+    .line 253
     invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v1
 
     invoke-virtual {p0, v1}, Landroid/view/View;->setMinimumHeight(I)V
 
-    .line 146
+    .line 254
     instance-of v1, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
 
     const/16 v2, 0x10
@@ -394,9 +417,9 @@
 
     const/high16 v4, 0x41600000    # 14.0f
 
-    if-eqz v1, :cond_7a
+    if-eqz v1, :cond_78
 
-    .line 147
+    .line 255
     sget-object v1, Lio/nekohasekai/sagernet/ui/UiComponents;->styles:Ljava/util/WeakHashMap;
 
     new-instance v5, Lio/nekohasekai/sagernet/ui/UiComponents$Style;
@@ -409,24 +432,22 @@
 
     invoke-virtual {v1, p0, v5}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 148
+    .line 256
     move-object v1, p0
 
     check-cast v1, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
 
-    const/high16 v5, 0x41800000    # 16.0f
+    invoke-virtual {v1, v4}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setCornerRadiusDp(F)V
 
-    invoke-virtual {v1, v5}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setCornerRadiusDp(F)V
-
-    .line 149
+    .line 257
     move-object v1, p0
 
     check-cast v1, Landroid/view/ViewGroup;
 
     const/4 v5, 0x0
 
-    .line 150
-    :goto_3a
+    .line 258
+    :goto_38
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v6
@@ -435,26 +456,27 @@
 
     const/4 v8, -0x1
 
-    if-ge v5, v6, :cond_71
+    if-ge v5, v6, :cond_6f
 
-    .line 151
+    .line 259
     invoke-virtual {v1, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
-    .line 152
+    .line 260
     instance-of v9, v6, Landroid/widget/TextView;
 
-    if-eqz v9, :cond_6e
+    if-eqz v9, :cond_6c
 
-    .line 153
+    .line 261
     move-object v9, v6
 
     check-cast v9, Landroid/widget/TextView;
 
+    .line 262
     invoke-virtual {v9, v2}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 154
+    .line 263
     invoke-static {v0, v4}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v10
@@ -473,39 +495,40 @@
 
     invoke-virtual {v9, v10, v11, v12, v13}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
 
-    .line 155
+    .line 264
     new-instance v10, Landroid/widget/FrameLayout$LayoutParams;
 
     invoke-direct {v10, v8, v7}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v6, v10}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
+    .line 265
     invoke-static {v9}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
 
-    :cond_6e
+    :cond_6c
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_3a
+    goto :goto_38
 
-    .line 158
-    :cond_71
+    .line 268
+    :cond_6f
     new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v0, v8, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    goto :goto_9d
+    goto :goto_9b
 
-    .line 160
-    :cond_7a
+    .line 270
+    :cond_78
     sget-object v1, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->CHOICE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const/4 v5, 0x1
 
     invoke-static {p0, v1, v5}, Lio/nekohasekai/sagernet/ui/UiComponents;->register(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Role;Z)V
 
-    .line 161
+    .line 271
     invoke-static {v0, v4}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v1
@@ -524,20 +547,21 @@
 
     invoke-virtual {p0, v1, v5, v4, v0}, Landroid/view/View;->setPaddingRelative(IIII)V
 
-    .line 162
+    .line 272
     instance-of v0, p0, Landroid/widget/TextView;
 
-    if-eqz v0, :cond_9d
+    if-eqz v0, :cond_9b
 
+    .line 273
     move-object v0, p0
 
     check-cast v0, Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 164
-    :cond_9d
-    :goto_9d
+    .line 276
+    :cond_9b
+    :goto_9b
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
 
     return-void
@@ -546,19 +570,19 @@
 .method public static column(Landroid/content/Context;)Landroid/widget/LinearLayout;
     .registers 6
 
-    .line 83
+    .line 152
     new-instance v0, Landroid/widget/LinearLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     const/4 v1, 0x1
 
-    .line 84
+    .line 153
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     const/high16 v1, 0x41a00000    # 20.0f
 
-    .line 85
+    .line 154
     invoke-static {p0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v2
@@ -585,7 +609,7 @@
 .method public static dp(Landroid/content/Context;F)I
     .registers 2
 
-    .line 39
+    .line 59
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
@@ -608,7 +632,7 @@
 .method public static drawerHeader(Landroid/view/ViewGroup;)V
     .registers 7
 
-    .line 185
+    .line 316
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -625,7 +649,7 @@
 
     const/4 v2, 0x0
 
-    .line 186
+    .line 317
     :goto_f
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -633,39 +657,43 @@
 
     if-ge v2, v3, :cond_48
 
-    .line 187
+    .line 318
     invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
-    .line 188
+    .line 319
     invoke-virtual {v3}, Landroid/view/View;->isClickable()Z
 
     move-result v4
 
     if-eqz v4, :cond_23
 
+    .line 320
     invoke-static {v3}, Lio/nekohasekai/sagernet/ui/UiComponents;->action(Landroid/view/View;)V
 
     goto :goto_32
 
-    .line 189
+    .line 321
     :cond_23
     instance-of v4, v3, Landroid/widget/TextView;
 
     if-eqz v4, :cond_32
 
+    .line 322
     move-object v4, v3
 
     check-cast v4, Landroid/widget/TextView;
 
     const/16 v5, 0x10
 
+    .line 323
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setGravity(I)V
 
+    .line 324
     invoke-static {v4}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
 
-    .line 190
+    .line 326
     :cond_32
     :goto_32
     invoke-virtual {v3}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -674,7 +702,7 @@
 
     if-eqz v4, :cond_45
 
-    .line 191
+    .line 328
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v5
@@ -685,6 +713,7 @@
 
     iput v5, v4, Landroid/view/ViewGroup$LayoutParams;->height:I
 
+    .line 329
     invoke-virtual {v3, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_45
@@ -692,7 +721,7 @@
 
     goto :goto_f
 
-    .line 193
+    .line 332
     :cond_48
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -700,6 +729,7 @@
 
     if-lez v1, :cond_57
 
+    .line 333
     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object p0
@@ -715,7 +745,7 @@
 .method public static field(Landroid/widget/EditText;)V
     .registers 6
 
-    .line 98
+    .line 180
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
 
     move-result v0
@@ -724,7 +754,7 @@
 
     return-void
 
-    .line 99
+    .line 183
     :cond_7
     invoke-virtual {p0}, Landroid/widget/EditText;->getContext()Landroid/content/Context;
 
@@ -732,7 +762,7 @@
 
     const/high16 v1, 0x41800000    # 16.0f
 
-    .line 100
+    .line 184
     invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v2
@@ -755,14 +785,14 @@
 
     const/high16 v1, 0x42400000    # 48.0f
 
-    .line 101
+    .line 185
     invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v0
 
     invoke-virtual {p0, v0}, Landroid/widget/EditText;->setMinimumHeight(I)V
 
-    .line 102
+    .line 186
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->FIELD:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const/4 v1, 0x1
@@ -775,46 +805,52 @@
 .method public static header(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Runnable;)Landroid/widget/LinearLayout;
     .registers 8
 
-    .line 177
+    .line 296
     new-instance v0, Landroid/widget/LinearLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     const/16 v1, 0x10
 
+    .line 297
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 178
+    .line 298
     new-instance v1, Landroid/widget/TextView;
 
     invoke-direct {v1, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
+    .line 299
     const-string v2, "\u2039"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/high16 v2, 0x41f00000    # 30.0f
 
+    .line 300
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextSize(F)V
 
     const/16 v2, 0x11
 
+    .line 301
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 179
+    .line 302
     const-string v2, "\u8fd4\u56de\u4e0a\u4e00\u9875"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    new-instance v2, Lio/nekohasekai/sagernet/ui/UiComponents$0;
+    .line 303
+    new-instance v2, Lio/nekohasekai/sagernet/ui/UiComponents$1;
 
-    invoke-direct {v2, p2}, Lio/nekohasekai/sagernet/ui/UiComponents$0;-><init>(Ljava/lang/Runnable;)V
+    invoke-direct {v2, p2}, Lio/nekohasekai/sagernet/ui/UiComponents$1;-><init>(Ljava/lang/Runnable;)V
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    .line 309
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
 
-    .line 180
+    .line 310
     new-instance p2, Landroid/widget/LinearLayout$LayoutParams;
 
     const/high16 v2, 0x42400000    # 48.0f
@@ -831,7 +867,7 @@
 
     invoke-virtual {v0, v1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 181
+    .line 311
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/UiComponents;->title(Landroid/content/Context;Ljava/lang/CharSequence;)Landroid/widget/TextView;
 
     move-result-object p1
@@ -853,37 +889,30 @@
     return-object v0
 .end method
 
-.method static synthetic lambda$header$0(Ljava/lang/Runnable;Landroid/view/View;)V
-    .registers 2
-
-    .line 179
-    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
-
-    return-void
-.end method
-
 .method public static legacyText(Landroid/widget/TextView;Ljava/lang/String;)V
     .registers 6
 
-    .line 43
+    .line 67
     invoke-static {p1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
     move-result p1
 
-    .line 44
+    .line 68
     invoke-static {p1}, Landroid/graphics/Color;->red(I)I
 
     move-result v0
 
+    .line 69
     invoke-static {p1}, Landroid/graphics/Color;->green(I)I
 
     move-result v1
 
+    .line 70
     invoke-static {p1}, Landroid/graphics/Color;->blue(I)I
 
     move-result v2
 
-    .line 45
+    .line 71
     invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
 
     move-result v3
@@ -892,6 +921,7 @@
 
     move-result v3
 
+    .line 72
     invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v1
@@ -904,25 +934,26 @@
 
     const/16 v1, 0x18
 
-    if-gt v3, v1, :cond_31
+    if-le v3, v1, :cond_29
 
+    .line 74
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    return-void
+
+    :cond_29
     const/16 p1, 0xe6
 
-    if-lt v0, p1, :cond_2d
+    if-lt v0, p1, :cond_31
 
-    .line 47
+    .line 76
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
 
     return-void
 
-    :cond_2d
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->secondary(Landroid/widget/TextView;)V
-
-    return-void
-
-    .line 48
+    .line 78
     :cond_31
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->secondary(Landroid/widget/TextView;)V
 
     return-void
 .end method
@@ -930,7 +961,7 @@
 .method public static owns(Landroid/view/View;)Z
     .registers 2
 
-    .line 40
+    .line 63
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents;->styles:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->containsKey(Ljava/lang/Object;)Z
@@ -941,9 +972,35 @@
 .end method
 
 .method private static paint(Landroid/view/View;)V
+    .registers 2
+
+    .line 378
+    sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents;->styles:Ljava/util/WeakHashMap;
+
+    invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_13
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->palette(Landroid/content/Context;)Lio/nekohasekai/sagernet/ui/UiComponents$Palette;
+
+    move-result-object v0
+
+    invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Palette;)V
+
+    :cond_13
+    return-void
+.end method
+
+.method private static paint(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Palette;)V
     .registers 12
 
-    .line 201
+    .line 381
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents;->styles:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -954,431 +1011,539 @@
 
     if-nez v0, :cond_c
 
-    goto/16 :goto_166
+    goto/16 :goto_186
 
-    .line 202
+    .line 383
     :cond_c
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    iget v1, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->border:I
 
-    move-result-object v1
-
-    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/ThemePalette;->text(Landroid/content/Context;)I
-
-    move-result v1
-
-    const/4 v2, -0x1
+    .line 384
+    iget-object v2, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->background:Landroid/graphics/drawable/GradientDrawable;
 
     const/4 v3, 0x1
 
-    const/4 v4, 0x0
+    if-eqz v2, :cond_12d
 
-    if-ne v1, v2, :cond_1b
-
-    const/4 v1, 0x1
-
-    goto :goto_1c
-
-    :cond_1b
-    const/4 v1, 0x0
-
-    .line 203
-    :goto_1c
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    .line 385
+    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
-    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/ThemePalette;->border(Landroid/content/Context;)I
+    iget-object v4, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->installed:Landroid/graphics/drawable/Drawable;
+
+    if-eq v2, v4, :cond_4b
+
+    .line 386
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingStart()I
 
     move-result v2
 
-    .line 204
-    iget-object v5, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->background:Landroid/graphics/drawable/GradientDrawable;
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
 
-    const/high16 v6, 0x3f800000    # 1.0f
+    move-result v4
 
-    if-eqz v5, :cond_114
-
-    .line 205
-    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v5
-
-    iget-object v7, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->installed:Landroid/graphics/drawable/Drawable;
-
-    if-eq v5, v7, :cond_4a
-
-    .line 206
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingStart()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingEnd()I
 
     move-result v5
+
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
+
+    move-result v6
+
+    .line 387
+    iget-object v7, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->installed:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {p0, v7}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    .line 388
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingStart()I
+
+    move-result v7
+
+    if-ne v7, v2, :cond_48
 
     invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
 
     move-result v7
 
+    if-ne v7, v4, :cond_48
+
     invoke-virtual {p0}, Landroid/view/View;->getPaddingEnd()I
-
-    move-result v8
-
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
-
-    move-result v9
-
-    .line 207
-    iget-object v10, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->installed:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {p0, v10}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    .line 208
-    invoke-virtual {p0, v5, v7, v8, v9}, Landroid/view/View;->setPaddingRelative(IIII)V
-
-    :cond_4a
-    const/4 v5, 0x0
-
-    .line 210
-    invoke-virtual {p0, v5}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
-
-    .line 213
-    iget-object v5, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->background:Landroid/graphics/drawable/GradientDrawable;
-
-    .line 214
-    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v7
-
-    instance-of v7, v7, Landroid/graphics/drawable/RippleDrawable;
-
-    if-eqz v7, :cond_82
-
-    .line 215
-    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/graphics/drawable/RippleDrawable;
-
-    .line 216
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v8
-
-    invoke-static {v8}, Lio/nekohasekai/sagernet/ui/ThemePalette;->ripple(Landroid/content/Context;)I
-
-    move-result v8
-
-    invoke-static {v8}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Landroid/graphics/drawable/RippleDrawable;->setColor(Landroid/content/res/ColorStateList;)V
-
-    .line 217
-    invoke-virtual {v7}, Landroid/graphics/drawable/RippleDrawable;->getNumberOfLayers()I
-
-    move-result v8
-
-    if-lez v8, :cond_90
-
-    invoke-virtual {v7, v4}, Landroid/graphics/drawable/RippleDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v8
-
-    instance-of v8, v8, Landroid/graphics/drawable/GradientDrawable;
-
-    if-eqz v8, :cond_90
-
-    .line 218
-    invoke-virtual {v7, v4}, Landroid/graphics/drawable/RippleDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/graphics/drawable/GradientDrawable;
-
-    goto :goto_90
-
-    .line 219
-    :cond_82
-    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v7
-
-    instance-of v7, v7, Landroid/graphics/drawable/GradientDrawable;
-
-    if-eqz v7, :cond_90
-
-    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/graphics/drawable/GradientDrawable;
-
-    .line 220
-    :cond_90
-    :goto_90
-    iget-object v7, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    sget-object v8, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->CHOICE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    if-ne v7, v8, :cond_9e
-
-    invoke-virtual {p0}, Landroid/view/View;->isSelected()Z
 
     move-result v7
 
-    if-eqz v7, :cond_9e
+    if-ne v7, v5, :cond_48
 
-    const/4 v7, 0x1
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
 
-    goto :goto_9f
+    move-result v7
 
-    :cond_9e
-    const/4 v7, 0x0
+    if-eq v7, v6, :cond_4b
 
-    :goto_9f
-    if-eqz v7, :cond_aa
+    .line 389
+    :cond_48
+    invoke-virtual {p0, v2, v4, v5, v6}, Landroid/view/View;->setPaddingRelative(IIII)V
 
-    .line 221
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    .line 391
+    :cond_4b
+    invoke-virtual {p0}, Landroid/view/View;->getBackgroundTintList()Landroid/content/res/ColorStateList;
 
-    move-result-object v8
+    move-result-object v2
 
-    invoke-static {v8}, Lio/nekohasekai/sagernet/ui/ThemePalette;->selected(Landroid/content/Context;)I
+    if-eqz v2, :cond_55
 
-    move-result v8
+    const/4 v2, 0x0
 
-    goto :goto_c8
+    invoke-virtual {p0, v2}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
-    :cond_aa
+    .line 392
+    :cond_55
+    iget-object v2, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->background:Landroid/graphics/drawable/GradientDrawable;
+
+    .line 393
+    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v4
+
+    .line 394
+    instance-of v5, v4, Landroid/graphics/drawable/RippleDrawable;
+
+    const/4 v6, 0x0
+
+    if-eqz v5, :cond_8a
+
+    .line 395
+    check-cast v4, Landroid/graphics/drawable/RippleDrawable;
+
+    .line 396
+    iget-boolean v5, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->painted:Z
+
+    if-eqz v5, :cond_6c
+
+    iget v5, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->ripple:I
+
+    iget v7, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->ripple:I
+
+    if-eq v5, v7, :cond_75
+
+    :cond_6c
+    iget-object v5, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->rippleStates:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v4, v5}, Landroid/graphics/drawable/RippleDrawable;->setColor(Landroid/content/res/ColorStateList;)V
+
+    iget v5, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->ripple:I
+
+    iput v5, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->ripple:I
+
+    .line 397
+    :cond_75
+    invoke-virtual {v4}, Landroid/graphics/drawable/RippleDrawable;->getNumberOfLayers()I
+
+    move-result v5
+
+    if-lez v5, :cond_91
+
+    invoke-virtual {v4, v6}, Landroid/graphics/drawable/RippleDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v5
+
+    instance-of v5, v5, Landroid/graphics/drawable/GradientDrawable;
+
+    if-eqz v5, :cond_91
+
+    invoke-virtual {v4, v6}, Landroid/graphics/drawable/RippleDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/graphics/drawable/GradientDrawable;
+
+    goto :goto_91
+
+    .line 398
+    :cond_8a
+    instance-of v5, v4, Landroid/graphics/drawable/GradientDrawable;
+
+    if-eqz v5, :cond_91
+
+    move-object v2, v4
+
+    check-cast v2, Landroid/graphics/drawable/GradientDrawable;
+
+    .line 399
+    :cond_91
+    :goto_91
+    iget-object v4, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+
+    sget-object v5, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->CHOICE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+
+    if-ne v4, v5, :cond_9f
+
+    invoke-virtual {p0}, Landroid/view/View;->isSelected()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_9f
+
+    const/4 v4, 0x1
+
+    goto :goto_a0
+
+    :cond_9f
+    const/4 v4, 0x0
+
+    :goto_a0
+    if-eqz v4, :cond_a5
+
+    .line 400
+    iget v5, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->selected:I
+
+    goto :goto_b7
+
+    :cond_a5
+    iget-object v5, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+
+    sget-object v7, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->FIELD:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+
+    if-eq v5, v7, :cond_b5
+
+    iget-object v5, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+
+    sget-object v7, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ACTION:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+
+    if-ne v5, v7, :cond_b2
+
+    goto :goto_b5
+
+    :cond_b2
+    iget v5, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->control:I
+
+    goto :goto_b7
+
+    :cond_b5
+    :goto_b5
+    iget v5, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->inset:I
+
+    :goto_b7
+    if-eqz v4, :cond_bb
+
+    .line 401
+    iget v1, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->selectedBorder:I
+
+    .line 402
+    :cond_bb
+    iget v7, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->density:F
+
+    iget-object v8, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+
+    sget-object v9, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SURFACE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+
+    if-ne v8, v9, :cond_c6
+
+    const/high16 v8, 0x41b00000    # 22.0f
+
+    goto :goto_d1
+
+    :cond_c6
+    iget-object v8, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+
+    sget-object v9, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ROUTING:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+
+    if-ne v8, v9, :cond_cf
+
+    const/high16 v8, 0x41a00000    # 20.0f
+
+    goto :goto_d1
+
+    :cond_cf
+    const/high16 v8, 0x41600000    # 14.0f
+
+    :goto_d1
+    mul-float v7, v7, v8
+
+    invoke-static {v7}, Ljava/lang/Math;->round(F)I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    .line 403
     iget-object v8, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     sget-object v9, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->FIELD:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
-    if-eq v8, v9, :cond_c0
+    if-eq v8, v9, :cond_ed
 
-    iget-object v8, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+    if-nez v4, :cond_ed
 
-    sget-object v9, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ACTION:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+    iget-object v4, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
-    if-ne v8, v9, :cond_b7
+    sget-object v8, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ROUTING:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
-    goto :goto_c0
+    if-ne v4, v8, :cond_eb
 
-    :cond_b7
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    iget-boolean v4, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->dark:Z
 
-    move-result-object v8
-
-    invoke-static {v8}, Lio/nekohasekai/sagernet/ui/ThemePalette;->control(Landroid/content/Context;)I
-
-    move-result v8
-
-    goto :goto_c8
-
-    :cond_c0
-    :goto_c0
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v8
-
-    invoke-static {v8}, Lio/nekohasekai/sagernet/ui/ThemePalette;->inset(Landroid/content/Context;)I
-
-    move-result v8
-
-    :goto_c8
-    invoke-virtual {v5, v8}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
-
-    if-eqz v7, :cond_d5
-
-    .line 222
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/ThemePalette;->selectedBorder(Landroid/content/Context;)I
-
-    move-result v2
-
-    .line 223
-    :cond_d5
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v8
-
-    iget-object v9, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    sget-object v10, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SURFACE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    if-ne v9, v10, :cond_e2
-
-    const/high16 v9, 0x41d00000    # 26.0f
-
-    goto :goto_ed
-
-    :cond_e2
-    iget-object v9, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    sget-object v10, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ROUTING:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    if-ne v9, v10, :cond_eb
-
-    const/high16 v9, 0x41b00000    # 22.0f
+    if-nez v4, :cond_eb
 
     goto :goto_ed
 
     :cond_eb
-    const/high16 v9, 0x41800000    # 16.0f
+    const/4 v4, 0x0
 
+    goto :goto_f7
+
+    :cond_ed
     :goto_ed
-    invoke-static {v8, v9}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
+    iget v4, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->density:F
 
-    move-result v8
-
-    int-to-float v8, v8
-
-    invoke-virtual {v5, v8}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
-
-    .line 224
-    iget-object v8, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    sget-object v9, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->FIELD:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    if-eq v8, v9, :cond_105
-
-    if-nez v7, :cond_105
-
-    iget-object v7, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    sget-object v8, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ROUTING:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    if-ne v7, v8, :cond_111
-
-    if-nez v1, :cond_111
-
-    .line 225
-    :cond_105
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-static {v1, v6}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
-
-    move-result v1
-
-    invoke-static {v3, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v4}, Ljava/lang/Math;->round(F)I
 
     move-result v4
 
+    invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I
+
+    move-result v4
+
+    .line 404
+    :goto_f7
+    iget-boolean v8, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->painted:Z
+
+    if-eqz v8, :cond_ff
+
+    iget-object v8, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->paintedTarget:Landroid/graphics/drawable/GradientDrawable;
+
+    if-eq v8, v2, :cond_100
+
+    :cond_ff
+    const/4 v6, 0x1
+
+    :cond_100
+    if-nez v6, :cond_106
+
+    .line 405
+    iget v8, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->fill:I
+
+    if-eq v8, v5, :cond_109
+
+    :cond_106
+    invoke-virtual {v2, v5}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+
+    :cond_109
+    if-nez v6, :cond_111
+
+    .line 406
+    iget v8, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->radius:F
+
+    cmpl-float v8, v8, v7
+
+    if-eqz v8, :cond_114
+
     :cond_111
-    invoke-virtual {v5, v4, v2}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+    invoke-virtual {v2, v7}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 227
     :cond_114
-    instance-of v1, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
+    if-nez v6, :cond_11e
 
-    if-eqz v1, :cond_127
+    .line 407
+    iget v6, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->stroke:I
 
-    .line 228
-    move-object v1, p0
+    if-ne v6, v4, :cond_11e
 
-    check-cast v1, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
+    iget v6, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->border:I
 
-    invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->disableLiveBackdrop()V
+    if-eq v6, v1, :cond_121
 
-    invoke-virtual {v1, v3}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setOpaqueVeil(Z)V
+    :cond_11e
+    invoke-virtual {v2, v4, v1}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    .line 229
-    invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setBorderColor(I)V
+    .line 408
+    :cond_121
+    iput v5, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->fill:I
 
-    invoke-virtual {v1, v6}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setBorderWidthDp(F)V
+    iput v7, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->radius:F
 
-    .line 231
-    :cond_127
+    iput v4, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->stroke:I
+
+    iput v1, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->border:I
+
+    iput-object v2, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->paintedTarget:Landroid/graphics/drawable/GradientDrawable;
+
+    iput-boolean v3, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->painted:Z
+
+    .line 410
+    :cond_12d
+    instance-of v2, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
+
+    if-eqz v2, :cond_142
+
+    .line 411
+    move-object v2, p0
+
+    check-cast v2, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
+
+    .line 412
+    invoke-virtual {v2}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->disableLiveBackdrop()V
+
+    invoke-virtual {v2, v3}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setOpaqueVeil(Z)V
+
+    .line 413
+    invoke-virtual {v2, v1}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setBorderColor(I)V
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    invoke-virtual {v2, v1}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setBorderWidthDp(F)V
+
+    .line 415
+    :cond_142
     instance-of v1, p0, Landroid/widget/TextView;
 
-    if-eqz v1, :cond_166
+    if-eqz v1, :cond_186
 
-    .line 232
-    move-object v1, p0
+    .line 416
+    check-cast p0, Landroid/widget/TextView;
 
-    check-cast v1, Landroid/widget/TextView;
+    .line 417
+    iget-object v1, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
-    .line 233
-    iget-object v2, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+    sget-object v2, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SECONDARY:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
-    sget-object v3, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SECONDARY:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+    if-ne v1, v2, :cond_151
 
-    if-ne v2, v3, :cond_141
+    iget-object v0, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->secondaryStates:Landroid/content/res/ColorStateList;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    goto :goto_15c
 
-    move-result-object v0
-
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->secondary(Landroid/content/Context;)I
-
-    move-result v0
-
-    :goto_13c
-    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
-
-    move-result-object v0
-
-    goto :goto_158
-
-    :cond_141
+    :cond_151
     iget-object v0, v0, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->role:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
-    sget-object v2, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ACTION:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+    sget-object v1, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ACTION:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
-    if-ne v0, v2, :cond_150
+    if-ne v0, v1, :cond_15a
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    iget-object v0, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->accentStates:Landroid/content/res/ColorStateList;
+
+    goto :goto_15c
+
+    :cond_15a
+    iget-object v0, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->textStates:Landroid/content/res/ColorStateList;
+
+    .line 418
+    :goto_15c
+    invoke-virtual {p0}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
+
+    move-result-object v1
+
+    invoke-static {v1, v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_169
+
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
+
+    .line 419
+    :cond_169
+    invoke-virtual {p0}, Landroid/widget/TextView;->getHintTextColors()Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->accent(Landroid/content/Context;)I
+    if-eqz v0, :cond_181
+
+    invoke-virtual {p0}, Landroid/widget/TextView;->getHintTextColors()Landroid/content/res/ColorStateList;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/ColorStateList;->isStateful()Z
 
     move-result v0
 
-    goto :goto_13c
+    if-nez v0, :cond_181
 
-    :cond_150
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/TextView;->getCurrentHintTextColor()I
 
-    move-result-object v0
+    move-result v0
 
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->textStates(Landroid/content/Context;)Landroid/content/res/ColorStateList;
+    iget v1, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->secondary:I
 
-    move-result-object v0
+    if-eq v0, v1, :cond_186
 
-    :goto_158
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
+    .line 420
+    :cond_181
+    iget p1, p1, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->secondary:I
 
-    .line 234
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setHintTextColor(I)V
 
-    move-result-object p0
-
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->secondary(Landroid/content/Context;)I
-
-    move-result p0
-
-    invoke-virtual {v1, p0}, Landroid/widget/TextView;->setHintTextColor(I)V
-
-    :cond_166
-    :goto_166
+    :cond_186
+    :goto_186
     return-void
+.end method
+
+.method private static palette(Landroid/content/Context;)Lio/nekohasekai/sagernet/ui/UiComponents$Palette;
+    .registers 6
+
+    .line 363
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->dark(Landroid/content/Context;)Z
+
+    move-result v0
+
+    .line 364
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/util/DisplayMetrics;->density:F
+
+    .line 365
+    sget-object v2, Lio/nekohasekai/sagernet/ui/UiComponents;->palettes:[Lio/nekohasekai/sagernet/ui/UiComponents$Palette;
+
+    aget-object v3, v2, v0
+
+    if-eqz v3, :cond_1c
+
+    .line 366
+    iget v4, v3, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;->density:F
+
+    cmpl-float v4, v4, v1
+
+    if-eqz v4, :cond_1b
+
+    goto :goto_1c
+
+    :cond_1b
+    return-object v3
+
+    :cond_1c
+    :goto_1c
+    new-instance v3, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;
+
+    invoke-direct {v3, p0, v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents$Palette;-><init>(Landroid/content/Context;ZF)V
+
+    aput-object v3, v2, v0
+
+    return-object v3
 .end method
 
 .method public static panel(Landroid/view/View;)V
     .registers 3
 
-    .line 65
+    .line 116
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-eqz v0, :cond_a
 
+    .line 117
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
+
+    return-void
+
+    .line 119
+    :cond_a
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SURFACE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const/4 v1, 0x1
@@ -1386,40 +1551,37 @@
     invoke-static {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->register(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Role;Z)V
 
     return-void
-
-    :cond_d
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
-
-    return-void
 .end method
 
 .method public static plainAction(Landroid/widget/TextView;)V
     .registers 5
 
-    .line 134
+    .line 233
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 135
+    .line 234
     sget-object v1, Lio/nekohasekai/sagernet/ui/UiComponents;->styles:Ljava/util/WeakHashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/WeakHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     const/4 v1, 0x0
 
-    .line 136
+    .line 235
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
+    .line 236
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     const/4 v1, 0x0
 
-    .line 137
+    .line 237
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setMinimumWidth(I)V
 
     const/high16 v2, 0x42400000    # 48.0f
 
+    .line 238
     invoke-static {v0, v2}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v2
@@ -1428,16 +1590,18 @@
 
     const/16 v2, 0x11
 
-    .line 138
+    .line 239
     invoke-virtual {p0, v2}, Landroid/widget/TextView;->setGravity(I)V
 
+    .line 240
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setIncludeFontPadding(Z)V
 
     const/high16 v2, 0x41600000    # 14.0f
 
-    .line 139
+    .line 241
     invoke-virtual {p0, v2}, Landroid/widget/TextView;->setTextSize(F)V
 
+    .line 242
     const-string v2, "sans-serif-medium"
 
     invoke-static {v2, v1}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
@@ -1448,7 +1612,7 @@
 
     const/high16 v2, 0x41400000    # 12.0f
 
-    .line 140
+    .line 243
     invoke-static {v0, v2}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v3
@@ -1459,7 +1623,7 @@
 
     invoke-virtual {p0, v3, v1, v0, v1}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
 
-    .line 141
+    .line 244
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ACTION:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     invoke-static {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->register(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Role;Z)V
@@ -1468,20 +1632,39 @@
 .end method
 
 .method public static refresh(Landroid/view/View;)V
-    .registers 3
+    .registers 2
 
-    .line 197
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
+    .line 369
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    .line 198
+    move-result-object v0
+
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->palette(Landroid/content/Context;)Lio/nekohasekai/sagernet/ui/UiComponents$Palette;
+
+    move-result-object v0
+
+    invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->refresh(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Palette;)V
+
+    return-void
+.end method
+
+.method private static refresh(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Palette;)V
+    .registers 4
+
+    .line 371
+    invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Palette;)V
+
+    .line 372
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_1a
 
+    .line 373
     check-cast p0, Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
 
+    .line 374
     :goto_a
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -1493,7 +1676,7 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->refresh(Landroid/view/View;)V
+    invoke-static {v1, p1}, Lio/nekohasekai/sagernet/ui/UiComponents;->refresh(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Palette;)V
 
     add-int/lit8 v0, v0, 0x1
 
@@ -1506,7 +1689,7 @@
 .method public static refreshAll()V
     .registers 4
 
-    .line 195
+    .line 338
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents;->styles:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0}, Ljava/util/WeakHashMap;->keySet()Ljava/util/Set;
@@ -1530,6 +1713,7 @@
 
     aget-object v3, v0, v1
 
+    .line 339
     invoke-static {v3}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
 
     add-int/lit8 v1, v1, 0x1
@@ -1547,7 +1731,7 @@
 
     if-eqz p2, :cond_9
 
-    .line 51
+    .line 86
     new-instance p2, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {p2}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
@@ -1557,10 +1741,11 @@
     :cond_9
     move-object p2, v0
 
-    .line 52
+    .line 87
     :goto_a
     sget-object v1, Lio/nekohasekai/sagernet/ui/UiComponents;->styles:Ljava/util/WeakHashMap;
 
+    .line 88
     new-instance v2, Lio/nekohasekai/sagernet/ui/UiComponents$Style;
 
     invoke-direct {v2, p1, p2}, Lio/nekohasekai/sagernet/ui/UiComponents$Style;-><init>(Lio/nekohasekai/sagernet/ui/UiComponents$Role;Landroid/graphics/drawable/GradientDrawable;)V
@@ -1569,27 +1754,30 @@
 
     if-eqz p2, :cond_59
 
-    .line 54
+    .line 90
     invoke-virtual {p0}, Landroid/view/View;->getPaddingStart()I
 
     move-result v2
 
+    .line 91
     invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
 
     move-result v3
 
+    .line 92
     invoke-virtual {p0}, Landroid/view/View;->getPaddingEnd()I
 
     move-result v4
 
+    .line 93
     invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
 
     move-result v5
 
-    .line 55
+    .line 94
     invoke-virtual {p0, v0}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 56
+    .line 96
     sget-object v6, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ACTION:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     if-eq p1, v6, :cond_35
@@ -1602,7 +1790,7 @@
 
     if-ne p1, v6, :cond_47
 
-    .line 57
+    .line 97
     :cond_35
     new-instance v6, Landroid/graphics/drawable/RippleDrawable;
 
@@ -1622,11 +1810,11 @@
 
     move-object p2, v6
 
-    .line 56
+    .line 99
     :cond_47
     invoke-virtual {p0, p2}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 58
+    .line 100
     invoke-virtual {v1, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p2
@@ -1639,95 +1827,92 @@
 
     iput-object v0, p2, Lio/nekohasekai/sagernet/ui/UiComponents$Style;->installed:Landroid/graphics/drawable/Drawable;
 
-    .line 59
+    .line 101
     invoke-virtual {p0, v2, v3, v4, v5}, Landroid/view/View;->setPaddingRelative(IIII)V
 
-    .line 61
+    .line 103
     :cond_59
     sget-object p2, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SURFACE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
-    if-eq p1, p2, :cond_65
-
-    sget-object p2, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ROUTING:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    if-eq p1, p2, :cond_65
-
-    sget-object p2, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->CHOICE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    if-ne p1, p2, :cond_78
-
-    :cond_65
-    sget-object p2, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ROUTING:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    if-ne p1, p2, :cond_6c
+    if-ne p1, p2, :cond_62
 
     const/high16 p2, 0x41b00000    # 22.0f
 
-    goto :goto_75
-
-    :cond_6c
-    sget-object p2, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SURFACE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
-
-    if-ne p1, p2, :cond_73
-
-    const/high16 p2, 0x41d00000    # 26.0f
-
-    goto :goto_75
-
-    :cond_73
-    const/high16 p2, 0x41800000    # 16.0f
-
-    :goto_75
+    .line 104
     invoke-static {p0, p2}, Lio/nekohasekai/sagernet/ui/CardLight;->bind(Landroid/view/View;F)V
 
-    .line 62
-    :cond_78
+    .line 106
+    :cond_62
+    sget-object p2, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ROUTING:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+
+    if-ne p1, p2, :cond_74
+
+    .line 107
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object p2
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    invoke-static {p2, v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
+
+    move-result p2
+
+    int-to-float p2, p2
+
+    invoke-virtual {p0, p2}, Landroid/view/View;->setElevation(F)V
+
+    .line 109
+    :cond_74
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
 
-    .line 63
+    .line 110
     sget-object p2, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SURFACE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
-    if-ne p1, p2, :cond_82
+    if-ne p1, p2, :cond_7e
 
+    .line 111
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/PopupBackdrop;->bind(Landroid/view/View;)V
 
-    :cond_82
+    :cond_7e
     return-void
 .end method
 
 .method public static routingCard(Landroid/view/View;)V
     .registers 4
 
-    .line 67
+    .line 124
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-eqz v0, :cond_a
 
+    .line 125
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
+
+    goto :goto_10
+
+    .line 127
+    :cond_a
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ROUTING:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const/4 v1, 0x1
 
     invoke-static {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->register(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Role;Z)V
 
-    goto :goto_10
-
-    :cond_d
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
-
-    .line 68
+    .line 129
     :goto_10
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_37
 
-    .line 69
+    .line 130
     check-cast p0, Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
 
-    .line 70
+    .line 131
     :goto_17
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -1735,30 +1920,33 @@
 
     if-ge v0, v1, :cond_37
 
-    .line 71
+    .line 132
     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 72
+    .line 133
     instance-of v2, v1, Landroid/widget/TextView;
 
     if-eqz v2, :cond_34
 
+    .line 134
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
 
     move-result v2
 
-    if-nez v2, :cond_31
+    if-eqz v2, :cond_2f
 
-    check-cast v1, Landroid/widget/TextView;
-
-    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
+    .line 135
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
 
     goto :goto_34
 
-    :cond_31
-    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->paint(Landroid/view/View;)V
+    .line 137
+    :cond_2f
+    check-cast v1, Landroid/widget/TextView;
+
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
 
     :cond_34
     :goto_34
@@ -1770,10 +1958,38 @@
     return-void
 .end method
 
+.method private static same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
+    .registers 2
+
+    if-eq p0, p1, :cond_d
+
+    if-eqz p0, :cond_b
+
+    .line 423
+    invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_b
+
+    goto :goto_d
+
+    :cond_b
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_d
+    :goto_d
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
 .method public static secondary(Landroid/widget/TextView;)V
     .registers 3
 
-    .line 96
+    .line 176
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SECONDARY:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const/4 v1, 0x0
@@ -1786,19 +2002,19 @@
 .method public static surface(Landroid/content/Context;)Landroid/widget/FrameLayout;
     .registers 3
 
-    .line 77
+    .line 145
     new-instance v0, Landroid/widget/FrameLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 78
+    .line 146
     sget-object p0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SURFACE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const/4 v1, 0x1
 
     invoke-static {v0, p0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->register(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Role;Z)V
 
-    .line 79
+    .line 147
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setClipToOutline(Z)V
 
     return-object v0
@@ -1807,7 +2023,7 @@
 .method public static text(Landroid/widget/TextView;)V
     .registers 3
 
-    .line 95
+    .line 172
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->TEXT:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const/4 v1, 0x0
@@ -1820,18 +2036,20 @@
 .method public static title(Landroid/content/Context;Ljava/lang/CharSequence;)Landroid/widget/TextView;
     .registers 4
 
-    .line 89
+    .line 159
     new-instance v0, Landroid/widget/TextView;
 
     invoke-direct {v0, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
+    .line 160
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/high16 p1, 0x41a00000    # 20.0f
 
+    .line 161
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 90
+    .line 162
     const-string p1, "sans-serif-medium"
 
     const/4 v1, 0x0
@@ -1842,27 +2060,29 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 91
+    .line 163
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setIncludeFontPadding(Z)V
 
     const p1, -0x438a3d71    # -0.015f
 
+    .line 164
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setLetterSpacing(F)V
 
     const/16 p1, 0x10
 
-    .line 92
+    .line 165
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setGravity(I)V
 
     const/high16 p1, 0x42000000    # 32.0f
 
+    .line 166
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result p0
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setMinHeight(I)V
 
-    .line 93
+    .line 167
     sget-object p0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->TITLE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     invoke-static {v0, p0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->register(Landroid/view/View;Lio/nekohasekai/sagernet/ui/UiComponents$Role;Z)V

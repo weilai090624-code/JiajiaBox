@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/sqlite/db/SimpleSQLiteQuery$Companion;
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "query"    # Ljava/lang/String;
 
     const-string v0, "query"
@@ -94,7 +94,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "query"    # Ljava/lang/String;
     .param p2, "bindArgs"    # [Ljava/lang/Object;
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public static final bind(Landroidx/sqlite/db/SupportSQLiteProgram;[Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public bindTo(Landroidx/sqlite/db/SupportSQLiteProgram;)V
-    .locals 2
+    .registers 4
     .param p1, "statement"    # Landroidx/sqlite/db/SupportSQLiteProgram;
 
     const-string/jumbo v0, "statement"
@@ -149,26 +149,26 @@
 .end method
 
 .method public getArgCount()I
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Landroidx/sqlite/db/SimpleSQLiteQuery;->bindArgs:[Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     array-length v0, v0
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public getSql()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Landroidx/sqlite/db/SimpleSQLiteQuery;->query:Ljava/lang/String;

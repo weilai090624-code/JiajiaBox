@@ -24,10 +24,10 @@
 .method constructor <init>(Landroid/content/Context;D)V
     .registers 5
 
-    .line 71
+    .line 85
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 70
+    .line 84
     new-instance p1, Landroid/graphics/Paint;
 
     const/4 v0, 0x1
@@ -36,7 +36,7 @@
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/SubscriptionCards$Meter;->paint:Landroid/graphics/Paint;
 
-    .line 71
+    .line 85
     iput-wide p2, p0, Lio/nekohasekai/sagernet/ui/SubscriptionCards$Meter;->ratio:D
 
     # getter for: Lio/nekohasekai/sagernet/ui/SubscriptionCards;->meters:Ljava/util/WeakHashMap;
@@ -56,7 +56,7 @@
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .registers 12
 
-    .line 72
+    .line 86
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/SubscriptionCards$Meter;->getHeight()I
@@ -83,7 +83,7 @@
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/SubscriptionCards$Meter;->paint:Landroid/graphics/Paint;
 
-    const/16 v1, 0x10
+    const/16 v1, 0x16
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
 
@@ -121,7 +121,7 @@
 
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/SubscriptionCards$Meter;->paint:Landroid/graphics/Paint;
 
-    const/16 v0, 0x87
+    const/16 v0, 0x96
 
     invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setAlpha(I)V
 

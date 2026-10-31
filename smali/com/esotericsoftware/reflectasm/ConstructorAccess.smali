@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     .local p0, "this":Lcom/esotericsoftware/reflectasm/ConstructorAccess;, "Lcom/esotericsoftware/reflectasm/ConstructorAccess<TT;>;"
@@ -30,7 +30,7 @@
 .end method
 
 .method public static get(Ljava/lang/Class;)Lcom/esotericsoftware/reflectasm/ConstructorAccess;
-    .locals 21
+    .registers 22
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -57,13 +57,13 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     invoke-virtual/range {p0 .. p0}, Ljava/lang/Class;->isMemberClass()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1c
 
     invoke-virtual/range {p0 .. p0}, Ljava/lang/Class;->getModifiers()I
 
@@ -73,18 +73,18 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1c
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v4, 0x0
 
     .line 48
     .local v4, "isNonStaticMemberClass":Z
-    :goto_0
+    :goto_1d
     invoke-virtual/range {p0 .. p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v5
@@ -117,7 +117,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_4f
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -138,7 +138,7 @@
     move-result-object v6
 
     .line 53
-    :cond_1
+    :cond_4f
     invoke-static/range {p0 .. p0}, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->get(Ljava/lang/Class;)Lcom/esotericsoftware/reflectasm/AccessClassLoader;
 
     move-result-object v7
@@ -148,14 +148,14 @@
     monitor-enter v7
 
     .line 55
-    :try_start_0
+    :try_start_54
     invoke-virtual {v7, v6}, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->loadAccessClass(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v8
 
     .line 56
     .local v8, "accessClass":Ljava/lang/Class;
-    if-nez v8, :cond_6
+    if-nez v8, :cond_159
 
     .line 57
     const/16 v9, 0x2f
@@ -171,8 +171,8 @@
     invoke-virtual {v5, v10, v9}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
     move-result-object v11
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_66
+    .catchall {:try_start_54 .. :try_end_66} :catchall_1aa
 
     move-object v15, v11
 
@@ -186,7 +186,7 @@
 
     .line 62
     .local v12, "modifiers":I
-    if-nez v4, :cond_3
+    if-nez v4, :cond_bd
 
     .line 63
     const/4 v9, 0x0
@@ -195,7 +195,7 @@
     .local v9, "enclosingClassNameInternal":Ljava/lang/String;
     const/4 v0, 0x0
 
-    :try_start_1
+    :try_start_6d
     move-object v10, v0
 
     check-cast v10, [Ljava/lang/Class;
@@ -210,9 +210,9 @@
     invoke-virtual {v11}, Ljava/lang/reflect/Constructor;->getModifiers()I
 
     move-result v0
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_79
+    .catch Ljava/lang/Exception; {:try_start_6d .. :try_end_79} :catch_9f
+    .catchall {:try_start_6d .. :try_end_79} :catchall_1aa
 
     .line 69
     .end local v12    # "modifiers":I
@@ -220,19 +220,19 @@
     nop
 
     .line 70
-    :try_start_2
+    :try_start_7a
     invoke-static {v0}, Ljava/lang/reflect/Modifier;->isPrivate(I)Z
 
     move-result v10
 
-    if-nez v10, :cond_2
+    if-nez v10, :cond_82
 
     move-object v10, v11
 
-    goto :goto_1
+    goto :goto_da
 
     .line 71
-    :cond_2
+    :cond_82
     new-instance v3, Ljava/lang/RuntimeException;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -276,7 +276,7 @@
     .restart local v7    # "loader":Lcom/esotericsoftware/reflectasm/AccessClassLoader;
     .restart local v12    # "modifiers":I
     .restart local p0    # "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    :catch_0
+    :catch_9f
     move-exception v0
 
     .line 68
@@ -324,7 +324,7 @@
     .restart local v6    # "accessClassName":Ljava/lang/String;
     .restart local v7    # "loader":Lcom/esotericsoftware/reflectasm/AccessClassLoader;
     .restart local p0    # "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    :cond_3
+    :cond_bd
     invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v13
@@ -332,12 +332,12 @@
     invoke-virtual {v13, v10, v9}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
     move-result-object v9
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_c5
+    .catchall {:try_start_7a .. :try_end_c5} :catchall_1aa
 
     .line 76
     .restart local v9    # "enclosingClassNameInternal":Ljava/lang/String;
-    :try_start_3
+    :try_start_c5
     new-array v0, v0, [Ljava/lang/Class;
 
     aput-object v2, v0, v3
@@ -352,9 +352,9 @@
     invoke-virtual {v11}, Ljava/lang/reflect/Constructor;->getModifiers()I
 
     move-result v0
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_d2
+    .catch Ljava/lang/Exception; {:try_start_c5 .. :try_end_d2} :catch_13a
+    .catchall {:try_start_c5 .. :try_end_d2} :catchall_1aa
 
     .line 81
     .end local v12    # "modifiers":I
@@ -362,33 +362,33 @@
     nop
 
     .line 82
-    :try_start_4
+    :try_start_d3
     invoke-static {v0}, Ljava/lang/reflect/Modifier;->isPrivate(I)Z
 
     move-result v10
 
-    if-nez v10, :cond_5
+    if-nez v10, :cond_11c
 
     move-object v10, v11
 
     .line 87
     .end local v11    # "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<TT;>;"
     .local v10, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<TT;>;"
-    :goto_1
+    :goto_da
     invoke-static {v0}, Ljava/lang/reflect/Modifier;->isPublic(I)Z
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_e3
 
     const-string v11, "com/esotericsoftware/reflectasm/PublicConstructorAccess"
 
-    goto :goto_2
+    goto :goto_e5
 
-    :cond_4
+    :cond_e3
     const-string v11, "com/esotericsoftware/reflectasm/ConstructorAccess"
 
-    :goto_2
+    :goto_e5
     move-object v13, v11
 
     .line 91
@@ -456,7 +456,7 @@
 
     move-object v8, v12
 
-    goto :goto_3
+    goto :goto_159
 
     .line 83
     .end local v3    # "cw":Lcom/esotericsoftware/asm/ClassWriter;
@@ -464,7 +464,7 @@
     .end local v13    # "classNameInternal":Ljava/lang/String;
     .local v11, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<TT;>;"
     .restart local v15    # "classNameInternal":Ljava/lang/String;
-    :cond_5
+    :cond_11c
     move-object v13, v15
 
     .end local v15    # "classNameInternal":Ljava/lang/String;
@@ -515,7 +515,7 @@
     .restart local v12    # "modifiers":I
     .restart local v15    # "classNameInternal":Ljava/lang/String;
     .restart local p0    # "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    :catch_1
+    :catch_13a
     move-exception v0
 
     move-object v13, v15
@@ -572,21 +572,21 @@
     .restart local v6    # "accessClassName":Ljava/lang/String;
     .restart local v7    # "loader":Lcom/esotericsoftware/reflectasm/AccessClassLoader;
     .restart local p0    # "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    :cond_6
-    :goto_3
+    :cond_159
+    :goto_159
     monitor-exit v7
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_15a
+    .catchall {:try_start_d3 .. :try_end_15a} :catchall_1aa
 
     .line 104
-    :try_start_5
+    :try_start_15a
     invoke-virtual {v8}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/esotericsoftware/reflectasm/ConstructorAccess;
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_160
+    .catchall {:try_start_15a .. :try_end_160} :catchall_190
 
     .line 107
     .local v0, "access":Lcom/esotericsoftware/reflectasm/ConstructorAccess;, "Lcom/esotericsoftware/reflectasm/ConstructorAccess<TT;>;"
@@ -595,13 +595,13 @@
     .line 108
     instance-of v3, v0, Lcom/esotericsoftware/reflectasm/PublicConstructorAccess;
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_18d
 
     invoke-static {v1, v8}, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->areInSameRuntimeClassLoader(Ljava/lang/Class;Ljava/lang/Class;)Z
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_18d
 
     .line 111
     new-instance v3, Ljava/lang/RuntimeException;
@@ -610,16 +610,16 @@
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_177
 
     const-string v10, "Class cannot be created (the no-arg constructor is protected or package-protected, and its ConstructorAccess could not be defined in the same class loader): "
 
-    goto :goto_4
+    goto :goto_179
 
-    :cond_7
+    :cond_177
     const-string v10, "Non-static member class cannot be created (the enclosing class constructor is protected or package-protected, and its ConstructorAccess could not be defined in the same class loader): "
 
-    :goto_4
+    :goto_179
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v9
@@ -642,7 +642,7 @@
     throw v3
 
     .line 116
-    :cond_8
+    :cond_18d
     iput-boolean v4, v0, Lcom/esotericsoftware/reflectasm/ConstructorAccess;->isNonStaticMemberClass:Z
 
     .line 117
@@ -650,7 +650,7 @@
 
     .line 105
     .end local v0    # "access":Lcom/esotericsoftware/reflectasm/ConstructorAccess;, "Lcom/esotericsoftware/reflectasm/ConstructorAccess<TT;>;"
-    :catchall_0
+    :catchall_190
     move-exception v0
 
     .line 106
@@ -682,19 +682,19 @@
     .line 101
     .end local v0    # "t":Ljava/lang/Throwable;
     .end local v8    # "accessClass":Ljava/lang/Class;
-    :catchall_1
+    :catchall_1aa
     move-exception v0
 
-    :try_start_6
+    :try_start_1ab
     monitor-exit v7
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_1ac
+    .catchall {:try_start_1ab .. :try_end_1ac} :catchall_1aa
 
     throw v0
 .end method
 
 .method private static insertConstructor(Lcom/esotericsoftware/asm/ClassWriter;Ljava/lang/String;)V
-    .locals 6
+    .registers 8
     .param p0, "cw"    # Lcom/esotericsoftware/asm/ClassWriter;
     .param p1, "superclassNameInternal"    # Ljava/lang/String;
 
@@ -753,7 +753,7 @@
 .end method
 
 .method static insertNewInstance(Lcom/esotericsoftware/asm/ClassWriter;Ljava/lang/String;)V
-    .locals 6
+    .registers 8
     .param p0, "cw"    # Lcom/esotericsoftware/asm/ClassWriter;
     .param p1, "classNameInternal"    # Ljava/lang/String;
 
@@ -817,7 +817,7 @@
 .end method
 
 .method static insertNewInstanceInner(Lcom/esotericsoftware/asm/ClassWriter;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 8
+    .registers 11
     .param p0, "cw"    # Lcom/esotericsoftware/asm/ClassWriter;
     .param p1, "classNameInternal"    # Ljava/lang/String;
     .param p2, "enclosingClassNameInternal"    # Ljava/lang/String;
@@ -854,7 +854,7 @@
 
     const/16 v5, 0x59
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_64
 
     .line 145
     invoke-virtual {v0, v4, p1}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
@@ -930,10 +930,10 @@
 
     invoke-virtual {v0, v2, v1}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMaxs(II)V
 
-    goto :goto_0
+    goto :goto_7f
 
     .line 156
-    :cond_0
+    :cond_64
     const-string v6, "java/lang/UnsupportedOperationException"
 
     invoke-virtual {v0, v4, v6}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
@@ -962,7 +962,7 @@
     invoke-virtual {v0, v2, v1}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMaxs(II)V
 
     .line 163
-    :goto_0
+    :goto_7f
     invoke-virtual {v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitEnd()V
 
     .line 164
@@ -972,7 +972,7 @@
 
 # virtual methods
 .method public isNonStaticMemberClass()Z
-    .locals 1
+    .registers 2
 
     .line 29
     .local p0, "this":Lcom/esotericsoftware/reflectasm/ConstructorAccess;, "Lcom/esotericsoftware/reflectasm/ConstructorAccess<TT;>;"

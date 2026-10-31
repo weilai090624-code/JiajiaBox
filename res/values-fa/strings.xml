@@ -127,8 +127,8 @@
     <string name="call_notification_screening_text">درحال غربال کردن تماس ورودی</string>
     <string name="certificates">گواهی‌ها</string>
     <string name="chain_settings">تنظیمات زنجیره</string>
-    <string name="character_counter_content_description" formatted="false">نویسه‌های واردشده %1$d از %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">محدودیت نویسه از حد مجاز %1$d از %2$d بیشتر شده است</string>
+    <string name="character_counter_content_description">نویسه‌های واردشده %1$d از %2$d</string>
+    <string name="character_counter_overflowed_content_description">محدودیت نویسه از حد مجاز %1$d از %2$d بیشتر شده است</string>
     <string name="circular_reference">ارجاع حلقه‌ای</string>
     <string name="circular_reference_sum">مسیر نمی‌تواند شامل خودش باشد.</string>
     <string name="clear_logcat">پاک‌کردن اطلاعات Logcat</string>
@@ -355,7 +355,7 @@
     <string name="mtrl_picker_out_of_range">خارج از محدوده: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">تاریخ شروع – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – تاریخ پایان</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">انتخاب محدوده</string>
     <string name="mtrl_picker_range_header_unselected">تاریخ شروع – تاریخ پایان</string>
     <string name="mtrl_picker_save">ذخیره</string>
@@ -524,7 +524,7 @@
     <string name="sniff_override">ردیابی نتایج برای مقصد</string>
     <string name="sniff_routing">ردیابی نتایج برای مسیریابی</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"سرعت： %1$s↑ %2$s↓
+    <string name="speed_detail">"سرعت： %1$s↑ %2$s↓
 مستقیم： %3$s↑ %4$s↓"</string>
     <string name="speed_interval">تنظیم فاصله زمانی نمایش سرعت</string>
     <string name="ss_cat">تنظیمات سرور</string>
@@ -552,7 +552,7 @@
     <string name="subscription_used">%s استفاده‌شده</string>
     <string name="subscription_user_agent">UserAgent</string>
     <string name="subscriptions">اشتراک‌ها</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s، %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s، %2$s</string>
     <string name="tcp_connections">%d اتصال TCP</string>
     <string name="tcp_keep_alive_interval">فعال نگه‌داشتن بازه دریافت بسته‌های TCP</string>
     <string name="telegram">کانال دریافت نسخه‌های به‌روز در تلگرام</string>
@@ -562,7 +562,7 @@
     <string name="tls">استفاده از TLS</string>
     <string name="tls_camouflage_settings">تنظیمات استتار TLS</string>
     <string name="tools_network">شبکه</string>
-    <string name="traffic" formatted="false">%1$s↑ %2$s↓</string>
+    <string name="traffic">%1$s↑ %2$s↓</string>
     <string name="traffic_downlink" formatted="false">%s | %s/s ↓</string>
     <string name="traffic_downlink_total">%s ↓</string>
     <string name="traffic_sniffing">فعال کردن ثبت ترافیک</string>

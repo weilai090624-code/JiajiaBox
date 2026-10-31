@@ -32,7 +32,7 @@
 
 # direct methods
 .method public static final edit(Landroid/content/SharedPreferences;ZLkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 5
     .param p0, "$this$edit"    # Landroid/content/SharedPreferences;
     .param p1, "commit"    # Z
     .param p2, "action"    # Lkotlin/jvm/functions/Function1;
@@ -62,24 +62,24 @@
     invoke-interface {p2, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 45
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     .line 46
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    goto :goto_0
+    goto :goto_11
 
     .line 48
-    :cond_0
+    :cond_e
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     .line 50
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public static synthetic edit$default(Landroid/content/SharedPreferences;ZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 5
     .param p0, "$this$edit_u24default"    # Landroid/content/SharedPreferences;
     .param p1, "commit"    # Z
     .param p2, "action"    # Lkotlin/jvm/functions/Function1;
@@ -87,13 +87,13 @@
     .line 39
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 40
     const/4 p1, 0x0
 
     .line 39
-    :cond_0
+    :cond_5
     const/4 p3, 0x0
 
     .line 43
@@ -107,18 +107,18 @@
     invoke-interface {p2, p4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 45
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_13
 
     .line 46
     invoke-interface {p4}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    goto :goto_0
+    goto :goto_16
 
     .line 48
-    :cond_1
+    :cond_13
     invoke-interface {p4}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     .line 50
-    :goto_0
+    :goto_16
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/StableIdStorage$SharedPoolStableIdStorage;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/StableIdStorage$SharedPoolStableIdStorage;
 
     .line 60
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public localToGlobal(J)J
-    .locals 0
+    .registers 3
     .param p1, "localId"    # J
 
     .line 63

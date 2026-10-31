@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     .local p0, "this":Lcom/google/common/collect/ForwardingImmutableList;, "Lcom/google/common/collect/ForwardingImmutableList<TE;>;"

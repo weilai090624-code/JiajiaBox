@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/temporal/TemporalField;IIZ)V
-    .locals 6
+    .registers 11
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "minWidth"    # I
     .param p3, "maxWidth"    # I
@@ -55,30 +55,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_7b
 
     .line 3095
-    if-ltz p2, :cond_2
+    if-ltz p2, :cond_62
 
     const/16 v0, 0x9
 
-    if-gt p2, v0, :cond_2
+    if-gt p2, v0, :cond_62
 
     .line 3098
     const/4 v1, 0x1
 
-    if-lt p3, v1, :cond_1
+    if-lt p3, v1, :cond_49
 
-    if-gt p3, v0, :cond_1
+    if-gt p3, v0, :cond_49
 
     .line 3101
-    if-lt p3, p2, :cond_0
+    if-lt p3, p2, :cond_26
 
     .line 3105
     return-void
 
     .line 3102
-    :cond_0
+    :cond_26
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -114,7 +114,7 @@
     throw v0
 
     .line 3099
-    :cond_1
+    :cond_49
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -140,7 +140,7 @@
     throw v0
 
     .line 3096
-    :cond_2
+    :cond_62
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -166,7 +166,7 @@
     throw v0
 
     .line 3093
-    :cond_3
+    :cond_7b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -193,7 +193,7 @@
 .end method
 
 .method constructor <init>(Lj$/time/temporal/TemporalField;IIZI)V
-    .locals 6
+    .registers 12
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "minWidth"    # I
     .param p3, "maxWidth"    # I
@@ -223,7 +223,7 @@
 .end method
 
 .method private convertFromFraction(Ljava/math/BigDecimal;)J
-    .locals 6
+    .registers 8
     .param p1, "fraction"    # Ljava/math/BigDecimal;
 
     .line 3274
@@ -291,7 +291,7 @@
 .end method
 
 .method private convertToFraction(J)Ljava/math/BigDecimal;
-    .locals 6
+    .registers 9
     .param p1, "value"    # J
 
     .line 3247
@@ -364,25 +364,25 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_40
 
     sget-object v5, Ljava/math/BigDecimal;->ZERO:Ljava/math/BigDecimal;
 
-    goto :goto_0
+    goto :goto_44
 
-    :cond_0
+    :cond_40
     invoke-static {v4}, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
     move-result-object v5
 
-    :goto_0
+    :goto_44
     return-object v5
 .end method
 
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 6
+    .registers 9
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -395,7 +395,7 @@
 
     .line 3163
     .local v0, "value":Ljava/lang/Long;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 3164
     const/4 v1, 0x0
@@ -403,7 +403,7 @@
     return v1
 
     .line 3166
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Lj$/time/format/DateTimePrintContext;->getDecimalStyle()Lj$/time/format/DecimalStyle;
 
     move-result-object v1
@@ -424,17 +424,17 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_3b
 
     .line 3169
     iget v3, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->minWidth:I
 
-    if-lez v3, :cond_5
+    if-lez v3, :cond_6c
 
     .line 3170
     iget-boolean v3, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->decimalPoint:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2b
 
     .line 3171
     invoke-virtual {v1}, Lj$/time/format/DecimalStyle;->getDecimalSeparator()C
@@ -444,14 +444,14 @@
     invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 3173
-    :cond_1
+    :cond_2b
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_2c
     iget v4, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->minWidth:I
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_3a
 
     .line 3174
     invoke-virtual {v1}, Lj$/time/format/DecimalStyle;->getZeroDigit()C
@@ -463,14 +463,14 @@
     .line 3173
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .end local v3    # "i":I
-    :cond_2
-    goto :goto_1
+    :cond_3a
+    goto :goto_6c
 
     .line 3178
-    :cond_3
+    :cond_3b
     invoke-virtual {v2}, Ljava/math/BigDecimal;->scale()I
 
     move-result v3
@@ -515,7 +515,7 @@
     .line 3182
     iget-boolean v5, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->decimalPoint:Z
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_69
 
     .line 3183
     invoke-virtual {v1}, Lj$/time/format/DecimalStyle;->getDecimalSeparator()C
@@ -525,21 +525,21 @@
     invoke-virtual {p2, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 3185
-    :cond_4
+    :cond_69
     invoke-virtual {p2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 3187
     .end local v3    # "outputScale":I
     .end local v4    # "str":Ljava/lang/String;
-    :cond_5
-    :goto_1
+    :cond_6c
+    :goto_6c
     const/4 v3, 0x1
 
     return v3
 .end method
 
 .method isFixedWidth(Lj$/time/format/DateTimeParseContext;)Z
-    .locals 2
+    .registers 4
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
 
     .line 3154
@@ -547,17 +547,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget v0, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->minWidth:I
 
     iget v1, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->maxWidth:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     iget-boolean v0, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->decimalPoint:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 3155
     const/4 v0, 0x1
@@ -565,14 +565,14 @@
     return v0
 
     .line 3157
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 19
+    .registers 23
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -586,80 +586,80 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_13
 
     invoke-virtual/range {p0 .. p1}, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->isFixedWidth(Lj$/time/format/DateTimeParseContext;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     iget v2, v0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->minWidth:I
 
     .line 3193
     .local v2, "effectiveMin":I
-    :goto_1
+    :goto_15
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->isStrict()Z
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_25
 
     invoke-virtual/range {p0 .. p1}, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->isFixedWidth(Lj$/time/format/DateTimeParseContext;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_22
 
-    goto :goto_2
+    goto :goto_25
 
-    :cond_2
+    :cond_22
     const/16 v3, 0x9
 
-    goto :goto_3
+    goto :goto_27
 
-    :cond_3
-    :goto_2
+    :cond_25
+    :goto_25
     iget v3, v0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->maxWidth:I
 
     .line 3194
     .local v3, "effectiveMax":I
-    :goto_3
+    :goto_27
     invoke-interface/range {p2 .. p2}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
     .line 3195
     .local v4, "length":I
-    if-ne v1, v4, :cond_5
+    if-ne v1, v4, :cond_33
 
     .line 3197
-    if-lez v2, :cond_4
+    if-lez v2, :cond_31
 
     not-int v5, v1
 
-    goto :goto_4
+    goto :goto_32
 
-    :cond_4
+    :cond_31
     move v5, v1
 
-    :goto_4
+    :goto_32
     return v5
 
     .line 3199
-    :cond_5
+    :cond_33
     iget-boolean v5, v0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->decimalPoint:Z
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_4d
 
     .line 3200
     invoke-interface/range {p2 .. p3}, Ljava/lang/CharSequence;->charAt(I)C
@@ -674,34 +674,34 @@
 
     move-result v6
 
-    if-eq v5, v6, :cond_7
+    if-eq v5, v6, :cond_4b
 
     .line 3202
-    if-lez v2, :cond_6
+    if-lez v2, :cond_49
 
     not-int v5, v1
 
-    goto :goto_5
+    goto :goto_4a
 
-    :cond_6
+    :cond_49
     move v5, v1
 
-    :goto_5
+    :goto_4a
     return v5
 
     .line 3204
-    :cond_7
+    :cond_4b
     add-int/lit8 v1, v1, 0x1
 
     .line 3206
     .end local p3    # "position":I
     .local v1, "position":I
-    :cond_8
+    :cond_4d
     add-int v11, v1, v2
 
     .line 3207
     .local v11, "minEndPos":I
-    if-le v11, v4, :cond_9
+    if-le v11, v4, :cond_53
 
     .line 3208
     not-int v5, v1
@@ -709,7 +709,7 @@
     return v5
 
     .line 3210
-    :cond_9
+    :cond_53
     add-int v5, v1, v3
 
     invoke-static {v5, v4}, Ljava/lang/Math;->min(II)I
@@ -730,8 +730,8 @@
     .end local v5    # "total":I
     .local v6, "pos":I
     .local v13, "total":I
-    :goto_6
-    if-ge v6, v12, :cond_c
+    :goto_5c
+    if-ge v6, v12, :cond_7e
 
     .line 3214
     add-int/lit8 v5, v6, 0x1
@@ -756,10 +756,10 @@
 
     .line 3216
     .local v7, "digit":I
-    if-gez v7, :cond_b
+    if-gez v7, :cond_78
 
     .line 3217
-    if-ge v5, v11, :cond_a
+    if-ge v5, v11, :cond_74
 
     .line 3218
     not-int v8, v1
@@ -767,16 +767,16 @@
     return v8
 
     .line 3220
-    :cond_a
+    :cond_74
     add-int/lit8 v5, v5, -0x1
 
     .line 3221
     move v15, v5
 
-    goto :goto_7
+    goto :goto_81
 
     .line 3223
-    :cond_b
+    :cond_78
     mul-int/lit8 v8, v13, 0xa
 
     add-int v13, v8, v7
@@ -786,12 +786,12 @@
     .end local v7    # "digit":I
     move v6, v5
 
-    goto :goto_6
+    goto :goto_5c
 
     .line 3213
     .end local v5    # "pos":I
     .local v6, "pos":I
-    :cond_c
+    :cond_7e
     move-object/from16 v14, p2
 
     move v15, v6
@@ -799,7 +799,7 @@
     .line 3225
     .end local v6    # "pos":I
     .local v15, "pos":I
-    :goto_7
+    :goto_81
     new-instance v5, Ljava/math/BigDecimal;
 
     invoke-direct {v5, v13}, Ljava/math/BigDecimal;-><init>(I)V
@@ -840,23 +840,23 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 3283
     iget-boolean v0, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->decimalPoint:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const-string v0, ",DecimalPoint"
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     const-string v0, ""
 
     .line 3284
     .local v0, "decimal":Ljava/lang/String;
-    :goto_0
+    :goto_9
     iget-object v1, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->field:Lj$/time/temporal/TemporalField;
 
     iget v2, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->minWidth:I
@@ -913,20 +913,20 @@
 .end method
 
 .method withFixedWidth()Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;
-    .locals 8
+    .registers 9
 
     .line 3128
     iget v0, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->subsequentWidth:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
     .line 3129
     return-object p0
 
     .line 3131
-    :cond_0
+    :cond_6
     new-instance v0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;
 
     iget-object v3, p0, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -947,7 +947,7 @@
 .end method
 
 .method bridge synthetic withFixedWidth()Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
-    .locals 1
+    .registers 2
 
     .line 3078
     invoke-virtual {p0}, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->withFixedWidth()Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;
@@ -958,7 +958,7 @@
 .end method
 
 .method withSubsequentWidth(I)Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;
-    .locals 7
+    .registers 9
     .param p1, "subsequentWidth"    # I
 
     .line 3142
@@ -984,7 +984,7 @@
 .end method
 
 .method bridge synthetic withSubsequentWidth(I)Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
-    .locals 0
+    .registers 2
 
     .line 3078
     invoke-virtual {p0, p1}, Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;->withSubsequentWidth(I)Lj$/time/format/DateTimeFormatterBuilder$FractionPrinterParser;

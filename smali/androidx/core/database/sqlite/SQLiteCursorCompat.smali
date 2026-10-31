@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static setFillWindowForwardOnly(Landroid/database/sqlite/SQLiteCursor;Z)V
-    .locals 2
+    .registers 4
     .param p0, "cursor"    # Landroid/database/sqlite/SQLiteCursor;
     .param p1, "fillWindowForwardOnly"    # Z
 
@@ -32,12 +32,12 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_9
 
     .line 49
     invoke-static {p0, p1}, Landroidx/core/database/sqlite/SQLiteCursorCompat$Api28Impl;->setFillWindowForwardOnly(Landroid/database/sqlite/SQLiteCursor;Z)V
 
     .line 51
-    :cond_0
+    :cond_9
     return-void
 .end method

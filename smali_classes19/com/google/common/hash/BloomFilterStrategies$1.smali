@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 47
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public mightContain(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;)Z
-    .locals 10
+    .registers 15
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/hash/ParametricNullness;
         .end annotation
@@ -86,8 +86,8 @@
     const/4 v5, 0x1
 
     .local v5, "i":I
-    :goto_0
-    if-gt v5, p3, :cond_2
+    :goto_17
+    if-gt v5, p3, :cond_2c
 
     .line 83
     mul-int v7, v5, v6
@@ -96,13 +96,13 @@
 
     .line 85
     .local v7, "combinedHash":I
-    if-gez v7, :cond_0
+    if-gez v7, :cond_1f
 
     .line 86
     not-int v7, v7
 
     .line 88
-    :cond_0
+    :cond_1f
     int-to-long v8, v7
 
     rem-long/2addr v8, v0
@@ -111,7 +111,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_29
 
     .line 89
     const/4 v8, 0x0
@@ -120,21 +120,21 @@
 
     .line 82
     .end local v7    # "combinedHash":I
-    :cond_1
+    :cond_29
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 92
     .end local v5    # "i":I
-    :cond_2
+    :cond_2c
     const/4 v5, 0x1
 
     return v5
 .end method
 
 .method public put(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;)Z
-    .locals 11
+    .registers 16
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/hash/ParametricNullness;
         .end annotation
@@ -195,8 +195,8 @@
     const/4 v7, 0x1
 
     .local v7, "i":I
-    :goto_0
-    if-gt v7, p3, :cond_1
+    :goto_18
+    if-gt v7, p3, :cond_2a
 
     .line 61
     mul-int v8, v7, v6
@@ -205,13 +205,13 @@
 
     .line 63
     .local v8, "combinedHash":I
-    if-gez v8, :cond_0
+    if-gez v8, :cond_20
 
     .line 64
     not-int v8, v8
 
     .line 66
-    :cond_0
+    :cond_20
     int-to-long v9, v8
 
     rem-long/2addr v9, v0
@@ -226,10 +226,10 @@
     .end local v8    # "combinedHash":I
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 68
     .end local v7    # "i":I
-    :cond_1
+    :cond_2a
     return v5
 .end method

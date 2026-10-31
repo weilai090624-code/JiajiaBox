@@ -73,7 +73,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 473
     new-instance v0, Lcom/google/android/material/badge/BadgeState$State$1;
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 451
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -118,7 +118,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 453
@@ -292,7 +292,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/badge/BadgeState$State;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -302,7 +302,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/android/material/badge/BadgeState$State;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # I
 
@@ -313,7 +313,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/badge/BadgeState$State;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -323,7 +323,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -333,7 +333,7 @@
 .end method
 
 .method static synthetic access$1002(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/lang/Integer;
 
@@ -344,7 +344,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/google/android/material/badge/BadgeState$State;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # I
 
@@ -355,7 +355,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -365,7 +365,7 @@
 .end method
 
 .method static synthetic access$1102(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/lang/Integer;
 
@@ -376,7 +376,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -386,7 +386,7 @@
 .end method
 
 .method static synthetic access$1202(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/lang/Integer;
 
@@ -397,7 +397,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -407,7 +407,7 @@
 .end method
 
 .method static synthetic access$1302(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/lang/Integer;
 
@@ -418,7 +418,7 @@
 .end method
 
 .method static synthetic access$1400(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -428,7 +428,7 @@
 .end method
 
 .method static synthetic access$1402(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/lang/Integer;
 
@@ -439,7 +439,7 @@
 .end method
 
 .method static synthetic access$1500(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -449,7 +449,7 @@
 .end method
 
 .method static synthetic access$1502(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/lang/Integer;
 
@@ -460,7 +460,7 @@
 .end method
 
 .method static synthetic access$1600(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -470,7 +470,7 @@
 .end method
 
 .method static synthetic access$1602(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/lang/Integer;
 
@@ -481,7 +481,7 @@
 .end method
 
 .method static synthetic access$1700(Lcom/google/android/material/badge/BadgeState$State;)Ljava/util/Locale;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -491,7 +491,7 @@
 .end method
 
 .method static synthetic access$1702(Lcom/google/android/material/badge/BadgeState$State;Ljava/util/Locale;)Ljava/util/Locale;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/util/Locale;
 
@@ -502,7 +502,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -512,7 +512,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/lang/CharSequence;
 
@@ -523,7 +523,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/badge/BadgeState$State;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -533,7 +533,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/google/android/material/badge/BadgeState$State;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # I
 
@@ -544,7 +544,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/android/material/badge/BadgeState$State;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -554,7 +554,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/google/android/material/badge/BadgeState$State;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # I
 
@@ -565,7 +565,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -575,7 +575,7 @@
 .end method
 
 .method static synthetic access$502(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Boolean;)Ljava/lang/Boolean;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/lang/Boolean;
 
@@ -586,7 +586,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/android/material/badge/BadgeState$State;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -596,7 +596,7 @@
 .end method
 
 .method static synthetic access$602(Lcom/google/android/material/badge/BadgeState$State;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # I
 
@@ -607,7 +607,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/android/material/badge/BadgeState$State;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -617,7 +617,7 @@
 .end method
 
 .method static synthetic access$702(Lcom/google/android/material/badge/BadgeState$State;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # I
 
@@ -628,7 +628,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -638,7 +638,7 @@
 .end method
 
 .method static synthetic access$802(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/lang/Integer;
 
@@ -649,7 +649,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
 
     .line 410
@@ -659,7 +659,7 @@
 .end method
 
 .method static synthetic access$902(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeState$State;
     .param p1, "x1"    # Ljava/lang/Integer;
 
@@ -672,7 +672,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 490
     const/4 v0, 0x0
@@ -681,7 +681,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
@@ -721,13 +721,13 @@
     .line 502
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeState$State;->contentDescriptionNumberless:Ljava/lang/CharSequence;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_25
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeState$State;->contentDescriptionNumberless:Ljava/lang/CharSequence;
 
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
@@ -735,7 +735,7 @@
     move-result-object v0
 
     .line 501
-    :goto_0
+    :goto_2b
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 503

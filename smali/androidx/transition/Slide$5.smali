@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 130
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public getGoneX(Landroid/view/ViewGroup;Landroid/view/View;)F
-    .locals 3
+    .registers 6
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
 
@@ -40,19 +40,19 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     move v0, v1
 
     .line 136
     .local v0, "isRtl":Z
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 137
     invoke-virtual {p2}, Landroid/view/View;->getTranslationX()F
@@ -68,11 +68,11 @@
     sub-float/2addr v1, v2
 
     .local v1, "x":F
-    goto :goto_1
+    goto :goto_21
 
     .line 139
     .end local v1    # "x":F
-    :cond_1
+    :cond_17
     invoke-virtual {p2}, Landroid/view/View;->getTranslationX()F
 
     move-result v1
@@ -87,6 +87,6 @@
 
     .line 141
     .restart local v1    # "x":F
-    :goto_1
+    :goto_21
     return v1
 .end method

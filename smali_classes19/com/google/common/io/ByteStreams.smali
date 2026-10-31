@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 644
     new-instance v0, Lcom/google/common/io/ByteStreams$1;
@@ -43,7 +43,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method private static combineBuffers(Ljava/util/Queue;I)[B
-    .locals 6
+    .registers 8
     .param p1, "totalLen"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,8 +72,8 @@
 
     .line 205
     .local v1, "remaining":I
-    :goto_0
-    if-lez v1, :cond_0
+    :goto_3
+    if-lez v1, :cond_18
 
     .line 206
     invoke-interface {p0}, Ljava/util/Queue;->remove()Ljava/lang/Object;
@@ -107,15 +107,15 @@
     .end local v2    # "buf":[B
     .end local v3    # "bytesToCopy":I
     .end local v4    # "resultOffset":I
-    goto :goto_0
+    goto :goto_3
 
     .line 212
-    :cond_0
+    :cond_18
     return-object v0
 .end method
 
 .method public static copy(Ljava/io/InputStream;Ljava/io/OutputStream;)J
-    .locals 6
+    .registers 8
     .param p0, "from"    # Ljava/io/InputStream;
     .param p1, "to"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
@@ -141,7 +141,7 @@
 
     .line 112
     .local v1, "total":J
-    :goto_0
+    :goto_c
     invoke-virtual {p0, v0}, Ljava/io/InputStream;->read([B)I
 
     move-result v3
@@ -150,7 +150,7 @@
     .local v3, "r":I
     const/4 v4, -0x1
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_15
 
     .line 114
     nop
@@ -161,7 +161,7 @@
 
     .line 116
     .restart local v3    # "r":I
-    :cond_0
+    :cond_15
     const/4 v4, 0x0
 
     invoke-virtual {p1, v0, v4, v3}, Ljava/io/OutputStream;->write([BII)V
@@ -173,11 +173,11 @@
 
     .line 118
     .end local v3    # "r":I
-    goto :goto_0
+    goto :goto_c
 .end method
 
 .method public static copy(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/channels/WritableByteChannel;)J
-    .locals 11
+    .registers 13
     .param p0, "from"    # Ljava/nio/channels/ReadableByteChannel;
     .param p1, "to"    # Ljava/nio/channels/WritableByteChannel;
     .annotation system Ldalvik/annotation/Throws;
@@ -195,7 +195,7 @@
     .line 135
     instance-of v0, p0, Ljava/nio/channels/FileChannel;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     .line 136
     move-object v0, p0
@@ -216,7 +216,7 @@
 
     .line 141
     .local v9, "position":J
-    :cond_0
+    :cond_13
     const-wide/32 v4, 0x80000
 
     move-object v1, v0
@@ -241,7 +241,7 @@
 
     cmp-long v5, v1, v3
 
-    if-gtz v5, :cond_0
+    if-gtz v5, :cond_13
 
     invoke-virtual {v0}, Ljava/nio/channels/FileChannel;->size()J
 
@@ -249,7 +249,7 @@
 
     cmp-long v5, v9, v3
 
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_13
 
     .line 145
     sub-long v3, v9, v7
@@ -261,7 +261,7 @@
     .end local v1    # "copied":J
     .end local v7    # "oldPosition":J
     .end local v9    # "position":J
-    :cond_1
+    :cond_32
     invoke-static {}, Lcom/google/common/io/ByteStreams;->createBuffer()[B
 
     move-result-object v0
@@ -276,25 +276,25 @@
 
     .line 150
     .local v1, "total":J
-    :goto_0
+    :goto_3c
     invoke-interface {p0, v0}, Ljava/nio/channels/ReadableByteChannel;->read(Ljava/nio/ByteBuffer;)I
 
     move-result v3
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_57
 
     .line 151
     invoke-static {v0}, Lcom/google/common/io/Java8Compatibility;->flip(Ljava/nio/Buffer;)V
 
     .line 152
-    :goto_1
+    :goto_46
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_53
 
     .line 153
     invoke-interface {p1, v0}, Ljava/nio/channels/WritableByteChannel;->write(Ljava/nio/ByteBuffer;)I
@@ -305,21 +305,21 @@
 
     add-long/2addr v1, v3
 
-    goto :goto_1
+    goto :goto_46
 
     .line 155
-    :cond_2
+    :cond_53
     invoke-static {v0}, Lcom/google/common/io/Java8Compatibility;->clear(Ljava/nio/Buffer;)V
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 157
-    :cond_3
+    :cond_57
     return-wide v1
 .end method
 
 .method static createBuffer()[B
-    .locals 1
+    .registers 1
 
     .line 62
     const/16 v0, 0x2000
@@ -330,7 +330,7 @@
 .end method
 
 .method public static exhaust(Ljava/io/InputStream;)J
-    .locals 10
+    .registers 11
     .param p0, "in"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -349,7 +349,7 @@
 
     .line 277
     .local v2, "buf":[B
-    :goto_0
+    :goto_6
     invoke-virtual {p0, v2}, Ljava/io/InputStream;->read([B)I
 
     move-result v3
@@ -363,20 +363,20 @@
 
     cmp-long v9, v3, v7
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_14
 
     .line 278
     add-long/2addr v0, v5
 
-    goto :goto_0
+    goto :goto_6
 
     .line 280
-    :cond_0
+    :cond_14
     return-wide v0
 .end method
 
 .method public static limit(Ljava/io/InputStream;J)Ljava/io/InputStream;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Ljava/io/InputStream;
     .param p1, "limit"    # J
 
@@ -389,7 +389,7 @@
 .end method
 
 .method public static newDataInput(Ljava/io/ByteArrayInputStream;)Lcom/google/common/io/ByteArrayDataInput;
-    .locals 2
+    .registers 3
     .param p0, "byteArrayInputStream"    # Ljava/io/ByteArrayInputStream;
 
     .line 314
@@ -407,7 +407,7 @@
 .end method
 
 .method public static newDataInput([B)Lcom/google/common/io/ByteArrayDataInput;
-    .locals 1
+    .registers 2
     .param p0, "bytes"    # [B
 
     .line 289
@@ -423,7 +423,7 @@
 .end method
 
 .method public static newDataInput([BI)Lcom/google/common/io/ByteArrayDataInput;
-    .locals 2
+    .registers 4
     .param p0, "bytes"    # [B
     .param p1, "start"    # I
 
@@ -449,7 +449,7 @@
 .end method
 
 .method public static newDataOutput()Lcom/google/common/io/ByteArrayDataOutput;
-    .locals 1
+    .registers 1
 
     .line 466
     new-instance v0, Ljava/io/ByteArrayOutputStream;
@@ -464,11 +464,11 @@
 .end method
 
 .method public static newDataOutput(I)Lcom/google/common/io/ByteArrayDataOutput;
-    .locals 4
+    .registers 5
     .param p0, "size"    # I
 
     .line 479
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_c
 
     .line 482
     new-instance v0, Ljava/io/ByteArrayOutputStream;
@@ -482,7 +482,7 @@
     return-object v0
 
     .line 480
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -509,7 +509,7 @@
 .end method
 
 .method public static newDataOutput(Ljava/io/ByteArrayOutputStream;)Lcom/google/common/io/ByteArrayDataOutput;
-    .locals 2
+    .registers 3
     .param p0, "byteArrayOutputStream"    # Ljava/io/ByteArrayOutputStream;
 
     .line 499
@@ -527,7 +527,7 @@
 .end method
 
 .method public static nullOutputStream()Ljava/io/OutputStream;
-    .locals 1
+    .registers 1
 
     .line 675
     sget-object v0, Lcom/google/common/io/ByteStreams;->NULL_OUTPUT_STREAM:Ljava/io/OutputStream;
@@ -536,7 +536,7 @@
 .end method
 
 .method public static read(Ljava/io/InputStream;[BII)I
-    .locals 4
+    .registers 8
     .param p0, "in"    # Ljava/io/InputStream;
     .param p1, "b"    # [B
     .param p2, "off"    # I
@@ -554,7 +554,7 @@
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 921
-    if-ltz p3, :cond_2
+    if-ltz p3, :cond_20
 
     .line 924
     add-int v0, p2, p3
@@ -568,8 +568,8 @@
 
     .line 926
     .local v0, "total":I
-    :goto_0
-    if-ge v0, p3, :cond_1
+    :goto_f
+    if-ge v0, p3, :cond_1f
 
     .line 927
     add-int v1, p2, v0
@@ -584,27 +584,27 @@
     .local v1, "result":I
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1d
 
     .line 929
-    goto :goto_1
+    goto :goto_1f
 
     .line 931
-    :cond_0
+    :cond_1d
     add-int/2addr v0, v1
 
     .line 932
     .end local v1    # "result":I
-    goto :goto_0
+    goto :goto_f
 
     .line 933
-    :cond_1
-    :goto_1
+    :cond_1f
+    :goto_1f
     return v0
 
     .line 922
     .end local v0    # "total":I
-    :cond_2
+    :cond_20
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -631,7 +631,7 @@
 .end method
 
 .method public static readBytes(Ljava/io/InputStream;Lcom/google/common/io/ByteProcessor;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "input"    # Ljava/io/InputStream;
     .annotation runtime Lcom/google/common/io/ParametricNullness;
     .end annotation
@@ -667,7 +667,7 @@
 
     .line 885
     .local v0, "buf":[B
-    :cond_0
+    :cond_a
     invoke-virtual {p0, v0}, Ljava/io/InputStream;->read([B)I
 
     move-result v1
@@ -676,7 +676,7 @@
     .local v1, "read":I
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_18
 
     const/4 v2, 0x0
 
@@ -684,10 +684,10 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_a
 
     .line 887
-    :cond_1
+    :cond_18
     invoke-interface {p1}, Lcom/google/common/io/ByteProcessor;->getResult()Ljava/lang/Object;
 
     move-result-object v2
@@ -696,7 +696,7 @@
 .end method
 
 .method public static readFully(Ljava/io/InputStream;[B)V
-    .locals 2
+    .registers 4
     .param p0, "in"    # Ljava/io/InputStream;
     .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
@@ -717,7 +717,7 @@
 .end method
 
 .method public static readFully(Ljava/io/InputStream;[BII)V
-    .locals 4
+    .registers 8
     .param p0, "in"    # Ljava/io/InputStream;
     .param p1, "b"    # [B
     .param p2, "off"    # I
@@ -735,13 +735,13 @@
 
     .line 793
     .local v0, "read":I
-    if-ne v0, p3, :cond_0
+    if-ne v0, p3, :cond_7
 
     .line 797
     return-void
 
     .line 794
-    :cond_0
+    :cond_7
     new-instance v1, Ljava/io/EOFException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -786,7 +786,7 @@
 .end method
 
 .method public static skipFully(Ljava/io/InputStream;J)V
-    .locals 5
+    .registers 8
     .param p0, "in"    # Ljava/io/InputStream;
     .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -804,13 +804,13 @@
     .local v0, "skipped":J
     cmp-long v2, v0, p1
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_9
 
     .line 815
     return-void
 
     .line 812
-    :cond_0
+    :cond_9
     new-instance v2, Ljava/io/EOFException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -855,7 +855,7 @@
 .end method
 
 .method private static skipSafely(Ljava/io/InputStream;J)J
-    .locals 3
+    .registers 6
     .param p0, "in"    # Ljava/io/InputStream;
     .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -871,13 +871,13 @@
 
     .line 862
     .local v0, "available":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const-wide/16 v1, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_9
     int-to-long v1, v0
 
     invoke-static {v1, v2, p1, p2}, Ljava/lang/Math;->min(JJ)J
@@ -888,12 +888,12 @@
 
     move-result-wide v1
 
-    :goto_0
+    :goto_12
     return-wide v1
 .end method
 
 .method static skipUpTo(Ljava/io/InputStream;J)J
-    .locals 13
+    .registers 16
     .param p0, "in"    # Ljava/io/InputStream;
     .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -911,10 +911,10 @@
 
     .line 827
     .local v2, "buf":[B
-    :goto_0
+    :goto_3
     cmp-long v3, v0, p1
 
-    if-gez v3, :cond_2
+    if-gez v3, :cond_2e
 
     .line 828
     sub-long v3, p1, v0
@@ -931,7 +931,7 @@
 
     cmp-long v9, v5, v7
 
-    if-nez v9, :cond_1
+    if-nez v9, :cond_2c
 
     .line 834
     const-wide/16 v7, 0x2000
@@ -944,13 +944,13 @@
 
     .line 835
     .local v8, "skip":I
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1e
 
     .line 839
     new-array v2, v8, [B
 
     .line 841
-    :cond_0
+    :cond_1e
     const/4 v7, 0x0
 
     invoke-virtual {p0, v2, v7, v8}, Ljava/io/InputStream;->read([BII)I
@@ -965,29 +965,29 @@
 
     cmp-long v7, v9, v11
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_2c
 
     .line 843
-    goto :goto_1
+    goto :goto_2e
 
     .line 847
     .end local v8    # "skip":I
-    :cond_1
+    :cond_2c
     add-long/2addr v0, v5
 
     .line 848
     .end local v3    # "remaining":J
     .end local v5    # "skipped":J
-    goto :goto_0
+    goto :goto_3
 
     .line 850
-    :cond_2
-    :goto_1
+    :cond_2e
+    :goto_2e
     return-wide v0
 .end method
 
 .method public static toByteArray(Ljava/io/InputStream;)[B
-    .locals 2
+    .registers 3
     .param p0, "in"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1015,7 +1015,7 @@
 .end method
 
 .method static toByteArray(Ljava/io/InputStream;J)[B
-    .locals 8
+    .registers 11
     .param p0, "in"    # Ljava/io/InputStream;
     .param p1, "expectedSize"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -1033,16 +1033,16 @@
 
     cmp-long v4, p1, v0
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     const-string v1, "expectedSize (%s) must be non-negative"
 
     invoke-static {v0, v1, p1, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -1052,7 +1052,7 @@
 
     cmp-long v4, p1, v0
 
-    if-gtz v4, :cond_4
+    if-gtz v4, :cond_4d
 
     .line 238
     long-to-int v0, p1
@@ -1065,10 +1065,10 @@
 
     .line 241
     .local v1, "remaining":I
-    :goto_1
+    :goto_1b
     const/4 v4, -0x1
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_2d
 
     .line 242
     long-to-int v5, p1
@@ -1083,7 +1083,7 @@
 
     .line 244
     .local v6, "read":I
-    if-ne v6, v4, :cond_1
+    if-ne v6, v4, :cond_2b
 
     .line 247
     invoke-static {v0, v5}, Ljava/util/Arrays;->copyOf([BI)[B
@@ -1093,29 +1093,29 @@
     return-object v2
 
     .line 249
-    :cond_1
+    :cond_2b
     sub-int/2addr v1, v6
 
     .line 250
     .end local v5    # "off":I
     .end local v6    # "read":I
-    goto :goto_1
+    goto :goto_1b
 
     .line 253
-    :cond_2
+    :cond_2d
     invoke-virtual {p0}, Ljava/io/InputStream;->read()I
 
     move-result v5
 
     .line 254
     .local v5, "b":I
-    if-ne v5, v4, :cond_3
+    if-ne v5, v4, :cond_34
 
     .line 255
     return-object v0
 
     .line 259
-    :cond_3
+    :cond_34
     new-instance v4, Ljava/util/ArrayDeque;
 
     const/16 v6, 0x16
@@ -1151,7 +1151,7 @@
     .end local v1    # "remaining":I
     .end local v4    # "bufs":Ljava/util/Queue;, "Ljava/util/Queue<[B>;"
     .end local v5    # "b":I
-    :cond_4
+    :cond_4d
     new-instance v0, Ljava/lang/OutOfMemoryError;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1180,7 +1180,7 @@
 .end method
 
 .method private static toByteArrayInternal(Ljava/io/InputStream;Ljava/util/Queue;I)[B
-    .locals 5
+    .registers 8
     .param p0, "in"    # Ljava/io/InputStream;
     .param p2, "totalLen"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1204,12 +1204,12 @@
 
     .line 177
     .local v0, "bufSize":I
-    :goto_0
+    :goto_2
     const/4 v1, -0x1
 
     const v2, 0x7ffffff7
 
-    if-ge p2, v2, :cond_2
+    if-ge p2, v2, :cond_2c
 
     .line 179
     sub-int/2addr v2, p2
@@ -1229,10 +1229,10 @@
 
     .line 182
     .local v3, "off":I
-    :goto_1
+    :goto_13
     array-length v4, v2
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_26
 
     .line 184
     array-length v4, v2
@@ -1245,7 +1245,7 @@
 
     .line 185
     .local v4, "r":I
-    if-ne v4, v1, :cond_0
+    if-ne v4, v1, :cond_23
 
     .line 186
     invoke-static {p1, p2}, Lcom/google/common/io/ByteStreams;->combineBuffers(Ljava/util/Queue;I)[B
@@ -1255,7 +1255,7 @@
     return-object v1
 
     .line 188
-    :cond_0
+    :cond_23
     add-int/2addr v3, v4
 
     .line 189
@@ -1263,28 +1263,28 @@
 
     .line 190
     .end local v4    # "r":I
-    goto :goto_1
+    goto :goto_13
 
     .line 178
     .end local v2    # "buf":[B
     .end local v3    # "off":I
-    :cond_1
+    :cond_26
     const/4 v1, 0x2
 
     invoke-static {v0, v1}, Lcom/google/common/math/IntMath;->saturatedMultiply(II)I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_2
 
     .line 194
     .end local v0    # "bufSize":I
-    :cond_2
+    :cond_2c
     invoke-virtual {p0}, Ljava/io/InputStream;->read()I
 
     move-result v0
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_37
 
     .line 196
     invoke-static {p1, v2}, Lcom/google/common/io/ByteStreams;->combineBuffers(Ljava/util/Queue;I)[B
@@ -1294,7 +1294,7 @@
     return-object v0
 
     .line 198
-    :cond_3
+    :cond_37
     new-instance v0, Ljava/lang/OutOfMemoryError;
 
     const-string v1, "input is too large to fit in a byte array"

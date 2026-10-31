@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 274
     new-instance v0, Lcom/google/common/math/LinearTransformation$NaNLinearTransformation;
@@ -33,7 +33,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 272
     invoke-direct {p0}, Lcom/google/common/math/LinearTransformation;-><init>()V
@@ -44,14 +44,14 @@
 
 # virtual methods
 .method public inverse()Lcom/google/common/math/LinearTransformation;
-    .locals 0
+    .registers 1
 
     .line 298
     return-object p0
 .end method
 
 .method public isHorizontal()Z
-    .locals 1
+    .registers 2
 
     .line 283
     const/4 v0, 0x0
@@ -60,7 +60,7 @@
 .end method
 
 .method public isVertical()Z
-    .locals 1
+    .registers 2
 
     .line 278
     const/4 v0, 0x0
@@ -69,7 +69,7 @@
 .end method
 
 .method public slope()D
-    .locals 2
+    .registers 3
 
     .line 288
     const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
@@ -78,7 +78,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 303
     const-string v0, "NaN"
@@ -87,7 +87,7 @@
 .end method
 
 .method public transform(D)D
-    .locals 2
+    .registers 5
     .param p1, "x"    # D
 
     .line 293

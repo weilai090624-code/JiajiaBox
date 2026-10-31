@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Comparator;Ljava/util/Comparator;)V
-    .locals 0
+    .registers 3
 
     .line 113
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableTable$1;->val$rowComparator:Ljava/util/Comparator;
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public compare(Lcom/google/common/collect/Table$Cell;Lcom/google/common/collect/Table$Cell;)I
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,15 +67,15 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 118
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
     .line 119
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableTable$1;->val$rowComparator:Ljava/util/Comparator;
 
     invoke-interface {p1}, Lcom/google/common/collect/Table$Cell;->getRowKey()Ljava/lang/Object;
@@ -90,27 +90,27 @@
 
     move-result v0
 
-    :goto_0
+    :goto_15
     nop
 
     .line 120
     .local v0, "rowCompare":I
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 121
     return v0
 
     .line 123
-    :cond_1
+    :cond_19
     iget-object v2, p0, Lcom/google/common/collect/RegularImmutableTable$1;->val$columnComparator:Ljava/util/Comparator;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1e
 
     .line 124
-    goto :goto_1
+    goto :goto_2c
 
     .line 125
-    :cond_2
+    :cond_1e
     iget-object v1, p0, Lcom/google/common/collect/RegularImmutableTable$1;->val$columnComparator:Ljava/util/Comparator;
 
     invoke-interface {p1}, Lcom/google/common/collect/Table$Cell;->getColumnKey()Ljava/lang/Object;
@@ -126,12 +126,12 @@
     move-result v1
 
     .line 123
-    :goto_1
+    :goto_2c
     return v1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 113
     check-cast p1, Lcom/google/common/collect/Table$Cell;

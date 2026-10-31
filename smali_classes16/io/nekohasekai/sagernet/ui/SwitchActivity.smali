@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 10
     const v0, 0x7f0d0043
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public isDialog()Z
-    .locals 1
+    .registers 2
 
     .line 13
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/SwitchActivity;->isDialog:Z
@@ -73,7 +73,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 5
+    .registers 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 16
@@ -119,7 +119,7 @@
 .end method
 
 .method public returnProfile(J)V
-    .locals 9
+    .registers 12
     .param p1, "profileId"    # J
 
     .line 27

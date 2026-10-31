@@ -31,7 +31,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingListenableFuture;, "Lcom/google/common/util/concurrent/ForwardingListenableFuture<TV;>;"
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p1, "listener"    # Ljava/lang/Runnable;
     .param p2, "exec"    # Ljava/util/concurrent/Executor;
 
@@ -70,7 +70,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 33
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingListenableFuture;, "Lcom/google/common/util/concurrent/ForwardingListenableFuture<TV;>;"
@@ -82,7 +82,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/concurrent/Future;
-    .locals 1
+    .registers 2
 
     .line 33
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingListenableFuture;, "Lcom/google/common/util/concurrent/ForwardingListenableFuture<TV;>;"

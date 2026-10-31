@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 130
     new-instance v0, Ljava/lang/ThreadLocal;
@@ -76,7 +76,7 @@
     sput v0, Lcom/google/common/cache/Striped64;->NCPU:I
 
     .line 275
-    :try_start_0
+    :try_start_18
     invoke-static {}, Lcom/google/common/cache/Striped64;->getUnsafe()Lsun/misc/Unsafe;
 
     move-result-object v0
@@ -116,8 +116,8 @@
     move-result-wide v1
 
     sput-wide v1, Lcom/google/common/cache/Striped64;->busyOffset:J
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3c
+    .catch Ljava/lang/Exception; {:try_start_18 .. :try_end_3c} :catch_3e
 
     .line 281
     .end local v0    # "sk":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
@@ -127,7 +127,7 @@
     return-void
 
     .line 279
-    :catch_0
+    :catch_3e
     move-exception v0
 
     .line 280
@@ -140,7 +140,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 151
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
@@ -149,7 +149,7 @@
 .end method
 
 .method static synthetic access$000()Lsun/misc/Unsafe;
-    .locals 1
+    .registers 1
 
     .line 26
     invoke-static {}, Lcom/google/common/cache/Striped64;->getUnsafe()Lsun/misc/Unsafe;
@@ -160,24 +160,24 @@
 .end method
 
 .method private static getUnsafe()Lsun/misc/Unsafe;
-    .locals 4
+    .registers 4
 
     .line 292
     :try_start_0
     invoke-static {}, Lsun/misc/Unsafe;->getUnsafe()Lsun/misc/Unsafe;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 293
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 296
-    :try_start_1
+    :try_start_6
     new-instance v0, Lcom/google/common/cache/Striped64$1;
 
     invoke-direct {v0}, Lcom/google/common/cache/Striped64$1;-><init>()V
@@ -187,13 +187,13 @@
     move-result-object v0
 
     check-cast v0, Lsun/misc/Unsafe;
-    :try_end_1
-    .catch Ljava/security/PrivilegedActionException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_11
+    .catch Ljava/security/PrivilegedActionException; {:try_start_6 .. :try_end_11} :catch_12
 
     return-object v0
 
     .line 309
-    :catch_1
+    :catch_12
     move-exception v0
 
     .line 310
@@ -214,7 +214,7 @@
 
 # virtual methods
 .method final casBase(JJ)Z
-    .locals 8
+    .registers 13
     .param p1, "cmp"    # J
     .param p3, "val"    # J
 
@@ -237,7 +237,7 @@
 .end method
 
 .method final casBusy()Z
-    .locals 6
+    .registers 7
 
     .line 160
     sget-object v0, Lcom/google/common/cache/Striped64;->UNSAFE:Lsun/misc/Unsafe;
@@ -261,7 +261,7 @@
 .end method
 
 .method final internalReset(J)V
-    .locals 4
+    .registers 7
     .param p1, "initialValue"    # J
 
     .line 257
@@ -272,7 +272,7 @@
     iput-wide p1, p0, Lcom/google/common/cache/Striped64;->base:J
 
     .line 259
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 260
     array-length v1, v0
@@ -282,34 +282,34 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_8
+    if-ge v2, v1, :cond_13
 
     .line 262
     aget-object v3, v0, v2
 
     .line 263
     .local v3, "a":Lcom/google/common/cache/Striped64$Cell;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_10
 
     iput-wide p1, v3, Lcom/google/common/cache/Striped64$Cell;->value:J
 
     .line 261
     .end local v3    # "a":Lcom/google/common/cache/Striped64$Cell;
-    :cond_0
+    :cond_10
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 266
     .end local v1    # "n":I
     .end local v2    # "i":I
-    :cond_1
+    :cond_13
     return-void
 .end method
 
 .method final retryUpdate(J[IZ)V
-    .locals 17
+    .registers 22
     .param p1, "x"    # J
     .param p3, "hc"    # [I
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -324,7 +324,7 @@
 
     const/4 v4, 0x0
 
-    if-nez p3, :cond_1
+    if-nez p3, :cond_1e
 
     .line 185
     sget-object v0, Lcom/google/common/cache/Striped64;->threadHashCode:Ljava/lang/ThreadLocal;
@@ -348,26 +348,26 @@
 
     .line 187
     .local v0, "r":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     move v5, v0
 
-    :goto_0
+    :goto_1a
     aput v5, v7, v4
 
     move v0, v5
 
     .line 188
     .local v0, "h":I
-    goto :goto_1
+    goto :goto_22
 
     .end local v0    # "h":I
     .end local v7    # "hc":[I
     .restart local p3    # "hc":[I
-    :cond_1
+    :cond_1e
     aget v0, p3, v4
 
     move-object/from16 v7, p3
@@ -376,7 +376,7 @@
     .end local p3    # "hc":[I
     .restart local v0    # "h":I
     .restart local v7    # "hc":[I
-    :goto_1
+    :goto_22
     const/4 v5, 0x0
 
     move v6, v0
@@ -391,21 +391,21 @@
     .local v5, "wasUncontended":Z
     .local v6, "h":I
     .local v8, "collide":Z
-    :cond_2
-    :goto_2
+    :cond_27
+    :goto_27
     iget-object v0, v1, Lcom/google/common/cache/Striped64;->cells:[Lcom/google/common/cache/Striped64$Cell;
 
     move-object v9, v0
 
     .local v9, "as":[Lcom/google/common/cache/Striped64$Cell;
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_da
 
     array-length v0, v9
 
     move v10, v0
 
     .local v10, "n":I
-    if-lez v0, :cond_e
+    if-lez v0, :cond_d7
 
     .line 196
     add-int/lit8 v0, v10, -0x1
@@ -417,12 +417,12 @@
     move-object v11, v0
 
     .local v11, "a":Lcom/google/common/cache/Striped64$Cell;
-    if-nez v0, :cond_5
+    if-nez v0, :cond_71
 
     .line 197
     iget v0, v1, Lcom/google/common/cache/Striped64;->busy:I
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_6f
 
     .line 198
     new-instance v0, Lcom/google/common/cache/Striped64$Cell;
@@ -435,33 +435,33 @@
     .local v12, "r":Lcom/google/common/cache/Striped64$Cell;
     iget v0, v1, Lcom/google/common/cache/Striped64;->busy:I
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_6f
 
     invoke-virtual/range {p0 .. p0}, Lcom/google/common/cache/Striped64;->casBusy()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6f
 
     .line 200
     const/4 v13, 0x0
 
     .line 204
     .local v13, "created":Z
-    :try_start_0
+    :try_start_4d
     iget-object v0, v1, Lcom/google/common/cache/Striped64;->cells:[Lcom/google/common/cache/Striped64$Cell;
 
     move-object v14, v0
 
     .local v14, "rs":[Lcom/google/common/cache/Striped64$Cell;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_62
 
     array-length v0, v14
 
     move v15, v0
 
     .local v15, "m":I
-    if-lez v0, :cond_3
+    if-lez v0, :cond_62
 
     add-int/lit8 v0, v15, -0x1
 
@@ -472,12 +472,12 @@
     .local v16, "j":I
     aget-object v0, v14, v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_62
 
     .line 205
     aput-object v12, v14, v16
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_61
+    .catchall {:try_start_4d .. :try_end_61} :catchall_6b
 
     .line 206
     const/4 v13, 0x1
@@ -486,21 +486,21 @@
     .end local v14    # "rs":[Lcom/google/common/cache/Striped64$Cell;
     .end local v15    # "m":I
     .end local v16    # "j":I
-    :cond_3
+    :cond_62
     iput v4, v1, Lcom/google/common/cache/Striped64;->busy:I
 
     .line 210
     nop
 
     .line 211
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_27
 
     move/from16 p3, v5
 
-    goto/16 :goto_7
+    goto/16 :goto_11a
 
     .line 209
-    :catchall_0
+    :catchall_6b
     move-exception v0
 
     iput v4, v1, Lcom/google/common/cache/Striped64;->busy:I
@@ -511,22 +511,22 @@
     .line 215
     .end local v12    # "r":Lcom/google/common/cache/Striped64$Cell;
     .end local v13    # "created":Z
-    :cond_4
+    :cond_6f
     const/4 v8, 0x0
 
-    goto :goto_5
+    goto :goto_c7
 
     .line 216
-    :cond_5
-    if-nez v5, :cond_6
+    :cond_71
+    if-nez v5, :cond_75
 
     .line 217
     const/4 v5, 0x1
 
-    goto :goto_5
+    goto :goto_c7
 
     .line 218
-    :cond_6
+    :cond_75
     iget-wide v12, v11, Lcom/google/common/cache/Striped64$Cell;->value:J
 
     move-wide v14, v12
@@ -544,49 +544,49 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_86
 
-    goto/16 :goto_7
+    goto/16 :goto_11a
 
     .line 219
-    :cond_7
+    :cond_86
     sget v0, Lcom/google/common/cache/Striped64;->NCPU:I
 
-    if-ge v10, v0, :cond_d
+    if-ge v10, v0, :cond_c4
 
     iget-object v0, v1, Lcom/google/common/cache/Striped64;->cells:[Lcom/google/common/cache/Striped64$Cell;
 
-    if-eq v0, v9, :cond_8
+    if-eq v0, v9, :cond_8f
 
-    goto :goto_4
+    goto :goto_c4
 
     .line 220
-    :cond_8
-    if-nez v8, :cond_9
+    :cond_8f
+    if-nez v8, :cond_95
 
     const/4 v8, 0x1
 
     move/from16 v5, p3
 
-    goto :goto_5
+    goto :goto_c7
 
     .line 221
-    :cond_9
+    :cond_95
     iget v0, v1, Lcom/google/common/cache/Striped64;->busy:I
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_c1
 
     invoke-virtual/range {p0 .. p0}, Lcom/google/common/cache/Striped64;->casBusy()Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_c1
 
     .line 223
-    :try_start_1
+    :try_start_9f
     iget-object v0, v1, Lcom/google/common/cache/Striped64;->cells:[Lcom/google/common/cache/Striped64$Cell;
 
-    if-ne v0, v9, :cond_b
+    if-ne v0, v9, :cond_b3
 
     .line 224
     shl-int/lit8 v0, v10, 0x1
@@ -598,8 +598,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_3
-    if-ge v4, v10, :cond_a
+    :goto_a8
+    if-ge v4, v10, :cond_b1
 
     aget-object v5, v9, v4
 
@@ -607,18 +607,18 @@
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_a8
 
     .line 226
     .end local v4    # "i":I
-    :cond_a
+    :cond_b1
     iput-object v0, v1, Lcom/google/common/cache/Striped64;->cells:[Lcom/google/common/cache/Striped64$Cell;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_b3
+    .catchall {:try_start_9f .. :try_end_b3} :catchall_bc
 
     .line 229
     .end local v0    # "rs":[Lcom/google/common/cache/Striped64$Cell;
-    :cond_b
+    :cond_b3
     const/4 v4, 0x0
 
     iput v4, v1, Lcom/google/common/cache/Striped64;->busy:I
@@ -632,10 +632,10 @@
     .line 232
     move/from16 v5, p3
 
-    goto/16 :goto_2
+    goto/16 :goto_27
 
     .line 229
-    :catchall_1
+    :catchall_bc
     move-exception v0
 
     const/4 v4, 0x0
@@ -647,15 +647,15 @@
 
     .line 234
     .end local v14    # "v":J
-    :cond_c
+    :cond_c1
     move/from16 v5, p3
 
-    goto :goto_5
+    goto :goto_c7
 
     .line 219
     .restart local v14    # "v":J
-    :cond_d
-    :goto_4
+    :cond_c4
+    :goto_c4
     const/4 v8, 0x0
 
     move/from16 v5, p3
@@ -664,7 +664,7 @@
     .end local v14    # "v":J
     .end local p3    # "wasUncontended":Z
     .restart local v5    # "wasUncontended":Z
-    :goto_5
+    :goto_c7
     shl-int/lit8 v0, v6, 0xd
 
     xor-int/2addr v0, v6
@@ -692,52 +692,52 @@
 
     const/4 v5, 0x0
 
-    goto :goto_9
+    goto :goto_11d
 
     .line 195
     .end local v0    # "h":I
     .end local v11    # "a":Lcom/google/common/cache/Striped64$Cell;
     .restart local v6    # "h":I
-    :cond_e
+    :cond_d7
     move/from16 p3, v5
 
     .end local v5    # "wasUncontended":Z
     .restart local p3    # "wasUncontended":Z
-    goto :goto_6
+    goto :goto_dc
 
     .end local v10    # "n":I
     .end local p3    # "wasUncontended":Z
     .restart local v5    # "wasUncontended":Z
-    :cond_f
+    :cond_da
     move/from16 p3, v5
 
     .line 238
     .end local v5    # "wasUncontended":Z
     .restart local p3    # "wasUncontended":Z
-    :goto_6
+    :goto_dc
     iget v0, v1, Lcom/google/common/cache/Striped64;->busy:I
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_10c
 
     iget-object v0, v1, Lcom/google/common/cache/Striped64;->cells:[Lcom/google/common/cache/Striped64$Cell;
 
-    if-ne v0, v9, :cond_12
+    if-ne v0, v9, :cond_10c
 
     invoke-virtual/range {p0 .. p0}, Lcom/google/common/cache/Striped64;->casBusy()Z
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_10c
 
     .line 239
     const/4 v4, 0x0
 
     .line 241
     .local v4, "init":Z
-    :try_start_2
+    :try_start_eb
     iget-object v0, v1, Lcom/google/common/cache/Striped64;->cells:[Lcom/google/common/cache/Striped64$Cell;
 
-    if-ne v0, v9, :cond_10
+    if-ne v0, v9, :cond_fe
 
     .line 242
     const/4 v0, 0x2
@@ -756,15 +756,15 @@
 
     .line 244
     iput-object v0, v1, Lcom/google/common/cache/Striped64;->cells:[Lcom/google/common/cache/Striped64$Cell;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_fd
+    .catchall {:try_start_eb .. :try_end_fd} :catchall_107
 
     .line 245
     const/4 v4, 0x1
 
     .line 248
     .end local v0    # "rs":[Lcom/google/common/cache/Striped64$Cell;
-    :cond_10
+    :cond_fe
     const/4 v5, 0x0
 
     iput v5, v1, Lcom/google/common/cache/Striped64;->busy:I
@@ -773,20 +773,20 @@
     nop
 
     .line 250
-    if-eqz v4, :cond_11
+    if-eqz v4, :cond_105
 
-    goto :goto_7
+    goto :goto_11a
 
     .line 251
     .end local v4    # "init":Z
-    :cond_11
+    :cond_105
     const/4 v5, 0x0
 
-    goto :goto_8
+    goto :goto_11b
 
     .line 248
     .restart local v4    # "init":Z
-    :catchall_2
+    :catchall_107
     move-exception v0
 
     const/4 v5, 0x0
@@ -798,7 +798,7 @@
 
     .line 238
     .end local v4    # "init":Z
-    :cond_12
+    :cond_10c
     const/4 v5, 0x0
 
     .line 251
@@ -815,25 +815,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_11b
 
     .line 253
     .end local v9    # "as":[Lcom/google/common/cache/Striped64$Cell;
     .end local v12    # "v":J
-    :goto_7
+    :goto_11a
     return-void
 
     .line 252
-    :cond_13
-    :goto_8
+    :cond_11b
+    :goto_11b
     move/from16 v0, p3
 
     .end local p3    # "wasUncontended":Z
     .local v0, "wasUncontended":Z
-    :goto_9
+    :goto_11d
     move v5, v0
 
     const/4 v4, 0x0
 
-    goto/16 :goto_2
+    goto/16 :goto_27
 .end method

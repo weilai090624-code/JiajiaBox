@@ -108,7 +108,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     new-instance v0, Lokhttp3/MultipartBody$Companion;
 
@@ -230,7 +230,7 @@
 .end method
 
 .method public constructor <init>(Lokio/ByteString;Lokhttp3/MediaType;Ljava/util/List;)V
-    .locals 3
+    .registers 7
     .param p1, "boundaryByteString"    # Lokio/ByteString;
     .param p2, "type"    # Lokhttp3/MediaType;
     .param p3, "parts"    # Ljava/util/List;
@@ -316,7 +316,7 @@
 .end method
 
 .method private final writeOrCountBytes(Lokio/BufferedSink;Z)J
-    .locals 17
+    .registers 20
     .param p1, "sink"    # Lokio/BufferedSink;
     .param p2, "countBytes"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -340,7 +340,7 @@
 
     .line 111
     .local v4, "byteCountBuffer":Lokio/Buffer;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_12
 
     .line 112
     new-instance v5, Lokio/Buffer;
@@ -355,18 +355,18 @@
     check-cast v1, Lokio/BufferedSink;
 
     .line 116
-    :cond_0
+    :cond_12
     iget-object v5, v0, Lokhttp3/MultipartBody;->parts:Ljava/util/List;
 
     invoke-interface {v5}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-lez v5, :cond_8
+    if-lez v5, :cond_b8
 
     const/4 v7, 0x0
 
-    :cond_1
+    :cond_1b
     move v8, v7
 
     .local v8, "p":I
@@ -412,18 +412,18 @@
     invoke-interface {v1, v12}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     .line 125
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_69
 
     .line 126
     invoke-virtual {v10}, Lokhttp3/Headers;->size()I
 
     move-result v12
 
-    if-lez v12, :cond_3
+    if-lez v12, :cond_69
 
     const/4 v13, 0x0
 
-    :cond_2
+    :cond_49
     move v14, v13
 
     .local v14, "h":I
@@ -460,18 +460,18 @@
     invoke-interface {v6, v15}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     .line 126
-    if-lt v13, v12, :cond_2
+    if-lt v13, v12, :cond_49
 
     .line 134
     .end local v14    # "h":I
-    :cond_3
+    :cond_69
     invoke-virtual {v11}, Lokhttp3/RequestBody;->contentType()Lokhttp3/MediaType;
 
     move-result-object v6
 
     .line 135
     .local v6, "contentType":Lokhttp3/MediaType;
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_82
 
     .line 136
     const-string v12, "Content-Type: "
@@ -495,7 +495,7 @@
     invoke-interface {v12, v13}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     .line 141
-    :cond_4
+    :cond_82
     invoke-virtual {v11}, Lokhttp3/RequestBody;->contentLength()J
 
     move-result-wide v12
@@ -506,7 +506,7 @@
 
     cmp-long v16, v12, v14
 
-    if-eqz v16, :cond_5
+    if-eqz v16, :cond_9c
 
     .line 143
     const-string v14, "Content-Length: "
@@ -525,11 +525,11 @@
 
     invoke-interface {v14, v15}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
-    goto :goto_0
+    goto :goto_a5
 
     .line 146
-    :cond_5
-    if-eqz p2, :cond_6
+    :cond_9c
+    if-eqz p2, :cond_a5
 
     .line 148
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -540,26 +540,26 @@
     return-wide v14
 
     .line 152
-    :cond_6
-    :goto_0
+    :cond_a5
+    :goto_a5
     sget-object v14, Lokhttp3/MultipartBody;->CRLF:[B
 
     invoke-interface {v1, v14}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     .line 154
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_ae
 
     .line 155
     add-long/2addr v2, v12
 
-    goto :goto_1
+    goto :goto_b1
 
     .line 157
-    :cond_7
+    :cond_ae
     invoke-virtual {v11, v1}, Lokhttp3/RequestBody;->writeTo(Lokio/BufferedSink;)V
 
     .line 160
-    :goto_1
+    :goto_b1
     sget-object v14, Lokhttp3/MultipartBody;->CRLF:[B
 
     invoke-interface {v1, v14}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
@@ -570,11 +570,11 @@
     .end local v10    # "headers":Lokhttp3/Headers;
     .end local v11    # "body":Lokhttp3/RequestBody;
     .end local v12    # "contentLength":J
-    if-lt v7, v5, :cond_1
+    if-lt v7, v5, :cond_1b
 
     .line 163
     .end local v8    # "p":I
-    :cond_8
+    :cond_b8
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     sget-object v5, Lokhttp3/MultipartBody;->DASHDASH:[B
@@ -597,7 +597,7 @@
     invoke-interface {v1, v5}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     .line 168
-    if-eqz p2, :cond_9
+    if-eqz p2, :cond_dc
 
     .line 169
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -612,14 +612,14 @@
     invoke-virtual {v4}, Lokio/Buffer;->clear()V
 
     .line 173
-    :cond_9
+    :cond_dc
     return-wide v2
 .end method
 
 
 # virtual methods
 .method public final -deprecated_boundary()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -638,7 +638,7 @@
 .end method
 
 .method public final -deprecated_parts()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -664,7 +664,7 @@
 .end method
 
 .method public final -deprecated_size()I
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -683,7 +683,7 @@
 .end method
 
 .method public final -deprecated_type()Lokhttp3/MediaType;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -700,7 +700,7 @@
 .end method
 
 .method public final boundary()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Lokhttp3/MultipartBody;->boundaryByteString:Lokio/ByteString;
@@ -713,7 +713,7 @@
 .end method
 
 .method public contentLength()J
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -729,7 +729,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_10
 
     .line 85
     const/4 v2, 0x0
@@ -744,12 +744,12 @@
     iput-wide v0, p0, Lokhttp3/MultipartBody;->contentLength:J
 
     .line 88
-    :cond_0
+    :cond_10
     return-wide v0
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 1
+    .registers 2
 
     .line 51
     iget-object v0, p0, Lokhttp3/MultipartBody;->contentType:Lokhttp3/MediaType;
@@ -758,7 +758,7 @@
 .end method
 
 .method public final part(I)Lokhttp3/MultipartBody$Part;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 48
@@ -774,7 +774,7 @@
 .end method
 
 .method public final parts()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -791,7 +791,7 @@
 .end method
 
 .method public final size()I
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Lokhttp3/MultipartBody;->parts:Ljava/util/List;
@@ -804,7 +804,7 @@
 .end method
 
 .method public final type()Lokhttp3/MediaType;
-    .locals 1
+    .registers 2
 
     .line 35
     iget-object v0, p0, Lokhttp3/MultipartBody;->type:Lokhttp3/MediaType;
@@ -813,7 +813,7 @@
 .end method
 
 .method public writeTo(Lokio/BufferedSink;)V
-    .locals 1
+    .registers 3
     .param p1, "sink"    # Lokio/BufferedSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {

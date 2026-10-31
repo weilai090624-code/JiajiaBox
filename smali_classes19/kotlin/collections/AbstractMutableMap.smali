@@ -52,7 +52,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Ljava/util/AbstractMap;-><init>()V
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public final bridge entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -85,7 +85,7 @@
 .end method
 
 .method public bridge getKeys()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -104,7 +104,7 @@
 .end method
 
 .method public bridge getSize()I
-    .locals 1
+    .registers 2
 
     .line 18
     invoke-super {p0}, Ljava/util/AbstractMap;->size()I
@@ -115,7 +115,7 @@
 .end method
 
 .method public bridge getValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -134,7 +134,7 @@
 .end method
 
 .method public final bridge keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -160,7 +160,7 @@
 .end method
 
 .method public final bridge size()I
-    .locals 1
+    .registers 2
 
     .line 18
     invoke-virtual {p0}, Lkotlin/collections/AbstractMutableMap;->getSize()I
@@ -171,7 +171,7 @@
 .end method
 
 .method public final bridge values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

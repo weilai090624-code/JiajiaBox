@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;II)Lcom/google/zxing/common/BitMatrix;
-    .locals 6
+    .registers 11
     .param p1, "contents"    # Ljava/lang/String;
     .param p2, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p3, "width"    # I
@@ -51,7 +51,7 @@
 .end method
 
 .method public encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;)Lcom/google/zxing/common/BitMatrix;
-    .locals 7
+    .registers 13
     .param p1, "contents"    # Ljava/lang/String;
     .param p2, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p3, "width"    # I
@@ -85,7 +85,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_74
 
     .line 100
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -105,139 +105,139 @@
     throw v0
 
     .line 97
-    :pswitch_0
+    :pswitch_1b
     new-instance v0, Lcom/google/zxing/aztec/AztecWriter;
 
     invoke-direct {v0}, Lcom/google/zxing/aztec/AztecWriter;-><init>()V
 
     .line 98
     .local v0, "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 94
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_1
+    :pswitch_21
     new-instance v0, Lcom/google/zxing/datamatrix/DataMatrixWriter;
 
     invoke-direct {v0}, Lcom/google/zxing/datamatrix/DataMatrixWriter;-><init>()V
 
     .line 95
     .restart local v0    # "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 91
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_2
+    :pswitch_27
     new-instance v0, Lcom/google/zxing/oned/CodaBarWriter;
 
     invoke-direct {v0}, Lcom/google/zxing/oned/CodaBarWriter;-><init>()V
 
     .line 92
     .restart local v0    # "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 88
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_3
+    :pswitch_2d
     new-instance v0, Lcom/google/zxing/pdf417/PDF417Writer;
 
     invoke-direct {v0}, Lcom/google/zxing/pdf417/PDF417Writer;-><init>()V
 
     .line 89
     .restart local v0    # "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 85
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_4
+    :pswitch_33
     new-instance v0, Lcom/google/zxing/oned/ITFWriter;
 
     invoke-direct {v0}, Lcom/google/zxing/oned/ITFWriter;-><init>()V
 
     .line 86
     .restart local v0    # "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 82
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_5
+    :pswitch_39
     new-instance v0, Lcom/google/zxing/oned/Code128Writer;
 
     invoke-direct {v0}, Lcom/google/zxing/oned/Code128Writer;-><init>()V
 
     .line 83
     .restart local v0    # "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 79
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_6
+    :pswitch_3f
     new-instance v0, Lcom/google/zxing/oned/Code93Writer;
 
     invoke-direct {v0}, Lcom/google/zxing/oned/Code93Writer;-><init>()V
 
     .line 80
     .restart local v0    # "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 76
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_7
+    :pswitch_45
     new-instance v0, Lcom/google/zxing/oned/Code39Writer;
 
     invoke-direct {v0}, Lcom/google/zxing/oned/Code39Writer;-><init>()V
 
     .line 77
     .restart local v0    # "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 73
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_8
+    :pswitch_4b
     new-instance v0, Lcom/google/zxing/qrcode/QRCodeWriter;
 
     invoke-direct {v0}, Lcom/google/zxing/qrcode/QRCodeWriter;-><init>()V
 
     .line 74
     .restart local v0    # "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 70
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_9
+    :pswitch_51
     new-instance v0, Lcom/google/zxing/oned/UPCAWriter;
 
     invoke-direct {v0}, Lcom/google/zxing/oned/UPCAWriter;-><init>()V
 
     .line 71
     .restart local v0    # "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 67
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_a
+    :pswitch_57
     new-instance v0, Lcom/google/zxing/oned/EAN13Writer;
 
     invoke-direct {v0}, Lcom/google/zxing/oned/EAN13Writer;-><init>()V
 
     .line 68
     .restart local v0    # "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 64
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_b
+    :pswitch_5d
     new-instance v0, Lcom/google/zxing/oned/UPCEWriter;
 
     invoke-direct {v0}, Lcom/google/zxing/oned/UPCEWriter;-><init>()V
 
     .line 65
     .restart local v0    # "writer":Lcom/google/zxing/Writer;
-    goto :goto_0
+    goto :goto_69
 
     .line 61
     .end local v0    # "writer":Lcom/google/zxing/Writer;
-    :pswitch_c
+    :pswitch_63
     new-instance v0, Lcom/google/zxing/oned/EAN8Writer;
 
     invoke-direct {v0}, Lcom/google/zxing/oned/EAN8Writer;-><init>()V
@@ -247,7 +247,7 @@
     nop
 
     .line 102
-    :goto_0
+    :goto_69
     move-object v1, v0
 
     move-object v2, p1
@@ -266,20 +266,20 @@
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_74
     .packed-switch 0x1
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_63
+        :pswitch_5d
+        :pswitch_57
+        :pswitch_51
+        :pswitch_4b
+        :pswitch_45
+        :pswitch_3f
+        :pswitch_39
+        :pswitch_33
+        :pswitch_2d
+        :pswitch_27
+        :pswitch_21
+        :pswitch_1b
     .end packed-switch
 .end method

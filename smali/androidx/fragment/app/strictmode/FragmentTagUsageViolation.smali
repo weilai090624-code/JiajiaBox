@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;Landroid/view/ViewGroup;)V
-    .locals 2
+    .registers 5
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "parentContainer"    # Landroid/view/ViewGroup;
 
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public final getParentContainer()Landroid/view/ViewGroup;
-    .locals 1
+    .registers 2
 
     .line 30
     iget-object v0, p0, Landroidx/fragment/app/strictmode/FragmentTagUsageViolation;->parentContainer:Landroid/view/ViewGroup;

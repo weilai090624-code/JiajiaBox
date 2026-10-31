@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$and(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/BiPredicate;
 
     .line 72
@@ -21,7 +21,7 @@
 .end method
 
 .method public static $default$negate(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Ljava/util/function/BiPredicate;
 
     .line 84
@@ -33,7 +33,7 @@
 .end method
 
 .method public static $default$or(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/BiPredicate;
 
     .line 104
@@ -49,7 +49,7 @@
 .end method
 
 .method public static synthetic $private$lambda$and$0(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 5
     .param p0, "_this"    # Ljava/util/function/BiPredicate;
     .param p1, "other"    # Ljava/util/function/BiPredicate;
     .param p2, "t"    # Ljava/lang/Object;
@@ -60,27 +60,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-interface {p1, p2, p3}, Ljava/util/function/BiPredicate;->test(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public static synthetic $private$lambda$negate$1(Ljava/util/function/BiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/BiPredicate;
     .param p1, "t"    # Ljava/lang/Object;
     .param p2, "u"    # Ljava/lang/Object;
@@ -96,7 +96,7 @@
 .end method
 
 .method public static synthetic $private$lambda$or$2(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 5
     .param p0, "_this"    # Ljava/util/function/BiPredicate;
     .param p1, "other"    # Ljava/util/function/BiPredicate;
     .param p2, "t"    # Ljava/lang/Object;
@@ -107,25 +107,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-interface {p1, p2, p3}, Ljava/util/function/BiPredicate;->test(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method

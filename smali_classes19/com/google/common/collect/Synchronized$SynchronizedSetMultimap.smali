@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/SetMultimap;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method bridge synthetic delegate()Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
 
     .line 768
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;, "Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap<TK;TV;>;"
@@ -91,7 +91,7 @@
 .end method
 
 .method delegate()Lcom/google/common/collect/SetMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -112,7 +112,7 @@
 .end method
 
 .method bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 768
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;, "Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap<TK;TV;>;"
@@ -124,7 +124,7 @@
 .end method
 
 .method public bridge synthetic entries()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 768
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;, "Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap<TK;TV;>;"
@@ -136,7 +136,7 @@
 .end method
 
 .method public entries()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -153,10 +153,10 @@
     monitor-enter v0
 
     .line 806
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;->entrySet:Ljava/util/Set;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     .line 807
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
@@ -176,7 +176,7 @@
     iput-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;->entrySet:Ljava/util/Set;
 
     .line 809
-    :cond_0
+    :cond_17
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;->entrySet:Ljava/util/Set;
 
     monitor-exit v0
@@ -184,18 +184,18 @@
     return-object v1
 
     .line 810
-    :catchall_0
+    :catchall_1b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_3 .. :try_end_1d} :catchall_1b
 
     throw v1
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
 
     .line 768
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;, "Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap<TK;TV;>;"
@@ -207,7 +207,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -224,7 +224,7 @@
     monitor-enter v0
 
     .line 785
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v1
@@ -244,18 +244,18 @@
     return-object v1
 
     .line 786
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -271,7 +271,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -293,7 +293,7 @@
     monitor-enter v0
 
     .line 792
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v1
@@ -307,18 +307,18 @@
     return-object v1
 
     .line 793
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
 
     .line 768
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;, "Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap<TK;TV;>;"
@@ -330,7 +330,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -350,7 +350,7 @@
     monitor-enter v0
 
     .line 799
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v1
@@ -364,12 +364,12 @@
     return-object v1
 
     .line 800
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method

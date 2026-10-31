@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 319
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/lifecycle/LifecycleRegistry$Companion;-><init>()V
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public final createUnsafe(Landroidx/lifecycle/LifecycleOwner;)Landroidx/lifecycle/LifecycleRegistry;
-    .locals 3
+    .registers 5
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -85,7 +85,7 @@
 .end method
 
 .method public final min$lifecycle_runtime_release(Landroidx/lifecycle/Lifecycle$State;Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$State;
-    .locals 1
+    .registers 4
     .param p1, "state1"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "state2"    # Landroidx/lifecycle/Lifecycle$State;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -96,7 +96,7 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 336
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_13
 
     move-object v0, p1
 
@@ -106,15 +106,15 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_13
 
     move-object v0, p2
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     move-object v0, p1
 
-    :goto_0
+    :goto_14
     return-object v0
 .end method

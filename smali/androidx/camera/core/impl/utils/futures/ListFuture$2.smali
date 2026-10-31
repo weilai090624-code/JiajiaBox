@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/futures/ListFuture;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/core/impl/utils/futures/ListFuture;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 101
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/ListFuture$2;, "Landroidx/camera/core/impl/utils/futures/ListFuture$2;"

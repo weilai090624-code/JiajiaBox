@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Lio/nekohasekai/sagernet/database/SagerDatabase;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method static synthetic access$000(Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;
 
     .line 29
@@ -32,7 +32,7 @@
 .end method
 
 .method static synthetic access$100(Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;
 
     .line 29
@@ -42,7 +42,7 @@
 .end method
 
 .method static synthetic access$202(Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;
     .param p1, "x1"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method static synthetic access$300(Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;
     .param p1, "x1"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic access$400(Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;
 
     .line 29
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public clearAllTables()V
-    .locals 4
+    .registers 5
 
     .line 198
     const-string v0, "VACUUM"
@@ -96,7 +96,7 @@
 
     .line 201
     .local v2, "_db":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :try_start_0
+    :try_start_f
     invoke-super {p0}, Lio/nekohasekai/sagernet/database/SagerDatabase;->beginTransaction()V
 
     .line 202
@@ -116,8 +116,8 @@
 
     .line 205
     invoke-super {p0}, Lio/nekohasekai/sagernet/database/SagerDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_f .. :try_end_24} :catchall_38
 
     .line 207
     invoke-super {p0}, Lio/nekohasekai/sagernet/database/SagerDatabase;->endTransaction()V
@@ -134,17 +134,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_37
 
     .line 210
     invoke-interface {v2, v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 213
-    :cond_0
+    :cond_37
     return-void
 
     .line 207
-    :catchall_0
+    :catchall_38
     move-exception v3
 
     invoke-super {p0}, Lio/nekohasekai/sagernet/database/SagerDatabase;->endTransaction()V
@@ -161,18 +161,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_4c
 
     .line 210
     invoke-interface {v2, v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 212
-    :cond_1
+    :cond_4c
     throw v3
 .end method
 
 .method protected createInvalidationTracker()Landroidx/room/InvalidationTracker;
-    .locals 6
+    .registers 7
 
     .line 191
     new-instance v0, Ljava/util/HashMap;
@@ -209,7 +209,7 @@
 .end method
 
 .method protected createOpenHelper(Landroidx/room/DatabaseConfiguration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 4
+    .registers 6
     .param p1, "config"    # Landroidx/room/DatabaseConfiguration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -271,7 +271,7 @@
 .end method
 
 .method public getAutoMigrations(Ljava/util/Map;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -330,7 +330,7 @@
 .end method
 
 .method public getRequiredAutoMigrationSpecs()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -353,7 +353,7 @@
 .end method
 
 .method protected getRequiredTypeConverters()Ljava/util/Map;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -404,12 +404,12 @@
 .end method
 
 .method public groupDao()Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
-    .locals 1
+    .registers 2
 
     .line 245
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 246
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
@@ -417,14 +417,14 @@
     return-object v0
 
     .line 248
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 249
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 250
     new-instance v0, Lio/nekohasekai/sagernet/database/ProxyGroup_Dao_Impl;
@@ -434,7 +434,7 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
 
     .line 252
-    :cond_1
+    :cond_13
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
 
     monitor-exit p0
@@ -442,23 +442,23 @@
     return-object v0
 
     .line 253
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method
 
 .method public proxyDao()Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
-    .locals 1
+    .registers 2
 
     .line 259
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_proxyEntity:Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 260
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_proxyEntity:Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
@@ -466,14 +466,14 @@
     return-object v0
 
     .line 262
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 263
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_proxyEntity:Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 264
     new-instance v0, Lio/nekohasekai/sagernet/database/ProxyEntity_Dao_Impl;
@@ -483,7 +483,7 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_proxyEntity:Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
 
     .line 266
-    :cond_1
+    :cond_13
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_proxyEntity:Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
 
     monitor-exit p0
@@ -491,23 +491,23 @@
     return-object v0
 
     .line 267
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method
 
 .method public rulesDao()Lio/nekohasekai/sagernet/database/RuleEntity$Dao;
-    .locals 1
+    .registers 2
 
     .line 273
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_ruleEntity:Lio/nekohasekai/sagernet/database/RuleEntity$Dao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 274
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_ruleEntity:Lio/nekohasekai/sagernet/database/RuleEntity$Dao;
@@ -515,14 +515,14 @@
     return-object v0
 
     .line 276
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 277
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_ruleEntity:Lio/nekohasekai/sagernet/database/RuleEntity$Dao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 278
     new-instance v0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;
@@ -532,7 +532,7 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_ruleEntity:Lio/nekohasekai/sagernet/database/RuleEntity$Dao;
 
     .line 280
-    :cond_1
+    :cond_13
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->_ruleEntity:Lio/nekohasekai/sagernet/database/RuleEntity$Dao;
 
     monitor-exit p0
@@ -540,12 +540,12 @@
     return-object v0
 
     .line 281
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method

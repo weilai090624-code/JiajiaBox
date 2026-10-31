@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final synthetic access$constructMessage(Ljava/io/File;Ljava/io/File;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "file"    # Ljava/io/File;
     .param p1, "other"    # Ljava/io/File;
     .param p2, "reason"    # Ljava/lang/String;
@@ -43,7 +43,7 @@
 .end method
 
 .method private static final constructMessage(Ljava/io/File;Ljava/io/File;Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 6
     .param p0, "file"    # Ljava/io/File;
     .param p1, "other"    # Ljava/io/File;
     .param p2, "reason"    # Ljava/lang/String;
@@ -59,7 +59,7 @@
 
     .line 13
     .local v0, "sb":Ljava/lang/StringBuilder;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_21
 
     .line 14
     new-instance v1, Ljava/lang/StringBuilder;
@@ -83,8 +83,8 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 16
-    :cond_0
-    if-eqz p2, :cond_1
+    :cond_21
+    if-eqz p2, :cond_39
 
     .line 17
     new-instance v1, Ljava/lang/StringBuilder;
@@ -108,7 +108,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 19
-    :cond_1
+    :cond_39
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

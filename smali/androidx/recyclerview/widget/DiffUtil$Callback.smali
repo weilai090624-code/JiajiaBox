@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 332
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public getChangePayload(II)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "oldItemPosition"    # I
     .param p2, "newItemPosition"    # I
 

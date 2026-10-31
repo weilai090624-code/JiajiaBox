@@ -87,7 +87,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 65
     const-string v0, "SystemFgDispatcher"
@@ -102,7 +102,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -197,7 +197,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroidx/work/impl/WorkManagerImpl;Landroidx/work/impl/constraints/WorkConstraintsTracker;)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .param p3, "tracker"    # Landroidx/work/impl/constraints/WorkConstraintsTracker;
@@ -282,7 +282,7 @@
 .end method
 
 .method static synthetic access$000(Landroidx/work/impl/foreground/SystemForegroundDispatcher;)Landroidx/work/impl/WorkManagerImpl;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/foreground/SystemForegroundDispatcher;
 
     .line 62
@@ -292,7 +292,7 @@
 .end method
 
 .method public static createCancelWorkIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -354,7 +354,7 @@
 .end method
 
 .method public static createNotifyIntent(Landroid/content/Context;Landroidx/work/impl/model/WorkGenerationalId;Landroidx/work/ForegroundInfo;)Landroid/content/Intent;
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "info"    # Landroidx/work/ForegroundInfo;
@@ -434,7 +434,7 @@
 .end method
 
 .method public static createStartForegroundIntent(Landroid/content/Context;Landroidx/work/impl/model/WorkGenerationalId;Landroidx/work/ForegroundInfo;)Landroid/content/Intent;
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "info"    # Landroidx/work/ForegroundInfo;
@@ -514,7 +514,7 @@
 .end method
 
 .method public static createStopForegroundIntent(Landroid/content/Context;)Landroid/content/Intent;
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -543,7 +543,7 @@
 .end method
 
 .method private handleCancelWork(Landroid/content/Intent;)V
-    .locals 4
+    .registers 6
     .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -590,13 +590,13 @@
 
     .line 322
     .local v0, "workSpecId":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_33
 
     .line 323
     iget-object v1, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -608,12 +608,12 @@
     invoke-virtual {v1, v2}, Landroidx/work/impl/WorkManagerImpl;->cancelWorkById(Ljava/util/UUID;)Landroidx/work/Operation;
 
     .line 325
-    :cond_0
+    :cond_33
     return-void
 .end method
 
 .method private handleNotify(Landroid/content/Intent;)V
-    .locals 12
+    .registers 14
     .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -728,11 +728,11 @@
     invoke-virtual {v6, v7, v8}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 273
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_c1
 
     iget-object v6, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCallback:Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_c1
 
     .line 275
     new-instance v6, Landroidx/work/ForegroundInfo;
@@ -748,7 +748,7 @@
     .line 279
     iget-object v7, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCurrentForegroundId:Landroidx/work/impl/model/WorkGenerationalId;
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_78
 
     .line 281
     iput-object v4, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCurrentForegroundId:Landroidx/work/impl/model/WorkGenerationalId;
@@ -758,22 +758,22 @@
 
     invoke-interface {v7, v0, v2, v5}, Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;->startForeground(IILandroid/app/Notification;)V
 
-    goto :goto_1
+    goto :goto_c1
 
     .line 285
-    :cond_0
+    :cond_78
     iget-object v7, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCallback:Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
 
     invoke-interface {v7, v0, v5}, Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;->notify(ILandroid/app/Notification;)V
 
     .line 288
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_c1
 
     sget v7, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v8, 0x1d
 
-    if-lt v7, v8, :cond_2
+    if-lt v7, v8, :cond_c1
 
     .line 290
     const/4 v7, 0x0
@@ -790,12 +790,12 @@
 
     move-result-object v8
 
-    :goto_0
+    :goto_90
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_a8
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -822,10 +822,10 @@
     .line 295
     .end local v9    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroidx/work/impl/model/WorkGenerationalId;Landroidx/work/ForegroundInfo;>;"
     .end local v10    # "foregroundInfo":Landroidx/work/ForegroundInfo;
-    goto :goto_0
+    goto :goto_90
 
     .line 296
-    :cond_1
+    :cond_a8
     iget-object v8, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mForegroundInfoById:Ljava/util/Map;
 
     iget-object v9, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCurrentForegroundId:Landroidx/work/impl/model/WorkGenerationalId;
@@ -839,7 +839,7 @@
 
     .line 298
     .local v8, "currentInfo":Landroidx/work/ForegroundInfo;
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_c1
 
     .line 299
     iget-object v9, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCallback:Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
@@ -861,13 +861,13 @@
     .end local v6    # "info":Landroidx/work/ForegroundInfo;
     .end local v7    # "foregroundServiceType":I
     .end local v8    # "currentInfo":Landroidx/work/ForegroundInfo;
-    :cond_2
-    :goto_1
+    :cond_c1
+    :goto_c1
     return-void
 .end method
 
 .method private handleStartForeground(Landroid/content/Intent;)V
-    .locals 4
+    .registers 6
     .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -929,7 +929,7 @@
 
 # virtual methods
 .method handleStop(Landroid/content/Intent;)V
-    .locals 3
+    .registers 5
     .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -954,7 +954,7 @@
     .line 313
     iget-object v0, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCallback:Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 314
     iget-object v0, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCallback:Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
@@ -962,12 +962,12 @@
     invoke-interface {v0}, Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;->stop()V
 
     .line 316
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public onAllConstraintsMet(Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -992,7 +992,7 @@
 .end method
 
 .method public onAllConstraintsNotMet(Ljava/util/List;)V
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1017,19 +1017,19 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3e
 
     .line 335
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1081,15 +1081,15 @@
     .line 340
     .end local v1    # "workSpec":Landroidx/work/impl/model/WorkSpec;
     .end local v2    # "workSpecId":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_a
 
     .line 342
-    :cond_0
+    :cond_3e
     return-void
 .end method
 
 .method onDestroy()V
-    .locals 2
+    .registers 3
 
     .line 230
     const/4 v0, 0x0
@@ -1102,15 +1102,15 @@
     monitor-enter v0
 
     .line 232
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTracker;
 
     invoke-interface {v1}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->reset()V
 
     .line 233
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_6 .. :try_end_c} :catchall_16
 
     .line 234
     iget-object v0, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -1125,19 +1125,19 @@
     return-void
 
     .line 233
-    :catchall_0
+    :catchall_16
     move-exception v1
 
-    :try_start_1
+    :try_start_17
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_18
+    .catchall {:try_start_17 .. :try_end_18} :catchall_16
 
     throw v1
 .end method
 
 .method public onExecuted(Landroidx/work/impl/model/WorkGenerationalId;Z)V
-    .locals 9
+    .registers 12
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "needsReschedule"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1161,7 +1161,7 @@
     monitor-enter v1
 
     .line 142
-    :try_start_0
+    :try_start_4
     iget-object v2, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mWorkSpecById:Ljava/util/Map;
 
     invoke-interface {v2, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1172,7 +1172,7 @@
 
     .line 143
     .local v2, "workSpec":Landroidx/work/impl/model/WorkSpec;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     .line 144
     iget-object v3, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mTrackedWorkSpecs:Ljava/util/Set;
@@ -1184,8 +1184,8 @@
     move v0, v3
 
     .line 146
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_15
+    if-eqz v0, :cond_1e
 
     .line 148
     iget-object v3, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTracker;
@@ -1196,10 +1196,10 @@
 
     .line 150
     .end local v2    # "workSpec":Landroidx/work/impl/model/WorkSpec;
-    :cond_1
+    :cond_1e
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_4 .. :try_end_1f} :catchall_c7
 
     .line 152
     iget-object v1, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mForegroundInfoById:Ljava/util/Map;
@@ -1218,7 +1218,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_81
 
     .line 155
     iget-object v2, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mForegroundInfoById:Ljava/util/Map;
@@ -1227,7 +1227,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_3
+    if-lez v2, :cond_81
 
     .line 160
     iget-object v2, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mForegroundInfoById:Ljava/util/Map;
@@ -1251,12 +1251,12 @@
 
     .line 164
     .local v3, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroidx/work/impl/model/WorkGenerationalId;Landroidx/work/ForegroundInfo;>;"
-    :goto_0
+    :goto_47
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_55
 
     .line 165
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1267,10 +1267,10 @@
 
     check-cast v3, Ljava/util/Map$Entry;
 
-    goto :goto_0
+    goto :goto_47
 
     .line 168
-    :cond_2
+    :cond_55
     invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v4
@@ -1282,7 +1282,7 @@
     .line 169
     iget-object v4, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCallback:Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_81
 
     .line 170
     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -1326,14 +1326,14 @@
     .end local v2    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Landroidx/work/impl/model/WorkGenerationalId;Landroidx/work/ForegroundInfo;>;>;"
     .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroidx/work/impl/model/WorkGenerationalId;Landroidx/work/ForegroundInfo;>;"
     .end local v4    # "info":Landroidx/work/ForegroundInfo;
-    :cond_3
+    :cond_81
     iget-object v2, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCallback:Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
 
     .line 187
     .local v2, "callback":Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_c6
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_c6
 
     .line 195
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1401,25 +1401,25 @@
     invoke-interface {v2, v3}, Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;->cancelNotification(I)V
 
     .line 201
-    :cond_4
+    :cond_c6
     return-void
 
     .line 150
     .end local v1    # "removedInfo":Landroidx/work/ForegroundInfo;
     .end local v2    # "callback":Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
-    :catchall_0
+    :catchall_c7
     move-exception v2
 
-    :try_start_1
+    :try_start_c8
     monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_c9
+    .catchall {:try_start_c8 .. :try_end_c9} :catchall_c7
 
     throw v2
 .end method
 
 .method onStartCommand(Landroid/content/Intent;)V
-    .locals 2
+    .registers 4
     .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1443,7 +1443,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 215
     invoke-direct {p0, p1}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->handleStartForeground(Landroid/content/Intent;)V
@@ -1451,59 +1451,59 @@
     .line 218
     invoke-direct {p0, p1}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->handleNotify(Landroid/content/Intent;)V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 219
-    :cond_0
+    :cond_13
     const-string v1, "ACTION_NOTIFY"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     .line 220
     invoke-direct {p0, p1}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->handleNotify(Landroid/content/Intent;)V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 221
-    :cond_1
+    :cond_1f
     const-string v1, "ACTION_CANCEL_WORK"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2b
 
     .line 222
     invoke-direct {p0, p1}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->handleCancelWork(Landroid/content/Intent;)V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 223
-    :cond_2
+    :cond_2b
     const-string v1, "ACTION_STOP_FOREGROUND"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_36
 
     .line 224
     invoke-virtual {p0, p1}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->handleStop(Landroid/content/Intent;)V
 
     .line 226
-    :cond_3
-    :goto_0
+    :cond_36
+    :goto_36
     return-void
 .end method
 
 .method setCallback(Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;)V
-    .locals 3
+    .registers 5
     .param p1, "callback"    # Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1517,7 +1517,7 @@
     .line 205
     iget-object v0, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCallback:Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 206
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1534,7 +1534,7 @@
     return-void
 
     .line 209
-    :cond_0
+    :cond_10
     iput-object p1, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mCallback:Landroidx/work/impl/foreground/SystemForegroundDispatcher$Callback;
 
     .line 210

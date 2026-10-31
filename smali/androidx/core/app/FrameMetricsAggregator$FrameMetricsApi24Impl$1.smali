@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
 
     .line 348
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onFrameMetricsAvailable(Landroid/view/Window;Landroid/view/FrameMetrics;I)V
-    .locals 10
+    .registers 14
     .param p1, "window"    # Landroid/view/Window;
     .param p2, "frameMetrics"    # Landroid/view/FrameMetrics;
     .param p3, "dropCountSinceLastInvocation"    # I
@@ -55,7 +55,7 @@
 
     const/16 v3, 0x8
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 353
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -75,7 +75,7 @@
     invoke-virtual {v0, v4, v5, v6}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->addDurationItem(Landroid/util/SparseIntArray;J)V
 
     .line 356
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
 
     iget v0, v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mTrackingFlags:I
@@ -84,7 +84,7 @@
 
     and-int/2addr v0, v4
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 357
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -104,7 +104,7 @@
     invoke-virtual {v0, v5, v6, v7}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->addDurationItem(Landroid/util/SparseIntArray;J)V
 
     .line 361
-    :cond_1
+    :cond_31
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
 
     iget v0, v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mTrackingFlags:I
@@ -115,7 +115,7 @@
 
     const/4 v5, 0x3
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_49
 
     .line 362
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -135,14 +135,14 @@
     invoke-virtual {v0, v6, v7, v8}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->addDurationItem(Landroid/util/SparseIntArray;J)V
 
     .line 366
-    :cond_2
+    :cond_49
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
 
     iget v0, v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mTrackingFlags:I
 
     and-int/2addr v0, v3
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5f
 
     .line 367
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -162,7 +162,7 @@
     invoke-virtual {v0, v5, v6, v7}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->addDurationItem(Landroid/util/SparseIntArray;J)V
 
     .line 370
-    :cond_3
+    :cond_5f
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
 
     iget v0, v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mTrackingFlags:I
@@ -171,7 +171,7 @@
 
     const/4 v5, 0x5
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_77
 
     .line 371
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -191,7 +191,7 @@
     invoke-virtual {v0, v1, v6, v7}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->addDurationItem(Landroid/util/SparseIntArray;J)V
 
     .line 374
-    :cond_4
+    :cond_77
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
 
     iget v0, v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mTrackingFlags:I
@@ -202,7 +202,7 @@
 
     const/4 v6, 0x6
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_90
 
     .line 375
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -222,14 +222,14 @@
     invoke-virtual {v0, v7, v8, v9}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->addDurationItem(Landroid/util/SparseIntArray;J)V
 
     .line 379
-    :cond_5
+    :cond_90
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
 
     iget v0, v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mTrackingFlags:I
 
     and-int/lit8 v0, v0, 0x20
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_a7
 
     .line 380
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -249,14 +249,14 @@
     invoke-virtual {v0, v5, v6, v7}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->addDurationItem(Landroid/util/SparseIntArray;J)V
 
     .line 384
-    :cond_6
+    :cond_a7
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
 
     iget v0, v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mTrackingFlags:I
 
     and-int/lit16 v0, v0, 0x80
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_be
 
     .line 385
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -276,14 +276,14 @@
     invoke-virtual {v0, v1, v5, v6}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->addDurationItem(Landroid/util/SparseIntArray;J)V
 
     .line 389
-    :cond_7
+    :cond_be
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
 
     iget v0, v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mTrackingFlags:I
 
     and-int/lit16 v0, v0, 0x100
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_d5
 
     .line 390
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl$1;->this$0:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -303,6 +303,6 @@
     invoke-virtual {v0, v1, v2, v3}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->addDurationItem(Landroid/util/SparseIntArray;J)V
 
     .line 394
-    :cond_8
+    :cond_d5
     return-void
 .end method

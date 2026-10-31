@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(JI)I
-    .locals 2
+    .registers 5
 
     int-to-long v0, p2
 

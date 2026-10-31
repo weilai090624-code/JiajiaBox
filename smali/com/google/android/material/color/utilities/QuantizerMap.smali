@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public getColorToCount()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -50,7 +50,7 @@
 .end method
 
 .method public quantize([II)Lcom/google/android/material/color/utilities/QuantizerResult;
-    .locals 8
+    .registers 11
     .param p1, "pixels"    # [I
     .param p2, "colorCount"    # I
 
@@ -65,8 +65,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_7
+    if-ge v2, v1, :cond_2c
 
     aget v3, p1, v2
 
@@ -86,11 +86,11 @@
     .local v4, "currentPixelCount":Ljava/lang/Integer;
     const/4 v5, 0x1
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_19
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_0
+    :cond_19
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v6
@@ -99,7 +99,7 @@
 
     .line 41
     .local v5, "newPixelCount":I
-    :goto_1
+    :goto_1e
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v6
@@ -116,10 +116,10 @@
     .end local v5    # "newPixelCount":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 43
-    :cond_1
+    :cond_2c
     iput-object v0, p0, Lcom/google/android/material/color/utilities/QuantizerMap;->colorToCount:Ljava/util/Map;
 
     .line 44

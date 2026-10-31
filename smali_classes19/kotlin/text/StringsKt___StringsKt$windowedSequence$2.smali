@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public final invoke(I)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -108,7 +108,7 @@
 
     .line 2409
     .local v0, "end":I
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_10
 
     iget-object v1, p0, Lkotlin/text/StringsKt___StringsKt$windowedSequence$2;->$this_windowedSequence:Ljava/lang/CharSequence;
 
@@ -116,17 +116,17 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_e
     move v1, v0
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     iget-object v1, p0, Lkotlin/text/StringsKt___StringsKt$windowedSequence$2;->$this_windowedSequence:Ljava/lang/CharSequence;
 
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
@@ -135,7 +135,7 @@
 
     .line 2410
     .local v1, "coercedEnd":I
-    :goto_1
+    :goto_16
     iget-object v2, p0, Lkotlin/text/StringsKt___StringsKt$windowedSequence$2;->$transform:Lkotlin/jvm/functions/Function1;
 
     iget-object v3, p0, Lkotlin/text/StringsKt___StringsKt$windowedSequence$2;->$this_windowedSequence:Ljava/lang/CharSequence;
@@ -152,7 +152,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 2407

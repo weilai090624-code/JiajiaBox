@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 46
@@ -30,7 +30,7 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 48
     new-instance v0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;
@@ -39,10 +39,10 @@
 
     iput-object v0, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat;->mImpl:Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl;
 
-    goto :goto_0
+    goto :goto_19
 
     .line 49
-    :cond_0
+    :cond_11
     nop
 
     .line 50
@@ -53,12 +53,12 @@
     iput-object v0, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat;->mImpl:Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl;
 
     .line 54
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 .method constructor <init>(Landroid/view/WindowInsetsController;)V
-    .locals 1
+    .registers 3
     .param p1, "windowInsetsController"    # Landroid/view/WindowInsetsController;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public hide()V
-    .locals 1
+    .registers 2
 
     .line 81
     iget-object v0, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat;->mImpl:Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl;
@@ -92,7 +92,7 @@
 .end method
 
 .method public show()V
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat;->mImpl:Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl;

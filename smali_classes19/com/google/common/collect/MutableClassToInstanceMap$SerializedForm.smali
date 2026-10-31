@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 184
     .local p0, "this":Lcom/google/common/collect/MutableClassToInstanceMap$SerializedForm;, "Lcom/google/common/collect/MutableClassToInstanceMap$SerializedForm<TB;>;"

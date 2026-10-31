@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final onCancel(Landroid/content/DialogInterface;)V
-    .locals 1
+    .registers 3
 
     .line 23
     iget-object p1, p0, Lio/nekohasekai/sagernet/group/GroupInterfaceAdapter$confirm$2$1$3;->$it:Lkotlin/coroutines/Continuation;

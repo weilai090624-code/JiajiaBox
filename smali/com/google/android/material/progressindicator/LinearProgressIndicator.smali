@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 54
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_LinearProgressIndicator:I
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 67
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -94,7 +94,7 @@
 .end method
 
 .method private initializeDrawables()V
-    .locals 2
+    .registers 3
 
     .line 118
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->getContext()Landroid/content/Context;
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method bridge synthetic createSpec(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
-    .locals 0
+    .registers 3
 
     .line 52
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->createSpec(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;
@@ -144,7 +144,7 @@
 .end method
 
 .method createSpec(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public getIndeterminateAnimationType()I
-    .locals 1
+    .registers 2
 
     .line 159
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
@@ -170,7 +170,7 @@
 .end method
 
 .method public getIndicatorDirection()I
-    .locals 1
+    .registers 2
 
     .line 201
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
@@ -183,7 +183,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 4
+    .registers 10
     .param p1, "changed"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -206,14 +206,14 @@
 
     const/4 v2, 0x1
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_31
 
     .line 95
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1f
 
     iget-object v1, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
@@ -223,15 +223,15 @@
 
     const/4 v3, 0x2
 
-    if-eq v1, v3, :cond_2
+    if-eq v1, v3, :cond_31
 
     .line 97
-    :cond_0
+    :cond_1f
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2f
 
     iget-object v1, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
@@ -241,20 +241,20 @@
 
     const/4 v3, 0x3
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_2f
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_1
+    :cond_2f
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_2
-    :goto_0
+    :cond_31
+    :goto_31
     nop
 
-    :goto_1
+    :goto_32
     iput-boolean v2, v0, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;->drawHorizontallyInverse:Z
 
     .line 99
@@ -262,7 +262,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 4
+    .registers 9
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -305,30 +305,30 @@
     .local v2, "drawable":Landroid/graphics/drawable/Drawable;
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     .line 107
     invoke-virtual {v2, v3, v3, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 109
-    :cond_0
+    :cond_20
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->getProgressDrawable()Lcom/google/android/material/progressindicator/DeterminateDrawable;
 
     move-result-object v2
 
     .line 110
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     .line 111
     invoke-virtual {v2, v3, v3, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 113
-    :cond_1
+    :cond_29
     return-void
 .end method
 
 .method public setIndeterminateAnimationType(I)V
-    .locals 4
+    .registers 6
     .param p1, "indeterminateAnimationType"    # I
 
     .line 172
@@ -338,29 +338,29 @@
 
     iget v0, v0, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;->indeterminateAnimationType:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_9
 
     .line 173
     return-void
 
     .line 175
-    :cond_0
+    :cond_9
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->visibleToUser()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1e
 
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->isIndeterminate()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 176
-    :cond_1
+    :cond_16
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot change indeterminate animation type while the progress indicator is show in indeterminate mode."
@@ -370,8 +370,8 @@
     throw v0
 
     .line 180
-    :cond_2
-    :goto_0
+    :cond_1e
+    :goto_1e
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
     check-cast v0, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;
@@ -386,7 +386,7 @@
     invoke-virtual {v0}, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;->validateSpec()V
 
     .line 182
-    if-nez p1, :cond_3
+    if-nez p1, :cond_3e
 
     .line 183
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->getIndeterminateDrawable()Lcom/google/android/material/progressindicator/IndeterminateDrawable;
@@ -404,10 +404,10 @@
     .line 184
     invoke-virtual {v0, v1}, Lcom/google/android/material/progressindicator/IndeterminateDrawable;->setAnimatorDelegate(Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;)V
 
-    goto :goto_1
+    goto :goto_52
 
     .line 186
-    :cond_3
+    :cond_3e
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->getIndeterminateDrawable()Lcom/google/android/material/progressindicator/IndeterminateDrawable;
 
     move-result-object v0
@@ -428,7 +428,7 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/progressindicator/IndeterminateDrawable;->setAnimatorDelegate(Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;)V
 
     .line 189
-    :goto_1
+    :goto_52
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->invalidate()V
 
     .line 190
@@ -436,7 +436,7 @@
 .end method
 
 .method public varargs setIndicatorColor([I)V
-    .locals 1
+    .registers 3
     .param p1, "indicatorColors"    # [I
 
     .line 133
@@ -454,7 +454,7 @@
 .end method
 
 .method public setIndicatorDirection(I)V
-    .locals 4
+    .registers 6
     .param p1, "indicatorDirection"    # I
 
     .line 213
@@ -471,14 +471,14 @@
 
     const/4 v1, 0x1
 
-    if-eq p1, v1, :cond_2
+    if-eq p1, v1, :cond_28
 
     .line 216
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v2
 
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_1c
 
     iget-object v2, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
@@ -488,32 +488,32 @@
 
     const/4 v3, 0x2
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_28
 
     .line 218
-    :cond_0
+    :cond_1c
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_26
 
     const/4 v2, 0x3
 
-    if-ne p1, v2, :cond_1
+    if-ne p1, v2, :cond_26
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_1
+    :cond_26
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_29
 
-    :cond_2
-    :goto_0
+    :cond_28
+    :goto_28
     nop
 
-    :goto_1
+    :goto_29
     iput-boolean v1, v0, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;->drawHorizontallyInverse:Z
 
     .line 220
@@ -524,14 +524,14 @@
 .end method
 
 .method public setProgressCompat(IZ)V
-    .locals 1
+    .registers 4
     .param p1, "progress"    # I
     .param p2, "animated"    # Z
 
     .line 236
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
@@ -539,20 +539,20 @@
 
     iget v0, v0, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;->indeterminateAnimationType:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 238
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->isIndeterminate()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 239
     return-void
 
     .line 241
-    :cond_0
+    :cond_13
     invoke-super {p0, p1, p2}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->setProgressCompat(IZ)V
 
     .line 242
@@ -560,7 +560,7 @@
 .end method
 
 .method public setTrackCornerRadius(I)V
-    .locals 1
+    .registers 3
     .param p1, "trackCornerRadius"    # I
 
     .line 146

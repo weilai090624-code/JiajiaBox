@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "theProp"    # Ljava/lang/String;
 
     .line 77
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;J)V
-    .locals 1
+    .registers 5
     .param p1, "theProp"    # Ljava/lang/String;
     .param p2, "defaultVal"    # J
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public run()Ljava/lang/Long;
-    .locals 3
+    .registers 4
 
     .line 107
     iget-object v0, p0, Lj$/sun/security/action/GetLongAction;->theProp:Ljava/lang/String;
@@ -87,11 +87,11 @@
 
     .line 108
     .local v0, "value":Ljava/lang/Long;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     iget-boolean v1, p0, Lj$/sun/security/action/GetLongAction;->defaultSet:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 109
     iget-wide v1, p0, Lj$/sun/security/action/GetLongAction;->defaultVal:J
@@ -103,12 +103,12 @@
     return-object v1
 
     .line 110
-    :cond_0
+    :cond_13
     return-object v0
 .end method
 
 .method public bridge synthetic run()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 66
     invoke-virtual {p0}, Lj$/sun/security/action/GetLongAction;->run()Ljava/lang/Long;

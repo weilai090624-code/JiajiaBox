@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/RealBufferedSource;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lokio/RealBufferedSource;
 
     iput-object p1, p0, Lokio/RealBufferedSource$inputStream$1;->this$0:Lokio/RealBufferedSource;
@@ -67,14 +67,14 @@
 
 # virtual methods
 .method public available()I
-    .locals 6
+    .registers 7
 
     .line 166
     iget-object v0, p0, Lokio/RealBufferedSource$inputStream$1;->this$0:Lokio/RealBufferedSource;
 
     iget-boolean v0, v0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 167
     iget-object v0, p0, Lokio/RealBufferedSource$inputStream$1;->this$0:Lokio/RealBufferedSource;
@@ -116,7 +116,7 @@
     return v0
 
     .line 166
-    :cond_0
+    :cond_1a
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -127,7 +127,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 170
     iget-object v0, p0, Lokio/RealBufferedSource$inputStream$1;->this$0:Lokio/RealBufferedSource;
@@ -138,14 +138,14 @@
 .end method
 
 .method public read()I
-    .locals 5
+    .registers 6
 
     .line 145
     iget-object v0, p0, Lokio/RealBufferedSource$inputStream$1;->this$0:Lokio/RealBufferedSource;
 
     iget-boolean v0, v0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3a
 
     .line 146
     iget-object v0, p0, Lokio/RealBufferedSource$inputStream$1;->this$0:Lokio/RealBufferedSource;
@@ -168,7 +168,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2c
 
     .line 147
     iget-object v0, p0, Lokio/RealBufferedSource$inputStream$1;->this$0:Lokio/RealBufferedSource;
@@ -199,7 +199,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2c
 
     const/4 v2, -0x1
 
@@ -207,7 +207,7 @@
 
     .line 150
     .end local v0    # "count":J
-    :cond_0
+    :cond_2c
     iget-object v0, p0, Lokio/RealBufferedSource$inputStream$1;->this$0:Lokio/RealBufferedSource;
 
     .local v0, "this_$iv":Lokio/RealBufferedSource;
@@ -241,7 +241,7 @@
     return v0
 
     .line 145
-    :cond_1
+    :cond_3a
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -252,7 +252,7 @@
 .end method
 
 .method public read([BII)I
-    .locals 7
+    .registers 11
     .param p1, "data"    # [B
     .param p2, "offset"    # I
     .param p3, "byteCount"    # I
@@ -266,7 +266,7 @@
 
     iget-boolean v0, v0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_42
 
     .line 155
     array-length v0, p1
@@ -300,7 +300,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_38
 
     .line 158
     iget-object v0, p0, Lokio/RealBufferedSource$inputStream$1;->this$0:Lokio/RealBufferedSource;
@@ -331,7 +331,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_38
 
     const/4 v2, -0x1
 
@@ -339,7 +339,7 @@
 
     .line 162
     .end local v0    # "count":J
-    :cond_0
+    :cond_38
     iget-object v0, p0, Lokio/RealBufferedSource$inputStream$1;->this$0:Lokio/RealBufferedSource;
 
     .local v0, "this_$iv":Lokio/RealBufferedSource;
@@ -359,7 +359,7 @@
     return v0
 
     .line 154
-    :cond_1
+    :cond_42
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -370,7 +370,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 172
     new-instance v0, Ljava/lang/StringBuilder;

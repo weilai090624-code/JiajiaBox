@@ -138,7 +138,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/navigation/Navigator;I)V
-    .locals 1
+    .registers 4
     .param p1, "navigator"    # Landroidx/navigation/Navigator;
     .param p2, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -170,7 +170,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/navigation/Navigator;ILjava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "navigator"    # Landroidx/navigation/Navigator;
     .param p2, "id"    # I
     .param p3, "route"    # Ljava/lang/String;
@@ -232,7 +232,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/navigation/Navigator;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "navigator"    # Landroidx/navigation/Navigator;
     .param p2, "route"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -260,7 +260,7 @@
 
 # virtual methods
 .method public final action(ILkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 6
     .param p1, "actionId"    # I
     .param p2, "actionBuilder"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -306,7 +306,7 @@
 .end method
 
 .method public final argument(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "argumentBuilder"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -349,7 +349,7 @@
 .end method
 
 .method public build()Landroidx/navigation/NavDestination;
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TD;"
@@ -372,7 +372,7 @@
     .local v2, "$i$a$-also-NavDestinationBuilder$build$1":I
     iget-object v3, p0, Landroidx/navigation/NavDestinationBuilder;->route:Ljava/lang/String;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_11
 
     .line 152
     iget-object v3, p0, Landroidx/navigation/NavDestinationBuilder;->route:Ljava/lang/String;
@@ -380,12 +380,12 @@
     invoke-virtual {v1, v3}, Landroidx/navigation/NavDestination;->setRoute(Ljava/lang/String;)V
 
     .line 154
-    :cond_0
+    :cond_11
     iget v3, p0, Landroidx/navigation/NavDestinationBuilder;->id:I
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_1b
 
     .line 155
     iget v3, p0, Landroidx/navigation/NavDestinationBuilder;->id:I
@@ -393,7 +393,7 @@
     invoke-virtual {v1, v3}, Landroidx/navigation/NavDestination;->setId(I)V
 
     .line 157
-    :cond_1
+    :cond_1b
     iget-object v3, p0, Landroidx/navigation/NavDestinationBuilder;->label:Ljava/lang/CharSequence;
 
     invoke-virtual {v1, v3}, Landroidx/navigation/NavDestination;->setLabel(Ljava/lang/CharSequence;)V
@@ -414,12 +414,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_2b
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_49
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -456,10 +456,10 @@
     .end local v7    # "$i$a$-forEach-NavDestinationBuilder$build$1$1":I
     .end local v8    # "name":Ljava/lang/String;
     .end local v9    # "argument":Landroidx/navigation/NavArgument;
-    goto :goto_0
+    goto :goto_2b
 
     .line 261
-    :cond_2
+    :cond_49
     nop
 
     .line 161
@@ -478,12 +478,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_53
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_66
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -507,10 +507,10 @@
     .end local v6    # "element$iv":Ljava/lang/Object;
     .end local v7    # "deepLink":Landroidx/navigation/NavDeepLink;
     .end local v8    # "$i$a$-forEach-NavDestinationBuilder$build$1$2":I
-    goto :goto_1
+    goto :goto_53
 
     .line 263
-    :cond_3
+    :cond_66
     nop
 
     .line 164
@@ -531,12 +531,12 @@
 
     move-result-object v5
 
-    :goto_2
+    :goto_72
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_94
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -577,10 +577,10 @@
     .end local v7    # "$i$a$-forEach-NavDestinationBuilder$build$1$3":I
     .end local v8    # "actionId":I
     .end local v9    # "action":Landroidx/navigation/NavAction;
-    goto :goto_2
+    goto :goto_72
 
     .line 265
-    :cond_4
+    :cond_94
     nop
 
     .line 167
@@ -595,7 +595,7 @@
 .end method
 
 .method public final deepLink(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "uriPattern"    # Ljava/lang/String;
 
     const-string/jumbo v0, "uriPattern"
@@ -616,7 +616,7 @@
 .end method
 
 .method public final deepLink(Lkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 4
     .param p1, "navDeepLink"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -653,7 +653,7 @@
 .end method
 
 .method public final getId()I
-    .locals 1
+    .registers 2
 
     .line 37
     iget v0, p0, Landroidx/navigation/NavDestinationBuilder;->id:I
@@ -662,7 +662,7 @@
 .end method
 
 .method public final getLabel()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 77
     iget-object v0, p0, Landroidx/navigation/NavDestinationBuilder;->label:Ljava/lang/CharSequence;
@@ -671,7 +671,7 @@
 .end method
 
 .method protected final getNavigator()Landroidx/navigation/Navigator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -687,7 +687,7 @@
 .end method
 
 .method public final getRoute()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Landroidx/navigation/NavDestinationBuilder;->route:Ljava/lang/String;
@@ -696,7 +696,7 @@
 .end method
 
 .method public final setLabel(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/CharSequence;
 
     .line 77

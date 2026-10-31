@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Object;Lcom/google/common/eventbus/Subscriber;)V
-    .locals 0
+    .registers 3
     .param p1, "event"    # Ljava/lang/Object;
     .param p2, "subscriber"    # Lcom/google/common/eventbus/Subscriber;
 
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Object;Lcom/google/common/eventbus/Subscriber;Lcom/google/common/eventbus/Dispatcher$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/lang/Object;
     .param p2, "x1"    # Lcom/google/common/eventbus/Subscriber;
     .param p3, "x2"    # Lcom/google/common/eventbus/Dispatcher$1;
@@ -52,7 +52,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;
 
     .line 168
@@ -62,7 +62,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;)Lcom/google/common/eventbus/Subscriber;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;
 
     .line 168

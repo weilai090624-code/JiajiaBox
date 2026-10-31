@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final parseUniversal(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 43
+    .registers 44
     .param p0, "link"    # Ljava/lang/String;
 
     move-object/from16 v0, p0
@@ -65,7 +65,7 @@
 
     const-string v7, "sn://"
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_b1
 
     .line 9
     invoke-static {v0, v7, v6, v5, v6}, Lkotlin/text/StringsKt;->substringAfter$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
@@ -88,7 +88,7 @@
 
     check-cast v7, Ljava/lang/Integer;
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_92
 
     invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
@@ -193,11 +193,11 @@
     move-result-object v1
 
     .end local v1    # "type":Ljava/lang/String;
-    goto/16 :goto_0
+    goto/16 :goto_124
 
     .line 10
     .restart local v1    # "type":Ljava/lang/String;
-    :cond_0
+    :cond_92
     new-instance v2, Ljava/lang/IllegalStateException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -230,7 +230,7 @@
 
     .line 14
     .end local v1    # "type":Ljava/lang/String;
-    :cond_1
+    :cond_b1
     invoke-static {v0, v7, v6, v5, v6}, Lkotlin/text/StringsKt;->substringAfter$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -253,7 +253,7 @@
 
     check-cast v7, Ljava/lang/Integer;
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_125
 
     invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
@@ -359,12 +359,12 @@
 
     .line 8
     .end local v1    # "type":Ljava/lang/String;
-    :goto_0
+    :goto_124
     return-object v1
 
     .line 15
     .restart local v1    # "type":Ljava/lang/String;
-    :cond_2
+    :cond_125
     new-instance v2, Ljava/lang/IllegalStateException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -397,7 +397,7 @@
 .end method
 
 .method public static final toUniversalLink(Lio/nekohasekai/sagernet/database/ProxyGroup;)Ljava/lang/String;
-    .locals 6
+    .registers 7
     .param p0, "$this$toUniversalLink"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     const-string v0, "<this>"
@@ -466,7 +466,7 @@
 .end method
 
 .method public static final toUniversalLink(Lio/nekohasekai/sagernet/fmt/AbstractBean;)Ljava/lang/String;
-    .locals 40
+    .registers 41
     .param p0, "$this$toUniversalLink"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     move-object/from16 v0, p0

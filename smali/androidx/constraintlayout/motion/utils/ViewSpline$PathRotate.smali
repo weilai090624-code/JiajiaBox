@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 133
     invoke-direct {p0}, Landroidx/constraintlayout/motion/utils/ViewSpline;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public setPathRotate(Landroid/view/View;FDD)V
-    .locals 3
+    .registers 10
     .param p1, "view"    # Landroid/view/View;
     .param p2, "t"    # F
     .param p3, "dx"    # D
@@ -71,7 +71,7 @@
 .end method
 
 .method public setProperty(Landroid/view/View;F)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
     .param p2, "t"    # F
     .annotation system Ldalvik/annotation/MethodParameters;

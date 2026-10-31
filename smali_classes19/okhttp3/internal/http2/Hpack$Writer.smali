@@ -91,7 +91,7 @@
 
 # direct methods
 .method public constructor <init>(ILokio/Buffer;)V
-    .locals 7
+    .registers 10
 
     const-string v0, "out"
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>(IZLokio/Buffer;)V
-    .locals 1
+    .registers 5
     .param p1, "headerTableSizeSetting"    # I
     .param p2, "useCompression"    # Z
     .param p3, "out"    # Lokio/Buffer;
@@ -167,27 +167,27 @@
 .end method
 
 .method public synthetic constructor <init>(IZLokio/Buffer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 392
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     .line 393
     const/16 p1, 0x1000
 
     .line 392
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     .line 394
     const/4 p2, 0x1
 
     .line 392
-    :cond_1
+    :cond_b
     invoke-direct {p0, p1, p2, p3}, Lokhttp3/internal/http2/Hpack$Writer;-><init>(IZLokio/Buffer;)V
 
     .line 604
@@ -195,7 +195,7 @@
 .end method
 
 .method public constructor <init>(Lokio/Buffer;)V
-    .locals 7
+    .registers 9
 
     const-string v0, "out"
 
@@ -219,27 +219,27 @@
 .end method
 
 .method private final adjustDynamicTableByteCount()V
-    .locals 2
+    .registers 3
 
     .line 596
     iget v0, p0, Lokhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
 
     iget v1, p0, Lokhttp3/internal/http2/Hpack$Writer;->dynamicTableByteCount:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_16
 
     .line 597
     iget v0, p0, Lokhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 598
     invoke-direct {p0}, Lokhttp3/internal/http2/Hpack$Writer;->clearDynamicTable()V
 
-    goto :goto_0
+    goto :goto_16
 
     .line 600
-    :cond_0
+    :cond_e
     iget v0, p0, Lokhttp3/internal/http2/Hpack$Writer;->dynamicTableByteCount:I
 
     iget v1, p0, Lokhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
@@ -249,13 +249,13 @@
     invoke-direct {p0, v0}, Lokhttp3/internal/http2/Hpack$Writer;->evictToRecoverBytes(I)I
 
     .line 603
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     return-void
 .end method
 
 .method private final clearDynamicTable()V
-    .locals 6
+    .registers 7
 
     .line 413
     iget-object v0, p0, Lokhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lokhttp3/internal/http2/Header;
@@ -294,7 +294,7 @@
 .end method
 
 .method private final evictToRecoverBytes(I)I
-    .locals 8
+    .registers 10
     .param p1, "bytesToRecover"    # I
 
     .line 421
@@ -306,7 +306,7 @@
 
     .line 423
     .local v1, "entriesToEvict":I
-    if-lez v0, :cond_1
+    if-lez v0, :cond_58
 
     .line 425
     iget-object v2, p0, Lokhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lokhttp3/internal/http2/Header;
@@ -317,12 +317,12 @@
 
     .line 426
     .local v2, "j":I
-    :goto_0
+    :goto_9
     iget v3, p0, Lokhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_32
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_32
 
     .line 427
     iget-object v3, p0, Lokhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lokhttp3/internal/http2/Header;
@@ -363,10 +363,10 @@
     .line 431
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 433
-    :cond_0
+    :cond_32
     iget-object v3, p0, Lokhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lokhttp3/internal/http2/Header;
 
     iget v4, p0, Lokhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
@@ -413,12 +413,12 @@
 
     .line 438
     .end local v2    # "j":I
-    :cond_1
+    :cond_58
     return v1
 .end method
 
 .method private final insertIntoDynamicTable(Lokhttp3/internal/http2/Header;)V
-    .locals 7
+    .registers 9
     .param p1, "entry"    # Lokhttp3/internal/http2/Header;
 
     .line 442
@@ -428,7 +428,7 @@
     .local v0, "delta":I
     iget v1, p0, Lokhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_a
 
     .line 446
     invoke-direct {p0}, Lokhttp3/internal/http2/Hpack$Writer;->clearDynamicTable()V
@@ -437,7 +437,7 @@
     return-void
 
     .line 451
-    :cond_0
+    :cond_a
     iget v1, p0, Lokhttp3/internal/http2/Hpack$Writer;->dynamicTableByteCount:I
 
     add-int/2addr v1, v0
@@ -459,7 +459,7 @@
 
     array-length v3, v3
 
-    if-le v2, v3, :cond_1
+    if-le v2, v3, :cond_38
 
     .line 455
     iget-object v2, p0, Lokhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lokhttp3/internal/http2/Header;
@@ -500,7 +500,7 @@
 
     .line 460
     .end local v2    # "doubled":[Lokhttp3/internal/http2/Header;
-    :cond_1
+    :cond_38
     iget v2, p0, Lokhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
     add-int/lit8 v3, v2, -0x1
@@ -534,7 +534,7 @@
 
 # virtual methods
 .method public final resizeHeaderTable(I)V
-    .locals 2
+    .registers 4
     .param p1, "headerTableSizeSetting"    # I
 
     .line 581
@@ -551,15 +551,15 @@
     .local v0, "effectiveHeaderTableSize":I
     iget v1, p0, Lokhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_d
 
     return-void
 
     .line 586
-    :cond_0
+    :cond_d
     iget v1, p0, Lokhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1a
 
     .line 587
     nop
@@ -575,7 +575,7 @@
     iput v1, p0, Lokhttp3/internal/http2/Hpack$Writer;->smallestHeaderTableSizeSetting:I
 
     .line 590
-    :cond_1
+    :cond_1a
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lokhttp3/internal/http2/Hpack$Writer;->emitDynamicTableSizeUpdate:Z
@@ -591,7 +591,7 @@
 .end method
 
 .method public final writeByteString(Lokio/ByteString;)V
-    .locals 5
+    .registers 7
     .param p1, "data"    # Lokio/ByteString;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -608,7 +608,7 @@
 
     const/16 v1, 0x7f
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_37
 
     sget-object v0, Lokhttp3/internal/http2/Huffman;->INSTANCE:Lokhttp3/internal/http2/Huffman;
 
@@ -620,7 +620,7 @@
 
     move-result v2
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_37
 
     .line 569
     new-instance v0, Lokio/Buffer;
@@ -657,12 +657,12 @@
 
     invoke-virtual {v1, v2}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
 
-    goto :goto_0
+    goto :goto_44
 
     .line 575
     .end local v0    # "huffmanBuffer":Lokio/Buffer;
     .end local v2    # "huffmanBytes":Lokio/ByteString;
-    :cond_0
+    :cond_37
     invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result v0
@@ -677,12 +677,12 @@
     invoke-virtual {v0, p1}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
 
     .line 578
-    :goto_0
+    :goto_44
     return-void
 .end method
 
 .method public final writeHeaders(Ljava/util/List;)V
-    .locals 18
+    .registers 20
     .param p1, "headerBlock"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -712,7 +712,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     .line 471
     iget v2, v0, Lokhttp3/internal/http2/Hpack$Writer;->smallestHeaderTableSizeSetting:I
@@ -723,7 +723,7 @@
 
     const/16 v6, 0x1f
 
-    if-ge v2, v4, :cond_0
+    if-ge v2, v4, :cond_1d
 
     .line 473
     iget v2, v0, Lokhttp3/internal/http2/Hpack$Writer;->smallestHeaderTableSizeSetting:I
@@ -731,7 +731,7 @@
     invoke-virtual {v0, v2, v6, v5}, Lokhttp3/internal/http2/Hpack$Writer;->writeInt(III)V
 
     .line 475
-    :cond_0
+    :cond_1d
     iput-boolean v3, v0, Lokhttp3/internal/http2/Hpack$Writer;->emitDynamicTableSizeUpdate:Z
 
     .line 476
@@ -745,16 +745,16 @@
     invoke-virtual {v0, v2, v6, v5}, Lokhttp3/internal/http2/Hpack$Writer;->writeInt(III)V
 
     .line 480
-    :cond_1
+    :cond_29
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-lez v2, :cond_d
+    if-lez v2, :cond_123
 
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_30
     move v5, v4
 
     .local v5, "i":I
@@ -805,7 +805,7 @@
 
     .line 488
     .local v12, "staticIndex":Ljava/lang/Integer;
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_88
 
     .line 489
     invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
@@ -817,21 +817,21 @@
     .line 490
     const/4 v13, 0x2
 
-    if-gt v13, v11, :cond_2
+    if-gt v13, v11, :cond_5f
 
     const/4 v13, 0x7
 
-    if-gt v11, v13, :cond_2
+    if-gt v11, v13, :cond_5f
 
     const/4 v13, 0x1
 
-    goto :goto_1
+    goto :goto_60
 
-    :cond_2
+    :cond_5f
     const/4 v13, 0x0
 
-    :goto_1
-    if-eqz v13, :cond_4
+    :goto_60
+    if-eqz v13, :cond_88
 
     .line 495
     sget-object v13, Lokhttp3/internal/http2/Hpack;->INSTANCE:Lokhttp3/internal/http2/Hpack;
@@ -850,15 +850,15 @@
 
     move-result v13
 
-    if-eqz v13, :cond_3
+    if-eqz v13, :cond_76
 
     .line 496
     move v10, v11
 
-    goto :goto_2
+    goto :goto_88
 
     .line 497
-    :cond_3
+    :cond_76
     sget-object v13, Lokhttp3/internal/http2/Hpack;->INSTANCE:Lokhttp3/internal/http2/Hpack;
 
     invoke-virtual {v13}, Lokhttp3/internal/http2/Hpack;->getSTATIC_HEADER_TABLE()[Lokhttp3/internal/http2/Header;
@@ -873,17 +873,17 @@
 
     move-result v13
 
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_88
 
     .line 498
     add-int/lit8 v10, v11, 0x1
 
     .line 503
-    :cond_4
-    :goto_2
+    :cond_88
+    :goto_88
     const/4 v13, -0x1
 
-    if-ne v10, v13, :cond_8
+    if-ne v10, v13, :cond_d7
 
     .line 504
     iget v14, v0, Lokhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
@@ -894,9 +894,9 @@
 
     array-length v15, v15
 
-    if-ge v14, v15, :cond_8
+    if-ge v14, v15, :cond_d7
 
-    :goto_3
+    :goto_93
     move/from16 v16, v14
 
     .local v16, "j":I
@@ -915,7 +915,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_d1
 
     .line 506
     iget-object v6, v0, Lokhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lokhttp3/internal/http2/Header;
@@ -930,7 +930,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_c2
 
     .line 507
     iget v6, v0, Lokhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
@@ -948,11 +948,11 @@
     add-int v10, v6, v14
 
     .line 508
-    goto :goto_4
+    goto :goto_d7
 
     .line 509
-    :cond_5
-    if-ne v11, v13, :cond_6
+    :cond_c2
+    if-ne v11, v13, :cond_d1
 
     .line 510
     iget v6, v0, Lokhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
@@ -972,26 +972,26 @@
     move v11, v6
 
     .line 504
-    :cond_6
-    if-lt v14, v15, :cond_7
+    :cond_d1
+    if-lt v14, v15, :cond_d4
 
-    goto :goto_4
+    goto :goto_d7
 
-    :cond_7
+    :cond_d4
     const/4 v3, 0x0
 
     const/4 v6, 0x1
 
-    goto :goto_3
+    goto :goto_93
 
     .line 516
     .end local v16    # "j":I
-    :cond_8
-    :goto_4
+    :cond_d7
+    :goto_d7
     nop
 
     .line 517
-    if-eq v10, v13, :cond_9
+    if-eq v10, v13, :cond_e3
 
     .line 519
     const/16 v3, 0x7f
@@ -1002,13 +1002,13 @@
 
     const/4 v6, 0x0
 
-    goto :goto_5
+    goto :goto_11d
 
     .line 521
-    :cond_9
+    :cond_e3
     const/16 v3, 0x40
 
-    if-ne v11, v13, :cond_a
+    if-ne v11, v13, :cond_f7
 
     .line 523
     iget-object v6, v0, Lokhttp3/internal/http2/Hpack$Writer;->out:Lokio/Buffer;
@@ -1026,17 +1026,17 @@
 
     const/4 v6, 0x0
 
-    goto :goto_5
+    goto :goto_11d
 
     .line 528
-    :cond_a
+    :cond_f7
     sget-object v6, Lokhttp3/internal/http2/Header;->PSEUDO_PREFIX:Lokio/ByteString;
 
     invoke-virtual {v8, v6}, Lokio/ByteString;->startsWith(Lokio/ByteString;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_111
 
     sget-object v6, Lokhttp3/internal/http2/Header;->TARGET_AUTHORITY:Lokio/ByteString;
 
@@ -1044,7 +1044,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_b
+    if-nez v6, :cond_111
 
     .line 531
     const/16 v3, 0xf
@@ -1056,10 +1056,10 @@
     .line 532
     invoke-virtual {v0, v9}, Lokhttp3/internal/http2/Hpack$Writer;->writeByteString(Lokio/ByteString;)V
 
-    goto :goto_5
+    goto :goto_11d
 
     .line 528
-    :cond_b
+    :cond_111
     const/4 v6, 0x0
 
     .line 536
@@ -1080,25 +1080,25 @@
     .end local v10    # "headerIndex":I
     .end local v11    # "headerNameIndex":I
     .end local v12    # "staticIndex":Ljava/lang/Integer;
-    :goto_5
-    if-lt v4, v2, :cond_c
+    :goto_11d
+    if-lt v4, v2, :cond_120
 
-    goto :goto_6
+    goto :goto_123
 
-    :cond_c
+    :cond_120
     const/4 v3, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_30
 
     .line 542
     .end local v5    # "i":I
-    :cond_d
-    :goto_6
+    :cond_123
+    :goto_123
     return-void
 .end method
 
 .method public final writeInt(III)V
-    .locals 4
+    .registers 8
     .param p1, "value"    # I
     .param p2, "prefixMask"    # I
     .param p3, "bits"    # I
@@ -1108,7 +1108,7 @@
 
     .line 548
     .local v0, "value":I
-    if-ge v0, p2, :cond_0
+    if-ge v0, p2, :cond_b
 
     .line 549
     iget-object v1, p0, Lokhttp3/internal/http2/Hpack$Writer;->out:Lokio/Buffer;
@@ -1121,7 +1121,7 @@
     return-void
 
     .line 554
-    :cond_0
+    :cond_b
     iget-object v1, p0, Lokhttp3/internal/http2/Hpack$Writer;->out:Lokio/Buffer;
 
     or-int v2, p3, p2
@@ -1132,10 +1132,10 @@
     sub-int/2addr v0, p2
 
     .line 558
-    :goto_0
+    :goto_13
     const/16 v1, 0x80
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_23
 
     .line 559
     and-int/lit8 v1, v0, 0x7f
@@ -1152,10 +1152,10 @@
     ushr-int/lit8 v0, v0, 0x7
 
     .end local v1    # "b":I
-    goto :goto_0
+    goto :goto_13
 
     .line 563
-    :cond_1
+    :cond_23
     iget-object v1, p0, Lokhttp3/internal/http2/Hpack$Writer;->out:Lokio/Buffer;
 
     invoke-virtual {v1, v0}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;

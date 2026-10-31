@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,12 +25,13 @@
 
 # virtual methods
 .method public final onAnimationEnd()V
-    .locals 1
+    .registers 2
 
     .line 0
     iget-object v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper$$ExternalSyntheticLambda2;->f$0:Landroid/animation/Animator;
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
     return-void

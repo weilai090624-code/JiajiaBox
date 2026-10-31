@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 30
     invoke-direct {p0}, Lorg/ini4j/BasicProfile;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public bridge synthetic add(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 3
     .param p1, "x0"    # Ljava/lang/String;
 
     .line 24
@@ -45,7 +45,7 @@
 .end method
 
 .method public add(Ljava/lang/String;)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 46
@@ -59,7 +59,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "x0"    # Ljava/lang/Object;
 
     .line 24
@@ -71,7 +71,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "x0"    # Ljava/lang/Object;
     .param p2, "x1"    # I
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 51
@@ -98,7 +98,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;I)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "index"    # I
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public getVersion()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Lorg/ini4j/BasicRegistry;->_version:Ljava/lang/String;
@@ -122,7 +122,7 @@
 .end method
 
 .method bridge synthetic newSection(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 3
     .param p1, "x0"    # Ljava/lang/String;
 
     .line 24
@@ -134,7 +134,7 @@
 .end method
 
 .method newSection(Ljava/lang/String;)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 86
@@ -146,7 +146,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "x0"    # Ljava/lang/Object;
     .param p2, "x1"    # Ljava/lang/Object;
 
@@ -167,7 +167,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "x0"    # Ljava/lang/Object;
     .param p2, "x1"    # Ljava/lang/Object;
     .param p3, "x2"    # I
@@ -189,7 +189,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Lorg/ini4j/Profile$Section;)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Lorg/ini4j/Profile$Section;
 
@@ -204,7 +204,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Lorg/ini4j/Profile$Section;I)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Lorg/ini4j/Profile$Section;
     .param p3, "index"    # I
@@ -220,7 +220,7 @@
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "x0"    # Ljava/lang/Object;
 
     .line 24
@@ -232,7 +232,7 @@
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "x0"    # Ljava/lang/Object;
     .param p2, "x1"    # I
 
@@ -245,7 +245,7 @@
 .end method
 
 .method public bridge synthetic remove(Lorg/ini4j/Profile$Section;)Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 3
     .param p1, "x0"    # Lorg/ini4j/Profile$Section;
 
     .line 24
@@ -257,7 +257,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 76
@@ -271,7 +271,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;I)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "index"    # I
 
@@ -286,7 +286,7 @@
 .end method
 
 .method public remove(Lorg/ini4j/Profile$Section;)Lorg/ini4j/Registry$Key;
-    .locals 1
+    .registers 3
     .param p1, "section"    # Lorg/ini4j/Profile$Section;
 
     .line 71
@@ -300,7 +300,7 @@
 .end method
 
 .method public setVersion(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/String;
 
     .line 41
@@ -311,7 +311,7 @@
 .end method
 
 .method store(Lorg/ini4j/spi/IniHandler;Lorg/ini4j/Profile$Section;Ljava/lang/String;)V
-    .locals 5
+    .registers 9
     .param p1, "formatter"    # Lorg/ini4j/spi/IniHandler;
     .param p2, "section"    # Lorg/ini4j/Profile$Section;
     .param p3, "option"    # Ljava/lang/String;
@@ -342,13 +342,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     move-object v1, p3
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_1a
     invoke-static {}, Lorg/ini4j/spi/RegEscapeTool;->getInstance()Lorg/ini4j/spi/RegEscapeTool;
 
     move-result-object v1
@@ -359,7 +359,7 @@
 
     .line 94
     .local v1, "rawName":Ljava/lang/String;
-    :goto_0
+    :goto_22
     invoke-interface {p2, p3}, Lorg/ini4j/Profile$Section;->length(Ljava/lang/Object;)I
 
     move-result v2
@@ -371,10 +371,10 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
+    :goto_29
     array-length v4, v2
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_37
 
     .line 98
     invoke-interface {p2, p3, v3}, Lorg/ini4j/Profile$Section;->get(Ljava/lang/Object;I)Ljava/lang/Object;
@@ -388,11 +388,11 @@
     .line 96
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_29
 
     .line 101
     .end local v3    # "i":I
-    :cond_1
+    :cond_37
     invoke-static {}, Lorg/ini4j/spi/RegEscapeTool;->getInstance()Lorg/ini4j/spi/RegEscapeTool;
 
     move-result-object v3

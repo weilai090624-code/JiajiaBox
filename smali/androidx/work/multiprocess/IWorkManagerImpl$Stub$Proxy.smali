@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .locals 0
+    .registers 2
     .param p1, "remote"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 205
     iget-object v0, p0, Landroidx/work/multiprocess/IWorkManagerImpl$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -56,7 +56,7 @@
 .end method
 
 .method public cancelAllWork(Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 5
+    .registers 7
     .param p1, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -80,7 +80,7 @@
 
     .line 297
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "androidx.work.multiprocess.IWorkManagerImpl"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -98,8 +98,8 @@
     const/4 v4, 0x7
 
     invoke-interface {v1, v4, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_4 .. :try_end_14} :catchall_19
 
     .line 302
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -111,7 +111,7 @@
     return-void
 
     .line 302
-    :catchall_0
+    :catchall_19
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -121,7 +121,7 @@
 .end method
 
 .method public cancelAllWorkByTag(Ljava/lang/String;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 5
+    .registers 8
     .param p1, "tag"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -148,7 +148,7 @@
 
     .line 271
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "androidx.work.multiprocess.IWorkManagerImpl"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -169,8 +169,8 @@
     const/4 v4, 0x5
 
     invoke-interface {v1, v4, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_4 .. :try_end_17} :catchall_1c
 
     .line 277
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -182,7 +182,7 @@
     return-void
 
     .line 277
-    :catchall_0
+    :catchall_1c
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -192,7 +192,7 @@
 .end method
 
 .method public cancelUniqueWork(Ljava/lang/String;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 5
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -219,7 +219,7 @@
 
     .line 284
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "androidx.work.multiprocess.IWorkManagerImpl"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -240,8 +240,8 @@
     const/4 v4, 0x6
 
     invoke-interface {v1, v4, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_4 .. :try_end_17} :catchall_1c
 
     .line 290
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -253,7 +253,7 @@
     return-void
 
     .line 290
-    :catchall_0
+    :catchall_1c
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -263,7 +263,7 @@
 .end method
 
 .method public cancelWorkById(Ljava/lang/String;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 5
+    .registers 8
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -290,7 +290,7 @@
 
     .line 258
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "androidx.work.multiprocess.IWorkManagerImpl"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -311,8 +311,8 @@
     const/4 v4, 0x4
 
     invoke-interface {v1, v4, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_4 .. :try_end_17} :catchall_1c
 
     .line 264
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -324,7 +324,7 @@
     return-void
 
     .line 264
-    :catchall_0
+    :catchall_1c
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -334,7 +334,7 @@
 .end method
 
 .method public enqueueContinuation([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 5
+    .registers 8
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -361,7 +361,7 @@
 
     .line 244
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "androidx.work.multiprocess.IWorkManagerImpl"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -382,8 +382,8 @@
     const/4 v4, 0x3
 
     invoke-interface {v1, v4, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_4 .. :try_end_17} :catchall_1c
 
     .line 250
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -395,7 +395,7 @@
     return-void
 
     .line 250
-    :catchall_0
+    :catchall_1c
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -405,7 +405,7 @@
 .end method
 
 .method public enqueueWorkRequests([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 4
+    .registers 7
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -432,7 +432,7 @@
 
     .line 216
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "androidx.work.multiprocess.IWorkManagerImpl"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -451,8 +451,8 @@
     const/4 v3, 0x1
 
     invoke-interface {v1, v3, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_4 .. :try_end_16} :catchall_1b
 
     .line 222
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -464,7 +464,7 @@
     return-void
 
     .line 222
-    :catchall_0
+    :catchall_1b
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -474,7 +474,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 209
     const-string v0, "androidx.work.multiprocess.IWorkManagerImpl"
@@ -483,7 +483,7 @@
 .end method
 
 .method public queryWorkInfo([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 5
+    .registers 8
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -510,7 +510,7 @@
 
     .line 310
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "androidx.work.multiprocess.IWorkManagerImpl"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -531,8 +531,8 @@
     const/16 v4, 0x8
 
     invoke-interface {v1, v4, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_4 .. :try_end_18} :catchall_1d
 
     .line 316
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -544,7 +544,7 @@
     return-void
 
     .line 316
-    :catchall_0
+    :catchall_1d
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -554,7 +554,7 @@
 .end method
 
 .method public setForegroundAsync([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 5
+    .registers 8
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -581,7 +581,7 @@
 
     .line 338
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "androidx.work.multiprocess.IWorkManagerImpl"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -602,8 +602,8 @@
     const/16 v4, 0xa
 
     invoke-interface {v1, v4, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_4 .. :try_end_18} :catchall_1d
 
     .line 344
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -615,7 +615,7 @@
     return-void
 
     .line 344
-    :catchall_0
+    :catchall_1d
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -625,7 +625,7 @@
 .end method
 
 .method public setProgress([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 5
+    .registers 8
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -652,7 +652,7 @@
 
     .line 324
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "androidx.work.multiprocess.IWorkManagerImpl"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -673,8 +673,8 @@
     const/16 v4, 0x9
 
     invoke-interface {v1, v4, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_4 .. :try_end_18} :catchall_1d
 
     .line 330
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -686,7 +686,7 @@
     return-void
 
     .line 330
-    :catchall_0
+    :catchall_1d
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -696,7 +696,7 @@
 .end method
 
 .method public updateUniquePeriodicWorkRequest(Ljava/lang/String;[BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 5
+    .registers 9
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "request"    # [B
     .param p3, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
@@ -726,7 +726,7 @@
 
     .line 229
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "androidx.work.multiprocess.IWorkManagerImpl"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -750,8 +750,8 @@
     const/4 v4, 0x2
 
     invoke-interface {v1, v4, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_4 .. :try_end_1a} :catchall_1f
 
     .line 236
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -763,7 +763,7 @@
     return-void
 
     .line 236
-    :catchall_0
+    :catchall_1f
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

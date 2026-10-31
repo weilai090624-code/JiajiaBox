@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/internal/ThreadContextKt$countAll$1;
 
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x2
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -96,62 +96,62 @@
 .end method
 
 .method public final invoke(Ljava/lang/Object;Lkotlin/coroutines/CoroutineContext$Element;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "countOrElement"    # Ljava/lang/Object;
     .param p2, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
 
     .line 36
     instance-of v0, p2, Lkotlinx/coroutines/ThreadContextElement;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_20
 
     .line 37
     instance-of v0, p1, Ljava/lang/Integer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Integer;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_d
+    if-eqz v0, :cond_14
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 v0, 0x1
 
     .line 38
     .local v0, "inCount":I
-    :goto_1
-    if-nez v0, :cond_2
+    :goto_15
+    if-nez v0, :cond_19
 
     move-object v1, p2
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_2
+    :cond_19
     add-int/lit8 v1, v0, 0x1
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    :goto_2
+    :goto_1f
     return-object v1
 
     .line 40
     .end local v0    # "inCount":I
-    :cond_3
+    :cond_20
     return-object p1
 .end method

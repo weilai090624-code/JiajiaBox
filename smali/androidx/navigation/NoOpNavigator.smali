@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Landroidx/navigation/Navigator;-><init>()V
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public createDestination()Landroidx/navigation/NavDestination;
-    .locals 2
+    .registers 3
 
     .line 29
     new-instance v0, Landroidx/navigation/NavDestination;
@@ -76,7 +76,7 @@
 .end method
 
 .method public navigate(Landroidx/navigation/NavDestination;Landroid/os/Bundle;Landroidx/navigation/NavOptions;Landroidx/navigation/Navigator$Extras;)Landroidx/navigation/NavDestination;
-    .locals 1
+    .registers 6
     .param p1, "destination"    # Landroidx/navigation/NavDestination;
     .param p2, "args"    # Landroid/os/Bundle;
     .param p3, "navOptions"    # Landroidx/navigation/NavOptions;
@@ -91,7 +91,7 @@
 .end method
 
 .method public popBackStack()Z
-    .locals 1
+    .registers 2
 
     .line 38
     const/4 v0, 0x1

@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final reportWhenComplete(Landroidx/activity/FullyDrawnReporter;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,7 +55,7 @@
 
     instance-of v0, p2, Landroidx/activity/FullyDrawnReporterKt$reportWhenComplete$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -67,7 +67,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Landroidx/activity/FullyDrawnReporterKt$reportWhenComplete$1;->label:I
 
@@ -75,15 +75,15 @@
 
     iput v1, v0, Landroidx/activity/FullyDrawnReporterKt$reportWhenComplete$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Landroidx/activity/FullyDrawnReporterKt$reportWhenComplete$1;
 
     invoke-direct {v0, p2}, Landroidx/activity/FullyDrawnReporterKt$reportWhenComplete$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Landroidx/activity/FullyDrawnReporterKt$reportWhenComplete$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -94,7 +94,7 @@
     .line 165
     iget v3, v0, Landroidx/activity/FullyDrawnReporterKt$reportWhenComplete$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_66
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -108,7 +108,7 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     const/4 p0, 0x0
 
     .local p0, "$i$f$reportWhenComplete":I
@@ -117,23 +117,23 @@
     check-cast p1, Landroidx/activity/FullyDrawnReporter;
 
     .local p1, "$this$reportWhenComplete":Landroidx/activity/FullyDrawnReporter;
-    :try_start_0
+    :try_start_31
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_34
+    .catchall {:try_start_31 .. :try_end_34} :catchall_35
 
-    goto :goto_1
+    goto :goto_56
 
     .line 175
-    :catchall_0
+    :catchall_35
     move-exception v2
 
-    goto :goto_2
+    goto :goto_61
 
     .line 165
     .end local p0    # "$i$f$reportWhenComplete":I
     .end local p1    # "$this$reportWhenComplete":Landroidx/activity/FullyDrawnReporter;
-    :pswitch_1
+    :pswitch_37
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .local p0, "$this$reportWhenComplete":Landroidx/activity/FullyDrawnReporter;
@@ -149,7 +149,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_47
 
     .line 170
     .end local p1    # "reporter":Lkotlin/jvm/functions/Function1;
@@ -159,11 +159,11 @@
 
     .line 172
     .restart local p1    # "reporter":Lkotlin/jvm/functions/Function1;
-    :cond_1
+    :cond_47
     nop
 
     .line 173
-    :try_start_1
+    :try_start_48
     iput-object p0, v0, Landroidx/activity/FullyDrawnReporterKt$reportWhenComplete$1;->L$0:Ljava/lang/Object;
 
     const/4 v4, 0x1
@@ -173,17 +173,17 @@
     invoke-interface {p1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_51
+    .catchall {:try_start_48 .. :try_end_51} :catchall_5e
 
     .end local p1    # "reporter":Lkotlin/jvm/functions/Function1;
-    if-ne v4, v2, :cond_2
+    if-ne v4, v2, :cond_54
 
     .line 165
     return-object v2
 
     .line 173
-    :cond_2
+    :cond_54
     move-object p1, p0
 
     move p0, v3
@@ -191,7 +191,7 @@
     .end local v3    # "$i$f$reportWhenComplete":I
     .local p0, "$i$f$reportWhenComplete":I
     .local p1, "$this$reportWhenComplete":Landroidx/activity/FullyDrawnReporter;
-    :goto_1
+    :goto_56
     nop
 
     .line 175
@@ -211,7 +211,7 @@
     .end local p1    # "$this$reportWhenComplete":Landroidx/activity/FullyDrawnReporter;
     .restart local v3    # "$i$f$reportWhenComplete":I
     .local p0, "$this$reportWhenComplete":Landroidx/activity/FullyDrawnReporter;
-    :catchall_1
+    :catchall_5e
     move-exception v2
 
     move-object p1, p0
@@ -221,22 +221,22 @@
     .end local v3    # "$i$f$reportWhenComplete":I
     .local p0, "$i$f$reportWhenComplete":I
     .restart local p1    # "$this$reportWhenComplete":Landroidx/activity/FullyDrawnReporter;
-    :goto_2
+    :goto_61
     invoke-virtual {p1}, Landroidx/activity/FullyDrawnReporter;->removeReporter()V
 
     throw v2
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_66
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_37
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method private static final reportWhenComplete$$forInline(Landroidx/activity/FullyDrawnReporter;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$reportWhenComplete"    # Landroidx/activity/FullyDrawnReporter;
     .param p1, "reporter"    # Lkotlin/jvm/functions/Function1;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -271,7 +271,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     .line 170
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -279,14 +279,14 @@
     return-object v1
 
     .line 172
-    :cond_0
+    :cond_d
     nop
 
     .line 173
-    :try_start_0
+    :try_start_e
     invoke-interface {p1, p2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_e .. :try_end_11} :catchall_18
 
     .line 175
     invoke-virtual {p0}, Landroidx/activity/FullyDrawnReporter;->removeReporter()V
@@ -300,7 +300,7 @@
     return-object v1
 
     .line 175
-    :catchall_0
+    :catchall_18
     move-exception v1
 
     invoke-virtual {p0}, Landroidx/activity/FullyDrawnReporter;->removeReporter()V

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ViewPort;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .param p1, "viewPort"    # Landroidx/camera/core/ViewPort;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public getUseCases()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -84,7 +84,7 @@
 .end method
 
 .method public getViewPort()Landroidx/camera/core/ViewPort;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Landroidx/camera/core/UseCaseGroup;->mViewPort:Landroidx/camera/core/ViewPort;

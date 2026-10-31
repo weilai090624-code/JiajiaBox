@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 41
     const v0, 0x10100a0
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 48
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public isCheckable()Z
-    .locals 1
+    .registers 2
 
     .line 144
     iget-boolean v0, p0, Lcom/google/android/material/internal/CheckableImageButton;->checkable:Z
@@ -109,7 +109,7 @@
 .end method
 
 .method public isChecked()Z
-    .locals 1
+    .registers 2
 
     .line 88
     iget-boolean v0, p0, Lcom/google/android/material/internal/CheckableImageButton;->checked:Z
@@ -118,7 +118,7 @@
 .end method
 
 .method public isPressable()Z
-    .locals 1
+    .registers 2
 
     .line 154
     iget-boolean v0, p0, Lcom/google/android/material/internal/CheckableImageButton;->pressable:Z
@@ -127,13 +127,13 @@
 .end method
 
 .method public onCreateDrawableState(I)[I
-    .locals 2
+    .registers 4
     .param p1, "extraSpace"    # I
 
     .line 105
     iget-boolean v0, p0, Lcom/google/android/material/internal/CheckableImageButton;->checked:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 106
     sget-object v0, Lcom/google/android/material/internal/CheckableImageButton;->DRAWABLE_STATE_CHECKED:[I
@@ -157,7 +157,7 @@
     return-object v0
 
     .line 110
-    :cond_0
+    :cond_13
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatImageButton;->onCreateDrawableState(I)[I
 
     move-result-object v0
@@ -166,13 +166,13 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroid/os/Parcelable;
 
     .line 125
     instance-of v0, p1, Lcom/google/android/material/internal/CheckableImageButton$SavedState;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 126
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatImageButton;->onRestoreInstanceState(Landroid/os/Parcelable;)V
@@ -181,7 +181,7 @@
     return-void
 
     .line 129
-    :cond_0
+    :cond_8
     move-object v0, p1
 
     check-cast v0, Lcom/google/android/material/internal/CheckableImageButton$SavedState;
@@ -204,7 +204,7 @@
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 3
+    .registers 4
 
     .line 117
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatImageButton;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -228,13 +228,13 @@
 .end method
 
 .method public setCheckable(Z)V
-    .locals 1
+    .registers 3
     .param p1, "checkable"    # Z
 
     .line 136
     iget-boolean v0, p0, Lcom/google/android/material/internal/CheckableImageButton;->checkable:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_a
 
     .line 137
     iput-boolean p1, p0, Lcom/google/android/material/internal/CheckableImageButton;->checkable:Z
@@ -245,22 +245,22 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/internal/CheckableImageButton;->sendAccessibilityEvent(I)V
 
     .line 140
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public setChecked(Z)V
-    .locals 1
+    .registers 3
     .param p1, "checked"    # Z
 
     .line 79
     iget-boolean v0, p0, Lcom/google/android/material/internal/CheckableImageButton;->checkable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-boolean v0, p0, Lcom/google/android/material/internal/CheckableImageButton;->checked:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_12
 
     .line 80
     iput-boolean p1, p0, Lcom/google/android/material/internal/CheckableImageButton;->checked:Z
@@ -274,12 +274,12 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/internal/CheckableImageButton;->sendAccessibilityEvent(I)V
 
     .line 84
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public setPressable(Z)V
-    .locals 0
+    .registers 2
     .param p1, "pressable"    # Z
 
     .line 149
@@ -290,24 +290,24 @@
 .end method
 
 .method public setPressed(Z)V
-    .locals 1
+    .registers 3
     .param p1, "pressed"    # Z
 
     .line 98
     iget-boolean v0, p0, Lcom/google/android/material/internal/CheckableImageButton;->pressable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 99
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatImageButton;->setPressed(Z)V
 
     .line 101
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public toggle()V
-    .locals 1
+    .registers 2
 
     .line 93
     iget-boolean v0, p0, Lcom/google/android/material/internal/CheckableImageButton;->checked:Z

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final isSchedulerWorker(Ljava/lang/Thread;)Z
-    .locals 1
+    .registers 2
     .param p0, "thread"    # Ljava/lang/Thread;
 
     .line 1024
@@ -38,13 +38,13 @@
 .end method
 
 .method public static final mayNotBlock(Ljava/lang/Thread;)Z
-    .locals 2
+    .registers 3
     .param p0, "thread"    # Ljava/lang/Thread;
 
     .line 1031
     instance-of v0, p0, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 1032
     move-object v0, p0
@@ -55,15 +55,15 @@
 
     sget-object v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;->CPU_ACQUIRED:Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     return v0
 .end method

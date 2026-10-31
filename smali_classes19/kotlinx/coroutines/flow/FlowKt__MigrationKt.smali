@@ -111,7 +111,7 @@
 
 # direct methods
 .method public static final cache(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "$this$cache"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -145,7 +145,7 @@
 .end method
 
 .method public static final combineLatest(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 4
     .param p0, "$this$combineLatest"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "other"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function3;
@@ -191,7 +191,7 @@
 .end method
 
 .method public static final combineLatest(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function4;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 5
     .param p0, "$this$combineLatest"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "other"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "other2"    # Lkotlinx/coroutines/flow/Flow;
@@ -242,7 +242,7 @@
 .end method
 
 .method public static final combineLatest(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function5;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 6
     .param p0, "$this$combineLatest"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "other"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "other2"    # Lkotlinx/coroutines/flow/Flow;
@@ -298,7 +298,7 @@
 .end method
 
 .method public static final combineLatest(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function6;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 7
     .param p0, "$this$combineLatest"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "other"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "other2"    # Lkotlinx/coroutines/flow/Flow;
@@ -359,7 +359,7 @@
 .end method
 
 .method public static final compose(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$compose"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "transformer"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -402,7 +402,7 @@
 .end method
 
 .method public static final concatMap(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$concatMap"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "mapper"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -443,7 +443,7 @@
 .end method
 
 .method public static final concatWith(Lkotlinx/coroutines/flow/Flow;Ljava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$concatWith"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -478,7 +478,7 @@
 .end method
 
 .method public static final concatWith(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$concatWith"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "other"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
@@ -515,7 +515,7 @@
 .end method
 
 .method public static final delayEach(Lkotlinx/coroutines/flow/Flow;J)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 5
     .param p0, "$this$delayEach"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "timeMillis"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -556,7 +556,7 @@
 .end method
 
 .method public static final delayFlow(Lkotlinx/coroutines/flow/Flow;J)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 5
     .param p0, "$this$delayFlow"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "timeMillis"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -597,7 +597,7 @@
 .end method
 
 .method public static final flatMap(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$flatMap"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "mapper"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -642,7 +642,7 @@
 .end method
 
 .method public static final flatten(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "$this$flatten"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -678,7 +678,7 @@
 .end method
 
 .method public static final forEach(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$forEach"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -719,7 +719,7 @@
 .end method
 
 .method public static final merge(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "$this$merge"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -755,7 +755,7 @@
 .end method
 
 .method public static final noImpl()Ljava/lang/Void;
-    .locals 2
+    .registers 2
 
     .line 24
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -768,7 +768,7 @@
 .end method
 
 .method public static final observeOn(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$observeOn"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
@@ -801,7 +801,7 @@
 .end method
 
 .method public static final onErrorResume(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$onErrorResume"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "fallback"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
@@ -838,7 +838,7 @@
 .end method
 
 .method public static final onErrorResumeNext(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$onErrorResumeNext"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "fallback"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
@@ -875,7 +875,7 @@
 .end method
 
 .method public static final onErrorReturn(Lkotlinx/coroutines/flow/Flow;Ljava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$onErrorReturn"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "fallback"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -910,7 +910,7 @@
 .end method
 
 .method public static final onErrorReturn(Lkotlinx/coroutines/flow/Flow;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 5
     .param p0, "$this$onErrorReturn"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "fallback"    # Ljava/lang/Object;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function1;
@@ -958,18 +958,18 @@
 .end method
 
 .method public static synthetic onErrorReturn$default(Lkotlinx/coroutines/flow/Flow;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 0
+    .registers 5
 
     .line 302
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_8
 
     sget-object p2, Lkotlinx/coroutines/flow/FlowKt__MigrationKt$onErrorReturn$1;->INSTANCE:Lkotlinx/coroutines/flow/FlowKt__MigrationKt$onErrorReturn$1;
 
     check-cast p2, Lkotlin/jvm/functions/Function1;
 
-    :cond_0
+    :cond_8
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/flow/FlowKt;->onErrorReturn(Lkotlinx/coroutines/flow/Flow;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
 
     move-result-object p0
@@ -978,7 +978,7 @@
 .end method
 
 .method public static final publish(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "$this$publish"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1012,7 +1012,7 @@
 .end method
 
 .method public static final publish(Lkotlinx/coroutines/flow/Flow;I)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$publish"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1047,7 +1047,7 @@
 .end method
 
 .method public static final publishOn(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$publishOn"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
@@ -1080,7 +1080,7 @@
 .end method
 
 .method public static final replay(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "$this$replay"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1114,7 +1114,7 @@
 .end method
 
 .method public static final replay(Lkotlinx/coroutines/flow/Flow;I)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$replay"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1149,7 +1149,7 @@
 .end method
 
 .method public static final scanFold(Lkotlinx/coroutines/flow/Flow;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 4
     .param p0, "$this$scanFold"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -1193,7 +1193,7 @@
 .end method
 
 .method public static final scanReduce(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$scanReduce"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -1232,7 +1232,7 @@
 .end method
 
 .method public static final skip(Lkotlinx/coroutines/flow/Flow;I)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$skip"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1267,7 +1267,7 @@
 .end method
 
 .method public static final startWith(Lkotlinx/coroutines/flow/Flow;Ljava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$startWith"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -1302,7 +1302,7 @@
 .end method
 
 .method public static final startWith(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$startWith"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "other"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
@@ -1339,7 +1339,7 @@
 .end method
 
 .method public static final subscribe(Lkotlinx/coroutines/flow/Flow;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$subscribe"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1367,7 +1367,7 @@
 .end method
 
 .method public static final subscribe(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$subscribe"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "onEach"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -1404,7 +1404,7 @@
 .end method
 
 .method public static final subscribe(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 4
     .param p0, "$this$subscribe"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "onEach"    # Lkotlin/jvm/functions/Function2;
     .param p2, "onError"    # Lkotlin/jvm/functions/Function2;
@@ -1452,7 +1452,7 @@
 .end method
 
 .method public static final subscribeOn(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$subscribeOn"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
@@ -1485,7 +1485,7 @@
 .end method
 
 .method public static final switchMap(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 6
     .param p0, "$this$switchMap"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;

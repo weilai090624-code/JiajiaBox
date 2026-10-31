@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final synthetic access$getAndroidLevel(Ljava/util/logging/LogRecord;)I
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Ljava/util/logging/LogRecord;
 
     .line 1
@@ -40,7 +40,7 @@
 .end method
 
 .method private static final getAndroidLevel(Ljava/util/logging/LogRecord;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$androidLevel"    # Ljava/util/logging/LogRecord;
 
     .line 31
@@ -61,14 +61,14 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_13
 
     const/4 v0, 0x5
 
-    goto :goto_0
+    goto :goto_26
 
     .line 33
-    :cond_0
+    :cond_13
     invoke-virtual {p0}, Ljava/util/logging/LogRecord;->getLevel()Ljava/util/logging/Level;
 
     move-result-object v0
@@ -83,17 +83,17 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_25
 
     const/4 v0, 0x4
 
-    goto :goto_0
+    goto :goto_26
 
     .line 34
-    :cond_1
+    :cond_25
     const/4 v0, 0x3
 
     .line 35
-    :goto_0
+    :goto_26
     return v0
 .end method

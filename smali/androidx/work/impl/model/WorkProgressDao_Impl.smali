@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/RoomDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "__db"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -69,7 +69,7 @@
 .end method
 
 .method public static getRequiredConverters()Ljava/util/List;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public delete(Ljava/lang/String;)V
-    .locals 4
+    .registers 6
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -119,33 +119,33 @@
 
     .line 84
     .local v1, "_argIndex":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_12
 
     .line 85
     invoke-interface {v0, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 87
-    :cond_0
+    :cond_12
     invoke-interface {v0, v1, p1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 89
-    :goto_0
+    :goto_15
     iget-object v2, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 91
-    :try_start_0
+    :try_start_1a
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
     .line 92
     iget-object v2, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_1a .. :try_end_22} :catchall_2e
 
     .line 94
     iget-object v2, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -164,7 +164,7 @@
     return-void
 
     .line 94
-    :catchall_0
+    :catchall_2e
     move-exception v2
 
     iget-object v3, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -181,7 +181,7 @@
 .end method
 
 .method public deleteAll()V
-    .locals 3
+    .registers 4
 
     .line 101
     iget-object v0, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -202,15 +202,15 @@
     invoke-virtual {v1}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 105
-    :try_start_0
+    :try_start_10
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
     .line 106
     iget-object v1, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v1}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_10 .. :try_end_18} :catchall_24
 
     .line 108
     iget-object v1, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -229,7 +229,7 @@
     return-void
 
     .line 108
-    :catchall_0
+    :catchall_24
     move-exception v1
 
     iget-object v2, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -246,7 +246,7 @@
 .end method
 
 .method public getProgressForWorkSpecId(Ljava/lang/String;)Landroidx/work/Data;
-    .locals 6
+    .registers 8
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -276,19 +276,19 @@
 
     .line 118
     .local v2, "_argIndex":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 119
     invoke-virtual {v1, v2}, Landroidx/room/RoomSQLiteQuery;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 121
-    :cond_0
+    :cond_10
     invoke-virtual {v1, v2, p1}, Landroidx/room/RoomSQLiteQuery;->bindString(ILjava/lang/String;)V
 
     .line 123
-    :goto_0
+    :goto_13
     iget-object v3, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
@@ -306,67 +306,67 @@
 
     .line 127
     .local v3, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_20
     invoke-interface {v3}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_3b
 
     .line 129
     invoke-interface {v3, v5}, Landroid/database/Cursor;->isNull(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2e
 
     .line 130
     const/4 v4, 0x0
 
     .local v4, "_tmp":[B
-    goto :goto_1
+    goto :goto_32
 
     .line 132
     .end local v4    # "_tmp":[B
-    :cond_1
+    :cond_2e
     invoke-interface {v3, v5}, Landroid/database/Cursor;->getBlob(I)[B
 
     move-result-object v4
 
     .line 134
     .restart local v4    # "_tmp":[B
-    :goto_1
-    if-nez v4, :cond_2
+    :goto_32
+    if-nez v4, :cond_36
 
     .line 135
     const/4 v5, 0x0
 
     .local v5, "_result":Landroidx/work/Data;
-    goto :goto_2
+    goto :goto_3a
 
     .line 137
     .end local v5    # "_result":Landroidx/work/Data;
-    :cond_2
+    :cond_36
     invoke-static {v4}, Landroidx/work/Data;->fromByteArray([B)Landroidx/work/Data;
 
     move-result-object v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3a
+    .catchall {:try_start_20 .. :try_end_3a} :catchall_44
 
     .line 139
     .end local v4    # "_tmp":[B
     .restart local v5    # "_result":Landroidx/work/Data;
-    :goto_2
-    goto :goto_3
+    :goto_3a
+    goto :goto_3c
 
     .line 140
     .end local v5    # "_result":Landroidx/work/Data;
-    :cond_3
+    :cond_3b
     const/4 v5, 0x0
 
     .line 142
     .restart local v5    # "_result":Landroidx/work/Data;
-    :goto_3
+    :goto_3c
     nop
 
     .line 144
@@ -380,7 +380,7 @@
 
     .line 144
     .end local v5    # "_result":Landroidx/work/Data;
-    :catchall_0
+    :catchall_44
     move-exception v4
 
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
@@ -393,7 +393,7 @@
 .end method
 
 .method public insert(Landroidx/work/impl/model/WorkProgress;)V
-    .locals 2
+    .registers 4
     .param p1, "progress"    # Landroidx/work/impl/model/WorkProgress;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -415,7 +415,7 @@
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 72
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__insertionAdapterOfWorkProgress:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityInsertionAdapter;->insert(Ljava/lang/Object;)V
@@ -424,8 +424,8 @@
     iget-object v0, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_1b
 
     .line 75
     iget-object v0, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -439,7 +439,7 @@
     return-void
 
     .line 75
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     iget-object v1, p0, Landroidx/work/impl/model/WorkProgressDao_Impl;->__db:Landroidx/room/RoomDatabase;

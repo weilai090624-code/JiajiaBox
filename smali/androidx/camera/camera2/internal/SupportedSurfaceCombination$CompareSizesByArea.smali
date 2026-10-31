@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1286
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 .end method
 
 .method constructor <init>(Z)V
-    .locals 1
+    .registers 3
     .param p1, "reverse"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public compare(Landroid/util/Size;Landroid/util/Size;)I
-    .locals 6
+    .registers 9
     .param p1, "lhs"    # Landroid/util/Size;
     .param p2, "rhs"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -134,18 +134,18 @@
     .local v0, "result":I
     iget-boolean v1, p0, Landroidx/camera/camera2/internal/SupportedSurfaceCombination$CompareSizesByArea;->mReverse:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     .line 1302
     mul-int/lit8 v0, v0, -0x1
 
     .line 1305
-    :cond_0
+    :cond_24
     return v0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,

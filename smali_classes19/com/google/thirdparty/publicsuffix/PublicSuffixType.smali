@@ -29,7 +29,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
-    .locals 3
+    .registers 3
 
     .line 28
     const/4 v0, 0x2
@@ -52,7 +52,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 33
     new-instance v0, Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
@@ -95,7 +95,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ICC)V
-    .locals 0
+    .registers 5
     .param p3, "innerNodeCode"    # C
     .param p4, "leafNodeCode"    # C
     .annotation system Ldalvik/annotation/Signature;
@@ -118,7 +118,7 @@
 .end method
 
 .method static fromCode(C)Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
-    .locals 5
+    .registers 6
     .param p0, "code"    # C
 
     .line 58
@@ -130,8 +130,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_6
+    if-ge v2, v1, :cond_1b
 
     aget-object v3, v0, v2
 
@@ -141,32 +141,32 @@
 
     move-result v4
 
-    if-eq v4, p0, :cond_1
+    if-eq v4, p0, :cond_1a
 
     invoke-virtual {v3}, Lcom/google/thirdparty/publicsuffix/PublicSuffixType;->getLeafNodeCode()C
 
     move-result v4
 
-    if-ne v4, p0, :cond_0
+    if-ne v4, p0, :cond_17
 
-    goto :goto_1
+    goto :goto_1a
 
     .line 58
     .end local v3    # "value":Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
-    :cond_0
+    :cond_17
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 60
     .restart local v3    # "value":Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
-    :cond_1
-    :goto_1
+    :cond_1a
+    :goto_1a
     return-object v3
 
     .line 63
     .end local v3    # "value":Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
-    :cond_2
+    :cond_1b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -195,7 +195,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 28
@@ -211,7 +211,7 @@
 .end method
 
 .method public static values()[Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
-    .locals 1
+    .registers 1
 
     .line 28
     sget-object v0, Lcom/google/thirdparty/publicsuffix/PublicSuffixType;->$VALUES:[Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
@@ -228,7 +228,7 @@
 
 # virtual methods
 .method getInnerNodeCode()C
-    .locals 1
+    .registers 2
 
     .line 53
     iget-char v0, p0, Lcom/google/thirdparty/publicsuffix/PublicSuffixType;->innerNodeCode:C
@@ -237,7 +237,7 @@
 .end method
 
 .method getLeafNodeCode()C
-    .locals 1
+    .registers 2
 
     .line 49
     iget-char v0, p0, Lcom/google/thirdparty/publicsuffix/PublicSuffixType;->leafNodeCode:C

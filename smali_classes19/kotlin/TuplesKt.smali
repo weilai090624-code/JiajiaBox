@@ -33,7 +33,7 @@
 
 # direct methods
 .method public static final to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-    .locals 1
+    .registers 3
     .param p0, "$this$to"    # Ljava/lang/Object;
     .param p1, "that"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -57,7 +57,7 @@
 .end method
 
 .method public static final toList(Lkotlin/Pair;)Ljava/util/List;
-    .locals 4
+    .registers 5
     .param p0, "$this$toList"    # Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -104,7 +104,7 @@
 .end method
 
 .method public static final toList(Lkotlin/Triple;)Ljava/util/List;
-    .locals 5
+    .registers 6
     .param p0, "$this$toList"    # Lkotlin/Triple;
     .annotation system Ldalvik/annotation/Signature;
         value = {

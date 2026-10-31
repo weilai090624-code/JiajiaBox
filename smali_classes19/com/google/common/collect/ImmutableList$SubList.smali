@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableList;II)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/collect/ImmutableList;
     .param p2, "offset"    # I
     .param p3, "length"    # I
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,7 +84,7 @@
 .end method
 
 .method internalArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -100,7 +100,7 @@
 .end method
 
 .method internalArrayEnd()I
-    .locals 2
+    .registers 3
 
     .line 466
     .local p0, "this":Lcom/google/common/collect/ImmutableList$SubList;, "Lcom/google/common/collect/ImmutableList<TE;>.SubList;"
@@ -122,7 +122,7 @@
 .end method
 
 .method internalArrayStart()I
-    .locals 2
+    .registers 3
 
     .line 461
     .local p0, "this":Lcom/google/common/collect/ImmutableList$SubList;, "Lcom/google/common/collect/ImmutableList<TE;>.SubList;"
@@ -140,7 +140,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 483
     .local p0, "this":Lcom/google/common/collect/ImmutableList$SubList;, "Lcom/google/common/collect/ImmutableList<TE;>.SubList;"
@@ -150,7 +150,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 438
     .local p0, "this":Lcom/google/common/collect/ImmutableList$SubList;, "Lcom/google/common/collect/ImmutableList<TE;>.SubList;"
@@ -162,7 +162,7 @@
 .end method
 
 .method public bridge synthetic listIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
 
     .line 438
     .local p0, "this":Lcom/google/common/collect/ImmutableList$SubList;, "Lcom/google/common/collect/ImmutableList<TE;>.SubList;"
@@ -174,7 +174,7 @@
 .end method
 
 .method public bridge synthetic listIterator(I)Ljava/util/ListIterator;
-    .locals 0
+    .registers 2
 
     .line 438
     .local p0, "this":Lcom/google/common/collect/ImmutableList$SubList;, "Lcom/google/common/collect/ImmutableList<TE;>.SubList;"
@@ -186,7 +186,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 449
     .local p0, "this":Lcom/google/common/collect/ImmutableList$SubList;, "Lcom/google/common/collect/ImmutableList<TE;>.SubList;"
@@ -196,7 +196,7 @@
 .end method
 
 .method public subList(II)Lcom/google/common/collect/ImmutableList;
-    .locals 3
+    .registers 6
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -232,7 +232,7 @@
 .end method
 
 .method public bridge synthetic subList(II)Ljava/util/List;
-    .locals 0
+    .registers 3
 
     .line 438
     .local p0, "this":Lcom/google/common/collect/ImmutableList$SubList;, "Lcom/google/common/collect/ImmutableList<TE;>.SubList;"

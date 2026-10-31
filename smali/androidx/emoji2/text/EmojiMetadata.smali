@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 73
     new-instance v0, Ljava/lang/ThreadLocal;
@@ -52,7 +52,7 @@
 .end method
 
 .method constructor <init>(Landroidx/emoji2/text/MetadataRepo;I)V
-    .locals 1
+    .registers 4
     .param p1, "metadataRepo"    # Landroidx/emoji2/text/MetadataRepo;
     .param p2, "index"    # I
 
@@ -75,7 +75,7 @@
 .end method
 
 .method private getMetadataItem()Landroidx/emoji2/text/flatbuffer/MetadataItem;
-    .locals 3
+    .registers 4
 
     .line 132
     sget-object v0, Landroidx/emoji2/text/EmojiMetadata;->sMetadataItem:Ljava/lang/ThreadLocal;
@@ -88,7 +88,7 @@
 
     .line 133
     .local v0, "result":Landroidx/emoji2/text/flatbuffer/MetadataItem;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 134
     new-instance v1, Landroidx/emoji2/text/flatbuffer/MetadataItem;
@@ -103,7 +103,7 @@
     invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
     .line 144
-    :cond_0
+    :cond_15
     iget-object v1, p0, Landroidx/emoji2/text/EmojiMetadata;->mMetadataRepo:Landroidx/emoji2/text/MetadataRepo;
 
     invoke-virtual {v1}, Landroidx/emoji2/text/MetadataRepo;->getMetadataList()Landroidx/emoji2/text/flatbuffer/MetadataList;
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;FFLandroid/graphics/Paint;)V
-    .locals 10
+    .registers 15
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "x"    # F
     .param p3, "y"    # F
@@ -179,7 +179,7 @@
 .end method
 
 .method public getCodepointAt(I)I
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 230
@@ -195,7 +195,7 @@
 .end method
 
 .method public getCodepointsLength()I
-    .locals 1
+    .registers 2
 
     .line 237
     invoke-direct {p0}, Landroidx/emoji2/text/EmojiMetadata;->getMetadataItem()Landroidx/emoji2/text/flatbuffer/MetadataItem;
@@ -210,7 +210,7 @@
 .end method
 
 .method public getCompatAdded()S
-    .locals 1
+    .registers 2
 
     .line 173
     invoke-direct {p0}, Landroidx/emoji2/text/EmojiMetadata;->getMetadataItem()Landroidx/emoji2/text/flatbuffer/MetadataItem;
@@ -225,7 +225,7 @@
 .end method
 
 .method public getHasGlyph()I
-    .locals 1
+    .registers 2
 
     .line 190
     iget v0, p0, Landroidx/emoji2/text/EmojiMetadata;->mHasGlyph:I
@@ -234,7 +234,7 @@
 .end method
 
 .method public getHeight()S
-    .locals 1
+    .registers 2
 
     .line 166
     invoke-direct {p0}, Landroidx/emoji2/text/EmojiMetadata;->getMetadataItem()Landroidx/emoji2/text/flatbuffer/MetadataItem;
@@ -249,7 +249,7 @@
 .end method
 
 .method public getId()I
-    .locals 1
+    .registers 2
 
     .line 152
     invoke-direct {p0}, Landroidx/emoji2/text/EmojiMetadata;->getMetadataItem()Landroidx/emoji2/text/flatbuffer/MetadataItem;
@@ -264,7 +264,7 @@
 .end method
 
 .method public getSdkAdded()S
-    .locals 1
+    .registers 2
 
     .line 180
     invoke-direct {p0}, Landroidx/emoji2/text/EmojiMetadata;->getMetadataItem()Landroidx/emoji2/text/flatbuffer/MetadataItem;
@@ -279,7 +279,7 @@
 .end method
 
 .method public getTypeface()Landroid/graphics/Typeface;
-    .locals 1
+    .registers 2
 
     .line 125
     iget-object v0, p0, Landroidx/emoji2/text/EmojiMetadata;->mMetadataRepo:Landroidx/emoji2/text/MetadataRepo;
@@ -292,7 +292,7 @@
 .end method
 
 .method public getWidth()S
-    .locals 1
+    .registers 2
 
     .line 159
     invoke-direct {p0}, Landroidx/emoji2/text/EmojiMetadata;->getMetadataItem()Landroidx/emoji2/text/flatbuffer/MetadataItem;
@@ -307,7 +307,7 @@
 .end method
 
 .method public isDefaultEmoji()Z
-    .locals 1
+    .registers 2
 
     .line 221
     invoke-direct {p0}, Landroidx/emoji2/text/EmojiMetadata;->getMetadataItem()Landroidx/emoji2/text/flatbuffer/MetadataItem;
@@ -322,7 +322,7 @@
 .end method
 
 .method public resetHasGlyphCache()V
-    .locals 1
+    .registers 2
 
     .line 203
     const/4 v0, 0x0
@@ -334,20 +334,20 @@
 .end method
 
 .method public setHasGlyph(Z)V
-    .locals 1
+    .registers 3
     .param p1, "hasGlyph"    # Z
 
     .line 213
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4
 
     const/4 v0, 0x2
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_5
     iput v0, p0, Landroidx/emoji2/text/EmojiMetadata;->mHasGlyph:I
 
     .line 214
@@ -355,7 +355,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 242
     new-instance v0, Ljava/lang/StringBuilder;
@@ -401,8 +401,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_26
+    if-ge v2, v1, :cond_3b
 
     .line 249
     invoke-virtual {p0, v2}, Landroidx/emoji2/text/EmojiMetadata;->getCodepointAt(I)I
@@ -423,11 +423,11 @@
     .line 248
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 252
     .end local v2    # "i":I
-    :cond_0
+    :cond_3b
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2

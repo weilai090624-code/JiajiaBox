@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/RoomDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "database"    # Landroidx/room/RoomDatabase;
 
     const-string v0, "database"
@@ -88,7 +88,7 @@
 .end method
 
 .method public final handle(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "entity"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -106,15 +106,15 @@
     nop
 
     .line 60
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0, v0, p1}, Landroidx/room/EntityDeletionOrUpdateAdapter;->bind(Landroidx/sqlite/db/SupportSQLiteStatement;Ljava/lang/Object;)V
 
     .line 61
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_5 .. :try_end_c} :catchall_11
 
     .line 63
     invoke-virtual {p0, v0}, Landroidx/room/EntityDeletionOrUpdateAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -126,7 +126,7 @@
     return v1
 
     .line 63
-    :catchall_0
+    :catchall_11
     move-exception v1
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityDeletionOrUpdateAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -135,7 +135,7 @@
 .end method
 
 .method public final handleMultiple(Ljava/lang/Iterable;)I
-    .locals 9
+    .registers 11
     .param p1, "entities"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -170,17 +170,17 @@
 
     .line 108
     .local v3, "$i$f$forEach":I
-    :try_start_0
+    :try_start_d
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :goto_0
+    :goto_11
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_28
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -200,8 +200,8 @@
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
     move-result v8
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_d .. :try_end_24} :catchall_2f
 
     add-int/2addr v1, v8
 
@@ -214,10 +214,10 @@
     nop
 
     .end local v5    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_11
 
     .line 109
-    :cond_0
+    :cond_28
     nop
 
     .line 81
@@ -236,7 +236,7 @@
     return v1
 
     .line 83
-    :catchall_0
+    :catchall_2f
     move-exception v1
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityDeletionOrUpdateAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V
@@ -245,7 +245,7 @@
 .end method
 
 .method public final handleMultiple([Ljava/lang/Object;)I
-    .locals 10
+    .registers 12
     .param p1, "entities"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -278,13 +278,13 @@
 
     .line 110
     .local v3, "$i$f$forEach":I
-    :try_start_0
+    :try_start_d
     array-length v4, v2
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_0
+    :goto_f
+    if-ge v5, v4, :cond_22
 
     aget-object v6, v2, v5
 
@@ -302,8 +302,8 @@
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
     move-result v9
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_d .. :try_end_1c} :catchall_29
 
     add-int/2addr v1, v9
 
@@ -318,10 +318,10 @@
     .end local v6    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 111
-    :cond_0
+    :cond_22
     nop
 
     .line 101
@@ -340,7 +340,7 @@
     return v1
 
     .line 103
-    :catchall_0
+    :catchall_29
     move-exception v1
 
     invoke-virtual {p0, v0}, Landroidx/room/EntityDeletionOrUpdateAdapter;->release(Landroidx/sqlite/db/SupportSQLiteStatement;)V

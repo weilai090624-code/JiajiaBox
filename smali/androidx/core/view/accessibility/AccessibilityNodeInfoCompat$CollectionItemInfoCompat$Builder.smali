@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1234
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,14 +46,14 @@
 
 # virtual methods
 .method public build()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;
-    .locals 10
+    .registers 11
 
     .line 1338
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x21
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1b
 
     .line 1339
     iget-boolean v2, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat$Builder;->mHeading:Z
@@ -79,7 +79,7 @@
     return-object v0
 
     .line 1341
-    :cond_0
+    :cond_1b
     nop
 
     .line 1342
@@ -103,7 +103,7 @@
 .end method
 
 .method public setColumnIndex(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1, "columnIndex"    # I
 
     .line 1257
@@ -114,7 +114,7 @@
 .end method
 
 .method public setColumnSpan(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1, "columnSpan"    # I
 
     .line 1281
@@ -125,7 +125,7 @@
 .end method
 
 .method public setColumnTitle(Ljava/lang/String;)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1, "columnTitle"    # Ljava/lang/String;
 
     .line 1329
@@ -136,7 +136,7 @@
 .end method
 
 .method public setHeading(Z)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1, "heading"    # Z
 
     .line 1245
@@ -147,7 +147,7 @@
 .end method
 
 .method public setRowIndex(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1, "rowIndex"    # I
 
     .line 1269
@@ -158,7 +158,7 @@
 .end method
 
 .method public setRowSpan(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1, "rowSpan"    # I
 
     .line 1293
@@ -169,7 +169,7 @@
 .end method
 
 .method public setRowTitle(Ljava/lang/String;)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1, "rowTitle"    # Ljava/lang/String;
 
     .line 1317
@@ -180,7 +180,7 @@
 .end method
 
 .method public setSelected(Z)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1, "selected"    # Z
 
     .line 1305

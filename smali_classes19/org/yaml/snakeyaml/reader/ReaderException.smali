@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IILjava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "position"    # I
     .param p3, "codePoint"    # I
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getCodePoint()I
-    .locals 1
+    .registers 2
 
     .line 38
     iget v0, p0, Lorg/yaml/snakeyaml/reader/ReaderException;->codePoint:I
@@ -51,7 +51,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Lorg/yaml/snakeyaml/reader/ReaderException;->name:Ljava/lang/String;
@@ -60,7 +60,7 @@
 .end method
 
 .method public getPosition()I
-    .locals 1
+    .registers 2
 
     .line 42
     iget v0, p0, Lorg/yaml/snakeyaml/reader/ReaderException;->position:I
@@ -69,7 +69,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 47
     new-instance v0, Ljava/lang/String;

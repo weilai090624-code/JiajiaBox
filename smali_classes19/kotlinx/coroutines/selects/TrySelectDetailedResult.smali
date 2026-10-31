@@ -50,7 +50,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lkotlinx/coroutines/selects/TrySelectDetailedResult;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x4
 
@@ -84,7 +84,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 853
     new-instance v0, Lkotlinx/coroutines/selects/TrySelectDetailedResult;
@@ -137,7 +137,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -153,7 +153,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lkotlinx/coroutines/selects/TrySelectDetailedResult;
-    .locals 1
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/selects/TrySelectDetailedResult;
 
@@ -167,7 +167,7 @@
 .end method
 
 .method public static values()[Lkotlinx/coroutines/selects/TrySelectDetailedResult;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lkotlinx/coroutines/selects/TrySelectDetailedResult;->$VALUES:[Lkotlinx/coroutines/selects/TrySelectDetailedResult;
 

@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 3
     .param p1, "$receiver"    # Ljava/lang/Iterable;
     .param p2, "$keySelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public keyOf(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -115,7 +115,7 @@
 .end method
 
 .method public sourceIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

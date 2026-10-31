@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;J)V
-    .locals 0
+    .registers 4
     .param p1, "str"    # Ljava/lang/String;
     .param p2, "currentTime"    # J
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public setProperty(Landroidx/constraintlayout/core/motion/utils/TypedValues;F)V
-    .locals 2
+    .registers 5
     .param p1, "widget"    # Landroidx/constraintlayout/core/motion/utils/TypedValues;
     .param p2, "t"    # F
 

@@ -103,7 +103,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/database/ProxyGroup;ZLkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -159,7 +159,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -173,7 +173,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -202,7 +202,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 13
+    .registers 15
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -217,7 +217,7 @@
 
     const/4 v4, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_178
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -228,38 +228,38 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_14
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_172
 
-    :pswitch_1
+    :pswitch_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_15a
 
-    :pswitch_2
+    :pswitch_1e
     iget-object v1, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion$executeUpdate$2;->L$0:Ljava/lang/Object;
 
     check-cast v1, Lio/nekohasekai/sagernet/database/GroupManager$Interface;
 
     .local v1, "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
-    :try_start_0
+    :try_start_22
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catchall {:try_start_22 .. :try_end_25} :catchall_27
 
-    goto/16 :goto_6
+    goto/16 :goto_133
 
     .line 153
-    :catchall_0
+    :catchall_27
     move-exception v3
 
-    goto/16 :goto_7
+    goto/16 :goto_135
 
     .line 134
     .end local v1    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
-    :pswitch_3
+    :pswitch_2a
     iget-object v0, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion$executeUpdate$2;->L$0:Ljava/lang/Object;
 
     check-cast v0, Lkotlinx/coroutines/CoroutineScope;
@@ -267,10 +267,10 @@
     .local v0, "$this$coroutineScope":Lkotlinx/coroutines/CoroutineScope;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_10d
 
     .end local v0    # "$this$coroutineScope":Lkotlinx/coroutines/CoroutineScope;
-    :pswitch_4
+    :pswitch_33
     iget-object v1, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion$executeUpdate$2;->L$2:Ljava/lang/Object;
 
     check-cast v1, Lio/nekohasekai/sagernet/database/GroupManager$Interface;
@@ -292,12 +292,12 @@
 
     move-object v1, p1
 
-    goto/16 :goto_2
+    goto/16 :goto_e7
 
     .end local v1    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
     .end local v5    # "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
     .end local v6    # "$this$coroutineScope":Lkotlinx/coroutines/CoroutineScope;
-    :pswitch_5
+    :pswitch_46
     iget-object v1, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion$executeUpdate$2;->L$0:Ljava/lang/Object;
 
     check-cast v1, Lkotlinx/coroutines/CoroutineScope;
@@ -307,11 +307,11 @@
 
     move-object v6, v1
 
-    goto :goto_0
+    goto :goto_86
 
     .end local v1    # "$this$coroutineScope":Lkotlinx/coroutines/CoroutineScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_6
+    :pswitch_4f
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .restart local p1    # "$result":Ljava/lang/Object;
@@ -341,12 +341,12 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_6f
 
     invoke-static {v1, v4, v3, v4}, Lkotlinx/coroutines/CoroutineScopeKt;->cancel$default(Lkotlinx/coroutines/CoroutineScope;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 136
-    :cond_0
+    :cond_6f
     sget-object v5, Lio/nekohasekai/sagernet/database/GroupManager;->INSTANCE:Lio/nekohasekai/sagernet/database/GroupManager;
 
     iget-object v6, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion$executeUpdate$2;->$proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -367,19 +367,19 @@
 
     move-result-object v5
 
-    if-ne v5, v0, :cond_1
+    if-ne v5, v0, :cond_85
 
     .line 134
     return-object v0
 
     .line 136
-    :cond_1
+    :cond_85
     move-object v6, v1
 
     .line 138
     .end local v1    # "$this$coroutineScope":Lkotlinx/coroutines/CoroutineScope;
     .restart local v6    # "$this$coroutineScope":Lkotlinx/coroutines/CoroutineScope;
-    :goto_0
+    :goto_86
     iget-object v1, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion$executeUpdate$2;->$proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getSubscription()Lio/nekohasekai/sagernet/database/SubscriptionBean;
@@ -414,13 +414,13 @@
     .local v7, "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
     iget-boolean v8, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion$executeUpdate$2;->$byUser:Z
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_115
 
     iget-object v8, v5, Lio/nekohasekai/sagernet/database/SubscriptionBean;->link:Ljava/lang/String;
 
     const/4 v9, 0x2
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_b3
 
     const-string v10, "http://"
 
@@ -428,17 +428,17 @@
 
     move-result v8
 
-    if-ne v8, v3, :cond_2
+    if-ne v8, v3, :cond_b3
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_b4
 
-    :cond_2
+    :cond_b3
     const/4 v8, 0x0
 
-    :goto_1
-    if-nez v8, :cond_3
+    :goto_b4
+    if-nez v8, :cond_be
 
     iget-object v8, v5, Lio/nekohasekai/sagernet/database/SubscriptionBean;->updateWhenConnectedOnly:Ljava/lang/Boolean;
 
@@ -446,14 +446,14 @@
 
     move-result v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_115
 
-    :cond_3
-    if-nez v1, :cond_8
+    :cond_be
+    if-nez v1, :cond_115
 
     .line 143
     .end local v1    # "connected":Z
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_f5
 
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
@@ -485,13 +485,13 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_4
+    if-ne v1, v0, :cond_e4
 
     .line 134
     return-object v0
 
     .line 143
-    :cond_4
+    :cond_e4
     move-object v12, v1
 
     move-object v1, p1
@@ -500,35 +500,35 @@
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v1, "$result":Ljava/lang/Object;
-    :goto_2
+    :goto_e7
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_f1
 
     move-object p1, v1
 
-    goto :goto_3
+    goto :goto_f5
 
-    :cond_5
+    :cond_f1
     move-object p1, v1
 
     move-object v11, v5
 
     move-object v1, v7
 
-    goto :goto_5
+    goto :goto_117
 
     .line 144
     .end local v1    # "$result":Ljava/lang/Object;
     .end local v5    # "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
     .end local v7    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :cond_6
-    :goto_3
+    :cond_f5
+    :goto_f5
     sget-object v1, Lio/nekohasekai/sagernet/group/GroupUpdater;->Companion:Lio/nekohasekai/sagernet/group/GroupUpdater$Companion;
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion$executeUpdate$2;->$proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -551,19 +551,19 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_7
+    if-ne v1, v0, :cond_10c
 
     .line 134
     return-object v0
 
     .line 144
-    :cond_7
+    :cond_10c
     move-object v0, v6
 
     .line 145
     .end local v6    # "$this$coroutineScope":Lkotlinx/coroutines/CoroutineScope;
     .restart local v0    # "$this$coroutineScope":Lkotlinx/coroutines/CoroutineScope;
-    :goto_4
+    :goto_10d
     invoke-static {v0, v4, v3, v4}, Lkotlinx/coroutines/CoroutineScopeKt;->cancel$default(Lkotlinx/coroutines/CoroutineScope;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 146
@@ -577,7 +577,7 @@
     .line 150
     .restart local v5    # "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
     .restart local v7    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
-    :cond_8
+    :cond_115
     move-object v11, v5
 
     move-object v1, v7
@@ -586,11 +586,11 @@
     .end local v7    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
     .local v1, "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
     .local v11, "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
-    :goto_5
+    :goto_117
     nop
 
     .line 151
-    :try_start_1
+    :try_start_118
     sget-object v5, Lio/nekohasekai/sagernet/group/RawUpdater;->INSTANCE:Lio/nekohasekai/sagernet/group/RawUpdater;
 
     iget-object v6, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion$executeUpdate$2;->$proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -618,33 +618,33 @@
     invoke-virtual/range {v5 .. v10}, Lio/nekohasekai/sagernet/group/RawUpdater;->doUpdate(Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/database/SubscriptionBean;Lio/nekohasekai/sagernet/database/GroupManager$Interface;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_130
+    .catchall {:try_start_118 .. :try_end_130} :catchall_27
 
     .end local v11    # "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
-    if-ne v2, v0, :cond_9
+    if-ne v2, v0, :cond_133
 
     .line 134
     return-object v0
 
     .line 152
-    :cond_9
-    :goto_6
+    :cond_133
+    :goto_133
     const/4 v2, 0x1
 
     .end local v1    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
-    goto :goto_a
+    goto :goto_173
 
     .line 154
     .restart local v1    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
     .local v3, "e":Ljava/lang/Throwable;
-    :goto_7
+    :goto_135
     sget-object v5, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     invoke-virtual {v5, v3}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/Throwable;)V
 
     .line 155
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_15b
 
     iget-object v5, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion$executeUpdate$2;->$proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup;
 
@@ -676,18 +676,18 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_a
+    if-ne v1, v0, :cond_15a
 
     .line 134
     return-object v0
 
     .line 155
-    :cond_a
-    :goto_8
+    :cond_15a
+    :goto_15a
     nop
 
     .line 156
-    :cond_b
+    :cond_15b
     sget-object v1, Lio/nekohasekai/sagernet/group/GroupUpdater;->Companion:Lio/nekohasekai/sagernet/group/GroupUpdater$Companion;
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion$executeUpdate$2;->$proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -710,17 +710,17 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_c
+    if-ne v1, v0, :cond_172
 
     .line 134
     return-object v0
 
     .line 157
-    :cond_c
-    :goto_9
+    :cond_172
+    :goto_172
     nop
 
-    :goto_a
+    :goto_173
     invoke-static {v2}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -728,14 +728,14 @@
     .line 158
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_178
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4f
+        :pswitch_46
+        :pswitch_33
+        :pswitch_2a
+        :pswitch_1e
+        :pswitch_19
+        :pswitch_14
     .end packed-switch
 .end method

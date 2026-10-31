@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static enableDebugLogging(Z)V
-    .locals 0
+    .registers 1
     .param p0, "enabled"    # Z
 
     .line 235
@@ -34,7 +34,7 @@
 .end method
 
 .method public static getInstance(Landroidx/lifecycle/LifecycleOwner;)Landroidx/loader/app/LoaderManager;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -86,7 +86,7 @@
 .end method
 
 .method public hasRunningLoaders()Z
-    .locals 1
+    .registers 2
 
     .line 242
     const/4 v0, 0x0

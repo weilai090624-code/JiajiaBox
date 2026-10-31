@@ -32,7 +32,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     .local p0, "this":Lcom/google/common/cache/ForwardingCache;, "Lcom/google/common/cache/ForwardingCache<TK;TV;>;"
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public asMap()Ljava/util/concurrent/ConcurrentMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -67,7 +67,7 @@
 .end method
 
 .method public cleanUp()V
-    .locals 1
+    .registers 2
 
     .line 114
     .local p0, "this":Lcom/google/common/cache/ForwardingCache;, "Lcom/google/common/cache/ForwardingCache<TK;TV;>;"
@@ -92,7 +92,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 35
     .local p0, "this":Lcom/google/common/cache/ForwardingCache;, "Lcom/google/common/cache/ForwardingCache<TK;TV;>;"
@@ -104,7 +104,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/util/concurrent/Callable;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -135,7 +135,7 @@
 .end method
 
 .method public getAllPresent(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -163,7 +163,7 @@
 .end method
 
 .method public getIfPresent(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -190,7 +190,7 @@
 .end method
 
 .method public invalidate(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 82
@@ -206,7 +206,7 @@
 .end method
 
 .method public invalidateAll()V
-    .locals 1
+    .registers 2
 
     .line 94
     .local p0, "this":Lcom/google/common/cache/ForwardingCache;, "Lcom/google/common/cache/ForwardingCache<TK;TV;>;"
@@ -221,7 +221,7 @@
 .end method
 
 .method public invalidateAll(Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -246,7 +246,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
@@ -268,7 +268,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -291,7 +291,7 @@
 .end method
 
 .method public size()J
-    .locals 2
+    .registers 3
 
     .line 99
     .local p0, "this":Lcom/google/common/cache/ForwardingCache;, "Lcom/google/common/cache/ForwardingCache<TK;TV;>;"
@@ -307,7 +307,7 @@
 .end method
 
 .method public stats()Lcom/google/common/cache/CacheStats;
-    .locals 1
+    .registers 2
 
     .line 104
     .local p0, "this":Lcom/google/common/cache/ForwardingCache;, "Lcom/google/common/cache/ForwardingCache<TK;TV;>;"

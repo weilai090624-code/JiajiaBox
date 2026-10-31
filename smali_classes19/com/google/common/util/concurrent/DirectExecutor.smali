@@ -28,7 +28,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/util/concurrent/DirectExecutor;
-    .locals 3
+    .registers 3
 
     .line 24
     const/4 v0, 0x1
@@ -45,7 +45,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 27
     new-instance v0, Lcom/google/common/util/concurrent/DirectExecutor;
@@ -69,7 +69,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -83,7 +83,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/util/concurrent/DirectExecutor;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 24
@@ -99,7 +99,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/util/concurrent/DirectExecutor;
-    .locals 1
+    .registers 1
 
     .line 24
     sget-object v0, Lcom/google/common/util/concurrent/DirectExecutor;->$VALUES:[Lcom/google/common/util/concurrent/DirectExecutor;
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
     .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 31
@@ -127,7 +127,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 36
     const-string v0, "MoreExecutors.directExecutor()"

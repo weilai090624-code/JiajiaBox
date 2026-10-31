@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;[BI[Lcom/google/zxing/ResultPoint;Lcom/google/zxing/BarcodeFormat;J)V
-    .locals 1
+    .registers 9
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "rawBytes"    # [B
     .param p3, "numBits"    # I
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;[B[Lcom/google/zxing/ResultPoint;Lcom/google/zxing/BarcodeFormat;)V
-    .locals 7
+    .registers 12
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "rawBytes"    # [B
     .param p3, "resultPoints"    # [Lcom/google/zxing/ResultPoint;
@@ -97,7 +97,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;[B[Lcom/google/zxing/ResultPoint;Lcom/google/zxing/BarcodeFormat;J)V
-    .locals 9
+    .registers 16
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "rawBytes"    # [B
     .param p3, "resultPoints"    # [Lcom/google/zxing/ResultPoint;
@@ -105,22 +105,22 @@
     .param p5, "timestamp"    # J
 
     .line 49
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
     const/4 v0, 0x0
 
     const/4 v4, 0x0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_5
     array-length v0, p2
 
     mul-int/lit8 v0, v0, 0x8
 
     move v4, v0
 
-    :goto_0
+    :goto_9
     move-object v1, p0
 
     move-object v2, p1
@@ -142,7 +142,7 @@
 
 # virtual methods
 .method public addResultPoints([Lcom/google/zxing/ResultPoint;)V
-    .locals 5
+    .registers 7
     .param p1, "newPoints"    # [Lcom/google/zxing/ResultPoint;
 
     .line 133
@@ -154,7 +154,7 @@
     .local v1, "oldPoints":[Lcom/google/zxing/ResultPoint;
     move-object v1, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 135
     iput-object p1, p0, Lcom/google/zxing/Result;->resultPoints:[Lcom/google/zxing/ResultPoint;
@@ -162,12 +162,12 @@
     return-void
 
     .line 136
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_9
+    if-eqz p1, :cond_1f
 
     array-length v0, p1
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_1f
 
     .line 137
     array-length v0, v1
@@ -198,12 +198,12 @@
 
     .line 142
     .end local v0    # "allPoints":[Lcom/google/zxing/ResultPoint;
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 .method public getBarcodeFormat()Lcom/google/zxing/BarcodeFormat;
-    .locals 1
+    .registers 2
 
     .line 103
     iget-object v0, p0, Lcom/google/zxing/Result;->format:Lcom/google/zxing/BarcodeFormat;
@@ -212,7 +212,7 @@
 .end method
 
 .method public getNumBits()I
-    .locals 1
+    .registers 2
 
     .line 87
     iget v0, p0, Lcom/google/zxing/Result;->numBits:I
@@ -221,7 +221,7 @@
 .end method
 
 .method public getRawBytes()[B
-    .locals 1
+    .registers 2
 
     .line 79
     iget-object v0, p0, Lcom/google/zxing/Result;->rawBytes:[B
@@ -230,7 +230,7 @@
 .end method
 
 .method public getResultMetadata()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -248,7 +248,7 @@
 .end method
 
 .method public getResultPoints()[Lcom/google/zxing/ResultPoint;
-    .locals 1
+    .registers 2
 
     .line 96
     iget-object v0, p0, Lcom/google/zxing/Result;->resultPoints:[Lcom/google/zxing/ResultPoint;
@@ -257,7 +257,7 @@
 .end method
 
 .method public getText()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Lcom/google/zxing/Result;->text:Ljava/lang/String;
@@ -266,7 +266,7 @@
 .end method
 
 .method public getTimestamp()J
-    .locals 2
+    .registers 3
 
     .line 145
     iget-wide v0, p0, Lcom/google/zxing/Result;->timestamp:J
@@ -275,7 +275,7 @@
 .end method
 
 .method public putAllMetadata(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -288,12 +288,12 @@
 
     .line 123
     .local p1, "metadata":Ljava/util/Map;, "Ljava/util/Map<Lcom/google/zxing/ResultMetadataType;Ljava/lang/Object;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_e
 
     .line 124
     iget-object v0, p0, Lcom/google/zxing/Result;->resultMetadata:Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 125
     iput-object p1, p0, Lcom/google/zxing/Result;->resultMetadata:Ljava/util/Map;
@@ -301,25 +301,25 @@
     return-void
 
     .line 127
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/google/zxing/Result;->resultMetadata:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
     .line 130
-    :cond_1
+    :cond_e
     return-void
 .end method
 
 .method public putMetadata(Lcom/google/zxing/ResultMetadataType;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "type"    # Lcom/google/zxing/ResultMetadataType;
     .param p2, "value"    # Ljava/lang/Object;
 
     .line 116
     iget-object v0, p0, Lcom/google/zxing/Result;->resultMetadata:Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 117
     new-instance v0, Ljava/util/EnumMap;
@@ -331,7 +331,7 @@
     iput-object v0, p0, Lcom/google/zxing/Result;->resultMetadata:Ljava/util/Map;
 
     .line 119
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/zxing/Result;->resultMetadata:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -341,7 +341,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 150
     iget-object v0, p0, Lcom/google/zxing/Result;->text:Ljava/lang/String;

@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 253
     new-instance v0, Landroidx/camera/core/impl/Config$OptionPriority;
@@ -92,7 +92,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -117,7 +117,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/camera/core/impl/Config$OptionPriority;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -141,7 +141,7 @@
 .end method
 
 .method public static values()[Landroidx/camera/core/impl/Config$OptionPriority;
-    .locals 1
+    .registers 1
 
     .line 245
     sget-object v0, Landroidx/camera/core/impl/Config$OptionPriority;->$VALUES:[Landroidx/camera/core/impl/Config$OptionPriority;

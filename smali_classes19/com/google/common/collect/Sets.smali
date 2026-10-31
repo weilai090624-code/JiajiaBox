@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method public static cartesianProduct(Ljava/util/List;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -60,7 +60,7 @@
 .end method
 
 .method public static varargs cartesianProduct([Ljava/util/Set;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -91,7 +91,7 @@
 .end method
 
 .method public static combinations(Ljava/util/Set;I)Ljava/util/Set;
-    .locals 4
+    .registers 6
     .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -123,16 +123,16 @@
 
     move-result v1
 
-    if-gt p1, v1, :cond_0
+    if-gt p1, v1, :cond_11
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     const-string v2, "size (%s) must be <= set.size() (%s)"
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap;->size()I
@@ -142,7 +142,7 @@
     invoke-static {v1, v2, p1, v3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;II)V
 
     .line 1597
-    if-nez p1, :cond_1
+    if-nez p1, :cond_26
 
     .line 1598
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
@@ -156,12 +156,12 @@
     return-object v1
 
     .line 1599
-    :cond_1
+    :cond_26
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap;->size()I
 
     move-result v1
 
-    if-ne p1, v1, :cond_2
+    if-ne p1, v1, :cond_35
 
     .line 1600
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap;->keySet()Lcom/google/common/collect/ImmutableSet;
@@ -175,7 +175,7 @@
     return-object v1
 
     .line 1602
-    :cond_2
+    :cond_35
     new-instance v1, Lcom/google/common/collect/Sets$5;
 
     invoke-direct {v1, p1, v0}, Lcom/google/common/collect/Sets$5;-><init>(ILcom/google/common/collect/ImmutableMap;)V
@@ -184,7 +184,7 @@
 .end method
 
 .method public static complementOf(Ljava/util/Collection;)Ljava/util/EnumSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -201,7 +201,7 @@
     .local p0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     instance-of v0, p0, Ljava/util/EnumSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 467
     move-object v0, p0
@@ -215,7 +215,7 @@
     return-object v0
 
     .line 469
-    :cond_0
+    :cond_c
     nop
 
     .line 470
@@ -255,7 +255,7 @@
 .end method
 
 .method public static complementOf(Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/EnumSet;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -278,7 +278,7 @@
     .line 488
     instance-of v0, p0, Ljava/util/EnumSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 489
     move-object v0, p0
@@ -289,21 +289,21 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
     .line 490
-    :cond_0
+    :cond_f
     invoke-static {p0, p1}, Lcom/google/common/collect/Sets;->makeComplementByHand(Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/EnumSet;
 
     move-result-object v0
 
     .line 488
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public static difference(Ljava/util/Set;Ljava/util/Set;)Lcom/google/common/collect/Sets$SetView;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -339,7 +339,7 @@
 .end method
 
 .method static equalsImpl(Ljava/util/Set;Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -358,18 +358,18 @@
     .local p0, "s":Ljava/util/Set;, "Ljava/util/Set<*>;"
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 1707
     return v0
 
     .line 1709
-    :cond_0
+    :cond_4
     instance-of v1, p1, Ljava/util/Set;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_23
 
     .line 1710
     move-object v1, p1
@@ -378,7 +378,7 @@
 
     .line 1713
     .local v1, "o":Ljava/util/Set;, "Ljava/util/Set<*>;"
-    :try_start_0
+    :try_start_c
     invoke-interface {p0}, Ljava/util/Set;->size()I
 
     move-result v3
@@ -387,48 +387,48 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_1d
 
     invoke-interface {p0, v1}, Ljava/util/Set;->containsAll(Ljava/util/Collection;)Z
 
     move-result v3
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/NullPointerException; {:try_start_c .. :try_end_1a} :catch_21
+    .catch Ljava/lang/ClassCastException; {:try_start_c .. :try_end_1a} :catch_1f
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1e
     return v0
 
     .line 1714
-    :catch_0
+    :catch_1f
     move-exception v0
 
-    goto :goto_1
+    goto :goto_22
 
-    :catch_1
+    :catch_21
     move-exception v0
 
     .line 1715
     .local v0, "ignored":Ljava/lang/RuntimeException;
-    :goto_1
+    :goto_22
     return v2
 
     .line 1718
     .end local v0    # "ignored":Ljava/lang/RuntimeException;
     .end local v1    # "o":Ljava/util/Set;, "Ljava/util/Set<*>;"
-    :cond_2
+    :cond_23
     return v2
 .end method
 
 .method public static filter(Ljava/util/NavigableSet;Lcom/google/common/base/Predicate;)Ljava/util/NavigableSet;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -448,7 +448,7 @@
     .local p1, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TE;>;"
     instance-of v0, p0, Lcom/google/common/collect/Sets$FilteredSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 1061
     move-object v0, p0
@@ -478,7 +478,7 @@
     .line 1066
     .end local v0    # "filtered":Lcom/google/common/collect/Sets$FilteredSet;, "Lcom/google/common/collect/Sets$FilteredSet<TE;>;"
     .end local v1    # "combinedPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<TE;>;"
-    :cond_0
+    :cond_17
     new-instance v0, Lcom/google/common/collect/Sets$FilteredNavigableSet;
 
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -499,7 +499,7 @@
 .end method
 
 .method public static filter(Ljava/util/Set;Lcom/google/common/base/Predicate;)Ljava/util/Set;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -519,7 +519,7 @@
     .local p1, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TE;>;"
     instance-of v0, p0, Ljava/util/SortedSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 980
     move-object v0, p0
@@ -533,10 +533,10 @@
     return-object v0
 
     .line 982
-    :cond_0
+    :cond_c
     instance-of v0, p0, Lcom/google/common/collect/Sets$FilteredSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 985
     move-object v0, p0
@@ -566,7 +566,7 @@
     .line 990
     .end local v0    # "filtered":Lcom/google/common/collect/Sets$FilteredSet;, "Lcom/google/common/collect/Sets$FilteredSet<TE;>;"
     .end local v1    # "combinedPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<TE;>;"
-    :cond_1
+    :cond_23
     new-instance v0, Lcom/google/common/collect/Sets$FilteredSet;
 
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -587,7 +587,7 @@
 .end method
 
 .method public static filter(Ljava/util/SortedSet;Lcom/google/common/base/Predicate;)Ljava/util/SortedSet;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -607,7 +607,7 @@
     .local p1, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TE;>;"
     instance-of v0, p0, Lcom/google/common/collect/Sets$FilteredSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 1022
     move-object v0, p0
@@ -637,7 +637,7 @@
     .line 1027
     .end local v0    # "filtered":Lcom/google/common/collect/Sets$FilteredSet;, "Lcom/google/common/collect/Sets$FilteredSet<TE;>;"
     .end local v1    # "combinedPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<TE;>;"
-    :cond_0
+    :cond_17
     new-instance v0, Lcom/google/common/collect/Sets$FilteredSortedSet;
 
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -658,7 +658,7 @@
 .end method
 
 .method static hashCodeImpl(Ljava/util/Set;)I
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -677,12 +677,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_5
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -690,18 +690,18 @@
 
     .line 1696
     .local v2, "o":Ljava/lang/Object;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v3
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_17
     add-int/2addr v0, v3
 
     .line 1698
@@ -711,15 +711,15 @@
 
     .line 1700
     .end local v2    # "o":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_5
 
     .line 1701
-    :cond_1
+    :cond_1b
     return v0
 .end method
 
 .method public static varargs immutableEnumSet(Ljava/lang/Enum;[Ljava/lang/Enum;)Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -745,7 +745,7 @@
 .end method
 
 .method public static immutableEnumSet(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -762,7 +762,7 @@
     .local p0, "elements":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     instance-of v0, p0, Lcom/google/common/collect/ImmutableEnumSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 120
     move-object v0, p0
@@ -772,10 +772,10 @@
     return-object v0
 
     .line 121
-    :cond_0
+    :cond_8
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_23
 
     .line 122
     move-object v0, p0
@@ -788,7 +788,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     .line 124
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
@@ -798,7 +798,7 @@
     return-object v1
 
     .line 126
-    :cond_1
+    :cond_1a
     invoke-static {v0}, Ljava/util/EnumSet;->copyOf(Ljava/util/Collection;)Ljava/util/EnumSet;
 
     move-result-object v1
@@ -811,7 +811,7 @@
 
     .line 129
     .end local v0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
-    :cond_2
+    :cond_23
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -822,7 +822,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3f
 
     .line 131
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -848,7 +848,7 @@
 
     .line 135
     .end local v1    # "enumSet":Ljava/util/EnumSet;, "Ljava/util/EnumSet<TE;>;"
-    :cond_3
+    :cond_3f
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v1
@@ -857,7 +857,7 @@
 .end method
 
 .method public static intersection(Ljava/util/Set;Ljava/util/Set;)Lcom/google/common/collect/Sets$SetView;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -893,7 +893,7 @@
 .end method
 
 .method private static makeComplementByHand(Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/EnumSet;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -924,7 +924,7 @@
 .end method
 
 .method public static newConcurrentHashSet()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -948,7 +948,7 @@
 .end method
 
 .method public static newConcurrentHashSet(Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -976,7 +976,7 @@
 .end method
 
 .method public static newCopyOnWriteArraySet()Ljava/util/concurrent/CopyOnWriteArraySet;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -996,7 +996,7 @@
 .end method
 
 .method public static newCopyOnWriteArraySet(Ljava/lang/Iterable;)Ljava/util/concurrent/CopyOnWriteArraySet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1013,22 +1013,22 @@
     .local p0, "elements":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 447
     move-object v0, p0
 
     check-cast v0, Ljava/util/Collection;
 
-    goto :goto_0
+    goto :goto_c
 
     .line 448
-    :cond_0
+    :cond_8
     invoke-static {p0}, Lcom/google/common/collect/Lists;->newArrayList(Ljava/lang/Iterable;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     nop
 
     .line 449
@@ -1041,7 +1041,7 @@
 .end method
 
 .method public static newEnumSet(Ljava/lang/Iterable;Ljava/lang/Class;)Ljava/util/EnumSet;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1072,7 +1072,7 @@
 .end method
 
 .method public static newHashSet()Ljava/util/HashSet;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1092,7 +1092,7 @@
 .end method
 
 .method public static newHashSet(Ljava/lang/Iterable;)Ljava/util/HashSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1109,7 +1109,7 @@
     .local p0, "elements":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 209
     new-instance v0, Ljava/util/HashSet;
@@ -1120,10 +1120,10 @@
 
     invoke-direct {v0, v1}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 210
-    :cond_0
+    :cond_d
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -1133,12 +1133,12 @@
     move-result-object v0
 
     .line 208
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public static newHashSet(Ljava/util/Iterator;)Ljava/util/HashSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1166,7 +1166,7 @@
 .end method
 
 .method public static varargs newHashSet([Ljava/lang/Object;)Ljava/util/HashSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1194,7 +1194,7 @@
 .end method
 
 .method public static newHashSetWithExpectedSize(I)Ljava/util/HashSet;
-    .locals 2
+    .registers 3
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1219,7 +1219,7 @@
 .end method
 
 .method public static newIdentityHashSet()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1243,7 +1243,7 @@
 .end method
 
 .method public static newLinkedHashSet()Ljava/util/LinkedHashSet;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1263,7 +1263,7 @@
 .end method
 
 .method public static newLinkedHashSet(Ljava/lang/Iterable;)Ljava/util/LinkedHashSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1280,7 +1280,7 @@
     .local p0, "elements":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 316
     new-instance v0, Ljava/util/LinkedHashSet;
@@ -1294,7 +1294,7 @@
     return-object v0
 
     .line 318
-    :cond_0
+    :cond_d
     invoke-static {}, Lcom/google/common/collect/Sets;->newLinkedHashSet()Ljava/util/LinkedHashSet;
 
     move-result-object v0
@@ -1308,7 +1308,7 @@
 .end method
 
 .method public static newLinkedHashSetWithExpectedSize(I)Ljava/util/LinkedHashSet;
-    .locals 2
+    .registers 3
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1333,7 +1333,7 @@
 .end method
 
 .method public static newSetFromMap(Ljava/util/Map;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1361,7 +1361,7 @@
 .end method
 
 .method public static newTreeSet()Ljava/util/TreeSet;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -1381,7 +1381,7 @@
 .end method
 
 .method public static newTreeSet(Ljava/lang/Iterable;)Ljava/util/TreeSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -1409,7 +1409,7 @@
 .end method
 
 .method public static newTreeSet(Ljava/util/Comparator;)Ljava/util/TreeSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1438,7 +1438,7 @@
 .end method
 
 .method public static powerSet(Ljava/util/Set;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1462,7 +1462,7 @@
 .end method
 
 .method static removeAllImpl(Ljava/util/Set;Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1481,7 +1481,7 @@
     .line 1895
     instance-of v0, p1, Lcom/google/common/collect/Multiset;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 1896
     move-object v0, p1
@@ -1493,10 +1493,10 @@
     move-result-object p1
 
     .line 1905
-    :cond_0
+    :cond_e
     instance-of v0, p1, Ljava/util/Set;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     invoke-interface {p1}, Ljava/util/Collection;->size()I
 
@@ -1506,7 +1506,7 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_25
 
     .line 1906
     invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
@@ -1520,7 +1520,7 @@
     return v0
 
     .line 1908
-    :cond_1
+    :cond_25
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -1533,7 +1533,7 @@
 .end method
 
 .method static removeAllImpl(Ljava/util/Set;Ljava/util/Iterator;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1551,12 +1551,12 @@
 
     .line 1887
     .local v0, "changed":Z
-    :goto_0
+    :goto_1
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 1888
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1569,15 +1569,15 @@
 
     or-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1890
-    :cond_0
+    :cond_11
     return v0
 .end method
 
 .method public static subSet(Ljava/util/NavigableSet;Lcom/google/common/collect/Range;)Ljava/util/NavigableSet;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K::",
@@ -1603,7 +1603,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_39
 
     .line 2076
     invoke-interface {p0}, Ljava/util/NavigableSet;->comparator()Ljava/util/Comparator;
@@ -1614,21 +1614,21 @@
 
     move-result-object v3
 
-    if-eq v0, v3, :cond_1
+    if-eq v0, v3, :cond_39
 
     .line 2077
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->hasLowerBound()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_39
 
     .line 2078
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->hasUpperBound()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_39
 
     .line 2079
     nop
@@ -1650,34 +1650,34 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_33
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_33
     const/4 v0, 0x0
 
     .line 2079
-    :goto_0
+    :goto_34
     const-string v3, "set is using a custom comparator which is inconsistent with the natural ordering."
 
     invoke-static {v0, v3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     .line 2083
-    :cond_1
+    :cond_39
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->hasLowerBound()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_68
 
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->hasUpperBound()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_68
 
     .line 2084
     nop
@@ -1694,17 +1694,17 @@
 
     sget-object v4, Lcom/google/common/collect/BoundType;->CLOSED:Lcom/google/common/collect/BoundType;
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_54
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_55
 
-    :cond_2
+    :cond_54
     const/4 v3, 0x0
 
     .line 2087
-    :goto_1
+    :goto_55
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->upperEndpoint()Ljava/lang/Comparable;
 
     move-result-object v4
@@ -1716,15 +1716,15 @@
 
     sget-object v6, Lcom/google/common/collect/BoundType;->CLOSED:Lcom/google/common/collect/BoundType;
 
-    if-ne v5, v6, :cond_3
+    if-ne v5, v6, :cond_62
 
-    goto :goto_2
+    goto :goto_63
 
-    :cond_3
+    :cond_62
     const/4 v1, 0x0
 
     .line 2084
-    :goto_2
+    :goto_63
     invoke-interface {p0, v0, v3, v4, v1}, Ljava/util/NavigableSet;->subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -1732,12 +1732,12 @@
     return-object v0
 
     .line 2089
-    :cond_4
+    :cond_68
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->hasLowerBound()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_81
 
     .line 2090
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->lowerEndpoint()Ljava/lang/Comparable;
@@ -1750,14 +1750,14 @@
 
     sget-object v4, Lcom/google/common/collect/BoundType;->CLOSED:Lcom/google/common/collect/BoundType;
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v4, :cond_7b
 
-    goto :goto_3
+    goto :goto_7c
 
-    :cond_5
+    :cond_7b
     const/4 v1, 0x0
 
-    :goto_3
+    :goto_7c
     invoke-interface {p0, v0, v1}, Ljava/util/NavigableSet;->tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -1765,12 +1765,12 @@
     return-object v0
 
     .line 2091
-    :cond_6
+    :cond_81
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->hasUpperBound()Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9a
 
     .line 2092
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->upperEndpoint()Ljava/lang/Comparable;
@@ -1783,14 +1783,14 @@
 
     sget-object v4, Lcom/google/common/collect/BoundType;->CLOSED:Lcom/google/common/collect/BoundType;
 
-    if-ne v3, v4, :cond_7
+    if-ne v3, v4, :cond_94
 
-    goto :goto_4
+    goto :goto_95
 
-    :cond_7
+    :cond_94
     const/4 v1, 0x0
 
-    :goto_4
+    :goto_95
     invoke-interface {p0, v0, v1}, Ljava/util/NavigableSet;->headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -1798,7 +1798,7 @@
     return-object v0
 
     .line 2094
-    :cond_8
+    :cond_9a
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -1809,7 +1809,7 @@
 .end method
 
 .method public static symmetricDifference(Ljava/util/Set;Ljava/util/Set;)Lcom/google/common/collect/Sets$SetView;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1845,7 +1845,7 @@
 .end method
 
 .method public static synchronizedNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1868,7 +1868,7 @@
 .end method
 
 .method public static union(Ljava/util/Set;Ljava/util/Set;)Lcom/google/common/collect/Sets$SetView;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1904,7 +1904,7 @@
 .end method
 
 .method public static unmodifiableNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1921,16 +1921,16 @@
     .local p0, "set":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
     instance-of v0, p0, Lcom/google/common/collect/ImmutableCollection;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     instance-of v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_f
 
     .line 1739
-    :cond_0
+    :cond_9
     new-instance v0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;-><init>(Ljava/util/NavigableSet;)V
@@ -1938,7 +1938,7 @@
     return-object v0
 
     .line 1737
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     return-object p0
 .end method

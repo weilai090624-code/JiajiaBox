@@ -104,7 +104,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/ImmutableSet;Lcom/google/common/collect/ImmutableSet;)V
-    .locals 15
+    .registers 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -216,12 +216,12 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_0
+    :goto_4c
     invoke-virtual/range {p1 .. p1}, Lcom/google/common/collect/ImmutableList;->size()I
 
     move-result v6
 
-    if-ge v5, v6, :cond_0
+    if-ge v5, v6, :cond_b2
 
     .line 69
     move-object/from16 v6, p1
@@ -344,9 +344,9 @@
     .end local v12    # "existingValue":Ljava/lang/Object;, "TV;"
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_4c
 
-    :cond_0
+    :cond_b2
     move-object/from16 v6, p1
 
     .line 83
@@ -377,7 +377,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/collect/DenseImmutableTable;)[I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/DenseImmutableTable;
 
     .line 31
@@ -387,7 +387,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/common/collect/DenseImmutableTable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/DenseImmutableTable;
 
     .line 31
@@ -397,7 +397,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/common/collect/DenseImmutableTable;)[[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/DenseImmutableTable;
 
     .line 31
@@ -407,7 +407,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/common/collect/DenseImmutableTable;)[I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/DenseImmutableTable;
 
     .line 31
@@ -417,7 +417,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/collect/DenseImmutableTable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/DenseImmutableTable;
 
     .line 31
@@ -429,7 +429,7 @@
 
 # virtual methods
 .method public columnMap()Lcom/google/common/collect/ImmutableMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -454,7 +454,7 @@
 .end method
 
 .method public bridge synthetic columnMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 28
     .local p0, "this":Lcom/google/common/collect/DenseImmutableTable;, "Lcom/google/common/collect/DenseImmutableTable<TR;TC;TV;>;"
@@ -466,7 +466,7 @@
 .end method
 
 .method createSerializedForm()Lcom/google/common/collect/ImmutableTable$SerializedForm;
-    .locals 2
+    .registers 3
 
     .line 289
     .local p0, "this":Lcom/google/common/collect/DenseImmutableTable;, "Lcom/google/common/collect/DenseImmutableTable<TR;TC;TV;>;"
@@ -482,7 +482,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -525,13 +525,13 @@
 
     .line 262
     .local v1, "columnIndex":Ljava/lang/Integer;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_15
     iget-object v2, p0, Lcom/google/common/collect/DenseImmutableTable;->values:[[Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -546,18 +546,18 @@
 
     aget-object v2, v2, v3
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_25
     return-object v2
 .end method
 
 .method getCell(I)Lcom/google/common/collect/Table$Cell;
-    .locals 6
+    .registers 8
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -629,7 +629,7 @@
 .end method
 
 .method getValue(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -661,7 +661,7 @@
 .end method
 
 .method public rowMap()Lcom/google/common/collect/ImmutableMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -686,7 +686,7 @@
 .end method
 
 .method public bridge synthetic rowMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 28
     .local p0, "this":Lcom/google/common/collect/DenseImmutableTable;, "Lcom/google/common/collect/DenseImmutableTable<TR;TC;TV;>;"
@@ -698,7 +698,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 267
     .local p0, "this":Lcom/google/common/collect/DenseImmutableTable;, "Lcom/google/common/collect/DenseImmutableTable<TR;TC;TV;>;"

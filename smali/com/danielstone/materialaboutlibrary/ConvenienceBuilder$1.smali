@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/lang/CharSequence;ZZLjava/lang/String;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 7
 
     .line 72
     iput-object p1, p0, Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder$1;->val$c:Landroid/content/Context;
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public onClick()V
-    .locals 5
+    .registers 6
 
     .line 75
     new-instance v0, Landroidx/appcompat/app/AlertDialog$Builder;
@@ -91,7 +91,7 @@
     .line 80
     iget-boolean v2, p0, Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder$1;->val$supportZoom:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2f
 
     .line 81
     invoke-virtual {v1}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
@@ -110,20 +110,20 @@
     invoke-virtual {v2, v3}, Landroid/webkit/WebSettings;->setUseWideViewPort(Z)V
 
     .line 84
-    :cond_0
+    :cond_2f
     iget-boolean v2, p0, Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder$1;->val$isStringUrl:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_39
 
     .line 85
     iget-object v2, p0, Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder$1;->val$htmlString:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_43
 
     .line 87
-    :cond_1
+    :cond_39
     iget-object v2, p0, Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder$1;->val$htmlString:Ljava/lang/String;
 
     const-string/jumbo v3, "text/html; charset=utf-8"
@@ -133,7 +133,7 @@
     invoke-virtual {v1, v2, v3, v4}, Landroid/webkit/WebView;->loadData(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 90
-    :goto_0
+    :goto_43
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     .line 91

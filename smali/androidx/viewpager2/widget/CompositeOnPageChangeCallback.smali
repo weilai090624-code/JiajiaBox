@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "initialCapacity"    # I
 
     .line 34
@@ -35,7 +35,7 @@
 .end method
 
 .method private throwCallbackListModifiedWhileInUse(Ljava/util/ConcurrentModificationException;)V
-    .locals 2
+    .registers 4
     .param p1, "parent"    # Ljava/util/ConcurrentModificationException;
 
     .line 95
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method addOnPageChangeCallback(Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
 
     .line 42
@@ -64,7 +64,7 @@
 .end method
 
 .method public onPageScrollStateChanged(I)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # I
 
     .line 86
@@ -75,12 +75,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -91,19 +91,19 @@
     .line 87
     .local v1, "callback":Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
     invoke-virtual {v1, p1}, Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;->onPageScrollStateChanged(I)V
-    :try_end_0
-    .catch Ljava/util/ConcurrentModificationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/util/ConcurrentModificationException; {:try_start_0 .. :try_end_15} :catch_17
 
     .line 88
     .end local v1    # "callback":Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 91
-    :cond_0
-    goto :goto_1
+    :cond_16
+    goto :goto_1b
 
     .line 89
-    :catch_0
+    :catch_17
     move-exception v0
 
     .line 90
@@ -112,12 +112,12 @@
 
     .line 92
     .end local v0    # "ex":Ljava/util/ConcurrentModificationException;
-    :goto_1
+    :goto_1b
     return-void
 .end method
 
 .method public onPageScrolled(IFI)V
-    .locals 2
+    .registers 6
     .param p1, "position"    # I
     .param p2, "positionOffset"    # F
     .param p3, "positionOffsetPixels"    # I
@@ -130,12 +130,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -146,19 +146,19 @@
     .line 59
     .local v1, "callback":Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
     invoke-virtual {v1, p1, p2, p3}, Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;->onPageScrolled(IFI)V
-    :try_end_0
-    .catch Ljava/util/ConcurrentModificationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/util/ConcurrentModificationException; {:try_start_0 .. :try_end_15} :catch_17
 
     .line 60
     .end local v1    # "callback":Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 63
-    :cond_0
-    goto :goto_1
+    :cond_16
+    goto :goto_1b
 
     .line 61
-    :catch_0
+    :catch_17
     move-exception v0
 
     .line 62
@@ -167,12 +167,12 @@
 
     .line 64
     .end local v0    # "ex":Ljava/util/ConcurrentModificationException;
-    :goto_1
+    :goto_1b
     return-void
 .end method
 
 .method public onPageSelected(I)V
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 72
@@ -183,12 +183,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -199,19 +199,19 @@
     .line 73
     .local v1, "callback":Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
     invoke-virtual {v1, p1}, Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;->onPageSelected(I)V
-    :try_end_0
-    .catch Ljava/util/ConcurrentModificationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/util/ConcurrentModificationException; {:try_start_0 .. :try_end_15} :catch_17
 
     .line 74
     .end local v1    # "callback":Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 77
-    :cond_0
-    goto :goto_1
+    :cond_16
+    goto :goto_1b
 
     .line 75
-    :catch_0
+    :catch_17
     move-exception v0
 
     .line 76
@@ -220,12 +220,12 @@
 
     .line 78
     .end local v0    # "ex":Ljava/util/ConcurrentModificationException;
-    :goto_1
+    :goto_1b
     return-void
 .end method
 
 .method removeOnPageChangeCallback(Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
 
     .line 49

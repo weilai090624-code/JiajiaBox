@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 66
     const-string v0, "EnqueueRunnable"
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/WorkContinuationImpl;)V
-    .locals 1
+    .registers 3
     .param p1, "workContinuation"    # Landroidx/work/impl/WorkContinuationImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/WorkContinuationImpl;Landroidx/work/impl/OperationImpl;)V
-    .locals 0
+    .registers 3
     .param p1, "workContinuation"    # Landroidx/work/impl/WorkContinuationImpl;
     .param p2, "result"    # Landroidx/work/impl/OperationImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -84,7 +84,7 @@
 .end method
 
 .method private static enqueueContinuation(Landroidx/work/impl/WorkContinuationImpl;)Z
-    .locals 6
+    .registers 7
     .param p0, "workContinuation"    # Landroidx/work/impl/WorkContinuationImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -149,7 +149,7 @@
 .end method
 
 .method private static enqueueWorkWithPrerequisites(Landroidx/work/impl/WorkManagerImpl;Ljava/util/List;[Ljava/lang/String;Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;)Z
-    .locals 22
+    .registers 27
     .param p0, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .param p2, "prerequisiteIds"    # [Ljava/lang/String;
     .param p3, "name"    # Ljava/lang/String;
@@ -210,22 +210,22 @@
 
     .line 192
     .local v6, "workDatabase":Landroidx/work/impl/WorkDatabase;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     array-length v9, v0
 
-    if-lez v9, :cond_0
+    if-lez v9, :cond_16
 
     const/4 v9, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v9, 0x0
 
     .line 193
     .local v9, "hasPrerequisite":Z
-    :goto_0
+    :goto_17
     const/4 v10, 0x1
 
     .line 194
@@ -238,15 +238,15 @@
 
     .line 197
     .local v12, "hasCancelledPrerequisites":Z
-    if-eqz v9, :cond_6
+    if-eqz v9, :cond_73
 
     .line 201
     array-length v13, v0
 
     const/4 v14, 0x0
 
-    :goto_1
-    if-ge v14, v13, :cond_5
+    :goto_1e
+    if-ge v14, v13, :cond_70
 
     aget-object v15, v0, v14
 
@@ -262,7 +262,7 @@
 
     .line 203
     .local v7, "prerequisiteWorkSpec":Landroidx/work/impl/model/WorkSpec;
-    if-nez v7, :cond_1
+    if-nez v7, :cond_52
 
     .line 204
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -309,7 +309,7 @@
     .line 208
     .end local v17    # "needsScheduling":Z
     .restart local v3    # "needsScheduling":Z
-    :cond_1
+    :cond_52
     move/from16 v17, v3
 
     .end local v3    # "needsScheduling":Z
@@ -320,22 +320,22 @@
     .local v3, "prerequisiteState":Landroidx/work/WorkInfo$State;
     sget-object v8, Landroidx/work/WorkInfo$State;->SUCCEEDED:Landroidx/work/WorkInfo$State;
 
-    if-ne v3, v8, :cond_2
+    if-ne v3, v8, :cond_5c
 
     const/4 v8, 0x1
 
-    goto :goto_2
+    goto :goto_5d
 
-    :cond_2
+    :cond_5c
     const/4 v8, 0x0
 
-    :goto_2
+    :goto_5d
     and-int/2addr v10, v8
 
     .line 210
     sget-object v8, Landroidx/work/WorkInfo$State;->FAILED:Landroidx/work/WorkInfo$State;
 
-    if-ne v3, v8, :cond_3
+    if-ne v3, v8, :cond_65
 
     .line 211
     const/4 v8, 0x1
@@ -344,15 +344,15 @@
 
     .end local v11    # "hasFailedPrerequisites":Z
     .local v8, "hasFailedPrerequisites":Z
-    goto :goto_3
+    goto :goto_6b
 
     .line 212
     .end local v8    # "hasFailedPrerequisites":Z
     .restart local v11    # "hasFailedPrerequisites":Z
-    :cond_3
+    :cond_65
     sget-object v8, Landroidx/work/WorkInfo$State;->CANCELLED:Landroidx/work/WorkInfo$State;
 
-    if-ne v3, v8, :cond_4
+    if-ne v3, v8, :cond_6b
 
     .line 213
     const/4 v8, 0x1
@@ -363,33 +363,33 @@
     .end local v3    # "prerequisiteState":Landroidx/work/WorkInfo$State;
     .end local v7    # "prerequisiteWorkSpec":Landroidx/work/impl/model/WorkSpec;
     .end local v15    # "id":Ljava/lang/String;
-    :cond_4
-    :goto_3
+    :cond_6b
+    :goto_6b
     add-int/lit8 v14, v14, 0x1
 
     move/from16 v3, v17
 
-    goto :goto_1
+    goto :goto_1e
 
     .end local v17    # "needsScheduling":Z
     .local v3, "needsScheduling":Z
-    :cond_5
+    :cond_70
     move/from16 v17, v3
 
     .end local v3    # "needsScheduling":Z
     .restart local v17    # "needsScheduling":Z
-    goto :goto_4
+    goto :goto_75
 
     .line 197
     .end local v17    # "needsScheduling":Z
     .restart local v3    # "needsScheduling":Z
-    :cond_6
+    :cond_73
     move/from16 v17, v3
 
     .line 218
     .end local v3    # "needsScheduling":Z
     .restart local v17    # "needsScheduling":Z
-    :goto_4
+    :goto_75
     invoke-static/range {p3 .. p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
@@ -400,21 +400,21 @@
 
     .line 222
     .local v3, "isNamed":Z
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_81
 
-    if-nez v9, :cond_7
+    if-nez v9, :cond_81
 
     const/4 v8, 0x1
 
-    goto :goto_5
+    goto :goto_82
 
-    :cond_7
+    :cond_81
     const/4 v8, 0x0
 
     .line 223
     .local v8, "shouldApplyExistingWorkPolicy":Z
-    :goto_5
-    if-eqz v8, :cond_19
+    :goto_82
+    if-eqz v8, :cond_1a8
 
     .line 225
     nop
@@ -434,40 +434,40 @@
 
     move-result v14
 
-    if-nez v14, :cond_18
+    if-nez v14, :cond_1a1
 
     .line 230
     sget-object v14, Landroidx/work/ExistingWorkPolicy;->APPEND:Landroidx/work/ExistingWorkPolicy;
 
-    if-eq v2, v14, :cond_e
+    if-eq v2, v14, :cond_102
 
     sget-object v14, Landroidx/work/ExistingWorkPolicy;->APPEND_OR_REPLACE:Landroidx/work/ExistingWorkPolicy;
 
-    if-ne v2, v14, :cond_8
+    if-ne v2, v14, :cond_a1
 
     move-object/from16 v14, p0
 
     move/from16 v19, v8
 
-    goto/16 :goto_a
+    goto/16 :goto_106
 
     .line 264
-    :cond_8
+    :cond_a1
     sget-object v7, Landroidx/work/ExistingWorkPolicy;->KEEP:Landroidx/work/ExistingWorkPolicy;
 
-    if-ne v2, v7, :cond_c
+    if-ne v2, v7, :cond_cb
 
     .line 265
     invoke-interface {v13}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
-    :goto_6
+    :goto_a9
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_b
+    if-eqz v14, :cond_c9
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -483,44 +483,44 @@
 
     sget-object v7, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
 
-    if-eq v15, v7, :cond_a
+    if-eq v15, v7, :cond_c7
 
     iget-object v7, v14, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
 
     sget-object v15, Landroidx/work/WorkInfo$State;->RUNNING:Landroidx/work/WorkInfo$State;
 
-    if-ne v7, v15, :cond_9
+    if-ne v7, v15, :cond_c4
 
-    goto :goto_7
+    goto :goto_c7
 
     .line 269
     .end local v14    # "idAndState":Landroidx/work/impl/model/WorkSpec$IdAndState;
-    :cond_9
+    :cond_c4
     move-object/from16 v7, v16
 
-    goto :goto_6
+    goto :goto_a9
 
     .line 267
     .restart local v14    # "idAndState":Landroidx/work/impl/model/WorkSpec$IdAndState;
-    :cond_a
-    :goto_7
+    :cond_c7
+    :goto_c7
     const/4 v15, 0x0
 
     return v15
 
     .line 265
     .end local v14    # "idAndState":Landroidx/work/impl/model/WorkSpec$IdAndState;
-    :cond_b
+    :cond_c9
     const/4 v15, 0x0
 
-    goto :goto_8
+    goto :goto_cc
 
     .line 264
-    :cond_c
+    :cond_cb
     const/4 v15, 0x0
 
     .line 277
-    :goto_8
+    :goto_cc
     move-object/from16 v14, p0
 
     invoke-static {v1, v14, v15}, Landroidx/work/impl/utils/CancelWorkRunnable;->forName(Ljava/lang/String;Landroidx/work/impl/WorkManagerImpl;Z)Landroidx/work/impl/utils/CancelWorkRunnable;
@@ -545,12 +545,12 @@
 
     move-result-object v16
 
-    :goto_9
+    :goto_de
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_d
+    if-eqz v17, :cond_fa
 
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -580,14 +580,14 @@
 
     move/from16 v8, v19
 
-    goto :goto_9
+    goto :goto_de
 
     .line 285
     .end local v18    # "needsScheduling":Z
     .end local v19    # "shouldApplyExistingWorkPolicy":Z
     .local v7, "needsScheduling":Z
     .restart local v8    # "shouldApplyExistingWorkPolicy":Z
-    :cond_d
+    :cond_fa
     move/from16 v18, v7
 
     move/from16 v19, v8
@@ -598,7 +598,7 @@
     .restart local v19    # "shouldApplyExistingWorkPolicy":Z
     move/from16 v17, v18
 
-    goto/16 :goto_12
+    goto/16 :goto_1b0
 
     .line 230
     .end local v15    # "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
@@ -606,7 +606,7 @@
     .end local v19    # "shouldApplyExistingWorkPolicy":Z
     .restart local v8    # "shouldApplyExistingWorkPolicy":Z
     .restart local v17    # "needsScheduling":Z
-    :cond_e
+    :cond_102
     move-object/from16 v14, p0
 
     move/from16 v19, v8
@@ -614,7 +614,7 @@
     .line 231
     .end local v8    # "shouldApplyExistingWorkPolicy":Z
     .restart local v19    # "shouldApplyExistingWorkPolicy":Z
-    :goto_a
+    :goto_106
     invoke-virtual {v6}, Landroidx/work/impl/WorkDatabase;->dependencyDao()Landroidx/work/impl/model/DependencyDao;
 
     move-result-object v8
@@ -631,12 +631,12 @@
 
     move-result-object v16
 
-    :goto_b
+    :goto_113
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v18
 
-    if-eqz v18, :cond_13
+    if-eqz v18, :cond_155
 
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -658,7 +658,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_12
+    if-nez v9, :cond_14d
 
     .line 235
     iget-object v9, v7, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
@@ -669,16 +669,16 @@
     .local v21, "dependencyDao":Landroidx/work/impl/model/DependencyDao;
     sget-object v8, Landroidx/work/WorkInfo$State;->SUCCEEDED:Landroidx/work/WorkInfo$State;
 
-    if-ne v9, v8, :cond_f
+    if-ne v9, v8, :cond_135
 
     const/4 v8, 0x1
 
-    goto :goto_c
+    goto :goto_136
 
-    :cond_f
+    :cond_135
     const/4 v8, 0x0
 
-    :goto_c
+    :goto_136
     and-int/2addr v8, v10
 
     .line 236
@@ -688,61 +688,61 @@
 
     sget-object v10, Landroidx/work/WorkInfo$State;->FAILED:Landroidx/work/WorkInfo$State;
 
-    if-ne v9, v10, :cond_10
+    if-ne v9, v10, :cond_13f
 
     .line 237
     const/4 v11, 0x1
 
-    goto :goto_d
+    goto :goto_146
 
     .line 238
-    :cond_10
+    :cond_13f
     iget-object v9, v7, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
 
     sget-object v10, Landroidx/work/WorkInfo$State;->CANCELLED:Landroidx/work/WorkInfo$State;
 
-    if-ne v9, v10, :cond_11
+    if-ne v9, v10, :cond_146
 
     .line 239
     const/4 v12, 0x1
 
     .line 241
-    :cond_11
-    :goto_d
+    :cond_146
+    :goto_146
     iget-object v9, v7, Landroidx/work/impl/model/WorkSpec$IdAndState;->id:Ljava/lang/String;
 
     invoke-interface {v15, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     move v10, v8
 
-    goto :goto_e
+    goto :goto_14f
 
     .line 234
     .end local v21    # "dependencyDao":Landroidx/work/impl/model/DependencyDao;
     .local v8, "dependencyDao":Landroidx/work/impl/model/DependencyDao;
     .restart local v10    # "hasCompletedAllPrerequisites":Z
-    :cond_12
+    :cond_14d
     move-object/from16 v21, v8
 
     .line 243
     .end local v7    # "idAndState":Landroidx/work/impl/model/WorkSpec$IdAndState;
     .end local v8    # "dependencyDao":Landroidx/work/impl/model/DependencyDao;
     .restart local v21    # "dependencyDao":Landroidx/work/impl/model/DependencyDao;
-    :goto_e
+    :goto_14f
     move/from16 v9, v18
 
     move-object/from16 v8, v21
 
     const/4 v7, 0x1
 
-    goto :goto_b
+    goto :goto_113
 
     .line 244
     .end local v18    # "hasPrerequisite":Z
     .end local v21    # "dependencyDao":Landroidx/work/impl/model/DependencyDao;
     .restart local v8    # "dependencyDao":Landroidx/work/impl/model/DependencyDao;
     .restart local v9    # "hasPrerequisite":Z
-    :cond_13
+    :cond_155
     move-object/from16 v21, v8
 
     move/from16 v18, v9
@@ -753,15 +753,15 @@
     .restart local v21    # "dependencyDao":Landroidx/work/impl/model/DependencyDao;
     sget-object v7, Landroidx/work/ExistingWorkPolicy;->APPEND_OR_REPLACE:Landroidx/work/ExistingWorkPolicy;
 
-    if-ne v2, v7, :cond_16
+    if-ne v2, v7, :cond_192
 
     .line 245
-    if-nez v12, :cond_14
+    if-nez v12, :cond_161
 
-    if-eqz v11, :cond_16
+    if-eqz v11, :cond_192
 
     .line 247
-    :cond_14
+    :cond_161
     invoke-virtual {v6}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
     move-result-object v7
@@ -781,12 +781,12 @@
 
     move-result-object v9
 
-    :goto_f
+    :goto_16e
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v16
 
-    if-eqz v16, :cond_15
+    if-eqz v16, :cond_188
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -812,12 +812,12 @@
 
     move-object/from16 v8, v16
 
-    goto :goto_f
+    goto :goto_16e
 
     .line 254
     .end local v16    # "idAndStates":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/model/WorkSpec$IdAndState;>;"
     .restart local v8    # "idAndStates":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/model/WorkSpec$IdAndState;>;"
-    :cond_15
+    :cond_188
     move-object/from16 v16, v8
 
     .end local v8    # "idAndStates":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/model/WorkSpec$IdAndState;>;"
@@ -843,7 +843,7 @@
     .end local v7    # "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
     .end local v16    # "idAndStates":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/model/WorkSpec$IdAndState;>;"
     .restart local v12    # "hasCancelledPrerequisites":Z
-    :cond_16
+    :cond_192
     invoke-interface {v15, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v2
@@ -857,16 +857,16 @@
     .local v0, "prerequisiteIds":[Ljava/lang/String;
     array-length v2, v0
 
-    if-lez v2, :cond_17
+    if-lez v2, :cond_19e
 
     const/4 v7, 0x1
 
-    goto :goto_10
+    goto :goto_19f
 
-    :cond_17
+    :cond_19e
     const/4 v7, 0x0
 
-    :goto_10
+    :goto_19f
     move v9, v7
 
     .line 261
@@ -874,14 +874,14 @@
     .end local v18    # "hasPrerequisite":Z
     .end local v21    # "dependencyDao":Landroidx/work/impl/model/DependencyDao;
     .restart local v9    # "hasPrerequisite":Z
-    goto :goto_12
+    goto :goto_1b0
 
     .line 228
     .end local v0    # "prerequisiteIds":[Ljava/lang/String;
     .end local v19    # "shouldApplyExistingWorkPolicy":Z
     .local v8, "shouldApplyExistingWorkPolicy":Z
     .restart local p2    # "prerequisiteIds":[Ljava/lang/String;
-    :cond_18
+    :cond_1a1
     move-object/from16 v14, p0
 
     move/from16 v19, v8
@@ -892,7 +892,7 @@
     .end local v9    # "hasPrerequisite":Z
     .restart local v18    # "hasPrerequisite":Z
     .restart local v19    # "shouldApplyExistingWorkPolicy":Z
-    goto :goto_11
+    goto :goto_1ae
 
     .line 223
     .end local v13    # "existingWorkSpecIdAndStates":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/model/WorkSpec$IdAndState;>;"
@@ -900,7 +900,7 @@
     .end local v19    # "shouldApplyExistingWorkPolicy":Z
     .restart local v8    # "shouldApplyExistingWorkPolicy":Z
     .restart local v9    # "hasPrerequisite":Z
-    :cond_19
+    :cond_1a8
     move-object/from16 v14, p0
 
     move/from16 v19, v8
@@ -912,24 +912,24 @@
     .end local v9    # "hasPrerequisite":Z
     .restart local v18    # "hasPrerequisite":Z
     .restart local v19    # "shouldApplyExistingWorkPolicy":Z
-    :goto_11
+    :goto_1ae
     move/from16 v9, v18
 
     .end local v18    # "hasPrerequisite":Z
     .end local p2    # "prerequisiteIds":[Ljava/lang/String;
     .restart local v0    # "prerequisiteIds":[Ljava/lang/String;
     .restart local v9    # "hasPrerequisite":Z
-    :goto_12
+    :goto_1b0
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_13
+    :goto_1b4
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_21
+    if-eqz v7, :cond_252
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -945,50 +945,50 @@
 
     .line 295
     .local v8, "workSpec":Landroidx/work/impl/model/WorkSpec;
-    if-eqz v9, :cond_1c
+    if-eqz v9, :cond_1db
 
-    if-nez v10, :cond_1c
+    if-nez v10, :cond_1db
 
     .line 296
-    if-eqz v11, :cond_1a
+    if-eqz v11, :cond_1cf
 
     .line 297
     sget-object v13, Landroidx/work/WorkInfo$State;->FAILED:Landroidx/work/WorkInfo$State;
 
     iput-object v13, v8, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
-    goto :goto_14
+    goto :goto_1dd
 
     .line 298
-    :cond_1a
-    if-eqz v12, :cond_1b
+    :cond_1cf
+    if-eqz v12, :cond_1d6
 
     .line 299
     sget-object v13, Landroidx/work/WorkInfo$State;->CANCELLED:Landroidx/work/WorkInfo$State;
 
     iput-object v13, v8, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
-    goto :goto_14
+    goto :goto_1dd
 
     .line 301
-    :cond_1b
+    :cond_1d6
     sget-object v13, Landroidx/work/WorkInfo$State;->BLOCKED:Landroidx/work/WorkInfo$State;
 
     iput-object v13, v8, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
-    goto :goto_14
+    goto :goto_1dd
 
     .line 307
-    :cond_1c
+    :cond_1db
     iput-wide v4, v8, Landroidx/work/impl/model/WorkSpec;->lastEnqueueTime:J
 
     .line 311
-    :goto_14
+    :goto_1dd
     iget-object v13, v8, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
     sget-object v15, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
 
-    if-ne v13, v15, :cond_1d
+    if-ne v13, v15, :cond_1e6
 
     .line 312
     const/4 v13, 0x1
@@ -996,7 +996,7 @@
     move/from16 v17, v13
 
     .line 315
-    :cond_1d
+    :cond_1e6
     invoke-virtual {v6}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
     move-result-object v13
@@ -1015,15 +1015,15 @@
     invoke-interface {v13, v15}, Landroidx/work/impl/model/WorkSpecDao;->insertWorkSpec(Landroidx/work/impl/model/WorkSpec;)V
 
     .line 322
-    if-eqz v9, :cond_1f
+    if-eqz v9, :cond_223
 
     .line 323
     array-length v13, v0
 
     const/4 v15, 0x0
 
-    :goto_15
-    if-ge v15, v13, :cond_1e
+    :goto_1f9
+    if-ge v15, v13, :cond_21c
 
     move-object/from16 p2, v2
 
@@ -1066,13 +1066,13 @@
 
     move-wide/from16 v4, v20
 
-    goto :goto_15
+    goto :goto_1f9
 
     .end local v16    # "prerequisiteIds":[Ljava/lang/String;
     .end local v20    # "currentTimeMillis":J
     .local v0, "prerequisiteIds":[Ljava/lang/String;
     .restart local v4    # "currentTimeMillis":J
-    :cond_1e
+    :cond_21c
     move-object/from16 v16, v0
 
     move-object/from16 p2, v2
@@ -1083,14 +1083,14 @@
     .end local v4    # "currentTimeMillis":J
     .restart local v16    # "prerequisiteIds":[Ljava/lang/String;
     .restart local v20    # "currentTimeMillis":J
-    goto :goto_16
+    goto :goto_229
 
     .line 322
     .end local v16    # "prerequisiteIds":[Ljava/lang/String;
     .end local v20    # "currentTimeMillis":J
     .restart local v0    # "prerequisiteIds":[Ljava/lang/String;
     .restart local v4    # "currentTimeMillis":J
-    :cond_1f
+    :cond_223
     move-object/from16 v16, v0
 
     move-object/from16 p2, v2
@@ -1102,7 +1102,7 @@
     .end local v4    # "currentTimeMillis":J
     .restart local v16    # "prerequisiteIds":[Ljava/lang/String;
     .restart local v20    # "currentTimeMillis":J
-    :goto_16
+    :goto_229
     invoke-virtual {v6}, Landroidx/work/impl/WorkDatabase;->workTagDao()Landroidx/work/impl/model/WorkTagDao;
 
     move-result-object v0
@@ -1118,7 +1118,7 @@
     invoke-interface {v0, v2, v4}, Landroidx/work/impl/model/WorkTagDao;->insertTags(Ljava/lang/String;Ljava/util/Set;)V
 
     .line 330
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_24a
 
     .line 331
     invoke-virtual {v6}, Landroidx/work/impl/WorkDatabase;->workNameDao()Landroidx/work/impl/model/WorkNameDao;
@@ -1138,26 +1138,26 @@
     .line 333
     .end local v7    # "work":Landroidx/work/WorkRequest;
     .end local v8    # "workSpec":Landroidx/work/impl/model/WorkSpec;
-    :cond_20
+    :cond_24a
     move-object/from16 v2, p2
 
     move-object/from16 v0, v16
 
     move-wide/from16 v4, v20
 
-    goto/16 :goto_13
+    goto/16 :goto_1b4
 
     .line 334
     .end local v16    # "prerequisiteIds":[Ljava/lang/String;
     .end local v20    # "currentTimeMillis":J
     .restart local v0    # "prerequisiteIds":[Ljava/lang/String;
     .restart local v4    # "currentTimeMillis":J
-    :cond_21
+    :cond_252
     return v17
 .end method
 
 .method private static processContinuation(Landroidx/work/impl/WorkContinuationImpl;)Z
-    .locals 9
+    .registers 10
     .param p0, "workContinuation"    # Landroidx/work/impl/WorkContinuationImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1179,19 +1179,19 @@
 
     .line 144
     .local v1, "parents":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/WorkContinuationImpl;>;"
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_50
 
     .line 145
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_0
+    :goto_b
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_50
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1205,7 +1205,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_23
 
     .line 149
     invoke-static {v3}, Landroidx/work/impl/utils/EnqueueRunnable;->processContinuation(Landroidx/work/impl/WorkContinuationImpl;)Z
@@ -1214,10 +1214,10 @@
 
     or-int/2addr v0, v4
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 151
-    :cond_0
+    :cond_23
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v4
@@ -1264,11 +1264,11 @@
 
     .line 155
     .end local v3    # "parent":Landroidx/work/impl/WorkContinuationImpl;
-    :goto_1
-    goto :goto_0
+    :goto_4f
+    goto :goto_b
 
     .line 157
-    :cond_1
+    :cond_50
     invoke-static {p0}, Landroidx/work/impl/utils/EnqueueRunnable;->enqueueContinuation(Landroidx/work/impl/WorkContinuationImpl;)Z
 
     move-result v2
@@ -1282,7 +1282,7 @@
 
 # virtual methods
 .method public addToDatabase()Z
-    .locals 3
+    .registers 4
 
     .line 117
     iget-object v0, p0, Landroidx/work/impl/utils/EnqueueRunnable;->mWorkContinuation:Landroidx/work/impl/WorkContinuationImpl;
@@ -1302,7 +1302,7 @@
     invoke-virtual {v1}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 121
-    :try_start_0
+    :try_start_d
     iget-object v2, p0, Landroidx/work/impl/utils/EnqueueRunnable;->mWorkContinuation:Landroidx/work/impl/WorkContinuationImpl;
 
     invoke-static {v2}, Landroidx/work/impl/utils/EnqueueRunnable;->processContinuation(Landroidx/work/impl/WorkContinuationImpl;)Z
@@ -1312,8 +1312,8 @@
     .line 122
     .local v2, "needsScheduling":Z
     invoke-virtual {v1}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_d .. :try_end_16} :catchall_1b
 
     .line 123
     nop
@@ -1326,7 +1326,7 @@
 
     .line 125
     .end local v2    # "needsScheduling":Z
-    :catchall_0
+    :catchall_1b
     move-exception v2
 
     invoke-virtual {v1}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
@@ -1336,7 +1336,7 @@
 .end method
 
 .method public getOperation()Landroidx/work/Operation;
-    .locals 1
+    .registers 2
 
     .line 108
     iget-object v0, p0, Landroidx/work/impl/utils/EnqueueRunnable;->mOperation:Landroidx/work/impl/OperationImpl;
@@ -1345,7 +1345,7 @@
 .end method
 
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 85
     :try_start_0
@@ -1355,7 +1355,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 89
     invoke-virtual {p0}, Landroidx/work/impl/utils/EnqueueRunnable;->addToDatabase()Z
@@ -1364,7 +1364,7 @@
 
     .line 90
     .local v0, "needsScheduling":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 92
     iget-object v1, p0, Landroidx/work/impl/utils/EnqueueRunnable;->mWorkContinuation:Landroidx/work/impl/WorkContinuationImpl;
@@ -1391,7 +1391,7 @@
 
     .line 97
     .end local v1    # "context":Landroid/content/Context;
-    :cond_0
+    :cond_21
     iget-object v1, p0, Landroidx/work/impl/utils/EnqueueRunnable;->mOperation:Landroidx/work/impl/OperationImpl;
 
     sget-object v2, Landroidx/work/Operation;->SUCCESS:Landroidx/work/Operation$State$SUCCESS;
@@ -1400,10 +1400,10 @@
 
     .line 100
     .end local v0    # "needsScheduling":Z
-    goto :goto_0
+    goto :goto_55
 
     .line 86
-    :cond_1
+    :cond_29
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1435,11 +1435,11 @@
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4a
+    .catchall {:try_start_0 .. :try_end_4a} :catchall_4a
 
     .line 98
-    :catchall_0
+    :catchall_4a
     move-exception v0
 
     .line 99
@@ -1454,12 +1454,12 @@
 
     .line 101
     .end local v0    # "exception":Ljava/lang/Throwable;
-    :goto_0
+    :goto_55
     return-void
 .end method
 
 .method public scheduleWorkInBackground()V
-    .locals 4
+    .registers 5
 
     .line 134
     iget-object v0, p0, Landroidx/work/impl/utils/EnqueueRunnable;->mWorkContinuation:Landroidx/work/impl/WorkContinuationImpl;

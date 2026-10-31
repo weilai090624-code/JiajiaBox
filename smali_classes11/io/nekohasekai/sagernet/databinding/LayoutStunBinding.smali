@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroidx/core/widget/NestedScrollView;Landroid/widget/TextView;Landroid/widget/EditText;Landroid/widget/Button;Landroid/widget/LinearLayout;)V
-    .locals 0
+    .registers 8
     .param p1, "rootView"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "coordinator"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "mainLayout"    # Landroidx/core/widget/NestedScrollView;
@@ -82,7 +82,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;
-    .locals 17
+    .registers 18
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -116,7 +116,7 @@
 
     .line 88
     .local v10, "mainLayout":Landroidx/core/widget/NestedScrollView;
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_57
 
     .line 92
     const v1, 0x7f0a01dc
@@ -132,7 +132,7 @@
 
     .line 94
     .local v11, "natResult":Landroid/widget/TextView;
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_56
 
     .line 98
     const v1, 0x7f0a01dd
@@ -148,7 +148,7 @@
 
     .line 100
     .local v12, "natStunServer":Landroid/widget/EditText;
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_55
 
     .line 104
     const v1, 0x7f0a028e
@@ -164,7 +164,7 @@
 
     .line 106
     .local v13, "stunTest":Landroid/widget/Button;
-    if-eqz v13, :cond_1
+    if-eqz v13, :cond_54
 
     .line 110
     const v14, 0x7f0a02da
@@ -182,7 +182,7 @@
 
     .line 112
     .local v15, "waitLayout":Landroid/widget/LinearLayout;
-    if-eqz v15, :cond_0
+    if-eqz v15, :cond_52
 
     .line 116
     new-instance v16, Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;
@@ -210,37 +210,37 @@
     return-object v16
 
     .line 113
-    :cond_0
+    :cond_52
     move v1, v14
 
-    goto :goto_0
+    goto :goto_58
 
     .line 107
     .end local v14    # "id":I
     .end local v15    # "waitLayout":Landroid/widget/LinearLayout;
     .restart local v1    # "id":I
-    :cond_1
-    goto :goto_0
+    :cond_54
+    goto :goto_58
 
     .line 101
     .end local v13    # "stunTest":Landroid/widget/Button;
-    :cond_2
-    goto :goto_0
+    :cond_55
+    goto :goto_58
 
     .line 95
     .end local v12    # "natStunServer":Landroid/widget/EditText;
-    :cond_3
-    goto :goto_0
+    :cond_56
+    goto :goto_58
 
     .line 89
     .end local v11    # "natResult":Landroid/widget/TextView;
-    :cond_4
+    :cond_57
     nop
 
     .line 119
     .end local v9    # "coordinator":Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .end local v10    # "mainLayout":Landroidx/core/widget/NestedScrollView;
-    :goto_0
+    :goto_58
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -265,7 +265,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -289,7 +289,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -317,13 +317,13 @@
 
     .line 72
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 73
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 75
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;
 
     move-result-object v1
@@ -334,7 +334,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;->getRoot()Landroidx/coordinatorlayout/widget/CoordinatorLayout;
@@ -345,7 +345,7 @@
 .end method
 
 .method public getRoot()Landroidx/coordinatorlayout/widget/CoordinatorLayout;
-    .locals 1
+    .registers 2
 
     .line 60
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;->rootView:Landroidx/coordinatorlayout/widget/CoordinatorLayout;

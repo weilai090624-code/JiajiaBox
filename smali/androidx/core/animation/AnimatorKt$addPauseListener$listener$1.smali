@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 3
     .param p1, "$onPause"    # Lkotlin/jvm/functions/Function1;
     .param p2, "$onResume"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public onAnimationPause(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 117
@@ -110,7 +110,7 @@
 .end method
 
 .method public onAnimationResume(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 118

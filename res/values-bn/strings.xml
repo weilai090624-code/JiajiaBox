@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">ইনকামিং কল</string>
     <string name="call_notification_ongoing_text">চালু থাকা কল</string>
     <string name="call_notification_screening_text">ইনকামিং কল স্ক্রিনিং করা হচ্ছে</string>
-    <string name="character_counter_content_description" formatted="false">%2$dটির মধ্যে %1$dটি অক্ষর লেখা হয়েছে</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">অক্ষরের সীমা %1$d এর %2$d অতিক্রম করেছে</string>
+    <string name="character_counter_content_description">%2$dটির মধ্যে %1$dটি অক্ষর লেখা হয়েছে</string>
+    <string name="character_counter_overflowed_content_description">অক্ষরের সীমা %1$d এর %2$d অতিক্রম করেছে</string>
     <string name="clear_text_end_icon_content_description">টেক্সট মুছুন</string>
     <string name="copy">কপি করুন</string>
     <string name="copy_toast_msg">লিঙ্ক ক্লিপবোর্ডে কপি করা হয়েছে</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">নির্দিষ্ট তারিখের বাইরে: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">শুরুর তারিখ – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – সমাপ্তির তারিখ</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">রেঞ্জ বেছে নিন</string>
     <string name="mtrl_picker_range_header_unselected">শুরুর তারিখ - সমাপ্তির তারিখ</string>
     <string name="mtrl_picker_save">সেভ করুন</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" ক্লিপবোর্ডে লিঙ্কটি কপি করা হয়েছে।</string>
     <string name="search_menu_title">সার্চ করুন</string>
     <string name="status_bar_notification_info_overflow">৯৯৯+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">বন্ধ</string>
     <string name="v7_preference_on">চালু</string>
 </resources>

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Sets$5$1$1;)V
-    .locals 1
+    .registers 3
     .param p1, "this$2"    # Lcom/google/common/collect/Sets$5$1$1;
 
     .line 1656
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method protected computeNext()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -78,7 +78,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_18
 
     .line 1664
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$5$1$1$1;->endOfData()Ljava/lang/Object;
@@ -88,7 +88,7 @@
     return-object v0
 
     .line 1666
-    :cond_0
+    :cond_18
     iget-object v0, p0, Lcom/google/common/collect/Sets$5$1$1$1;->this$2:Lcom/google/common/collect/Sets$5$1$1;
 
     iget-object v0, v0, Lcom/google/common/collect/Sets$5$1$1;->this$1:Lcom/google/common/collect/Sets$5$1;

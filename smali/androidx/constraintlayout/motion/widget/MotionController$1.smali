@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/core/motion/utils/Easing;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .locals 3
+    .registers 5
     .param p1, "v"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

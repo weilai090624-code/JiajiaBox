@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 31
     new-instance v0, Lcom/google/common/collect/NaturalOrdering;
@@ -69,7 +69,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 76
     invoke-direct {p0}, Lcom/google/common/collect/Ordering;-><init>()V
@@ -78,7 +78,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 68
     sget-object v0, Lcom/google/common/collect/NaturalOrdering;->INSTANCE:Lcom/google/common/collect/NaturalOrdering;
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -117,7 +117,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 27
     check-cast p1, Ljava/lang/Comparable;
@@ -132,7 +132,7 @@
 .end method
 
 .method public nullsFirst()Lcom/google/common/collect/Ordering;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S::",
@@ -148,7 +148,7 @@
 
     .line 46
     .local v0, "result":Lcom/google/common/collect/Ordering;, "Lcom/google/common/collect/Ordering<Ljava/lang/Comparable<*>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 47
     invoke-super {p0}, Lcom/google/common/collect/Ordering;->nullsFirst()Lcom/google/common/collect/Ordering;
@@ -160,12 +160,12 @@
     move-object v0, v1
 
     .line 49
-    :cond_0
+    :cond_b
     return-object v0
 .end method
 
 .method public nullsLast()Lcom/google/common/collect/Ordering;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S::",
@@ -181,7 +181,7 @@
 
     .line 55
     .local v0, "result":Lcom/google/common/collect/Ordering;, "Lcom/google/common/collect/Ordering<Ljava/lang/Comparable<*>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 56
     invoke-super {p0}, Lcom/google/common/collect/Ordering;->nullsLast()Lcom/google/common/collect/Ordering;
@@ -193,12 +193,12 @@
     move-object v0, v1
 
     .line 58
-    :cond_0
+    :cond_b
     return-object v0
 .end method
 
 .method public reverse()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S::",
@@ -216,7 +216,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 73
     const-string v0, "Ordering.natural()"

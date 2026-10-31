@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/WorkForegroundRunnable;Landroidx/work/impl/utils/futures/SettableFuture;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/utils/WorkForegroundRunnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 97
     iget-object v0, p0, Landroidx/work/impl/utils/WorkForegroundRunnable$1;->this$0:Landroidx/work/impl/utils/WorkForegroundRunnable;
@@ -68,14 +68,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 98
     return-void
 
     .line 101
-    :cond_0
-    :try_start_0
+    :cond_b
+    :try_start_b
     iget-object v0, p0, Landroidx/work/impl/utils/WorkForegroundRunnable$1;->val$foregroundFuture:Landroidx/work/impl/utils/futures/SettableFuture;
 
     invoke-virtual {v0}, Landroidx/work/impl/utils/futures/SettableFuture;->get()Ljava/lang/Object;
@@ -86,7 +86,7 @@
 
     .line 102
     .local v0, "foregroundInfo":Landroidx/work/ForegroundInfo;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_54
 
     .line 108
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -155,11 +155,11 @@
     nop
 
     .end local v0    # "foregroundInfo":Landroidx/work/ForegroundInfo;
-    goto :goto_0
+    goto :goto_81
 
     .line 103
     .restart local v0    # "foregroundInfo":Landroidx/work/ForegroundInfo;
-    :cond_1
+    :cond_54
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -197,13 +197,13 @@
     invoke-direct {v2, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_79
+    .catchall {:try_start_b .. :try_end_79} :catchall_79
 
     .line 113
     .end local v0    # "foregroundInfo":Landroidx/work/ForegroundInfo;
     .end local v1    # "message":Ljava/lang/String;
-    :catchall_0
+    :catchall_79
     move-exception v0
 
     .line 114
@@ -216,6 +216,6 @@
 
     .line 116
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_81
     return-void
 .end method

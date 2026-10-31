@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public addListener(ILandroidx/constraintlayout/widget/SharedValues$SharedValuesListener;)V
-    .locals 3
+    .registers 6
     .param p1, "key"    # I
     .param p2, "listener"    # Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -88,7 +88,7 @@
 
     .line 42
     .local v0, "listeners":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/ref/WeakReference<Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     .line 43
     new-instance v1, Ljava/util/HashSet;
@@ -107,7 +107,7 @@
     invoke-virtual {v1, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 46
-    :cond_0
+    :cond_1d
     new-instance v1, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
@@ -119,7 +119,7 @@
 .end method
 
 .method public clearListeners()V
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Landroidx/constraintlayout/widget/SharedValues;->mValuesListeners:Ljava/util/HashMap;
@@ -131,7 +131,7 @@
 .end method
 
 .method public fireNewValue(II)V
-    .locals 7
+    .registers 10
     .param p1, "key"    # I
     .param p2, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -160,13 +160,13 @@
 
     .line 81
     .local v1, "previousValue":I
-    if-ne v1, p2, :cond_0
+    if-ne v1, p2, :cond_b
 
     .line 83
     return-void
 
     .line 85
-    :cond_0
+    :cond_b
     iget-object v2, p0, Landroidx/constraintlayout/widget/SharedValues;->mValues:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, p1, p2}, Landroid/util/SparseIntArray;->put(II)V
@@ -186,23 +186,23 @@
 
     .line 87
     .local v2, "listeners":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/ref/WeakReference<Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;>;>;"
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1f
 
     .line 88
     return-void
 
     .line 91
-    :cond_1
+    :cond_1f
     invoke-virtual {v2}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_0
+    :goto_23
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_3d
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -220,26 +220,26 @@
 
     .line 93
     .local v5, "l":Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3b
 
     .line 94
     invoke-interface {v5, p1, p2, v1}, Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;->onNewValue(III)V
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 96
-    :cond_2
+    :cond_3b
     const/4 v0, 0x1
 
     .line 98
     .end local v4    # "listenerWeakReference":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;>;"
     .end local v5    # "l":Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;
-    :goto_1
-    goto :goto_0
+    :goto_3c
+    goto :goto_23
 
     .line 100
-    :cond_3
-    if-eqz v0, :cond_6
+    :cond_3d
+    if-eqz v0, :cond_63
 
     .line 101
     new-instance v3, Ljava/util/ArrayList;
@@ -252,12 +252,12 @@
 
     move-result-object v4
 
-    :goto_2
+    :goto_48
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_60
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -275,7 +275,7 @@
 
     .line 104
     .local v6, "listener":Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;
-    if-nez v6, :cond_4
+    if-nez v6, :cond_5f
 
     .line 105
     invoke-interface {v3, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -283,21 +283,21 @@
     .line 107
     .end local v5    # "listenerWeakReference":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;>;"
     .end local v6    # "listener":Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;
-    :cond_4
-    goto :goto_2
+    :cond_5f
+    goto :goto_48
 
     .line 108
-    :cond_5
+    :cond_60
     invoke-virtual {v2, v3}, Ljava/util/HashSet;->removeAll(Ljava/util/Collection;)Z
 
     .line 110
     .end local v3    # "toRemove":Ljava/util/List;, "Ljava/util/List<Ljava/lang/ref/WeakReference<Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;>;>;"
-    :cond_6
+    :cond_63
     return-void
 .end method
 
 .method public getValue(I)I
-    .locals 2
+    .registers 4
     .param p1, "key"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -321,7 +321,7 @@
 .end method
 
 .method public removeListener(ILandroidx/constraintlayout/widget/SharedValues$SharedValuesListener;)V
-    .locals 5
+    .registers 8
     .param p1, "key"    # I
     .param p2, "listener"    # Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -350,13 +350,13 @@
 
     .line 51
     .local v0, "listeners":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/ref/WeakReference<Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 52
     return-void
 
     .line 54
-    :cond_0
+    :cond_f
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -367,12 +367,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_32
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -390,22 +390,22 @@
 
     .line 57
     .local v4, "l":Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2e
 
-    if-ne v4, p2, :cond_2
+    if-ne v4, p2, :cond_31
 
     .line 58
-    :cond_1
+    :cond_2e
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 60
     .end local v3    # "listenerWeakReference":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;>;"
     .end local v4    # "l":Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;
-    :cond_2
-    goto :goto_0
+    :cond_31
+    goto :goto_18
 
     .line 61
-    :cond_3
+    :cond_32
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->removeAll(Ljava/util/Collection;)Z
 
     .line 62
@@ -413,7 +413,7 @@
 .end method
 
 .method public removeListener(Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Landroidx/constraintlayout/widget/SharedValues$SharedValuesListener;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -435,12 +435,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -458,9 +458,9 @@
 
     .line 67
     .end local v1    # "key":Ljava/lang/Integer;
-    goto :goto_0
+    goto :goto_a
 
     .line 68
-    :cond_0
+    :cond_1e
     return-void
 .end method

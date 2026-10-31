@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Sets$PowerSet;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/Sets$PowerSet;
     .param p2, "size"    # I
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method protected bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 1526
     .local p0, "this":Lcom/google/common/collect/Sets$PowerSet$1;, "Lcom/google/common/collect/Sets$PowerSet$1;"
@@ -56,7 +56,7 @@
 .end method
 
 .method protected get(I)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p1, "setBits"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

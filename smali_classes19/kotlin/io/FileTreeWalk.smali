@@ -114,7 +114,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;Lkotlin/io/FileWalkDirection;)V
-    .locals 10
+    .registers 13
     .param p1, "start"    # Ljava/io/File;
     .param p2, "direction"    # Lkotlin/io/FileWalkDirection;
 
@@ -151,23 +151,23 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/io/File;Lkotlin/io/FileWalkDirection;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 46
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     sget-object p2, Lkotlin/io/FileWalkDirection;->TOP_DOWN:Lkotlin/io/FileWalkDirection;
 
-    :cond_0
+    :cond_6
     invoke-direct {p0, p1, p2}, Lkotlin/io/FileTreeWalk;-><init>(Ljava/io/File;Lkotlin/io/FileWalkDirection;)V
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/io/File;Lkotlin/io/FileWalkDirection;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;I)V
-    .locals 0
+    .registers 7
     .param p1, "start"    # Ljava/io/File;
     .param p2, "direction"    # Lkotlin/io/FileWalkDirection;
     .param p3, "onEnter"    # Lkotlin/jvm/functions/Function1;
@@ -225,41 +225,41 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/io/File;Lkotlin/io/FileWalkDirection;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 7
+    .registers 16
 
     .line 37
     and-int/lit8 p8, p7, 0x2
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_8
 
     .line 39
     sget-object p2, Lkotlin/io/FileWalkDirection;->TOP_DOWN:Lkotlin/io/FileWalkDirection;
 
     move-object v2, p2
 
-    goto :goto_0
+    goto :goto_9
 
     .line 37
-    :cond_0
+    :cond_8
     move-object v2, p2
 
-    :goto_0
+    :goto_9
     and-int/lit8 p2, p7, 0x20
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_14
 
     .line 43
     const p6, 0x7fffffff
 
     const v6, 0x7fffffff
 
-    goto :goto_1
+    goto :goto_15
 
     .line 37
-    :cond_1
+    :cond_14
     move v6, p6
 
-    :goto_1
+    :goto_15
     move-object v0, p0
 
     move-object v1, p1
@@ -277,7 +277,7 @@
 .end method
 
 .method public static final synthetic access$getDirection$p(Lkotlin/io/FileTreeWalk;)Lkotlin/io/FileWalkDirection;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/io/FileTreeWalk;
 
     .line 37
@@ -287,7 +287,7 @@
 .end method
 
 .method public static final synthetic access$getMaxDepth$p(Lkotlin/io/FileTreeWalk;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/io/FileTreeWalk;
 
     .line 37
@@ -297,7 +297,7 @@
 .end method
 
 .method public static final synthetic access$getOnEnter$p(Lkotlin/io/FileTreeWalk;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/io/FileTreeWalk;
 
     .line 37
@@ -307,7 +307,7 @@
 .end method
 
 .method public static final synthetic access$getOnFail$p(Lkotlin/io/FileTreeWalk;)Lkotlin/jvm/functions/Function2;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/io/FileTreeWalk;
 
     .line 37
@@ -317,7 +317,7 @@
 .end method
 
 .method public static final synthetic access$getOnLeave$p(Lkotlin/io/FileTreeWalk;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/io/FileTreeWalk;
 
     .line 37
@@ -327,7 +327,7 @@
 .end method
 
 .method public static final synthetic access$getStart$p(Lkotlin/io/FileTreeWalk;)Ljava/io/File;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/io/FileTreeWalk;
 
     .line 37
@@ -339,7 +339,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -360,11 +360,11 @@
 .end method
 
 .method public final maxDepth(I)Lkotlin/io/FileTreeWalk;
-    .locals 8
+    .registers 10
     .param p1, "depth"    # I
 
     .line 248
-    if-lez p1, :cond_0
+    if-lez p1, :cond_14
 
     .line 250
     new-instance v7, Lkotlin/io/FileTreeWalk;
@@ -388,7 +388,7 @@
     return-object v7
 
     .line 249
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -421,7 +421,7 @@
 .end method
 
 .method public final onEnter(Lkotlin/jvm/functions/Function1;)Lkotlin/io/FileTreeWalk;
-    .locals 8
+    .registers 10
     .param p1, "function"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -462,7 +462,7 @@
 .end method
 
 .method public final onFail(Lkotlin/jvm/functions/Function2;)Lkotlin/io/FileTreeWalk;
-    .locals 8
+    .registers 10
     .param p1, "function"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -505,7 +505,7 @@
 .end method
 
 .method public final onLeave(Lkotlin/jvm/functions/Function1;)Lkotlin/io/FileTreeWalk;
-    .locals 8
+    .registers 10
     .param p1, "function"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {

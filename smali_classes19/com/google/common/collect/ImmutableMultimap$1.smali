@@ -61,7 +61,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMultimap;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/ImmutableMultimap;
 
     .line 583
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 591
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$1;, "Lcom/google/common/collect/ImmutableMultimap$1;"
@@ -114,7 +114,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$1;->asMapItr:Ljava/util/Iterator;
 
@@ -122,25 +122,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_14
     return v0
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 583
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$1;, "Lcom/google/common/collect/ImmutableMultimap$1;"
@@ -152,7 +152,7 @@
 .end method
 
 .method public next()Ljava/util/Map$Entry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -169,7 +169,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 597
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$1;->asMapItr:Ljava/util/Iterator;
@@ -203,7 +203,7 @@
 
     .line 605
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;+Lcom/google/common/collect/ImmutableCollection<TV;>;>;"
-    :cond_0
+    :cond_22
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$1;->currentKey:Ljava/lang/Object;
 
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;

@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public static getApplicationLocales(Landroid/content/Context;)Landroidx/core/os/LocaleListCompat;
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 80
@@ -32,7 +32,7 @@
 
     const/16 v1, 0x21
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1a
 
     .line 82
     invoke-static {p0}, Landroidx/core/app/LocaleManagerCompat;->getLocaleManagerForApplication(Landroid/content/Context;)Ljava/lang/Object;
@@ -41,7 +41,7 @@
 
     .line 83
     .local v0, "localeManager":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 84
     invoke-static {v0}, Landroidx/core/app/LocaleManagerCompat$Api33Impl;->localeManagerGetApplicationLocales(Ljava/lang/Object;)Landroid/os/LocaleList;
@@ -55,7 +55,7 @@
     return-object v1
 
     .line 87
-    :cond_0
+    :cond_15
     invoke-static {}, Landroidx/core/os/LocaleListCompat;->getEmptyLocaleList()Landroidx/core/os/LocaleListCompat;
 
     move-result-object v1
@@ -64,7 +64,7 @@
 
     .line 90
     .end local v0    # "localeManager":Ljava/lang/Object;
-    :cond_1
+    :cond_1a
     invoke-static {p0}, Landroidx/core/app/AppLocalesStorageHelper;->readLocales(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
@@ -77,7 +77,7 @@
 .end method
 
 .method static getConfigurationLocales(Landroid/content/res/Configuration;)Landroidx/core/os/LocaleListCompat;
-    .locals 2
+    .registers 3
     .param p0, "conf"    # Landroid/content/res/Configuration;
 
     .line 104
@@ -85,7 +85,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 105
     invoke-static {p0}, Landroidx/core/app/LocaleManagerCompat$Api24Impl;->getLocales(Landroid/content/res/Configuration;)Landroidx/core/os/LocaleListCompat;
@@ -95,7 +95,7 @@
     return-object v0
 
     .line 106
-    :cond_0
+    :cond_b
     nop
 
     .line 107
@@ -113,7 +113,7 @@
 .end method
 
 .method private static getLocaleManagerForApplication(Landroid/content/Context;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
 
     .line 99
@@ -127,7 +127,7 @@
 .end method
 
 .method public static getSystemLocales(Landroid/content/Context;)Landroidx/core/os/LocaleListCompat;
-    .locals 3
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
     .line 54
@@ -141,7 +141,7 @@
 
     const/16 v2, 0x21
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_19
 
     .line 58
     invoke-static {p0}, Landroidx/core/app/LocaleManagerCompat;->getLocaleManagerForApplication(Landroid/content/Context;)Ljava/lang/Object;
@@ -150,7 +150,7 @@
 
     .line 59
     .local v1, "localeManager":Ljava/lang/Object;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 60
     invoke-static {v1}, Landroidx/core/app/LocaleManagerCompat$Api33Impl;->localeManagerGetSystemLocales(Ljava/lang/Object;)Landroid/os/LocaleList;
@@ -163,11 +163,11 @@
 
     .line 63
     .end local v1    # "localeManager":Ljava/lang/Object;
-    :cond_0
-    goto :goto_0
+    :cond_18
+    goto :goto_25
 
     .line 64
-    :cond_1
+    :cond_19
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -181,6 +181,6 @@
     move-result-object v0
 
     .line 66
-    :goto_0
+    :goto_25
     return-object v0
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$dropWhile(Lj$/util/stream/LongStream;Ljava/util/function/LongPredicate;)Lj$/util/stream/LongStream;
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/util/stream/LongStream;
     .param p1, "predicate"    # Ljava/util/function/LongPredicate;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public static bridge synthetic $default$iterator(Lj$/util/stream/LongStream;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/LongStream;
 
     .line 73
@@ -62,7 +62,7 @@
 .end method
 
 .method public static bridge synthetic $default$parallel(Lj$/util/stream/LongStream;)Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/LongStream;
 
     .line 73
@@ -74,7 +74,7 @@
 .end method
 
 .method public static bridge synthetic $default$sequential(Lj$/util/stream/LongStream;)Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/LongStream;
 
     .line 73
@@ -86,7 +86,7 @@
 .end method
 
 .method public static bridge synthetic $default$spliterator(Lj$/util/stream/LongStream;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/LongStream;
 
     .line 73
@@ -98,7 +98,7 @@
 .end method
 
 .method public static $default$takeWhile(Lj$/util/stream/LongStream;Ljava/util/function/LongPredicate;)Lj$/util/stream/LongStream;
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/util/stream/LongStream;
     .param p1, "predicate"    # Ljava/util/function/LongPredicate;
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public static builder()Lj$/util/stream/LongStream$Builder;
-    .locals 1
+    .registers 1
 
     .line 841
     new-instance v0, Lj$/util/stream/Streams$LongStreamBuilderImpl;
@@ -154,7 +154,7 @@
 .end method
 
 .method public static concat(Lj$/util/stream/LongStream;Lj$/util/stream/LongStream;)Lj$/util/stream/LongStream;
-    .locals 3
+    .registers 5
     .param p0, "a"    # Lj$/util/stream/LongStream;
     .param p1, "b"    # Lj$/util/stream/LongStream;
 
@@ -184,26 +184,26 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_22
 
     invoke-interface {p1}, Lj$/util/stream/LongStream;->isParallel()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_20
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_23
     invoke-static {v0, v1}, Lj$/util/stream/StreamSupport;->longStream(Lj$/util/Spliterator$OfLong;Z)Lj$/util/stream/LongStream;
 
     move-result-object v1
@@ -224,7 +224,7 @@
 .end method
 
 .method public static empty()Lj$/util/stream/LongStream;
-    .locals 2
+    .registers 2
 
     .line 850
     invoke-static {}, Lj$/util/Spliterators;->emptyLongSpliterator()Lj$/util/Spliterator$OfLong;
@@ -241,7 +241,7 @@
 .end method
 
 .method public static generate(Ljava/util/function/LongSupplier;)Lj$/util/stream/LongStream;
-    .locals 3
+    .registers 4
     .param p0, "s"    # Ljava/util/function/LongSupplier;
 
     .line 1009
@@ -264,7 +264,7 @@
 .end method
 
 .method public static iterate(JLjava/util/function/LongPredicate;Ljava/util/function/LongUnaryOperator;)Lj$/util/stream/LongStream;
-    .locals 9
+    .registers 13
     .param p0, "seed"    # J
     .param p2, "hasNext"    # Ljava/util/function/LongPredicate;
     .param p3, "next"    # Ljava/util/function/LongUnaryOperator;
@@ -304,7 +304,7 @@
 .end method
 
 .method public static iterate(JLjava/util/function/LongUnaryOperator;)Lj$/util/stream/LongStream;
-    .locals 8
+    .registers 11
     .param p0, "seed"    # J
     .param p2, "f"    # Ljava/util/function/LongUnaryOperator;
 
@@ -338,7 +338,7 @@
 .end method
 
 .method public static of(J)Lj$/util/stream/LongStream;
-    .locals 2
+    .registers 4
     .param p0, "t"    # J
 
     .line 860
@@ -356,7 +356,7 @@
 .end method
 
 .method public static varargs of([J)Lj$/util/stream/LongStream;
-    .locals 1
+    .registers 2
     .param p0, "values"    # [J
 
     .line 870
@@ -368,14 +368,14 @@
 .end method
 
 .method public static range(JJ)Lj$/util/stream/LongStream;
-    .locals 9
+    .registers 13
     .param p0, "startInclusive"    # J
     .param p2, "endExclusive"    # J
 
     .line 1032
     cmp-long v0, p0, p2
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_9
 
     .line 1033
     invoke-static {}, Lj$/util/stream/LongStream$-CC;->empty()Lj$/util/stream/LongStream;
@@ -385,14 +385,14 @@
     return-object v0
 
     .line 1034
-    :cond_0
+    :cond_9
     sub-long v0, p2, p0
 
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_2a
 
     .line 1039
     sub-long v0, p2, p0
@@ -427,7 +427,7 @@
 
     .line 1042
     .end local v0    # "m":J
-    :cond_1
+    :cond_2a
     new-instance v0, Lj$/util/stream/Streams$RangeLongSpliterator;
 
     const/4 v8, 0x0
@@ -450,14 +450,14 @@
 .end method
 
 .method public static rangeClosed(JJ)Lj$/util/stream/LongStream;
-    .locals 9
+    .registers 13
     .param p0, "startInclusive"    # J
     .param p2, "endInclusive"    # J
 
     .line 1065
     cmp-long v0, p0, p2
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_9
 
     .line 1066
     invoke-static {}, Lj$/util/stream/LongStream$-CC;->empty()Lj$/util/stream/LongStream;
@@ -467,7 +467,7 @@
     return-object v0
 
     .line 1067
-    :cond_0
+    :cond_9
     sub-long v0, p2, p0
 
     const-wide/16 v2, 0x1
@@ -478,7 +478,7 @@
 
     cmp-long v6, v0, v4
 
-    if-gtz v6, :cond_1
+    if-gtz v6, :cond_2b
 
     .line 1073
     sub-long v0, p2, p0
@@ -511,7 +511,7 @@
 
     .line 1076
     .end local v0    # "m":J
-    :cond_1
+    :cond_2b
     new-instance v0, Lj$/util/stream/Streams$RangeLongSpliterator;
 
     const/4 v8, 0x1

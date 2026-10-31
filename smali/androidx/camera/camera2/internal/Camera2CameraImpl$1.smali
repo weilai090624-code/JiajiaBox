@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/Camera2CameraImpl;Landroidx/camera/camera2/internal/CaptureSession;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/Camera2CameraImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -76,7 +76,7 @@
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -95,7 +95,7 @@
 .end method
 
 .method public onSuccess(Ljava/lang/Void;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Ljava/lang/Void;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -128,37 +128,37 @@
 
     aget v0, v0, v1
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_3c
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 502
-    :sswitch_0
+    :sswitch_19
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$1;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
 
     iget v0, v0, Landroidx/camera/camera2/internal/Camera2CameraImpl;->mCameraDeviceError:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     .line 504
-    goto :goto_0
+    goto :goto_3a
 
     .line 509
-    :cond_0
-    :sswitch_1
+    :cond_20
+    :sswitch_20
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$1;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
 
     invoke-virtual {v0}, Landroidx/camera/camera2/internal/Camera2CameraImpl;->isSessionCloseComplete()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3a
 
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$1;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
 
     iget-object v0, v0, Landroidx/camera/camera2/internal/Camera2CameraImpl;->mCameraDevice:Landroid/hardware/camera2/CameraDevice;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3a
 
     .line 510
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$1;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
@@ -175,16 +175,16 @@
     iput-object v1, v0, Landroidx/camera/camera2/internal/Camera2CameraImpl;->mCameraDevice:Landroid/hardware/camera2/CameraDevice;
 
     .line 517
-    :cond_1
-    :goto_0
+    :cond_3a
+    :goto_3a
     return-void
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_3c
     .sparse-switch
-        0x2 -> :sswitch_1
-        0x5 -> :sswitch_0
-        0x7 -> :sswitch_1
+        0x2 -> :sswitch_20
+        0x5 -> :sswitch_19
+        0x7 -> :sswitch_20
     .end sparse-switch
 .end method

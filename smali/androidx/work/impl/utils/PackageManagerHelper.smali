@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 30
     const-string v0, "PackageManagerHelper"
@@ -24,7 +24,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method public static isComponentExplicitlyEnabled(Landroid/content/Context;Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -70,7 +70,7 @@
 .end method
 
 .method public static isComponentExplicitlyEnabled(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -105,19 +105,19 @@
     .local v2, "state":I
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_11
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_12
     return v3
 .end method
 
 .method public static setComponentEnabled(Landroid/content/Context;Ljava/lang/Class;Z)V
-    .locals 8
+    .registers 11
     .param p0, "context"    # Landroid/content/Context;
     .param p2, "enabled"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -148,7 +148,7 @@
 
     const-string v1, "disabled"
 
-    :try_start_0
+    :try_start_4
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
@@ -170,18 +170,18 @@
     .line 50
     const/4 v4, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_17
 
     .line 51
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 52
-    :cond_0
+    :cond_17
     const/4 v5, 0x2
 
-    :goto_0
+    :goto_18
     nop
 
     .line 49
@@ -212,16 +212,16 @@
 
     move-result-object v6
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_39
 
     move-object v7, v0
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_1
+    :cond_39
     move-object v7, v1
 
-    :goto_1
+    :goto_3a
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
@@ -231,16 +231,16 @@
     move-result-object v6
 
     invoke-virtual {v4, v5, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_45
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_45} :catch_46
 
     .line 60
     .end local v2    # "packageManager":Landroid/content/pm/PackageManager;
     .end local v3    # "componentName":Landroid/content/ComponentName;
-    goto :goto_3
+    goto :goto_6f
 
     .line 56
-    :catch_0
+    :catch_46
     move-exception v2
 
     .line 57
@@ -270,14 +270,14 @@
 
     move-result-object v5
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_63
 
-    goto :goto_2
+    goto :goto_64
 
-    :cond_2
+    :cond_63
     move-object v0, v1
 
-    :goto_2
+    :goto_64
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -291,6 +291,6 @@
 
     .line 61
     .end local v2    # "exception":Ljava/lang/Exception;
-    :goto_3
+    :goto_6f
     return-void
 .end method

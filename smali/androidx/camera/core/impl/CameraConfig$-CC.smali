@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$getCameraFilter(Landroidx/camera/core/impl/CameraConfig;)Landroidx/camera/core/CameraFilter;
-    .locals 2
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/CameraConfig;
 
     .line 50

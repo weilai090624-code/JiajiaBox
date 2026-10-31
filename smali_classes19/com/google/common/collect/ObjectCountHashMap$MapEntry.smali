@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ObjectCountHashMap;I)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/collect/ObjectCountHashMap;
     .param p2, "index"    # I
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public getCount()I
-    .locals 2
+    .registers 3
 
     .line 239
     .local p0, "this":Lcom/google/common/collect/ObjectCountHashMap$MapEntry;, "Lcom/google/common/collect/ObjectCountHashMap<TK;>.MapEntry;"
@@ -78,13 +78,13 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/common/collect/ObjectCountHashMap$MapEntry;->this$0:Lcom/google/common/collect/ObjectCountHashMap;
 
     iget-object v0, v0, Lcom/google/common/collect/ObjectCountHashMap;->values:[I
@@ -93,12 +93,12 @@
 
     aget v0, v0, v1
 
-    :goto_0
+    :goto_12
     return v0
 .end method
 
 .method public getElement()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public setCount(I)I
-    .locals 3
+    .registers 5
     .param p1, "count"    # I
 
     .line 246
@@ -128,7 +128,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 248
     iget-object v0, p0, Lcom/google/common/collect/ObjectCountHashMap$MapEntry;->this$0:Lcom/google/common/collect/ObjectCountHashMap;
@@ -143,7 +143,7 @@
     return v0
 
     .line 251
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lcom/google/common/collect/ObjectCountHashMap$MapEntry;->this$0:Lcom/google/common/collect/ObjectCountHashMap;
 
     iget-object v0, v0, Lcom/google/common/collect/ObjectCountHashMap;->values:[I
@@ -167,7 +167,7 @@
 .end method
 
 .method updateLastKnownIndex()V
-    .locals 3
+    .registers 4
 
     .line 229
     .local p0, "this":Lcom/google/common/collect/ObjectCountHashMap$MapEntry;, "Lcom/google/common/collect/ObjectCountHashMap<TK;>.MapEntry;"
@@ -175,7 +175,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1f
 
     iget v0, p0, Lcom/google/common/collect/ObjectCountHashMap$MapEntry;->lastKnownIndex:I
 
@@ -186,7 +186,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1f
 
     iget-object v0, p0, Lcom/google/common/collect/ObjectCountHashMap$MapEntry;->key:Ljava/lang/Object;
 
@@ -203,10 +203,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 232
-    :cond_0
+    :cond_1f
     iget-object v0, p0, Lcom/google/common/collect/ObjectCountHashMap$MapEntry;->this$0:Lcom/google/common/collect/ObjectCountHashMap;
 
     iget-object v1, p0, Lcom/google/common/collect/ObjectCountHashMap$MapEntry;->key:Ljava/lang/Object;
@@ -218,6 +218,6 @@
     iput v0, p0, Lcom/google/common/collect/ObjectCountHashMap$MapEntry;->lastKnownIndex:I
 
     .line 234
-    :cond_1
+    :cond_29
     return-void
 .end method

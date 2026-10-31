@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 302
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/Serializer;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method private create(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;J)Ljava/util/Date;
-    .locals 4
+    .registers 9
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p3, "time"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -58,17 +58,17 @@
     .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/util/Date;>;"
     const-class v0, Ljava/util/Date;
 
-    if-eq p2, v0, :cond_5
+    if-eq p2, v0, :cond_56
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_7
 
-    goto :goto_1
+    goto :goto_56
 
     .line 307
-    :cond_0
+    :cond_7
     const-class v0, Ljava/sql/Timestamp;
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_11
 
     .line 308
     new-instance v0, Ljava/sql/Timestamp;
@@ -78,10 +78,10 @@
     return-object v0
 
     .line 310
-    :cond_1
+    :cond_11
     const-class v0, Ljava/sql/Date;
 
-    if-ne p2, v0, :cond_2
+    if-ne p2, v0, :cond_1b
 
     .line 311
     new-instance v0, Ljava/sql/Date;
@@ -91,10 +91,10 @@
     return-object v0
 
     .line 313
-    :cond_2
+    :cond_1b
     const-class v0, Ljava/sql/Time;
 
-    if-ne p2, v0, :cond_3
+    if-ne p2, v0, :cond_25
 
     .line 314
     new-instance v0, Ljava/sql/Time;
@@ -104,10 +104,10 @@
     return-object v0
 
     .line 320
-    :cond_3
+    :cond_25
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_26
     new-array v1, v0, [Ljava/lang/Class;
 
     sget-object v2, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
@@ -125,29 +125,29 @@
     invoke-virtual {v1}, Ljava/lang/reflect/Constructor;->isAccessible()Z
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_35
+    .catch Ljava/lang/Exception; {:try_start_26 .. :try_end_35} :catch_4b
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_3c
 
     .line 323
-    :try_start_1
+    :try_start_37
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
-    :try_end_1
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_3a
+    .catch Ljava/lang/SecurityException; {:try_start_37 .. :try_end_3a} :catch_3b
+    .catch Ljava/lang/Exception; {:try_start_37 .. :try_end_3a} :catch_4b
 
     .line 325
-    goto :goto_0
+    goto :goto_3c
 
     .line 324
-    :catch_0
+    :catch_3b
     move-exception v2
 
     .line 327
-    :cond_4
-    :goto_0
-    :try_start_2
+    :cond_3c
+    :goto_3c
+    :try_start_3c
     invoke-static {p3, p4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v2
@@ -161,14 +161,14 @@
     move-result-object v0
 
     check-cast v0, Ljava/util/Date;
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_4a
+    .catch Ljava/lang/Exception; {:try_start_3c .. :try_end_4a} :catch_4b
 
     return-object v0
 
     .line 328
     .end local v1    # "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<+Ljava/util/Date;>;"
-    :catch_1
+    :catch_4b
     move-exception v0
 
     .line 330
@@ -189,8 +189,8 @@
     .line 305
     .end local v0    # "ex":Ljava/lang/Exception;
     .end local v1    # "d":Ljava/util/Date;
-    :cond_5
-    :goto_1
+    :cond_56
+    :goto_56
     new-instance v0, Ljava/util/Date;
 
     invoke-direct {v0, p3, p4}, Ljava/util/Date;-><init>(J)V
@@ -201,7 +201,7 @@
 
 # virtual methods
 .method public bridge synthetic copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 302
     check-cast p2, Ljava/util/Date;
@@ -214,7 +214,7 @@
 .end method
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/Date;)Ljava/util/Date;
-    .locals 3
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "original"    # Ljava/util/Date;
 
@@ -235,7 +235,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 302
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$DateSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Date;
@@ -246,7 +246,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Date;
-    .locals 2
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .annotation system Ldalvik/annotation/Signature;
@@ -278,7 +278,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 302
     check-cast p3, Ljava/util/Date;
@@ -289,7 +289,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/Date;)V
-    .locals 3
+    .registers 7
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # Ljava/util/Date;

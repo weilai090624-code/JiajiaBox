@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 192
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 2
+    .registers 5
     .param p1, "symbol"    # I
     .param p2, "bits"    # I
 
@@ -101,16 +101,16 @@
 
     .line 203
     .local v0, "b":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const/16 v1, 0x8
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move v1, v0
 
-    :goto_0
+    :goto_10
     iput v1, p0, Lokhttp3/internal/http2/Huffman$Node;->terminalBitCount:I
 
     .line 204
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public final getChildren()[Lokhttp3/internal/http2/Huffman$Node;
-    .locals 1
+    .registers 2
 
     .line 183
     iget-object v0, p0, Lokhttp3/internal/http2/Huffman$Node;->children:[Lokhttp3/internal/http2/Huffman$Node;
@@ -129,7 +129,7 @@
 .end method
 
 .method public final getSymbol()I
-    .locals 1
+    .registers 2
 
     .line 186
     iget v0, p0, Lokhttp3/internal/http2/Huffman$Node;->symbol:I
@@ -138,7 +138,7 @@
 .end method
 
 .method public final getTerminalBitCount()I
-    .locals 1
+    .registers 2
 
     .line 189
     iget v0, p0, Lokhttp3/internal/http2/Huffman$Node;->terminalBitCount:I

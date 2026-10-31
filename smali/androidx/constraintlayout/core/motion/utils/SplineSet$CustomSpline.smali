@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;)V
-    .locals 2
+    .registers 5
     .param p1, "attribute"    # Ljava/lang/String;
     .param p2, "attrList"    # Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public setPoint(IF)V
-    .locals 2
+    .registers 5
     .param p1, "position"    # I
     .param p2, "value"    # F
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public setPoint(ILandroidx/constraintlayout/core/motion/CustomVariable;)V
-    .locals 1
+    .registers 4
     .param p1, "position"    # I
     .param p2, "value"    # Landroidx/constraintlayout/core/motion/CustomVariable;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public setProperty(Landroidx/constraintlayout/core/motion/MotionWidget;F)V
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroidx/constraintlayout/core/motion/MotionWidget;
     .param p2, "t"    # F
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public setProperty(Landroidx/constraintlayout/core/motion/utils/TypedValues;F)V
-    .locals 1
+    .registers 4
     .param p1, "widget"    # Landroidx/constraintlayout/core/motion/utils/TypedValues;
     .param p2, "t"    # F
 
@@ -130,7 +130,7 @@
 .end method
 
 .method public setup(I)V
-    .locals 11
+    .registers 13
     .param p1, "curveType"    # I
 
     .line 242
@@ -188,8 +188,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v0, :cond_1
+    :goto_28
+    if-ge v4, v0, :cond_5a
 
     .line 249
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet$CustomSpline;->mConstraintAttributeList:Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;
@@ -225,12 +225,12 @@
     const/4 v7, 0x0
 
     .local v7, "k":I
-    :goto_1
+    :goto_46
     iget-object v8, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet$CustomSpline;->mTempValues:[F
 
     array-length v8, v8
 
-    if-ge v7, v8, :cond_0
+    if-ge v7, v8, :cond_57
 
     .line 255
     aget-object v8, v2, v4
@@ -246,20 +246,20 @@
     .line 254
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_46
 
     .line 247
     .end local v5    # "key":I
     .end local v6    # "ca":Landroidx/constraintlayout/core/motion/CustomVariable;
     .end local v7    # "k":I
-    :cond_0
+    :cond_57
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 259
     .end local v4    # "i":I
-    :cond_1
+    :cond_5a
     invoke-static {p1, v3, v2}, Landroidx/constraintlayout/core/motion/utils/CurveFit;->get(I[D[[D)Landroidx/constraintlayout/core/motion/utils/CurveFit;
 
     move-result-object v4

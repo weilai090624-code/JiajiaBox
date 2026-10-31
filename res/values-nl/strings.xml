@@ -41,8 +41,8 @@
     <string name="call_notification_incoming_text">Inkomend gesprek</string>
     <string name="call_notification_ongoing_text">Actief gesprek</string>
     <string name="call_notification_screening_text">Een inkomend gesprek screenen</string>
-    <string name="character_counter_content_description" formatted="false">%1$d van %2$d tekens opgegeven</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Tekenlimiet heeft %1$d van %2$d overschreden</string>
+    <string name="character_counter_content_description">%1$d van %2$d tekens opgegeven</string>
+    <string name="character_counter_overflowed_content_description">Tekenlimiet heeft %1$d van %2$d overschreden</string>
     <string name="clear_text_end_icon_content_description">Tekst wissen</string>
     <string name="copy">Kopiëren</string>
     <string name="copy_toast_msg">Link naar klembord gekopieerd</string>
@@ -89,7 +89,7 @@
     <string name="mtrl_picker_out_of_range">Valt buiten bereik: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Startdatum - %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – einddatum</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Selecteer een periode</string>
     <string name="mtrl_picker_range_header_unselected">Startdatum - einddatum</string>
     <string name="mtrl_picker_save">Opslaan</string>
@@ -114,7 +114,7 @@
     <string name="project">Project</string>
     <string name="search_menu_title">Zoeken</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="telegram">Telegram-update kanaal</string>
     <string name="v7_preference_off">UIT</string>
     <string name="v7_preference_on">AAN</string>

@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/internal/Ref$ObjectRef;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 145
@@ -103,7 +103,7 @@
 .end method
 
 .method public final invoke(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .param p1, "it"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -137,7 +137,7 @@
 
     move-result v1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_1b
 
     .line 148
     iget-object v1, p0, Landroidx/room/AmbiguousColumnResolver$resolve$4;->$bestSolution:Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -145,6 +145,6 @@
     iput-object v0, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 150
-    :cond_0
+    :cond_1b
     return-void
 .end method

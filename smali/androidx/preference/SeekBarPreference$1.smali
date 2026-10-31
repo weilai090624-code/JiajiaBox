@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/SeekBarPreference;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/preference/SeekBarPreference;
 
     .line 77
@@ -37,36 +37,36 @@
 
 # virtual methods
 .method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
-    .locals 2
+    .registers 6
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
     .param p2, "progress"    # I
     .param p3, "fromUser"    # Z
 
     .line 80
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_14
 
     iget-object v0, p0, Landroidx/preference/SeekBarPreference$1;->this$0:Landroidx/preference/SeekBarPreference;
 
     iget-boolean v0, v0, Landroidx/preference/SeekBarPreference;->mUpdatesContinuously:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     iget-object v0, p0, Landroidx/preference/SeekBarPreference$1;->this$0:Landroidx/preference/SeekBarPreference;
 
     iget-boolean v0, v0, Landroidx/preference/SeekBarPreference;->mTrackingTouch:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 81
-    :cond_0
+    :cond_e
     iget-object v0, p0, Landroidx/preference/SeekBarPreference$1;->this$0:Landroidx/preference/SeekBarPreference;
 
     invoke-virtual {v0, p1}, Landroidx/preference/SeekBarPreference;->syncValueInternal(Landroid/widget/SeekBar;)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 84
-    :cond_1
+    :cond_14
     iget-object v0, p0, Landroidx/preference/SeekBarPreference$1;->this$0:Landroidx/preference/SeekBarPreference;
 
     iget-object v1, p0, Landroidx/preference/SeekBarPreference$1;->this$0:Landroidx/preference/SeekBarPreference;
@@ -78,12 +78,12 @@
     invoke-virtual {v0, v1}, Landroidx/preference/SeekBarPreference;->updateLabelValue(I)V
 
     .line 86
-    :goto_0
+    :goto_1e
     return-void
 .end method
 
 .method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
-    .locals 2
+    .registers 4
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     .line 90
@@ -98,7 +98,7 @@
 .end method
 
 .method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
-    .locals 2
+    .registers 4
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     .line 95
@@ -123,7 +123,7 @@
 
     iget v1, v1, Landroidx/preference/SeekBarPreference;->mSeekBarValue:I
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_19
 
     .line 97
     iget-object v0, p0, Landroidx/preference/SeekBarPreference$1;->this$0:Landroidx/preference/SeekBarPreference;
@@ -131,6 +131,6 @@
     invoke-virtual {v0, p1}, Landroidx/preference/SeekBarPreference;->syncValueInternal(Landroid/widget/SeekBar;)V
 
     .line 99
-    :cond_0
+    :cond_19
     return-void
 .end method

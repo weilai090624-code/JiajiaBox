@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 86
     const-string v0, "RemoteWorkManagerClient"
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/WorkManagerImpl;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/WorkManagerImpl;J)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
     .param p3, "sessionTimeout"    # J
@@ -139,7 +139,7 @@
 .end method
 
 .method static synthetic lambda$enqueueUniquePeriodicWork$0(Landroidx/work/PeriodicWorkRequest;Ljava/lang/String;Landroidx/work/multiprocess/IWorkManagerImpl;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 1
+    .registers 5
     .param p0, "periodicWork"    # Landroidx/work/PeriodicWorkRequest;
     .param p1, "uniqueWorkName"    # Ljava/lang/String;
     .param p2, "iWorkManagerImpl"    # Landroidx/work/multiprocess/IWorkManagerImpl;
@@ -168,7 +168,7 @@
 .end method
 
 .method private static newIntent(Landroid/content/Context;)Landroid/content/Intent;
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 469
@@ -182,7 +182,7 @@
 .end method
 
 .method private unableToBind(Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 6
     .param p1, "session"    # Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;
     .param p2, "throwable"    # Ljava/lang/Throwable;
 
@@ -209,7 +209,7 @@
 
 # virtual methods
 .method public beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/multiprocess/RemoteWorkContinuation;
-    .locals 2
+    .registers 6
     .param p1, "uniqueWorkName"    # Ljava/lang/String;
     .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
     .annotation system Ldalvik/annotation/Signature;
@@ -242,7 +242,7 @@
 .end method
 
 .method public beginWith(Ljava/util/List;)Landroidx/work/multiprocess/RemoteWorkContinuation;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -269,7 +269,7 @@
 .end method
 
 .method public cancelAllWork()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -302,7 +302,7 @@
 .end method
 
 .method public cancelAllWorkByTag(Ljava/lang/String;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .param p1, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -338,7 +338,7 @@
 .end method
 
 .method public cancelUniqueWork(Ljava/lang/String;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .param p1, "uniqueWorkName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -374,7 +374,7 @@
 .end method
 
 .method public cancelWorkById(Ljava/util/UUID;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .param p1, "id"    # Ljava/util/UUID;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -410,7 +410,7 @@
 .end method
 
 .method public cleanUp()V
-    .locals 4
+    .registers 5
 
     .line 454
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mLock:Ljava/lang/Object;
@@ -418,7 +418,7 @@
     monitor-enter v0
 
     .line 455
-    :try_start_0
+    :try_start_3
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
@@ -441,18 +441,18 @@
     return-void
 
     .line 457
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public enqueue(Landroidx/work/WorkContinuation;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .param p1, "continuation"    # Landroidx/work/WorkContinuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -488,7 +488,7 @@
 .end method
 
 .method public enqueue(Landroidx/work/WorkRequest;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p1, "request"    # Landroidx/work/WorkRequest;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -514,7 +514,7 @@
 .end method
 
 .method public enqueue(Ljava/util/List;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -551,7 +551,7 @@
 .end method
 
 .method public enqueueUniquePeriodicWork(Ljava/lang/String;Landroidx/work/ExistingPeriodicWorkPolicy;Landroidx/work/PeriodicWorkRequest;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 7
     .param p1, "uniqueWorkName"    # Ljava/lang/String;
     .param p2, "existingPeriodicWorkPolicy"    # Landroidx/work/ExistingPeriodicWorkPolicy;
     .param p3, "periodicWork"    # Landroidx/work/PeriodicWorkRequest;
@@ -571,7 +571,7 @@
     .line 155
     sget-object v0, Landroidx/work/ExistingPeriodicWorkPolicy;->UPDATE:Landroidx/work/ExistingPeriodicWorkPolicy;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_16
 
     .line 156
     new-instance v0, Landroidx/work/multiprocess/RemoteWorkManagerClient$$ExternalSyntheticLambda0;
@@ -596,7 +596,7 @@
 
     .line 162
     .end local v0    # "result":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<[B>;"
-    :cond_0
+    :cond_16
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mWorkManager:Landroidx/work/impl/WorkManagerImpl;
 
     invoke-virtual {v0, p1, p2, p3}, Landroidx/work/impl/WorkManagerImpl;->createWorkContinuationForUniquePeriodicWork(Ljava/lang/String;Landroidx/work/ExistingPeriodicWorkPolicy;Landroidx/work/PeriodicWorkRequest;)Landroidx/work/impl/WorkContinuationImpl;
@@ -613,7 +613,7 @@
 .end method
 
 .method public enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 5
     .param p1, "uniqueWorkName"    # Ljava/lang/String;
     .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
     .annotation system Ldalvik/annotation/Signature;
@@ -644,7 +644,7 @@
 .end method
 
 .method public execute(Landroidx/work/multiprocess/RemoteDispatcher;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -674,7 +674,7 @@
 .end method
 
 .method execute(Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/work/multiprocess/RemoteDispatcher;Landroidx/work/multiprocess/RemoteCallback;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 6
     .param p3, "callback"    # Landroidx/work/multiprocess/RemoteCallback;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -712,7 +712,7 @@
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 335
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mContext:Landroid/content/Context;
@@ -721,7 +721,7 @@
 .end method
 
 .method public getCurrentSession()Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;
-    .locals 1
+    .registers 2
 
     .line 350
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mSession:Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;
@@ -730,7 +730,7 @@
 .end method
 
 .method public getExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 382
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mExecutor:Ljava/util/concurrent/Executor;
@@ -739,7 +739,7 @@
 .end method
 
 .method public getSession()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -764,7 +764,7 @@
 .end method
 
 .method getSession(Landroid/content/Intent;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 5
+    .registers 7
     .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -783,7 +783,7 @@
     monitor-enter v0
 
     .line 430
-    :try_start_0
+    :try_start_3
     iget-wide v1, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mSessionIndex:J
 
     const-wide/16 v3, 0x1
@@ -795,7 +795,7 @@
     .line 431
     iget-object v1, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mSession:Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3e
 
     .line 432
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -814,11 +814,11 @@
     invoke-direct {v1, p0}, Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;-><init>(Landroidx/work/multiprocess/RemoteWorkManagerClient;)V
 
     iput-object v1, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mSession:Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_20
+    .catchall {:try_start_3 .. :try_end_20} :catchall_4b
 
     .line 435
-    :try_start_1
+    :try_start_20
     iget-object v1, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mSession:Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;
@@ -831,7 +831,7 @@
 
     .line 436
     .local v1, "bound":Z
-    if-nez v1, :cond_0
+    if-nez v1, :cond_37
 
     .line 437
     iget-object v2, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mSession:Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;
@@ -843,29 +843,29 @@
     invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     invoke-direct {p0, v2, v3}, Landroidx/work/multiprocess/RemoteWorkManagerClient;->unableToBind(Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_37
+    .catchall {:try_start_20 .. :try_end_37} :catchall_38
 
     .line 441
     .end local v1    # "bound":Z
-    :cond_0
-    goto :goto_0
+    :cond_37
+    goto :goto_3e
 
     .line 439
-    :catchall_0
+    :catchall_38
     move-exception v1
 
     .line 440
     .local v1, "throwable":Ljava/lang/Throwable;
-    :try_start_2
+    :try_start_39
     iget-object v2, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mSession:Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;
 
     invoke-direct {p0, v2, v1}, Landroidx/work/multiprocess/RemoteWorkManagerClient;->unableToBind(Landroidx/work/multiprocess/RemoteWorkManagerClient$Session;Ljava/lang/Throwable;)V
 
     .line 444
     .end local v1    # "throwable":Ljava/lang/Throwable;
-    :cond_1
-    :goto_0
+    :cond_3e
+    :goto_3e
     iget-object v1, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mHandler:Landroid/os/Handler;
 
     iget-object v2, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mSessionTracker:Landroidx/work/multiprocess/RemoteWorkManagerClient$SessionTracker;
@@ -882,18 +882,18 @@
     return-object v1
 
     .line 446
-    :catchall_1
+    :catchall_4b
     move-exception v1
 
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_4d
+    .catchall {:try_start_39 .. :try_end_4d} :catchall_4b
 
     throw v1
 .end method
 
 .method public getSessionHandler()Landroid/os/Handler;
-    .locals 1
+    .registers 2
 
     .line 358
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mHandler:Landroid/os/Handler;
@@ -902,7 +902,7 @@
 .end method
 
 .method public getSessionIndex()J
-    .locals 2
+    .registers 3
 
     .line 389
     iget-wide v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mSessionIndex:J
@@ -911,7 +911,7 @@
 .end method
 
 .method public getSessionLock()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 374
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mLock:Ljava/lang/Object;
@@ -920,7 +920,7 @@
 .end method
 
 .method public getSessionTimeout()J
-    .locals 2
+    .registers 3
 
     .line 342
     iget-wide v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mSessionTimeout:J
@@ -929,7 +929,7 @@
 .end method
 
 .method public getSessionTracker()Landroidx/work/multiprocess/RemoteWorkManagerClient$SessionTracker;
-    .locals 1
+    .registers 2
 
     .line 366
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerClient;->mSessionTracker:Landroidx/work/multiprocess/RemoteWorkManagerClient$SessionTracker;
@@ -938,7 +938,7 @@
 .end method
 
 .method public getWorkInfos(Landroidx/work/WorkQuery;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .param p1, "workQuery"    # Landroidx/work/WorkQuery;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -977,7 +977,7 @@
 .end method
 
 .method public setForegroundAsync(Ljava/lang/String;Landroidx/work/ForegroundInfo;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 6
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "foregroundInfo"    # Landroidx/work/ForegroundInfo;
     .annotation system Ldalvik/annotation/Signature;
@@ -1015,7 +1015,7 @@
 .end method
 
 .method public setProgress(Ljava/util/UUID;Landroidx/work/Data;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 6
     .param p1, "id"    # Ljava/util/UUID;
     .param p2, "data"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/Signature;

@@ -115,7 +115,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -179,7 +179,7 @@
 .end method
 
 .method public final getBackStack()Lkotlinx/coroutines/flow/StateFlow;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -197,7 +197,7 @@
 .end method
 
 .method public final getTransitionsInProgress()Lkotlinx/coroutines/flow/StateFlow;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -215,7 +215,7 @@
 .end method
 
 .method public final isNavigating()Z
-    .locals 1
+    .registers 2
 
     .line 42
     iget-boolean v0, p0, Landroidx/navigation/NavigatorState;->isNavigating:Z
@@ -224,7 +224,7 @@
 .end method
 
 .method public markTransitionComplete(Landroidx/navigation/NavBackStackEntry;)V
-    .locals 2
+    .registers 4
     .param p1, "entry"    # Landroidx/navigation/NavBackStackEntry;
 
     const-string v0, "entry"
@@ -253,7 +253,7 @@
 .end method
 
 .method public onLaunchSingleTop(Landroidx/navigation/NavBackStackEntry;)V
-    .locals 3
+    .registers 5
     .param p1, "backStackEntry"    # Landroidx/navigation/NavBackStackEntry;
 
     const-string v0, "backStackEntry"
@@ -300,7 +300,7 @@
 .end method
 
 .method public pop(Landroidx/navigation/NavBackStackEntry;Z)V
-    .locals 11
+    .registers 14
     .param p1, "popUpTo"    # Landroidx/navigation/NavBackStackEntry;
     .param p2, "saveState"    # Z
 
@@ -319,7 +319,7 @@
 
     .line 105
     .local v1, "$i$a$-withLock-NavigatorState$pop$1":I
-    :try_start_0
+    :try_start_d
     iget-object v2, p0, Landroidx/navigation/NavigatorState;->_backStack:Lkotlinx/coroutines/flow/MutableStateFlow;
 
     iget-object v3, p0, Landroidx/navigation/NavigatorState;->_backStack:Lkotlinx/coroutines/flow/MutableStateFlow;
@@ -345,12 +345,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_21
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_3a
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -373,21 +373,21 @@
 
     .end local v8    # "it":Landroidx/navigation/NavBackStackEntry;
     .end local v9    # "$i$a$-takeWhile-NavigatorState$pop$1$1":I
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_36
 
     .line 168
-    goto :goto_1
+    goto :goto_3a
 
     .line 169
-    :cond_0
+    :cond_36
     invoke-virtual {v5, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_21
 
     .line 171
     .end local v7    # "item$iv":Ljava/lang/Object;
-    :cond_1
-    :goto_1
+    :cond_3a
+    :goto_3a
     move-object v6, v5
 
     check-cast v6, Ljava/util/List;
@@ -403,8 +403,8 @@
 
     .end local v1    # "$i$a$-withLock-NavigatorState$pop$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_43
+    .catchall {:try_start_d .. :try_end_43} :catchall_47
 
     .line 104
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -413,7 +413,7 @@
     return-void
 
     .line 104
-    :catchall_0
+    :catchall_47
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -422,7 +422,7 @@
 .end method
 
 .method public popWithTransition(Landroidx/navigation/NavBackStackEntry;Z)V
-    .locals 8
+    .registers 11
     .param p1, "popUpTo"    # Landroidx/navigation/NavBackStackEntry;
     .param p2, "saveState"    # Z
 
@@ -471,12 +471,12 @@
 
     .line 173
     .local v2, "iterator$iv":Ljava/util/ListIterator;
-    :cond_0
+    :cond_27
     invoke-interface {v2}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_5c
 
     .line 174
     invoke-interface {v2}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -498,7 +498,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_57
 
     .line 127
     iget-object v6, p0, Landroidx/navigation/NavigatorState;->backStack:Lkotlinx/coroutines/flow/StateFlow;
@@ -525,42 +525,42 @@
 
     move-result v7
 
-    if-ge v6, v7, :cond_1
+    if-ge v6, v7, :cond_57
 
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_58
 
-    :cond_1
+    :cond_57
     const/4 v6, 0x0
 
     .line 126
-    :goto_0
+    :goto_58
     nop
 
     .end local v4    # "entry":Landroidx/navigation/NavBackStackEntry;
     .end local v5    # "$i$a$-lastOrNull-NavigatorState$popWithTransition$incomingEntry$1":I
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_27
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 177
     .end local v3    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_5c
     const/4 v3, 0x0
 
     .line 125
     .end local v0    # "$this$lastOrNull$iv":Ljava/util/List;
     .end local v1    # "$i$f$lastOrNull":I
     .end local v2    # "iterator$iv":Ljava/util/ListIterator;
-    :goto_1
+    :goto_5d
     move-object v0, v3
 
     check-cast v0, Landroidx/navigation/NavBackStackEntry;
 
     .line 131
     .local v0, "incomingEntry":Landroidx/navigation/NavBackStackEntry;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_73
 
     .line 132
     iget-object v1, p0, Landroidx/navigation/NavigatorState;->_transitionsInProgress:Lkotlinx/coroutines/flow/MutableStateFlow;
@@ -580,7 +580,7 @@
     invoke-interface {v1, v2}, Lkotlinx/coroutines/flow/MutableStateFlow;->setValue(Ljava/lang/Object;)V
 
     .line 134
-    :cond_3
+    :cond_73
     invoke-virtual {p0, p1, p2}, Landroidx/navigation/NavigatorState;->pop(Landroidx/navigation/NavBackStackEntry;Z)V
 
     .line 135
@@ -588,7 +588,7 @@
 .end method
 
 .method public push(Landroidx/navigation/NavBackStackEntry;)V
-    .locals 4
+    .registers 6
     .param p1, "backStackEntry"    # Landroidx/navigation/NavBackStackEntry;
 
     const-string v0, "backStackEntry"
@@ -606,7 +606,7 @@
 
     .line 65
     .local v1, "$i$a$-withLock-NavigatorState$push$1":I
-    :try_start_0
+    :try_start_d
     iget-object v2, p0, Landroidx/navigation/NavigatorState;->_backStack:Lkotlinx/coroutines/flow/MutableStateFlow;
 
     iget-object v3, p0, Landroidx/navigation/NavigatorState;->_backStack:Lkotlinx/coroutines/flow/MutableStateFlow;
@@ -628,8 +628,8 @@
 
     .end local v1    # "$i$a$-withLock-NavigatorState$push$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_d .. :try_end_21} :catchall_25
 
     .line 64
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -638,7 +638,7 @@
     return-void
 
     .line 64
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -647,7 +647,7 @@
 .end method
 
 .method public pushWithTransition(Landroidx/navigation/NavBackStackEntry;)V
-    .locals 3
+    .registers 5
     .param p1, "backStackEntry"    # Landroidx/navigation/NavBackStackEntry;
 
     const-string v0, "backStackEntry"
@@ -671,7 +671,7 @@
 
     .line 84
     .local v0, "previousEntry":Landroidx/navigation/NavBackStackEntry;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 85
     iget-object v1, p0, Landroidx/navigation/NavigatorState;->_transitionsInProgress:Lkotlinx/coroutines/flow/MutableStateFlow;
@@ -691,7 +691,7 @@
     invoke-interface {v1, v2}, Lkotlinx/coroutines/flow/MutableStateFlow;->setValue(Ljava/lang/Object;)V
 
     .line 87
-    :cond_0
+    :cond_26
     iget-object v1, p0, Landroidx/navigation/NavigatorState;->_transitionsInProgress:Lkotlinx/coroutines/flow/MutableStateFlow;
 
     iget-object v2, p0, Landroidx/navigation/NavigatorState;->_transitionsInProgress:Lkotlinx/coroutines/flow/MutableStateFlow;
@@ -716,7 +716,7 @@
 .end method
 
 .method public final setNavigating(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 42

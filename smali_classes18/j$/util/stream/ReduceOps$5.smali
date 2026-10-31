@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/StreamShape;)V
-    .locals 0
+    .registers 2
     .param p1, "shape"    # Lj$/util/stream/StreamShape;
 
     .line 248
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public evaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Long;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -65,7 +65,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 264
     invoke-interface {p2}, Lj$/util/Spliterator;->getExactSizeIfKnown()J
@@ -79,7 +79,7 @@
     return-object v0
 
     .line 265
-    :cond_0
+    :cond_15
     invoke-super {p0, p1, p2}, Lj$/util/stream/ReduceOps$ReduceOp;->evaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
 
     move-result-object v0
@@ -90,7 +90,7 @@
 .end method
 
 .method public bridge synthetic evaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 248
     invoke-virtual {p0, p1, p2}, Lj$/util/stream/ReduceOps$5;->evaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Long;
@@ -101,7 +101,7 @@
 .end method
 
 .method public evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Long;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -128,7 +128,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 256
     invoke-interface {p2}, Lj$/util/Spliterator;->getExactSizeIfKnown()J
@@ -142,7 +142,7 @@
     return-object v0
 
     .line 257
-    :cond_0
+    :cond_15
     invoke-super {p0, p1, p2}, Lj$/util/stream/ReduceOps$ReduceOp;->evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
 
     move-result-object v0
@@ -153,7 +153,7 @@
 .end method
 
 .method public bridge synthetic evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 248
     invoke-virtual {p0, p1, p2}, Lj$/util/stream/ReduceOps$5;->evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Long;
@@ -164,7 +164,7 @@
 .end method
 
 .method public getOpFlags()I
-    .locals 1
+    .registers 2
 
     .line 270
     sget v0, Lj$/util/stream/StreamOpFlag;->NOT_ORDERED:I
@@ -173,7 +173,7 @@
 .end method
 
 .method public bridge synthetic makeSink()Lj$/util/stream/ReduceOps$AccumulatingSink;
-    .locals 1
+    .registers 2
 
     .line 248
     invoke-virtual {p0}, Lj$/util/stream/ReduceOps$5;->makeSink()Lj$/util/stream/ReduceOps$CountingSink;
@@ -184,7 +184,7 @@
 .end method
 
 .method public makeSink()Lj$/util/stream/ReduceOps$CountingSink;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

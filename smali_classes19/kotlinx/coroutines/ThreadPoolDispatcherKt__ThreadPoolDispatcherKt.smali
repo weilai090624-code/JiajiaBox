@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$XFVhsA28fmYUFDEvkT7eVQ1JeFw(ILjava/lang/String;Ljava/util/concurrent/atomic/AtomicInteger;Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lkotlinx/coroutines/ThreadPoolDispatcherKt__ThreadPoolDispatcherKt;->newFixedThreadPoolContext$lambda$1$ThreadPoolDispatcherKt__ThreadPoolDispatcherKt(ILjava/lang/String;Ljava/util/concurrent/atomic/AtomicInteger;Ljava/lang/Runnable;)Ljava/lang/Thread;
 
@@ -44,22 +44,22 @@
 .end method
 
 .method public static final newFixedThreadPoolContext(ILjava/lang/String;)Lkotlinx/coroutines/ExecutorCoroutineDispatcher;
-    .locals 3
+    .registers 5
     .param p0, "nThreads"    # I
     .param p1, "name"    # Ljava/lang/String;
 
     .line 38
     const/4 v0, 0x1
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_4
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_5
+    if-eqz v0, :cond_1d
 
     .line 39
     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
@@ -91,7 +91,7 @@
     .line 48
     .end local v0    # "threadNo":Ljava/util/concurrent/atomic/AtomicInteger;
     .end local v1    # "executor":Ljava/util/concurrent/ScheduledExecutorService;
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
     .line 38
@@ -133,7 +133,7 @@
 .end method
 
 .method private static final newFixedThreadPoolContext$lambda$1$ThreadPoolDispatcherKt__ThreadPoolDispatcherKt(ILjava/lang/String;Ljava/util/concurrent/atomic/AtomicInteger;Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 4
+    .registers 8
     .param p0, "$nThreads"    # I
     .param p1, "$name"    # Ljava/lang/String;
     .param p2, "$threadNo"    # Ljava/util/concurrent/atomic/AtomicInteger;
@@ -144,13 +144,13 @@
 
     const/4 v1, 0x1
 
-    if-ne p0, v1, :cond_0
+    if-ne p0, v1, :cond_7
 
     move-object v2, p1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_7
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -177,7 +177,7 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_22
     invoke-direct {v0, p3, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
     .line 42

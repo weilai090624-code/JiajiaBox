@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/CheckBoxPreference;)V
-    .locals 0
+    .registers 2
 
     .line 125
     iput-object p1, p0, Landroidx/preference/CheckBoxPreference$Listener;->this$0:Landroidx/preference/CheckBoxPreference;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 2
+    .registers 5
     .param p1, "buttonView"    # Landroid/widget/CompoundButton;
     .param p2, "isChecked"    # Z
 
@@ -51,7 +51,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 132
     xor-int/lit8 v0, p2, 0x1
@@ -62,7 +62,7 @@
     return-void
 
     .line 135
-    :cond_0
+    :cond_12
     iget-object v0, p0, Landroidx/preference/CheckBoxPreference$Listener;->this$0:Landroidx/preference/CheckBoxPreference;
 
     invoke-virtual {v0, p2}, Landroidx/preference/CheckBoxPreference;->setChecked(Z)V

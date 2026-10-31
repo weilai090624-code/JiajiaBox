@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 480
     const/4 v0, 0x0
@@ -45,7 +45,7 @@
 .end method
 
 .method final schedule(Lcom/google/common/util/concurrent/AbstractService;Ljava/util/concurrent/ScheduledExecutorService;Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/AbstractScheduledService$Cancellable;
-    .locals 1
+    .registers 5
     .param p1, "service"    # Lcom/google/common/util/concurrent/AbstractService;
     .param p2, "executor"    # Ljava/util/concurrent/ScheduledExecutorService;
     .param p3, "runnable"    # Ljava/lang/Runnable;

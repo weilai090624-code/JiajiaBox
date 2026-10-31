@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableBiMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method makeBuilder(I)Lcom/google/common/collect/ImmutableBiMap$Builder;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -73,7 +73,7 @@
 .end method
 
 .method bridge synthetic makeBuilder(I)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 0
+    .registers 2
 
     .line 552
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap$SerializedForm;, "Lcom/google/common/collect/ImmutableBiMap$SerializedForm<TK;TV;>;"

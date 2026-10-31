@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/profileinstaller/FileSectionType;I[BZ)V
-    .locals 0
+    .registers 5
     .param p1, "type"    # Landroidx/profileinstaller/FileSectionType;
     .param p2, "expectedInflateSize"    # I
     .param p3, "contents"    # [B

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/dynamicanimation/animation/AnimationHandler$AnimationCallbackDispatcher;)V
-    .locals 2
+    .registers 4
     .param p1, "dispatcher"    # Landroidx/dynamicanimation/animation/AnimationHandler$AnimationCallbackDispatcher;
 
     .line 229
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method postFrameCallback()V
-    .locals 4
+    .registers 5
 
     .line 242
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J

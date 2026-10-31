@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/window/embedding/EmbeddingInterfaceCompat$EmbeddingCallbackInterface;Landroidx/window/embedding/EmbeddingAdapter;)V
-    .locals 1
+    .registers 4
     .param p1, "callback"    # Landroidx/window/embedding/EmbeddingInterfaceCompat$EmbeddingCallbackInterface;
     .param p2, "adapter"    # Landroidx/window/embedding/EmbeddingAdapter;
 
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Ljava/lang/Object;
 
     .line 24
@@ -97,7 +97,7 @@
 .end method
 
 .method public accept(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .param p1, "splitInfoList"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -129,7 +129,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 

@@ -65,13 +65,13 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     const/4 v0, 0x6
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_32
 
     sput-object v1, Landroidx/appcompat/resources/R$styleable;->AnimatedStateListDrawableCompat:[I
 
@@ -99,7 +99,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_42
 
     sput-object v0, Landroidx/appcompat/resources/R$styleable;->StateListDrawable:[I
 
@@ -113,7 +113,7 @@
 
     nop
 
-    :array_0
+    :array_32
     .array-data 4
         0x101011c
         0x1010194
@@ -123,7 +123,7 @@
         0x101030d
     .end array-data
 
-    :array_1
+    :array_42
     .array-data 4
         0x101011c
         0x1010194
@@ -135,7 +135,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

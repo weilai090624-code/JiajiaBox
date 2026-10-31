@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$onMenuClosed(Landroidx/core/view/MenuProvider;Landroid/view/Menu;)V
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Landroidx/core/view/MenuProvider;
     .param p1, "menu"    # Landroid/view/Menu;
 
@@ -14,7 +14,7 @@
 .end method
 
 .method public static $default$onPrepareMenu(Landroidx/core/view/MenuProvider;Landroid/view/Menu;)V
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Landroidx/core/view/MenuProvider;
     .param p1, "menu"    # Landroid/view/Menu;
 

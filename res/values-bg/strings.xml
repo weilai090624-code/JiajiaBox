@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Входящо обаждане</string>
     <string name="call_notification_ongoing_text">Текущо обаждане</string>
     <string name="call_notification_screening_text">Преглежда се входящо обаждане</string>
-    <string name="character_counter_content_description" formatted="false">Въведени знаци: %1$d от %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Максималният брой знаци е надхвърлен с(ъс) %1$d от %2$d</string>
+    <string name="character_counter_content_description">Въведени знаци: %1$d от %2$d</string>
+    <string name="character_counter_overflowed_content_description">Максималният брой знаци е надхвърлен с(ъс) %1$d от %2$d</string>
     <string name="clear_text_end_icon_content_description">Изчистване на текста</string>
     <string name="copy">Копиране</string>
     <string name="copy_toast_msg">Връзката е копирана в буферната памет</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Извън диапазона: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Начална дата – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – крайна дата</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Избиране на период от време</string>
     <string name="mtrl_picker_range_header_unselected">Начална дата – крайна дата</string>
     <string name="mtrl_picker_save">Запазване</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">Копирахте „%1$s“ в буферната памет.</string>
     <string name="search_menu_title">Търсене</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ИЗКЛ.</string>
     <string name="v7_preference_on">ВКЛ.</string>
 </resources>

@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/utils/Subnet$Immutable$Companion;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>([BI)V
-    .locals 1
+    .registers 4
     .param p1, "a"    # [B
     .param p2, "prefixSize"    # I
 
@@ -93,23 +93,23 @@
 .end method
 
 .method public synthetic constructor <init>([BIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 29
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Lio/nekohasekai/sagernet/utils/Subnet$Immutable;-><init>([BI)V
 
     return-void
 .end method
 
 .method public static final synthetic access$getA$p(Lio/nekohasekai/sagernet/utils/Subnet$Immutable;)[B
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/utils/Subnet$Immutable;
 
     .line 29
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public final matches(Lio/nekohasekai/sagernet/utils/Subnet$Immutable;)Z
-    .locals 1
+    .registers 3
     .param p1, "b"    # Lio/nekohasekai/sagernet/utils/Subnet$Immutable;
 
     const-string v0, "b"
@@ -139,7 +139,7 @@
 .end method
 
 .method public final matches([B)Z
-    .locals 7
+    .registers 9
     .param p1, "b"    # [B
 
     const-string v0, "b"
@@ -155,22 +155,22 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_d
 
     return v2
 
     .line 44
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     .line 45
     .local v0, "i":I
-    :goto_0
+    :goto_e
     mul-int/lit8 v1, v0, 0x8
 
     iget v3, p0, Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->prefixSize:I
 
-    if-ge v1, v3, :cond_2
+    if-ge v1, v3, :cond_28
 
     mul-int/lit8 v1, v0, 0x8
 
@@ -178,7 +178,7 @@
 
     iget v3, p0, Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->prefixSize:I
 
-    if-gt v1, v3, :cond_2
+    if-gt v1, v3, :cond_28
 
     .line 46
     iget-object v1, p0, Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->a:[B
@@ -187,25 +187,25 @@
 
     aget-byte v3, p1, v0
 
-    if-eq v1, v3, :cond_1
+    if-eq v1, v3, :cond_25
 
     return v2
 
     .line 47
-    :cond_1
+    :cond_25
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 49
-    :cond_2
+    :cond_28
     mul-int/lit8 v1, v0, 0x8
 
     iget v3, p0, Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->prefixSize:I
 
     const/4 v4, 0x1
 
-    if-eq v1, v3, :cond_3
+    if-eq v1, v3, :cond_43
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->a:[B
 
@@ -229,11 +229,11 @@
 
     int-to-byte v3, v3
 
-    if-ne v1, v3, :cond_4
+    if-ne v1, v3, :cond_44
 
-    :cond_3
+    :cond_43
     const/4 v2, 0x1
 
-    :cond_4
+    :cond_44
     return v2
 .end method

@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 3396
     .local p0, "this":Lcom/google/common/cache/LocalCache$LoadingValueReference;, "Lcom/google/common/cache/LocalCache$LoadingValueReference<TK;TV;>;"
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/common/cache/LocalCache$ValueReference;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -105,7 +105,7 @@
 .end method
 
 .method private fullyFailedFuture(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method public copyFor(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;Lcom/google/common/cache/ReferenceEntry;)Lcom/google/common/cache/LocalCache$ValueReference;
-    .locals 0
+    .registers 4
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -155,7 +155,7 @@
 .end method
 
 .method public elapsedNanos()J
-    .locals 2
+    .registers 3
 
     .line 3478
     .local p0, "this":Lcom/google/common/cache/LocalCache$LoadingValueReference;, "Lcom/google/common/cache/LocalCache$LoadingValueReference<TK;TV;>;"
@@ -171,7 +171,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -190,7 +190,7 @@
 .end method
 
 .method public getEntry()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -207,7 +207,7 @@
 .end method
 
 .method public getOldValue()Lcom/google/common/cache/LocalCache$ValueReference;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -224,7 +224,7 @@
 .end method
 
 .method public getWeight()I
-    .locals 1
+    .registers 2
 
     .line 3415
     .local p0, "this":Lcom/google/common/cache/LocalCache$LoadingValueReference;, "Lcom/google/common/cache/LocalCache$LoadingValueReference<TK;TV;>;"
@@ -238,7 +238,7 @@
 .end method
 
 .method public isActive()Z
-    .locals 1
+    .registers 2
 
     .line 3410
     .local p0, "this":Lcom/google/common/cache/LocalCache$LoadingValueReference;, "Lcom/google/common/cache/LocalCache$LoadingValueReference<TK;TV;>;"
@@ -252,7 +252,7 @@
 .end method
 
 .method public isLoading()Z
-    .locals 1
+    .registers 2
 
     .line 3405
     .local p0, "this":Lcom/google/common/cache/LocalCache$LoadingValueReference;, "Lcom/google/common/cache/LocalCache$LoadingValueReference<TK;TV;>;"
@@ -262,7 +262,7 @@
 .end method
 
 .method public loadFuture(Ljava/lang/Object;Lcom/google/common/cache/CacheLoader;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -291,7 +291,7 @@
 
     .line 3448
     .local v0, "previousValue":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     .line 3449
     invoke-virtual {p2, p1}, Lcom/google/common/cache/CacheLoader;->load(Ljava/lang/Object;)Ljava/lang/Object;
@@ -304,30 +304,30 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
     iget-object v2, p0, Lcom/google/common/cache/LocalCache$LoadingValueReference;->futureValue:Lcom/google/common/util/concurrent/SettableFuture;
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1a
     invoke-static {v1}, Lcom/google/common/util/concurrent/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v2
 
-    :goto_0
+    :goto_1e
     return-object v2
 
     .line 3452
     .end local v1    # "newValue":Ljava/lang/Object;, "TV;"
-    :cond_1
+    :cond_1f
     invoke-virtual {p2, p1, v0}, Lcom/google/common/cache/CacheLoader;->reload(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v1
 
     .line 3453
     .local v1, "newValue":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
-    if-nez v1, :cond_2
+    if-nez v1, :cond_2b
 
     .line 3454
     const/4 v2, 0x0
@@ -339,7 +339,7 @@
     return-object v2
 
     .line 3458
-    :cond_2
+    :cond_2b
     new-instance v2, Lcom/google/common/cache/LocalCache$LoadingValueReference$1;
 
     invoke-direct {v2, p0}, Lcom/google/common/cache/LocalCache$LoadingValueReference$1;-><init>(Lcom/google/common/cache/LocalCache$LoadingValueReference;)V
@@ -353,15 +353,15 @@
     invoke-static {v1, v2, v3}, Lcom/google/common/util/concurrent/Futures;->transform(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/base/Function;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_38
+    .catchall {:try_start_0 .. :try_end_38} :catchall_39
 
     return-object v2
 
     .line 3468
     .end local v0    # "previousValue":Ljava/lang/Object;, "TV;"
     .end local v1    # "newValue":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
-    :catchall_0
+    :catchall_39
     move-exception v0
 
     .line 3469
@@ -370,23 +370,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_43
 
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$LoadingValueReference;->futureValue:Lcom/google/common/util/concurrent/SettableFuture;
 
-    goto :goto_1
+    goto :goto_47
 
-    :cond_3
+    :cond_43
     invoke-direct {p0, v0}, Lcom/google/common/cache/LocalCache$LoadingValueReference;->fullyFailedFuture(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v1
 
     .line 3470
     .local v1, "result":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
-    :goto_1
+    :goto_47
     instance-of v2, v0, Ljava/lang/InterruptedException;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_52
 
     .line 3471
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -396,12 +396,12 @@
     invoke-virtual {v2}, Ljava/lang/Thread;->interrupt()V
 
     .line 3473
-    :cond_4
+    :cond_52
     return-object v1
 .end method
 
 .method public notifyNewValue(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -415,15 +415,15 @@
     .line 3432
     .local p0, "this":Lcom/google/common/cache/LocalCache$LoadingValueReference;, "Lcom/google/common/cache/LocalCache$LoadingValueReference<TK;TV;>;"
     .local p1, "newValue":Ljava/lang/Object;, "TV;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     .line 3435
     invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache$LoadingValueReference;->set(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_c
 
     .line 3438
-    :cond_0
+    :cond_6
     invoke-static {}, Lcom/google/common/cache/LocalCache;->unset()Lcom/google/common/cache/LocalCache$ValueReference;
 
     move-result-object v0
@@ -431,12 +431,12 @@
     iput-object v0, p0, Lcom/google/common/cache/LocalCache$LoadingValueReference;->oldValue:Lcom/google/common/cache/LocalCache$ValueReference;
 
     .line 3442
-    :goto_0
+    :goto_c
     return-void
 .end method
 
 .method public set(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -460,7 +460,7 @@
 .end method
 
 .method public setException(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 3423
@@ -475,7 +475,7 @@
 .end method
 
 .method public waitForValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

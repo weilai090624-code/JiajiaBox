@@ -51,7 +51,7 @@
 
 # direct methods
 .method public static final collect(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$collect"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -80,18 +80,18 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     return-object v0
 
-    :cond_0
+    :cond_f
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method public static final synthetic collect(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "$this$collect"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -141,11 +141,11 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_13
 
     return-object v1
 
-    :cond_0
+    :cond_13
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 117
@@ -153,7 +153,7 @@
 .end method
 
 .method private static final synthetic collect$$forInline(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$collect"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -204,7 +204,7 @@
 .end method
 
 .method public static final collectIndexed(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "$this$collectIndexed"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function3;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -251,11 +251,11 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_13
 
     return-object v1
 
-    :cond_0
+    :cond_13
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 63
@@ -263,7 +263,7 @@
 .end method
 
 .method private static final collectIndexed$$forInline(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$collectIndexed"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function3;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -311,7 +311,7 @@
 .end method
 
 .method public static final collectLatest(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$collectLatest"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -361,11 +361,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     return-object v0
 
-    :cond_0
+    :cond_16
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 101
@@ -373,7 +373,7 @@
 .end method
 
 .method public static final emitAll(Lkotlinx/coroutines/flow/FlowCollector;Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$emitAll"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p1, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -406,11 +406,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     return-object v0
 
-    :cond_0
+    :cond_e
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 110
@@ -418,7 +418,7 @@
 .end method
 
 .method public static final launchIn(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;)Lkotlinx/coroutines/Job;
-    .locals 8
+    .registers 10
     .param p0, "$this$launchIn"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "scope"    # Lkotlinx/coroutines/CoroutineScope;
     .annotation system Ldalvik/annotation/Signature;

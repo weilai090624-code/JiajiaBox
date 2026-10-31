@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,7 +21,7 @@
 .end method
 
 .method private static coerceToText(Landroid/content/Context;Landroid/content/ClipData$Item;I)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "item"    # Landroid/content/ClipData$Item;
     .param p2, "flags"    # I
@@ -29,7 +29,7 @@
     .line 91
     and-int/lit8 v0, p2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 92
     invoke-virtual {p1, p0}, Landroid/content/ClipData$Item;->coerceToText(Landroid/content/Context;)Ljava/lang/CharSequence;
@@ -40,23 +40,23 @@
     .local v0, "text":Ljava/lang/CharSequence;
     instance-of v1, v0, Landroid/text/Spanned;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     move-object v1, v0
 
-    :goto_0
+    :goto_12
     return-object v1
 
     .line 95
     .end local v0    # "text":Ljava/lang/CharSequence;
-    :cond_1
+    :cond_13
     invoke-virtual {p1, p0}, Landroid/content/ClipData$Item;->coerceToStyledText(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -65,7 +65,7 @@
 .end method
 
 .method private static replaceSelection(Landroid/text/Editable;Ljava/lang/CharSequence;)V
-    .locals 5
+    .registers 7
     .param p0, "editable"    # Landroid/text/Editable;
     .param p1, "replacement"    # Ljava/lang/CharSequence;
 
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public onReceiveContent(Landroid/view/View;Landroidx/core/view/ContentInfoCompat;)Landroidx/core/view/ContentInfoCompat;
-    .locals 11
+    .registers 14
     .param p1, "view"    # Landroid/view/View;
     .param p2, "payload"    # Landroidx/core/view/ContentInfoCompat;
 
@@ -129,7 +129,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 54
     new-instance v0, Ljava/lang/StringBuilder;
@@ -153,7 +153,7 @@
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 56
-    :cond_0
+    :cond_1f
     invoke-virtual {p2}, Landroidx/core/view/ContentInfoCompat;->getSource()I
 
     move-result v0
@@ -162,13 +162,13 @@
     .local v0, "source":I
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_27
 
     .line 60
     return-object p2
 
     .line 68
-    :cond_1
+    :cond_27
     invoke-virtual {p2}, Landroidx/core/view/ContentInfoCompat;->getClip()Landroid/content/ClipData;
 
     move-result-object v1
@@ -208,12 +208,12 @@
     const/4 v7, 0x0
 
     .local v7, "i":I
-    :goto_0
+    :goto_3e
     invoke-virtual {v1}, Landroid/content/ClipData;->getItemCount()I
 
     move-result v8
 
-    if-ge v7, v8, :cond_4
+    if-ge v7, v8, :cond_68
 
     .line 75
     invoke-virtual {v1, v7}, Landroid/content/ClipData;->getItemAt(I)Landroid/content/ClipData$Item;
@@ -226,10 +226,10 @@
 
     .line 76
     .local v8, "itemText":Ljava/lang/CharSequence;
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_65
 
     .line 77
-    if-nez v6, :cond_2
+    if-nez v6, :cond_55
 
     .line 78
     invoke-static {v4, v8}, Landroidx/core/widget/TextViewOnReceiveContentListener;->replaceSelection(Landroid/text/Editable;Ljava/lang/CharSequence;)V
@@ -237,10 +237,10 @@
     .line 79
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_65
 
     .line 81
-    :cond_2
+    :cond_55
     invoke-static {v4}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v9
@@ -258,15 +258,15 @@
 
     .line 74
     .end local v8    # "itemText":Ljava/lang/CharSequence;
-    :cond_3
-    :goto_1
+    :cond_65
+    :goto_65
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 86
     .end local v7    # "i":I
-    :cond_4
+    :cond_68
     const/4 v7, 0x0
 
     return-object v7

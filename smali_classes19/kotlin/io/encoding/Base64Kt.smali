@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 12
+    .registers 12
 
     .line 751
     nop
@@ -345,7 +345,7 @@
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_132
 
     .line 752
     nop
@@ -402,8 +402,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_0
+    :goto_84
+    if-ge v5, v4, :cond_94
 
     aget-byte v6, v1, v5
 
@@ -435,12 +435,12 @@
 
     move v3, v9
 
-    goto :goto_0
+    goto :goto_84
 
     .line 829
     .end local v9    # "index$iv":I
     .local v3, "index$iv":I
-    :cond_0
+    :cond_94
     nop
 
     .line 765
@@ -747,7 +747,7 @@
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_156
 
     .line 769
     nop
@@ -804,8 +804,8 @@
 
     const/4 v5, 0x0
 
-    :goto_1
-    if-ge v5, v4, :cond_1
+    :goto_11c
+    if-ge v5, v4, :cond_12c
 
     aget-byte v6, v1, v5
 
@@ -837,12 +837,12 @@
 
     move v3, v9
 
-    goto :goto_1
+    goto :goto_11c
 
     .line 832
     .end local v9    # "index$iv":I
     .local v3, "index$iv":I
-    :cond_1
+    :cond_12c
     nop
 
     .line 782
@@ -860,7 +860,7 @@
 
     nop
 
-    :array_0
+    :array_132
     .array-data 1
         0x41t
         0x42t
@@ -928,7 +928,7 @@
         0x2ft
     .end array-data
 
-    :array_1
+    :array_156
     .array-data 1
         0x41t
         0x42t
@@ -998,7 +998,7 @@
 .end method
 
 .method public static final synthetic access$getBase64DecodeMap$p()[I
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlin/io/encoding/Base64Kt;->base64DecodeMap:[I
@@ -1007,7 +1007,7 @@
 .end method
 
 .method public static final synthetic access$getBase64EncodeMap$p()[B
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlin/io/encoding/Base64Kt;->base64EncodeMap:[B
@@ -1016,7 +1016,7 @@
 .end method
 
 .method public static final synthetic access$getBase64UrlDecodeMap$p()[I
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlin/io/encoding/Base64Kt;->base64UrlDecodeMap:[I
@@ -1025,7 +1025,7 @@
 .end method
 
 .method public static final synthetic access$getBase64UrlEncodeMap$p()[B
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlin/io/encoding/Base64Kt;->base64UrlEncodeMap:[B
@@ -1034,19 +1034,19 @@
 .end method
 
 .method private static synthetic getBase64DecodeMap$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private static synthetic getBase64UrlDecodeMap$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final isInMimeAlphabet(I)Z
-    .locals 4
+    .registers 5
     .param p0, "symbol"    # I
 
     .line 788
@@ -1054,23 +1054,23 @@
 
     const/4 v1, 0x0
 
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_b
 
     sget-object v2, Lkotlin/io/encoding/Base64Kt;->base64DecodeMap:[I
 
     array-length v2, v2
 
-    if-ge p0, v2, :cond_0
+    if-ge p0, v2, :cond_b
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_c
+    if-eqz v2, :cond_16
 
     sget-object v2, Lkotlin/io/encoding/Base64Kt;->base64DecodeMap:[I
 
@@ -1078,13 +1078,13 @@
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_16
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_17
     return v0
 .end method

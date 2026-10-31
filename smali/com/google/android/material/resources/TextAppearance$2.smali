@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/resources/TextAppearance;Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/google/android/material/resources/TextAppearance;
 
     .line 239
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onFontRetrievalFailed(I)V
-    .locals 1
+    .registers 3
     .param p1, "i"    # I
 
     .line 249
@@ -59,7 +59,7 @@
 .end method
 
 .method public onFontRetrieved(Landroid/graphics/Typeface;Z)V
-    .locals 3
+    .registers 6
     .param p1, "typeface"    # Landroid/graphics/Typeface;
     .param p2, "fontResolvedSynchronously"    # Z
 

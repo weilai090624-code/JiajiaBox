@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(IILandroid/util/Rational;Landroid/graphics/Rect;Ljava/util/concurrent/Executor;Landroidx/camera/core/ImageCapture$OnImageCapturedCallback;)V
-    .locals 4
+    .registers 11
     .param p1, "rotationDegrees"    # I
     .param p2, "jpegQuality"    # I
     .param p3, "targetRatio"    # Landroid/util/Rational;
@@ -77,7 +77,7 @@
     iput p2, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->mJpegQuality:I
 
     .line 2263
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_2b
 
     .line 2264
     invoke-virtual {p3}, Landroid/util/Rational;->isZero()Z
@@ -101,17 +101,17 @@
 
     cmpl-float v0, v0, v3
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_26
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_26
     const-string v0, "Target ratio must be positive"
 
     invoke-static {v1, v0}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     .line 2268
-    :cond_1
+    :cond_2b
     iput-object p3, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->mTargetRatio:Landroid/util/Rational;
 
     .line 2269
@@ -128,7 +128,7 @@
 .end method
 
 .method static getDispatchCropRect(Landroid/graphics/Rect;ILandroid/util/Size;I)Landroid/graphics/Rect;
-    .locals 7
+    .registers 11
     .param p0, "surfaceCropRect"    # Landroid/graphics/Rect;
     .param p1, "surfaceToOutputDegrees"    # I
     .param p2, "dispatchResolution"    # Landroid/util/Size;
@@ -256,7 +256,7 @@
 
 # virtual methods
 .method dispatchImage(Landroidx/camera/core/ImageProxy;)V
-    .locals 9
+    .registers 11
     .param p1, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -278,7 +278,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 2277
     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->close()V
@@ -287,7 +287,7 @@
     return-void
 
     .line 2282
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     .line 2286
@@ -300,10 +300,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_59
 
     .line 2289
-    :try_start_0
+    :try_start_1a
     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->getPlanes()[Landroidx/camera/core/ImageProxy$PlaneProxy;
 
     move-result-object v3
@@ -362,8 +362,8 @@
     invoke-virtual {v5}, Landroidx/camera/core/impl/utils/Exif;->getRotation()I
 
     move-result v2
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4d
+    .catch Ljava/io/IOException; {:try_start_1a .. :try_end_4d} :catch_4f
 
     move v0, v2
 
@@ -372,11 +372,11 @@
     .end local v3    # "planes":[Landroidx/camera/core/ImageProxy$PlaneProxy;
     .end local v4    # "data":[B
     .end local v5    # "exif":Landroidx/camera/core/impl/utils/Exif;
-    goto :goto_0
+    goto :goto_69
 
     .line 2302
     .end local v6    # "dispatchResolution":Landroid/util/Size;
-    :catch_0
+    :catch_4f
     move-exception v1
 
     .line 2303
@@ -393,7 +393,7 @@
 
     .line 2309
     .end local v1    # "e":Ljava/io/IOException;
-    :cond_1
+    :cond_59
     new-instance v1, Landroid/util/Size;
 
     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->getWidth()I
@@ -413,7 +413,7 @@
     iget v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->mRotationDegrees:I
 
     .line 2314
-    :goto_0
+    :goto_69
     nop
 
     .line 2315
@@ -449,7 +449,7 @@
     .local v2, "dispatchedImageProxy":Landroidx/camera/core/ImageProxy;
     iget-object v3, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->mViewPortCropRect:Landroid/graphics/Rect;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_93
 
     .line 2326
     iget-object v3, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->mViewPortCropRect:Landroid/graphics/Rect;
@@ -462,13 +462,13 @@
 
     invoke-interface {v2, v3}, Landroidx/camera/core/ImageProxy;->setCropRect(Landroid/graphics/Rect;)V
 
-    goto :goto_1
+    goto :goto_ca
 
     .line 2328
-    :cond_2
+    :cond_93
     iget-object v3, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->mTargetRatio:Landroid/util/Rational;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_ca
 
     .line 2330
     iget-object v3, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->mTargetRatio:Landroid/util/Rational;
@@ -477,7 +477,7 @@
     .local v3, "dispatchRatio":Landroid/util/Rational;
     rem-int/lit16 v4, v0, 0xb4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_af
 
     .line 2332
     new-instance v4, Landroid/util/Rational;
@@ -501,7 +501,7 @@
     move-object v3, v4
 
     .line 2336
-    :cond_3
+    :cond_af
     new-instance v4, Landroid/util/Size;
 
     invoke-interface {v2}, Landroidx/camera/core/ImageProxy;->getWidth()I
@@ -521,7 +521,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_ca
 
     .line 2339
     nop
@@ -537,9 +537,9 @@
     .line 2346
     .end local v3    # "dispatchRatio":Landroid/util/Rational;
     .end local v4    # "sourceSize":Landroid/util/Size;
-    :cond_4
-    :goto_1
-    :try_start_1
+    :cond_ca
+    :goto_ca
+    :try_start_ca
     iget-object v3, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->mListenerExecutor:Ljava/util/concurrent/Executor;
 
     new-instance v4, Landroidx/camera/core/ImageCapture$ImageCaptureRequest$$ExternalSyntheticLambda1;
@@ -547,14 +547,14 @@
     invoke-direct {v4, p0, v2}, Landroidx/camera/core/ImageCapture$ImageCaptureRequest$$ExternalSyntheticLambda1;-><init>(Landroidx/camera/core/ImageCapture$ImageCaptureRequest;Landroidx/camera/core/ImageProxy;)V
 
     invoke-interface {v3, v4}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_1
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_d4
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_ca .. :try_end_d4} :catch_d5
 
     .line 2354
-    goto :goto_2
+    goto :goto_e0
 
     .line 2349
-    :catch_1
+    :catch_d5
     move-exception v3
 
     .line 2350
@@ -570,12 +570,12 @@
 
     .line 2355
     .end local v3    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_2
+    :goto_e0
     return-void
 .end method
 
 .method synthetic lambda$dispatchImage$0$androidx-camera-core-ImageCapture$ImageCaptureRequest(Landroidx/camera/core/ImageProxy;)V
-    .locals 1
+    .registers 3
     .param p1, "dispatchedImageProxy"    # Landroidx/camera/core/ImageProxy;
 
     .line 2347
@@ -588,7 +588,7 @@
 .end method
 
 .method synthetic lambda$notifyCallbackError$1$androidx-camera-core-ImageCapture$ImageCaptureRequest(ILjava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 6
     .param p1, "imageCaptureError"    # I
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "cause"    # Ljava/lang/Throwable;
@@ -606,7 +606,7 @@
 .end method
 
 .method notifyCallbackError(ILjava/lang/String;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 7
     .param p1, "imageCaptureError"    # I
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "cause"    # Ljava/lang/Throwable;
@@ -634,14 +634,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 2405
     return-void
 
     .line 2409
-    :cond_0
-    :try_start_0
+    :cond_b
+    :try_start_b
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->mListenerExecutor:Ljava/util/concurrent/Executor;
 
     new-instance v1, Landroidx/camera/core/ImageCapture$ImageCaptureRequest$$ExternalSyntheticLambda0;
@@ -649,14 +649,14 @@
     invoke-direct {v1, p0, p1, p2, p3}, Landroidx/camera/core/ImageCapture$ImageCaptureRequest$$ExternalSyntheticLambda0;-><init>(Landroidx/camera/core/ImageCapture$ImageCaptureRequest;ILjava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_b .. :try_end_15} :catch_16
 
     .line 2413
-    goto :goto_0
+    goto :goto_1e
 
     .line 2411
-    :catch_0
+    :catch_16
     move-exception v0
 
     .line 2412
@@ -669,6 +669,6 @@
 
     .line 2414
     .end local v0    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_1e
     return-void
 .end method

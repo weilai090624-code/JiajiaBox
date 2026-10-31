@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/ComponentName;Landroid/content/ComponentName;Ljava/lang/String;)V
-    .locals 23
+    .registers 27
     .param p1, "primaryActivityName"    # Landroid/content/ComponentName;
     .param p2, "secondaryActivityName"    # Landroid/content/ComponentName;
     .param p3, "secondaryActivityIntentAction"    # Ljava/lang/String;
@@ -154,17 +154,17 @@
 
     const/4 v10, 0x0
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_55
 
     const/4 v8, 0x1
 
-    goto :goto_0
+    goto :goto_56
 
-    :cond_0
+    :cond_55
     const/4 v8, 0x0
 
-    :goto_0
-    if-nez v8, :cond_2
+    :goto_56
+    if-nez v8, :cond_68
 
     move-object v8, v6
 
@@ -174,28 +174,28 @@
 
     move-result v8
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_63
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_64
 
-    :cond_1
+    :cond_63
     const/4 v8, 0x0
 
-    :goto_1
-    if-nez v8, :cond_2
+    :goto_64
+    if-nez v8, :cond_68
 
     const/4 v8, 0x1
 
-    goto :goto_2
+    goto :goto_69
 
-    :cond_2
+    :cond_68
     const/4 v8, 0x0
 
     .line 108
-    :goto_2
-    if-eqz v8, :cond_13
+    :goto_69
+    if-eqz v8, :cond_182
 
     .line 112
     move-object v8, v5
@@ -206,17 +206,17 @@
 
     move-result v8
 
-    if-nez v8, :cond_3
+    if-nez v8, :cond_76
 
     const/4 v8, 0x1
 
-    goto :goto_3
+    goto :goto_77
 
-    :cond_3
+    :cond_76
     const/4 v8, 0x0
 
-    :goto_3
-    if-nez v8, :cond_5
+    :goto_77
+    if-nez v8, :cond_89
 
     move-object v8, v7
 
@@ -226,28 +226,28 @@
 
     move-result v8
 
-    if-nez v8, :cond_4
+    if-nez v8, :cond_84
 
     const/4 v8, 0x1
 
-    goto :goto_4
+    goto :goto_85
 
-    :cond_4
+    :cond_84
     const/4 v8, 0x0
 
-    :goto_4
-    if-nez v8, :cond_5
+    :goto_85
+    if-nez v8, :cond_89
 
     const/4 v8, 0x1
 
-    goto :goto_5
+    goto :goto_8a
 
-    :cond_5
+    :cond_89
     const/4 v8, 0x0
 
     .line 111
-    :goto_5
-    if-eqz v8, :cond_12
+    :goto_8a
+    if-eqz v8, :cond_174
 
     .line 116
     move-object v8, v4
@@ -268,7 +268,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_b7
 
     .line 117
     move-object v15, v4
@@ -295,24 +295,24 @@
 
     sub-int/2addr v12, v9
 
-    if-ne v8, v12, :cond_6
+    if-ne v8, v12, :cond_b5
 
-    goto :goto_6
+    goto :goto_b7
 
-    :cond_6
+    :cond_b5
     const/4 v8, 0x0
 
-    goto :goto_7
+    goto :goto_b8
 
-    :cond_7
-    :goto_6
+    :cond_b7
+    :goto_b7
     const/4 v8, 0x1
 
     .line 114
-    :goto_7
+    :goto_b8
     const-string v12, "Wildcard in package name is only allowed at the end."
 
-    if-eqz v8, :cond_11
+    if-eqz v8, :cond_168
 
     .line 122
     move-object v8, v5
@@ -327,7 +327,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_e3
 
     .line 123
     move-object v15, v5
@@ -354,24 +354,24 @@
 
     sub-int/2addr v15, v9
 
-    if-ne v8, v15, :cond_8
+    if-ne v8, v15, :cond_e1
 
-    goto :goto_8
+    goto :goto_e3
 
-    :cond_8
+    :cond_e1
     const/4 v8, 0x0
 
-    goto :goto_9
+    goto :goto_e4
 
-    :cond_9
-    :goto_8
+    :cond_e3
+    :goto_e3
     const/4 v8, 0x1
 
     .line 120
-    :goto_9
+    :goto_e4
     const-string v15, "Wildcard in class name is only allowed at the end."
 
-    if-eqz v8, :cond_10
+    if-eqz v8, :cond_15c
 
     .line 128
     move-object v8, v6
@@ -386,7 +386,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_b
+    if-eqz v8, :cond_113
 
     .line 129
     move-object/from16 v17, v6
@@ -415,22 +415,22 @@
 
     add-int/lit8 v9, v9, -0x1
 
-    if-ne v8, v9, :cond_a
+    if-ne v8, v9, :cond_111
 
-    goto :goto_a
+    goto :goto_113
 
-    :cond_a
+    :cond_111
     const/4 v8, 0x0
 
-    goto :goto_b
+    goto :goto_114
 
-    :cond_b
-    :goto_a
+    :cond_113
+    :goto_113
     const/4 v8, 0x1
 
     .line 126
-    :goto_b
-    if-eqz v8, :cond_f
+    :goto_114
+    if-eqz v8, :cond_150
 
     .line 134
     move-object v8, v7
@@ -443,7 +443,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_d
+    if-eqz v8, :cond_13e
 
     .line 135
     move-object/from16 v17, v7
@@ -472,26 +472,26 @@
 
     sub-int/2addr v9, v11
 
-    if-ne v8, v9, :cond_c
+    if-ne v8, v9, :cond_13c
 
-    goto :goto_c
+    goto :goto_13f
 
-    :cond_c
+    :cond_13c
     const/4 v9, 0x0
 
-    goto :goto_d
+    goto :goto_140
 
     .line 134
-    :cond_d
+    :cond_13e
     const/4 v11, 0x1
 
     .line 135
-    :goto_c
+    :goto_13f
     const/4 v9, 0x1
 
     .line 132
-    :goto_d
-    if-eqz v9, :cond_e
+    :goto_140
+    if-eqz v9, :cond_144
 
     .line 138
     .end local v4    # "primaryPackageName":Ljava/lang/String;
@@ -508,7 +508,7 @@
     .restart local v5    # "primaryClassName":Ljava/lang/String;
     .restart local v6    # "secondaryPackageName":Ljava/lang/String;
     .restart local v7    # "secondaryClassName":Ljava/lang/String;
-    :cond_e
+    :cond_144
     const/4 v8, 0x0
 
     .line 137
@@ -528,7 +528,7 @@
     throw v8
 
     .line 126
-    :cond_f
+    :cond_150
     const/4 v8, 0x0
 
     .line 131
@@ -548,7 +548,7 @@
     throw v8
 
     .line 120
-    :cond_10
+    :cond_15c
     const/4 v8, 0x0
 
     .line 125
@@ -568,7 +568,7 @@
     throw v8
 
     .line 114
-    :cond_11
+    :cond_168
     const/4 v8, 0x0
 
     .line 119
@@ -588,7 +588,7 @@
     throw v8
 
     .line 111
-    :cond_12
+    :cond_174
     const/4 v8, 0x0
 
     .line 113
@@ -610,7 +610,7 @@
     throw v8
 
     .line 108
-    :cond_13
+    :cond_182
     const/4 v8, 0x0
 
     .line 110
@@ -635,28 +635,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 141
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 142
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/window/embedding/SplitPairFilter;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 144
-    :cond_1
+    :cond_a
     iget-object v1, p0, Landroidx/window/embedding/SplitPairFilter;->primaryActivityName:Landroid/content/ComponentName;
 
     move-object v3, p1
@@ -669,12 +669,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     return v2
 
     .line 145
-    :cond_2
+    :cond_18
     iget-object v1, p0, Landroidx/window/embedding/SplitPairFilter;->secondaryActivityName:Landroid/content/ComponentName;
 
     move-object v3, p1
@@ -687,12 +687,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_26
 
     return v2
 
     .line 146
-    :cond_3
+    :cond_26
     iget-object v1, p0, Landroidx/window/embedding/SplitPairFilter;->secondaryActivityIntentAction:Ljava/lang/String;
 
     move-object v3, p1
@@ -705,17 +705,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_34
 
     return v2
 
     .line 148
-    :cond_4
+    :cond_34
     return v0
 .end method
 
 .method public final getPrimaryActivityName()Landroid/content/ComponentName;
-    .locals 1
+    .registers 2
 
     .line 39
     iget-object v0, p0, Landroidx/window/embedding/SplitPairFilter;->primaryActivityName:Landroid/content/ComponentName;
@@ -724,7 +724,7 @@
 .end method
 
 .method public final getSecondaryActivityIntentAction()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Landroidx/window/embedding/SplitPairFilter;->secondaryActivityIntentAction:Ljava/lang/String;
@@ -733,7 +733,7 @@
 .end method
 
 .method public final getSecondaryActivityName()Landroid/content/ComponentName;
-    .locals 1
+    .registers 2
 
     .line 49
     iget-object v0, p0, Landroidx/window/embedding/SplitPairFilter;->secondaryActivityName:Landroid/content/ComponentName;
@@ -742,7 +742,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 152
     iget-object v0, p0, Landroidx/window/embedding/SplitPairFilter;->primaryActivityName:Landroid/content/ComponentName;
@@ -770,18 +770,18 @@
 
     iget-object v2, p0, Landroidx/window/embedding/SplitPairFilter;->secondaryActivityIntentAction:Ljava/lang/String;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_17
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v2
 
-    :goto_0
+    :goto_1b
     add-int/2addr v0, v2
 
     .line 155
@@ -791,7 +791,7 @@
 .end method
 
 .method public final matchesActivityIntentPair(Landroid/app/Activity;Landroid/content/Intent;)Z
-    .locals 5
+    .registers 8
     .param p1, "primaryActivity"    # Landroid/app/Activity;
     .param p2, "secondaryActivityIntent"    # Landroid/content/Intent;
 
@@ -823,13 +823,13 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 83
-    goto :goto_0
+    goto :goto_3b
 
     .line 85
-    :cond_0
+    :cond_1b
     sget-object v1, Landroidx/window/embedding/MatcherUtils;->INSTANCE:Landroidx/window/embedding/MatcherUtils;
 
     invoke-virtual {p2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
@@ -842,16 +842,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2a
 
     .line 87
-    goto :goto_0
+    goto :goto_3b
 
     .line 89
-    :cond_1
+    :cond_2a
     iget-object v1, p0, Landroidx/window/embedding/SplitPairFilter;->secondaryActivityIntentAction:Ljava/lang/String;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3a
 
     .line 90
     iget-object v1, p0, Landroidx/window/embedding/SplitPairFilter;->secondaryActivityIntentAction:Ljava/lang/String;
@@ -864,14 +864,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3b
 
-    :cond_2
+    :cond_3a
     const/4 v2, 0x1
 
     .line 80
-    :cond_3
-    :goto_0
+    :cond_3b
+    :goto_3b
     move v1, v2
 
     .line 92
@@ -883,7 +883,7 @@
 .end method
 
 .method public final matchesActivityPair(Landroid/app/Activity;Landroid/app/Activity;)Z
-    .locals 5
+    .registers 8
     .param p1, "primaryActivity"    # Landroid/app/Activity;
     .param p2, "secondaryActivity"    # Landroid/app/Activity;
 
@@ -912,7 +912,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     .line 58
     sget-object v0, Landroidx/window/embedding/MatcherUtils;->INSTANCE:Landroidx/window/embedding/MatcherUtils;
@@ -927,17 +927,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_2a
     const/4 v0, 0x0
 
     .line 57
-    :goto_0
+    :goto_2b
     nop
 
     .line 60
@@ -946,10 +946,10 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_46
 
     .line 61
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_44
 
     invoke-virtual {p2}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
@@ -963,18 +963,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_44
 
-    goto :goto_1
+    goto :goto_45
 
-    :cond_1
+    :cond_44
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_45
     move v0, v1
 
     .line 64
-    :cond_2
+    :cond_46
     nop
 
     .line 72
@@ -982,7 +982,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 159
     new-instance v0, Ljava/lang/StringBuilder;

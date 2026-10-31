@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public final build$navigation_common_release()Landroidx/navigation/NavDeepLink;
-    .locals 5
+    .registers 6
 
     .line 59
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkDslBuilder;->builder:Landroidx/navigation/NavDeepLink$Builder;
@@ -94,34 +94,34 @@
     .local v2, "$i$a$-apply-NavDeepLinkDslBuilder$build$1":I
     iget-object v3, p0, Landroidx/navigation/NavDeepLinkDslBuilder;->uriPattern:Ljava/lang/String;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_13
 
     iget-object v3, p0, Landroidx/navigation/NavDeepLinkDslBuilder;->action:Ljava/lang/String;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_13
 
     iget-object v3, p0, Landroidx/navigation/NavDeepLinkDslBuilder;->mimeType:Ljava/lang/String;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v3, 0x1
 
-    :goto_1
-    if-eqz v3, :cond_5
+    :goto_14
+    if-eqz v3, :cond_35
 
     .line 63
     iget-object v3, p0, Landroidx/navigation/NavDeepLinkDslBuilder;->uriPattern:Ljava/lang/String;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1e
 
     .line 69
     .local v3, "it":Ljava/lang/String;
@@ -134,10 +134,10 @@
     .line 64
     .end local v3    # "it":Ljava/lang/String;
     .end local v4    # "$i$a$-let-NavDeepLinkDslBuilder$build$1$2":I
-    :cond_2
+    :cond_1e
     iget-object v3, p0, Landroidx/navigation/NavDeepLinkDslBuilder;->action:Ljava/lang/String;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_26
 
     .line 69
     .restart local v3    # "it":Ljava/lang/String;
@@ -150,10 +150,10 @@
     .line 65
     .end local v3    # "it":Ljava/lang/String;
     .end local v4    # "$i$a$-let-NavDeepLinkDslBuilder$build$1$3":I
-    :cond_3
+    :cond_26
     iget-object v3, p0, Landroidx/navigation/NavDeepLinkDslBuilder;->mimeType:Ljava/lang/String;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_2e
 
     .line 69
     .restart local v3    # "it":Ljava/lang/String;
@@ -166,7 +166,7 @@
     .line 66
     .end local v3    # "it":Ljava/lang/String;
     .end local v4    # "$i$a$-let-NavDeepLinkDslBuilder$build$1$4":I
-    :cond_4
+    :cond_2e
     nop
 
     .line 59
@@ -184,7 +184,7 @@
     .line 60
     .restart local v1    # "$this$build_u24lambda_u2d4":Landroidx/navigation/NavDeepLink$Builder;
     .restart local v2    # "$i$a$-apply-NavDeepLinkDslBuilder$build$1":I
-    :cond_5
+    :cond_35
     const/4 v0, 0x0
 
     .line 61
@@ -207,7 +207,7 @@
 .end method
 
 .method public final getAction()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkDslBuilder;->action:Ljava/lang/String;
@@ -216,7 +216,7 @@
 .end method
 
 .method public final getMimeType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkDslBuilder;->mimeType:Ljava/lang/String;
@@ -225,7 +225,7 @@
 .end method
 
 .method public final getUriPattern()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 38
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkDslBuilder;->uriPattern:Ljava/lang/String;
@@ -234,11 +234,11 @@
 .end method
 
 .method public final setAction(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "p"    # Ljava/lang/String;
 
     .line 48
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_19
 
     move-object v0, p1
 
@@ -248,22 +248,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_e
+    if-nez v0, :cond_11
 
-    goto :goto_1
+    goto :goto_19
 
     .line 49
-    :cond_1
+    :cond_11
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "The NavDeepLink cannot have an empty action."
@@ -273,8 +273,8 @@
     throw v0
 
     .line 51
-    :cond_2
-    :goto_1
+    :cond_19
+    :goto_19
     iput-object p1, p0, Landroidx/navigation/NavDeepLinkDslBuilder;->action:Ljava/lang/String;
 
     .line 52
@@ -282,7 +282,7 @@
 .end method
 
 .method public final setMimeType(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 57
@@ -292,7 +292,7 @@
 .end method
 
 .method public final setUriPattern(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 38

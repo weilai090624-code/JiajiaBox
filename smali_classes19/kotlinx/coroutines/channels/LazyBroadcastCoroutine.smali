@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/BroadcastChannel;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 5
     .param p1, "parentContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "channel"    # Lkotlinx/coroutines/channels/BroadcastChannel;
     .param p3, "block"    # Lkotlin/jvm/functions/Function2;
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method protected onStart()V
-    .locals 2
+    .registers 3
 
     .line 199
     iget-object v0, p0, Lkotlinx/coroutines/channels/LazyBroadcastCoroutine;->continuation:Lkotlin/coroutines/Continuation;
@@ -126,7 +126,7 @@
 .end method
 
 .method public openSubscription()Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 38
     invoke-direct {p0}, Landroidx/arch/core/executor/TaskExecutor;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method private static createAsync(Landroid/os/Looper;)Landroid/os/Handler;
-    .locals 7
+    .registers 8
     .param p0, "looper"    # Landroid/os/Looper;
 
     .line 84
@@ -58,7 +58,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 85
     invoke-static {p0}, Landroidx/arch/core/executor/DefaultTaskExecutor$Api28Impl;->createAsync(Landroid/os/Looper;)Landroid/os/Handler;
@@ -68,11 +68,11 @@
     return-object v0
 
     .line 86
-    :cond_0
+    :cond_b
     nop
 
     .line 90
-    :try_start_0
+    :try_start_c
     const-class v0, Landroid/os/Handler;
 
     const/4 v1, 0x3
@@ -121,17 +121,17 @@
     move-result-object v0
 
     check-cast v0, Landroid/os/Handler;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_37
+    .catch Ljava/lang/IllegalAccessException; {:try_start_c .. :try_end_37} :catch_43
+    .catch Ljava/lang/InstantiationException; {:try_start_c .. :try_end_37} :catch_41
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_c .. :try_end_37} :catch_3f
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_c .. :try_end_37} :catch_38
 
     .line 90
     return-object v0
 
     .line 96
-    :catch_0
+    :catch_38
     move-exception v0
 
     .line 97
@@ -144,23 +144,23 @@
 
     .line 95
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_3f
     move-exception v0
 
-    goto :goto_0
+    goto :goto_44
 
     .line 94
-    :catch_2
+    :catch_41
     move-exception v0
 
-    goto :goto_0
+    goto :goto_44
 
     .line 93
-    :catch_3
+    :catch_43
     move-exception v0
 
     .line 98
-    :goto_0
+    :goto_44
     nop
 
     .line 100
@@ -174,7 +174,7 @@
 
 # virtual methods
 .method public executeOnDiskIO(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 60
@@ -187,7 +187,7 @@
 .end method
 
 .method public isMainThread()Z
-    .locals 2
+    .registers 3
 
     .line 78
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -202,27 +202,27 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public postToMainThread(Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 4
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 65
     iget-object v0, p0, Landroidx/arch/core/executor/DefaultTaskExecutor;->mMainHandler:Landroid/os/Handler;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
     .line 66
     iget-object v0, p0, Landroidx/arch/core/executor/DefaultTaskExecutor;->mLock:Ljava/lang/Object;
@@ -230,10 +230,10 @@
     monitor-enter v0
 
     .line 67
-    :try_start_0
+    :try_start_7
     iget-object v1, p0, Landroidx/arch/core/executor/DefaultTaskExecutor;->mMainHandler:Landroid/os/Handler;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     .line 68
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -247,23 +247,23 @@
     iput-object v1, p0, Landroidx/arch/core/executor/DefaultTaskExecutor;->mMainHandler:Landroid/os/Handler;
 
     .line 70
-    :cond_0
+    :cond_15
     monitor-exit v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :catchall_0
+    :catchall_17
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_7 .. :try_end_19} :catchall_17
 
     throw v1
 
     .line 73
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     iget-object v0, p0, Landroidx/arch/core/executor/DefaultTaskExecutor;->mMainHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$spliterator(Ljava/util/SortedSet;)Lj$/util/Spliterator;
-    .locals 2
+    .registers 3
     .param p0, "_this"    # Ljava/util/SortedSet;
 
     .line 256

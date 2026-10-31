@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 651
     const-class v0, Lj$/util/stream/DoublePipeline;
@@ -39,7 +39,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;Lj$/util/stream/StreamShape;I)V
-    .locals 0
+    .registers 4
     .param p2, "inputShape"    # Lj$/util/stream/StreamShape;
     .param p3, "opFlags"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 651
     .local p0, "this":Lj$/util/stream/DoublePipeline$StatefulOp;, "Ljava/util/stream/DoublePipeline$StatefulOp<TE_IN;>;"
@@ -79,7 +79,7 @@
 .end method
 
 .method bridge synthetic lazySpliterator(Ljava/util/function/Supplier;)Lj$/util/Spliterator;
-    .locals 0
+    .registers 2
 
     .line 651
     .local p0, "this":Lj$/util/stream/DoublePipeline$StatefulOp;, "Ljava/util/stream/DoublePipeline$StatefulOp<TE_IN;>;"
@@ -113,7 +113,7 @@
 .end method
 
 .method final opIsStateful()Z
-    .locals 1
+    .registers 2
 
     .line 669
     .local p0, "this":Lj$/util/stream/DoublePipeline$StatefulOp;, "Ljava/util/stream/DoublePipeline$StatefulOp<TE_IN;>;"
@@ -123,7 +123,7 @@
 .end method
 
 .method public bridge synthetic parallel()Lj$/util/stream/DoubleStream;
-    .locals 1
+    .registers 2
 
     .line 651
     .local p0, "this":Lj$/util/stream/DoublePipeline$StatefulOp;, "Ljava/util/stream/DoublePipeline$StatefulOp<TE_IN;>;"
@@ -137,7 +137,7 @@
 .end method
 
 .method public bridge synthetic sequential()Lj$/util/stream/DoubleStream;
-    .locals 1
+    .registers 2
 
     .line 651
     .local p0, "this":Lj$/util/stream/DoublePipeline$StatefulOp;, "Ljava/util/stream/DoublePipeline$StatefulOp<TE_IN;>;"
@@ -151,7 +151,7 @@
 .end method
 
 .method public bridge synthetic spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 651
     .local p0, "this":Lj$/util/stream/DoublePipeline$StatefulOp;, "Ljava/util/stream/DoublePipeline$StatefulOp<TE_IN;>;"
@@ -163,7 +163,7 @@
 .end method
 
 .method public bridge synthetic unordered()Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
 
     .line 651
     .local p0, "this":Lj$/util/stream/DoublePipeline$StatefulOp;, "Ljava/util/stream/DoublePipeline$StatefulOp<TE_IN;>;"

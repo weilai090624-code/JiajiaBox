@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;
 
     .line 1637
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 4
+    .registers 6
     .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
     .line 1640

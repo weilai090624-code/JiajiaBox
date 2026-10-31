@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 838
     .local p0, "this":Lj$/util/Spliterators$EmptySpliterator;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>;"
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 858
     .local p0, "this":Lj$/util/Spliterators$EmptySpliterator;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>;"
@@ -60,7 +60,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 2
+    .registers 3
 
     .line 854
     .local p0, "this":Lj$/util/Spliterators$EmptySpliterator;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>;"
@@ -70,7 +70,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)V"
@@ -87,7 +87,7 @@
 .end method
 
 .method public tryAdvance(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)Z"
@@ -106,7 +106,7 @@
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TS;"

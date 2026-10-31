@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/FastScroller;)V
-    .locals 0
+    .registers 2
 
     .line 577
     iput-object p1, p0, Landroidx/recyclerview/widget/FastScroller$AnimatorUpdater;->this$0:Landroidx/recyclerview/widget/FastScroller;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
     .param p1, "valueAnimator"    # Landroid/animation/ValueAnimator;
 
     .line 582

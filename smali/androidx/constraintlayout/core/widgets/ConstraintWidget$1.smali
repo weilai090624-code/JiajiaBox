@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 2902
     invoke-static {}, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->values()[Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
@@ -37,7 +37,7 @@
 
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_a
     sget-object v1, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintWidget$DimensionBehaviour:[I
 
     sget-object v2, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
@@ -47,18 +47,18 @@
     move-result v2
 
     aput v0, v1, v2
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_14} :catch_15
 
-    goto :goto_0
+    goto :goto_16
 
-    :catch_0
+    :catch_15
     move-exception v1
 
-    :goto_0
+    :goto_16
     const/4 v1, 0x2
 
-    :try_start_1
+    :try_start_17
     sget-object v2, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintWidget$DimensionBehaviour:[I
 
     sget-object v3, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
@@ -68,18 +68,18 @@
     move-result v3
 
     aput v1, v2, v3
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_21
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_17 .. :try_end_21} :catch_22
 
-    goto :goto_1
+    goto :goto_23
 
-    :catch_1
+    :catch_22
     move-exception v2
 
-    :goto_1
+    :goto_23
     const/4 v2, 0x3
 
-    :try_start_2
+    :try_start_24
     sget-object v3, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintWidget$DimensionBehaviour:[I
 
     sget-object v4, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_PARENT:Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
@@ -89,18 +89,18 @@
     move-result v4
 
     aput v2, v3, v4
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_2e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_24 .. :try_end_2e} :catch_2f
 
-    goto :goto_2
+    goto :goto_30
 
-    :catch_2
+    :catch_2f
     move-exception v3
 
-    :goto_2
+    :goto_30
     const/4 v3, 0x4
 
-    :try_start_3
+    :try_start_31
     sget-object v4, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintWidget$DimensionBehaviour:[I
 
     sget-object v5, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
@@ -110,16 +110,16 @@
     move-result v5
 
     aput v3, v4, v5
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_3b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_31 .. :try_end_3b} :catch_3c
 
-    goto :goto_3
+    goto :goto_3d
 
-    :catch_3
+    :catch_3c
     move-exception v4
 
     .line 1351
-    :goto_3
+    :goto_3d
     invoke-static {}, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->values()[Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
 
     move-result-object v4
@@ -130,7 +130,7 @@
 
     sput-object v4, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type:[I
 
-    :try_start_4
+    :try_start_46
     sget-object v4, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type:[I
 
     sget-object v5, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->LEFT:Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
@@ -140,16 +140,16 @@
     move-result v5
 
     aput v0, v4, v5
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_4
+    :try_end_50
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_46 .. :try_end_50} :catch_51
 
-    goto :goto_4
+    goto :goto_52
 
-    :catch_4
+    :catch_51
     move-exception v0
 
-    :goto_4
-    :try_start_5
+    :goto_52
+    :try_start_52
     sget-object v0, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type:[I
 
     sget-object v4, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->TOP:Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
@@ -159,16 +159,16 @@
     move-result v4
 
     aput v1, v0, v4
-    :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
+    :try_end_5c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_52 .. :try_end_5c} :catch_5d
 
-    goto :goto_5
+    goto :goto_5e
 
-    :catch_5
+    :catch_5d
     move-exception v0
 
-    :goto_5
-    :try_start_6
+    :goto_5e
+    :try_start_5e
     sget-object v0, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type:[I
 
     sget-object v1, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->RIGHT:Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
@@ -178,16 +178,16 @@
     move-result v1
 
     aput v2, v0, v1
-    :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_6
+    :try_end_68
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5e .. :try_end_68} :catch_69
 
-    goto :goto_6
+    goto :goto_6a
 
-    :catch_6
+    :catch_69
     move-exception v0
 
-    :goto_6
-    :try_start_7
+    :goto_6a
+    :try_start_6a
     sget-object v0, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type:[I
 
     sget-object v1, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->BOTTOM:Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
@@ -197,16 +197,16 @@
     move-result v1
 
     aput v3, v0, v1
-    :try_end_7
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_7
+    :try_end_74
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6a .. :try_end_74} :catch_75
 
-    goto :goto_7
+    goto :goto_76
 
-    :catch_7
+    :catch_75
     move-exception v0
 
-    :goto_7
-    :try_start_8
+    :goto_76
+    :try_start_76
     sget-object v0, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type:[I
 
     sget-object v1, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->BASELINE:Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
@@ -218,16 +218,16 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_8
+    :try_end_81
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_76 .. :try_end_81} :catch_82
 
-    goto :goto_8
+    goto :goto_83
 
-    :catch_8
+    :catch_82
     move-exception v0
 
-    :goto_8
-    :try_start_9
+    :goto_83
+    :try_start_83
     sget-object v0, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type:[I
 
     sget-object v1, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->CENTER:Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
@@ -239,16 +239,16 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_9
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_9
+    :try_end_8e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_83 .. :try_end_8e} :catch_8f
 
-    goto :goto_9
+    goto :goto_90
 
-    :catch_9
+    :catch_8f
     move-exception v0
 
-    :goto_9
-    :try_start_a
+    :goto_90
+    :try_start_90
     sget-object v0, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type:[I
 
     sget-object v1, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->CENTER_X:Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
@@ -260,16 +260,16 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_a
+    :try_end_9b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_90 .. :try_end_9b} :catch_9c
 
-    goto :goto_a
+    goto :goto_9d
 
-    :catch_a
+    :catch_9c
     move-exception v0
 
-    :goto_a
-    :try_start_b
+    :goto_9d
+    :try_start_9d
     sget-object v0, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type:[I
 
     sget-object v1, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->CENTER_Y:Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
@@ -281,16 +281,16 @@
     const/16 v2, 0x8
 
     aput v2, v0, v1
-    :try_end_b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_b
+    :try_end_a9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9d .. :try_end_a9} :catch_aa
 
-    goto :goto_b
+    goto :goto_ab
 
-    :catch_b
+    :catch_aa
     move-exception v0
 
-    :goto_b
-    :try_start_c
+    :goto_ab
+    :try_start_ab
     sget-object v0, Landroidx/constraintlayout/core/widgets/ConstraintWidget$1;->$SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type:[I
 
     sget-object v1, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->NONE:Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
@@ -302,14 +302,14 @@
     const/16 v2, 0x9
 
     aput v2, v0, v1
-    :try_end_c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_c
+    :try_end_b7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_ab .. :try_end_b7} :catch_b8
 
-    goto :goto_c
+    goto :goto_b9
 
-    :catch_c
+    :catch_b8
     move-exception v0
 
-    :goto_c
+    :goto_b9
     return-void
 .end method

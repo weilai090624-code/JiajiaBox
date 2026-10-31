@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>([Z)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # [Z
 
     iput-object p1, p0, Lkotlin/collections/ArraysKt___ArraysJvmKt$asList$7;->$this_asList:[Z
@@ -79,19 +79,19 @@
 
 # virtual methods
 .method public final bridge contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 224
     instance-of v0, p1, Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Boolean;
@@ -108,7 +108,7 @@
 .end method
 
 .method public contains(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Z
 
     .line 227
@@ -122,7 +122,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Boolean;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 228
@@ -138,7 +138,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 224
@@ -150,7 +150,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 225
     iget-object v0, p0, Lkotlin/collections/ArraysKt___ArraysJvmKt$asList$7;->$this_asList:[Z
@@ -161,19 +161,19 @@
 .end method
 
 .method public final bridge indexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 224
     instance-of v0, p1, Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Boolean;
@@ -190,7 +190,7 @@
 .end method
 
 .method public indexOf(Z)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Z
 
     .line 229
@@ -204,40 +204,40 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 226
     iget-object v0, p0, Lkotlin/collections/ArraysKt___ArraysJvmKt$asList$7;->$this_asList:[Z
 
     array-length v0, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public final bridge lastIndexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 224
     instance-of v0, p1, Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Boolean;
@@ -254,7 +254,7 @@
 .end method
 
 .method public lastIndexOf(Z)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Z
 
     .line 230

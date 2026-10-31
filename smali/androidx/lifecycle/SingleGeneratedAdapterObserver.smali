@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/GeneratedAdapter;)V
-    .locals 1
+    .registers 3
     .param p1, "generatedAdapter"    # Landroidx/lifecycle/GeneratedAdapter;
 
     const-string v0, "generatedAdapter"
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 3
+    .registers 6
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 

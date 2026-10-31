@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;Ljava/util/Comparator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
 
     .line 384
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public bridge synthetic build()Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
 
     .line 384
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;"
@@ -58,7 +58,7 @@
 .end method
 
 .method public bridge synthetic build()Lcom/google/common/collect/SetMultimap;
-    .locals 1
+    .registers 2
 
     .line 384
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;"
@@ -70,7 +70,7 @@
 .end method
 
 .method public build()Lcom/google/common/collect/SortedSetMultimap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:TK0;V:TV0;>()",

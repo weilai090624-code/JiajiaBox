@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 302
     invoke-direct {p0}, Landroidx/emoji2/text/DefaultEmojiCompatConfig$DefaultEmojiCompatConfigHelper;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getProviderInfo(Landroid/content/pm/ResolveInfo;)Landroid/content/pm/ProviderInfo;
-    .locals 1
+    .registers 3
     .param p1, "resolveInfo"    # Landroid/content/pm/ResolveInfo;
 
     .line 315
@@ -37,7 +37,7 @@
 .end method
 
 .method public queryIntentContentProviders(Landroid/content/pm/PackageManager;Landroid/content/Intent;I)Ljava/util/List;
-    .locals 1
+    .registers 5
     .param p1, "packageManager"    # Landroid/content/pm/PackageManager;
     .param p2, "intent"    # Landroid/content/Intent;
     .param p3, "flags"    # I

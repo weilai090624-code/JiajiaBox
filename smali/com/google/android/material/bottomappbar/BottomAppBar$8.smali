@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomappbar/BottomAppBar;Landroidx/appcompat/widget/ActionMenuView;IZ)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/google/android/material/bottomappbar/BottomAppBar;
 
     .line 1105
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 1108
     iget-object v0, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$8;->val$actionMenuView:Landroidx/appcompat/widget/ActionMenuView;

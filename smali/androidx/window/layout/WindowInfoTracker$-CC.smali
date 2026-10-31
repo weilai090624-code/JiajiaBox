@@ -5,7 +5,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     sget-object v0, Landroidx/window/layout/WindowInfoTracker;->Companion:Landroidx/window/layout/WindowInfoTracker$Companion;
 
@@ -13,7 +13,7 @@
 .end method
 
 .method public static getOrCreate(Landroid/content/Context;)Landroidx/window/layout/WindowInfoTracker;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -28,7 +28,7 @@
 .end method
 
 .method public static overrideDecorator(Landroidx/window/layout/WindowInfoTrackerDecorator;)V
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public static reset()V
-    .locals 1
+    .registers 1
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 

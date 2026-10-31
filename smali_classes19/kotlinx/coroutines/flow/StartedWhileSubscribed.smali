@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(JJ)V
-    .locals 8
+    .registers 13
     .param p1, "stopTimeout"    # J
     .param p3, "replayExpiration"    # J
 
@@ -82,34 +82,34 @@
 
     cmp-long v6, v0, v4
 
-    if-ltz v6, :cond_0
+    if-ltz v6, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     const-string v1, " ms) cannot be negative"
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_49
 
     .line 172
     iget-wide v6, p0, Lkotlinx/coroutines/flow/StartedWhileSubscribed;->replayExpiration:J
 
     cmp-long v0, v6, v4
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_20
 
-    goto :goto_1
+    goto :goto_21
 
-    :cond_1
+    :cond_20
     const/4 v2, 0x0
 
-    :goto_1
-    if-eqz v2, :cond_2
+    :goto_21
+    if-eqz v2, :cond_25
 
     .line 173
     nop
@@ -118,7 +118,7 @@
     return-void
 
     .line 210
-    :cond_2
+    :cond_25
     const/4 v0, 0x0
 
     .line 172
@@ -159,7 +159,7 @@
     throw v1
 
     .line 210
-    :cond_3
+    :cond_49
     const/4 v0, 0x0
 
     .line 171
@@ -201,7 +201,7 @@
 .end method
 
 .method public static final synthetic access$getReplayExpiration$p(Lkotlinx/coroutines/flow/StartedWhileSubscribed;)J
-    .locals 2
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/flow/StartedWhileSubscribed;
 
     .line 166
@@ -211,7 +211,7 @@
 .end method
 
 .method public static final synthetic access$getStopTimeout$p(Lkotlinx/coroutines/flow/StartedWhileSubscribed;)J
-    .locals 2
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/flow/StartedWhileSubscribed;
 
     .line 166
@@ -223,7 +223,7 @@
 
 # virtual methods
 .method public command(Lkotlinx/coroutines/flow/StateFlow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 5
     .param p1, "subscriptionCount"    # Lkotlinx/coroutines/flow/StateFlow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -275,13 +275,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 202
     instance-of v0, p1, Lkotlinx/coroutines/flow/StartedWhileSubscribed;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 203
     iget-wide v0, p0, Lkotlinx/coroutines/flow/StartedWhileSubscribed;->stopTimeout:J
@@ -294,7 +294,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1c
 
     .line 204
     iget-wide v0, p0, Lkotlinx/coroutines/flow/StartedWhileSubscribed;->replayExpiration:J
@@ -307,21 +307,21 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1d
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 207
     iget-wide v0, p0, Lkotlinx/coroutines/flow/StartedWhileSubscribed;->stopTimeout:J
@@ -344,7 +344,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 11
+    .registers 12
 
     .line 193
     const/4 v0, 0x2
@@ -368,7 +368,7 @@
 
     cmp-long v8, v3, v5
 
-    if-lez v8, :cond_0
+    if-lez v8, :cond_2d
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -397,14 +397,14 @@
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 195
-    :cond_0
+    :cond_2d
     iget-wide v3, p0, Lkotlinx/coroutines/flow/StartedWhileSubscribed;->replayExpiration:J
 
     const-wide v5, 0x7fffffffffffffffL
 
     cmp-long v8, v3, v5
 
-    if-gez v8, :cond_1
+    if-gez v8, :cond_54
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -433,7 +433,7 @@
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 196
-    :cond_1
+    :cond_54
     nop
 
     .line 193

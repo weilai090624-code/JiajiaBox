@@ -59,7 +59,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/NavigableMap;Lcom/google/common/base/Predicate;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,7 +102,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;)Lcom/google/common/base/Predicate;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;
 
     .line 3135
@@ -112,7 +112,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;)Ljava/util/NavigableMap;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;
 
     .line 3135
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 3231
     .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
@@ -137,7 +137,7 @@
 .end method
 
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -161,7 +161,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -179,7 +179,7 @@
 .end method
 
 .method descendingEntryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -215,7 +215,7 @@
 .end method
 
 .method public descendingMap()Ljava/util/NavigableMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -242,7 +242,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -274,7 +274,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -296,7 +296,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -324,7 +324,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -357,7 +357,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 2
+    .registers 3
 
     .line 3198
     .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
@@ -379,7 +379,7 @@
 .end method
 
 .method public navigableKeySet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -398,7 +398,7 @@
 .end method
 
 .method public pollFirstEntry()Ljava/util/Map$Entry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -430,7 +430,7 @@
 .end method
 
 .method public pollLastEntry()Ljava/util/Map$Entry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -466,7 +466,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -498,7 +498,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -519,7 +519,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -547,7 +547,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 3193
     .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
@@ -561,7 +561,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 2
+    .registers 7
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -602,7 +602,7 @@
 .end method
 
 .method public tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -635,7 +635,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

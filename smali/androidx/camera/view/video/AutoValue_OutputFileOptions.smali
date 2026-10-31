@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/io/File;Landroid/os/ParcelFileDescriptor;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;Landroidx/camera/view/video/Metadata;)V
-    .locals 0
+    .registers 7
     .param p1, "file"    # Ljava/io/File;
     .param p2, "fileDescriptor"    # Landroid/os/ParcelFileDescriptor;
     .param p3, "contentResolver"    # Landroid/content/ContentResolver;
@@ -79,7 +79,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/io/File;Landroid/os/ParcelFileDescriptor;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;Landroidx/camera/view/video/Metadata;Landroidx/camera/view/video/AutoValue_OutputFileOptions$1;)V
-    .locals 0
+    .registers 8
     .param p1, "x0"    # Ljava/io/File;
     .param p2, "x1"    # Landroid/os/ParcelFileDescriptor;
     .param p3, "x2"    # Landroid/content/ContentResolver;
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -111,18 +111,18 @@
     .line 93
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 94
     return v0
 
     .line 96
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/camera/view/video/OutputFileOptions;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8e
 
     .line 97
     move-object v1, p1
@@ -133,17 +133,17 @@
     .local v1, "that":Landroidx/camera/view/video/OutputFileOptions;
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->file:Ljava/io/File;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_17
 
     invoke-virtual {v1}, Landroidx/camera/view/video/OutputFileOptions;->getFile()Ljava/io/File;
 
     move-result-object v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_8c
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_17
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->file:Ljava/io/File;
 
     invoke-virtual {v1}, Landroidx/camera/view/video/OutputFileOptions;->getFile()Ljava/io/File;
@@ -154,23 +154,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_8c
 
-    :goto_0
+    :goto_23
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->fileDescriptor:Landroid/os/ParcelFileDescriptor;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_2e
 
     .line 99
     invoke-virtual {v1}, Landroidx/camera/view/video/OutputFileOptions;->getFileDescriptor()Landroid/os/ParcelFileDescriptor;
 
     move-result-object v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_8c
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_2
+    :cond_2e
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->fileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v1}, Landroidx/camera/view/video/OutputFileOptions;->getFileDescriptor()Landroid/os/ParcelFileDescriptor;
@@ -181,23 +181,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_8c
 
-    :goto_1
+    :goto_3a
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->contentResolver:Landroid/content/ContentResolver;
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_45
 
     .line 100
     invoke-virtual {v1}, Landroidx/camera/view/video/OutputFileOptions;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_8c
 
-    goto :goto_2
+    goto :goto_51
 
-    :cond_3
+    :cond_45
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->contentResolver:Landroid/content/ContentResolver;
 
     invoke-virtual {v1}, Landroidx/camera/view/video/OutputFileOptions;->getContentResolver()Landroid/content/ContentResolver;
@@ -208,23 +208,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_8c
 
-    :goto_2
+    :goto_51
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->saveCollection:Landroid/net/Uri;
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_5c
 
     .line 101
     invoke-virtual {v1}, Landroidx/camera/view/video/OutputFileOptions;->getSaveCollection()Landroid/net/Uri;
 
     move-result-object v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_8c
 
-    goto :goto_3
+    goto :goto_68
 
-    :cond_4
+    :cond_5c
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->saveCollection:Landroid/net/Uri;
 
     invoke-virtual {v1}, Landroidx/camera/view/video/OutputFileOptions;->getSaveCollection()Landroid/net/Uri;
@@ -235,23 +235,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_8c
 
-    :goto_3
+    :goto_68
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->contentValues:Landroid/content/ContentValues;
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_73
 
     .line 102
     invoke-virtual {v1}, Landroidx/camera/view/video/OutputFileOptions;->getContentValues()Landroid/content/ContentValues;
 
     move-result-object v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_8c
 
-    goto :goto_4
+    goto :goto_7f
 
-    :cond_5
+    :cond_73
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->contentValues:Landroid/content/ContentValues;
 
     invoke-virtual {v1}, Landroidx/camera/view/video/OutputFileOptions;->getContentValues()Landroid/content/ContentValues;
@@ -262,9 +262,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_8c
 
-    :goto_4
+    :goto_7f
     iget-object v3, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->metadata:Landroidx/camera/view/video/Metadata;
 
     .line 103
@@ -276,25 +276,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_8c
 
-    goto :goto_5
+    goto :goto_8d
 
-    :cond_6
+    :cond_8c
     const/4 v0, 0x0
 
     .line 98
-    :goto_5
+    :goto_8d
     return v0
 
     .line 105
     .end local v1    # "that":Landroidx/camera/view/video/OutputFileOptions;
-    :cond_7
+    :cond_8e
     return v2
 .end method
 
 .method getContentResolver()Landroid/content/ContentResolver;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->contentResolver:Landroid/content/ContentResolver;
@@ -303,7 +303,7 @@
 .end method
 
 .method getContentValues()Landroid/content/ContentValues;
-    .locals 1
+    .registers 2
 
     .line 70
     iget-object v0, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->contentValues:Landroid/content/ContentValues;
@@ -312,7 +312,7 @@
 .end method
 
 .method getFile()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->file:Ljava/io/File;
@@ -321,7 +321,7 @@
 .end method
 
 .method getFileDescriptor()Landroid/os/ParcelFileDescriptor;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->fileDescriptor:Landroid/os/ParcelFileDescriptor;
@@ -330,7 +330,7 @@
 .end method
 
 .method public getMetadata()Landroidx/camera/view/video/Metadata;
-    .locals 1
+    .registers 2
 
     .line 76
     iget-object v0, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->metadata:Landroidx/camera/view/video/Metadata;
@@ -339,7 +339,7 @@
 .end method
 
 .method getSaveCollection()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->saveCollection:Landroid/net/Uri;
@@ -348,7 +348,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 110
     const/4 v0, 0x1
@@ -364,20 +364,20 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_d
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_d
     iget-object v2, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->file:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->hashCode()I
 
     move-result v2
 
-    :goto_0
+    :goto_13
     xor-int/2addr v0, v2
 
     .line 113
@@ -386,20 +386,20 @@
     .line 114
     iget-object v2, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->fileDescriptor:Landroid/os/ParcelFileDescriptor;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1c
 
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_1c
     iget-object v2, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->fileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    :goto_1
+    :goto_22
     xor-int/2addr v0, v2
 
     .line 115
@@ -408,20 +408,20 @@
     .line 116
     iget-object v2, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->contentResolver:Landroid/content/ContentResolver;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2b
 
     const/4 v2, 0x0
 
-    goto :goto_2
+    goto :goto_31
 
-    :cond_2
+    :cond_2b
     iget-object v2, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->contentResolver:Landroid/content/ContentResolver;
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    :goto_2
+    :goto_31
     xor-int/2addr v0, v2
 
     .line 117
@@ -430,20 +430,20 @@
     .line 118
     iget-object v2, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->saveCollection:Landroid/net/Uri;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_3a
 
     const/4 v2, 0x0
 
-    goto :goto_3
+    goto :goto_40
 
-    :cond_3
+    :cond_3a
     iget-object v2, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->saveCollection:Landroid/net/Uri;
 
     invoke-virtual {v2}, Landroid/net/Uri;->hashCode()I
 
     move-result v2
 
-    :goto_3
+    :goto_40
     xor-int/2addr v0, v2
 
     .line 119
@@ -452,18 +452,18 @@
     .line 120
     iget-object v2, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->contentValues:Landroid/content/ContentValues;
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_48
 
-    goto :goto_4
+    goto :goto_4e
 
-    :cond_4
+    :cond_48
     iget-object v2, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions;->contentValues:Landroid/content/ContentValues;
 
     invoke-virtual {v2}, Landroid/content/ContentValues;->hashCode()I
 
     move-result v3
 
-    :goto_4
+    :goto_4e
     xor-int/2addr v0, v3
 
     .line 121
@@ -483,7 +483,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 81
     new-instance v0, Ljava/lang/StringBuilder;

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/FilteredEntryMultimap$AsMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/google/common/collect/FilteredEntryMultimap$AsMap;
 
     .line 301
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public remove(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -56,7 +56,7 @@
     .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap$AsMap$1ValuesImpl;, "Lcom/google/common/collect/FilteredEntryMultimap$AsMap$1ValuesImpl;"
     instance-of v0, p1, Ljava/util/Collection;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_63
 
     .line 308
     move-object v0, p1
@@ -86,12 +86,12 @@
 
     .line 311
     .local v1, "entryIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;>;"
-    :goto_0
+    :goto_19
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_63
 
     .line 312
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -135,13 +135,13 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_62
 
     invoke-interface {v0, v4}, Ljava/util/Collection;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_62
 
     .line 317
     invoke-interface {v4}, Ljava/util/Collection;->size()I
@@ -158,19 +158,19 @@
 
     move-result v6
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v6, :cond_5d
 
     .line 318
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_1
+    goto :goto_60
 
     .line 320
-    :cond_0
+    :cond_5d
     invoke-interface {v4}, Ljava/util/Collection;->clear()V
 
     .line 322
-    :goto_1
+    :goto_60
     const/4 v5, 0x1
 
     return v5
@@ -179,20 +179,20 @@
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     .end local v3    # "key":Ljava/lang/Object;, "TK;"
     .end local v4    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    :cond_1
-    goto :goto_0
+    :cond_62
+    goto :goto_19
 
     .line 326
     .end local v0    # "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     .end local v1    # "entryIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;>;"
-    :cond_2
+    :cond_63
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -224,7 +224,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

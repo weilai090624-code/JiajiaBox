@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/Channel;)V
-    .locals 1
+    .registers 4
     .param p1, "parentContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "channel"    # Lkotlinx/coroutines/channels/Channel;
     .annotation system Ldalvik/annotation/Signature;
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public bridge synthetic getChannel()Lkotlinx/coroutines/channels/SendChannel;
-    .locals 1
+    .registers 2
 
     .line 136
     invoke-virtual {p0}, Lkotlinx/coroutines/channels/ProducerCoroutine;->getChannel()Lkotlinx/coroutines/channels/Channel;
@@ -95,7 +95,7 @@
 .end method
 
 .method public isActive()Z
-    .locals 1
+    .registers 2
 
     .line 140
     invoke-super {p0}, Lkotlinx/coroutines/channels/ChannelCoroutine;->isActive()Z
@@ -106,7 +106,7 @@
 .end method
 
 .method protected onCancelled(Ljava/lang/Throwable;Z)V
-    .locals 2
+    .registers 5
     .param p1, "cause"    # Ljava/lang/Throwable;
     .param p2, "handled"    # Z
 
@@ -121,9 +121,9 @@
 
     .line 148
     .local v0, "processed":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_13
 
     invoke-virtual {p0}, Lkotlinx/coroutines/channels/ProducerCoroutine;->getContext()Lkotlin/coroutines/CoroutineContext;
 
@@ -132,12 +132,12 @@
     invoke-static {v1, p1}, Lkotlinx/coroutines/CoroutineExceptionHandlerKt;->handleCoroutineException(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Throwable;)V
 
     .line 149
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public bridge synthetic onCompleted(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 136
@@ -151,7 +151,7 @@
 .end method
 
 .method protected onCompleted(Lkotlin/Unit;)V
-    .locals 3
+    .registers 5
     .param p1, "value"    # Lkotlin/Unit;
 
     .line 143

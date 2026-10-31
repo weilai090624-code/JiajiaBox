@@ -995,7 +995,7 @@
 
     new-array p2, p2, [F
 
-    fill-array-data p2, :array_58
+    fill-array-data p2, :array_5c
 
     invoke-static {p2}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -1041,12 +1041,15 @@
     sget-object p0, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->transition:Landroid/animation/ValueAnimator;
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {p0}, Landroid/animation/ValueAnimator;->start()V
 
     .line 274
     return-void
 
-    :array_58
+    nop
+
+    :array_5c
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -1891,7 +1894,18 @@
 .method static synthetic lambda$home$4(Ljava/lang/Runnable;Landroid/view/View;IIIIIIII)V
     .registers 10
 
+    if-ne p2, p6, :cond_9
+
+    if-ne p3, p7, :cond_9
+
+    if-ne p4, p8, :cond_9
+
+    if-ne p5, p9, :cond_9
+
+    return-void
+
     .line 217
+    :cond_9
     invoke-interface {p0}, Ljava/lang/Runnable;->run()V
 
     return-void
@@ -1900,7 +1914,18 @@
 .method static synthetic lambda$home$5(Landroid/view/View;Landroid/view/View;IIIIIIII)V
     .registers 10
 
+    if-ne p2, p6, :cond_9
+
+    if-ne p3, p7, :cond_9
+
+    if-ne p4, p8, :cond_9
+
+    if-ne p5, p9, :cond_9
+
+    return-void
+
     .line 220
+    :cond_9
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object p1

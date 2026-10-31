@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/net/URL;)V
-    .locals 1
+    .registers 3
     .param p1, "url"    # Ljava/net/URL;
 
     .line 66
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/net/URL;Lcom/google/common/io/Resources$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/net/URL;
     .param p2, "x1"    # Lcom/google/common/io/Resources$1;
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public openStream()Ljava/io/InputStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -71,7 +71,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 77
     iget-object v0, p0, Lcom/google/common/io/Resources$UrlByteSource;->url:Ljava/net/URL;

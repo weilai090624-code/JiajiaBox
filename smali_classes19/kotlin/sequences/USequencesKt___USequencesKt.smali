@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public static final sumOfUByte(Lkotlin/sequences/Sequence;)I
-    .locals 4
+    .registers 5
     .param p0, "$this$sum"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -68,12 +68,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -100,15 +100,15 @@
     move-result v0
 
     .end local v2    # "element":B
-    goto :goto_0
+    goto :goto_a
 
     .line 64
-    :cond_0
+    :cond_26
     return v0
 .end method
 
 .method public static final sumOfUInt(Lkotlin/sequences/Sequence;)I
-    .locals 4
+    .registers 5
     .param p0, "$this$sum"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -132,12 +132,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -158,15 +158,15 @@
     move-result v0
 
     .end local v2    # "element":I
-    goto :goto_0
+    goto :goto_a
 
     .line 32
-    :cond_0
+    :cond_21
     return v0
 .end method
 
 .method public static final sumOfULong(Lkotlin/sequences/Sequence;)J
-    .locals 7
+    .registers 8
     .param p0, "$this$sum"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -190,12 +190,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_b
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -216,15 +216,15 @@
     move-result-wide v0
 
     .end local v3    # "element":J
-    goto :goto_0
+    goto :goto_b
 
     .line 48
-    :cond_0
+    :cond_22
     return-wide v0
 .end method
 
 .method public static final sumOfUShort(Lkotlin/sequences/Sequence;)I
-    .locals 4
+    .registers 5
     .param p0, "$this$sum"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -248,12 +248,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -282,9 +282,9 @@
     move-result v0
 
     .end local v2    # "element":S
-    goto :goto_0
+    goto :goto_a
 
     .line 80
-    :cond_0
+    :cond_28
     return v0
 .end method

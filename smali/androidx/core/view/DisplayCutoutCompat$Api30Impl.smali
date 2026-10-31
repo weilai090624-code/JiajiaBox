@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 259
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static createDisplayCutout(Landroid/graphics/Insets;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Insets;)Landroid/view/DisplayCutout;
-    .locals 8
+    .registers 14
     .param p0, "safeInsets"    # Landroid/graphics/Insets;
     .param p1, "boundLeft"    # Landroid/graphics/Rect;
     .param p2, "boundTop"    # Landroid/graphics/Rect;
@@ -57,7 +57,7 @@
 .end method
 
 .method static getWaterfallInsets(Landroid/view/DisplayCutout;)Landroid/graphics/Insets;
-    .locals 1
+    .registers 2
     .param p0, "displayCutout"    # Landroid/view/DisplayCutout;
 
     .line 273

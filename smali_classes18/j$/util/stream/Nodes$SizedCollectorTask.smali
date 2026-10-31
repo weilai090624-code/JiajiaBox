@@ -81,7 +81,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1829
     const-class v0, Lj$/util/stream/Nodes;
@@ -90,7 +90,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator;Lj$/util/stream/PipelineHelper;I)V
-    .locals 2
+    .registers 6
     .param p3, "arrayLength"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -143,7 +143,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/Nodes$SizedCollectorTask;Lj$/util/Spliterator;JJI)V
-    .locals 7
+    .registers 15
     .param p3, "offset"    # J
     .param p5, "length"    # J
     .param p7, "arrayLength"    # I
@@ -188,11 +188,11 @@
 
     cmp-long v2, p3, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_27
 
     cmp-long v2, p5, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_27
 
     add-long v0, p3, p5
 
@@ -204,13 +204,13 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_27
 
     .line 1868
     return-void
 
     .line 1864
-    :cond_0
+    :cond_27
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     .line 1866
@@ -265,7 +265,7 @@
 
 # virtual methods
 .method public synthetic accept(D)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;D)V
 
@@ -273,7 +273,7 @@
 .end method
 
 .method public synthetic accept(I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;I)V
 
@@ -281,7 +281,7 @@
 .end method
 
 .method public synthetic accept(J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;J)V
 
@@ -289,7 +289,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -299,7 +299,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 3
+    .registers 6
     .param p1, "size"    # J
 
     .line 1894
@@ -308,7 +308,7 @@
 
     cmp-long v2, p1, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_14
 
     .line 1899
     iget-wide v0, p0, Lj$/util/stream/Nodes$SizedCollectorTask;->offset:J
@@ -332,7 +332,7 @@
     return-void
 
     .line 1895
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "size passed to Sink.begin exceeds array length"
@@ -343,7 +343,7 @@
 .end method
 
 .method public synthetic cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$cancellationRequested(Lj$/util/stream/Sink;)Z
 
@@ -353,7 +353,7 @@
 .end method
 
 .method public compute()V
-    .locals 17
+    .registers 18
 
     .line 1872
     .local p0, "this":Lj$/util/stream/Nodes$SizedCollectorTask;, "Ljava/util/stream/Nodes$SizedCollectorTask<TP_IN;TP_OUT;TT_SINK;TK;>;"
@@ -367,7 +367,7 @@
 
     .line 1874
     .local v8, "rightSplit":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
-    :goto_0
+    :goto_6
     invoke-interface {v8}, Lj$/util/Spliterator;->estimateSize()J
 
     move-result-wide v2
@@ -376,7 +376,7 @@
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_39
 
     .line 1875
     invoke-interface {v8}, Lj$/util/Spliterator;->trySplit()Lj$/util/Spliterator;
@@ -386,7 +386,7 @@
     move-object v10, v2
 
     .local v10, "leftSplit":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_39
 
     .line 1876
     const/4 v2, 0x1
@@ -431,11 +431,11 @@
 
     .line 1881
     .end local v15    # "leftSplitSize":J
-    goto :goto_0
+    goto :goto_6
 
     .line 1883
     .end local v10    # "leftSplit":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
-    :cond_0
+    :cond_39
     nop
 
     .line 1885
@@ -455,7 +455,7 @@
 .end method
 
 .method public synthetic end()V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$end(Lj$/util/stream/Sink;)V
 

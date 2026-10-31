@@ -12,7 +12,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroidx/core/internal/view/SupportSubMenu;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "subMenu"    # Landroidx/core/internal/view/SupportSubMenu;
 
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public clearHeader()V
-    .locals 1
+    .registers 2
 
     .line 75
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuWrapperICS;->mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
@@ -41,7 +41,7 @@
 .end method
 
 .method public getItem()Landroid/view/MenuItem;
-    .locals 1
+    .registers 2
 
     .line 92
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuWrapperICS;->mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
@@ -58,7 +58,7 @@
 .end method
 
 .method public setHeaderIcon(I)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "iconRes"    # I
 
     .line 57
@@ -71,7 +71,7 @@
 .end method
 
 .method public setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 63
@@ -84,7 +84,7 @@
 .end method
 
 .method public setHeaderTitle(I)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "titleRes"    # I
 
     .line 45
@@ -97,7 +97,7 @@
 .end method
 
 .method public setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 51
@@ -110,7 +110,7 @@
 .end method
 
 .method public setHeaderView(Landroid/view/View;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 69
@@ -123,7 +123,7 @@
 .end method
 
 .method public setIcon(I)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "iconRes"    # I
 
     .line 80
@@ -136,7 +136,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 86

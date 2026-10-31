@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;ILcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry;)V
-    .locals 1
+    .registers 6
     .param p3, "hash"    # I
     .param p4    # Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
@@ -94,7 +94,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry;)Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry;
 
     .line 849
@@ -104,7 +104,7 @@
 .end method
 
 .method static synthetic access$702(Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry;Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;)Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry;
     .param p1, "x1"    # Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
 
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public clearValue()V
-    .locals 1
+    .registers 2
 
     .line 877
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry;, "Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry<TK;TV;>;"
@@ -130,7 +130,7 @@
 .end method
 
 .method copy(Ljava/lang/ref/ReferenceQueue;Ljava/lang/ref/ReferenceQueue;Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry;)Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,7 +176,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -195,7 +195,7 @@
 .end method
 
 .method public getValueReference()Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -214,7 +214,7 @@
 .end method
 
 .method setValue(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;",

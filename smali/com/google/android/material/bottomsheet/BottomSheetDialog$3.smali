@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/bottomsheet/BottomSheetDialog;
 
     .line 340
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -46,7 +46,7 @@
 
     iget-boolean v0, v0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->cancelable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 346
     const/high16 v0, 0x100000
@@ -58,21 +58,21 @@
 
     invoke-virtual {p2, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setDismissable(Z)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 349
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     invoke-virtual {p2, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setDismissable(Z)V
 
     .line 351
-    :goto_0
+    :goto_17
     return-void
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
     .param p1, "host"    # Landroid/view/View;
     .param p2, "action"    # I
     .param p3, "args"    # Landroid/os/Bundle;
@@ -80,13 +80,13 @@
     .line 355
     const/high16 v0, 0x100000
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_11
 
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetDialog;
 
     iget-boolean v0, v0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->cancelable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 356
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetDialog;
@@ -99,7 +99,7 @@
     return v0
 
     .line 359
-    :cond_0
+    :cond_11
     invoke-super {p0, p1, p2, p3}, Landroidx/core/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
 
     move-result v0

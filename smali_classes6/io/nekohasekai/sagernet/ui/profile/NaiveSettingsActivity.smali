@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 12
     const/4 v0, 0x1
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 12
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/NaiveSettingsActivity;->createEntity()Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
@@ -77,7 +77,7 @@
 .end method
 
 .method public createEntity()Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
-    .locals 1
+    .registers 2
 
     .line 14
     new-instance v0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
@@ -88,7 +88,7 @@
 .end method
 
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 3
+    .registers 7
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -203,7 +203,7 @@
 .end method
 
 .method public finish()V
-    .locals 2
+    .registers 3
 
     .line 61
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -218,7 +218,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 62
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -227,10 +227,10 @@
 
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setExpert(Z)V
 
-    goto :goto_0
+    goto :goto_29
 
     .line 63
-    :cond_0
+    :cond_15
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getProfileName()Ljava/lang/String;
@@ -243,7 +243,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 64
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -253,8 +253,8 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setExpert(Z)V
 
     .line 66
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;->finish()V
 
     .line 67
@@ -262,7 +262,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 12
@@ -276,7 +276,7 @@
 .end method
 
 .method public init(Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;)V
-    .locals 3
+    .registers 5
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
 
     const-string v0, "<this>"
@@ -385,7 +385,7 @@
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 12
@@ -399,7 +399,7 @@
 .end method
 
 .method public serialize(Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;)V
-    .locals 7
+    .registers 9
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
 
     const-string v0, "<this>"

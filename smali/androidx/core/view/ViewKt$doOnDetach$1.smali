@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 3
     .param p1, "$receiver"    # Landroid/view/View;
     .param p2, "$action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 121
@@ -97,7 +97,7 @@
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 124

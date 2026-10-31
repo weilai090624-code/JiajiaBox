@@ -38,7 +38,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 393
     .local p0, "this":Lcom/google/common/collect/Ordering;, "Lcom/google/common/collect/Ordering<TT;>;"
@@ -48,7 +48,7 @@
 .end method
 
 .method public static allEqual()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -65,7 +65,7 @@
 .end method
 
 .method public static arbitrary()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -82,7 +82,7 @@
 .end method
 
 .method public static compound(Ljava/lang/Iterable;)Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -107,7 +107,7 @@
 .end method
 
 .method public static varargs explicit(Ljava/lang/Object;[Ljava/lang/Object;)Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -133,7 +133,7 @@
 .end method
 
 .method public static explicit(Ljava/util/List;)Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -156,7 +156,7 @@
 .end method
 
 .method public static from(Lcom/google/common/collect/Ordering;)Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -184,7 +184,7 @@
 .end method
 
 .method public static from(Ljava/util/Comparator;)Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -201,28 +201,28 @@
     .local p0, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<TT;>;"
     instance-of v0, p0, Lcom/google/common/collect/Ordering;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 185
     move-object v0, p0
 
     check-cast v0, Lcom/google/common/collect/Ordering;
 
-    goto :goto_0
+    goto :goto_d
 
     .line 186
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/common/collect/ComparatorOrdering;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/ComparatorOrdering;-><init>(Ljava/util/Comparator;)V
 
     .line 184
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 .method public static natural()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -240,7 +240,7 @@
 .end method
 
 .method public static usingToString()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -259,7 +259,7 @@
 
 # virtual methods
 .method public binarySearch(Ljava/util/List;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -303,7 +303,7 @@
 .end method
 
 .method public compound(Ljava/util/Comparator;)Lcom/google/common/collect/Ordering;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:TT;>(",
@@ -331,7 +331,7 @@
 .end method
 
 .method public greatestOf(Ljava/lang/Iterable;I)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p2, "k"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -358,7 +358,7 @@
 .end method
 
 .method public greatestOf(Ljava/util/Iterator;I)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p2, "k"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -385,7 +385,7 @@
 .end method
 
 .method public immutableSortedCopy(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:TT;>(",
@@ -407,7 +407,7 @@
 .end method
 
 .method public isOrdered(Ljava/lang/Iterable;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -429,7 +429,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_22
 
     .line 891
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -438,12 +438,12 @@
 
     .line 892
     .local v1, "prev":Ljava/lang/Object;, "TT;"
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_22
 
     .line 893
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -456,7 +456,7 @@
 
     move-result v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_20
 
     .line 895
     const/4 v3, 0x0
@@ -464,23 +464,23 @@
     return v3
 
     .line 897
-    :cond_0
+    :cond_20
     move-object v1, v2
 
     .line 898
     .end local v2    # "next":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_e
 
     .line 900
     .end local v1    # "prev":Ljava/lang/Object;, "TT;"
-    :cond_1
+    :cond_22
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method public isStrictlyOrdered(Ljava/lang/Iterable;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -502,7 +502,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_22
 
     .line 915
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -511,12 +511,12 @@
 
     .line 916
     .local v1, "prev":Ljava/lang/Object;, "TT;"
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_22
 
     .line 917
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -529,7 +529,7 @@
 
     move-result v3
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_20
 
     .line 919
     const/4 v3, 0x0
@@ -537,23 +537,23 @@
     return v3
 
     .line 921
-    :cond_0
+    :cond_20
     move-object v1, v2
 
     .line 922
     .end local v2    # "next":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_e
 
     .line 924
     .end local v1    # "prev":Ljava/lang/Object;, "TT;"
-    :cond_1
+    :cond_22
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method public leastOf(Ljava/lang/Iterable;I)Ljava/util/List;
-    .locals 7
+    .registers 10
     .param p2, "k"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -570,7 +570,7 @@
     .local p1, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     instance-of v0, p1, Ljava/util/Collection;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     .line 737
     move-object v0, p1
@@ -593,7 +593,7 @@
 
     cmp-long v3, v1, v5
 
-    if-gtz v3, :cond_1
+    if-gtz v3, :cond_2c
 
     .line 744
     invoke-interface {v0}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
@@ -607,7 +607,7 @@
     .line 746
     array-length v2, v1
 
-    if-le v2, p2, :cond_0
+    if-le v2, p2, :cond_23
 
     .line 747
     invoke-static {v1, p2}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -615,7 +615,7 @@
     move-result-object v1
 
     .line 749
-    :cond_0
+    :cond_23
     invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v2
@@ -629,7 +629,7 @@
     .line 752
     .end local v0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     .end local v1    # "array":[Ljava/lang/Object;, "[TE;"
-    :cond_1
+    :cond_2c
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -642,7 +642,7 @@
 .end method
 
 .method public leastOf(Ljava/util/Iterator;I)Ljava/util/List;
-    .locals 2
+    .registers 5
     .param p2, "k"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -665,21 +665,21 @@
     invoke-static {p2, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
     .line 775
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_42
 
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
-    goto :goto_0
+    goto :goto_42
 
     .line 777
-    :cond_0
+    :cond_11
     const v0, 0x3fffffff    # 1.9999999f
 
-    if-lt p2, v0, :cond_2
+    if-lt p2, v0, :cond_36
 
     .line 779
     invoke-static {p1}, Lcom/google/common/collect/Lists;->newArrayList(Ljava/util/Iterator;)Ljava/util/ArrayList;
@@ -695,7 +695,7 @@
 
     move-result v1
 
-    if-le v1, p2, :cond_1
+    if-le v1, p2, :cond_2e
 
     .line 782
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -709,7 +709,7 @@
     invoke-interface {v1}, Ljava/util/List;->clear()V
 
     .line 784
-    :cond_1
+    :cond_2e
     invoke-virtual {v0}, Ljava/util/ArrayList;->trimToSize()V
 
     .line 785
@@ -721,7 +721,7 @@
 
     .line 787
     .end local v0    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TE;>;"
-    :cond_2
+    :cond_36
     invoke-static {p2, p0}, Lcom/google/common/collect/TopKSelector;->least(ILjava/util/Comparator;)Lcom/google/common/collect/TopKSelector;
 
     move-result-object v0
@@ -739,8 +739,8 @@
 
     .line 776
     .end local v0    # "selector":Lcom/google/common/collect/TopKSelector;, "Lcom/google/common/collect/TopKSelector<TE;>;"
-    :cond_3
-    :goto_0
+    :cond_42
+    :goto_42
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
@@ -749,7 +749,7 @@
 .end method
 
 .method public lexicographical()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:TT;>()",
@@ -769,7 +769,7 @@
 .end method
 
 .method public max(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -796,7 +796,7 @@
 .end method
 
 .method public max(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -822,21 +822,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_8
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-object v0, p2
 
-    :goto_0
+    :goto_9
     return-object v0
 .end method
 
 .method public varargs max(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 9
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -878,8 +878,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_a
+    if-ge v2, v1, :cond_15
 
     aget-object v3, p4, v2
 
@@ -893,15 +893,15 @@
     .end local v3    # "r":Ljava/lang/Object;, "TE;"
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 716
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 .method public max(Ljava/util/Iterator;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -922,12 +922,12 @@
 
     .line 647
     .local v0, "maxSoFar":Ljava/lang/Object;, "TE;"
-    :goto_0
+    :goto_4
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 648
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -938,15 +938,15 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_4
 
     .line 651
-    :cond_0
+    :cond_13
     return-object v0
 .end method
 
 .method public min(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -973,7 +973,7 @@
 .end method
 
 .method public min(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -999,21 +999,21 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_8
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-object v0, p2
 
-    :goto_0
+    :goto_9
     return-object v0
 .end method
 
 .method public varargs min(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 9
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1055,8 +1055,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_a
+    if-ge v2, v1, :cond_15
 
     aget-object v3, p4, v2
 
@@ -1070,15 +1070,15 @@
     .end local v3    # "r":Ljava/lang/Object;, "TE;"
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 625
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 .method public min(Ljava/util/Iterator;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -1099,12 +1099,12 @@
 
     .line 556
     .local v0, "minSoFar":Ljava/lang/Object;, "TE;"
-    :goto_0
+    :goto_4
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 557
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1115,15 +1115,15 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_4
 
     .line 560
-    :cond_0
+    :cond_13
     return-object v0
 .end method
 
 .method public nullsFirst()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:TT;>()",
@@ -1142,7 +1142,7 @@
 .end method
 
 .method public nullsLast()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:TT;>()",
@@ -1161,7 +1161,7 @@
 .end method
 
 .method onKeys()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T2:TT;>()",
@@ -1185,7 +1185,7 @@
 .end method
 
 .method public onResultOf(Lcom/google/common/base/Function;)Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<F:",
@@ -1209,7 +1209,7 @@
 .end method
 
 .method public reverse()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:TT;>()",
@@ -1228,7 +1228,7 @@
 .end method
 
 .method public sortedCopy(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:TT;>(",

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static read(Landroidx/versionedparcelable/VersionedParcel;)Landroidx/core/graphics/drawable/IconCompat;
-    .locals 3
+    .registers 4
     .param p0, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
 
     .line 11
@@ -121,7 +121,7 @@
 .end method
 
 .method public static write(Landroidx/core/graphics/drawable/IconCompat;Landroidx/versionedparcelable/VersionedParcel;)V
-    .locals 3
+    .registers 5
     .param p0, "obj"    # Landroidx/core/graphics/drawable/IconCompat;
     .param p1, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
 
@@ -142,7 +142,7 @@
 
     iget v2, p0, Landroidx/core/graphics/drawable/IconCompat;->mType:I
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_15
 
     .line 29
     iget v1, p0, Landroidx/core/graphics/drawable/IconCompat;->mType:I
@@ -150,10 +150,10 @@
     invoke-virtual {p1, v1, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(II)V
 
     .line 31
-    :cond_0
+    :cond_15
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mData:[B
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 32
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mData:[B
@@ -163,10 +163,10 @@
     invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeByteArray([BI)V
 
     .line 34
-    :cond_1
+    :cond_1f
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mParcelable:Landroid/os/Parcelable;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
     .line 35
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mParcelable:Landroid/os/Parcelable;
@@ -176,10 +176,10 @@
     invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
     .line 37
-    :cond_2
+    :cond_29
     iget v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mInt1:I
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_33
 
     .line 38
     iget v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mInt1:I
@@ -189,10 +189,10 @@
     invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(II)V
 
     .line 40
-    :cond_3
+    :cond_33
     iget v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mInt2:I
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3d
 
     .line 41
     iget v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mInt2:I
@@ -202,10 +202,10 @@
     invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(II)V
 
     .line 43
-    :cond_4
+    :cond_3d
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_47
 
     .line 44
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mTintList:Landroid/content/res/ColorStateList;
@@ -215,10 +215,10 @@
     invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
     .line 46
-    :cond_5
+    :cond_47
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mTintModeStr:Ljava/lang/String;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_51
 
     .line 47
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mTintModeStr:Ljava/lang/String;
@@ -228,10 +228,10 @@
     invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeString(Ljava/lang/String;I)V
 
     .line 49
-    :cond_6
+    :cond_51
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mString1:Ljava/lang/String;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_5c
 
     .line 50
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mString1:Ljava/lang/String;
@@ -241,6 +241,6 @@
     invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeString(Ljava/lang/String;I)V
 
     .line 52
-    :cond_7
+    :cond_5c
     return-void
 .end method

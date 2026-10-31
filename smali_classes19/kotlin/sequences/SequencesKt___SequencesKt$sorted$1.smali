@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/Sequence;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

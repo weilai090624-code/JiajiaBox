@@ -83,7 +83,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/KotlinVersion$Companion;
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 1
+    .registers 4
     .param p1, "major"    # I
     .param p2, "minor"    # I
 
@@ -117,7 +117,7 @@
 .end method
 
 .method public constructor <init>(III)V
-    .locals 3
+    .registers 7
     .param p1, "major"    # I
     .param p2, "minor"    # I
     .param p3, "patch"    # I
@@ -150,7 +150,7 @@
 .end method
 
 .method private final versionOf(III)I
-    .locals 4
+    .registers 8
     .param p1, "major"    # I
     .param p2, "minor"    # I
     .param p3, "patch"    # I
@@ -162,55 +162,55 @@
 
     const/4 v2, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_a
 
-    if-ge p1, v0, :cond_0
-
-    const/4 v3, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v3, 0x0
-
-    :goto_0
-    if-eqz v3, :cond_3
-
-    if-ltz p2, :cond_1
-
-    if-ge p2, v0, :cond_1
+    if-ge p1, v0, :cond_a
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_b
 
-    :cond_1
+    :cond_a
     const/4 v3, 0x0
 
-    :goto_1
-    if-eqz v3, :cond_3
+    :goto_b
+    if-eqz v3, :cond_20
 
-    if-ltz p3, :cond_2
+    if-ltz p2, :cond_13
 
-    if-ge p3, v0, :cond_2
+    if-ge p2, v0, :cond_13
+
+    const/4 v3, 0x1
+
+    goto :goto_14
+
+    :cond_13
+    const/4 v3, 0x0
+
+    :goto_14
+    if-eqz v3, :cond_20
+
+    if-ltz p3, :cond_1c
+
+    if-ge p3, v0, :cond_1c
 
     const/4 v0, 0x1
 
-    goto :goto_2
+    goto :goto_1d
 
-    :cond_2
+    :cond_1c
     const/4 v0, 0x0
 
-    :goto_2
-    if-eqz v0, :cond_3
+    :goto_1d
+    if-eqz v0, :cond_20
 
-    goto :goto_3
+    goto :goto_21
 
-    :cond_3
+    :cond_20
     const/4 v1, 0x0
 
-    :goto_3
-    if-eqz v1, :cond_4
+    :goto_21
+    if-eqz v1, :cond_2a
 
     .line 29
     shl-int/lit8 v0, p1, 0x10
@@ -224,7 +224,7 @@
     return v0
 
     .line 26
-    :cond_4
+    :cond_2a
     const/4 v0, 0x0
 
     .line 27
@@ -281,7 +281,7 @@
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 16
@@ -297,7 +297,7 @@
 .end method
 
 .method public compareTo(Lkotlin/KotlinVersion;)I
-    .locals 2
+    .registers 4
     .param p1, "other"    # Lkotlin/KotlinVersion;
 
     const-string v0, "other"
@@ -315,58 +315,58 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 38
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 39
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlin/KotlinVersion;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_c
 
     move-object v1, p1
 
     check-cast v1, Lkotlin/KotlinVersion;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_1
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_d
     const/4 v2, 0x0
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_11
 
     return v2
 
     .line 40
     .local v1, "otherVersion":Lkotlin/KotlinVersion;
-    :cond_2
+    :cond_11
     iget v3, p0, Lkotlin/KotlinVersion;->version:I
 
     iget v4, v1, Lkotlin/KotlinVersion;->version:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_18
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_3
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_19
     return v0
 .end method
 
 .method public final getMajor()I
-    .locals 1
+    .registers 2
 
     .line 17
     iget v0, p0, Lkotlin/KotlinVersion;->major:I
@@ -375,7 +375,7 @@
 .end method
 
 .method public final getMinor()I
-    .locals 1
+    .registers 2
 
     .line 17
     iget v0, p0, Lkotlin/KotlinVersion;->minor:I
@@ -384,7 +384,7 @@
 .end method
 
 .method public final getPatch()I
-    .locals 1
+    .registers 2
 
     .line 17
     iget v0, p0, Lkotlin/KotlinVersion;->patch:I
@@ -393,7 +393,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 43
     iget v0, p0, Lkotlin/KotlinVersion;->version:I
@@ -402,41 +402,41 @@
 .end method
 
 .method public final isAtLeast(II)Z
-    .locals 1
+    .registers 4
     .param p1, "major"    # I
     .param p2, "minor"    # I
 
     .line 52
     iget v0, p0, Lkotlin/KotlinVersion;->major:I
 
-    if-gt v0, p1, :cond_1
+    if-gt v0, p1, :cond_f
 
     iget v0, p0, Lkotlin/KotlinVersion;->major:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_d
 
     .line 53
     iget v0, p0, Lkotlin/KotlinVersion;->minor:I
 
-    if-lt v0, p2, :cond_0
+    if-lt v0, p2, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public final isAtLeast(III)Z
-    .locals 1
+    .registers 5
     .param p1, "major"    # I
     .param p2, "minor"    # I
     .param p3, "patch"    # I
@@ -444,43 +444,43 @@
     .line 60
     iget v0, p0, Lkotlin/KotlinVersion;->major:I
 
-    if-gt v0, p1, :cond_1
+    if-gt v0, p1, :cond_17
 
     iget v0, p0, Lkotlin/KotlinVersion;->major:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_15
 
     .line 61
     iget v0, p0, Lkotlin/KotlinVersion;->minor:I
 
-    if-gt v0, p2, :cond_1
+    if-gt v0, p2, :cond_17
 
     iget v0, p0, Lkotlin/KotlinVersion;->minor:I
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_15
 
     .line 62
     iget v0, p0, Lkotlin/KotlinVersion;->patch:I
 
-    if-lt v0, p3, :cond_0
+    if-lt v0, p3, :cond_15
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_18
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 35
     new-instance v0, Ljava/lang/StringBuilder;

@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/MatchOps$MatchKind;Ljava/util/function/LongPredicate;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -56,13 +56,13 @@
 
 # virtual methods
 .method public accept(J)V
-    .locals 2
+    .registers 5
     .param p1, "t"    # J
 
     .line 149
     iget-boolean v0, p0, Lj$/util/stream/MatchOps$3MatchSink;->stop:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     iget-object v0, p0, Lj$/util/stream/MatchOps$3MatchSink;->val$predicate:Ljava/util/function/LongPredicate;
 
@@ -76,7 +76,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1d
 
     .line 150
     const/4 v0, 0x1
@@ -93,12 +93,12 @@
     iput-boolean v0, p0, Lj$/util/stream/MatchOps$3MatchSink;->value:Z
 
     .line 153
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public synthetic accept(Ljava/lang/Long;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfLong$-CC;->$default$accept(Lj$/util/stream/Sink$OfLong;Ljava/lang/Long;)V
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfLong$-CC;->$default$accept(Lj$/util/stream/Sink$OfLong;Ljava/lang/Object;)V
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/LongConsumer$-CC;->$default$andThen(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
 

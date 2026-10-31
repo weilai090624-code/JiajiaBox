@@ -89,7 +89,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/Path;ZLjava/lang/String;JJJILjava/lang/Long;J)V
-    .locals 1
+    .registers 15
     .param p1, "canonicalPath"    # Lokio/Path;
     .param p2, "isDirectory"    # Z
     .param p3, "comment"    # Ljava/lang/String;
@@ -152,123 +152,123 @@
 .end method
 
 .method public synthetic constructor <init>(Lokio/Path;ZLjava/lang/String;JJJILjava/lang/Long;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 13
+    .registers 29
 
     .line 21
     move/from16 v0, p14
 
     and-int/lit8 v1, v0, 0x2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_8
 
     .line 29
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_9
 
     .line 21
-    :cond_0
+    :cond_8
     move v1, p2
 
-    :goto_0
+    :goto_9
     and-int/lit8 v2, v0, 0x4
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_10
 
     .line 32
     const-string v2, ""
 
-    goto :goto_1
+    goto :goto_12
 
     .line 21
-    :cond_1
+    :cond_10
     move-object/from16 v2, p3
 
-    :goto_1
+    :goto_12
     and-int/lit8 v3, v0, 0x8
 
     const-wide/16 v4, -0x1
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1a
 
     .line 35
     move-wide v6, v4
 
-    goto :goto_2
+    goto :goto_1c
 
     .line 21
-    :cond_2
+    :cond_1a
     move-wide/from16 v6, p4
 
-    :goto_2
+    :goto_1c
     and-int/lit8 v3, v0, 0x10
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_22
 
     .line 38
     move-wide v8, v4
 
-    goto :goto_3
+    goto :goto_24
 
     .line 21
-    :cond_3
+    :cond_22
     move-wide/from16 v8, p6
 
-    :goto_3
+    :goto_24
     and-int/lit8 v3, v0, 0x20
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_2a
 
     .line 41
     move-wide v10, v4
 
-    goto :goto_4
+    goto :goto_2c
 
     .line 21
-    :cond_4
+    :cond_2a
     move-wide/from16 v10, p8
 
-    :goto_4
+    :goto_2c
     and-int/lit8 v3, v0, 0x40
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_32
 
     .line 44
     const/4 v3, -0x1
 
-    goto :goto_5
+    goto :goto_34
 
     .line 21
-    :cond_5
+    :cond_32
     move/from16 v3, p10
 
-    :goto_5
+    :goto_34
     and-int/lit16 v12, v0, 0x80
 
-    if-eqz v12, :cond_6
+    if-eqz v12, :cond_3a
 
     .line 46
     const/4 v12, 0x0
 
-    goto :goto_6
+    goto :goto_3c
 
     .line 21
-    :cond_6
+    :cond_3a
     move-object/from16 v12, p11
 
-    :goto_6
+    :goto_3c
     and-int/lit16 v0, v0, 0x100
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_41
 
     .line 48
-    goto :goto_7
+    goto :goto_43
 
     .line 21
-    :cond_7
+    :cond_41
     move-wide/from16 v4, p12
 
-    :goto_7
+    :goto_43
     move-object p2, p0
 
     move-object/from16 p3, p1
@@ -298,7 +298,7 @@
 
 # virtual methods
 .method public final getCanonicalPath()Lokio/Path;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lokio/internal/ZipEntry;->canonicalPath:Lokio/Path;
@@ -307,7 +307,7 @@
 .end method
 
 .method public final getChildren()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -324,7 +324,7 @@
 .end method
 
 .method public final getComment()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 32
     iget-object v0, p0, Lokio/internal/ZipEntry;->comment:Ljava/lang/String;
@@ -333,7 +333,7 @@
 .end method
 
 .method public final getCompressedSize()J
-    .locals 2
+    .registers 3
 
     .line 38
     iget-wide v0, p0, Lokio/internal/ZipEntry;->compressedSize:J
@@ -342,7 +342,7 @@
 .end method
 
 .method public final getCompressionMethod()I
-    .locals 1
+    .registers 2
 
     .line 44
     iget v0, p0, Lokio/internal/ZipEntry;->compressionMethod:I
@@ -351,7 +351,7 @@
 .end method
 
 .method public final getCrc()J
-    .locals 2
+    .registers 3
 
     .line 35
     iget-wide v0, p0, Lokio/internal/ZipEntry;->crc:J
@@ -360,7 +360,7 @@
 .end method
 
 .method public final getLastModifiedAtMillis()Ljava/lang/Long;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Lokio/internal/ZipEntry;->lastModifiedAtMillis:Ljava/lang/Long;
@@ -369,7 +369,7 @@
 .end method
 
 .method public final getOffset()J
-    .locals 2
+    .registers 3
 
     .line 48
     iget-wide v0, p0, Lokio/internal/ZipEntry;->offset:J
@@ -378,7 +378,7 @@
 .end method
 
 .method public final getSize()J
-    .locals 2
+    .registers 3
 
     .line 41
     iget-wide v0, p0, Lokio/internal/ZipEntry;->size:J
@@ -387,7 +387,7 @@
 .end method
 
 .method public final isDirectory()Z
-    .locals 1
+    .registers 2
 
     .line 29
     iget-boolean v0, p0, Lokio/internal/ZipEntry;->isDirectory:Z

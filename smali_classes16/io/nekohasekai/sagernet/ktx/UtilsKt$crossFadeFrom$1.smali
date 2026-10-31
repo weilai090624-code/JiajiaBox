@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "$other"    # Landroid/view/View;
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ktx/UtilsKt$crossFadeFrom$1;->$other:Landroid/view/View;
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     const-string v0, "animation"

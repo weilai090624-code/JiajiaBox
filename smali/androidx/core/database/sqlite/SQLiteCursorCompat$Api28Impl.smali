@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static setFillWindowForwardOnly(Landroid/database/sqlite/SQLiteCursor;Z)V
-    .locals 0
+    .registers 2
     .param p0, "cursor"    # Landroid/database/sqlite/SQLiteCursor;
     .param p1, "fillWindowForwardOnly"    # Z
 

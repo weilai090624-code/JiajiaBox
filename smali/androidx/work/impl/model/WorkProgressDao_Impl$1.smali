@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/WorkProgressDao_Impl;Landroidx/room/RoomDatabase;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/model/WorkProgressDao_Impl;
     .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public bind(Landroidx/sqlite/db/SupportSQLiteStatement;Landroidx/work/impl/model/WorkProgress;)V
-    .locals 2
+    .registers 5
     .param p1, "stmt"    # Landroidx/sqlite/db/SupportSQLiteStatement;
     .param p2, "value"    # Landroidx/work/impl/model/WorkProgress;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -74,15 +74,15 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 39
     invoke-interface {p1, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 41
-    :cond_0
+    :cond_b
     invoke-virtual {p2}, Landroidx/work/impl/model/WorkProgress;->getWorkSpecId()Ljava/lang/String;
 
     move-result-object v0
@@ -90,7 +90,7 @@
     invoke-interface {p1, v1, v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 43
-    :goto_0
+    :goto_12
     invoke-virtual {p2}, Landroidx/work/impl/model/WorkProgress;->getProgress()Landroidx/work/Data;
 
     move-result-object v0
@@ -103,24 +103,24 @@
     .local v0, "_tmp":[B
     const/4 v1, 0x2
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 45
     invoke-interface {p1, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_1
+    goto :goto_24
 
     .line 47
-    :cond_1
+    :cond_21
     invoke-interface {p1, v1, v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindBlob(I[B)V
 
     .line 49
-    :goto_1
+    :goto_24
     return-void
 .end method
 
 .method public bridge synthetic bind(Landroidx/sqlite/db/SupportSQLiteStatement;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -141,7 +141,7 @@
 .end method
 
 .method public createQuery()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 33
     const-string v0, "INSERT OR REPLACE INTO `WorkProgress` (`work_spec_id`,`progress`) VALUES (?,?)"

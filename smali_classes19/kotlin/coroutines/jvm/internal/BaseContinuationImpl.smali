@@ -77,7 +77,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 2
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -131,7 +131,7 @@
 .end method
 
 .method public create(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 4
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -159,28 +159,28 @@
 .end method
 
 .method public getCallerFrame()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    .locals 2
+    .registers 3
 
     .line 73
     iget-object v0, p0, Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;->completion:Lkotlin/coroutines/Continuation;
 
     instance-of v1, v0, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     check-cast v0, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return-object v0
 .end method
 
 .method public final getCompletion()Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -197,7 +197,7 @@
 .end method
 
 .method public getStackTraceElement()Ljava/lang/StackTraceElement;
-    .locals 1
+    .registers 2
 
     .line 76
     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/DebugMetadataKt;->getStackTraceElement(Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;)Ljava/lang/StackTraceElement;
@@ -211,14 +211,14 @@
 .end method
 
 .method protected releaseIntercepted()V
-    .locals 0
+    .registers 1
 
     .line 57
     return-void
 .end method
 
 .method public final resumeWith(Ljava/lang/Object;)V
-    .locals 7
+    .registers 9
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 23
@@ -234,7 +234,7 @@
     move-object v1, p1
 
     .line 25
-    :goto_0
+    :goto_4
     nop
 
     .line 28
@@ -263,7 +263,7 @@
     nop
 
     .line 33
-    :try_start_0
+    :try_start_15
     invoke-virtual {v2, v1}, Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
@@ -274,25 +274,25 @@
 
     move-result-object v6
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v6, :cond_20
 
     return-void
 
     .line 35
-    :cond_0
+    :cond_20
     sget-object v6, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-static {v5}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_15 .. :try_end_26} :catchall_27
 
     .end local v5    # "outcome":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_32
 
     .line 36
-    :catchall_0
+    :catchall_27
     move-exception v5
 
     .line 37
@@ -309,7 +309,7 @@
 
     .line 32
     .end local v5    # "exception":Ljava/lang/Throwable;
-    :goto_1
+    :goto_32
     nop
 
     .line 31
@@ -322,7 +322,7 @@
     .line 40
     instance-of v6, v4, Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_3f
 
     .line 42
     move-object v0, v4
@@ -338,14 +338,14 @@
     .end local v3    # "$i$a$-with-BaseContinuationImpl$resumeWith$1":I
     .end local v4    # "completion":Lkotlin/coroutines/Continuation;
     .end local v5    # "outcome":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_4
 
     .line 46
     .restart local v2    # "$this$resumeWith_u24lambda_u240":Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;
     .restart local v3    # "$i$a$-with-BaseContinuationImpl$resumeWith$1":I
     .restart local v4    # "completion":Lkotlin/coroutines/Continuation;
     .restart local v5    # "outcome":Ljava/lang/Object;
-    :cond_1
+    :cond_3f
     invoke-interface {v4, v5}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 47
@@ -353,7 +353,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 68
     new-instance v0, Ljava/lang/StringBuilder;
@@ -370,11 +370,11 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_12
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -383,7 +383,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1a
     check-cast v1, Ljava/io/Serializable;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;

@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 161
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method public static getLayoutDirection(Landroid/view/ViewGroup$MarginLayoutParams;)I
-    .locals 2
+    .registers 3
     .param p0, "lp"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -32,22 +32,22 @@
 
     .line 125
     .local v0, "result":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     .line 129
     const/4 v0, 0x0
 
     .line 131
-    :cond_0
+    :cond_a
     return v0
 .end method
 
 .method public static getMarginEnd(Landroid/view/ViewGroup$MarginLayoutParams;)I
-    .locals 1
+    .registers 2
     .param p0, "lp"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -61,7 +61,7 @@
 .end method
 
 .method public static getMarginStart(Landroid/view/ViewGroup$MarginLayoutParams;)I
-    .locals 1
+    .registers 2
     .param p0, "lp"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -75,7 +75,7 @@
 .end method
 
 .method public static isMarginRelative(Landroid/view/ViewGroup$MarginLayoutParams;)Z
-    .locals 1
+    .registers 2
     .param p0, "lp"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -89,7 +89,7 @@
 .end method
 
 .method public static resolveLayoutDirection(Landroid/view/ViewGroup$MarginLayoutParams;I)V
-    .locals 0
+    .registers 2
     .param p0, "lp"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .param p1, "layoutDirection"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -103,7 +103,7 @@
 .end method
 
 .method public static setLayoutDirection(Landroid/view/ViewGroup$MarginLayoutParams;I)V
-    .locals 0
+    .registers 2
     .param p0, "lp"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .param p1, "layoutDirection"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -117,7 +117,7 @@
 .end method
 
 .method public static setMarginEnd(Landroid/view/ViewGroup$MarginLayoutParams;I)V
-    .locals 0
+    .registers 2
     .param p0, "lp"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .param p1, "marginEnd"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -131,7 +131,7 @@
 .end method
 
 .method public static setMarginStart(Landroid/view/ViewGroup$MarginLayoutParams;I)V
-    .locals 0
+    .registers 2
     .param p0, "lp"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .param p1, "marginStart"    # I
     .annotation runtime Ljava/lang/Deprecated;

@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;)V
-    .locals 1
+    .registers 3
     .param p1, "orig"    # Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;
 
     .line 180
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/shape/MaterialShapeDrawable;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     .line 175
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public getChangingConfigurations()I
-    .locals 1
+    .registers 2
 
     .line 193
     const/4 v0, 0x0
@@ -83,7 +83,7 @@
 .end method
 
 .method public bridge synthetic newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 170
     invoke-virtual {p0}, Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;->newDrawable()Lcom/google/android/material/ripple/RippleDrawableCompat;
@@ -94,7 +94,7 @@
 .end method
 
 .method public newDrawable()Lcom/google/android/material/ripple/RippleDrawableCompat;
-    .locals 3
+    .registers 4
 
     .line 188
     new-instance v0, Lcom/google/android/material/ripple/RippleDrawableCompat;

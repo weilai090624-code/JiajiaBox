@@ -82,7 +82,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Lkotlinx/coroutines/CancelHandler;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 6
     .param p1, "result"    # Ljava/lang/Object;
     .param p2, "cancelHandler"    # Lkotlinx/coroutines/CancelHandler;
     .param p3, "onCancellation"    # Lkotlin/jvm/functions/Function1;
@@ -127,67 +127,67 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/Object;Lkotlinx/coroutines/CancelHandler;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 7
+    .registers 15
 
     .line 648
     and-int/lit8 p7, p6, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_7
 
     .line 650
     move-object v3, v0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 648
-    :cond_0
+    :cond_7
     move-object v3, p2
 
-    :goto_0
+    :goto_8
     and-int/lit8 p2, p6, 0x4
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_e
 
     .line 651
     move-object v4, v0
 
-    goto :goto_1
+    goto :goto_f
 
     .line 648
-    :cond_1
+    :cond_e
     move-object v4, p3
 
-    :goto_1
+    :goto_f
     and-int/lit8 p2, p6, 0x8
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_15
 
     .line 652
     move-object v5, v0
 
-    goto :goto_2
+    goto :goto_16
 
     .line 648
-    :cond_2
+    :cond_15
     move-object v5, p4
 
-    :goto_2
+    :goto_16
     and-int/lit8 p2, p6, 0x10
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_1c
 
     .line 653
     move-object v6, v0
 
-    goto :goto_3
+    goto :goto_1d
 
     .line 648
-    :cond_3
+    :cond_1c
     move-object v6, p5
 
-    :goto_3
+    :goto_1d
     move-object v1, p0
 
     move-object v2, p1
@@ -199,49 +199,49 @@
 .end method
 
 .method public static synthetic copy$default(Lkotlinx/coroutines/CompletedContinuation;Ljava/lang/Object;Lkotlinx/coroutines/CancelHandler;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ljava/lang/Throwable;ILjava/lang/Object;)Lkotlinx/coroutines/CompletedContinuation;
-    .locals 3
+    .registers 11
 
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_6
 
     iget-object p1, p0, Lkotlinx/coroutines/CompletedContinuation;->result:Ljava/lang/Object;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p7, p6, 0x2
 
-    if-eqz p7, :cond_1
+    if-eqz p7, :cond_c
 
     iget-object p2, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelHandler:Lkotlinx/coroutines/CancelHandler;
 
-    :cond_1
+    :cond_c
     move-object p7, p2
 
     and-int/lit8 p2, p6, 0x4
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_13
 
     iget-object p3, p0, Lkotlinx/coroutines/CompletedContinuation;->onCancellation:Lkotlin/jvm/functions/Function1;
 
-    :cond_2
+    :cond_13
     move-object v0, p3
 
     and-int/lit8 p2, p6, 0x8
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_1a
 
     iget-object p4, p0, Lkotlinx/coroutines/CompletedContinuation;->idempotentResume:Ljava/lang/Object;
 
-    :cond_3
+    :cond_1a
     move-object v1, p4
 
     and-int/lit8 p2, p6, 0x10
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_21
 
     iget-object p5, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelCause:Ljava/lang/Throwable;
 
-    :cond_4
+    :cond_21
     move-object v2, p5
 
     move-object p2, p0
@@ -266,7 +266,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/CompletedContinuation;->result:Ljava/lang/Object;
 
@@ -274,7 +274,7 @@
 .end method
 
 .method public final component2()Lkotlinx/coroutines/CancelHandler;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelHandler:Lkotlinx/coroutines/CancelHandler;
 
@@ -282,7 +282,7 @@
 .end method
 
 .method public final component3()Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -299,7 +299,7 @@
 .end method
 
 .method public final component4()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/CompletedContinuation;->idempotentResume:Ljava/lang/Object;
 
@@ -307,7 +307,7 @@
 .end method
 
 .method public final component5()Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelCause:Ljava/lang/Throwable;
 
@@ -315,7 +315,7 @@
 .end method
 
 .method public final copy(Ljava/lang/Object;Lkotlinx/coroutines/CancelHandler;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ljava/lang/Throwable;)Lkotlinx/coroutines/CompletedContinuation;
-    .locals 7
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -353,24 +353,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlinx/coroutines/CompletedContinuation;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lkotlinx/coroutines/CompletedContinuation;
@@ -383,11 +383,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-object v3, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelHandler:Lkotlinx/coroutines/CancelHandler;
 
     iget-object v4, v1, Lkotlinx/coroutines/CompletedContinuation;->cancelHandler:Lkotlinx/coroutines/CancelHandler;
@@ -396,11 +396,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_23
 
     return v2
 
-    :cond_3
+    :cond_23
     iget-object v3, p0, Lkotlinx/coroutines/CompletedContinuation;->onCancellation:Lkotlin/jvm/functions/Function1;
 
     iget-object v4, v1, Lkotlinx/coroutines/CompletedContinuation;->onCancellation:Lkotlin/jvm/functions/Function1;
@@ -409,11 +409,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_2e
 
     return v2
 
-    :cond_4
+    :cond_2e
     iget-object v3, p0, Lkotlinx/coroutines/CompletedContinuation;->idempotentResume:Ljava/lang/Object;
 
     iget-object v4, v1, Lkotlinx/coroutines/CompletedContinuation;->idempotentResume:Ljava/lang/Object;
@@ -422,11 +422,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_39
 
     return v2
 
-    :cond_5
+    :cond_39
     iget-object v3, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelCause:Ljava/lang/Throwable;
 
     iget-object v1, v1, Lkotlinx/coroutines/CompletedContinuation;->cancelCause:Ljava/lang/Throwable;
@@ -435,137 +435,137 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_44
 
     return v2
 
-    :cond_6
+    :cond_44
     return v0
 .end method
 
 .method public final getCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 655
     iget-object v0, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelCause:Ljava/lang/Throwable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-object v0, p0, Lkotlinx/coroutines/CompletedContinuation;->result:Ljava/lang/Object;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lkotlinx/coroutines/CompletedContinuation;->result:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_d
     mul-int/lit8 v2, v0, 0x1f
 
     iget-object v3, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelHandler:Lkotlinx/coroutines/CancelHandler;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_15
 
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_15
     iget-object v3, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelHandler:Lkotlinx/coroutines/CancelHandler;
 
     invoke-virtual {v3}, Lkotlinx/coroutines/CancelHandler;->hashCode()I
 
     move-result v3
 
-    :goto_1
+    :goto_1b
     add-int/2addr v2, v3
 
     mul-int/lit8 v0, v2, 0x1f
 
     iget-object v3, p0, Lkotlinx/coroutines/CompletedContinuation;->onCancellation:Lkotlin/jvm/functions/Function1;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_24
 
     const/4 v3, 0x0
 
-    goto :goto_2
+    goto :goto_2a
 
-    :cond_2
+    :cond_24
     iget-object v3, p0, Lkotlinx/coroutines/CompletedContinuation;->onCancellation:Lkotlin/jvm/functions/Function1;
 
     invoke-virtual {v3}, Ljava/lang/Object;->hashCode()I
 
     move-result v3
 
-    :goto_2
+    :goto_2a
     add-int/2addr v0, v3
 
     mul-int/lit8 v2, v0, 0x1f
 
     iget-object v3, p0, Lkotlinx/coroutines/CompletedContinuation;->idempotentResume:Ljava/lang/Object;
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_33
 
     const/4 v3, 0x0
 
-    goto :goto_3
+    goto :goto_39
 
-    :cond_3
+    :cond_33
     iget-object v3, p0, Lkotlinx/coroutines/CompletedContinuation;->idempotentResume:Ljava/lang/Object;
 
     invoke-virtual {v3}, Ljava/lang/Object;->hashCode()I
 
     move-result v3
 
-    :goto_3
+    :goto_39
     add-int/2addr v2, v3
 
     mul-int/lit8 v0, v2, 0x1f
 
     iget-object v3, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelCause:Ljava/lang/Throwable;
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_41
 
-    goto :goto_4
+    goto :goto_47
 
-    :cond_4
+    :cond_41
     iget-object v1, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelCause:Ljava/lang/Throwable;
 
     invoke-virtual {v1}, Ljava/lang/Throwable;->hashCode()I
 
     move-result v1
 
-    :goto_4
+    :goto_47
     add-int/2addr v0, v1
 
     return v0
 .end method
 
 .method public final invokeHandlers(Lkotlinx/coroutines/CancellableContinuationImpl;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 5
     .param p1, "cont"    # Lkotlinx/coroutines/CancellableContinuationImpl;
     .param p2, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
@@ -581,7 +581,7 @@
     .line 658
     iget-object v0, p0, Lkotlinx/coroutines/CompletedContinuation;->cancelHandler:Lkotlinx/coroutines/CancelHandler;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 663
     .local v0, "it":Lkotlinx/coroutines/CancelHandler;
@@ -594,10 +594,10 @@
     .line 659
     .end local v0    # "it":Lkotlinx/coroutines/CancelHandler;
     .end local v1    # "$i$a$-let-CompletedContinuation$invokeHandlers$1":I
-    :cond_0
+    :cond_8
     iget-object v0, p0, Lkotlinx/coroutines/CompletedContinuation;->onCancellation:Lkotlin/jvm/functions/Function1;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 663
     .local v0, "it":Lkotlin/jvm/functions/Function1;
@@ -610,12 +610,12 @@
     .line 660
     .end local v0    # "it":Lkotlin/jvm/functions/Function1;
     .end local v1    # "$i$a$-let-CompletedContinuation$invokeHandlers$2":I
-    :cond_1
+    :cond_10
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

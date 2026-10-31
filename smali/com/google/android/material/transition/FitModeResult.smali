@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(FFFFFF)V
-    .locals 0
+    .registers 7
     .param p1, "startScale"    # F
     .param p2, "endScale"    # F
     .param p3, "currentStartWidth"    # F

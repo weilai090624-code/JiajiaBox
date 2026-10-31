@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "directed"    # Z
 
     .line 74
@@ -34,7 +34,7 @@
 .end method
 
 .method private cast()Lcom/google/common/graph/ValueGraphBuilder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N1:TN;V1:TV;>()",
@@ -49,7 +49,7 @@
 .end method
 
 .method public static directed()Lcom/google/common/graph/ValueGraphBuilder;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -71,7 +71,7 @@
 .end method
 
 .method public static from(Lcom/google/common/graph/ValueGraph;)Lcom/google/common/graph/ValueGraphBuilder;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -128,7 +128,7 @@
 .end method
 
 .method public static undirected()Lcom/google/common/graph/ValueGraphBuilder;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public allowsSelfLoops(Z)Lcom/google/common/graph/ValueGraphBuilder;
-    .locals 0
+    .registers 2
     .param p1, "allowsSelfLoops"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -171,7 +171,7 @@
 .end method
 
 .method public build()Lcom/google/common/graph/MutableValueGraph;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N1:TN;V1:TV;>()",
@@ -190,7 +190,7 @@
 .end method
 
 .method copy()Lcom/google/common/graph/ValueGraphBuilder;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -233,7 +233,7 @@
 .end method
 
 .method public expectedNodeCount(I)Lcom/google/common/graph/ValueGraphBuilder;
-    .locals 1
+    .registers 3
     .param p1, "expectedNodeCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -264,7 +264,7 @@
 .end method
 
 .method public immutable()Lcom/google/common/graph/ImmutableValueGraph$Builder;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N1:TN;V1:TV;>()",
@@ -289,7 +289,7 @@
 .end method
 
 .method public incidentEdgeOrder(Lcom/google/common/graph/ElementOrder;)Lcom/google/common/graph/ValueGraphBuilder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N1:TN;>(",
@@ -312,7 +312,7 @@
 
     sget-object v1, Lcom/google/common/graph/ElementOrder$Type;->UNORDERED:Lcom/google/common/graph/ElementOrder$Type;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_14
 
     .line 168
     invoke-virtual {p1}, Lcom/google/common/graph/ElementOrder;->type()Lcom/google/common/graph/ElementOrder$Type;
@@ -321,21 +321,21 @@
 
     sget-object v1, Lcom/google/common/graph/ElementOrder$Type;->STABLE:Lcom/google/common/graph/ElementOrder$Type;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 v0, 0x1
 
     .line 166
-    :goto_1
+    :goto_15
     const-string v1, "The given elementOrder (%s) is unsupported. incidentEdgeOrder() only supports ElementOrder.unordered() and ElementOrder.stable()."
 
     invoke-static {v0, v1, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -360,7 +360,7 @@
 .end method
 
 .method public nodeOrder(Lcom/google/common/graph/ElementOrder;)Lcom/google/common/graph/ValueGraphBuilder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N1:TN;>(",

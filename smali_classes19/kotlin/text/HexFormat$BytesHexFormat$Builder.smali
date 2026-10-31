@@ -77,7 +77,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 283
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -167,7 +167,7 @@
 
 # virtual methods
 .method public final build$kotlin_stdlib()Lkotlin/text/HexFormat$BytesHexFormat;
-    .locals 8
+    .registers 9
 
     .line 390
     new-instance v7, Lkotlin/text/HexFormat$BytesHexFormat;
@@ -192,7 +192,7 @@
 .end method
 
 .method public final getBytePrefix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 363
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->bytePrefix:Ljava/lang/String;
@@ -201,7 +201,7 @@
 .end method
 
 .method public final getByteSeparator()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 344
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->byteSeparator:Ljava/lang/String;
@@ -210,7 +210,7 @@
 .end method
 
 .method public final getByteSuffix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 382
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->byteSuffix:Ljava/lang/String;
@@ -219,7 +219,7 @@
 .end method
 
 .method public final getBytesPerGroup()I
-    .locals 1
+    .registers 2
 
     .line 315
     iget v0, p0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->bytesPerGroup:I
@@ -228,7 +228,7 @@
 .end method
 
 .method public final getBytesPerLine()I
-    .locals 1
+    .registers 2
 
     .line 296
     iget v0, p0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->bytesPerLine:I
@@ -237,7 +237,7 @@
 .end method
 
 .method public final getGroupSeparator()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 330
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->groupSeparator:Ljava/lang/String;
@@ -246,7 +246,7 @@
 .end method
 
 .method public final setBytePrefix(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -270,7 +270,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     move-object v0, p1
 
@@ -282,7 +282,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 367
     iput-object p1, p0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->bytePrefix:Ljava/lang/String;
@@ -291,7 +291,7 @@
     return-void
 
     .line 366
-    :cond_0
+    :cond_21
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -318,7 +318,7 @@
 .end method
 
 .method public final setByteSeparator(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -342,7 +342,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     move-object v0, p1
 
@@ -354,7 +354,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 348
     iput-object p1, p0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->byteSeparator:Ljava/lang/String;
@@ -363,7 +363,7 @@
     return-void
 
     .line 347
-    :cond_0
+    :cond_21
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -390,7 +390,7 @@
 .end method
 
 .method public final setByteSuffix(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -414,7 +414,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     move-object v0, p1
 
@@ -426,7 +426,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 386
     iput-object p1, p0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->byteSuffix:Ljava/lang/String;
@@ -435,7 +435,7 @@
     return-void
 
     .line 385
-    :cond_0
+    :cond_21
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -462,11 +462,11 @@
 .end method
 
 .method public final setBytesPerGroup(I)V
-    .locals 3
+    .registers 5
     .param p1, "value"    # I
 
     .line 317
-    if-lez p1, :cond_0
+    if-lez p1, :cond_5
 
     .line 319
     iput p1, p0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->bytesPerGroup:I
@@ -475,7 +475,7 @@
     return-void
 
     .line 318
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -502,11 +502,11 @@
 .end method
 
 .method public final setBytesPerLine(I)V
-    .locals 3
+    .registers 5
     .param p1, "value"    # I
 
     .line 298
-    if-lez p1, :cond_0
+    if-lez p1, :cond_5
 
     .line 300
     iput p1, p0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->bytesPerLine:I
@@ -515,7 +515,7 @@
     return-void
 
     .line 299
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -542,7 +542,7 @@
 .end method
 
 .method public final setGroupSeparator(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"

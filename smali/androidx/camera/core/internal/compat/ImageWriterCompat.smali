@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static newInstance(Landroid/view/Surface;II)Landroid/media/ImageWriter;
-    .locals 3
+    .registers 6
     .param p0, "surface"    # Landroid/view/Surface;
     .param p1, "maxImages"    # I
     .param p2, "format"    # I
@@ -37,7 +37,7 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 78
     invoke-static {p0, p1, p2}, Landroidx/camera/core/internal/compat/ImageWriterCompatApi26Impl;->newInstance(Landroid/view/Surface;II)Landroid/media/ImageWriter;
@@ -47,12 +47,12 @@
     return-object v0
 
     .line 79
-    :cond_0
+    :cond_b
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_16
 
     .line 80
     invoke-static {p0, p1, p2}, Landroidx/camera/core/internal/compat/ImageWriterCompatApi29Impl;->newInstance(Landroid/view/Surface;II)Landroid/media/ImageWriter;
@@ -62,7 +62,7 @@
     return-object v0
 
     .line 83
-    :cond_1
+    :cond_16
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;

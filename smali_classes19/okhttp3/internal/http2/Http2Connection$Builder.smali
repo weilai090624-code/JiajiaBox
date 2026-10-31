@@ -110,7 +110,7 @@
 
 # direct methods
 .method public constructor <init>(ZLokhttp3/internal/concurrent/TaskRunner;)V
-    .locals 1
+    .registers 4
     .param p1, "client"    # Z
     .param p2, "taskRunner"    # Lokhttp3/internal/concurrent/TaskRunner;
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public static synthetic socket$default(Lokhttp3/internal/http2/Http2Connection$Builder;Ljava/net/Socket;Ljava/lang/String;Lokio/BufferedSource;Lokio/BufferedSink;ILjava/lang/Object;)Lokhttp3/internal/http2/Http2Connection$Builder;
-    .locals 0
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -152,7 +152,7 @@
     .line 573
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_a
 
     .line 575
     nop
@@ -166,10 +166,10 @@
     move-result-object p2
 
     .line 573
-    :cond_0
+    :cond_a
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_18
 
     .line 576
     nop
@@ -187,10 +187,10 @@
     move-result-object p3
 
     .line 573
-    :cond_1
+    :cond_18
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_26
 
     .line 577
     nop
@@ -208,7 +208,7 @@
     move-result-object p4
 
     .line 573
-    :cond_2
+    :cond_26
     invoke-virtual {p0, p1, p2, p3, p4}, Lokhttp3/internal/http2/Http2Connection$Builder;->socket(Ljava/net/Socket;Ljava/lang/String;Lokio/BufferedSource;Lokio/BufferedSink;)Lokhttp3/internal/http2/Http2Connection$Builder;
 
     move-result-object p0
@@ -219,7 +219,7 @@
 
 # virtual methods
 .method public final build()Lokhttp3/internal/http2/Http2Connection;
-    .locals 1
+    .registers 2
 
     .line 601
     new-instance v0, Lokhttp3/internal/http2/Http2Connection;
@@ -230,7 +230,7 @@
 .end method
 
 .method public final getClient$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 561
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Connection$Builder;->client:Z
@@ -239,16 +239,16 @@
 .end method
 
 .method public final getConnectionName$okhttp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 565
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$Builder;->connectionName:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "connectionName"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -259,7 +259,7 @@
 .end method
 
 .method public final getListener$okhttp()Lokhttp3/internal/http2/Http2Connection$Listener;
-    .locals 1
+    .registers 2
 
     .line 568
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$Builder;->listener:Lokhttp3/internal/http2/Http2Connection$Listener;
@@ -268,7 +268,7 @@
 .end method
 
 .method public final getPingIntervalMillis$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 570
     iget v0, p0, Lokhttp3/internal/http2/Http2Connection$Builder;->pingIntervalMillis:I
@@ -277,7 +277,7 @@
 .end method
 
 .method public final getPushObserver$okhttp()Lokhttp3/internal/http2/PushObserver;
-    .locals 1
+    .registers 2
 
     .line 569
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$Builder;->pushObserver:Lokhttp3/internal/http2/PushObserver;
@@ -286,16 +286,16 @@
 .end method
 
 .method public final getSink$okhttp()Lokio/BufferedSink;
-    .locals 1
+    .registers 2
 
     .line 567
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$Builder;->sink:Lokio/BufferedSink;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "sink"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -306,16 +306,16 @@
 .end method
 
 .method public final getSocket$okhttp()Ljava/net/Socket;
-    .locals 1
+    .registers 2
 
     .line 564
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$Builder;->socket:Ljava/net/Socket;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "socket"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -326,16 +326,16 @@
 .end method
 
 .method public final getSource$okhttp()Lokio/BufferedSource;
-    .locals 1
+    .registers 2
 
     .line 566
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$Builder;->source:Lokio/BufferedSource;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "source"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -346,7 +346,7 @@
 .end method
 
 .method public final getTaskRunner$okhttp()Lokhttp3/internal/concurrent/TaskRunner;
-    .locals 1
+    .registers 2
 
     .line 562
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$Builder;->taskRunner:Lokhttp3/internal/concurrent/TaskRunner;
@@ -355,7 +355,7 @@
 .end method
 
 .method public final listener(Lokhttp3/internal/http2/Http2Connection$Listener;)Lokhttp3/internal/http2/Http2Connection$Builder;
-    .locals 2
+    .registers 4
     .param p1, "listener"    # Lokhttp3/internal/http2/Http2Connection$Listener;
 
     const-string v0, "listener"
@@ -389,7 +389,7 @@
 .end method
 
 .method public final pingIntervalMillis(I)Lokhttp3/internal/http2/Http2Connection$Builder;
-    .locals 2
+    .registers 4
     .param p1, "pingIntervalMillis"    # I
 
     .line 596
@@ -419,7 +419,7 @@
 .end method
 
 .method public final pushObserver(Lokhttp3/internal/http2/PushObserver;)Lokhttp3/internal/http2/Http2Connection$Builder;
-    .locals 2
+    .registers 4
     .param p1, "pushObserver"    # Lokhttp3/internal/http2/PushObserver;
 
     const-string v0, "pushObserver"
@@ -453,7 +453,7 @@
 .end method
 
 .method public final setClient$okhttp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 561
@@ -463,7 +463,7 @@
 .end method
 
 .method public final setConnectionName$okhttp(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -477,7 +477,7 @@
 .end method
 
 .method public final setListener$okhttp(Lokhttp3/internal/http2/Http2Connection$Listener;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/internal/http2/Http2Connection$Listener;
 
     const-string v0, "<set-?>"
@@ -491,7 +491,7 @@
 .end method
 
 .method public final setPingIntervalMillis$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 570
@@ -501,7 +501,7 @@
 .end method
 
 .method public final setPushObserver$okhttp(Lokhttp3/internal/http2/PushObserver;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/internal/http2/PushObserver;
 
     const-string v0, "<set-?>"
@@ -515,7 +515,7 @@
 .end method
 
 .method public final setSink$okhttp(Lokio/BufferedSink;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokio/BufferedSink;
 
     const-string v0, "<set-?>"
@@ -529,7 +529,7 @@
 .end method
 
 .method public final setSocket$okhttp(Ljava/net/Socket;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/net/Socket;
 
     const-string v0, "<set-?>"
@@ -543,7 +543,7 @@
 .end method
 
 .method public final setSource$okhttp(Lokio/BufferedSource;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokio/BufferedSource;
 
     const-string v0, "<set-?>"
@@ -557,7 +557,7 @@
 .end method
 
 .method public final socket(Ljava/net/Socket;)Lokhttp3/internal/http2/Http2Connection$Builder;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -590,7 +590,7 @@
 .end method
 
 .method public final socket(Ljava/net/Socket;Ljava/lang/String;)Lokhttp3/internal/http2/Http2Connection$Builder;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -627,7 +627,7 @@
 .end method
 
 .method public final socket(Ljava/net/Socket;Ljava/lang/String;Lokio/BufferedSource;)Lokhttp3/internal/http2/Http2Connection$Builder;
-    .locals 8
+    .registers 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -668,7 +668,7 @@
 .end method
 
 .method public final socket(Ljava/net/Socket;Ljava/lang/String;Lokio/BufferedSource;Lokio/BufferedSink;)Lokhttp3/internal/http2/Http2Connection$Builder;
-    .locals 4
+    .registers 9
     .param p1, "socket"    # Ljava/net/Socket;
     .param p2, "peerName"    # Ljava/lang/String;
     .param p3, "source"    # Lokio/BufferedSource;
@@ -715,7 +715,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3c
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -741,10 +741,10 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_42
 
     .line 582
-    :cond_0
+    :cond_3c
     const-string v2, "MockWebServer "
 
     invoke-static {v2, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -752,7 +752,7 @@
     move-result-object v2
 
     .line 580
-    :goto_0
+    :goto_42
     invoke-virtual {v0, v2}, Lokhttp3/internal/http2/Http2Connection$Builder;->setConnectionName$okhttp(Ljava/lang/String;)V
 
     .line 584

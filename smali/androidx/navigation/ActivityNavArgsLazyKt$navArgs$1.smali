@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/navigation/ActivityNavArgsLazyKt$navArgs$1;->$this_navArgs:Landroid/app/Activity;
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public final invoke()Landroid/os/Bundle;
-    .locals 6
+    .registers 7
 
     .line 42
     iget-object v0, p0, Landroidx/navigation/ActivityNavArgsLazyKt$navArgs$1;->$this_navArgs:Landroid/app/Activity;
@@ -81,7 +81,7 @@
 
     const-string v1, "Activity "
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_35
 
     iget-object v2, p0, Landroidx/navigation/ActivityNavArgsLazyKt$navArgs$1;->$this_navArgs:Landroid/app/Activity;
 
@@ -94,17 +94,17 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_14
 
     .line 42
     .end local v0    # "intent":Landroid/content/Intent;
     .end local v3    # "$i$a$-let-ActivityNavArgsLazyKt$navArgs$1$1":I
-    goto :goto_0
+    goto :goto_36
 
     .line 44
     .restart local v0    # "intent":Landroid/content/Intent;
     .restart local v3    # "$i$a$-let-ActivityNavArgsLazyKt$navArgs$1$1":I
-    :cond_0
+    :cond_14
     new-instance v4, Ljava/lang/IllegalStateException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -140,16 +140,16 @@
     .line 42
     .end local v0    # "intent":Landroid/content/Intent;
     .end local v3    # "$i$a$-let-ActivityNavArgsLazyKt$navArgs$1$1":I
-    :cond_1
+    :cond_35
     const/4 v4, 0x0
 
-    :goto_0
-    if-eqz v4, :cond_2
+    :goto_36
+    if-eqz v4, :cond_39
 
     return-object v4
 
     .line 45
-    :cond_2
+    :cond_39
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -182,7 +182,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 41
     invoke-virtual {p0}, Landroidx/navigation/ActivityNavArgsLazyKt$navArgs$1;->invoke()Landroid/os/Bundle;

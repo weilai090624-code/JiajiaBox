@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -105,7 +105,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -161,7 +161,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 1
+    .registers 4
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -185,7 +185,7 @@
 .end method
 
 .method public setFilterRedundantCalls(Z)V
-    .locals 0
+    .registers 2
     .param p1, "filter"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -204,7 +204,7 @@
 .end method
 
 .method public setGuidelineBegin(I)V
-    .locals 2
+    .registers 4
     .param p1, "margin"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -226,17 +226,17 @@
     .local v0, "params":Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
     iget-boolean v1, p0, Landroidx/constraintlayout/widget/Guideline;->mFilterRedundantCalls:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     iget v1, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideBegin:I
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_f
 
     .line 109
     return-void
 
     .line 111
-    :cond_0
+    :cond_f
     iput p1, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideBegin:I
 
     .line 112
@@ -247,7 +247,7 @@
 .end method
 
 .method public setGuidelineEnd(I)V
-    .locals 2
+    .registers 4
     .param p1, "margin"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -269,17 +269,17 @@
     .local v0, "params":Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
     iget-boolean v1, p0, Landroidx/constraintlayout/widget/Guideline;->mFilterRedundantCalls:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     iget v1, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideEnd:I
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_f
 
     .line 123
     return-void
 
     .line 125
-    :cond_0
+    :cond_f
     iput p1, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideEnd:I
 
     .line 126
@@ -290,7 +290,7 @@
 .end method
 
 .method public setGuidelinePercent(F)V
-    .locals 2
+    .registers 4
     .param p1, "ratio"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -312,19 +312,19 @@
     .local v0, "params":Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
     iget-boolean v1, p0, Landroidx/constraintlayout/widget/Guideline;->mFilterRedundantCalls:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     iget v1, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guidePercent:F
 
     cmpl-float v1, v1, p1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     .line 136
     return-void
 
     .line 138
-    :cond_0
+    :cond_11
     iput p1, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guidePercent:F
 
     .line 139
@@ -335,7 +335,7 @@
 .end method
 
 .method public setVisibility(I)V
-    .locals 0
+    .registers 2
     .param p1, "visibility"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

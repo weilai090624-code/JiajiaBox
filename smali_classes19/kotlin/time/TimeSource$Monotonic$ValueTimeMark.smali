@@ -83,7 +83,7 @@
 
 # direct methods
 .method private synthetic constructor <init>(J)V
-    .locals 0
+    .registers 3
     .param p1, "reading"    # J
 
     .line 66
@@ -95,7 +95,7 @@
 .end method
 
 .method public static final synthetic box-impl(J)Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;
-    .locals 1
+    .registers 3
 
     new-instance v0, Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public static final compareTo-6eNON_k(JJ)I
-    .locals 4
+    .registers 8
     .param p0, "arg0"    # J
     .param p2, "other"    # J
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public static compareTo-impl(JLkotlin/time/ComparableTimeMark;)I
-    .locals 1
+    .registers 4
     .param p0, "arg0"    # J
     .param p2, "other"    # Lkotlin/time/ComparableTimeMark;
 
@@ -150,13 +150,13 @@
 .end method
 
 .method public static constructor-impl(J)J
-    .locals 0
+    .registers 2
 
     return-wide p0
 .end method
 
 .method public static elapsedNow-UwyO8pc(J)J
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 67
@@ -170,17 +170,17 @@
 .end method
 
 .method public static equals-impl(JLjava/lang/Object;)Z
-    .locals 4
+    .registers 7
 
     instance-of v0, p2, Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
-    :cond_0
+    :cond_6
     move-object v0, p2
 
     check-cast v0, Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;
@@ -191,36 +191,36 @@
 
     cmp-long v0, p0, v2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     return v1
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static final equals-impl0(JJ)Z
-    .locals 1
+    .registers 5
 
     cmp-long v0, p0, p2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public static hasNotPassedNow-impl(J)Z
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 71
@@ -236,7 +236,7 @@
 .end method
 
 .method public static hasPassedNow-impl(J)Z
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 70
@@ -254,7 +254,7 @@
 .end method
 
 .method public static hashCode-impl(J)I
-    .locals 1
+    .registers 3
 
     invoke-static {p0, p1}, Landroidx/work/impl/model/WorkSpec$$ExternalSyntheticBackport0;->m(J)I
 
@@ -264,7 +264,7 @@
 .end method
 
 .method public static final minus-6eNON_k(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "arg0"    # J
     .param p2, "other"    # J
 
@@ -279,7 +279,7 @@
 .end method
 
 .method public static minus-LRDsOJo(JJ)J
-    .locals 3
+    .registers 7
     .param p0, "arg0"    # J
     .param p2, "duration"    # J
 
@@ -298,7 +298,7 @@
 .end method
 
 .method public static minus-UwyO8pc(JLkotlin/time/ComparableTimeMark;)J
-    .locals 3
+    .registers 6
     .param p0, "arg0"    # J
     .param p2, "other"    # Lkotlin/time/ComparableTimeMark;
 
@@ -309,7 +309,7 @@
     .line 74
     instance-of v0, p2, Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 76
     move-object v0, p2
@@ -327,7 +327,7 @@
     return-wide v0
 
     .line 75
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -368,7 +368,7 @@
 .end method
 
 .method public static plus-LRDsOJo(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "arg0"    # J
     .param p2, "duration"    # J
 
@@ -383,7 +383,7 @@
 .end method
 
 .method public static toString-impl(J)Ljava/lang/String;
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -415,7 +415,7 @@
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 63
@@ -431,7 +431,7 @@
 .end method
 
 .method public compareTo(Lkotlin/time/ComparableTimeMark;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lkotlin/time/ComparableTimeMark;
 
     .line 63
@@ -447,7 +447,7 @@
 .end method
 
 .method public elapsedNow-UwyO8pc()J
-    .locals 2
+    .registers 3
 
     .line 67
     iget-wide v0, p0, Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;->reading:J
@@ -460,7 +460,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     iget-wide v0, p0, Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;->reading:J
 
@@ -472,7 +472,7 @@
 .end method
 
 .method public hasNotPassedNow()Z
-    .locals 2
+    .registers 3
 
     .line 71
     iget-wide v0, p0, Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;->reading:J
@@ -485,7 +485,7 @@
 .end method
 
 .method public hasPassedNow()Z
-    .locals 2
+    .registers 3
 
     .line 70
     iget-wide v0, p0, Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;->reading:J
@@ -498,7 +498,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;->reading:J
 
@@ -510,7 +510,7 @@
 .end method
 
 .method public minus-LRDsOJo(J)J
-    .locals 2
+    .registers 5
     .param p1, "duration"    # J
 
     .line 69
@@ -524,7 +524,7 @@
 .end method
 
 .method public bridge synthetic minus-LRDsOJo(J)Lkotlin/time/ComparableTimeMark;
-    .locals 2
+    .registers 5
     .param p1, "duration"    # J
 
     .line 63
@@ -540,7 +540,7 @@
 .end method
 
 .method public bridge synthetic minus-LRDsOJo(J)Lkotlin/time/TimeMark;
-    .locals 2
+    .registers 5
     .param p1, "duration"    # J
 
     .line 63
@@ -556,7 +556,7 @@
 .end method
 
 .method public minus-UwyO8pc(Lkotlin/time/ComparableTimeMark;)J
-    .locals 2
+    .registers 4
     .param p1, "other"    # Lkotlin/time/ComparableTimeMark;
 
     const-string v0, "other"
@@ -575,7 +575,7 @@
 .end method
 
 .method public plus-LRDsOJo(J)J
-    .locals 2
+    .registers 5
     .param p1, "duration"    # J
 
     .line 68
@@ -589,7 +589,7 @@
 .end method
 
 .method public bridge synthetic plus-LRDsOJo(J)Lkotlin/time/ComparableTimeMark;
-    .locals 2
+    .registers 5
     .param p1, "duration"    # J
 
     .line 63
@@ -605,7 +605,7 @@
 .end method
 
 .method public bridge synthetic plus-LRDsOJo(J)Lkotlin/time/TimeMark;
-    .locals 2
+    .registers 5
     .param p1, "duration"    # J
 
     .line 63
@@ -621,7 +621,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;->reading:J
 
@@ -633,7 +633,7 @@
 .end method
 
 .method public final synthetic unbox-impl()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lkotlin/time/TimeSource$Monotonic$ValueTimeMark;->reading:J
 

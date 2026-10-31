@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -23,7 +23,7 @@
 .end method
 
 .method public static hasStartedFromLauncher(Landroid/content/Context;)Z
-    .locals 3
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
     .line 53
@@ -47,7 +47,7 @@
 .end method
 
 .method public static onActivityCreate(Landroid/app/Activity;)V
-    .locals 5
+    .registers 6
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 69
@@ -67,26 +67,26 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 71
     return-void
 
     .line 74
-    :cond_0
+    :cond_11
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
     .line 75
     .local v1, "launchIntent":Landroid/content/Intent;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_18
 
     .line 76
     return-void
 
     .line 79
-    :cond_1
+    :cond_18
     const-string v3, "android.intent.action.MAIN"
 
     invoke-virtual {v1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -97,7 +97,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_40
 
     .line 80
     const-string v3, "android.intent.category.LAUNCHER"
@@ -106,7 +106,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_34
 
     .line 81
     const-string v3, "android.intent.category.LEANBACK_LAUNCHER"
@@ -115,10 +115,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_40
 
     .line 82
-    :cond_2
+    :cond_34
     invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v3
@@ -132,6 +132,6 @@
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     .line 84
-    :cond_3
+    :cond_40
     return-void
 .end method

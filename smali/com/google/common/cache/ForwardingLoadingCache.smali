@@ -33,7 +33,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     .local p0, "this":Lcom/google/common/cache/ForwardingLoadingCache;, "Lcom/google/common/cache/ForwardingLoadingCache<TK;TV;>;"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -67,7 +67,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Lcom/google/common/cache/Cache;
-    .locals 1
+    .registers 2
 
     .line 33
     .local p0, "this":Lcom/google/common/cache/ForwardingLoadingCache;, "Lcom/google/common/cache/ForwardingLoadingCache<TK;TV;>;"
@@ -89,7 +89,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 33
     .local p0, "this":Lcom/google/common/cache/ForwardingLoadingCache;, "Lcom/google/common/cache/ForwardingLoadingCache<TK;TV;>;"
@@ -101,7 +101,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -129,7 +129,7 @@
 .end method
 
 .method public getAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,7 +161,7 @@
 .end method
 
 .method public getUnchecked(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -183,7 +183,7 @@
 .end method
 
 .method public refresh(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)V"

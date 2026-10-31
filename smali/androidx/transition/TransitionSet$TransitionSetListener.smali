@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/TransitionSet;)V
-    .locals 0
+    .registers 2
     .param p1, "transitionSet"    # Landroidx/transition/TransitionSet;
 
     .line 433
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 447
@@ -53,7 +53,7 @@
 
     iget v0, v0, Landroidx/transition/TransitionSet;->mCurrentListeners:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 450
     iget-object v0, p0, Landroidx/transition/TransitionSet$TransitionSetListener;->mTransitionSet:Landroidx/transition/TransitionSet;
@@ -68,7 +68,7 @@
     invoke-virtual {v0}, Landroidx/transition/TransitionSet;->end()V
 
     .line 453
-    :cond_0
+    :cond_18
     invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
 
     .line 454
@@ -76,7 +76,7 @@
 .end method
 
 .method public onTransitionStart(Landroidx/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 439
@@ -84,7 +84,7 @@
 
     iget-boolean v0, v0, Landroidx/transition/TransitionSet;->mStarted:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 440
     iget-object v0, p0, Landroidx/transition/TransitionSet$TransitionSetListener;->mTransitionSet:Landroidx/transition/TransitionSet;
@@ -99,6 +99,6 @@
     iput-boolean v1, v0, Landroidx/transition/TransitionSet;->mStarted:Z
 
     .line 443
-    :cond_0
+    :cond_10
     return-void
 .end method

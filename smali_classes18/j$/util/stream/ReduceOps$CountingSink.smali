@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 800
     .local p0, "this":Lj$/util/stream/ReduceOps$CountingSink;, "Ljava/util/stream/ReduceOps$CountingSink<TT;>;"
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public synthetic accept(D)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;D)V
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public synthetic accept(I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;I)V
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public synthetic accept(J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;J)V
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 2
+    .registers 5
     .param p1, "size"    # J
 
     .line 807
@@ -108,7 +108,7 @@
 .end method
 
 .method public synthetic cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$cancellationRequested(Lj$/util/stream/Sink;)Z
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public bridge synthetic combine(Lj$/util/stream/ReduceOps$AccumulatingSink;)V
-    .locals 0
+    .registers 2
 
     .line 800
     .local p0, "this":Lj$/util/stream/ReduceOps$CountingSink;, "Ljava/util/stream/ReduceOps$CountingSink<TT;>;"
@@ -130,7 +130,7 @@
 .end method
 
 .method public combine(Lj$/util/stream/ReduceOps$CountingSink;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -155,7 +155,7 @@
 .end method
 
 .method public synthetic end()V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$end(Lj$/util/stream/Sink;)V
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public get()Ljava/lang/Long;
-    .locals 2
+    .registers 3
 
     .line 812
     .local p0, "this":Lj$/util/stream/ReduceOps$CountingSink;, "Ljava/util/stream/ReduceOps$CountingSink<TT;>;"
@@ -177,7 +177,7 @@
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 800
     .local p0, "this":Lj$/util/stream/ReduceOps$CountingSink;, "Ljava/util/stream/ReduceOps$CountingSink<TT;>;"

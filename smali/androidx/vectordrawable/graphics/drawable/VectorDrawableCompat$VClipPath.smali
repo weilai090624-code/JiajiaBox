@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1768
     invoke-direct {p0}, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPath;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method constructor <init>(Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VClipPath;)V
-    .locals 0
+    .registers 2
     .param p1, "copy"    # Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VClipPath;
 
     .line 1773
@@ -37,7 +37,7 @@
 .end method
 
 .method private updateStateFromTypedArray(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 5
+    .registers 8
     .param p1, "a"    # Landroid/content/res/TypedArray;
     .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
 
@@ -53,13 +53,13 @@
 
     .line 1794
     .local v1, "pathName":Ljava/lang/String;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     .line 1795
     iput-object v1, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VClipPath;->mPathName:Ljava/lang/String;
 
     .line 1798
-    :cond_0
+    :cond_a
     nop
 
     .line 1799
@@ -71,7 +71,7 @@
 
     .line 1800
     .local v2, "pathData":Ljava/lang/String;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_18
 
     .line 1801
     invoke-static {v2}, Landroidx/core/graphics/PathParser;->createNodesFromPathData(Ljava/lang/String;)[Landroidx/core/graphics/PathParser$PathDataNode;
@@ -81,7 +81,7 @@
     iput-object v3, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VClipPath;->mNodes:[Landroidx/core/graphics/PathParser$PathDataNode;
 
     .line 1803
-    :cond_1
+    :cond_18
     const-string v3, "fillType"
 
     const/4 v4, 0x2
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 2
+    .registers 7
     .param p1, "r"    # Landroid/content/res/Resources;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "theme"    # Landroid/content/res/Resources$Theme;
@@ -114,13 +114,13 @@
 
     .line 1779
     .local v0, "hasPathData":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 1780
     return-void
 
     .line 1782
-    :cond_0
+    :cond_9
     sget-object v1, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_VECTOR_DRAWABLE_CLIP_PATH:[I
 
     invoke-static {p1, p3, p2, v1}, Landroidx/core/content/res/TypedArrayUtils;->obtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
@@ -139,7 +139,7 @@
 .end method
 
 .method public isClipPath()Z
-    .locals 1
+    .registers 2
 
     .line 1810
     const/4 v0, 0x1

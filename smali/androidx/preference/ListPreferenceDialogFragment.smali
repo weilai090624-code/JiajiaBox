@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -37,7 +37,7 @@
 .end method
 
 .method private getListPreference()Landroidx/preference/ListPreference;
-    .locals 1
+    .registers 2
 
     .line 90
     invoke-virtual {p0}, Landroidx/preference/ListPreferenceDialogFragment;->getPreference()Landroidx/preference/DialogPreference;
@@ -50,7 +50,7 @@
 .end method
 
 .method public static newInstance(Ljava/lang/String;)Landroidx/preference/ListPreferenceDialogFragment;
-    .locals 3
+    .registers 4
     .param p0, "key"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -84,14 +84,14 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 62
     invoke-super {p0, p1}, Landroidx/preference/PreferenceDialogFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 63
-    if-nez p1, :cond_1
+    if-nez p1, :cond_34
 
     .line 64
     invoke-direct {p0}, Landroidx/preference/ListPreferenceDialogFragment;->getListPreference()Landroidx/preference/ListPreference;
@@ -104,13 +104,13 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
     invoke-virtual {v0}, Landroidx/preference/ListPreference;->getEntryValues()[Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
     .line 71
     invoke-virtual {v0}, Landroidx/preference/ListPreference;->getValue()Ljava/lang/String;
@@ -139,11 +139,11 @@
 
     .line 74
     .end local v0    # "preference":Landroidx/preference/ListPreference;
-    goto :goto_0
+    goto :goto_4d
 
     .line 67
     .restart local v0    # "preference":Landroidx/preference/ListPreference;
-    :cond_0
+    :cond_2c
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "ListPreference requires an entries array and an entryValues array."
@@ -154,7 +154,7 @@
 
     .line 75
     .end local v0    # "preference":Landroidx/preference/ListPreference;
-    :cond_1
+    :cond_34
     const-string v0, "ListPreferenceDialogFragment.index"
 
     const/4 v1, 0x0
@@ -184,12 +184,12 @@
     iput-object v0, p0, Landroidx/preference/ListPreferenceDialogFragment;->mEntryValues:[Ljava/lang/CharSequence;
 
     .line 79
-    :goto_0
+    :goto_4d
     return-void
 .end method
 
 .method public onDialogClosed(Z)V
-    .locals 3
+    .registers 5
     .param p1, "positiveResult"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -201,11 +201,11 @@
 
     .line 123
     .local v0, "preference":Landroidx/preference/ListPreference;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1d
 
     iget v1, p0, Landroidx/preference/ListPreferenceDialogFragment;->mClickedDialogEntryIndex:I
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_1d
 
     .line 124
     iget-object v1, p0, Landroidx/preference/ListPreferenceDialogFragment;->mEntryValues:[Ljava/lang/CharSequence;
@@ -224,19 +224,19 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     .line 126
     invoke-virtual {v0, v1}, Landroidx/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
     .line 129
     .end local v1    # "value":Ljava/lang/String;
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method protected onPrepareDialogBuilder(Landroid/app/AlertDialog$Builder;)V
-    .locals 3
+    .registers 5
     .param p1, "builder"    # Landroid/app/AlertDialog$Builder;
 
     .line 95
@@ -263,7 +263,7 @@
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "outState"    # Landroid/os/Bundle;
 
     .line 83

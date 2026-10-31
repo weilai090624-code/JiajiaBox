@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 .end method
 
 .method public launch(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/camera/core/impl/CameraThreadConfig;Landroidx/camera/core/CameraSelector;)V
-    .locals 2
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "threadConfig"    # Landroidx/camera/core/impl/CameraThreadConfig;
     .param p3, "availableCamerasSelector"    # Landroidx/camera/core/CameraSelector;
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public getAvailableCameraIds()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -137,7 +137,7 @@
 .end method
 
 .method public getCamera(Ljava/lang/String;)Landroidx/camera/core/impl/CameraInternal;
-    .locals 8
+    .registers 10
     .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -161,7 +161,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     .line 69
     new-instance v0, Landroidx/camera/camera2/internal/Camera2CameraImpl;
@@ -199,7 +199,7 @@
     return-object v0
 
     .line 66
-    :cond_0
+    :cond_24
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "The given camera id is not on the available camera id list."
@@ -210,7 +210,7 @@
 .end method
 
 .method getCameraInfo(Ljava/lang/String;)Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;
-    .locals 3
+    .registers 5
     .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -239,7 +239,7 @@
 
     .line 81
     .local v0, "camera2CameraInfoImpl":Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 82
     new-instance v1, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;
@@ -259,16 +259,16 @@
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraFactory;->mCameraInfos:Ljava/util/Map;
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat; {:try_start_0 .. :try_end_1b} :catch_1c
 
     .line 86
-    :cond_0
+    :cond_1b
     return-object v0
 
     .line 87
     .end local v0    # "camera2CameraInfoImpl":Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;
-    :catch_0
+    :catch_1c
     move-exception v0
 
     .line 88
@@ -281,7 +281,7 @@
 .end method
 
 .method public getCameraManager()Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
-    .locals 1
+    .registers 2
 
     .line 101
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraFactory;->mCameraManager:Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
@@ -290,7 +290,7 @@
 .end method
 
 .method public bridge synthetic getCameraManager()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 42
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/Camera2CameraFactory;->getCameraManager()Landroidx/camera/camera2/internal/compat/CameraManagerCompat;

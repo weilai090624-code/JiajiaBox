@@ -98,7 +98,7 @@
 
 # direct methods
 .method public constructor <init>(ZLokio/BufferedSink;Ljava/util/Random;ZZJ)V
-    .locals 2
+    .registers 10
     .param p1, "isClient"    # Z
     .param p2, "sink"    # Lokio/BufferedSink;
     .param p3, "random"    # Ljava/util/Random;
@@ -156,30 +156,30 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_31
 
     const/4 v0, 0x4
 
     new-array v0, v0, [B
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_31
     move-object v0, v1
 
-    :goto_0
+    :goto_32
     iput-object v0, p0, Lokhttp3/internal/ws/WebSocketWriter;->maskKey:[B
 
     .line 64
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketWriter;->isClient:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3d
 
     new-instance v1, Lokio/Buffer$UnsafeCursor;
 
     invoke-direct {v1}, Lokio/Buffer$UnsafeCursor;-><init>()V
 
-    :cond_1
+    :cond_3d
     iput-object v1, p0, Lokhttp3/internal/ws/WebSocketWriter;->maskCursor:Lokio/Buffer$UnsafeCursor;
 
     .line 44
@@ -187,7 +187,7 @@
 .end method
 
 .method private final writeControlFrame(ILokio/ByteString;)V
-    .locals 8
+    .registers 11
     .param p1, "opcode"    # I
     .param p2, "payload"    # Lokio/ByteString;
     .annotation system Ldalvik/annotation/Throws;
@@ -199,7 +199,7 @@
     .line 110
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketWriter;->writerClosed:Z
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_83
 
     .line 112
     invoke-virtual {p2}, Lokio/ByteString;->size()I
@@ -214,17 +214,17 @@
 
     cmp-long v5, v1, v3
 
-    if-gtz v5, :cond_0
+    if-gtz v5, :cond_11
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_3
+    :goto_12
+    if-eqz v1, :cond_73
 
     .line 117
     or-int/lit16 v1, p1, 0x80
@@ -242,7 +242,7 @@
     .local v2, "b1":I
     iget-boolean v3, p0, Lokhttp3/internal/ws/WebSocketWriter;->isClient:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_63
 
     .line 122
     or-int/lit16 v2, v2, 0x80
@@ -269,7 +269,7 @@
     invoke-virtual {v3, v4}, Lokio/Buffer;->write([B)Lokio/Buffer;
 
     .line 128
-    if-lez v0, :cond_2
+    if-lez v0, :cond_6d
 
     .line 129
     iget-object v3, p0, Lokhttp3/internal/ws/WebSocketWriter;->sinkBuffer:Lokio/Buffer;
@@ -313,10 +313,10 @@
     invoke-virtual {v5}, Lokio/Buffer$UnsafeCursor;->close()V
 
     .end local v3    # "payloadStart":J
-    goto :goto_1
+    goto :goto_6d
 
     .line 138
-    :cond_1
+    :cond_63
     iget-object v3, p0, Lokhttp3/internal/ws/WebSocketWriter;->sinkBuffer:Lokio/Buffer;
 
     invoke-virtual {v3, v2}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
@@ -327,8 +327,8 @@
     invoke-virtual {v3, p2}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
 
     .line 142
-    :cond_2
-    :goto_1
+    :cond_6d
+    :goto_6d
     iget-object v3, p0, Lokhttp3/internal/ws/WebSocketWriter;->sink:Lokio/BufferedSink;
 
     invoke-interface {v3}, Lokio/BufferedSink;->flush()V
@@ -339,7 +339,7 @@
     .line 113
     .end local v1    # "b0":I
     .end local v2    # "b1":I
-    :cond_3
+    :cond_73
     const/4 v1, 0x0
 
     .line 114
@@ -364,7 +364,7 @@
 
     .line 110
     .end local v0    # "length":I
-    :cond_4
+    :cond_83
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -377,25 +377,25 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 199
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketWriter;->messageDeflater:Lokhttp3/internal/ws/MessageDeflater;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_5
     invoke-virtual {v0}, Lokhttp3/internal/ws/MessageDeflater;->close()V
 
     .line 200
-    :goto_0
+    :goto_8
     return-void
 .end method
 
 .method public final getRandom()Ljava/util/Random;
-    .locals 1
+    .registers 2
 
     .line 47
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketWriter;->random:Ljava/util/Random;
@@ -404,7 +404,7 @@
 .end method
 
 .method public final getSink()Lokio/BufferedSink;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketWriter;->sink:Lokio/BufferedSink;
@@ -413,7 +413,7 @@
 .end method
 
 .method public final writeClose(ILokio/ByteString;)V
-    .locals 3
+    .registers 6
     .param p1, "code"    # I
     .param p2, "reason"    # Lokio/ByteString;
     .annotation system Ldalvik/annotation/Throws;
@@ -427,13 +427,13 @@
 
     .line 88
     .local v0, "payload":Lokio/ByteString;
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_20
 
     .line 89
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_6
+    if-eqz p1, :cond_d
 
     .line 90
     sget-object v1, Lokhttp3/internal/ws/WebSocketProtocol;->INSTANCE:Lokhttp3/internal/ws/WebSocketProtocol;
@@ -441,7 +441,7 @@
     invoke-virtual {v1, p1}, Lokhttp3/internal/ws/WebSocketProtocol;->validateCloseCode(I)V
 
     .line 92
-    :cond_1
+    :cond_d
     new-instance v1, Lokio/Buffer;
 
     invoke-direct {v1}, Lokio/Buffer;-><init>()V
@@ -454,13 +454,13 @@
     invoke-virtual {v1, p1}, Lokio/Buffer;->writeShort(I)Lokio/Buffer;
 
     .line 94
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1b
 
     .line 95
     invoke-virtual {v1, p2}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
 
     .line 97
-    :cond_2
+    :cond_1b
     invoke-virtual {v1}, Lokio/Buffer;->readByteString()Lokio/ByteString;
 
     move-result-object v1
@@ -471,7 +471,7 @@
     move-object v0, v1
 
     .line 101
-    :cond_3
+    :cond_20
     nop
 
     .line 102
@@ -479,10 +479,10 @@
 
     const/4 v2, 0x1
 
-    :try_start_0
+    :try_start_24
     invoke-direct {p0, v1, v0}, Lokhttp3/internal/ws/WebSocketWriter;->writeControlFrame(ILokio/ByteString;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_24 .. :try_end_27} :catchall_2b
 
     .line 104
     iput-boolean v2, p0, Lokhttp3/internal/ws/WebSocketWriter;->writerClosed:Z
@@ -494,7 +494,7 @@
     return-void
 
     .line 105
-    :catchall_0
+    :catchall_2b
     move-exception v1
 
     .line 104
@@ -504,7 +504,7 @@
 .end method
 
 .method public final writeMessageFrame(ILokio/ByteString;)V
-    .locals 8
+    .registers 11
     .param p1, "formatOpcode"    # I
     .param p2, "data"    # Lokio/ByteString;
     .annotation system Ldalvik/annotation/Throws;
@@ -520,7 +520,7 @@
     .line 147
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketWriter;->writerClosed:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_bd
 
     .line 149
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketWriter;->messageBuffer:Lokio/Buffer;
@@ -534,7 +534,7 @@
     .local v0, "b0":I
     iget-boolean v1, p0, Lokhttp3/internal/ws/WebSocketWriter;->perMessageDeflate:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_36
 
     invoke-virtual {p2}, Lokio/ByteString;->size()I
 
@@ -546,12 +546,12 @@
 
     cmp-long v5, v1, v3
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_36
 
     .line 153
     iget-object v1, p0, Lokhttp3/internal/ws/WebSocketWriter;->messageDeflater:Lokhttp3/internal/ws/MessageDeflater;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2e
 
     .line 154
     new-instance v1, Lokhttp3/internal/ws/MessageDeflater;
@@ -573,7 +573,7 @@
     .line 153
     .end local v2    # "it":Lokhttp3/internal/ws/MessageDeflater;
     .end local v3    # "$i$a$-also-WebSocketWriter$writeMessageFrame$messageDeflater$1":I
-    :cond_0
+    :cond_2e
     nop
 
     .line 155
@@ -587,7 +587,7 @@
 
     .line 158
     .end local v1    # "messageDeflater":Lokhttp3/internal/ws/MessageDeflater;
-    :cond_1
+    :cond_36
     iget-object v1, p0, Lokhttp3/internal/ws/WebSocketWriter;->messageBuffer:Lokio/Buffer;
 
     invoke-virtual {v1}, Lokio/Buffer;->size()J
@@ -607,13 +607,13 @@
     .local v3, "b1":I
     iget-boolean v4, p0, Lokhttp3/internal/ws/WebSocketWriter;->isClient:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_48
 
     .line 163
     or-int/lit16 v3, v3, 0x80
 
     .line 165
-    :cond_2
+    :cond_48
     nop
 
     .line 166
@@ -621,7 +621,7 @@
 
     cmp-long v6, v1, v4
 
-    if-gtz v6, :cond_3
+    if-gtz v6, :cond_57
 
     .line 167
     long-to-int v4, v1
@@ -633,15 +633,15 @@
 
     invoke-virtual {v4, v3}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
-    goto :goto_0
+    goto :goto_78
 
     .line 170
-    :cond_3
+    :cond_57
     const-wide/32 v4, 0xffff
 
     cmp-long v6, v1, v4
 
-    if-gtz v6, :cond_4
+    if-gtz v6, :cond_6c
 
     .line 171
     or-int/lit8 v3, v3, 0x7e
@@ -658,10 +658,10 @@
 
     invoke-virtual {v4, v5}, Lokio/Buffer;->writeShort(I)Lokio/Buffer;
 
-    goto :goto_0
+    goto :goto_78
 
     .line 176
-    :cond_4
+    :cond_6c
     or-int/lit8 v3, v3, 0x7f
 
     .line 177
@@ -675,10 +675,10 @@
     invoke-virtual {v4, v1, v2}, Lokio/Buffer;->writeLong(J)Lokio/Buffer;
 
     .line 182
-    :goto_0
+    :goto_78
     iget-boolean v4, p0, Lokhttp3/internal/ws/WebSocketWriter;->isClient:Z
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_b0
 
     .line 183
     iget-object v4, p0, Lokhttp3/internal/ws/WebSocketWriter;->random:Ljava/util/Random;
@@ -701,7 +701,7 @@
 
     cmp-long v6, v1, v4
 
-    if-lez v6, :cond_5
+    if-lez v6, :cond_b0
 
     .line 187
     iget-object v6, p0, Lokhttp3/internal/ws/WebSocketWriter;->messageBuffer:Lokio/Buffer;
@@ -732,7 +732,7 @@
     invoke-virtual {v4}, Lokio/Buffer$UnsafeCursor;->close()V
 
     .line 194
-    :cond_5
+    :cond_b0
     iget-object v4, p0, Lokhttp3/internal/ws/WebSocketWriter;->sinkBuffer:Lokio/Buffer;
 
     iget-object v5, p0, Lokhttp3/internal/ws/WebSocketWriter;->messageBuffer:Lokio/Buffer;
@@ -751,7 +751,7 @@
     .end local v0    # "b0":I
     .end local v1    # "dataSize":J
     .end local v3    # "b1":I
-    :cond_6
+    :cond_bd
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -762,7 +762,7 @@
 .end method
 
 .method public final writePing(Lokio/ByteString;)V
-    .locals 1
+    .registers 3
     .param p1, "payload"    # Lokio/ByteString;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -784,7 +784,7 @@
 .end method
 
 .method public final writePong(Lokio/ByteString;)V
-    .locals 1
+    .registers 3
     .param p1, "payload"    # Lokio/ByteString;
     .annotation system Ldalvik/annotation/Throws;
         value = {

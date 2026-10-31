@@ -85,7 +85,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/lifecycle/Lifecycling;
 
@@ -115,7 +115,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -124,7 +124,7 @@
 .end method
 
 .method private final createGeneratedAdapter(Ljava/lang/reflect/Constructor;Ljava/lang/Object;)Landroidx/lifecycle/GeneratedAdapter;
-    .locals 3
+    .registers 6
     .param p1, "constructor"    # Ljava/lang/reflect/Constructor;
     .param p2, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -146,7 +146,7 @@
     .line 75
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_2
     new-array v0, v0, [Ljava/lang/Object;
 
     const/4 v1, 0x0
@@ -163,34 +163,34 @@
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     check-cast v0, Landroidx/lifecycle/GeneratedAdapter;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/IllegalAccessException; {:try_start_2 .. :try_end_13} :catch_18
+    .catch Ljava/lang/InstantiationException; {:try_start_2 .. :try_end_13} :catch_16
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_2 .. :try_end_13} :catch_14
 
     return-object v0
 
     .line 80
-    :catch_0
+    :catch_14
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 78
-    :catch_1
+    :catch_16
     move-exception v0
 
-    goto :goto_1
+    goto :goto_23
 
     .line 76
-    :catch_2
+    :catch_18
     move-exception v0
 
-    goto :goto_2
+    goto :goto_2c
 
     .line 81
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
-    :goto_0
+    :goto_1a
     new-instance v1, Ljava/lang/RuntimeException;
 
     move-object v2, v0
@@ -203,7 +203,7 @@
 
     .line 79
     .local v0, "e":Ljava/lang/InstantiationException;
-    :goto_1
+    :goto_23
     new-instance v1, Ljava/lang/RuntimeException;
 
     move-object v2, v0
@@ -216,7 +216,7 @@
 
     .line 77
     .local v0, "e":Ljava/lang/IllegalAccessException;
-    :goto_2
+    :goto_2c
     new-instance v1, Ljava/lang/RuntimeException;
 
     move-object v2, v0
@@ -229,7 +229,7 @@
 .end method
 
 .method private final generatedConstructor(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
-    .locals 8
+    .registers 10
     .param p1, "klass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -247,7 +247,7 @@
     nop
 
     .line 88
-    :try_start_0
+    :try_start_1
     invoke-virtual {p1}, Ljava/lang/Class;->getPackage()Ljava/lang/Package;
 
     move-result-object v0
@@ -260,20 +260,20 @@
 
     .line 90
     .local v1, "name":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Ljava/lang/Package;->getName()Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const-string v2, ""
 
     .line 93
     .local v2, "fullPackage":Ljava/lang/String;
-    :goto_0
+    :goto_12
     const-string v3, "fullPackage"
 
     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -290,24 +290,24 @@
 
     const/4 v5, 0x1
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_24
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_1
+    :cond_24
     const/4 v3, 0x0
 
-    :goto_1
-    if-eqz v3, :cond_2
+    :goto_25
+    if-eqz v3, :cond_29
 
     move-object v3, v1
 
-    goto :goto_2
+    goto :goto_3d
 
     .line 94
-    :cond_2
+    :cond_29
     const-string v3, "name"
 
     invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -327,7 +327,7 @@
     invoke-static {v3, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 93
-    :goto_2
+    :goto_3d
     nop
 
     .line 94
@@ -353,23 +353,23 @@
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_53
 
     const/4 v6, 0x1
 
-    goto :goto_3
+    goto :goto_54
 
-    :cond_3
+    :cond_53
     const/4 v6, 0x0
 
-    :goto_3
-    if-eqz v6, :cond_4
+    :goto_54
+    if-eqz v6, :cond_58
 
     move-object v6, v3
 
-    goto :goto_4
+    goto :goto_6f
 
-    :cond_4
+    :cond_58
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -393,7 +393,7 @@
     move-result-object v6
 
     .line 97
-    :goto_4
+    :goto_6f
     invoke-static {v6}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v6
@@ -422,16 +422,16 @@
 
     move-result v7
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_8a
 
     .line 102
     invoke-virtual {v4, v5}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8a
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_8a} :catch_96
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_8a} :catch_8c
 
     .line 104
-    :cond_5
+    :cond_8a
     nop
 
     .end local v0    # "aPackage":Ljava/lang/Package;
@@ -440,10 +440,10 @@
     .end local v3    # "adapterName":Ljava/lang/String;
     .end local v4    # "constructor":Ljava/lang/reflect/Constructor;
     .end local v6    # "aClass":Ljava/lang/Class;
-    goto :goto_5
+    goto :goto_99
 
     .line 107
-    :catch_0
+    :catch_8c
     move-exception v0
 
     .line 109
@@ -460,7 +460,7 @@
 
     .line 105
     .end local v0    # "e":Ljava/lang/NoSuchMethodException;
-    :catch_1
+    :catch_96
     move-exception v0
 
     .line 106
@@ -471,12 +471,12 @@
     const/4 v4, 0x0
 
     .line 87
-    :goto_5
+    :goto_99
     return-object v4
 .end method
 
 .method public static final getAdapterName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 8
     .param p0, "className"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -524,7 +524,7 @@
 .end method
 
 .method private final getObserverConstructorType(Ljava/lang/Class;)I
-    .locals 4
+    .registers 6
     .param p1, "klass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -545,7 +545,7 @@
 
     .line 115
     .local v0, "callbackCache":Ljava/lang/Integer;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 116
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -555,7 +555,7 @@
     return v1
 
     .line 118
-    :cond_0
+    :cond_f
     invoke-direct {p0, p1}, Landroidx/lifecycle/Lifecycling;->resolveObserverCallbackType(Ljava/lang/Class;)I
 
     move-result v1
@@ -575,7 +575,7 @@
 .end method
 
 .method private final isLifecycleParent(Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .param p1, "klass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -586,7 +586,7 @@
     .end annotation
 
     .line 168
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     const-class v0, Landroidx/lifecycle/LifecycleObserver;
 
@@ -594,21 +594,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public static final lifecycleEventObserver(Ljava/lang/Object;)Landroidx/lifecycle/LifecycleEventObserver;
-    .locals 10
+    .registers 11
     .param p0, "object"    # Ljava/lang/Object;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -626,9 +626,9 @@
 
     .line 40
     .local v1, "isDefaultLifecycleObserver":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 41
     new-instance v2, Landroidx/lifecycle/DefaultLifecycleObserverAdapter;
@@ -651,8 +651,8 @@
     return-object v2
 
     .line 46
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_1b
+    if-eqz v1, :cond_29
 
     .line 47
     new-instance v2, Landroidx/lifecycle/DefaultLifecycleObserverAdapter;
@@ -670,8 +670,8 @@
     return-object v2
 
     .line 49
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_29
+    if-eqz v0, :cond_2f
 
     .line 50
     move-object v2, p0
@@ -681,7 +681,7 @@
     return-object v2
 
     .line 52
-    :cond_2
+    :cond_2f
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -698,7 +698,7 @@
     .local v3, "type":I
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v4, :cond_85
 
     .line 55
     sget-object v4, Landroidx/lifecycle/Lifecycling;->classToAdapters:Ljava/util/Map;
@@ -721,7 +721,7 @@
 
     const/4 v7, 0x1
 
-    if-ne v5, v7, :cond_3
+    if-ne v5, v7, :cond_63
 
     .line 57
     sget-object v5, Landroidx/lifecycle/Lifecycling;->INSTANCE:Landroidx/lifecycle/Lifecycling;
@@ -750,15 +750,15 @@
 
     .line 62
     .end local v5    # "generatedAdapter":Landroidx/lifecycle/GeneratedAdapter;
-    :cond_3
+    :cond_63
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v5
 
     new-array v7, v5, [Landroidx/lifecycle/GeneratedAdapter;
 
-    :goto_0
-    if-ge v6, v5, :cond_4
+    :goto_69
+    if-ge v6, v5, :cond_7c
 
     .line 63
     sget-object v8, Landroidx/lifecycle/Lifecycling;->INSTANCE:Landroidx/lifecycle/Lifecycling;
@@ -778,9 +778,9 @@
     add-int/lit8 v6, v6, 0x1
 
     .line 62
-    goto :goto_0
+    goto :goto_69
 
-    :cond_4
+    :cond_7c
     move-object v5, v7
 
     .line 65
@@ -796,7 +796,7 @@
     .line 67
     .end local v4    # "constructors":Ljava/util/List;
     .end local v5    # "adapters":[Landroidx/lifecycle/GeneratedAdapter;
-    :cond_5
+    :cond_85
     new-instance v4, Landroidx/lifecycle/ReflectiveGenericLifecycleObserver;
 
     invoke-direct {v4, p0}, Landroidx/lifecycle/ReflectiveGenericLifecycleObserver;-><init>(Ljava/lang/Object;)V
@@ -807,7 +807,7 @@
 .end method
 
 .method private final resolveObserverCallbackType(Ljava/lang/Class;)I
-    .locals 11
+    .registers 13
     .param p1, "klass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -824,13 +824,13 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 126
     return v1
 
     .line 128
-    :cond_0
+    :cond_8
     invoke-direct {p0, p1}, Landroidx/lifecycle/Lifecycling;->generatedConstructor(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
@@ -839,7 +839,7 @@
     .local v0, "constructor":Ljava/lang/reflect/Constructor;
     const/4 v2, 0x2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 130
     sget-object v1, Landroidx/lifecycle/Lifecycling;->classToAdapters:Ljava/util/Map;
@@ -854,7 +854,7 @@
     return v2
 
     .line 134
-    :cond_1
+    :cond_19
     sget-object v3, Landroidx/lifecycle/ClassesInfoCache;->sInstance:Landroidx/lifecycle/ClassesInfoCache;
 
     invoke-virtual {v3, p1}, Landroidx/lifecycle/ClassesInfoCache;->hasLifecycleMethods(Ljava/lang/Class;)Z
@@ -863,13 +863,13 @@
 
     .line 135
     .local v3, "hasLifecycleMethods":Z
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_22
 
     .line 136
     return v1
 
     .line 138
-    :cond_2
+    :cond_22
     invoke-virtual {p1}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v4
@@ -884,7 +884,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_4d
 
     .line 141
     const-string/jumbo v6, "superclass"
@@ -895,13 +895,13 @@
 
     move-result v6
 
-    if-ne v6, v1, :cond_3
+    if-ne v6, v1, :cond_3a
 
     .line 142
     return v1
 
     .line 144
-    :cond_3
+    :cond_3a
     new-instance v6, Ljava/util/ArrayList;
 
     .line 145
@@ -923,7 +923,7 @@
     check-cast v5, Ljava/util/List;
 
     .line 148
-    :cond_4
+    :cond_4d
     invoke-virtual {p1}, Ljava/lang/Class;->getInterfaces()[Ljava/lang/Class;
 
     move-result-object v6
@@ -936,8 +936,8 @@
 
     const/4 v8, 0x0
 
-    :goto_0
-    if-ge v8, v7, :cond_8
+    :goto_58
+    if-ge v8, v7, :cond_8a
 
     aget-object v9, v6, v8
 
@@ -947,13 +947,13 @@
 
     move-result v10
 
-    if-nez v10, :cond_5
+    if-nez v10, :cond_63
 
     .line 150
-    goto :goto_1
+    goto :goto_87
 
     .line 152
-    :cond_5
+    :cond_63
     const-string v10, "intrface"
 
     invoke-static {v9, v10}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -962,14 +962,14 @@
 
     move-result v10
 
-    if-ne v10, v1, :cond_6
+    if-ne v10, v1, :cond_6f
 
     .line 153
     return v1
 
     .line 155
-    :cond_6
-    if-nez v5, :cond_7
+    :cond_6f
+    if-nez v5, :cond_79
 
     .line 156
     new-instance v10, Ljava/util/ArrayList;
@@ -981,7 +981,7 @@
     check-cast v5, Ljava/util/List;
 
     .line 158
-    :cond_7
+    :cond_79
     sget-object v10, Landroidx/lifecycle/Lifecycling;->classToAdapters:Ljava/util/Map;
 
     invoke-interface {v10, v9}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -996,14 +996,14 @@
 
     .line 148
     .end local v9    # "intrface":Ljava/lang/Class;
-    :goto_1
+    :goto_87
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_58
 
     .line 160
-    :cond_8
-    if-eqz v5, :cond_9
+    :cond_8a
+    if-eqz v5, :cond_92
 
     .line 161
     sget-object v1, Landroidx/lifecycle/Lifecycling;->classToAdapters:Ljava/util/Map;
@@ -1014,6 +1014,6 @@
     return v2
 
     .line 164
-    :cond_9
+    :cond_92
     return v1
 .end method

@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 261
     invoke-direct {p0}, Ljava/lang/ref/ReferenceQueue;-><init>()V
@@ -79,7 +79,7 @@
 .end method
 
 .method static synthetic access$200(Lgo/Seq$GoRefQueue;)Ljava/util/Collection;
-    .locals 0
+    .registers 1
 
     .line 252
     iget-object p0, p0, Lgo/Seq$GoRefQueue;->refs:Ljava/util/Collection;
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method track(ILgo/Seq$GoObject;)V
-    .locals 2
+    .registers 5
 
     .line 258
     iget-object v0, p0, Lgo/Seq$GoRefQueue;->refs:Ljava/util/Collection;

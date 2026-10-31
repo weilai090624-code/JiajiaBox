@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static create(Landroid/net/Uri;)Landroidx/camera/view/video/OutputFileResults;
-    .locals 1
+    .registers 2
     .param p0, "savedUri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

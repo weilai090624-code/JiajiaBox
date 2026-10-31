@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Comparator;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Iterable;Ljava/lang/Iterable;)I
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,19 +91,19 @@
 
     .line 41
     .local v1, "right":Ljava/util/Iterator;, "Ljava/util/Iterator<TT;>;"
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_28
 
     .line 42
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_16
 
     .line 43
     const/4 v2, 0x1
@@ -111,7 +111,7 @@
     return v2
 
     .line 45
-    :cond_0
+    :cond_16
     iget-object v2, p0, Lcom/google/common/collect/LexicographicalOrdering;->elementOrder:Ljava/util/Comparator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -128,23 +128,23 @@
 
     .line 46
     .local v2, "result":I
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     .line 47
     return v2
 
     .line 49
     .end local v2    # "result":I
-    :cond_1
-    goto :goto_0
+    :cond_27
+    goto :goto_8
 
     .line 50
-    :cond_2
+    :cond_28
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_30
 
     .line 51
     const/4 v2, -0x1
@@ -152,14 +152,14 @@
     return v2
 
     .line 53
-    :cond_3
+    :cond_30
     const/4 v2, 0x0
 
     return v2
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 27
     .local p0, "this":Lcom/google/common/collect/LexicographicalOrdering;, "Lcom/google/common/collect/LexicographicalOrdering<TT;>;"
@@ -175,7 +175,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -183,7 +183,7 @@
 
     .line 58
     .local p0, "this":Lcom/google/common/collect/LexicographicalOrdering;, "Lcom/google/common/collect/LexicographicalOrdering<TT;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 59
     const/4 v0, 0x1
@@ -191,10 +191,10 @@
     return v0
 
     .line 61
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/collect/LexicographicalOrdering;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 62
     move-object v0, p1
@@ -215,14 +215,14 @@
 
     .line 65
     .end local v0    # "that":Lcom/google/common/collect/LexicographicalOrdering;, "Lcom/google/common/collect/LexicographicalOrdering<*>;"
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/LexicographicalOrdering;, "Lcom/google/common/collect/LexicographicalOrdering<TT;>;"
@@ -240,7 +240,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 75
     .local p0, "this":Lcom/google/common/collect/LexicographicalOrdering;, "Lcom/google/common/collect/LexicographicalOrdering<TT;>;"

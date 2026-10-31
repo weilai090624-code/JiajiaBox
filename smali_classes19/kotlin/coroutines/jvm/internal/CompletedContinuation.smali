@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/coroutines/jvm/internal/CompletedContinuation;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 124
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public resumeWith(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Ljava/lang/Object;
 
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -112,7 +112,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 132
     const-string v0, "This continuation is already complete"

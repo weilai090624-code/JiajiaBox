@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "name"    # Ljava/lang/String;
 
     .line 50
@@ -35,7 +35,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Landroidx/dynamicanimation/animation/DynamicAnimation$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # Landroidx/dynamicanimation/animation/DynamicAnimation$1;
 

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "isInMultiWindowMode"    # Z
 
     .line 27
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(ZLandroid/content/res/Configuration;)V
-    .locals 1
+    .registers 4
     .param p1, "isInMultiWindowMode"    # Z
     .param p2, "newConfig"    # Landroid/content/res/Configuration;
 
@@ -76,16 +76,16 @@
 
 # virtual methods
 .method public final getNewConfig()Landroid/content/res/Configuration;
-    .locals 2
+    .registers 3
 
     .line 69
     iget-object v0, p0, Landroidx/core/app/MultiWindowModeChangedInfo;->newConfiguration:Landroid/content/res/Configuration;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     .line 70
@@ -108,7 +108,7 @@
 .end method
 
 .method public final isInMultiWindowMode()Z
-    .locals 1
+    .registers 2
 
     .line 33
     iget-boolean v0, p0, Landroidx/core/app/MultiWindowModeChangedInfo;->isInMultiWindowMode:Z

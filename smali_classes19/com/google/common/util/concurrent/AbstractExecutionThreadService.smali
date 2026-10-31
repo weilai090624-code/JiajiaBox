@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 38
     nop
@@ -44,7 +44,7 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 1
 
     .line 37
     sget-object v0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->logger:Ljava/util/logging/Logger;
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public final addListener(Lcom/google/common/util/concurrent/Service$Listener;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p1, "listener"    # Lcom/google/common/util/concurrent/Service$Listener;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public final awaitRunning()V
-    .locals 1
+    .registers 2
 
     .line 218
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->delegate:Lcom/google/common/util/concurrent/Service;
@@ -98,7 +98,7 @@
 .end method
 
 .method public final awaitRunning(JLjava/util/concurrent/TimeUnit;)V
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Throws;
@@ -117,7 +117,7 @@
 .end method
 
 .method public final awaitTerminated()V
-    .locals 1
+    .registers 2
 
     .line 230
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->delegate:Lcom/google/common/util/concurrent/Service;
@@ -129,7 +129,7 @@
 .end method
 
 .method public final awaitTerminated(JLjava/util/concurrent/TimeUnit;)V
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Throws;
@@ -148,7 +148,7 @@
 .end method
 
 .method protected executor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 164
     new-instance v0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$2;
@@ -159,7 +159,7 @@
 .end method
 
 .method public final failureCause()Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
 
     .line 196
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->delegate:Lcom/google/common/util/concurrent/Service;
@@ -172,7 +172,7 @@
 .end method
 
 .method public final isRunning()Z
-    .locals 1
+    .registers 2
 
     .line 179
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->delegate:Lcom/google/common/util/concurrent/Service;
@@ -193,7 +193,7 @@
 .end method
 
 .method protected serviceName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 248
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -208,7 +208,7 @@
 .end method
 
 .method protected shutDown()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -220,7 +220,7 @@
 .end method
 
 .method public final startAsync()Lcom/google/common/util/concurrent/Service;
-    .locals 1
+    .registers 2
 
     .line 203
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->delegate:Lcom/google/common/util/concurrent/Service;
@@ -232,7 +232,7 @@
 .end method
 
 .method protected startUp()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -244,7 +244,7 @@
 .end method
 
 .method public final state()Lcom/google/common/util/concurrent/Service$State;
-    .locals 1
+    .registers 2
 
     .line 184
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->delegate:Lcom/google/common/util/concurrent/Service;
@@ -257,7 +257,7 @@
 .end method
 
 .method public final stopAsync()Lcom/google/common/util/concurrent/Service;
-    .locals 1
+    .registers 2
 
     .line 211
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->delegate:Lcom/google/common/util/concurrent/Service;
@@ -269,7 +269,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 174
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->serviceName()Ljava/lang/String;
@@ -336,7 +336,7 @@
 .end method
 
 .method protected triggerShutdown()V
-    .locals 0
+    .registers 1
 
     .line 151
     return-void

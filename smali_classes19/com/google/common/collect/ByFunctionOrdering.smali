@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Function;Lcom/google/common/collect/Ordering;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -133,7 +133,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -143,18 +143,18 @@
     .local p0, "this":Lcom/google/common/collect/ByFunctionOrdering;, "Lcom/google/common/collect/ByFunctionOrdering<TF;TT;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 52
     return v0
 
     .line 54
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/collect/ByFunctionOrdering;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_23
 
     .line 55
     move-object v1, p1
@@ -171,7 +171,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_21
 
     iget-object v3, p0, Lcom/google/common/collect/ByFunctionOrdering;->ordering:Lcom/google/common/collect/Ordering;
 
@@ -181,24 +181,24 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_21
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_22
     return v0
 
     .line 58
     .end local v1    # "that":Lcom/google/common/collect/ByFunctionOrdering;, "Lcom/google/common/collect/ByFunctionOrdering<**>;"
-    :cond_2
+    :cond_23
     return v2
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 63
     .local p0, "this":Lcom/google/common/collect/ByFunctionOrdering;, "Lcom/google/common/collect/ByFunctionOrdering<TF;TT;>;"
@@ -226,7 +226,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 68
     .local p0, "this":Lcom/google/common/collect/ByFunctionOrdering;, "Lcom/google/common/collect/ByFunctionOrdering<TF;TT;>;"

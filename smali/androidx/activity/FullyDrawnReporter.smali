@@ -89,7 +89,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$A0RwxxT-QIMFOsDA3Nv48auR1K4(Landroidx/activity/FullyDrawnReporter;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/activity/FullyDrawnReporter;->reportRunnable$lambda$2(Landroidx/activity/FullyDrawnReporter;)V
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/concurrent/Executor;Lkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "reportFullyDrawn"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -153,16 +153,16 @@
 .end method
 
 .method private final postWhenReportersAreDone()V
-    .locals 2
+    .registers 3
 
     .line 154
     iget-boolean v0, p0, Landroidx/activity/FullyDrawnReporter;->reportPosted:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     iget v0, p0, Landroidx/activity/FullyDrawnReporter;->reporterCount:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 155
     const/4 v0, 0x1
@@ -177,12 +177,12 @@
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     .line 158
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method private static final reportRunnable$lambda$2(Landroidx/activity/FullyDrawnReporter;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/activity/FullyDrawnReporter;
 
     .line 73
@@ -196,17 +196,17 @@
     .local v1, "$i$a$-synchronized-FullyDrawnReporter$reportRunnable$1$1":I
     const/4 v2, 0x0
 
-    :try_start_0
+    :try_start_5
     iput-boolean v2, p0, Landroidx/activity/FullyDrawnReporter;->reportPosted:Z
 
     .line 75
     iget v2, p0, Landroidx/activity/FullyDrawnReporter;->reporterCount:I
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     iget-boolean v2, p0, Landroidx/activity/FullyDrawnReporter;->reportedFullyDrawn:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     .line 76
     iget-object v2, p0, Landroidx/activity/FullyDrawnReporter;->reportFullyDrawn:Lkotlin/jvm/functions/Function0;
@@ -217,13 +217,13 @@
     invoke-virtual {p0}, Landroidx/activity/FullyDrawnReporter;->fullyDrawnReported()V
 
     .line 79
-    :cond_0
+    :cond_17
     nop
 
     .end local v1    # "$i$a$-synchronized-FullyDrawnReporter$reportRunnable$1$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_5 .. :try_end_1a} :catchall_1c
 
     .line 73
     monitor-exit v0
@@ -232,7 +232,7 @@
     return-void
 
     .line 73
-    :catchall_0
+    :catchall_1c
     move-exception v1
 
     monitor-exit v0
@@ -243,7 +243,7 @@
 
 # virtual methods
 .method public final addOnReportDrawnListener(Lkotlin/jvm/functions/Function0;)V
-    .locals 3
+    .registers 5
     .param p1, "callback"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -267,31 +267,31 @@
 
     .line 114
     .local v1, "$i$a$-synchronized-FullyDrawnReporter$addOnReportDrawnListener$callImmediately$1":I
-    :try_start_0
+    :try_start_9
     iget-boolean v2, p0, Landroidx/activity/FullyDrawnReporter;->reportedFullyDrawn:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_f
 
     .line 115
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 117
-    :cond_0
+    :cond_f
     iget-object v2, p0, Landroidx/activity/FullyDrawnReporter;->onReportCallbacks:Ljava/util/List;
 
     check-cast v2, Ljava/util/Collection;
 
     invoke-interface {v2, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_9 .. :try_end_16} :catchall_20
 
     .line 118
     const/4 v2, 0x0
 
     .line 119
-    :goto_0
+    :goto_17
     nop
 
     .line 113
@@ -303,18 +303,18 @@
 
     .line 121
     .local v0, "callImmediately":Z
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 122
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     .line 124
-    :cond_1
+    :cond_1f
     return-void
 
     .line 113
     .end local v0    # "callImmediately":Z
-    :catchall_0
+    :catchall_20
     move-exception v1
 
     monitor-exit v0
@@ -323,7 +323,7 @@
 .end method
 
 .method public final addReporter()V
-    .locals 3
+    .registers 4
 
     .line 84
     iget-object v0, p0, Landroidx/activity/FullyDrawnReporter;->lock:Ljava/lang/Object;
@@ -334,10 +334,10 @@
 
     .line 85
     .local v1, "$i$a$-synchronized-FullyDrawnReporter$addReporter$1":I
-    :try_start_0
+    :try_start_4
     iget-boolean v2, p0, Landroidx/activity/FullyDrawnReporter;->reportedFullyDrawn:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_e
 
     .line 86
     iget v2, p0, Landroidx/activity/FullyDrawnReporter;->reporterCount:I
@@ -347,13 +347,13 @@
     iput v2, p0, Landroidx/activity/FullyDrawnReporter;->reporterCount:I
 
     .line 88
-    :cond_0
+    :cond_e
     nop
 
     .end local v1    # "$i$a$-synchronized-FullyDrawnReporter$addReporter$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_4 .. :try_end_11} :catchall_13
 
     .line 84
     monitor-exit v0
@@ -362,7 +362,7 @@
     return-void
 
     .line 84
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
@@ -371,7 +371,7 @@
 .end method
 
 .method public final fullyDrawnReported()V
-    .locals 8
+    .registers 9
 
     .line 141
     iget-object v0, p0, Landroidx/activity/FullyDrawnReporter;->lock:Ljava/lang/Object;
@@ -384,7 +384,7 @@
     .local v1, "$i$a$-synchronized-FullyDrawnReporter$fullyDrawnReported$1":I
     const/4 v2, 0x1
 
-    :try_start_0
+    :try_start_5
     iput-boolean v2, p0, Landroidx/activity/FullyDrawnReporter;->reportedFullyDrawn:Z
 
     .line 143
@@ -401,12 +401,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_10
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_23
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -430,10 +430,10 @@
     .end local v5    # "element$iv":Ljava/lang/Object;
     .end local v6    # "it":Lkotlin/jvm/functions/Function0;
     .end local v7    # "$i$a$-forEach-FullyDrawnReporter$fullyDrawnReported$1$1":I
-    goto :goto_0
+    goto :goto_10
 
     .line 181
-    :cond_0
+    :cond_23
     nop
 
     .line 144
@@ -448,8 +448,8 @@
 
     .end local v1    # "$i$a$-synchronized-FullyDrawnReporter$fullyDrawnReported$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_5 .. :try_end_2c} :catchall_2e
 
     .line 141
     monitor-exit v0
@@ -458,7 +458,7 @@
     return-void
 
     .line 141
-    :catchall_0
+    :catchall_2e
     move-exception v1
 
     monitor-exit v0
@@ -467,7 +467,7 @@
 .end method
 
 .method public final isFullyDrawnReported()Z
-    .locals 3
+    .registers 4
 
     .line 67
     iget-object v0, p0, Landroidx/activity/FullyDrawnReporter;->lock:Ljava/lang/Object;
@@ -479,17 +479,17 @@
 
     .line 67
     .local v1, "$i$a$-synchronized-FullyDrawnReporter$isFullyDrawnReported$1":I
-    :try_start_0
+    :try_start_4
     iget-boolean v2, p0, Landroidx/activity/FullyDrawnReporter;->reportedFullyDrawn:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_4 .. :try_end_6} :catchall_8
 
     .end local v1    # "$i$a$-synchronized-FullyDrawnReporter$isFullyDrawnReported$1":I
     monitor-exit v0
 
     return v2
 
-    :catchall_0
+    :catchall_8
     move-exception v1
 
     monitor-exit v0
@@ -498,7 +498,7 @@
 .end method
 
 .method public final removeOnReportDrawnListener(Lkotlin/jvm/functions/Function0;)V
-    .locals 3
+    .registers 5
     .param p1, "callback"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -523,7 +523,7 @@
 
     .line 131
     .local v1, "$i$a$-synchronized-FullyDrawnReporter$removeOnReportDrawnListener$1":I
-    :try_start_0
+    :try_start_9
     iget-object v2, p0, Landroidx/activity/FullyDrawnReporter;->onReportCallbacks:Ljava/util/List;
 
     check-cast v2, Ljava/util/Collection;
@@ -532,8 +532,8 @@
 
     .end local v1    # "$i$a$-synchronized-FullyDrawnReporter$removeOnReportDrawnListener$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_9 .. :try_end_12} :catchall_14
 
     monitor-exit v0
 
@@ -541,7 +541,7 @@
     return-void
 
     .line 131
-    :catchall_0
+    :catchall_14
     move-exception v1
 
     monitor-exit v0
@@ -550,7 +550,7 @@
 .end method
 
 .method public final removeReporter()V
-    .locals 3
+    .registers 4
 
     .line 96
     iget-object v0, p0, Landroidx/activity/FullyDrawnReporter;->lock:Ljava/lang/Object;
@@ -561,14 +561,14 @@
 
     .line 97
     .local v1, "$i$a$-synchronized-FullyDrawnReporter$removeReporter$1":I
-    :try_start_0
+    :try_start_4
     iget-boolean v2, p0, Landroidx/activity/FullyDrawnReporter;->reportedFullyDrawn:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     iget v2, p0, Landroidx/activity/FullyDrawnReporter;->reporterCount:I
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_15
 
     .line 98
     iget v2, p0, Landroidx/activity/FullyDrawnReporter;->reporterCount:I
@@ -581,13 +581,13 @@
     invoke-direct {p0}, Landroidx/activity/FullyDrawnReporter;->postWhenReportersAreDone()V
 
     .line 101
-    :cond_0
+    :cond_15
     nop
 
     .end local v1    # "$i$a$-synchronized-FullyDrawnReporter$removeReporter$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_4 .. :try_end_18} :catchall_1a
 
     .line 96
     monitor-exit v0
@@ -596,7 +596,7 @@
     return-void
 
     .line 96
-    :catchall_0
+    :catchall_1a
     move-exception v1
 
     monitor-exit v0

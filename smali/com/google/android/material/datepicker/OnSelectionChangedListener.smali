@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     .local p0, "this":Lcom/google/android/material/datepicker/OnSelectionChangedListener;, "Lcom/google/android/material/datepicker/OnSelectionChangedListener<TS;>;"
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public onIncompleteSelectionChanged()V
-    .locals 0
+    .registers 1
 
     .line 29
     .local p0, "this":Lcom/google/android/material/datepicker/OnSelectionChangedListener;, "Lcom/google/android/material/datepicker/OnSelectionChangedListener<TS;>;"

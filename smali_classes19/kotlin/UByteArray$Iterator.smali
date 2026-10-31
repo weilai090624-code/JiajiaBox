@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .locals 1
+    .registers 3
     .param p1, "array"    # [B
 
     const-string v0, "array"
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 49
     iget v0, p0, Lkotlin/UByteArray$Iterator;->index:I
@@ -92,21 +92,21 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 47
     invoke-virtual {p0}, Lkotlin/UByteArray$Iterator;->next-w2LRezQ()B
@@ -121,7 +121,7 @@
 .end method
 
 .method public next-w2LRezQ()B
-    .locals 3
+    .registers 4
 
     .line 50
     iget v0, p0, Lkotlin/UByteArray$Iterator;->index:I
@@ -130,7 +130,7 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_16
 
     iget-object v0, p0, Lkotlin/UByteArray$Iterator;->array:[B
 
@@ -148,7 +148,7 @@
 
     return v0
 
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/util/NoSuchElementException;
 
     iget v1, p0, Lkotlin/UByteArray$Iterator;->index:I
@@ -163,7 +163,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

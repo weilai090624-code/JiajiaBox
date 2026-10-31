@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "from"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -100,7 +100,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -110,7 +110,7 @@
     .local p0, "this":Lcom/google/common/base/Functions$ConstantFunction;, "Lcom/google/common/base/Functions$ConstantFunction<TE;>;"
     instance-of v0, p1, Lcom/google/common/base/Functions$ConstantFunction;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 360
     move-object v0, p1
@@ -131,38 +131,38 @@
 
     .line 363
     .end local v0    # "that":Lcom/google/common/base/Functions$ConstantFunction;, "Lcom/google/common/base/Functions$ConstantFunction<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 368
     .local p0, "this":Lcom/google/common/base/Functions$ConstantFunction;, "Lcom/google/common/base/Functions$ConstantFunction<TE;>;"
     iget-object v0, p0, Lcom/google/common/base/Functions$ConstantFunction;->value:Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/google/common/base/Functions$ConstantFunction;->value:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 373
     .local p0, "this":Lcom/google/common/base/Functions$ConstantFunction;, "Lcom/google/common/base/Functions$ConstantFunction<TE;>;"

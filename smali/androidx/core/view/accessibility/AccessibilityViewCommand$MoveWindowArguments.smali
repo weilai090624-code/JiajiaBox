@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 184
     invoke-direct {p0}, Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getX()I
-    .locals 2
+    .registers 3
 
     .line 190
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityViewCommand$MoveWindowArguments;->mBundle:Landroid/os/Bundle;
@@ -42,7 +42,7 @@
 .end method
 
 .method public getY()I
-    .locals 2
+    .registers 3
 
     .line 197
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityViewCommand$MoveWindowArguments;->mBundle:Landroid/os/Bundle;

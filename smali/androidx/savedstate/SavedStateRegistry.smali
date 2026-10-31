@@ -110,7 +110,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$eDF1FsaoUa1afQFv2y5LNvCkYm4(Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/savedstate/SavedStateRegistry;->performAttach$lambda$4(Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
 
@@ -118,7 +118,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/savedstate/SavedStateRegistry$Companion;
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -154,7 +154,7 @@
 .end method
 
 .method private static final performAttach$lambda$4(Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 1
+    .registers 4
     .param p0, "this$0"    # Landroidx/savedstate/SavedStateRegistry;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -173,20 +173,20 @@
     .line 202
     sget-object p1, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, p1, :cond_0
+    if-ne p2, p1, :cond_18
 
     .line 203
     const/4 p1, 0x1
 
     iput-boolean p1, p0, Landroidx/savedstate/SavedStateRegistry;->isAllowingSavingState:Z
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 204
-    :cond_0
+    :cond_18
     sget-object p1, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, p1, :cond_1
+    if-ne p2, p1, :cond_1f
 
     .line 205
     const/4 p1, 0x0
@@ -194,15 +194,15 @@
     iput-boolean p1, p0, Landroidx/savedstate/SavedStateRegistry;->isAllowingSavingState:Z
 
     .line 207
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     return-void
 .end method
 
 
 # virtual methods
 .method public final consumeRestoredStateForKey(Ljava/lang/String;)Landroid/os/Bundle;
-    .locals 4
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -212,71 +212,71 @@
     .line 72
     iget-boolean v0, p0, Landroidx/savedstate/SavedStateRegistry;->isRestored:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_31
 
     .line 76
     iget-object v0, p0, Landroidx/savedstate/SavedStateRegistry;->restoredState:Landroid/os/Bundle;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_30
 
     .line 77
     iget-object v0, p0, Landroidx/savedstate/SavedStateRegistry;->restoredState:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     move-object v0, v1
 
     .line 78
     .local v0, "result":Landroid/os/Bundle;
-    :goto_0
+    :goto_18
     iget-object v2, p0, Landroidx/savedstate/SavedStateRegistry;->restoredState:Landroid/os/Bundle;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     invoke-virtual {v2, p1}, Landroid/os/Bundle;->remove(Ljava/lang/String;)V
 
     .line 79
-    :cond_1
+    :cond_1f
     iget-object v2, p0, Landroidx/savedstate/SavedStateRegistry;->restoredState:Landroid/os/Bundle;
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2b
 
     invoke-virtual {v2}, Landroid/os/Bundle;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2b
 
     const/4 v3, 0x1
 
-    :cond_2
-    if-nez v3, :cond_3
+    :cond_2b
+    if-nez v3, :cond_2f
 
     .line 80
     iput-object v1, p0, Landroidx/savedstate/SavedStateRegistry;->restoredState:Landroid/os/Bundle;
 
     .line 82
-    :cond_3
+    :cond_2f
     return-object v0
 
     .line 84
     .end local v0    # "result":Landroid/os/Bundle;
-    :cond_4
+    :cond_30
     return-object v1
 
     .line 72
-    :cond_5
+    :cond_31
     const/4 v0, 0x0
 
     .line 73
@@ -299,7 +299,7 @@
 .end method
 
 .method public final getSavedStateProvider(Ljava/lang/String;)Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;
-    .locals 5
+    .registers 7
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -317,12 +317,12 @@
 
     move-result-object v1
 
-    :cond_0
+    :cond_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_31
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -353,7 +353,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_c
 
     .line 130
     move-object v0, v2
@@ -364,12 +364,12 @@
     .line 134
     .end local v2    # "value":Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;
     .end local v3    # "k":Ljava/lang/String;
-    :cond_1
+    :cond_31
     return-object v0
 .end method
 
 .method public final isAllowingSavingState$savedstate_release()Z
-    .locals 1
+    .registers 2
 
     .line 48
     iget-boolean v0, p0, Landroidx/savedstate/SavedStateRegistry;->isAllowingSavingState:Z
@@ -378,7 +378,7 @@
 .end method
 
 .method public final isRestored()Z
-    .locals 1
+    .registers 2
 
     .line 45
     iget-boolean v0, p0, Landroidx/savedstate/SavedStateRegistry;->isRestored:Z
@@ -387,7 +387,7 @@
 .end method
 
 .method public final performAttach$savedstate_release(Landroidx/lifecycle/Lifecycle;)V
-    .locals 2
+    .registers 4
     .param p1, "lifecycle"    # Landroidx/lifecycle/Lifecycle;
 
     const-string v0, "lifecycle"
@@ -397,7 +397,7 @@
     .line 199
     iget-boolean v0, p0, Landroidx/savedstate/SavedStateRegistry;->attached:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 201
     new-instance v0, Landroidx/savedstate/SavedStateRegistry$$ExternalSyntheticLambda0;
@@ -417,7 +417,7 @@
     return-void
 
     .line 273
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
     .line 199
@@ -439,21 +439,21 @@
 .end method
 
 .method public final performRestore$savedstate_release(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "savedState"    # Landroid/os/Bundle;
 
     .line 217
     iget-boolean v0, p0, Landroidx/savedstate/SavedStateRegistry;->attached:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
     .line 221
     iget-boolean v0, p0, Landroidx/savedstate/SavedStateRegistry;->isRestored:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 222
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     const-string v0, "androidx.lifecycle.BundlableSavedStateRegistry.key"
 
@@ -461,12 +461,12 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     iput-object v0, p0, Landroidx/savedstate/SavedStateRegistry;->restoredState:Landroid/os/Bundle;
 
     .line 224
@@ -478,7 +478,7 @@
     return-void
 
     .line 273
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     .line 221
@@ -499,7 +499,7 @@
     throw v0
 
     .line 217
-    :cond_2
+    :cond_26
     const/4 v0, 0x0
 
     .line 218
@@ -522,7 +522,7 @@
 .end method
 
 .method public final performSave(Landroid/os/Bundle;)V
-    .locals 5
+    .registers 7
     .param p1, "outBundle"    # Landroid/os/Bundle;
 
     const-string v0, "outBundle"
@@ -538,7 +538,7 @@
     .local v0, "components":Landroid/os/Bundle;
     iget-object v1, p0, Landroidx/savedstate/SavedStateRegistry;->restoredState:Landroid/os/Bundle;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 241
     iget-object v1, p0, Landroidx/savedstate/SavedStateRegistry;->restoredState:Landroid/os/Bundle;
@@ -546,7 +546,7 @@
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     .line 244
-    :cond_0
+    :cond_13
     iget-object v1, p0, Landroidx/savedstate/SavedStateRegistry;->components:Landroidx/arch/core/internal/SafeIterableMap;
 
     invoke-virtual {v1}, Landroidx/arch/core/internal/SafeIterableMap;->iteratorWithAdditions()Landroidx/arch/core/internal/SafeIterableMap$IteratorWithAdditions;
@@ -564,12 +564,12 @@
 
     .line 245
     .local v1, "it":Ljava/util/Iterator;
-    :goto_0
+    :goto_22
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_42
 
     .line 246
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -601,15 +601,15 @@
 
     .end local v2    # "value":Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;
     .end local v3    # "key":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_22
 
     .line 249
-    :cond_1
+    :cond_42
     invoke-virtual {v0}, Landroid/os/Bundle;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_4d
 
     .line 250
     const-string v2, "androidx.lifecycle.BundlableSavedStateRegistry.key"
@@ -617,12 +617,12 @@
     invoke-virtual {p1, v2, v0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 252
-    :cond_2
+    :cond_4d
     return-void
 .end method
 
 .method public final registerSavedStateProvider(Ljava/lang/String;Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;)V
-    .locals 3
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "provider"    # Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;
 
@@ -645,23 +645,23 @@
 
     .line 110
     .local v0, "previous":Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_17
+    if-eqz v1, :cond_1a
 
     .line 114
     return-void
 
     .line 110
-    :cond_1
+    :cond_1a
     const/4 v1, 0x0
 
     .line 111
@@ -684,7 +684,7 @@
 .end method
 
 .method public final runOnNextRecreation(Ljava/lang/Class;)V
-    .locals 4
+    .registers 6
     .param p1, "clazz"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -703,18 +703,18 @@
     .line 180
     iget-boolean v0, p0, Landroidx/savedstate/SavedStateRegistry;->isAllowingSavingState:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_53
 
     .line 181
     iget-object v0, p0, Landroidx/savedstate/SavedStateRegistry;->recreatorProvider:Landroidx/savedstate/Recreator$SavedStateProvider;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     new-instance v0, Landroidx/savedstate/Recreator$SavedStateProvider;
 
     invoke-direct {v0, p0}, Landroidx/savedstate/Recreator$SavedStateProvider;-><init>(Landroidx/savedstate/SavedStateRegistry;)V
 
-    :cond_0
+    :cond_12
     iput-object v0, p0, Landroidx/savedstate/SavedStateRegistry;->recreatorProvider:Landroidx/savedstate/Recreator$SavedStateProvider;
 
     .line 182
@@ -723,17 +723,17 @@
     .line 183
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_16
     new-array v0, v0, [Ljava/lang/Class;
 
     invoke-virtual {p1, v0}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_16 .. :try_end_1b} :catch_2c
 
     .line 190
     iget-object v0, p0, Landroidx/savedstate/SavedStateRegistry;->recreatorProvider:Landroidx/savedstate/Recreator$SavedStateProvider;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -746,11 +746,11 @@
     invoke-virtual {v0, v1}, Landroidx/savedstate/Recreator$SavedStateProvider;->add(Ljava/lang/String;)V
 
     .line 191
-    :cond_1
+    :cond_2b
     return-void
 
     .line 184
-    :catch_0
+    :catch_2c
     move-exception v0
 
     .line 185
@@ -798,7 +798,7 @@
 
     .line 273
     .end local v0    # "e":Ljava/lang/NoSuchMethodException;
-    :cond_2
+    :cond_53
     const/4 v0, 0x0
 
     .line 180
@@ -820,7 +820,7 @@
 .end method
 
 .method public final setAllowingSavingState$savedstate_release(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 48
@@ -830,7 +830,7 @@
 .end method
 
 .method public final unregisterSavedStateProvider(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"

@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/eventbus/EventBus;Ljava/lang/Object;Ljava/lang/reflect/Method;)V
-    .locals 1
+    .registers 5
     .param p1, "bus"    # Lcom/google/common/eventbus/EventBus;
     .param p2, "target"    # Ljava/lang/Object;
     .param p3, "method"    # Ljava/lang/reflect/Method;
@@ -64,7 +64,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/eventbus/EventBus;Ljava/lang/Object;Ljava/lang/reflect/Method;Lcom/google/common/eventbus/Subscriber$1;)V
-    .locals 0
+    .registers 5
     .param p1, "x0"    # Lcom/google/common/eventbus/EventBus;
     .param p2, "x1"    # Ljava/lang/Object;
     .param p3, "x2"    # Ljava/lang/reflect/Method;
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/eventbus/Subscriber;Ljava/lang/Object;)Lcom/google/common/eventbus/SubscriberExceptionContext;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/eventbus/Subscriber;
     .param p1, "x1"    # Ljava/lang/Object;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/eventbus/Subscriber;)Lcom/google/common/eventbus/EventBus;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/eventbus/Subscriber;
 
     .line 36
@@ -100,7 +100,7 @@
 .end method
 
 .method private context(Ljava/lang/Object;)Lcom/google/common/eventbus/SubscriberExceptionContext;
-    .locals 4
+    .registers 6
     .param p1, "event"    # Ljava/lang/Object;
 
     .line 103
@@ -118,7 +118,7 @@
 .end method
 
 .method static create(Lcom/google/common/eventbus/EventBus;Ljava/lang/Object;Ljava/lang/reflect/Method;)Lcom/google/common/eventbus/Subscriber;
-    .locals 2
+    .registers 5
     .param p0, "bus"    # Lcom/google/common/eventbus/EventBus;
     .param p1, "listener"    # Ljava/lang/Object;
     .param p2, "method"    # Ljava/lang/reflect/Method;
@@ -128,17 +128,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 41
     new-instance v0, Lcom/google/common/eventbus/Subscriber;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/google/common/eventbus/Subscriber;-><init>(Lcom/google/common/eventbus/EventBus;Ljava/lang/Object;Ljava/lang/reflect/Method;)V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 42
-    :cond_0
+    :cond_c
     new-instance v0, Lcom/google/common/eventbus/Subscriber$SynchronizedSubscriber;
 
     const/4 v1, 0x0
@@ -146,12 +146,12 @@
     invoke-direct {v0, p0, p1, p2, v1}, Lcom/google/common/eventbus/Subscriber$SynchronizedSubscriber;-><init>(Lcom/google/common/eventbus/EventBus;Ljava/lang/Object;Ljava/lang/reflect/Method;Lcom/google/common/eventbus/Subscriber$1;)V
 
     .line 40
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method private static isDeclaredThreadSafe(Ljava/lang/reflect/Method;)Z
-    .locals 1
+    .registers 2
     .param p0, "method"    # Ljava/lang/reflect/Method;
 
     .line 128
@@ -161,23 +161,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 
 # virtual methods
 .method final dispatchEvent(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "event"    # Ljava/lang/Object;
 
     .line 68
@@ -194,7 +194,7 @@
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -205,7 +205,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 114
     move-object v0, p1
@@ -218,7 +218,7 @@
 
     iget-object v3, v0, Lcom/google/common/eventbus/Subscriber;->target:Ljava/lang/Object;
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_19
 
     iget-object v2, p0, Lcom/google/common/eventbus/Subscriber;->method:Ljava/lang/reflect/Method;
 
@@ -228,21 +228,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_19
     return v1
 
     .line 120
     .end local v0    # "that":Lcom/google/common/eventbus/Subscriber;
-    :cond_1
+    :cond_1a
     return v1
 .end method
 
 .method public final hashCode()I
-    .locals 2
+    .registers 3
 
     .line 108
     iget-object v0, p0, Lcom/google/common/eventbus/Subscriber;->method:Ljava/lang/reflect/Method;
@@ -267,7 +267,7 @@
 .end method
 
 .method invokeSubscriberMethod(Ljava/lang/Object;)V
-    .locals 5
+    .registers 7
     .param p1, "event"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -294,10 +294,10 @@
     aput-object v2, v3, v4
 
     invoke-virtual {v0, v1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_11} :catch_4c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_11} :catch_24
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_11} :catch_13
 
     .line 98
     nop
@@ -306,7 +306,7 @@
     return-void
 
     .line 93
-    :catch_0
+    :catch_13
     move-exception v0
 
     .line 94
@@ -317,7 +317,7 @@
 
     instance-of v1, v1, Ljava/lang/Error;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 95
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
@@ -329,12 +329,12 @@
     throw v1
 
     .line 97
-    :cond_0
+    :cond_23
     throw v0
 
     .line 91
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_24
     move-exception v0
 
     .line 92
@@ -379,7 +379,7 @@
 
     .line 89
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :catch_2
+    :catch_4c
     move-exception v0
 
     .line 90

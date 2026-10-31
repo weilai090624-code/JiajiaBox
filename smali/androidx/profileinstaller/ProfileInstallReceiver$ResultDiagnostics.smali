@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/profileinstaller/ProfileInstallReceiver;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/profileinstaller/ProfileInstallReceiver;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onDiagnosticReceived(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "code"    # I
     .param p2, "data"    # Ljava/lang/Object;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public onResultReceived(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "code"    # I
     .param p2, "data"    # Ljava/lang/Object;
 

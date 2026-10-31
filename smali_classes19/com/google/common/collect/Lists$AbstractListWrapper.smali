@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -91,7 +91,7 @@
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -114,7 +114,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -132,7 +132,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -155,7 +155,7 @@
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -178,7 +178,7 @@
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -206,7 +206,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1154
     .local p0, "this":Lcom/google/common/collect/Lists$AbstractListWrapper;, "Lcom/google/common/collect/Lists$AbstractListWrapper<TE;>;"

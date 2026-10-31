@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 37
     sget-object v0, Lokio/ByteString;->Companion:Lokio/ByteString$Companion;
@@ -87,7 +87,7 @@
 .end method
 
 .method public static final hasBody(Lokhttp3/Response;)Z
-    .locals 1
+    .registers 2
     .param p0, "response"    # Lokhttp3/Response;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -111,7 +111,7 @@
 .end method
 
 .method public static final parseChallenges(Lokhttp3/Headers;Ljava/lang/String;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p0, "$this$parseChallenges"    # Lokhttp3/Headers;
     .param p1, "headerName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -147,11 +147,11 @@
 
     move-result v1
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_49
 
     const/4 v2, 0x0
 
-    :cond_0
+    :cond_18
     move v3, v2
 
     .local v3, "h":I
@@ -168,7 +168,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_47
 
     .line 63
     new-instance v4, Lokio/Buffer;
@@ -188,15 +188,15 @@
     nop
 
     .line 65
-    :try_start_0
+    :try_start_33
     invoke-static {v4, v0}, Lokhttp3/internal/http/HttpHeaders;->readChallengeHeader(Lokio/Buffer;Ljava/util/List;)V
-    :try_end_0
-    .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_36
+    .catch Ljava/io/EOFException; {:try_start_33 .. :try_end_36} :catch_37
 
-    goto :goto_0
+    goto :goto_47
 
     .line 66
-    :catch_0
+    :catch_37
     move-exception v5
 
     .line 67
@@ -220,18 +220,18 @@
     .line 61
     .end local v4    # "header":Lokio/Buffer;
     .end local v5    # "e":Ljava/io/EOFException;
-    :cond_1
-    :goto_0
-    if-lt v2, v1, :cond_0
+    :cond_47
+    :goto_47
+    if-lt v2, v1, :cond_18
 
     .line 71
     .end local v3    # "h":I
-    :cond_2
+    :cond_49
     return-object v0
 .end method
 
 .method public static final promisesBody(Lokhttp3/Response;)Z
-    .locals 8
+    .registers 9
     .param p0, "$this$promisesBody"    # Lokhttp3/Response;
 
     const-string v0, "<this>"
@@ -255,13 +255,13 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 217
     return v1
 
     .line 220
-    :cond_0
+    :cond_17
     invoke-virtual {p0}, Lokhttp3/Response;->code()I
 
     move-result v0
@@ -272,28 +272,28 @@
 
     const/4 v3, 0x1
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_24
 
     const/16 v2, 0xc8
 
-    if-lt v0, v2, :cond_2
+    if-lt v0, v2, :cond_2d
 
     .line 222
-    :cond_1
+    :cond_24
     const/16 v2, 0xcc
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_2d
 
     .line 223
     const/16 v2, 0x130
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_2d
 
     .line 224
     return v3
 
     .line 229
-    :cond_2
+    :cond_2d
     invoke-static {p0}, Lokhttp3/internal/Util;->headersContentLength(Lokhttp3/Response;)J
 
     move-result-wide v4
@@ -302,7 +302,7 @@
 
     cmp-long v2, v4, v6
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_49
 
     .line 230
     const-string v2, "Transfer-Encoding"
@@ -321,22 +321,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_48
 
-    goto :goto_0
+    goto :goto_49
 
     .line 234
-    :cond_3
+    :cond_48
     return v1
 
     .line 231
-    :cond_4
-    :goto_0
+    :cond_49
+    :goto_49
     return v3
 .end method
 
 .method private static final readChallengeHeader(Lokio/Buffer;Ljava/util/List;)V
-    .locals 10
+    .registers 12
     .param p0, "$this$readChallengeHeader"    # Lokio/Buffer;
     .param p1, "result"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -360,11 +360,11 @@
 
     .line 78
     .local v0, "peek":Ljava/lang/String;
-    :goto_0
+    :goto_1
     nop
 
     .line 80
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 81
     invoke-static {p0}, Lokhttp3/internal/http/HttpHeaders;->skipCommasAndWhitespace(Lokio/Buffer;)Z
@@ -375,12 +375,12 @@
     move-result-object v0
 
     .line 83
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     return-void
 
     .line 86
-    :cond_0
+    :cond_e
     move-object v1, v0
 
     .line 89
@@ -396,19 +396,19 @@
     move-result-object v0
 
     .line 91
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2d
 
     .line 92
     invoke-virtual {p0}, Lokio/Buffer;->exhausted()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_20
 
     return-void
 
     .line 93
-    :cond_1
+    :cond_20
     new-instance v3, Lokhttp3/Challenge;
 
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
@@ -423,7 +423,7 @@
     return-void
 
     .line 97
-    :cond_2
+    :cond_2d
     const/16 v3, 0x3d
 
     int-to-byte v3, v3
@@ -440,18 +440,18 @@
 
     .line 101
     .local v5, "commaSuffixed":Z
-    if-nez v2, :cond_4
+    if-nez v2, :cond_62
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_42
 
     invoke-virtual {p0}, Lokio/Buffer;->exhausted()Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_62
 
     .line 102
-    :cond_3
+    :cond_42
     new-instance v3, Lokhttp3/Challenge;
 
     .line 103
@@ -486,10 +486,10 @@
     const/4 v0, 0x0
 
     .line 105
-    goto :goto_0
+    goto :goto_1
 
     .line 109
-    :cond_4
+    :cond_62
     new-instance v6, Ljava/util/LinkedHashMap;
 
     invoke-direct {v6}, Ljava/util/LinkedHashMap;-><init>()V
@@ -505,11 +505,11 @@
     add-int/2addr v4, v7
 
     .line 111
-    :cond_5
+    :cond_6e
     nop
 
     .line 112
-    if-nez v0, :cond_7
+    if-nez v0, :cond_80
 
     .line 113
     invoke-static {p0}, Lokhttp3/internal/http/HttpHeaders;->readToken(Lokio/Buffer;)Ljava/lang/String;
@@ -521,50 +521,50 @@
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_7c
 
-    goto :goto_1
+    goto :goto_82
 
     .line 115
-    :cond_6
+    :cond_7c
     invoke-static {p0, v3}, Lokhttp3/internal/Util;->skipAll(Lokio/Buffer;B)I
 
     move-result v4
 
     .line 117
-    :cond_7
-    if-nez v4, :cond_8
+    :cond_80
+    if-nez v4, :cond_8c
 
     .line 131
-    :goto_1
+    :goto_82
     new-instance v3, Lokhttp3/Challenge;
 
     invoke-direct {v3, v1, v6}, Lokhttp3/Challenge;-><init>(Ljava/lang/String;Ljava/util/Map;)V
 
     invoke-interface {p1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     .line 118
-    :cond_8
+    :cond_8c
     const/4 v7, 0x1
 
-    if-le v4, v7, :cond_9
+    if-le v4, v7, :cond_90
 
     return-void
 
     .line 119
-    :cond_9
+    :cond_90
     invoke-static {p0}, Lokhttp3/internal/http/HttpHeaders;->skipCommasAndWhitespace(Lokio/Buffer;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_97
 
     return-void
 
     .line 121
-    :cond_a
+    :cond_97
     nop
 
     .line 122
@@ -576,30 +576,30 @@
 
     move-result v7
 
-    if-eqz v7, :cond_b
+    if-eqz v7, :cond_a6
 
     invoke-static {p0}, Lokhttp3/internal/http/HttpHeaders;->readQuotedString(Lokio/Buffer;)Ljava/lang/String;
 
     move-result-object v7
 
-    goto :goto_2
+    goto :goto_aa
 
     .line 123
-    :cond_b
+    :cond_a6
     invoke-static {p0}, Lokhttp3/internal/http/HttpHeaders;->readToken(Lokio/Buffer;)Ljava/lang/String;
 
     move-result-object v7
 
     .line 121
-    :goto_2
-    if-nez v7, :cond_c
+    :goto_aa
+    if-nez v7, :cond_ad
 
     .line 124
     return-void
 
     .line 126
     .local v7, "parameterValue":Ljava/lang/String;
-    :cond_c
+    :cond_ad
     invoke-interface {v6, v0, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v8
@@ -611,29 +611,29 @@
     const/4 v0, 0x0
 
     .line 128
-    if-eqz v8, :cond_d
+    if-eqz v8, :cond_b7
 
     return-void
 
     .line 129
-    :cond_d
+    :cond_b7
     invoke-static {p0}, Lokhttp3/internal/http/HttpHeaders;->skipCommasAndWhitespace(Lokio/Buffer;)Z
 
     move-result v9
 
-    if-nez v9, :cond_5
+    if-nez v9, :cond_6e
 
     invoke-virtual {p0}, Lokio/Buffer;->exhausted()Z
 
     move-result v9
 
-    if-nez v9, :cond_5
+    if-nez v9, :cond_6e
 
     return-void
 .end method
 
 .method private static final readQuotedString(Lokio/Buffer;)Ljava/lang/String;
-    .locals 12
+    .registers 13
     .param p0, "$this$readQuotedString"    # Lokio/Buffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -650,17 +650,17 @@
 
     int-to-byte v1, v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_4
+    :goto_c
+    if-eqz v0, :cond_4a
 
     .line 167
     new-instance v0, Lokio/Buffer;
@@ -669,7 +669,7 @@
 
     .line 168
     .local v0, "result":Lokio/Buffer;
-    :goto_1
+    :goto_13
     nop
 
     .line 169
@@ -687,17 +687,17 @@
 
     cmp-long v7, v2, v4
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_22
 
     return-object v6
 
     .line 172
-    :cond_1
+    :cond_22
     invoke-virtual {p0, v2, v3}, Lokio/Buffer;->getByte(J)B
 
     move-result v4
 
-    if-ne v4, v1, :cond_2
+    if-ne v4, v1, :cond_33
 
     .line 173
     invoke-virtual {v0, p0, v2, v3}, Lokio/Buffer;->write(Lokio/Buffer;J)V
@@ -713,7 +713,7 @@
     return-object v1
 
     .line 179
-    :cond_2
+    :cond_33
     invoke-virtual {p0}, Lokio/Buffer;->size()J
 
     move-result-wide v4
@@ -724,12 +724,12 @@
 
     cmp-long v11, v4, v9
 
-    if-nez v11, :cond_3
+    if-nez v11, :cond_40
 
     return-object v6
 
     .line 180
-    :cond_3
+    :cond_40
     invoke-virtual {v0, p0, v2, v3}, Lokio/Buffer;->write(Lokio/Buffer;J)V
 
     .line 182
@@ -739,11 +739,11 @@
     invoke-virtual {v0, p0, v7, v8}, Lokio/Buffer;->write(Lokio/Buffer;J)V
 
     .end local v2    # "i":J
-    goto :goto_1
+    goto :goto_13
 
     .line 166
     .end local v0    # "result":Lokio/Buffer;
-    :cond_4
+    :cond_4a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."
@@ -760,7 +760,7 @@
 .end method
 
 .method private static final readToken(Lokio/Buffer;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "$this$readToken"    # Lokio/Buffer;
 
     .line 192
@@ -776,14 +776,14 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_10
 
     invoke-virtual {p0}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 
     .line 195
-    :cond_0
+    :cond_10
     nop
 
     .line 196
@@ -791,25 +791,25 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1c
 
     invoke-virtual {p0, v0, v1}, Lokio/Buffer;->readUtf8(J)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 197
-    :cond_1
+    :cond_1c
     const/4 v2, 0x0
 
     .line 195
-    :goto_0
+    :goto_1d
     return-object v2
 .end method
 
 .method public static final receiveHeaders(Lokhttp3/CookieJar;Lokhttp3/HttpUrl;Lokhttp3/Headers;)V
-    .locals 2
+    .registers 5
     .param p0, "$this$receiveHeaders"    # Lokhttp3/CookieJar;
     .param p1, "url"    # Lokhttp3/HttpUrl;
     .param p2, "headers"    # Lokhttp3/Headers;
@@ -829,12 +829,12 @@
     .line 202
     sget-object v0, Lokhttp3/CookieJar;->NO_COOKIES:Lokhttp3/CookieJar;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_14
 
     return-void
 
     .line 204
-    :cond_0
+    :cond_14
     sget-object v0, Lokhttp3/Cookie;->Companion:Lokhttp3/Cookie$Companion;
 
     invoke-virtual {v0, p1, p2}, Lokhttp3/Cookie$Companion;->parseAll(Lokhttp3/HttpUrl;Lokhttp3/Headers;)Ljava/util/List;
@@ -847,12 +847,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     return-void
 
     .line 207
-    :cond_1
+    :cond_21
     invoke-interface {p0, p1, v0}, Lokhttp3/CookieJar;->saveFromResponse(Lokhttp3/HttpUrl;Ljava/util/List;)V
 
     .line 208
@@ -860,7 +860,7 @@
 .end method
 
 .method private static final skipCommasAndWhitespace(Lokio/Buffer;)Z
-    .locals 4
+    .registers 5
     .param p0, "$this$skipCommasAndWhitespace"    # Lokio/Buffer;
 
     .line 137
@@ -868,12 +868,12 @@
 
     .line 138
     .local v0, "commaFound":Z
-    :goto_0
+    :goto_1
     invoke-virtual {p0}, Lokio/Buffer;->exhausted()Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_2c
 
     .line 139
     const-wide/16 v1, 0x0
@@ -887,7 +887,7 @@
 
     int-to-byte v2, v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_17
 
     .line 142
     invoke-virtual {p0}, Lokio/Buffer;->readByte()B
@@ -895,52 +895,52 @@
     .line 143
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 146
-    :cond_0
+    :cond_17
     const/16 v2, 0x20
 
     int-to-byte v2, v2
 
     const/4 v3, 0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1e
 
-    :goto_1
-    goto :goto_2
+    :goto_1d
+    goto :goto_25
 
-    :cond_1
+    :cond_1e
     const/16 v2, 0x9
 
     int-to-byte v2, v2
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_24
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_2
+    :cond_24
     const/4 v3, 0x0
 
-    :goto_2
-    if-eqz v3, :cond_3
+    :goto_25
+    if-eqz v3, :cond_2b
 
     .line 147
     invoke-virtual {p0}, Lokio/Buffer;->readByte()B
 
-    goto :goto_0
+    goto :goto_1
 
     .line 151
-    :cond_3
+    :cond_2b
     nop
 
     .line 154
-    :cond_4
+    :cond_2c
     return v0
 .end method
 
 .method private static final startsWith(Lokio/Buffer;B)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$startsWith"    # Lokio/Buffer;
     .param p1, "prefix"    # B
 
@@ -949,7 +949,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const-wide/16 v0, 0x0
 
@@ -957,15 +957,15 @@
 
     move-result v0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method

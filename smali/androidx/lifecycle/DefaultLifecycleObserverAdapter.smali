@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleEventObserver;)V
-    .locals 1
+    .registers 4
     .param p1, "defaultLifecycleObserver"    # Landroidx/lifecycle/DefaultLifecycleObserver;
     .param p2, "lifecycleEventObserver"    # Landroidx/lifecycle/LifecycleEventObserver;
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -95,12 +95,12 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_4a
 
-    goto :goto_0
+    goto :goto_42
 
     .line 31
-    :pswitch_0
+    :pswitch_17
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "ON_ANY must not been send by anybody"
@@ -110,71 +110,71 @@
     throw v0
 
     .line 29
-    :pswitch_1
+    :pswitch_1f
     iget-object v0, p0, Landroidx/lifecycle/DefaultLifecycleObserverAdapter;->defaultLifecycleObserver:Landroidx/lifecycle/DefaultLifecycleObserver;
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/DefaultLifecycleObserver;->onDestroy(Landroidx/lifecycle/LifecycleOwner;)V
 
-    goto :goto_0
+    goto :goto_42
 
     .line 28
-    :pswitch_2
+    :pswitch_25
     iget-object v0, p0, Landroidx/lifecycle/DefaultLifecycleObserverAdapter;->defaultLifecycleObserver:Landroidx/lifecycle/DefaultLifecycleObserver;
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/DefaultLifecycleObserver;->onStop(Landroidx/lifecycle/LifecycleOwner;)V
 
-    goto :goto_0
+    goto :goto_42
 
     .line 27
-    :pswitch_3
+    :pswitch_2b
     iget-object v0, p0, Landroidx/lifecycle/DefaultLifecycleObserverAdapter;->defaultLifecycleObserver:Landroidx/lifecycle/DefaultLifecycleObserver;
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/DefaultLifecycleObserver;->onPause(Landroidx/lifecycle/LifecycleOwner;)V
 
-    goto :goto_0
+    goto :goto_42
 
     .line 26
-    :pswitch_4
+    :pswitch_31
     iget-object v0, p0, Landroidx/lifecycle/DefaultLifecycleObserverAdapter;->defaultLifecycleObserver:Landroidx/lifecycle/DefaultLifecycleObserver;
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/DefaultLifecycleObserver;->onResume(Landroidx/lifecycle/LifecycleOwner;)V
 
-    goto :goto_0
+    goto :goto_42
 
     .line 25
-    :pswitch_5
+    :pswitch_37
     iget-object v0, p0, Landroidx/lifecycle/DefaultLifecycleObserverAdapter;->defaultLifecycleObserver:Landroidx/lifecycle/DefaultLifecycleObserver;
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/DefaultLifecycleObserver;->onStart(Landroidx/lifecycle/LifecycleOwner;)V
 
-    goto :goto_0
+    goto :goto_42
 
     .line 24
-    :pswitch_6
+    :pswitch_3d
     iget-object v0, p0, Landroidx/lifecycle/DefaultLifecycleObserverAdapter;->defaultLifecycleObserver:Landroidx/lifecycle/DefaultLifecycleObserver;
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/DefaultLifecycleObserver;->onCreate(Landroidx/lifecycle/LifecycleOwner;)V
 
     .line 33
-    :goto_0
+    :goto_42
     iget-object v0, p0, Landroidx/lifecycle/DefaultLifecycleObserverAdapter;->lifecycleEventObserver:Landroidx/lifecycle/LifecycleEventObserver;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_49
 
     invoke-interface {v0, p1, p2}, Landroidx/lifecycle/LifecycleEventObserver;->onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
 
     .line 34
-    :cond_0
+    :cond_49
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3d
+        :pswitch_37
+        :pswitch_31
+        :pswitch_2b
+        :pswitch_25
+        :pswitch_1f
+        :pswitch_17
     .end packed-switch
 .end method

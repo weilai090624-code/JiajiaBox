@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialCalendar;Lcom/google/android/material/datepicker/MonthsPagerAdapter;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/MaterialCalendar;
 
     .line 477
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
 
     .line 480
@@ -61,7 +61,7 @@
     .local v0, "currentItem":I
     add-int/lit8 v1, v0, -0x1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_1b
 
     .line 482
     iget-object v1, p0, Lcom/google/android/material/datepicker/MaterialCalendar$10;->this$0:Lcom/google/android/material/datepicker/MaterialCalendar;
@@ -77,6 +77,6 @@
     invoke-virtual {v1, v2}, Lcom/google/android/material/datepicker/MaterialCalendar;->setCurrentMonth(Lcom/google/android/material/datepicker/Month;)V
 
     .line 484
-    :cond_0
+    :cond_1b
     return-void
 .end method

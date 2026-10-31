@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/appcompat/view/menu/MenuBuilder;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/View;)V
-    .locals 7
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p3, "anchorView"    # Landroid/view/View;
@@ -99,7 +99,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/View;ZI)V
-    .locals 7
+    .registers 13
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p3, "anchorView"    # Landroid/view/View;
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/View;ZII)V
-    .locals 1
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p3, "anchorView"    # Landroid/view/View;
@@ -174,7 +174,7 @@
 .end method
 
 .method private createPopup()Landroidx/appcompat/view/menu/MenuPopup;
-    .locals 14
+    .registers 15
 
     .line 233
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
@@ -231,19 +231,19 @@
 
     .line 247
     .local v4, "minSmallestWidthCascading":I
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_30
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_30
     const/4 v5, 0x0
 
     .line 250
     .local v5, "enableCascadingSubmenus":Z
-    :goto_0
-    if-eqz v5, :cond_1
+    :goto_31
+    if-eqz v5, :cond_44
 
     .line 251
     new-instance v12, Landroidx/appcompat/view/menu/CascadingMenuPopup;
@@ -263,11 +263,11 @@
     invoke-direct/range {v6 .. v11}, Landroidx/appcompat/view/menu/CascadingMenuPopup;-><init>(Landroid/content/Context;Landroid/view/View;IIZ)V
 
     .local v6, "popup":Landroidx/appcompat/view/menu/MenuPopup;
-    goto :goto_1
+    goto :goto_56
 
     .line 254
     .end local v6    # "popup":Landroidx/appcompat/view/menu/MenuPopup;
-    :cond_1
+    :cond_44
     new-instance v6, Landroidx/appcompat/view/menu/StandardMenuPopup;
 
     iget-object v8, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
@@ -288,7 +288,7 @@
 
     .line 259
     .restart local v6    # "popup":Landroidx/appcompat/view/menu/MenuPopup;
-    :goto_1
+    :goto_56
     iget-object v7, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
     invoke-virtual {v6, v7}, Landroidx/appcompat/view/menu/MenuPopup;->addMenu(Landroidx/appcompat/view/menu/MenuBuilder;)V
@@ -323,7 +323,7 @@
 .end method
 
 .method private showPopup(IIZZ)V
-    .locals 9
+    .registers 14
     .param p1, "xOffset"    # I
     .param p2, "yOffset"    # I
     .param p3, "useOffsets"    # Z
@@ -339,7 +339,7 @@
     invoke-virtual {v0, p4}, Landroidx/appcompat/view/menu/MenuPopup;->setShowTitle(Z)V
 
     .line 275
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_4b
 
     .line 279
     iget v1, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mDropDownGravity:I
@@ -362,7 +362,7 @@
     .local v1, "hgrav":I
     const/4 v2, 0x5
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_21
 
     .line 282
     iget-object v2, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
@@ -374,7 +374,7 @@
     sub-int/2addr p1, v2
 
     .line 285
-    :cond_0
+    :cond_21
     invoke-virtual {v0, p1}, Landroidx/appcompat/view/menu/MenuPopup;->setHorizontalOffset(I)V
 
     .line 286
@@ -428,7 +428,7 @@
     .end local v2    # "density":F
     .end local v3    # "halfSize":I
     .end local v4    # "epicenter":Landroid/graphics/Rect;
-    :cond_1
+    :cond_4b
     invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuPopup;->show()V
 
     .line 300
@@ -438,14 +438,14 @@
 
 # virtual methods
 .method public dismiss()V
-    .locals 1
+    .registers 2
 
     .line 307
     invoke-virtual {p0}, Landroidx/appcompat/view/menu/MenuPopupHelper;->isShowing()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 308
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mPopup:Landroidx/appcompat/view/menu/MenuPopup;
@@ -453,12 +453,12 @@
     invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuPopup;->dismiss()V
 
     .line 310
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public getGravity()I
-    .locals 1
+    .registers 2
 
     .line 143
     iget v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mDropDownGravity:I
@@ -467,7 +467,7 @@
 .end method
 
 .method public getListView()Landroid/widget/ListView;
-    .locals 1
+    .registers 2
 
     .line 354
     invoke-virtual {p0}, Landroidx/appcompat/view/menu/MenuPopupHelper;->getPopup()Landroidx/appcompat/view/menu/MenuPopup;
@@ -482,12 +482,12 @@
 .end method
 
 .method public getPopup()Landroidx/appcompat/view/menu/MenuPopup;
-    .locals 1
+    .registers 2
 
     .line 164
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mPopup:Landroidx/appcompat/view/menu/MenuPopup;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 165
     invoke-direct {p0}, Landroidx/appcompat/view/menu/MenuPopupHelper;->createPopup()Landroidx/appcompat/view/menu/MenuPopup;
@@ -497,19 +497,19 @@
     iput-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mPopup:Landroidx/appcompat/view/menu/MenuPopup;
 
     .line 167
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mPopup:Landroidx/appcompat/view/menu/MenuPopup;
 
     return-object v0
 .end method
 
 .method public isShowing()Z
-    .locals 1
+    .registers 2
 
     .line 329
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mPopup:Landroidx/appcompat/view/menu/MenuPopup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mPopup:Landroidx/appcompat/view/menu/MenuPopup;
 
@@ -517,21 +517,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method protected onDismiss()V
-    .locals 1
+    .registers 2
 
     .line 321
     const/4 v0, 0x0
@@ -541,7 +541,7 @@
     .line 323
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mOnDismissListener:Landroid/widget/PopupWindow$OnDismissListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 324
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mOnDismissListener:Landroid/widget/PopupWindow$OnDismissListener;
@@ -549,12 +549,12 @@
     invoke-interface {v0}, Landroid/widget/PopupWindow$OnDismissListener;->onDismiss()V
 
     .line 326
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setAnchorView(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "anchor"    # Landroid/view/View;
 
     .line 109
@@ -565,7 +565,7 @@
 .end method
 
 .method public setForceShowIcon(Z)V
-    .locals 1
+    .registers 3
     .param p1, "forceShowIcon"    # Z
 
     .line 122
@@ -574,7 +574,7 @@
     .line 123
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mPopup:Landroidx/appcompat/view/menu/MenuPopup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 124
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mPopup:Landroidx/appcompat/view/menu/MenuPopup;
@@ -582,12 +582,12 @@
     invoke-virtual {v0, p1}, Landroidx/appcompat/view/menu/MenuPopup;->setForceShowIcon(Z)V
 
     .line 126
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setGravity(I)V
-    .locals 0
+    .registers 2
     .param p1, "gravity"    # I
 
     .line 136
@@ -598,7 +598,7 @@
 .end method
 
 .method public setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Landroid/widget/PopupWindow$OnDismissListener;
 
     .line 98
@@ -609,7 +609,7 @@
 .end method
 
 .method public setPresenterCallback(Landroidx/appcompat/view/menu/MenuPresenter$Callback;)V
-    .locals 1
+    .registers 3
     .param p1, "cb"    # Landroidx/appcompat/view/menu/MenuPresenter$Callback;
 
     .line 334
@@ -618,7 +618,7 @@
     .line 335
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mPopup:Landroidx/appcompat/view/menu/MenuPopup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 336
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mPopup:Landroidx/appcompat/view/menu/MenuPopup;
@@ -626,25 +626,25 @@
     invoke-virtual {v0, p1}, Landroidx/appcompat/view/menu/MenuPopup;->setCallback(Landroidx/appcompat/view/menu/MenuPresenter$Callback;)V
 
     .line 338
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public show()V
-    .locals 2
+    .registers 3
 
     .line 147
     invoke-virtual {p0}, Landroidx/appcompat/view/menu/MenuPopupHelper;->tryShow()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 150
     return-void
 
     .line 148
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "MenuPopupHelper cannot be used without an anchor"
@@ -655,7 +655,7 @@
 .end method
 
 .method public show(II)V
-    .locals 2
+    .registers 5
     .param p1, "x"    # I
     .param p2, "y"    # I
 
@@ -664,13 +664,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 156
     return-void
 
     .line 154
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "MenuPopupHelper cannot be used without an anchor"
@@ -681,7 +681,7 @@
 .end method
 
 .method public tryShow()Z
-    .locals 3
+    .registers 4
 
     .line 177
     invoke-virtual {p0}, Landroidx/appcompat/view/menu/MenuPopupHelper;->isShowing()Z
@@ -690,24 +690,24 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 178
     return v1
 
     .line 181
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     .line 182
     return v2
 
     .line 185
-    :cond_1
+    :cond_e
     invoke-direct {p0, v2, v2, v2, v2}, Landroidx/appcompat/view/menu/MenuPopupHelper;->showPopup(IIZZ)V
 
     .line 186
@@ -715,7 +715,7 @@
 .end method
 
 .method public tryShow(II)Z
-    .locals 2
+    .registers 5
     .param p1, "x"    # I
     .param p2, "y"    # I
 
@@ -726,16 +726,16 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 214
     return v1
 
     .line 217
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     .line 218
     const/4 v0, 0x0
@@ -743,7 +743,7 @@
     return v0
 
     .line 221
-    :cond_1
+    :cond_e
     invoke-direct {p0, p1, p2, v1, v1}, Landroidx/appcompat/view/menu/MenuPopupHelper;->showPopup(IIZZ)V
 
     .line 222

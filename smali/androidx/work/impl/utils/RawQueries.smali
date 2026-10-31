@@ -37,26 +37,26 @@
 
 # direct methods
 .method private static final bindings(Ljava/lang/StringBuilder;I)V
-    .locals 10
+    .registers 12
     .param p0, "builder"    # Ljava/lang/StringBuilder;
     .param p1, "count"    # I
 
     .line 68
-    if-gtz p1, :cond_0
+    if-gtz p1, :cond_3
 
     .line 69
     return-void
 
     .line 71
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(I)V
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, p1, :cond_1
+    :goto_9
+    if-ge v1, p1, :cond_15
 
     .line 83
     move v2, v1
@@ -74,9 +74,9 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_1
+    :cond_15
     check-cast v0, Ljava/util/List;
 
     move-object v1, v0
@@ -114,7 +114,7 @@
 .end method
 
 .method public static final toRawQuery(Landroidx/work/WorkQuery;)Landroidx/sqlite/db/SupportSQLiteQuery;
-    .locals 14
+    .registers 15
     .param p0, "$this$toRawQuery"    # Landroidx/work/WorkQuery;
 
     const-string v0, "<this>"
@@ -160,7 +160,7 @@
 
     const/16 v6, 0xa
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_90
 
     .line 35
     invoke-virtual {p0}, Landroidx/work/WorkQuery;->getStates()Ljava/util/List;
@@ -198,12 +198,12 @@
 
     move-result-object v10
 
-    :goto_0
+    :goto_46
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_63
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -235,11 +235,11 @@
     .line 75
     invoke-interface {v7, v12}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_46
 
     .line 76
     .end local v11    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_63
     nop
 
     .end local v7    # "destination$iv$iv":Ljava/util/Collection;
@@ -299,7 +299,7 @@
 
     .line 42
     .end local v3    # "stateIds":Ljava/util/List;
-    :cond_1
+    :cond_90
     invoke-virtual {p0}, Landroidx/work/WorkQuery;->getIds()Ljava/util/List;
 
     move-result-object v3
@@ -314,7 +314,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_104
 
     .line 43
     invoke-virtual {p0}, Landroidx/work/WorkQuery;->getIds()Ljava/util/List;
@@ -354,12 +354,12 @@
 
     move-result-object v9
 
-    :goto_1
+    :goto_bd
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_d3
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -385,11 +385,11 @@
     .end local v12    # "$i$a$-map-RawQueries$toRawQuery$workSpecIds$1":I
     invoke-interface {v6, v11}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_bd
 
     .line 80
     .end local v10    # "item$iv$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_d3
     nop
 
     .end local v6    # "destination$iv$iv":Ljava/util/Collection;
@@ -453,7 +453,7 @@
 
     .line 50
     .end local v3    # "workSpecIds":Ljava/util/List;
-    :cond_3
+    :cond_104
     invoke-virtual {p0}, Landroidx/work/WorkQuery;->getTags()Ljava/util/List;
 
     move-result-object v3
@@ -470,7 +470,7 @@
 
     const-string v5, "))"
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_14a
 
     .line 51
     new-instance v3, Ljava/lang/StringBuilder;
@@ -522,7 +522,7 @@
     const-string v2, " AND"
 
     .line 57
-    :cond_4
+    :cond_14a
     invoke-virtual {p0}, Landroidx/work/WorkQuery;->getUniqueWorkNames()Ljava/util/List;
 
     move-result-object v3
@@ -537,7 +537,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_18c
 
     .line 58
     new-instance v3, Ljava/lang/StringBuilder;
@@ -586,7 +586,7 @@
     invoke-interface {v0, v3}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 63
-    :cond_5
+    :cond_18c
     const-string v3, ";"
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

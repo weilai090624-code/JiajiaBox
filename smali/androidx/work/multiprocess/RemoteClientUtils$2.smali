@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/futures/SettableFuture;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 64
     :try_start_0
@@ -72,18 +72,18 @@
     iget-object v2, p0, Landroidx/work/multiprocess/RemoteClientUtils$2;->val$output:Landroidx/work/impl/utils/futures/SettableFuture;
 
     invoke-virtual {v2, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_0 .. :try_end_11} :catchall_13
 
     .line 71
     nop
 
     .end local v0    # "in":Ljava/lang/Object;, "TI;"
     .end local v1    # "out":Ljava/lang/Object;, "TO;"
-    goto :goto_1
+    goto :goto_23
 
     .line 67
-    :catchall_0
+    :catchall_13
     move-exception v0
 
     .line 68
@@ -94,16 +94,16 @@
 
     .line 69
     .local v1, "cause":Ljava/lang/Throwable;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     move-object v2, v0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     move-object v2, v1
 
-    :goto_0
+    :goto_1d
     move-object v1, v2
 
     .line 70
@@ -114,6 +114,6 @@
     .line 72
     .end local v0    # "throwable":Ljava/lang/Throwable;
     .end local v1    # "cause":Ljava/lang/Throwable;
-    :goto_1
+    :goto_23
     return-void
 .end method

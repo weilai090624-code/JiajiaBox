@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ImmutableMap;Lcom/google/common/collect/ArrayTable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/ImmutableMap;
     .param p2, "x1"    # Lcom/google/common/collect/ArrayTable$1;
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 294
     .local p0, "this":Lcom/google/common/collect/ArrayTable$ArrayMap;, "Lcom/google/common/collect/ArrayTable$ArrayMap<TK;TV;>;"
@@ -91,7 +91,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -109,7 +109,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -133,7 +133,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -161,7 +161,7 @@
 
     .line 268
     .local v0, "index":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 269
     const/4 v1, 0x0
@@ -169,7 +169,7 @@
     return-object v1
 
     .line 271
-    :cond_0
+    :cond_c
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
@@ -182,7 +182,7 @@
 .end method
 
 .method getEntry(I)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -209,7 +209,7 @@
 .end method
 
 .method getKey(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -251,7 +251,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 222
     .local p0, "this":Lcom/google/common/collect/ArrayTable$ArrayMap;, "Lcom/google/common/collect/ArrayTable$ArrayMap<TK;TV;>;"
@@ -265,7 +265,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -286,7 +286,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 10
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -314,7 +314,7 @@
 
     .line 279
     .local v0, "index":Ljava/lang/Integer;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 283
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -328,7 +328,7 @@
     return-object v1
 
     .line 280
-    :cond_0
+    :cond_13
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     .line 281
@@ -418,7 +418,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -459,7 +459,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 217
     .local p0, "this":Lcom/google/common/collect/ArrayTable$ArrayMap;, "Lcom/google/common/collect/ArrayTable$ArrayMap<TK;TV;>;"

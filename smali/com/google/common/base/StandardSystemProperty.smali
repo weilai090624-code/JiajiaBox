@@ -85,7 +85,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/base/StandardSystemProperty;
-    .locals 3
+    .registers 3
 
     .line 26
     const/16 v0, 0x1c
@@ -264,7 +264,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 31
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
@@ -641,7 +641,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p3, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -662,7 +662,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/base/StandardSystemProperty;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 26
@@ -678,7 +678,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/base/StandardSystemProperty;
-    .locals 1
+    .registers 1
 
     .line 26
     sget-object v0, Lcom/google/common/base/StandardSystemProperty;->$VALUES:[Lcom/google/common/base/StandardSystemProperty;
@@ -695,7 +695,7 @@
 
 # virtual methods
 .method public key()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 130
     iget-object v0, p0, Lcom/google/common/base/StandardSystemProperty;->key:Ljava/lang/String;
@@ -704,7 +704,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 164
     invoke-virtual {p0}, Lcom/google/common/base/StandardSystemProperty;->key()Ljava/lang/String;
@@ -761,7 +761,7 @@
 .end method
 
 .method public value()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 

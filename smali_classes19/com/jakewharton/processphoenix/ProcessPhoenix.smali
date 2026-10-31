@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method private static getRestartIntent(Landroid/content/Context;)Landroid/content/Intent;
-    .locals 5
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
 
     .line 72
@@ -40,13 +40,13 @@
 
     .line 74
     .local v1, "defaultIntent":Landroid/content/Intent;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 75
     return-object v1
 
     .line 78
-    :cond_0
+    :cond_f
     new-instance v2, Ljava/lang/IllegalStateException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -79,7 +79,7 @@
 .end method
 
 .method public static isPhoenixProcess(Landroid/content/Context;)Z
-    .locals 7
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
 
     .line 102
@@ -105,19 +105,19 @@
 
     .line 105
     .local v2, "runningProcesses":Ljava/util/List;, "Ljava/util/List<Landroid/app/ActivityManager$RunningAppProcessInfo;>;"
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_33
 
     .line 106
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_0
+    :goto_16
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_33
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -129,7 +129,7 @@
     .local v4, "processInfo":Landroid/app/ActivityManager$RunningAppProcessInfo;
     iget v5, v4, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
 
-    if-ne v5, v0, :cond_0
+    if-ne v5, v0, :cond_32
 
     iget-object v5, v4, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
 
@@ -139,7 +139,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_32
 
     .line 108
     const/4 v3, 0x1
@@ -148,18 +148,18 @@
 
     .line 110
     .end local v4    # "processInfo":Landroid/app/ActivityManager$RunningAppProcessInfo;
-    :cond_0
-    goto :goto_0
+    :cond_32
+    goto :goto_16
 
     .line 112
-    :cond_1
+    :cond_33
     const/4 v3, 0x0
 
     return v3
 .end method
 
 .method public static triggerRebirth(Landroid/content/Context;)V
-    .locals 3
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
     .line 49
@@ -182,7 +182,7 @@
 .end method
 
 .method public static varargs triggerRebirth(Landroid/content/Context;[Landroid/content/Intent;)V
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "nextIntents"    # [Landroid/content/Intent;
 
@@ -191,7 +191,7 @@
 
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_34
 
     .line 62
     const/4 v0, 0x0
@@ -245,7 +245,7 @@
 
     .line 59
     .end local v0    # "intent":Landroid/content/Intent;
-    :cond_0
+    :cond_34
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "intents cannot be empty"
@@ -258,7 +258,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 84

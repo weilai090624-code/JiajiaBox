@@ -241,7 +241,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/room/RoomDatabase$Companion;
 
@@ -255,7 +255,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -321,7 +321,7 @@
 .end method
 
 .method public static final synthetic access$internalBeginTransaction(Landroidx/room/RoomDatabase;)V
-    .locals 0
+    .registers 1
     .param p0, "$this"    # Landroidx/room/RoomDatabase;
 
     .line 66
@@ -331,7 +331,7 @@
 .end method
 
 .method public static final synthetic access$internalEndTransaction(Landroidx/room/RoomDatabase;)V
-    .locals 0
+    .registers 1
     .param p0, "$this"    # Landroidx/room/RoomDatabase;
 
     .line 66
@@ -341,7 +341,7 @@
 .end method
 
 .method protected static synthetic getMCallbacks$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Will be hidden in a future release."
     .end annotation
@@ -350,7 +350,7 @@
 .end method
 
 .method protected static synthetic getMDatabase$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Will be hidden in the next release."
     .end annotation
@@ -359,7 +359,7 @@
 .end method
 
 .method private final internalBeginTransaction()V
-    .locals 2
+    .registers 3
 
     .line 521
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->assertNotMainThread()V
@@ -389,24 +389,24 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 527
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->beginTransactionNonExclusive()V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 529
-    :cond_0
+    :cond_1d
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->beginTransaction()V
 
     .line 531
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 .method private final internalEndTransaction()V
-    .locals 1
+    .registers 2
 
     .line 553
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getOpenHelper()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
@@ -424,7 +424,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 557
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getInvalidationTracker()Landroidx/room/InvalidationTracker;
@@ -434,42 +434,42 @@
     invoke-virtual {v0}, Landroidx/room/InvalidationTracker;->refreshVersionsAsync()V
 
     .line 559
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public static synthetic isOpen$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isOpenInternal$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic query$default(Landroidx/room/RoomDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;Landroid/os/CancellationSignal;ILjava/lang/Object;)Landroid/database/Cursor;
-    .locals 0
+    .registers 5
 
     .line 478
-    if-nez p4, :cond_1
+    if-nez p4, :cond_c
 
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_7
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1, p2}, Landroidx/room/RoomDatabase;->query(Landroidx/sqlite/db/SupportSQLiteQuery;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1
+    :cond_c
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: query"
@@ -480,7 +480,7 @@
 .end method
 
 .method private final unwrapOpenHelper(Ljava/lang/Class;Landroidx/sqlite/db/SupportSQLiteOpenHelper;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "clazz"    # Ljava/lang/Class;
     .param p2, "openHelper"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper;
     .annotation system Ldalvik/annotation/Signature;
@@ -500,7 +500,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 319
     move-object v0, p2
@@ -510,10 +510,10 @@
     return-object v0
 
     .line 321
-    :cond_0
+    :cond_a
     instance-of v0, p2, Landroidx/room/DelegatingOpenHelper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 322
     nop
@@ -535,43 +535,43 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 326
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
     .line 321
-    :goto_0
+    :goto_1d
     return-object v0
 .end method
 
 
 # virtual methods
 .method public assertNotMainThread()V
-    .locals 2
+    .registers 3
 
     .line 436
     iget-boolean v0, p0, Landroidx/room/RoomDatabase;->allowMainThreadQueries:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 437
     return-void
 
     .line 439
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->isMainThread$room_runtime_release()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_c
 
     .line 443
     return-void
 
     .line 439
-    :cond_1
+    :cond_c
     const/4 v0, 0x0
 
     .line 440
@@ -594,14 +594,14 @@
 .end method
 
 .method public assertNotSuspendingTransaction()V
-    .locals 2
+    .registers 3
 
     .line 451
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->inTransaction()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     iget-object v0, p0, Landroidx/room/RoomDatabase;->suspendingTransactionId:Ljava/lang/ThreadLocal;
 
@@ -609,27 +609,27 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x1
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_12
+    if-eqz v0, :cond_15
 
     .line 455
     return-void
 
     .line 451
-    :cond_2
+    :cond_15
     const/4 v0, 0x0
 
     .line 452
@@ -652,7 +652,7 @@
 .end method
 
 .method public beginTransaction()V
-    .locals 2
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         message = "beginTransaction() is deprecated"
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -669,15 +669,15 @@
 
     .line 510
     .local v0, "autoCloser":Landroidx/room/AutoCloser;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 511
     invoke-direct {p0}, Landroidx/room/RoomDatabase;->internalBeginTransaction()V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 513
-    :cond_0
+    :cond_b
     new-instance v1, Landroidx/room/RoomDatabase$beginTransaction$1;
 
     invoke-direct {v1, p0}, Landroidx/room/RoomDatabase$beginTransaction$1;-><init>(Landroidx/room/RoomDatabase;)V
@@ -687,7 +687,7 @@
     invoke-virtual {v0, v1}, Landroidx/room/AutoCloser;->executeRefCountingFunction(Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 
     .line 518
-    :goto_0
+    :goto_15
     return-void
 .end method
 
@@ -695,14 +695,14 @@
 .end method
 
 .method public close()V
-    .locals 2
+    .registers 3
 
     .line 414
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->isOpen()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
     .line 415
     iget-object v0, p0, Landroidx/room/RoomDatabase;->readWriteLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
@@ -725,7 +725,7 @@
     nop
 
     .line 418
-    :try_start_0
+    :try_start_17
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getInvalidationTracker()Landroidx/room/InvalidationTracker;
 
     move-result-object v1
@@ -738,17 +738,17 @@
     move-result-object v1
 
     invoke-interface {v1}, Landroidx/sqlite/db/SupportSQLiteOpenHelper;->close()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catchall {:try_start_17 .. :try_end_25} :catchall_29
 
     .line 421
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
     .line 422
-    goto :goto_0
+    goto :goto_2e
 
     .line 421
-    :catchall_0
+    :catchall_29
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -757,13 +757,13 @@
 
     .line 424
     .end local v0    # "closeLock":Ljava/util/concurrent/locks/Lock;
-    :cond_0
-    :goto_0
+    :cond_2e
+    :goto_2e
     return-void
 .end method
 
 .method public compileStatement(Ljava/lang/String;)Landroidx/sqlite/db/SupportSQLiteStatement;
-    .locals 1
+    .registers 3
     .param p1, "sql"    # Ljava/lang/String;
 
     const-string/jumbo v0, "sql"
@@ -799,7 +799,7 @@
 .end method
 
 .method public endTransaction()V
-    .locals 2
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         message = "endTransaction() is deprecated"
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -813,15 +813,15 @@
 
     .line 542
     .local v0, "autoCloser":Landroidx/room/AutoCloser;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 543
     invoke-direct {p0}, Landroidx/room/RoomDatabase;->internalEndTransaction()V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 545
-    :cond_0
+    :cond_8
     new-instance v1, Landroidx/room/RoomDatabase$endTransaction$1;
 
     invoke-direct {v1, p0}, Landroidx/room/RoomDatabase$endTransaction$1;-><init>(Landroidx/room/RoomDatabase;)V
@@ -831,12 +831,12 @@
     invoke-virtual {v0, v1}, Landroidx/room/AutoCloser;->executeRefCountingFunction(Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 
     .line 550
-    :goto_0
+    :goto_12
     return-void
 .end method
 
 .method protected final getAutoMigrationSpecs()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -857,7 +857,7 @@
 .end method
 
 .method public getAutoMigrations(Ljava/util/Map;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "autoMigrationSpecs"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -888,7 +888,7 @@
 .end method
 
 .method public final getBackingFieldMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -906,7 +906,7 @@
 .end method
 
 .method public final getCloseLock$room_runtime_release()Ljava/util/concurrent/locks/Lock;
-    .locals 2
+    .registers 3
 
     .line 141
     iget-object v0, p0, Landroidx/room/RoomDatabase;->readWriteLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
@@ -925,7 +925,7 @@
 .end method
 
 .method public getInvalidationTracker()Landroidx/room/InvalidationTracker;
-    .locals 1
+    .registers 2
 
     .line 108
     iget-object v0, p0, Landroidx/room/RoomDatabase;->invalidationTracker:Landroidx/room/InvalidationTracker;
@@ -934,12 +934,12 @@
 .end method
 
 .method public getOpenHelper()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 1
+    .registers 2
 
     .line 96
     iget-object v0, p0, Landroidx/room/RoomDatabase;->internalOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const-string v0, "internalOpenHelper"
 
@@ -947,17 +947,17 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public getQueryExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 80
     iget-object v0, p0, Landroidx/room/RoomDatabase;->internalQueryExecutor:Ljava/util/concurrent/Executor;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const-string v0, "internalQueryExecutor"
 
@@ -965,12 +965,12 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public getRequiredAutoMigrationSpecs()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -991,7 +991,7 @@
 .end method
 
 .method protected getRequiredTypeConverters()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1013,7 +1013,7 @@
 .end method
 
 .method public final getSuspendingTransactionId()Ljava/lang/ThreadLocal;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1030,12 +1030,12 @@
 .end method
 
 .method public getTransactionExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 88
     iget-object v0, p0, Landroidx/room/RoomDatabase;->internalTransactionExecutor:Ljava/util/concurrent/Executor;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const-string v0, "internalTransactionExecutor"
 
@@ -1043,12 +1043,12 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public getTypeConverter(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "klass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1075,7 +1075,7 @@
 .end method
 
 .method public inTransaction()Z
-    .locals 1
+    .registers 2
 
     .line 632
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getOpenHelper()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
@@ -1094,7 +1094,7 @@
 .end method
 
 .method public init(Landroidx/room/DatabaseConfiguration;)V
-    .locals 22
+    .registers 24
     .param p1, "configuration"    # Landroidx/room/DatabaseConfiguration;
 
     move-object/from16 v0, p0
@@ -1129,7 +1129,7 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_1c
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
@@ -1138,7 +1138,7 @@
 
     const/4 v7, 0x0
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_89
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1160,9 +1160,9 @@
 
     add-int/lit8 v9, v9, -0x1
 
-    if-ltz v9, :cond_2
+    if-ltz v9, :cond_4f
 
-    :cond_0
+    :cond_35
     move v10, v9
 
     .local v10, "providedIndex":I
@@ -1185,7 +1185,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_1
+    if-eqz v12, :cond_4d
 
     .line 192
     move v8, v10
@@ -1194,26 +1194,26 @@
     invoke-virtual {v3, v8}, Ljava/util/BitSet;->set(I)V
 
     .line 194
-    goto :goto_1
+    goto :goto_4f
 
     .line 189
     .end local v11    # "provided":Ljava/lang/Object;
-    :cond_1
-    if-gez v9, :cond_0
+    :cond_4d
+    if-gez v9, :cond_35
 
     .line 197
     .end local v10    # "providedIndex":I
-    :cond_2
-    :goto_1
-    if-ltz v8, :cond_3
+    :cond_4f
+    :goto_4f
+    if-ltz v8, :cond_52
 
-    goto :goto_2
+    goto :goto_53
 
-    :cond_3
+    :cond_52
     const/4 v6, 0x0
 
-    :goto_2
-    if-eqz v6, :cond_4
+    :goto_53
+    if-eqz v6, :cond_61
 
     .line 201
     iget-object v6, v0, Landroidx/room/RoomDatabase;->autoMigrationSpecs:Ljava/util/Map;
@@ -1226,10 +1226,10 @@
 
     invoke-interface {v6, v5, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 197
-    :cond_4
+    :cond_61
     const/4 v4, 0x0
 
     .line 198
@@ -1277,7 +1277,7 @@
     .line 203
     .end local v5    # "spec":Ljava/lang/Class;
     .end local v8    # "foundIndex":I
-    :cond_5
+    :cond_89
     iget-object v4, v1, Landroidx/room/DatabaseConfiguration;->autoMigrationSpecs:Ljava/util/List;
 
     invoke-interface {v4}, Ljava/util/List;->size()I
@@ -1286,9 +1286,9 @@
 
     add-int/lit8 v4, v4, -0x1
 
-    if-ltz v4, :cond_8
+    if-ltz v4, :cond_ad
 
-    :cond_6
+    :cond_93
     move v5, v4
 
     .local v5, "providedIndex":I
@@ -1299,15 +1299,15 @@
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_9f
 
     .line 203
-    if-gez v4, :cond_6
+    if-gez v4, :cond_93
 
-    goto :goto_3
+    goto :goto_ad
 
     .line 204
-    :cond_7
+    :cond_9f
     const/4 v4, 0x0
 
     .line 205
@@ -1330,8 +1330,8 @@
 
     .line 211
     .end local v5    # "providedIndex":I
-    :cond_8
-    :goto_3
+    :cond_ad
+    :goto_ad
     iget-object v4, v0, Landroidx/room/RoomDatabase;->autoMigrationSpecs:Ljava/util/Map;
 
     invoke-virtual {v0, v4}, Landroidx/room/RoomDatabase;->getAutoMigrations(Ljava/util/Map;)Ljava/util/List;
@@ -1344,13 +1344,13 @@
 
     move-result-object v5
 
-    :cond_9
-    :goto_4
+    :cond_b7
+    :goto_b7
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_a
+    if-eqz v8, :cond_d9
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1375,7 +1375,7 @@
 
     .line 217
     .local v9, "migrationExists":Z
-    if-nez v9, :cond_9
+    if-nez v9, :cond_b7
 
     .line 218
     iget-object v10, v1, Landroidx/room/DatabaseConfiguration;->migrationContainer:Landroidx/room/RoomDatabase$MigrationContainer;
@@ -1388,10 +1388,10 @@
 
     .end local v8    # "autoMigration":Landroidx/room/migration/Migration;
     .end local v9    # "migrationExists":Z
-    goto :goto_4
+    goto :goto_b7
 
     .line 226
-    :cond_a
+    :cond_d9
     nop
 
     .line 223
@@ -1410,7 +1410,7 @@
     check-cast v5, Landroidx/room/SQLiteCopyOpenHelper;
 
     .line 226
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_ec
 
     .line 223
     nop
@@ -1419,7 +1419,7 @@
     invoke-virtual {v5, v1}, Landroidx/room/SQLiteCopyOpenHelper;->setDatabaseConfiguration(Landroidx/room/DatabaseConfiguration;)V
 
     .line 231
-    :cond_b
+    :cond_ec
     nop
 
     .line 228
@@ -1438,7 +1438,7 @@
     check-cast v5, Landroidx/room/AutoClosingRoomOpenHelper;
 
     .line 231
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_10c
 
     .line 228
     nop
@@ -1470,7 +1470,7 @@
     .line 231
     .end local v5    # "it":Landroidx/room/AutoClosingRoomOpenHelper;
     .end local v8    # "$i$a$-let-RoomDatabase$init$3":I
-    :cond_c
+    :cond_10c
     nop
 
     .line 236
@@ -1481,18 +1481,18 @@
 
     sget-object v8, Landroidx/room/RoomDatabase$JournalMode;->WRITE_AHEAD_LOGGING:Landroidx/room/RoomDatabase$JournalMode;
 
-    if-ne v5, v8, :cond_d
+    if-ne v5, v8, :cond_116
 
     const/4 v5, 0x1
 
-    goto :goto_5
+    goto :goto_117
 
-    :cond_d
+    :cond_116
     const/4 v5, 0x0
 
     .line 238
     .local v5, "enabled":Z
-    :goto_5
+    :goto_117
     invoke-virtual/range {p0 .. p0}, Landroidx/room/RoomDatabase;->getOpenHelper()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     move-result-object v8
@@ -1539,12 +1539,12 @@
     .line 248
     iget-object v8, v1, Landroidx/room/DatabaseConfiguration;->multiInstanceInvalidationServiceIntent:Landroid/content/Intent;
 
-    if-eqz v8, :cond_f
+    if-eqz v8, :cond_15b
 
     .line 249
     iget-object v8, v1, Landroidx/room/DatabaseConfiguration;->name:Ljava/lang/String;
 
-    if-eqz v8, :cond_e
+    if-eqz v8, :cond_14f
 
     .line 250
     invoke-virtual/range {p0 .. p0}, Landroidx/room/RoomDatabase;->getInvalidationTracker()Landroidx/room/InvalidationTracker;
@@ -1563,10 +1563,10 @@
     .line 250
     invoke-virtual {v8, v9, v10, v11}, Landroidx/room/InvalidationTracker;->startMultiInstanceInvalidation$room_runtime_release(Landroid/content/Context;Ljava/lang/String;Landroid/content/Intent;)V
 
-    goto :goto_6
+    goto :goto_15b
 
     .line 249
-    :cond_e
+    :cond_14f
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     const-string v7, "Required value was null."
@@ -1580,8 +1580,8 @@
     throw v6
 
     .line 256
-    :cond_f
-    :goto_6
+    :cond_15b
+    :goto_15b
     invoke-virtual/range {p0 .. p0}, Landroidx/room/RoomDatabase;->getRequiredTypeConverters()Ljava/util/Map;
 
     move-result-object v8
@@ -1609,12 +1609,12 @@
 
     move-result-object v12
 
-    :goto_7
+    :goto_16e
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_16
+    if-eqz v13, :cond_230
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1646,12 +1646,12 @@
 
     move-result-object v17
 
-    :goto_8
+    :goto_18b
     invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v18
 
-    if-eqz v18, :cond_15
+    if-eqz v18, :cond_226
 
     invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1675,9 +1675,9 @@
 
     add-int/lit8 v7, v7, -0x1
 
-    if-ltz v7, :cond_12
+    if-ltz v7, :cond_1d0
 
-    :goto_9
+    :goto_1a5
     move/from16 v19, v7
 
     .local v19, "providedIndex":I
@@ -1715,7 +1715,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_10
+    if-eqz v4, :cond_1c6
 
     .line 268
     move v4, v3
@@ -1726,25 +1726,25 @@
     invoke-virtual {v9, v4}, Ljava/util/BitSet;->set(I)V
 
     .line 270
-    goto :goto_b
+    goto :goto_1d8
 
     .line 265
     .end local v2    # "provided":Ljava/lang/Object;
     .end local v4    # "foundIndex":I
     .restart local v18    # "foundIndex":I
-    :cond_10
-    if-gez v7, :cond_11
+    :cond_1c6
+    if-gez v7, :cond_1c9
 
-    goto :goto_a
+    goto :goto_1d6
 
-    :cond_11
+    :cond_1c9
     move-object/from16 v4, v19
 
     move-object/from16 v2, v20
 
     move-object/from16 v3, v21
 
-    goto :goto_9
+    goto :goto_1a5
 
     .end local v19    # "autoMigrations":Ljava/util/List;
     .end local v20    # "requiredAutoMigrationSpecs":Ljava/util/Set;
@@ -1752,7 +1752,7 @@
     .local v2, "requiredAutoMigrationSpecs":Ljava/util/Set;
     .local v3, "usedSpecs":Ljava/util/BitSet;
     .local v4, "autoMigrations":Ljava/util/List;
-    :cond_12
+    :cond_1d0
     move-object/from16 v20, v2
 
     move-object/from16 v21, v3
@@ -1766,23 +1766,23 @@
     .restart local v19    # "autoMigrations":Ljava/util/List;
     .restart local v20    # "requiredAutoMigrationSpecs":Ljava/util/Set;
     .restart local v21    # "usedSpecs":Ljava/util/BitSet;
-    :goto_a
+    :goto_1d6
     move/from16 v4, v18
 
     .end local v18    # "foundIndex":I
     .local v4, "foundIndex":I
-    :goto_b
-    if-ltz v4, :cond_13
+    :goto_1d8
+    if-ltz v4, :cond_1dc
 
     const/4 v2, 0x1
 
-    goto :goto_c
+    goto :goto_1dd
 
-    :cond_13
+    :cond_1dc
     const/4 v2, 0x0
 
-    :goto_c
-    if-eqz v2, :cond_14
+    :goto_1dd
+    if-eqz v2, :cond_1f3
 
     .line 277
     iget-object v2, v0, Landroidx/room/RoomDatabase;->typeConverters:Ljava/util/Map;
@@ -1805,10 +1805,10 @@
 
     const/4 v7, 0x0
 
-    goto :goto_8
+    goto :goto_18b
 
     .line 273
-    :cond_14
+    :cond_1f3
     const/4 v2, 0x0
 
     .line 274
@@ -1877,7 +1877,7 @@
     .local v2, "requiredAutoMigrationSpecs":Ljava/util/Set;
     .restart local v3    # "usedSpecs":Ljava/util/BitSet;
     .local v4, "autoMigrations":Ljava/util/List;
-    :cond_15
+    :cond_226
     move-object/from16 v20, v2
 
     move-object/from16 v21, v3
@@ -1899,7 +1899,7 @@
     const/4 v7, 0x0
 
     .end local v13    # "element$iv":Ljava/util/Map$Entry;
-    goto/16 :goto_7
+    goto/16 :goto_16e
 
     .line 1550
     .end local v19    # "autoMigrations":Ljava/util/List;
@@ -1908,7 +1908,7 @@
     .restart local v2    # "requiredAutoMigrationSpecs":Ljava/util/Set;
     .restart local v3    # "usedSpecs":Ljava/util/BitSet;
     .restart local v4    # "autoMigrations":Ljava/util/List;
-    :cond_16
+    :cond_230
     move-object/from16 v20, v2
 
     move-object/from16 v21, v3
@@ -1932,9 +1932,9 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    if-ltz v2, :cond_19
+    if-ltz v2, :cond_271
 
-    :cond_17
+    :cond_240
     move v3, v2
 
     .local v3, "providedIndex":I
@@ -1945,15 +1945,15 @@
 
     move-result v4
 
-    if-eqz v4, :cond_18
+    if-eqz v4, :cond_24c
 
     .line 281
-    if-gez v2, :cond_17
+    if-gez v2, :cond_240
 
-    goto :goto_d
+    goto :goto_271
 
     .line 283
-    :cond_18
+    :cond_24c
     iget-object v2, v1, Landroidx/room/DatabaseConfiguration;->typeConverters:Ljava/util/List;
 
     invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1997,13 +1997,13 @@
     .line 291
     .end local v2    # "converter":Ljava/lang/Object;
     .end local v3    # "providedIndex":I
-    :cond_19
-    :goto_d
+    :cond_271
+    :goto_271
     return-void
 .end method
 
 .method protected internalInitInvalidationTracker(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -2022,7 +2022,7 @@
 .end method
 
 .method public final isMainThread$room_runtime_release()Z
-    .locals 2
+    .registers 3
 
     .line 428
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -2037,53 +2037,53 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public isOpen()Z
-    .locals 2
+    .registers 3
 
     .line 400
     iget-object v0, p0, Landroidx/room/RoomDatabase;->autoCloser:Landroidx/room/AutoCloser;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     invoke-virtual {v0}, Landroidx/room/AutoCloser;->isActive()Z
 
     move-result v0
 
-    :goto_0
+    :goto_8
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_0
+    :cond_d
     iget-object v0, p0, Landroidx/room/RoomDatabase;->mDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->isOpen()Z
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_17
     const/4 v1, 0x1
 
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -2098,14 +2098,14 @@
 .end method
 
 .method public final isOpenInternal()Z
-    .locals 3
+    .registers 4
 
     .line 408
     iget-object v0, p0, Landroidx/room/RoomDatabase;->mDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->isOpen()Z
 
@@ -2113,16 +2113,16 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_d
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_d
     return v1
 .end method
 
 .method public final query(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroid/database/Cursor;
-    .locals 2
+    .registers 4
 
     const-string v0, "query"
 
@@ -2140,7 +2140,7 @@
 .end method
 
 .method public query(Landroidx/sqlite/db/SupportSQLiteQuery;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    .locals 1
+    .registers 4
     .param p1, "query"    # Landroidx/sqlite/db/SupportSQLiteQuery;
     .param p2, "signal"    # Landroid/os/CancellationSignal;
 
@@ -2155,7 +2155,7 @@
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
 
     .line 481
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1a
 
     .line 482
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getOpenHelper()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
@@ -2170,10 +2170,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_26
 
     .line 484
-    :cond_0
+    :cond_1a
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getOpenHelper()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     move-result-object v0
@@ -2187,12 +2187,12 @@
     move-result-object v0
 
     .line 481
-    :goto_0
+    :goto_26
     return-object v0
 .end method
 
 .method public query(Ljava/lang/String;[Ljava/lang/Object;)Landroid/database/Cursor;
-    .locals 2
+    .registers 5
     .param p1, "query"    # Ljava/lang/String;
     .param p2, "args"    # [Ljava/lang/Object;
 
@@ -2223,7 +2223,7 @@
 .end method
 
 .method public runInTransaction(Ljava/util/concurrent/Callable;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "body"    # Ljava/util/concurrent/Callable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2246,7 +2246,7 @@
     nop
 
     .line 606
-    :try_start_0
+    :try_start_9
     invoke-interface {p1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
     move-result-object v0
@@ -2254,8 +2254,8 @@
     .line 607
     .local v0, "result":Ljava/lang/Object;
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_9 .. :try_end_10} :catchall_16
 
     .line 608
     nop
@@ -2271,7 +2271,7 @@
     return-object v0
 
     .line 610
-    :catchall_0
+    :catchall_16
     move-exception v0
 
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->endTransaction()V
@@ -2280,7 +2280,7 @@
 .end method
 
 .method public runInTransaction(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "body"    # Ljava/lang/Runnable;
 
     const-string v0, "body"
@@ -2294,13 +2294,13 @@
     nop
 
     .line 585
-    :try_start_0
+    :try_start_9
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
     .line 586
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_9 .. :try_end_f} :catchall_14
 
     .line 588
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->endTransaction()V
@@ -2312,7 +2312,7 @@
     return-void
 
     .line 588
-    :catchall_0
+    :catchall_14
     move-exception v0
 
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->endTransaction()V
@@ -2321,7 +2321,7 @@
 .end method
 
 .method protected final setAutoMigrationSpecs(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2348,7 +2348,7 @@
 .end method
 
 .method public setTransactionSuccessful()V
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "setTransactionSuccessful() is deprecated"
         replaceWith = .subannotation Lkotlin/ReplaceWith;

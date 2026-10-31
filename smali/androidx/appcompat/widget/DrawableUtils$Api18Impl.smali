@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 11
+    .registers 11
 
     .line 194
     const/4 v0, 0x0
@@ -59,7 +59,7 @@
     .local v5, "success":Z
     const/4 v6, 0x0
 
-    :try_start_0
+    :try_start_7
     const-string v7, "android.graphics.Insets"
 
     invoke-static {v7}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -113,10 +113,10 @@
     invoke-virtual {v7, v8}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v8
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_34
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_7 .. :try_end_34} :catch_3b
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_7 .. :try_end_34} :catch_39
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_7 .. :try_end_34} :catch_37
 
     move-object v4, v8
 
@@ -124,31 +124,31 @@
     const/4 v5, 0x1
 
     .end local v7    # "insets":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    goto :goto_0
+    goto :goto_3c
 
     .line 213
-    :catch_0
+    :catch_37
     move-exception v7
 
-    goto :goto_1
+    goto :goto_3d
 
     .line 211
-    :catch_1
+    :catch_39
     move-exception v7
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 209
-    :catch_2
+    :catch_3b
     move-exception v7
 
     .line 215
-    :goto_0
+    :goto_3c
     nop
 
     .line 217
-    :goto_1
-    if-eqz v5, :cond_0
+    :goto_3d
+    if-eqz v5, :cond_4d
 
     .line 218
     sput-object v0, Landroidx/appcompat/widget/DrawableUtils$Api18Impl;->sGetOpticalInsets:Ljava/lang/reflect/Method;
@@ -170,10 +170,10 @@
 
     sput-boolean v6, Landroidx/appcompat/widget/DrawableUtils$Api18Impl;->sReflectionSuccessful:Z
 
-    goto :goto_2
+    goto :goto_5a
 
     .line 225
-    :cond_0
+    :cond_4d
     const/4 v7, 0x0
 
     sput-object v7, Landroidx/appcompat/widget/DrawableUtils$Api18Impl;->sGetOpticalInsets:Ljava/lang/reflect/Method;
@@ -200,12 +200,12 @@
     .end local v3    # "right":Ljava/lang/reflect/Field;
     .end local v4    # "bottom":Ljava/lang/reflect/Field;
     .end local v5    # "success":Z
-    :goto_2
+    :goto_5a
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 234
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -215,7 +215,7 @@
 .end method
 
 .method static getOpticalInsets(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Rect;
-    .locals 6
+    .registers 7
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 241
@@ -223,14 +223,14 @@
 
     const/16 v1, 0x1d
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_38
 
     sget-boolean v0, Landroidx/appcompat/widget/DrawableUtils$Api18Impl;->sReflectionSuccessful:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_38
 
     .line 243
-    :try_start_0
+    :try_start_a
     sget-object v0, Landroidx/appcompat/widget/DrawableUtils$Api18Impl;->sGetOpticalInsets:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x0
@@ -243,7 +243,7 @@
 
     .line 244
     .local v0, "insets":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
     .line 245
     new-instance v1, Landroid/graphics/Rect;
@@ -277,35 +277,35 @@
     move-result v5
 
     invoke-direct {v1, v2, v3, v4, v5}, Landroid/graphics/Rect;-><init>(IIII)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_32
+    .catch Ljava/lang/IllegalAccessException; {:try_start_a .. :try_end_32} :catch_36
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_a .. :try_end_32} :catch_34
 
     .line 245
     return-object v1
 
     .line 244
     .end local v0    # "insets":Ljava/lang/Object;
-    :cond_0
-    goto :goto_0
+    :cond_33
+    goto :goto_37
 
     .line 254
-    :catch_0
+    :catch_34
     move-exception v0
 
-    goto :goto_1
+    goto :goto_38
 
     .line 252
-    :catch_1
+    :catch_36
     move-exception v0
 
     .line 256
-    :goto_0
+    :goto_37
     nop
 
     .line 258
-    :cond_1
-    :goto_1
+    :cond_38
+    :goto_38
     sget-object v0, Landroidx/appcompat/widget/DrawableUtils;->INSETS_NONE:Landroid/graphics/Rect;
 
     return-object v0

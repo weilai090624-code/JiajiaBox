@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 62
     const/4 v0, 0x0
@@ -26,7 +26,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 66
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public cancelAllWork(Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 4
+    .registers 6
     .param p1, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
     .line 189
@@ -83,17 +83,17 @@
     .line 200
     .local v2, "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
     invoke-virtual {v2}, Landroidx/work/multiprocess/ListenableCallback;->dispatchCallbackSafely()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_0 .. :try_end_1c} :catchall_1d
 
     .line 203
     .end local v0    # "operation":Landroidx/work/Operation;
     .end local v1    # "executor":Ljava/util/concurrent/Executor;
     .end local v2    # "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
-    goto :goto_0
+    goto :goto_21
 
     .line 201
-    :catchall_0
+    :catchall_1d
     move-exception v0
 
     .line 202
@@ -102,12 +102,12 @@
 
     .line 204
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_21
     return-void
 .end method
 
 .method public cancelAllWorkByTag(Ljava/lang/String;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 4
+    .registers 7
     .param p1, "tag"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
@@ -145,17 +145,17 @@
     .line 158
     .local v2, "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
     invoke-virtual {v2}, Landroidx/work/multiprocess/ListenableCallback;->dispatchCallbackSafely()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_0 .. :try_end_1c} :catchall_1d
 
     .line 161
     .end local v0    # "operation":Landroidx/work/Operation;
     .end local v1    # "executor":Ljava/util/concurrent/Executor;
     .end local v2    # "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
-    goto :goto_0
+    goto :goto_21
 
     .line 159
-    :catchall_0
+    :catchall_1d
     move-exception v0
 
     .line 160
@@ -164,12 +164,12 @@
 
     .line 162
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_21
     return-void
 .end method
 
 .method public cancelUniqueWork(Ljava/lang/String;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 4
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
@@ -207,17 +207,17 @@
     .line 180
     .local v2, "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
     invoke-virtual {v2}, Landroidx/work/multiprocess/ListenableCallback;->dispatchCallbackSafely()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_0 .. :try_end_1c} :catchall_1d
 
     .line 183
     .end local v0    # "operation":Landroidx/work/Operation;
     .end local v1    # "executor":Ljava/util/concurrent/Executor;
     .end local v2    # "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
-    goto :goto_0
+    goto :goto_21
 
     .line 181
-    :catchall_0
+    :catchall_1d
     move-exception v0
 
     .line 182
@@ -226,12 +226,12 @@
 
     .line 184
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_21
     return-void
 .end method
 
 .method public cancelWorkById(Ljava/lang/String;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 4
+    .registers 7
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
@@ -273,17 +273,17 @@
     .line 136
     .local v2, "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
     invoke-virtual {v2}, Landroidx/work/multiprocess/ListenableCallback;->dispatchCallbackSafely()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_0 .. :try_end_20} :catchall_21
 
     .line 139
     .end local v0    # "operation":Landroidx/work/Operation;
     .end local v1    # "executor":Ljava/util/concurrent/Executor;
     .end local v2    # "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
-    goto :goto_0
+    goto :goto_25
 
     .line 137
-    :catchall_0
+    :catchall_21
     move-exception v0
 
     .line 138
@@ -292,12 +292,12 @@
 
     .line 140
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method public enqueueContinuation([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 6
+    .registers 9
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
@@ -353,8 +353,8 @@
     .line 116
     .local v4, "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
     invoke-virtual {v4}, Landroidx/work/multiprocess/ListenableCallback;->dispatchCallbackSafely()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_0 .. :try_end_28} :catchall_29
 
     .line 119
     .end local v0    # "parcelledRequest":Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl;
@@ -362,10 +362,10 @@
     .end local v2    # "operation":Landroidx/work/Operation;
     .end local v3    # "executor":Ljava/util/concurrent/Executor;
     .end local v4    # "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
-    goto :goto_0
+    goto :goto_2d
 
     .line 117
-    :catchall_0
+    :catchall_29
     move-exception v0
 
     .line 118
@@ -374,12 +374,12 @@
 
     .line 120
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_2d
     return-void
 .end method
 
 .method public enqueueWorkRequests([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 6
+    .registers 9
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
@@ -434,8 +434,8 @@
     .line 90
     .local v4, "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
     invoke-virtual {v4}, Landroidx/work/multiprocess/ListenableCallback;->dispatchCallbackSafely()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_0 .. :try_end_28} :catchall_29
 
     .line 93
     .end local v0    # "parcelledRequests":Landroidx/work/multiprocess/parcelable/ParcelableWorkRequests;
@@ -443,10 +443,10 @@
     .end local v2    # "operation":Landroidx/work/Operation;
     .end local v3    # "executor":Ljava/util/concurrent/Executor;
     .end local v4    # "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
-    goto :goto_0
+    goto :goto_2d
 
     .line 91
-    :catchall_0
+    :catchall_29
     move-exception v0
 
     .line 92
@@ -455,12 +455,12 @@
 
     .line 94
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_2d
     return-void
 .end method
 
 .method public queryWorkInfo([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 4
+    .registers 7
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
@@ -509,18 +509,18 @@
     .line 223
     .local v3, "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Ljava/util/List<Landroidx/work/WorkInfo;>;>;"
     invoke-virtual {v3}, Landroidx/work/multiprocess/ListenableCallback;->dispatchCallbackSafely()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_0 .. :try_end_24} :catchall_25
 
     .line 226
     .end local v0    # "parcelled":Landroidx/work/multiprocess/parcelable/ParcelableWorkQuery;
     .end local v1    # "executor":Ljava/util/concurrent/Executor;
     .end local v2    # "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/util/List<Landroidx/work/WorkInfo;>;>;"
     .end local v3    # "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Ljava/util/List<Landroidx/work/WorkInfo;>;>;"
-    goto :goto_0
+    goto :goto_29
 
     .line 224
-    :catchall_0
+    :catchall_25
     move-exception v0
 
     .line 225
@@ -529,12 +529,12 @@
 
     .line 227
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_29
     return-void
 .end method
 
 .method public setForegroundAsync([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 7
+    .registers 10
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
@@ -620,8 +620,8 @@
     .line 286
     .local v5, "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Ljava/lang/Void;>;"
     invoke-virtual {v5}, Landroidx/work/multiprocess/ListenableCallback;->dispatchCallbackSafely()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_41
+    .catchall {:try_start_0 .. :try_end_41} :catchall_42
 
     .line 289
     .end local v0    # "parcelled":Landroidx/work/multiprocess/parcelable/ParcelableForegroundRequestInfo;
@@ -630,10 +630,10 @@
     .end local v3    # "foregroundUpdater":Landroidx/work/impl/utils/WorkForegroundUpdater;
     .end local v4    # "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Void;>;"
     .end local v5    # "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Ljava/lang/Void;>;"
-    goto :goto_0
+    goto :goto_46
 
     .line 287
-    :catchall_0
+    :catchall_42
     move-exception v0
 
     .line 288
@@ -642,12 +642,12 @@
 
     .line 290
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_46
     return-void
 .end method
 
 .method public setProgress([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 8
+    .registers 11
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
@@ -730,8 +730,8 @@
     .line 253
     .local v7, "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Ljava/lang/Void;>;"
     invoke-virtual {v7}, Landroidx/work/multiprocess/ListenableCallback;->dispatchCallbackSafely()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3c
+    .catchall {:try_start_0 .. :try_end_3c} :catchall_3d
 
     .line 256
     .end local v0    # "parcelled":Landroidx/work/multiprocess/parcelable/ParcelableUpdateRequest;
@@ -742,10 +742,10 @@
     .end local v5    # "progressUpdater":Landroidx/work/impl/utils/WorkProgressUpdater;
     .end local v6    # "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Void;>;"
     .end local v7    # "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Ljava/lang/Void;>;"
-    goto :goto_0
+    goto :goto_41
 
     .line 254
-    :catchall_0
+    :catchall_3d
     move-exception v0
 
     .line 255
@@ -754,12 +754,12 @@
 
     .line 257
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_41
     return-void
 .end method
 
 .method public updateUniquePeriodicWorkRequest(Ljava/lang/String;[BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 6
+    .registers 10
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "request"    # [B
     .param p3, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
@@ -814,8 +814,8 @@
     .line 311
     .local v4, "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
     invoke-virtual {v4}, Landroidx/work/multiprocess/ListenableCallback;->dispatchCallbackSafely()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_0 .. :try_end_28} :catchall_29
 
     .line 314
     .end local v0    # "parcelableWorkRequest":Landroidx/work/multiprocess/parcelable/ParcelableWorkRequest;
@@ -823,10 +823,10 @@
     .end local v2    # "operation":Landroidx/work/Operation;
     .end local v3    # "executor":Ljava/util/concurrent/Executor;
     .end local v4    # "listenableCallback":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<Landroidx/work/Operation$State$SUCCESS;>;"
-    goto :goto_0
+    goto :goto_2d
 
     .line 312
-    :catchall_0
+    :catchall_29
     move-exception v0
 
     .line 313
@@ -835,6 +835,6 @@
 
     .line 315
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_2d
     return-void
 .end method

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "symbol"    # Ljava/lang/String;
 
     .line 14
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 15
     new-instance v0, Ljava/lang/StringBuilder;
@@ -84,7 +84,7 @@
 .end method
 
 .method public final unbox(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -100,15 +100,15 @@
 
     .line 18
     .local v0, "$i$f$unbox":I
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_5
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     move-object v1, p1
 
-    :goto_0
+    :goto_6
     return-object v1
 .end method

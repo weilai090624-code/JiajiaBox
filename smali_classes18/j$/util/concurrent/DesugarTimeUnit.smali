@@ -21,7 +21,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method public static convert(Ljava/util/concurrent/TimeUnit;Lj$/time/Duration;)J
-    .locals 3
+    .registers 5
     .param p0, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
     .param p1, "duration"    # Lj$/time/Duration;
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public static of(Lj$/time/temporal/ChronoUnit;)Ljava/util/concurrent/TimeUnit;
-    .locals 3
+    .registers 4
     .param p0, "chronoUnit"    # Lj$/time/temporal/ChronoUnit;
 
     .line 118
@@ -69,7 +69,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_42
 
     .line 127
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -97,63 +97,63 @@
     throw v0
 
     .line 125
-    :pswitch_0
+    :pswitch_2c
     sget-object v0, Ljava/util/concurrent/TimeUnit;->DAYS:Ljava/util/concurrent/TimeUnit;
 
     return-object v0
 
     .line 124
-    :pswitch_1
+    :pswitch_2f
     sget-object v0, Ljava/util/concurrent/TimeUnit;->HOURS:Ljava/util/concurrent/TimeUnit;
 
     return-object v0
 
     .line 123
-    :pswitch_2
+    :pswitch_32
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
 
     return-object v0
 
     .line 122
-    :pswitch_3
+    :pswitch_35
     sget-object v0, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
     return-object v0
 
     .line 121
-    :pswitch_4
+    :pswitch_38
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     return-object v0
 
     .line 120
-    :pswitch_5
+    :pswitch_3b
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MICROSECONDS:Ljava/util/concurrent/TimeUnit;
 
     return-object v0
 
     .line 119
-    :pswitch_6
+    :pswitch_3e
     sget-object v0, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_42
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3e
+        :pswitch_3b
+        :pswitch_38
+        :pswitch_35
+        :pswitch_32
+        :pswitch_2f
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public static toChronoUnit(Ljava/util/concurrent/TimeUnit;)Lj$/time/temporal/ChronoUnit;
-    .locals 2
+    .registers 3
     .param p0, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
     .line 95
@@ -165,7 +165,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_26
 
     .line 103
     new-instance v0, Ljava/lang/AssertionError;
@@ -175,55 +175,55 @@
     throw v0
 
     .line 102
-    :pswitch_0
+    :pswitch_11
     sget-object v0, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
 
     return-object v0
 
     .line 101
-    :pswitch_1
+    :pswitch_14
     sget-object v0, Lj$/time/temporal/ChronoUnit;->HOURS:Lj$/time/temporal/ChronoUnit;
 
     return-object v0
 
     .line 100
-    :pswitch_2
+    :pswitch_17
     sget-object v0, Lj$/time/temporal/ChronoUnit;->MINUTES:Lj$/time/temporal/ChronoUnit;
 
     return-object v0
 
     .line 99
-    :pswitch_3
+    :pswitch_1a
     sget-object v0, Lj$/time/temporal/ChronoUnit;->SECONDS:Lj$/time/temporal/ChronoUnit;
 
     return-object v0
 
     .line 98
-    :pswitch_4
+    :pswitch_1d
     sget-object v0, Lj$/time/temporal/ChronoUnit;->MILLIS:Lj$/time/temporal/ChronoUnit;
 
     return-object v0
 
     .line 97
-    :pswitch_5
+    :pswitch_20
     sget-object v0, Lj$/time/temporal/ChronoUnit;->MICROS:Lj$/time/temporal/ChronoUnit;
 
     return-object v0
 
     .line 96
-    :pswitch_6
+    :pswitch_23
     sget-object v0, Lj$/time/temporal/ChronoUnit;->NANOS:Lj$/time/temporal/ChronoUnit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_23
+        :pswitch_20
+        :pswitch_1d
+        :pswitch_1a
+        :pswitch_17
+        :pswitch_14
+        :pswitch_11
     .end packed-switch
 .end method

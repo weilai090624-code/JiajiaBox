@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(D)V
-    .locals 1
+    .registers 4
     .param p1, "x"    # D
 
     .line 226
@@ -47,7 +47,7 @@
 .end method
 
 .method constructor <init>(DLcom/google/common/math/LinearTransformation;)V
-    .locals 0
+    .registers 4
     .param p1, "x"    # D
     .param p3, "inverse"    # Lcom/google/common/math/LinearTransformation;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method private createInverse()Lcom/google/common/math/LinearTransformation;
-    .locals 7
+    .registers 8
 
     .line 268
     new-instance v6, Lcom/google/common/math/LinearTransformation$RegularLinearTransformation;
@@ -86,14 +86,14 @@
 
 # virtual methods
 .method public inverse()Lcom/google/common/math/LinearTransformation;
-    .locals 2
+    .registers 3
 
     .line 258
     iget-object v0, p0, Lcom/google/common/math/LinearTransformation$VerticalLinearTransformation;->inverse:Lcom/google/common/math/LinearTransformation;
 
     .line 259
     .local v0, "result":Lcom/google/common/math/LinearTransformation;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-direct {p0}, Lcom/google/common/math/LinearTransformation$VerticalLinearTransformation;->createInverse()Lcom/google/common/math/LinearTransformation;
 
@@ -101,17 +101,17 @@
 
     iput-object v1, p0, Lcom/google/common/math/LinearTransformation$VerticalLinearTransformation;->inverse:Lcom/google/common/math/LinearTransformation;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public isHorizontal()Z
-    .locals 1
+    .registers 2
 
     .line 243
     const/4 v0, 0x0
@@ -120,7 +120,7 @@
 .end method
 
 .method public isVertical()Z
-    .locals 1
+    .registers 2
 
     .line 238
     const/4 v0, 0x1
@@ -129,7 +129,7 @@
 .end method
 
 .method public slope()D
-    .locals 1
+    .registers 2
 
     .line 248
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -140,7 +140,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 264
     iget-wide v0, p0, Lcom/google/common/math/LinearTransformation$VerticalLinearTransformation;->x:D
@@ -167,7 +167,7 @@
 .end method
 
 .method public transform(D)D
-    .locals 1
+    .registers 4
     .param p1, "x"    # D
 
     .line 253

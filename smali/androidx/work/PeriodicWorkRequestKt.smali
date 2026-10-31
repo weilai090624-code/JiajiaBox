@@ -38,7 +38,7 @@
 
 # direct methods
 .method public static final synthetic PeriodicWorkRequestBuilder(JLjava/util/concurrent/TimeUnit;)Landroidx/work/PeriodicWorkRequest$Builder;
-    .locals 4
+    .registers 7
     .param p0, "repeatInterval"    # J
     .param p2, "repeatIntervalTimeUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -80,7 +80,7 @@
 .end method
 
 .method public static final synthetic PeriodicWorkRequestBuilder(JLjava/util/concurrent/TimeUnit;JLjava/util/concurrent/TimeUnit;)Landroidx/work/PeriodicWorkRequest$Builder;
-    .locals 10
+    .registers 16
     .param p0, "repeatInterval"    # J
     .param p2, "repeatIntervalTimeUnit"    # Ljava/util/concurrent/TimeUnit;
     .param p3, "flexTimeInterval"    # J
@@ -153,7 +153,7 @@
 .end method
 
 .method public static final synthetic PeriodicWorkRequestBuilder(Lj$/time/Duration;)Landroidx/work/PeriodicWorkRequest$Builder;
-    .locals 4
+    .registers 5
     .param p0, "repeatInterval"    # Lj$/time/Duration;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -194,7 +194,7 @@
 .end method
 
 .method public static final synthetic PeriodicWorkRequestBuilder(Lj$/time/Duration;Lj$/time/Duration;)Landroidx/work/PeriodicWorkRequest$Builder;
-    .locals 4
+    .registers 6
     .param p0, "repeatInterval"    # Lj$/time/Duration;
     .param p1, "flexTimeInterval"    # Lj$/time/Duration;
     .annotation system Ldalvik/annotation/Signature;

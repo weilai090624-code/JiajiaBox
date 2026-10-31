@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/ObjectIntMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,13 +55,13 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 525
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys<TK;>;"
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;->valid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 526
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;->hasNext:Z
@@ -69,7 +69,7 @@
     return v0
 
     .line 525
-    :cond_0
+    :cond_7
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
     const-string v1, "#iterator() cannot be used nested."
@@ -80,7 +80,7 @@
 .end method
 
 .method public iterator()Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -95,7 +95,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 519
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys<TK;>;"
@@ -107,7 +107,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -118,12 +118,12 @@
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys<TK;>;"
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;->hasNext:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 531
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;->valid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 532
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;->map:Lcom/esotericsoftware/kryo/util/ObjectIntMap;
@@ -148,7 +148,7 @@
 
     .line 531
     .end local v0    # "key":Ljava/lang/Object;, "TK;"
-    :cond_0
+    :cond_18
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
     const-string v1, "#iterator() cannot be used nested."
@@ -158,7 +158,7 @@
     throw v0
 
     .line 530
-    :cond_1
+    :cond_20
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -167,7 +167,7 @@
 .end method
 
 .method public bridge synthetic remove()V
-    .locals 0
+    .registers 1
 
     .line 519
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys<TK;>;"
@@ -177,7 +177,7 @@
 .end method
 
 .method public bridge synthetic reset()V
-    .locals 0
+    .registers 1
 
     .line 519
     .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys<TK;>;"
@@ -187,7 +187,7 @@
 .end method
 
 .method public toList()Ljava/util/ArrayList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -216,7 +216,7 @@
 .end method
 
 .method public toList(Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -230,10 +230,10 @@
     .local p1, "array":Ljava/util/List;, "TT;"
     nop
 
-    :goto_0
+    :goto_1
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;->hasNext:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 550
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Keys;->next()Ljava/lang/Object;
@@ -242,9 +242,9 @@
 
     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1
 
     .line 551
-    :cond_0
+    :cond_d
     return-object p1
 .end method

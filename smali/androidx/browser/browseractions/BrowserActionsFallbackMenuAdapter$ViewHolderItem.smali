@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/ImageView;Landroid/widget/TextView;)V
-    .locals 0
+    .registers 3
     .param p1, "icon"    # Landroid/widget/ImageView;
     .param p2, "text"    # Landroid/widget/TextView;
 

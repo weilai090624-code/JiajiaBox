@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public static newReference()Ljava/util/concurrent/atomic/AtomicReference;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -39,7 +39,7 @@
 .end method
 
 .method public static newReference(Ljava/lang/Object;)Ljava/util/concurrent/atomic/AtomicReference;
-    .locals 1
+    .registers 2
     .param p0    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
         .end annotation
@@ -64,7 +64,7 @@
 .end method
 
 .method public static newReferenceArray(I)Ljava/util/concurrent/atomic/AtomicReferenceArray;
-    .locals 1
+    .registers 2
     .param p0, "length"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -85,7 +85,7 @@
 .end method
 
 .method public static newReferenceArray([Ljava/lang/Object;)Ljava/util/concurrent/atomic/AtomicReferenceArray;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",

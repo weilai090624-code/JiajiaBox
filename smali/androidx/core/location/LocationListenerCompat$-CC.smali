@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$onFlushComplete(Landroidx/core/location/LocationListenerCompat;I)V
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Landroidx/core/location/LocationListenerCompat;
     .param p1, "requestCode"    # I
 
@@ -14,7 +14,7 @@
 .end method
 
 .method public static $default$onLocationChanged(Landroidx/core/location/LocationListenerCompat;Ljava/util/List;)V
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Landroidx/core/location/LocationListenerCompat;
 
     .line 44
@@ -28,8 +28,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_5
+    if-ge v1, v0, :cond_13
 
     .line 46
     invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -43,16 +43,16 @@
     .line 45
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 48
     .end local v1    # "i":I
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public static $default$onProviderDisabled(Landroidx/core/location/LocationListenerCompat;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Landroidx/core/location/LocationListenerCompat;
     .param p1, "provider"    # Ljava/lang/String;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public static $default$onProviderEnabled(Landroidx/core/location/LocationListenerCompat;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Landroidx/core/location/LocationListenerCompat;
     .param p1, "provider"    # Ljava/lang/String;
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public static $default$onStatusChanged(Landroidx/core/location/LocationListenerCompat;Ljava/lang/String;ILandroid/os/Bundle;)V
-    .locals 0
+    .registers 4
     .param p0, "_this"    # Landroidx/core/location/LocationListenerCompat;
     .param p1, "provider"    # Ljava/lang/String;
     .param p2, "status"    # I

@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Buffer;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lokio/Buffer;
 
     iput-object p1, p0, Lokio/Buffer$inputStream$1;->this$0:Lokio/Buffer;
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public available()I
-    .locals 6
+    .registers 7
 
     .line 136
     iget-object v0, p0, Lokio/Buffer$inputStream$1;->this$0:Lokio/Buffer;
@@ -100,14 +100,14 @@
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
 
     .line 138
     return-void
 .end method
 
 .method public read()I
-    .locals 5
+    .registers 6
 
     .line 125
     iget-object v0, p0, Lokio/Buffer$inputStream$1;->this$0:Lokio/Buffer;
@@ -120,7 +120,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_17
 
     .line 126
     iget-object v0, p0, Lokio/Buffer$inputStream$1;->this$0:Lokio/Buffer;
@@ -142,19 +142,19 @@
     .end local v0    # "$this$and$iv":B
     .end local v1    # "other$iv":I
     .end local v2    # "$i$f$and":I
-    goto :goto_0
+    goto :goto_18
 
     .line 128
-    :cond_0
+    :cond_17
     const/4 v0, -0x1
 
     .line 125
-    :goto_0
+    :goto_18
     return v0
 .end method
 
 .method public read([BII)I
-    .locals 1
+    .registers 5
     .param p1, "sink"    # [B
     .param p2, "offset"    # I
     .param p3, "byteCount"    # I
@@ -174,7 +174,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 140
     new-instance v0, Ljava/lang/StringBuilder;

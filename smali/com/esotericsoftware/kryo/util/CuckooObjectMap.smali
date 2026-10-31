@@ -76,7 +76,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 41
     new-instance v0, Ljava/util/Random;
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 58
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap<TK;TV;>;"
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "initialCapacity"    # I
 
     .line 64
@@ -118,7 +118,7 @@
 .end method
 
 .method public constructor <init>(IF)V
-    .locals 4
+    .registers 7
     .param p1, "initialCapacity"    # I
     .param p2, "loadFactor"    # F
 
@@ -127,12 +127,12 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 70
-    if-ltz p1, :cond_3
+    if-ltz p1, :cond_a8
 
     .line 71
     const/high16 v0, 0x40000000    # 2.0f
 
-    if-gt p1, v0, :cond_2
+    if-gt p1, v0, :cond_8f
 
     .line 72
     invoke-static {p1}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->nextPowerOfTwo(I)I
@@ -146,7 +146,7 @@
 
     cmpg-float v0, p2, v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_76
 
     .line 75
     iput p2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->loadFactor:F
@@ -158,16 +158,16 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_1f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_20
     iput-boolean v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->isBigTable:Z
 
     .line 80
@@ -275,7 +275,7 @@
     return-void
 
     .line 74
-    :cond_1
+    :cond_76
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -301,7 +301,7 @@
     throw v0
 
     .line 71
-    :cond_2
+    :cond_8f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -327,7 +327,7 @@
     throw v0
 
     .line 70
-    :cond_3
+    :cond_a8
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -354,7 +354,7 @@
 .end method
 
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/CuckooObjectMap;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -411,7 +411,7 @@
 .end method
 
 .method private containsKeyStash(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)Z"
@@ -433,8 +433,8 @@
     add-int/2addr v2, v1
 
     .local v2, "n":I
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_7
+    if-ge v1, v2, :cond_16
 
     .line 547
     aget-object v3, v0, v1
@@ -443,29 +443,29 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_13
 
     const/4 v3, 0x1
 
     return v3
 
     .line 546
-    :cond_0
+    :cond_13
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 548
     .end local v1    # "i":I
     .end local v2    # "n":I
-    :cond_1
+    :cond_16
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method private getStash(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -487,8 +487,8 @@
     add-int/2addr v2, v1
 
     .local v2, "n":I
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_7
+    if-ge v1, v2, :cond_19
 
     .line 373
     aget-object v3, v0, v1
@@ -497,7 +497,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_16
 
     iget-object v3, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->valueTable:[Ljava/lang/Object;
 
@@ -506,22 +506,22 @@
     return-object v3
 
     .line 372
-    :cond_0
+    :cond_16
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 374
     .end local v1    # "i":I
     .end local v2    # "n":I
-    :cond_1
+    :cond_19
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method private getStash(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -544,8 +544,8 @@
     add-int/2addr v2, v1
 
     .local v2, "n":I
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_7
+    if-ge v1, v2, :cond_19
 
     .line 401
     aget-object v3, v0, v1
@@ -554,7 +554,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_16
 
     iget-object v3, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->valueTable:[Ljava/lang/Object;
 
@@ -563,20 +563,20 @@
     return-object v3
 
     .line 400
-    :cond_0
+    :cond_16
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 402
     .end local v1    # "i":I
     .end local v2    # "n":I
-    :cond_1
+    :cond_19
     return-object p2
 .end method
 
 .method private hash2(I)I
-    .locals 2
+    .registers 4
     .param p1, "h"    # I
 
     .line 609
@@ -600,7 +600,7 @@
 .end method
 
 .method private hash3(I)I
-    .locals 2
+    .registers 4
     .param p1, "h"    # I
 
     .line 614
@@ -624,7 +624,7 @@
 .end method
 
 .method private hash4(I)I
-    .locals 2
+    .registers 4
     .param p1, "h"    # I
 
     .line 619
@@ -648,18 +648,18 @@
 .end method
 
 .method public static nextPowerOfTwo(I)I
-    .locals 1
+    .registers 2
     .param p0, "value"    # I
 
     .line 811
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 812
-    :cond_0
+    :cond_4
     add-int/lit8 p0, p0, -0x1
 
     .line 813
@@ -694,7 +694,7 @@
 .end method
 
 .method private push(Ljava/lang/Object;Ljava/lang/Object;ILjava/lang/Object;ILjava/lang/Object;ILjava/lang/Object;ILjava/lang/Object;)V
-    .locals 22
+    .registers 33
     .param p3, "index1"    # I
     .param p5, "index2"    # I
     .param p7, "index3"    # I
@@ -738,16 +738,16 @@
 
     .line 256
     .local v6, "pushIterations":I
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_11
 
     const/4 v7, 0x4
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v7, 0x3
 
-    :goto_0
+    :goto_12
     move-object/from16 v8, p2
 
     move/from16 v9, p3
@@ -793,7 +793,7 @@
     .local v15, "index4":I
     .local v16, "key4":Ljava/lang/Object;, "TK;"
     .local v17, "i":I
-    :goto_1
+    :goto_28
     move/from16 v18, v6
 
     .end local v6    # "pushIterations":I
@@ -804,7 +804,7 @@
 
     move-result v6
 
-    packed-switch v6, :pswitch_data_0
+    packed-switch v6, :pswitch_data_10c
 
     .line 279
     move-object/from16 v6, v16
@@ -824,12 +824,12 @@
 
     move-object/from16 v5, v19
 
-    goto :goto_2
+    goto :goto_63
 
     .line 273
     .end local v6    # "evictedKey":Ljava/lang/Object;, "TK;"
     .end local v19    # "evictedValue":Ljava/lang/Object;, "TV;"
-    :pswitch_0
+    :pswitch_40
     move-object v6, v14
 
     .line 274
@@ -848,12 +848,12 @@
 
     move-object/from16 v5, v19
 
-    goto :goto_2
+    goto :goto_63
 
     .line 267
     .end local v6    # "evictedKey":Ljava/lang/Object;, "TK;"
     .end local v19    # "evictedValue":Ljava/lang/Object;, "TV;"
-    :pswitch_1
+    :pswitch_4c
     move-object v6, v12
 
     .line 268
@@ -872,12 +872,12 @@
 
     move-object/from16 v5, v19
 
-    goto :goto_2
+    goto :goto_63
 
     .line 261
     .end local v6    # "evictedKey":Ljava/lang/Object;, "TK;"
     .end local v19    # "evictedValue":Ljava/lang/Object;, "TV;"
-    :pswitch_2
+    :pswitch_58
     move-object v6, v10
 
     .line 262
@@ -900,7 +900,7 @@
     .end local v19    # "evictedValue":Ljava/lang/Object;, "TV;"
     .local v5, "evictedValue":Ljava/lang/Object;, "TV;"
     .restart local p1    # "insertKey":Ljava/lang/Object;, "TK;"
-    :goto_2
+    :goto_63
     move/from16 v19, v7
 
     .end local v7    # "n":I
@@ -917,7 +917,7 @@
     aget-object v10, v1, v9
 
     .line 290
-    if-nez v10, :cond_2
+    if-nez v10, :cond_89
 
     .line 291
     aput-object v6, v1, v9
@@ -942,7 +942,7 @@
 
     iget v8, v0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v3, v8, :cond_1
+    if-lt v3, v8, :cond_88
 
     iget v3, v0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -951,7 +951,7 @@
     invoke-direct {v0, v3}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 294
-    :cond_1
+    :cond_88
     return-void
 
     .line 297
@@ -959,7 +959,7 @@
     .end local p2    # "insertValue":Ljava/lang/Object;, "TV;"
     .restart local v3    # "mask":I
     .restart local v8    # "insertValue":Ljava/lang/Object;, "TV;"
-    :cond_2
+    :cond_89
     move/from16 v20, v3
 
     move-object/from16 p2, v8
@@ -976,7 +976,7 @@
     aget-object v12, v1, v11
 
     .line 299
-    if-nez v12, :cond_4
+    if-nez v12, :cond_ab
 
     .line 300
     aput-object v6, v1, v11
@@ -993,7 +993,7 @@
 
     iget v8, v0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v3, v8, :cond_3
+    if-lt v3, v8, :cond_aa
 
     iget v3, v0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -1002,11 +1002,11 @@
     invoke-direct {v0, v3}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 303
-    :cond_3
+    :cond_aa
     return-void
 
     .line 306
-    :cond_4
+    :cond_ab
     invoke-direct {v0, v7}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash3(I)I
 
     move-result v13
@@ -1015,7 +1015,7 @@
     aget-object v14, v1, v13
 
     .line 308
-    if-nez v14, :cond_6
+    if-nez v14, :cond_c9
 
     .line 309
     aput-object v6, v1, v13
@@ -1032,7 +1032,7 @@
 
     iget v8, v0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v3, v8, :cond_5
+    if-lt v3, v8, :cond_c8
 
     iget v3, v0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -1041,12 +1041,12 @@
     invoke-direct {v0, v3}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 312
-    :cond_5
+    :cond_c8
     return-void
 
     .line 315
-    :cond_6
-    if-eqz v4, :cond_9
+    :cond_c9
+    if-eqz v4, :cond_f1
 
     .line 316
     invoke-direct {v0, v7}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash4(I)I
@@ -1061,7 +1061,7 @@
     .line 318
     .end local v16    # "key4":Ljava/lang/Object;, "TK;"
     .local v8, "key4":Ljava/lang/Object;, "TK;"
-    if-nez v8, :cond_8
+    if-nez v8, :cond_eb
 
     .line 319
     aput-object v6, v1, v3
@@ -1082,7 +1082,7 @@
 
     iget v1, v0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v15, v1, :cond_7
+    if-lt v15, v1, :cond_ea
 
     iget v1, v0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -1091,13 +1091,13 @@
     invoke-direct {v0, v1}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 322
-    :cond_7
+    :cond_ea
     return-void
 
     .line 318
     .end local v21    # "keyTable":[Ljava/lang/Object;, "[TK;"
     .restart local v1    # "keyTable":[Ljava/lang/Object;, "[TK;"
-    :cond_8
+    :cond_eb
     move-object/from16 v21, v1
 
     .end local v1    # "keyTable":[Ljava/lang/Object;, "[TK;"
@@ -1106,7 +1106,7 @@
 
     move-object/from16 v16, v8
 
-    goto :goto_3
+    goto :goto_f3
 
     .line 315
     .end local v3    # "index4":I
@@ -1115,13 +1115,13 @@
     .restart local v1    # "keyTable":[Ljava/lang/Object;, "[TK;"
     .restart local v15    # "index4":I
     .restart local v16    # "key4":Ljava/lang/Object;, "TK;"
-    :cond_9
+    :cond_f1
     move-object/from16 v21, v1
 
     .line 326
     .end local v1    # "keyTable":[Ljava/lang/Object;, "[TK;"
     .restart local v21    # "keyTable":[Ljava/lang/Object;, "[TK;"
-    :goto_3
+    :goto_f3
     add-int/lit8 v1, v17, 0x1
 
     move/from16 v3, v18
@@ -1130,7 +1130,7 @@
     .end local v18    # "pushIterations":I
     .local v1, "i":I
     .local v3, "pushIterations":I
-    if-ne v1, v3, :cond_a
+    if-ne v1, v3, :cond_fd
 
     .line 332
     .end local v7    # "hashCode":I
@@ -1141,7 +1141,7 @@
 
     .line 328
     .restart local v7    # "hashCode":I
-    :cond_a
+    :cond_fd
     move-object v8, v6
 
     .line 329
@@ -1166,18 +1166,18 @@
 
     move/from16 v7, v19
 
-    goto/16 :goto_1
+    goto/16 :goto_28
 
-    :pswitch_data_0
+    :pswitch_data_10c
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_58
+        :pswitch_4c
+        :pswitch_40
     .end packed-switch
 .end method
 
 .method private putResize(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 21
+    .registers 24
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
@@ -1208,7 +1208,7 @@
 
     .line 203
     .local v14, "key1":Ljava/lang/Object;, "TK;"
-    if-nez v14, :cond_1
+    if-nez v14, :cond_2a
 
     .line 204
     iget-object v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -1229,7 +1229,7 @@
 
     iget v1, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_29
 
     iget v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -1238,11 +1238,11 @@
     invoke-direct {v11, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 207
-    :cond_0
+    :cond_29
     return-void
 
     .line 210
-    :cond_1
+    :cond_2a
     invoke-direct {v11, v12}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash2(I)I
 
     move-result v15
@@ -1255,7 +1255,7 @@
 
     .line 212
     .local v16, "key2":Ljava/lang/Object;, "TK;"
-    if-nez v16, :cond_3
+    if-nez v16, :cond_4e
 
     .line 213
     iget-object v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -1276,7 +1276,7 @@
 
     iget v1, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_4d
 
     iget v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -1285,11 +1285,11 @@
     invoke-direct {v11, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 216
-    :cond_2
+    :cond_4d
     return-void
 
     .line 219
-    :cond_3
+    :cond_4e
     invoke-direct {v11, v12}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash3(I)I
 
     move-result v17
@@ -1302,7 +1302,7 @@
 
     .line 221
     .local v18, "key3":Ljava/lang/Object;, "TK;"
-    if-nez v18, :cond_5
+    if-nez v18, :cond_72
 
     .line 222
     iget-object v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -1323,7 +1323,7 @@
 
     iget v1, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v0, v1, :cond_4
+    if-lt v0, v1, :cond_71
 
     iget v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -1332,11 +1332,11 @@
     invoke-direct {v11, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 225
-    :cond_4
+    :cond_71
     return-void
 
     .line 228
-    :cond_5
+    :cond_72
     const/4 v0, -0x1
 
     .line 229
@@ -1347,7 +1347,7 @@
     .local v1, "key4":Ljava/lang/Object;, "TK;"
     iget-boolean v2, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->isBigTable:Z
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_a1
 
     .line 231
     invoke-direct {v11, v12}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash4(I)I
@@ -1360,7 +1360,7 @@
     aget-object v1, v2, v0
 
     .line 233
-    if-nez v1, :cond_7
+    if-nez v1, :cond_9c
 
     .line 234
     iget-object v2, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -1381,7 +1381,7 @@
 
     iget v3, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v2, v3, :cond_6
+    if-lt v2, v3, :cond_9b
 
     iget v2, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -1390,19 +1390,19 @@
     invoke-direct {v11, v2}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 237
-    :cond_6
+    :cond_9b
     return-void
 
     .line 233
-    :cond_7
+    :cond_9c
     move/from16 v19, v0
 
     move-object/from16 v20, v1
 
-    goto :goto_0
+    goto :goto_a5
 
     .line 230
-    :cond_8
+    :cond_a1
     move/from16 v19, v0
 
     move-object/from16 v20, v1
@@ -1412,7 +1412,7 @@
     .end local v1    # "key4":Ljava/lang/Object;, "TK;"
     .local v19, "index4":I
     .local v20, "key4":Ljava/lang/Object;, "TK;"
-    :goto_0
+    :goto_a5
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -1442,7 +1442,7 @@
 .end method
 
 .method private putStash(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
@@ -1457,7 +1457,7 @@
 
     iget v1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->stashCapacity:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 338
     iget v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
@@ -1473,7 +1473,7 @@
     return-void
 
     .line 343
-    :cond_0
+    :cond_11
     iget v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
     iget v1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->stashSize:I
@@ -1510,7 +1510,7 @@
 .end method
 
 .method private put_internal(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 26
+    .registers 29
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -1555,7 +1555,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 116
     iget-object v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->valueTable:[Ljava/lang/Object;
@@ -1573,7 +1573,7 @@
 
     .line 121
     .end local v0    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_21
     invoke-direct {v11, v10}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash2(I)I
 
     move-result v17
@@ -1588,7 +1588,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
     .line 124
     iget-object v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->valueTable:[Ljava/lang/Object;
@@ -1606,7 +1606,7 @@
 
     .line 129
     .end local v0    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_1
+    :cond_36
     invoke-direct {v11, v10}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash3(I)I
 
     move-result v18
@@ -1621,7 +1621,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4b
 
     .line 132
     iget-object v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->valueTable:[Ljava/lang/Object;
@@ -1639,7 +1639,7 @@
 
     .line 137
     .end local v0    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_2
+    :cond_4b
     const/4 v0, -0x1
 
     .line 138
@@ -1648,7 +1648,7 @@
 
     .line 139
     .local v1, "key4":Ljava/lang/Object;, "TK;"
-    if-eqz v15, :cond_4
+    if-eqz v15, :cond_69
 
     .line 140
     invoke-direct {v11, v10}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash4(I)I
@@ -1663,7 +1663,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_64
 
     .line 143
     iget-object v2, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->valueTable:[Ljava/lang/Object;
@@ -1681,15 +1681,15 @@
 
     .line 142
     .end local v2    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_3
+    :cond_64
     move/from16 v19, v0
 
     move-object/from16 v20, v1
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 139
-    :cond_4
+    :cond_69
     move/from16 v19, v0
 
     move-object/from16 v20, v1
@@ -1699,7 +1699,7 @@
     .end local v1    # "key4":Ljava/lang/Object;, "TK;"
     .local v19, "index4":I
     .local v20, "key4":Ljava/lang/Object;, "TK;"
-    :goto_0
+    :goto_6d
     iget v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
     .local v0, "i":I
@@ -1708,8 +1708,8 @@
     add-int/2addr v1, v0
 
     .local v1, "n":I
-    :goto_1
-    if-ge v0, v1, :cond_6
+    :goto_72
+    if-ge v0, v1, :cond_88
 
     .line 151
     aget-object v2, v13, v0
@@ -1718,7 +1718,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_85
 
     .line 152
     iget-object v2, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->valueTable:[Ljava/lang/Object;
@@ -1736,18 +1736,18 @@
 
     .line 150
     .end local v2    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_5
+    :cond_85
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_72
 
     .line 159
     .end local v0    # "i":I
     .end local v1    # "n":I
-    :cond_6
+    :cond_88
     const/16 v21, 0x0
 
-    if-nez v9, :cond_8
+    if-nez v9, :cond_a4
 
     .line 160
     aput-object v12, v13, v16
@@ -1766,7 +1766,7 @@
 
     iget v1, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v0, v1, :cond_7
+    if-lt v0, v1, :cond_a3
 
     iget v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -1775,12 +1775,12 @@
     invoke-direct {v11, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 163
-    :cond_7
+    :cond_a3
     return-object v21
 
     .line 166
-    :cond_8
-    if-nez v8, :cond_a
+    :cond_a4
+    if-nez v8, :cond_be
 
     .line 167
     aput-object v12, v13, v17
@@ -1799,7 +1799,7 @@
 
     iget v1, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v0, v1, :cond_9
+    if-lt v0, v1, :cond_bd
 
     iget v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -1808,12 +1808,12 @@
     invoke-direct {v11, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 170
-    :cond_9
+    :cond_bd
     return-object v21
 
     .line 173
-    :cond_a
-    if-nez v7, :cond_c
+    :cond_be
+    if-nez v7, :cond_d8
 
     .line 174
     aput-object v12, v13, v18
@@ -1832,7 +1832,7 @@
 
     iget v1, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v0, v1, :cond_b
+    if-lt v0, v1, :cond_d7
 
     iget v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -1841,14 +1841,14 @@
     invoke-direct {v11, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 177
-    :cond_b
+    :cond_d7
     return-object v21
 
     .line 180
-    :cond_c
-    if-eqz v15, :cond_e
+    :cond_d8
+    if-eqz v15, :cond_f4
 
-    if-nez v20, :cond_e
+    if-nez v20, :cond_f4
 
     .line 181
     aput-object v12, v13, v19
@@ -1867,7 +1867,7 @@
 
     iget v1, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v0, v1, :cond_d
+    if-lt v0, v1, :cond_f3
 
     iget v0, v11, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
@@ -1876,11 +1876,11 @@
     invoke-direct {v11, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 184
-    :cond_d
+    :cond_f3
     return-object v21
 
     .line 187
-    :cond_e
+    :cond_f4
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -1926,7 +1926,7 @@
 .end method
 
 .method private resize(I)V
-    .locals 7
+    .registers 9
     .param p1, "newSize"    # I
 
     .line 579
@@ -2019,16 +2019,16 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_4b
 
-    :cond_0
+    :cond_4a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_4b
     iput-boolean v1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->isBigTable:Z
 
     .line 591
@@ -2068,21 +2068,21 @@
     iput v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->stashSize:I
 
     .line 600
-    if-lez v4, :cond_2
+    if-lez v4, :cond_76
 
     .line 601
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_1
-    if-ge v2, v0, :cond_2
+    :goto_68
+    if-ge v2, v0, :cond_76
 
     .line 602
     aget-object v5, v1, v2
 
     .line 603
     .local v5, "key":Ljava/lang/Object;, "TK;"
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_73
 
     aget-object v6, v3, v2
 
@@ -2090,21 +2090,21 @@
 
     .line 601
     .end local v5    # "key":Ljava/lang/Object;, "TK;"
-    :cond_1
+    :cond_73
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_68
 
     .line 606
     .end local v2    # "i":I
-    :cond_2
+    :cond_76
     return-void
 .end method
 
 
 # virtual methods
 .method public clear()V
-    .locals 4
+    .registers 5
 
     .line 494
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap<TK;TV;>;"
@@ -2123,12 +2123,12 @@
     add-int/2addr v2, v3
 
     .local v2, "i":I
-    :goto_0
+    :goto_9
     add-int/lit8 v3, v2, -0x1
 
     .end local v2    # "i":I
     .local v3, "i":I
-    if-lez v2, :cond_0
+    if-lez v2, :cond_14
 
     .line 497
     const/4 v2, 0x0
@@ -2140,11 +2140,11 @@
 
     move v2, v3
 
-    goto :goto_0
+    goto :goto_9
 
     .line 500
     .end local v3    # "i":I
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     iput v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->size:I
@@ -2157,14 +2157,14 @@
 .end method
 
 .method public clear(I)V
-    .locals 1
+    .registers 3
     .param p1, "maximumCapacity"    # I
 
     .line 485
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap<TK;TV;>;"
     iget v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
-    if-gt v0, p1, :cond_0
+    if-gt v0, p1, :cond_8
 
     .line 486
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->clear()V
@@ -2173,7 +2173,7 @@
     return-void
 
     .line 489
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->size:I
@@ -2186,7 +2186,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)Z"
@@ -2216,7 +2216,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     .line 528
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash2(I)I
@@ -2232,7 +2232,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     .line 530
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash3(I)I
@@ -2248,12 +2248,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     .line 532
     iget-boolean v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->isBigTable:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_44
 
     .line 533
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash4(I)I
@@ -2269,7 +2269,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->containsKeyStash(Ljava/lang/Object;)Z
 
@@ -2278,7 +2278,7 @@
     return v2
 
     .line 536
-    :cond_0
+    :cond_44
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->containsKeyStash(Ljava/lang/Object;)Z
 
     move-result v2
@@ -2286,14 +2286,14 @@
     return v2
 
     .line 541
-    :cond_1
+    :cond_49
     const/4 v2, 0x1
 
     return v2
 .end method
 
 .method public containsValue(Ljava/lang/Object;Z)Z
-    .locals 5
+    .registers 8
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "identity"    # Z
 
@@ -2305,7 +2305,7 @@
     .local v0, "valueTable":[Ljava/lang/Object;, "[TV;"
     const/4 v1, 0x1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1c
 
     .line 511
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -2319,38 +2319,38 @@
     add-int/2addr v3, v4
 
     .local v3, "i":I
-    :goto_0
+    :goto_c
     add-int/lit8 v4, v3, -0x1
 
     .end local v3    # "i":I
     .local v4, "i":I
-    if-lez v3, :cond_1
+    if-lez v3, :cond_1b
 
     .line 513
     aget-object v3, v2, v4
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_19
 
     aget-object v3, v0, v4
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_19
 
     return v1
 
     .line 512
-    :cond_0
+    :cond_19
     move v3, v4
 
-    goto :goto_0
+    goto :goto_c
 
     .line 514
     .end local v2    # "keyTable":[Ljava/lang/Object;, "[TK;"
     .end local v4    # "i":I
-    :cond_1
-    goto :goto_3
+    :cond_1b
+    goto :goto_43
 
-    :cond_2
-    if-eqz p2, :cond_5
+    :cond_1c
+    if-eqz p2, :cond_2f
 
     .line 515
     iget v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
@@ -2360,31 +2360,31 @@
     add-int/2addr v2, v3
 
     .local v2, "i":I
-    :goto_1
+    :goto_23
     add-int/lit8 v3, v2, -0x1
 
     .end local v2    # "i":I
     .restart local v3    # "i":I
-    if-lez v2, :cond_4
+    if-lez v2, :cond_2e
 
     .line 516
     aget-object v2, v0, v3
 
-    if-ne v2, p1, :cond_3
+    if-ne v2, p1, :cond_2c
 
     return v1
 
-    :cond_3
+    :cond_2c
     move v2, v3
 
-    goto :goto_1
+    goto :goto_23
 
     .end local v3    # "i":I
-    :cond_4
-    goto :goto_3
+    :cond_2e
+    goto :goto_43
 
     .line 518
-    :cond_5
+    :cond_2f
     iget v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
     iget v3, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->stashSize:I
@@ -2392,12 +2392,12 @@
     add-int/2addr v2, v3
 
     .restart local v2    # "i":I
-    :goto_2
+    :goto_34
     add-int/lit8 v3, v2, -0x1
 
     .end local v2    # "i":I
     .restart local v3    # "i":I
-    if-lez v2, :cond_7
+    if-lez v2, :cond_43
 
     .line 519
     aget-object v2, v0, v3
@@ -2406,26 +2406,26 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_41
 
     return v1
 
-    :cond_6
+    :cond_41
     move v2, v3
 
-    goto :goto_2
+    goto :goto_34
 
     .line 521
     .end local v3    # "i":I
-    :cond_7
-    :goto_3
+    :cond_43
+    :goto_43
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public ensureCapacity(I)V
-    .locals 3
+    .registers 5
     .param p1, "additionalCapacity"    # I
 
     .line 574
@@ -2438,7 +2438,7 @@
     .local v0, "sizeNeeded":I
     iget v1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->threshold:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_13
 
     int-to-float v1, v0
 
@@ -2455,12 +2455,12 @@
     invoke-direct {p0, v1}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->resize(I)V
 
     .line 576
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public entries()Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Entries;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2479,7 +2479,7 @@
 .end method
 
 .method public findKey(Ljava/lang/Object;Z)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "identity"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -2496,7 +2496,7 @@
 
     .line 557
     .local v0, "valueTable":[Ljava/lang/Object;, "[TV;"
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1d
 
     .line 558
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -2510,40 +2510,40 @@
     add-int/2addr v2, v3
 
     .local v2, "i":I
-    :goto_0
+    :goto_b
     add-int/lit8 v3, v2, -0x1
 
     .end local v2    # "i":I
     .local v3, "i":I
-    if-lez v2, :cond_1
+    if-lez v2, :cond_1c
 
     .line 560
     aget-object v2, v1, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
     aget-object v2, v0, v3
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     aget-object v2, v1, v3
 
     return-object v2
 
     .line 559
-    :cond_0
+    :cond_1a
     move v2, v3
 
-    goto :goto_0
+    goto :goto_b
 
     .line 561
     .end local v1    # "keyTable":[Ljava/lang/Object;, "[TK;"
     .end local v3    # "i":I
-    :cond_1
-    goto :goto_3
+    :cond_1c
+    goto :goto_4c
 
-    :cond_2
-    if-eqz p2, :cond_5
+    :cond_1d
+    if-eqz p2, :cond_34
 
     .line 562
     iget v1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
@@ -2553,17 +2553,17 @@
     add-int/2addr v1, v2
 
     .local v1, "i":I
-    :goto_1
+    :goto_24
     add-int/lit8 v2, v1, -0x1
 
     .end local v1    # "i":I
     .restart local v2    # "i":I
-    if-lez v1, :cond_4
+    if-lez v1, :cond_33
 
     .line 563
     aget-object v1, v0, v2
 
-    if-ne v1, p1, :cond_3
+    if-ne v1, p1, :cond_31
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
 
@@ -2571,17 +2571,17 @@
 
     return-object v1
 
-    :cond_3
+    :cond_31
     move v1, v2
 
-    goto :goto_1
+    goto :goto_24
 
     .end local v2    # "i":I
-    :cond_4
-    goto :goto_3
+    :cond_33
+    goto :goto_4c
 
     .line 565
-    :cond_5
+    :cond_34
     iget v1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
     iget v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->stashSize:I
@@ -2589,12 +2589,12 @@
     add-int/2addr v1, v2
 
     .restart local v1    # "i":I
-    :goto_2
+    :goto_39
     add-int/lit8 v2, v1, -0x1
 
     .end local v1    # "i":I
     .restart local v2    # "i":I
-    if-lez v1, :cond_7
+    if-lez v1, :cond_4c
 
     .line 566
     aget-object v1, v0, v2
@@ -2603,7 +2603,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_4a
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
 
@@ -2611,22 +2611,22 @@
 
     return-object v1
 
-    :cond_6
+    :cond_4a
     move v1, v2
 
-    goto :goto_2
+    goto :goto_39
 
     .line 568
     .end local v2    # "i":I
-    :cond_7
-    :goto_3
+    :cond_4c
+    :goto_4c
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -2656,7 +2656,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     .line 354
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash2(I)I
@@ -2672,7 +2672,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     .line 356
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash3(I)I
@@ -2688,12 +2688,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     .line 358
     iget-boolean v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->isBigTable:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_44
 
     .line 359
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash4(I)I
@@ -2709,7 +2709,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->getStash(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -2718,7 +2718,7 @@
     return-object v2
 
     .line 362
-    :cond_0
+    :cond_44
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->getStash(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
@@ -2726,7 +2726,7 @@
     return-object v2
 
     .line 367
-    :cond_1
+    :cond_49
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->valueTable:[Ljava/lang/Object;
 
     aget-object v2, v2, v1
@@ -2735,7 +2735,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -2766,7 +2766,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     .line 382
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash2(I)I
@@ -2782,7 +2782,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     .line 384
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash3(I)I
@@ -2798,12 +2798,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     .line 386
     iget-boolean v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->isBigTable:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_44
 
     .line 387
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash4(I)I
@@ -2819,7 +2819,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     invoke-direct {p0, p1, p2}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->getStash(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -2828,7 +2828,7 @@
     return-object v2
 
     .line 390
-    :cond_0
+    :cond_44
     invoke-direct {p0, p1, p2}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->getStash(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
@@ -2836,7 +2836,7 @@
     return-object v2
 
     .line 395
-    :cond_1
+    :cond_49
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->valueTable:[Ljava/lang/Object;
 
     aget-object v2, v2, v1
@@ -2845,7 +2845,7 @@
 .end method
 
 .method public keys()Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Keys;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2864,7 +2864,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -2875,7 +2875,7 @@
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap<TK;TV;>;"
     .local p1, "key":Ljava/lang/Object;, "TK;"
     .local p2, "value":Ljava/lang/Object;, "TV;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 102
     invoke-direct {p0, p1, p2}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->put_internal(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -2885,7 +2885,7 @@
     return-object v0
 
     .line 101
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "key cannot be null."
@@ -2896,7 +2896,7 @@
 .end method
 
 .method public putAll(Lcom/esotericsoftware/kryo/util/CuckooObjectMap;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2921,12 +2921,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2942,16 +2942,16 @@
 
     invoke-virtual {p0, v2, v3}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_d
 
     .line 195
     .end local v1    # "entry":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Entry;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Entry<TK;TV;>;"
-    :cond_0
+    :cond_21
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -2983,7 +2983,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_25
 
     .line 409
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -3013,7 +3013,7 @@
 
     .line 416
     .end local v2    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_25
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash2(I)I
 
     move-result v1
@@ -3027,7 +3027,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_46
 
     .line 418
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -3057,7 +3057,7 @@
 
     .line 425
     .end local v2    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_1
+    :cond_46
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash3(I)I
 
     move-result v1
@@ -3071,7 +3071,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_67
 
     .line 427
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -3101,10 +3101,10 @@
 
     .line 434
     .end local v2    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_2
+    :cond_67
     iget-boolean v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->isBigTable:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_8c
 
     .line 435
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->hash4(I)I
@@ -3120,7 +3120,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_8c
 
     .line 437
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -3150,7 +3150,7 @@
 
     .line 445
     .end local v2    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_3
+    :cond_8c
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->removeStash(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
@@ -3159,7 +3159,7 @@
 .end method
 
 .method removeStash(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -3181,8 +3181,8 @@
     add-int/2addr v2, v1
 
     .local v2, "n":I
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_7
+    if-ge v1, v2, :cond_22
 
     .line 451
     aget-object v3, v0, v1
@@ -3191,7 +3191,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1f
 
     .line 452
     iget-object v3, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->valueTable:[Ljava/lang/Object;
@@ -3214,22 +3214,22 @@
 
     .line 450
     .end local v3    # "oldValue":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_1f
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 458
     .end local v1    # "i":I
     .end local v2    # "n":I
-    :cond_1
+    :cond_22
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method removeStashIndex(I)V
-    .locals 4
+    .registers 6
     .param p1, "index"    # I
 
     .line 463
@@ -3251,7 +3251,7 @@
     .local v0, "lastIndex":I
     const/4 v1, 0x0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_23
 
     .line 466
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
@@ -3276,44 +3276,44 @@
 
     aput-object v1, v2, v0
 
-    goto :goto_0
+    goto :goto_27
 
     .line 470
-    :cond_0
+    :cond_23
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->valueTable:[Ljava/lang/Object;
 
     aput-object v1, v2, p1
 
     .line 471
-    :goto_0
+    :goto_27
     return-void
 .end method
 
 .method public shrink(I)V
-    .locals 3
+    .registers 5
     .param p1, "maximumCapacity"    # I
 
     .line 476
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap<TK;TV;>;"
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_15
 
     .line 477
     iget v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->size:I
 
-    if-le v0, p1, :cond_0
+    if-le v0, p1, :cond_8
 
     iget p1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->size:I
 
     .line 478
-    :cond_0
+    :cond_8
     iget v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
 
-    if-gt v0, p1, :cond_1
+    if-gt v0, p1, :cond_d
 
     return-void
 
     .line 479
-    :cond_1
+    :cond_d
     invoke-static {p1}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->nextPowerOfTwo(I)I
 
     move-result p1
@@ -3325,7 +3325,7 @@
     return-void
 
     .line 476
-    :cond_2
+    :cond_15
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3352,20 +3352,20 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 624
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap<TK;TV;>;"
     iget v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->size:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const-string/jumbo v0, "{}"
 
     return-object v0
 
     .line 625
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x20
@@ -3391,28 +3391,28 @@
 
     .line 630
     .local v3, "i":I
-    :goto_0
+    :goto_19
     add-int/lit8 v4, v3, -0x1
 
     .end local v3    # "i":I
     .local v4, "i":I
     const/16 v5, 0x3d
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_31
 
     .line 631
     aget-object v3, v1, v4
 
     .line 632
     .local v3, "key":Ljava/lang/Object;, "TK;"
-    if-nez v3, :cond_1
+    if-nez v3, :cond_25
 
     move v3, v4
 
-    goto :goto_0
+    goto :goto_19
 
     .line 633
-    :cond_1
+    :cond_25
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 634
@@ -3428,25 +3428,25 @@
 
     .line 638
     .end local v3    # "key":Ljava/lang/Object;, "TK;"
-    :cond_2
-    :goto_1
+    :cond_31
+    :goto_31
     add-int/lit8 v3, v4, -0x1
 
     .end local v4    # "i":I
     .local v3, "i":I
-    if-lez v4, :cond_4
+    if-lez v4, :cond_4d
 
     .line 639
     aget-object v4, v1, v3
 
     .line 640
     .local v4, "key":Ljava/lang/Object;, "TK;"
-    if-nez v4, :cond_3
+    if-nez v4, :cond_3a
 
-    goto :goto_2
+    goto :goto_4b
 
     .line 641
-    :cond_3
+    :cond_3a
     const-string v6, ", "
 
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3467,13 +3467,13 @@
     nop
 
     .line 638
-    :goto_2
+    :goto_4b
     move v4, v3
 
-    goto :goto_1
+    goto :goto_31
 
     .line 646
-    :cond_4
+    :cond_4d
     const/16 v4, 0x7d
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -3487,7 +3487,7 @@
 .end method
 
 .method public values()Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

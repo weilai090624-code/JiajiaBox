@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/SetsKt__SetsKt;-><init>()V
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public static final minus(Ljava/util/Set;Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 8
+    .registers 10
     .param p0, "$this$minus"    # Ljava/util/Set;
     .param p1, "elements"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -85,7 +85,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 51
     move-object v1, p0
@@ -99,10 +99,10 @@
     return-object v1
 
     .line 52
-    :cond_0
+    :cond_1c
     instance-of v1, v0, Ljava/util/Set;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4a
 
     .line 53
     move-object v1, p0
@@ -125,13 +125,13 @@
 
     move-result-object v4
 
-    :cond_1
-    :goto_0
+    :cond_2f
+    :goto_2f
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_45
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -152,15 +152,15 @@
     .line 143
     .end local v6    # "it":Ljava/lang/Object;
     .end local v7    # "$i$a$-filterNotTo-SetsKt___SetsKt$minus$2":I
-    if-nez v6, :cond_1
+    if-nez v6, :cond_2f
 
     invoke-interface {v2, v5}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 144
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_45
     nop
 
     .end local v1    # "$this$filterNotTo$iv":Ljava/lang/Iterable;
@@ -174,7 +174,7 @@
     return-object v1
 
     .line 54
-    :cond_3
+    :cond_4a
     new-instance v1, Ljava/util/LinkedHashSet;
 
     move-object v2, p0
@@ -196,7 +196,7 @@
 .end method
 
 .method public static final minus(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 9
+    .registers 11
     .param p0, "$this$minus"    # Ljava/util/Set;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -247,13 +247,13 @@
 
     move-result-object v4
 
-    :cond_0
-    :goto_0
+    :cond_1b
+    :goto_1b
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3c
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -267,28 +267,28 @@
 
     .line 29
     .local v7, "$i$a$-filterTo-SetsKt___SetsKt$minus$1":I
-    if-nez v1, :cond_1
+    if-nez v1, :cond_32
 
     invoke-static {v6, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_32
 
     const/4 v1, 0x1
 
     const/4 v8, 0x0
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_1
+    :cond_32
     const/4 v8, 0x1
 
     .line 141
     .end local v6    # "it":Ljava/lang/Object;
     .end local v7    # "$i$a$-filterTo-SetsKt___SetsKt$minus$1":I
-    :goto_1
-    if-eqz v8, :cond_0
+    :goto_33
+    if-eqz v8, :cond_1b
 
     move-object v6, v0
 
@@ -296,11 +296,11 @@
 
     invoke-interface {v6, v5}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 142
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_3c
     move-object v2, v0
 
     check-cast v2, Ljava/util/Collection;
@@ -314,7 +314,7 @@
 .end method
 
 .method public static final minus(Ljava/util/Set;Lkotlin/sequences/Sequence;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p0, "$this$minus"    # Ljava/util/Set;
     .param p1, "elements"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -365,7 +365,7 @@
 .end method
 
 .method public static final minus(Ljava/util/Set;[Ljava/lang/Object;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p0, "$this$minus"    # Ljava/util/Set;
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -414,7 +414,7 @@
 .end method
 
 .method private static final minusElement(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p0, "$this$minusElement"    # Ljava/util/Set;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -442,7 +442,7 @@
 .end method
 
 .method public static final plus(Ljava/util/Set;Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 3
+    .registers 5
     .param p0, "$this$plus"    # Ljava/util/Set;
     .param p1, "elements"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -472,7 +472,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     check-cast v0, Ljava/lang/Number;
 
@@ -494,16 +494,16 @@
 
     .end local v0    # "it":I
     .end local v1    # "$i$a$-let-SetsKt___SetsKt$plus$result$1":I
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_1d
     invoke-interface {p0}, Ljava/util/Set;->size()I
 
     move-result v0
 
     mul-int/lit8 v2, v0, 0x2
 
-    :goto_0
+    :goto_23
     invoke-static {v2}, Lkotlin/collections/MapsKt;->mapCapacity(I)I
 
     move-result v0
@@ -538,7 +538,7 @@
 .end method
 
 .method public static final plus(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p0, "$this$plus"    # Ljava/util/Set;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -592,7 +592,7 @@
 .end method
 
 .method public static final plus(Ljava/util/Set;Lkotlin/sequences/Sequence;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p0, "$this$plus"    # Ljava/util/Set;
     .param p1, "elements"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -656,7 +656,7 @@
 .end method
 
 .method public static final plus(Ljava/util/Set;[Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 5
     .param p0, "$this$plus"    # Ljava/util/Set;
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -720,7 +720,7 @@
 .end method
 
 .method private static final plusElement(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p0, "$this$plusElement"    # Ljava/util/Set;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

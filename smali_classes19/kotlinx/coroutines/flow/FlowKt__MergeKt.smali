@@ -71,7 +71,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 31
     nop
@@ -101,7 +101,7 @@
 .end method
 
 .method public static final flatMapConcat(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 6
+    .registers 8
     .param p0, "$this$flatMapConcat"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -171,7 +171,7 @@
 .end method
 
 .method public static final flatMapLatest(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 5
     .param p0, "$this$flatMapLatest"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -216,7 +216,7 @@
 .end method
 
 .method public static final flatMapMerge(Lkotlinx/coroutines/flow/Flow;ILkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 6
+    .registers 9
     .param p0, "$this$flatMapMerge"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "concurrency"    # I
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -287,18 +287,18 @@
 .end method
 
 .method public static synthetic flatMapMerge$default(Lkotlinx/coroutines/flow/Flow;ILkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 0
+    .registers 5
 
     .line 70
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     .line 71
     sget p1, Lkotlinx/coroutines/flow/FlowKt__MergeKt;->DEFAULT_CONCURRENCY:I
 
     .line 70
-    :cond_0
+    :cond_6
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/flow/FlowKt;->flatMapMerge(Lkotlinx/coroutines/flow/Flow;ILkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
 
     move-result-object p0
@@ -307,7 +307,7 @@
 .end method
 
 .method public static final flattenConcat(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$flattenConcat"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -340,7 +340,7 @@
 .end method
 
 .method public static final flattenMerge(Lkotlinx/coroutines/flow/Flow;I)Lkotlinx/coroutines/flow/Flow;
-    .locals 9
+    .registers 11
     .param p0, "$this$flattenMerge"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "concurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -360,28 +360,28 @@
     .line 140
     const/4 v0, 0x1
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_5
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_2
+    :goto_6
+    if-eqz v1, :cond_20
 
     .line 141
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_f
 
     invoke-static {p0}, Lkotlinx/coroutines/flow/FlowKt;->flattenConcat(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_1f
 
-    :cond_1
+    :cond_f
     new-instance v0, Lkotlinx/coroutines/flow/internal/ChannelFlowMerge;
 
     const/16 v7, 0x1c
@@ -404,11 +404,11 @@
 
     check-cast v0, Lkotlinx/coroutines/flow/Flow;
 
-    :goto_1
+    :goto_1f
     return-object v0
 
     .line 230
-    :cond_2
+    :cond_20
     const/4 v0, 0x0
 
     .line 140
@@ -444,16 +444,16 @@
 .end method
 
 .method public static synthetic flattenMerge$default(Lkotlinx/coroutines/flow/Flow;IILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 0
+    .registers 4
 
     .line 139
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget p1, Lkotlinx/coroutines/flow/FlowKt__MergeKt;->DEFAULT_CONCURRENCY:I
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1}, Lkotlinx/coroutines/flow/FlowKt;->flattenMerge(Lkotlinx/coroutines/flow/Flow;I)Lkotlinx/coroutines/flow/Flow;
 
     move-result-object p0
@@ -462,7 +462,7 @@
 .end method
 
 .method public static final getDEFAULT_CONCURRENCY()I
-    .locals 1
+    .registers 1
 
     .line 31
     sget v0, Lkotlinx/coroutines/flow/FlowKt__MergeKt;->DEFAULT_CONCURRENCY:I
@@ -471,19 +471,19 @@
 .end method
 
 .method public static synthetic getDEFAULT_CONCURRENCY$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getDEFAULT_CONCURRENCY_PROPERTY_NAME$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final mapLatest(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p0, "$this$mapLatest"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -523,7 +523,7 @@
 .end method
 
 .method public static final merge(Ljava/lang/Iterable;)Lkotlinx/coroutines/flow/Flow;
-    .locals 8
+    .registers 9
     .param p0, "$this$merge"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -564,7 +564,7 @@
 .end method
 
 .method public static final varargs merge([Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "flows"    # [Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -591,7 +591,7 @@
 .end method
 
 .method public static final transformLatest(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 9
+    .registers 11
     .param p0, "$this$transformLatest"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;

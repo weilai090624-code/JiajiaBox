@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/savedstate/SavedStateRegistry;)V
-    .locals 2
+    .registers 4
     .param p1, "registry"    # Landroidx/savedstate/SavedStateRegistry;
 
     const-string v0, "registry"
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public final add(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "className"    # Ljava/lang/String;
 
     const-string v0, "className"
@@ -118,7 +118,7 @@
 .end method
 
 .method public saveState()Landroid/os/Bundle;
-    .locals 5
+    .registers 6
 
     .line 83
     new-instance v0, Landroid/os/Bundle;

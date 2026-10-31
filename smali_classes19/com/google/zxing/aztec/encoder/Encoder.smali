@@ -17,20 +17,20 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     const/16 v0, 0x21
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_a
 
     sput-object v0, Lcom/google/zxing/aztec/encoder/Encoder;->WORD_SIZE:[I
 
     return-void
 
-    :array_0
+    :array_a
     .array-data 4
         0x4
         0x6
@@ -69,7 +69,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,7 +79,7 @@
 .end method
 
 .method private static bitsToWords(Lcom/google/zxing/common/BitArray;II)[I
-    .locals 7
+    .registers 10
     .param p0, "stuffedBits"    # Lcom/google/zxing/common/BitArray;
     .param p1, "wordSize"    # I
     .param p2, "totalWords"    # I
@@ -99,8 +99,8 @@
     div-int/2addr v2, p1
 
     .local v2, "n":I
-    :goto_0
-    if-ge v1, v2, :cond_2
+    :goto_8
+    if-ge v1, v2, :cond_28
 
     .line 292
     const/4 v3, 0x0
@@ -110,8 +110,8 @@
     const/4 v4, 0x0
 
     .local v4, "j":I
-    :goto_1
-    if-ge v4, p1, :cond_1
+    :goto_c
+    if-ge v4, p1, :cond_23
 
     .line 294
     mul-int v5, v1, p1
@@ -122,7 +122,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1e
 
     sub-int v5, p1, v4
 
@@ -132,37 +132,37 @@
 
     shl-int v5, v6, v5
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v5, 0x0
 
-    :goto_2
+    :goto_1f
     or-int/2addr v3, v5
 
     .line 293
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_c
 
     .line 296
     .end local v4    # "j":I
-    :cond_1
+    :cond_23
     aput v3, v0, v1
 
     .line 291
     .end local v3    # "value":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 298
-    :cond_2
+    :cond_28
     return-object v0
 .end method
 
 .method private static drawBullsEye(Lcom/google/zxing/common/BitMatrix;II)V
-    .locals 3
+    .registers 6
     .param p0, "matrix"    # Lcom/google/zxing/common/BitMatrix;
     .param p1, "center"    # I
     .param p2, "size"    # I
@@ -171,17 +171,17 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p2, :cond_1
+    :goto_1
+    if-ge v0, p2, :cond_23
 
     .line 205
     sub-int v1, p1, v0
 
     .local v1, "j":I
-    :goto_1
+    :goto_5
     add-int v2, p1, v0
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_20
 
     .line 206
     sub-int v2, p1, v0
@@ -206,18 +206,18 @@
     .line 205
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_5
 
     .line 204
     .end local v1    # "j":I
-    :cond_0
+    :cond_20
     add-int/lit8 v0, v0, 0x2
 
-    goto :goto_0
+    goto :goto_1
 
     .line 212
     .end local v0    # "i":I
-    :cond_1
+    :cond_23
     sub-int v0, p1, p2
 
     sub-int v1, p1, p2
@@ -272,7 +272,7 @@
 .end method
 
 .method private static drawModeMessage(Lcom/google/zxing/common/BitMatrix;ZILcom/google/zxing/common/BitArray;)V
-    .locals 4
+    .registers 8
     .param p0, "matrix"    # Lcom/google/zxing/common/BitMatrix;
     .param p1, "compact"    # Z
     .param p2, "matrixSize"    # I
@@ -283,16 +283,16 @@
 
     .line 236
     .local v0, "center":I
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_41
 
     .line 237
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_5
     const/4 v2, 0x7
 
-    if-ge v1, v2, :cond_4
+    if-ge v1, v2, :cond_40
 
     .line 238
     add-int/lit8 v2, v0, -0x3
@@ -305,7 +305,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_16
 
     .line 240
     add-int/lit8 v3, v0, -0x5
@@ -313,14 +313,14 @@
     invoke-virtual {p0, v2, v3}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 242
-    :cond_0
+    :cond_16
     add-int/lit8 v3, v1, 0x7
 
     invoke-virtual {p3, v3}, Lcom/google/zxing/common/BitArray;->get(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_23
 
     .line 243
     add-int/lit8 v3, v0, 0x5
@@ -328,14 +328,14 @@
     invoke-virtual {p0, v3, v2}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 245
-    :cond_1
+    :cond_23
     rsub-int/lit8 v3, v1, 0x14
 
     invoke-virtual {p3, v3}, Lcom/google/zxing/common/BitArray;->get(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_30
 
     .line 246
     add-int/lit8 v3, v0, 0x5
@@ -343,14 +343,14 @@
     invoke-virtual {p0, v2, v3}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 248
-    :cond_2
+    :cond_30
     rsub-int/lit8 v3, v1, 0x1b
 
     invoke-virtual {p3, v3}, Lcom/google/zxing/common/BitArray;->get(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_3d
 
     .line 249
     add-int/lit8 v3, v0, -0x5
@@ -359,24 +359,24 @@
 
     .line 237
     .end local v2    # "offset":I
-    :cond_3
+    :cond_3d
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .end local v1    # "i":I
-    :cond_4
+    :cond_40
     return-void
 
     .line 253
-    :cond_5
+    :cond_41
     const/4 v1, 0x0
 
     .restart local v1    # "i":I
-    :goto_1
+    :goto_42
     const/16 v2, 0xa
 
-    if-ge v1, v2, :cond_a
+    if-ge v1, v2, :cond_81
 
     .line 254
     add-int/lit8 v2, v0, -0x5
@@ -393,7 +393,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_57
 
     .line 256
     add-int/lit8 v3, v0, -0x7
@@ -401,14 +401,14 @@
     invoke-virtual {p0, v2, v3}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 258
-    :cond_6
+    :cond_57
     add-int/lit8 v3, v1, 0xa
 
     invoke-virtual {p3, v3}, Lcom/google/zxing/common/BitArray;->get(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_64
 
     .line 259
     add-int/lit8 v3, v0, 0x7
@@ -416,14 +416,14 @@
     invoke-virtual {p0, v3, v2}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 261
-    :cond_7
+    :cond_64
     rsub-int/lit8 v3, v1, 0x1d
 
     invoke-virtual {p3, v3}, Lcom/google/zxing/common/BitArray;->get(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_71
 
     .line 262
     add-int/lit8 v3, v0, 0x7
@@ -431,14 +431,14 @@
     invoke-virtual {p0, v2, v3}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 264
-    :cond_8
+    :cond_71
     rsub-int/lit8 v3, v1, 0x27
 
     invoke-virtual {p3, v3}, Lcom/google/zxing/common/BitArray;->get(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_7e
 
     .line 265
     add-int/lit8 v3, v0, -0x7
@@ -447,19 +447,19 @@
 
     .line 253
     .end local v2    # "offset":I
-    :cond_9
+    :cond_7e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_42
 
     .line 269
     .end local v1    # "i":I
-    :cond_a
+    :cond_81
     return-void
 .end method
 
 .method public static encode([B)Lcom/google/zxing/aztec/encoder/AztecCode;
-    .locals 2
+    .registers 3
     .param p0, "data"    # [B
 
     .line 51
@@ -475,7 +475,7 @@
 .end method
 
 .method public static encode([BII)Lcom/google/zxing/aztec/encoder/AztecCode;
-    .locals 19
+    .registers 22
 
     .line 65
     new-instance v0, Lcom/google/zxing/aztec/encoder/HighLevelEncoder;
@@ -515,31 +515,31 @@
 
     const/4 v6, 0x1
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_75
 
     .line 76
-    if-gez p2, :cond_0
+    if-gez p2, :cond_25
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_25
     const/4 v3, 0x0
 
     .line 77
-    :goto_0
+    :goto_26
     invoke-static/range {p2 .. p2}, Ljava/lang/Math;->abs(I)I
 
     move-result v7
 
     .line 78
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2d
 
     const/4 v4, 0x4
 
-    :cond_1
-    if-gt v7, v4, :cond_5
+    :cond_2d
+    if-gt v7, v4, :cond_61
 
     .line 82
     invoke-static {v7, v3}, Lcom/google/zxing/aztec/encoder/Encoder;->totalBitsInLayer(IZ)I
@@ -570,10 +570,10 @@
 
     const-string v1, "Data to large for user specified layer"
 
-    if-gt v10, v9, :cond_4
+    if-gt v10, v9, :cond_5b
 
     .line 89
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_59
 
     invoke-virtual {v0}, Lcom/google/zxing/common/BitArray;->getSize()I
 
@@ -581,12 +581,12 @@
 
     shl-int/lit8 v10, v8, 0x6
 
-    if-gt v9, v10, :cond_2
+    if-gt v9, v10, :cond_53
 
-    goto :goto_1
+    goto :goto_59
 
     .line 91
-    :cond_2
+    :cond_53
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -594,12 +594,12 @@
     throw v0
 
     .line 93
-    :cond_3
-    :goto_1
-    goto/16 :goto_5
+    :cond_59
+    :goto_59
+    goto/16 :goto_c0
 
     .line 87
-    :cond_4
+    :cond_5b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -607,7 +607,7 @@
     throw v0
 
     .line 79
-    :cond_5
+    :cond_61
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     .line 80
@@ -630,7 +630,7 @@
     throw v0
 
     .line 94
-    :cond_6
+    :cond_75
     nop
 
     .line 95
@@ -644,52 +644,52 @@
     const/4 v9, 0x0
 
     .line 100
-    :goto_2
-    if-gt v8, v4, :cond_1e
+    :goto_7a
+    if-gt v8, v4, :cond_1f7
 
     .line 103
     const/4 v10, 0x3
 
-    if-gt v8, v10, :cond_7
+    if-gt v8, v10, :cond_81
 
     const/4 v10, 0x1
 
-    goto :goto_3
+    goto :goto_82
 
-    :cond_7
+    :cond_81
     const/4 v10, 0x0
 
     .line 104
-    :goto_3
-    if-eqz v10, :cond_8
+    :goto_82
+    if-eqz v10, :cond_87
 
     add-int/lit8 v11, v8, 0x1
 
-    goto :goto_4
+    goto :goto_88
 
-    :cond_8
+    :cond_87
     move v11, v8
 
     .line 105
-    :goto_4
+    :goto_88
     invoke-static {v11, v10}, Lcom/google/zxing/aztec/encoder/Encoder;->totalBitsInLayer(IZ)I
 
     move-result v12
 
     .line 106
-    if-gt v3, v12, :cond_1d
+    if-gt v3, v12, :cond_1f0
 
     .line 111
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_96
 
     sget-object v13, Lcom/google/zxing/aztec/encoder/Encoder;->WORD_SIZE:[I
 
     aget v13, v13, v11
 
-    if-eq v9, v13, :cond_a
+    if-eq v9, v13, :cond_a3
 
     .line 112
-    :cond_9
+    :cond_96
     sget-object v7, Lcom/google/zxing/aztec/encoder/Encoder;->WORD_SIZE:[I
 
     aget v7, v7, v11
@@ -706,13 +706,13 @@
     move-object/from16 v7, v18
 
     .line 115
-    :cond_a
+    :cond_a3
     rem-int v13, v12, v9
 
     sub-int v13, v12, v13
 
     .line 116
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_b1
 
     invoke-virtual {v7}, Lcom/google/zxing/common/BitArray;->getSize()I
 
@@ -720,26 +720,26 @@
 
     shl-int/lit8 v15, v9, 0x6
 
-    if-gt v14, v15, :cond_c
+    if-gt v14, v15, :cond_b8
 
     .line 120
-    :cond_b
+    :cond_b1
     invoke-virtual {v7}, Lcom/google/zxing/common/BitArray;->getSize()I
 
     move-result v14
 
     add-int/2addr v14, v1
 
-    if-le v14, v13, :cond_d
+    if-le v14, v13, :cond_bb
 
     .line 99
-    :cond_c
+    :cond_b8
     const/4 v12, 0x1
 
-    goto/16 :goto_11
+    goto/16 :goto_1f1
 
     .line 120
-    :cond_d
+    :cond_bb
     move-object v0, v7
 
     move v8, v9
@@ -751,7 +751,7 @@
     move v4, v12
 
     .line 125
-    :goto_5
+    :goto_c0
     invoke-static {v0, v4, v8}, Lcom/google/zxing/aztec/encoder/Encoder;->generateCheckWords(Lcom/google/zxing/common/BitArray;II)Lcom/google/zxing/common/BitArray;
 
     move-result-object v1
@@ -769,14 +769,14 @@
     move-result-object v4
 
     .line 132
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_d0
 
-    goto :goto_6
+    goto :goto_d2
 
-    :cond_e
+    :cond_d0
     const/16 v2, 0xe
 
-    :goto_6
+    :goto_d2
     shl-int/lit8 v8, v7, 0x2
 
     add-int/2addr v2, v8
@@ -787,7 +787,7 @@
     .line 135
     const/4 v9, 0x2
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_e5
 
     .line 137
     nop
@@ -795,8 +795,8 @@
     .line 138
     const/4 v10, 0x0
 
-    :goto_7
-    if-ge v10, v2, :cond_f
+    :goto_dc
+    if-ge v10, v2, :cond_e3
 
     .line 139
     aput v10, v8, v10
@@ -804,15 +804,15 @@
     .line 138
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_7
+    goto :goto_dc
 
-    :cond_f
+    :cond_e3
     move v10, v2
 
-    goto :goto_9
+    goto :goto_10b
 
     .line 142
-    :cond_10
+    :cond_e5
     add-int/lit8 v10, v2, 0x1
 
     div-int/lit8 v11, v2, 0x2
@@ -834,8 +834,8 @@
     .line 145
     const/4 v13, 0x0
 
-    :goto_8
-    if-ge v13, v11, :cond_11
+    :goto_f4
+    if-ge v13, v11, :cond_10b
 
     .line 146
     div-int/lit8 v14, v13, 0xf
@@ -865,11 +865,11 @@
     .line 145
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_8
+    goto :goto_f4
 
     .line 151
-    :cond_11
-    :goto_9
+    :cond_10b
+    :goto_10b
     new-instance v11, Lcom/google/zxing/common/BitMatrix;
 
     invoke-direct {v11, v10}, Lcom/google/zxing/common/BitMatrix;-><init>(I)V
@@ -879,31 +879,31 @@
 
     const/4 v13, 0x0
 
-    :goto_a
-    if-ge v12, v7, :cond_19
+    :goto_112
+    if-ge v12, v7, :cond_1a4
 
     .line 155
     sub-int v14, v7, v12
 
     shl-int/2addr v14, v9
 
-    if-eqz v3, :cond_12
+    if-eqz v3, :cond_11c
 
     const/16 v15, 0x9
 
-    goto :goto_b
+    goto :goto_11e
 
-    :cond_12
+    :cond_11c
     const/16 v15, 0xc
 
-    :goto_b
+    :goto_11e
     add-int/2addr v14, v15
 
     .line 156
     const/4 v15, 0x0
 
-    :goto_c
-    if-ge v15, v14, :cond_18
+    :goto_120
+    if-ge v15, v14, :cond_19a
 
     .line 157
     shl-int/lit8 v16, v15, 0x1
@@ -911,8 +911,8 @@
     .line 158
     nop
 
-    :goto_d
-    if-ge v5, v9, :cond_17
+    :goto_125
+    if-ge v5, v9, :cond_194
 
     .line 159
     add-int v17, v13, v16
@@ -923,7 +923,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_13
+    if-eqz v6, :cond_13d
 
     .line 160
     shl-int/lit8 v6, v12, 0x1
@@ -939,7 +939,7 @@
     invoke-virtual {v11, v9, v6}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 162
-    :cond_13
+    :cond_13d
     shl-int/lit8 v6, v14, 0x1
 
     add-int/2addr v6, v13
@@ -952,7 +952,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_14
+    if-eqz v6, :cond_15a
 
     .line 163
     shl-int/lit8 v6, v12, 0x1
@@ -972,7 +972,7 @@
     invoke-virtual {v11, v9, v6}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 165
-    :cond_14
+    :cond_15a
     shl-int/lit8 v6, v14, 0x2
 
     add-int/2addr v6, v13
@@ -985,7 +985,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_15
+    if-eqz v6, :cond_175
 
     .line 166
     add-int/lit8 v6, v2, -0x1
@@ -1005,7 +1005,7 @@
     invoke-virtual {v11, v9, v6}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 168
-    :cond_15
+    :cond_175
     mul-int/lit8 v6, v14, 0x6
 
     add-int/2addr v6, v13
@@ -1018,7 +1018,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_16
+    if-eqz v6, :cond_18f
 
     .line 169
     add-int/lit8 v6, v2, -0x1
@@ -1038,17 +1038,17 @@
     invoke-virtual {v11, v6, v9}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 158
-    :cond_16
+    :cond_18f
     add-int/lit8 v5, v5, 0x1
 
     const/4 v6, 0x1
 
     const/4 v9, 0x2
 
-    goto :goto_d
+    goto :goto_125
 
     .line 156
-    :cond_17
+    :cond_194
     add-int/lit8 v15, v15, 0x1
 
     const/4 v5, 0x0
@@ -1057,10 +1057,10 @@
 
     const/4 v9, 0x2
 
-    goto :goto_c
+    goto :goto_120
 
     .line 173
-    :cond_18
+    :cond_19a
     shl-int/lit8 v5, v14, 0x3
 
     add-int/2addr v13, v5
@@ -1074,14 +1074,14 @@
 
     const/4 v9, 0x2
 
-    goto/16 :goto_a
+    goto/16 :goto_112
 
     .line 177
-    :cond_19
+    :cond_1a4
     invoke-static {v11, v3, v10, v4}, Lcom/google/zxing/aztec/encoder/Encoder;->drawModeMessage(Lcom/google/zxing/common/BitMatrix;ZILcom/google/zxing/common/BitArray;)V
 
     .line 180
-    if-eqz v3, :cond_1a
+    if-eqz v3, :cond_1b0
 
     .line 181
     div-int/lit8 v1, v10, 0x2
@@ -1090,10 +1090,10 @@
 
     invoke-static {v11, v1, v2}, Lcom/google/zxing/aztec/encoder/Encoder;->drawBullsEye(Lcom/google/zxing/common/BitMatrix;II)V
 
-    goto :goto_10
+    goto :goto_1db
 
     .line 183
-    :cond_1a
+    :cond_1b0
     div-int/lit8 v1, v10, 0x2
 
     const/4 v4, 0x7
@@ -1105,7 +1105,7 @@
 
     const/4 v5, 0x0
 
-    :goto_e
+    :goto_1b8
     const/4 v6, 0x2
 
     div-int/lit8 v8, v2, 0x2
@@ -1114,13 +1114,13 @@
 
     sub-int/2addr v8, v12
 
-    if-ge v5, v8, :cond_1c
+    if-ge v5, v8, :cond_1db
 
     .line 185
     and-int/lit8 v8, v1, 0x1
 
-    :goto_f
-    if-ge v8, v10, :cond_1b
+    :goto_1c1
+    if-ge v8, v10, :cond_1d6
 
     .line 186
     sub-int v9, v1, v4
@@ -1141,19 +1141,19 @@
     .line 185
     add-int/lit8 v8, v8, 0x2
 
-    goto :goto_f
+    goto :goto_1c1
 
     .line 184
-    :cond_1b
+    :cond_1d6
     add-int/lit8 v5, v5, 0xf
 
     add-int/lit8 v4, v4, 0x10
 
-    goto :goto_e
+    goto :goto_1b8
 
     .line 194
-    :cond_1c
-    :goto_10
+    :cond_1db
+    :goto_1db
     new-instance v1, Lcom/google/zxing/aztec/encoder/AztecCode;
 
     invoke-direct {v1}, Lcom/google/zxing/aztec/encoder/AztecCode;-><init>()V
@@ -1177,21 +1177,21 @@
     return-object v1
 
     .line 106
-    :cond_1d
+    :cond_1f0
     const/4 v12, 0x1
 
     .line 99
-    :goto_11
+    :goto_1f1
     add-int/lit8 v8, v8, 0x1
 
     const/4 v5, 0x0
 
     const/4 v6, 0x1
 
-    goto/16 :goto_2
+    goto/16 :goto_7a
 
     .line 101
-    :cond_1e
+    :cond_1f7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Data too large for an Aztec code"
@@ -1202,7 +1202,7 @@
 .end method
 
 .method private static generateCheckWords(Lcom/google/zxing/common/BitArray;II)Lcom/google/zxing/common/BitArray;
-    .locals 9
+    .registers 12
     .param p0, "bitArray"    # Lcom/google/zxing/common/BitArray;
     .param p1, "totalBits"    # I
     .param p2, "wordSize"    # I
@@ -1262,8 +1262,8 @@
     .line 281
     array-length v5, v3
 
-    :goto_0
-    if-ge v7, v5, :cond_0
+    :goto_27
+    if-ge v7, v5, :cond_31
 
     aget v8, v3, v7
 
@@ -1275,15 +1275,15 @@
     .end local v8    # "messageWord":I
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
     .line 284
-    :cond_0
+    :cond_31
     return-object v6
 .end method
 
 .method static generateModeMessage(ZII)Lcom/google/zxing/common/BitArray;
-    .locals 4
+    .registers 7
     .param p0, "compact"    # Z
     .param p1, "layers"    # I
     .param p2, "messageSizeInWords"    # I
@@ -1297,7 +1297,7 @@
     .local v0, "modeMessage":Lcom/google/zxing/common/BitArray;
     const/4 v1, 0x4
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1b
 
     .line 223
     add-int/lit8 v2, p1, -0x1
@@ -1320,10 +1320,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 227
-    :cond_0
+    :cond_1b
     add-int/lit8 v2, p1, -0x1
 
     const/4 v3, 0x5
@@ -1345,19 +1345,19 @@
     move-result-object v0
 
     .line 231
-    :goto_0
+    :goto_2e
     return-object v0
 .end method
 
 .method private static getGF(I)Lcom/google/zxing/common/reedsolomon/GenericGF;
-    .locals 3
+    .registers 4
     .param p0, "wordSize"    # I
 
     .line 302
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_22
 
     .line 314
-    :pswitch_0
+    :pswitch_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Unsupported word size "
@@ -1375,51 +1375,51 @@
     throw v0
 
     .line 312
-    :pswitch_1
+    :pswitch_13
     sget-object v0, Lcom/google/zxing/common/reedsolomon/GenericGF;->AZTEC_DATA_12:Lcom/google/zxing/common/reedsolomon/GenericGF;
 
     return-object v0
 
     .line 310
-    :pswitch_2
+    :pswitch_16
     sget-object v0, Lcom/google/zxing/common/reedsolomon/GenericGF;->AZTEC_DATA_10:Lcom/google/zxing/common/reedsolomon/GenericGF;
 
     return-object v0
 
     .line 308
-    :pswitch_3
+    :pswitch_19
     sget-object v0, Lcom/google/zxing/common/reedsolomon/GenericGF;->AZTEC_DATA_8:Lcom/google/zxing/common/reedsolomon/GenericGF;
 
     return-object v0
 
     .line 306
-    :pswitch_4
+    :pswitch_1c
     sget-object v0, Lcom/google/zxing/common/reedsolomon/GenericGF;->AZTEC_DATA_6:Lcom/google/zxing/common/reedsolomon/GenericGF;
 
     return-object v0
 
     .line 304
-    :pswitch_5
+    :pswitch_1f
     sget-object v0, Lcom/google/zxing/common/reedsolomon/GenericGF;->AZTEC_PARAM:Lcom/google/zxing/common/reedsolomon/GenericGF;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_22
     .packed-switch 0x4
-        :pswitch_5
-        :pswitch_0
-        :pswitch_4
-        :pswitch_0
+        :pswitch_1f
         :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_1c
+        :pswitch_3
+        :pswitch_19
+        :pswitch_3
+        :pswitch_16
+        :pswitch_3
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method static stuffBits(Lcom/google/zxing/common/BitArray;I)Lcom/google/zxing/common/BitArray;
-    .locals 8
+    .registers 10
     .param p0, "bits"    # Lcom/google/zxing/common/BitArray;
     .param p1, "wordSize"    # I
 
@@ -1447,8 +1447,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v1, :cond_5
+    :goto_f
+    if-ge v4, v1, :cond_47
 
     .line 324
     const/4 v5, 0x0
@@ -1458,13 +1458,13 @@
     const/4 v6, 0x0
 
     .local v6, "j":I
-    :goto_1
-    if-ge v6, p1, :cond_2
+    :goto_13
+    if-ge v6, p1, :cond_2a
 
     .line 326
     add-int v7, v4, v6
 
-    if-ge v7, v1, :cond_0
+    if-ge v7, v1, :cond_21
 
     add-int v7, v4, v6
 
@@ -1472,10 +1472,10 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_27
 
     .line 327
-    :cond_0
+    :cond_21
     add-int/lit8 v7, p1, -0x1
 
     sub-int/2addr v7, v6
@@ -1485,17 +1485,17 @@
     or-int/2addr v5, v7
 
     .line 325
-    :cond_1
+    :cond_27
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_13
 
     .line 330
     .end local v6    # "j":I
-    :cond_2
+    :cond_2a
     and-int v6, v5, v3
 
-    if-ne v6, v3, :cond_3
+    if-ne v6, v3, :cond_36
 
     .line 331
     and-int v6, v5, v3
@@ -1505,13 +1505,13 @@
     .line 332
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_2
+    goto :goto_45
 
     .line 333
-    :cond_3
+    :cond_36
     and-int v6, v5, v3
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_42
 
     .line 334
     or-int/lit8 v6, v5, 0x1
@@ -1521,41 +1521,41 @@
     .line 335
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_2
+    goto :goto_45
 
     .line 337
-    :cond_4
+    :cond_42
     invoke-virtual {v0, v5, p1}, Lcom/google/zxing/common/BitArray;->appendBits(II)V
 
     .line 323
     .end local v5    # "word":I
-    :goto_2
+    :goto_45
     add-int/2addr v4, p1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 340
     .end local v4    # "i":I
-    :cond_5
+    :cond_47
     return-object v0
 .end method
 
 .method private static totalBitsInLayer(IZ)I
-    .locals 2
+    .registers 4
     .param p0, "layers"    # I
     .param p1, "compact"    # Z
 
     .line 344
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     const/16 v0, 0x58
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     const/16 v0, 0x70
 
-    :goto_0
+    :goto_7
     shl-int/lit8 v1, p0, 0x4
 
     add-int/2addr v0, v1

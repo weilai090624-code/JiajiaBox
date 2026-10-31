@@ -51,7 +51,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 143
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/collections/AbstractMap$Companion;-><init>()V
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public final entryEquals$kotlin_stdlib(Ljava/util/Map$Entry;Ljava/lang/Object;)Z
-    .locals 3
+    .registers 6
     .param p1, "e"    # Ljava/util/Map$Entry;
     .param p2, "other"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -92,12 +92,12 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     return v1
 
     .line 149
-    :cond_0
+    :cond_b
     invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -114,7 +114,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -132,16 +132,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_2e
     return v1
 .end method
 
 .method public final entryHashCode$kotlin_stdlib(Ljava/util/Map$Entry;)I
-    .locals 5
+    .registers 7
     .param p1, "e"    # Ljava/util/Map$Entry;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -170,29 +170,29 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_14
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1e
 
     invoke-virtual {v4}, Ljava/lang/Object;->hashCode()I
 
     move-result v3
 
-    :cond_1
+    :cond_1e
     xor-int v0, v2, v3
 
     .end local v0    # "$this$entryHashCode_u24lambda_u240":Ljava/util/Map$Entry;
@@ -201,7 +201,7 @@
 .end method
 
 .method public final entryToString$kotlin_stdlib(Ljava/util/Map$Entry;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "e"    # Ljava/util/Map$Entry;
     .annotation system Ldalvik/annotation/Signature;
         value = {

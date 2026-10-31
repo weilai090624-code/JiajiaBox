@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;Ljava/io/File;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "file"    # Ljava/io/File;
     .param p2, "other"    # Ljava/io/File;
     .param p3, "reason"    # Ljava/lang/String;
@@ -48,29 +48,29 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/io/File;Ljava/io/File;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 1
+    .registers 7
 
     .line 37
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     .line 39
     move-object p2, v0
 
     .line 37
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     .line 40
     move-object p3, v0
 
     .line 37
-    :cond_1
+    :cond_b
     invoke-direct {p0, p1, p2, p3}, Lkotlin/io/FileAlreadyExistsException;-><init>(Ljava/io/File;Ljava/io/File;Ljava/lang/String;)V
 
     .line 41

@@ -81,7 +81,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/platform/Android10Platform$Companion;
 
@@ -98,29 +98,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_19
     sput-boolean v0, Lokhttp3/internal/platform/Android10Platform;->isSupported:Z
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 9
+    .registers 10
 
     .line 37
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform;-><init>()V
@@ -236,13 +236,13 @@
 
     move-result-object v5
 
-    :cond_0
-    :goto_0
+    :cond_58
+    :goto_58
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_70
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -264,15 +264,15 @@
 
     .end local v7    # "it":Lokhttp3/internal/platform/android/SocketAdapter;
     .end local v8    # "$i$a$-filter-Android10Platform$socketAdapters$1":I
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_58
 
     invoke-interface {v2, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_58
 
     .line 93
     .end local v6    # "element$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_70
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -293,7 +293,7 @@
 .end method
 
 .method public static final synthetic access$isSupported$cp()Z
-    .locals 1
+    .registers 1
 
     .line 36
     sget-boolean v0, Lokhttp3/internal/platform/Android10Platform;->isSupported:Z
@@ -304,7 +304,7 @@
 
 # virtual methods
 .method public buildCertificateChainCleaner(Ljavax/net/ssl/X509TrustManager;)Lokhttp3/internal/tls/CertificateChainCleaner;
-    .locals 1
+    .registers 3
     .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     const-string v0, "trustManager"
@@ -318,23 +318,23 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     invoke-super {p0, p1}, Lokhttp3/internal/platform/Platform;->buildCertificateChainCleaner(Ljavax/net/ssl/X509TrustManager;)Lokhttp3/internal/tls/CertificateChainCleaner;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     check-cast v0, Lokhttp3/internal/tls/CertificateChainCleaner;
 
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 4
+    .registers 8
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -367,12 +367,12 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_12
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -394,35 +394,35 @@
 
     .end local v2    # "it":Lokhttp3/internal/platform/android/SocketAdapter;
     .end local v3    # "$i$a$-find-Android10Platform$configureTlsExtensions$1":I
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_12
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_28
     check-cast v1, Lokhttp3/internal/platform/android/SocketAdapter;
 
     .line 53
     nop
 
     .line 52
-    if-nez v1, :cond_2
+    if-nez v1, :cond_2e
 
     .line 53
-    goto :goto_1
+    goto :goto_31
 
-    :cond_2
+    :cond_2e
     invoke-interface {v1, p1, p2, p3}, Lokhttp3/internal/platform/android/SocketAdapter;->configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
 
     .line 54
-    :goto_1
+    :goto_31
     return-void
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -438,14 +438,14 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -467,31 +467,31 @@
 
     .end local v3    # "it":Lokhttp3/internal/platform/android/SocketAdapter;
     .end local v4    # "$i$a$-find-Android10Platform$getSelectedProtocol$1":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_23
     move-object v1, v2
 
-    :goto_0
+    :goto_24
     check-cast v1, Lokhttp3/internal/platform/android/SocketAdapter;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_29
 
-    goto :goto_1
+    goto :goto_2d
 
-    :cond_2
+    :cond_29
     invoke-interface {v1, p1}, Lokhttp3/internal/platform/android/SocketAdapter;->getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
 
     move-result-object v2
 
-    :goto_1
+    :goto_2d
     return-object v2
 .end method
 
 .method public getStackTraceForCloseable(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "closer"    # Ljava/lang/String;
 
     const-string v0, "closer"
@@ -503,7 +503,7 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_16
 
     .line 62
     new-instance v0, Landroid/util/CloseGuard;
@@ -522,21 +522,21 @@
 
     .end local v1    # "$this$getStackTraceForCloseable_u24lambda_u2d4":Landroid/util/CloseGuard;
     .end local v2    # "$i$a$-apply-Android10Platform$getStackTraceForCloseable$1":I
-    goto :goto_0
+    goto :goto_1a
 
     .line 64
-    :cond_0
+    :cond_16
     invoke-super {p0, p1}, Lokhttp3/internal/platform/Platform;->getStackTraceForCloseable(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 61
-    :goto_0
+    :goto_1a
     return-object v0
 .end method
 
 .method public isCleartextTrafficPermitted(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "hostname"    # Ljava/lang/String;
 
     const-string v0, "hostname"
@@ -556,7 +556,7 @@
 .end method
 
 .method public logCloseableLeak(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "stackTrace"    # Ljava/lang/Object;
 
@@ -569,10 +569,10 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1c
 
     .line 70
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_14
 
     move-object v0, p2
 
@@ -580,9 +580,9 @@
 
     invoke-virtual {v0}, Landroid/util/CloseGuard;->warnIfOpen()V
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type android.util.CloseGuard"
@@ -592,16 +592,16 @@
     throw v0
 
     .line 73
-    :cond_1
+    :cond_1c
     invoke-super {p0, p1, p2}, Lokhttp3/internal/platform/Platform;->logCloseableLeak(Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 75
-    :goto_0
+    :goto_1f
     return-void
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 5
+    .registers 7
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     const-string v0, "sslSocketFactory"
@@ -617,14 +617,14 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -646,30 +646,30 @@
 
     .end local v3    # "it":Lokhttp3/internal/platform/android/SocketAdapter;
     .end local v4    # "$i$a$-find-Android10Platform$trustManager$1":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_23
     move-object v1, v2
 
-    :goto_0
+    :goto_24
     check-cast v1, Lokhttp3/internal/platform/android/SocketAdapter;
 
     .line 48
     nop
 
     .line 47
-    if-nez v1, :cond_2
+    if-nez v1, :cond_2a
 
     .line 48
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_2
+    :cond_2a
     invoke-interface {v1, p1}, Lokhttp3/internal/platform/android/SocketAdapter;->trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
 
     move-result-object v2
 
-    :goto_1
+    :goto_2e
     return-object v2
 .end method

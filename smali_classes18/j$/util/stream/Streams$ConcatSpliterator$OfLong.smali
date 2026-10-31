@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator$OfLong;Lj$/util/Spliterator$OfLong;)V
-    .locals 1
+    .registers 4
     .param p1, "aSpliterator"    # Lj$/util/Spliterator$OfLong;
     .param p2, "bSpliterator"    # Lj$/util/Spliterator$OfLong;
 
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/util/function/LongConsumer;)V
-    .locals 0
+    .registers 2
 
     .line 813
     invoke-super {p0, p1}, Lj$/util/stream/Streams$ConcatSpliterator$OfPrimitive;->forEachRemaining(Ljava/lang/Object;)V
@@ -55,7 +55,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/util/function/LongConsumer;)Z
-    .locals 0
+    .registers 2
 
     .line 813
     invoke-super {p0, p1}, Lj$/util/stream/Streams$ConcatSpliterator$OfPrimitive;->tryAdvance(Ljava/lang/Object;)Z
@@ -66,7 +66,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 2
 
     .line 813
     invoke-super {p0}, Lj$/util/stream/Streams$ConcatSpliterator$OfPrimitive;->trySplit()Lj$/util/Spliterator;

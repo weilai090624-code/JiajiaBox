@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$oVXLvbkfXUNh0AWL7ULvtrrOsfU(Lio/nekohasekai/sagernet/ui/JJSplashActivity;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/JJSplashActivity;->onCreate$lambda$0(Lio/nekohasekai/sagernet/ui/JJSplashActivity;)V
 
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-direct {p0}, Landroidx/appcompat/app/AppCompatActivity;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method private static final onCreate$lambda$0(Lio/nekohasekai/sagernet/ui/JJSplashActivity;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/JJSplashActivity;
 
     .line 39
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 7
+    .registers 9
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 23

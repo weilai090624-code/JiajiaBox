@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static compareTo(Lkotlin/time/ComparableTimeMark;Lkotlin/time/ComparableTimeMark;)I
-    .locals 4
+    .registers 6
     .param p0, "$this"    # Lkotlin/time/ComparableTimeMark;
     .param p1, "other"    # Lkotlin/time/ComparableTimeMark;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method public static hasNotPassedNow(Lkotlin/time/ComparableTimeMark;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/time/ComparableTimeMark;
 
     .line 180
@@ -70,7 +70,7 @@
 .end method
 
 .method public static hasPassedNow(Lkotlin/time/ComparableTimeMark;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/time/ComparableTimeMark;
 
     .line 180
@@ -87,7 +87,7 @@
 .end method
 
 .method public static minus-LRDsOJo(Lkotlin/time/ComparableTimeMark;J)Lkotlin/time/ComparableTimeMark;
-    .locals 2
+    .registers 5
     .param p0, "$this"    # Lkotlin/time/ComparableTimeMark;
     .param p1, "duration"    # J
 

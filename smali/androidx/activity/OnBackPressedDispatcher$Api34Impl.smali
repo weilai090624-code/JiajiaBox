@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/activity/OnBackPressedDispatcher$Api34Impl;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 345
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public final createOnBackAnimationCallback(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Landroid/window/OnBackInvokedCallback;
-    .locals 1
+    .registers 6
     .param p1, "onBackStarted"    # Lkotlin/jvm/functions/Function1;
     .param p2, "onBackProgressed"    # Lkotlin/jvm/functions/Function1;
     .param p3, "onBackInvoked"    # Lkotlin/jvm/functions/Function0;

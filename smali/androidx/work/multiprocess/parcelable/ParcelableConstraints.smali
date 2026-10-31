@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 95
     new-instance v0, Landroidx/work/multiprocess/parcelable/ParcelableConstraints$1;
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 11
+    .registers 13
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 55
@@ -94,7 +94,7 @@
 
     const/16 v6, 0x17
 
-    if-lt v5, v6, :cond_0
+    if-lt v5, v6, :cond_35
 
     .line 71
     invoke-static {p1}, Landroidx/work/multiprocess/parcelable/ParcelUtils;->readBooleanValue(Landroid/os/Parcel;)Z
@@ -107,12 +107,12 @@
 
     .line 75
     .end local v5    # "requiresDeviceIdle":Z
-    :cond_0
+    :cond_35
     sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v6, 0x18
 
-    if-lt v5, v6, :cond_2
+    if-lt v5, v6, :cond_78
 
     .line 76
     invoke-static {p1}, Landroidx/work/multiprocess/parcelable/ParcelUtils;->readBooleanValue(Landroid/os/Parcel;)Z
@@ -121,7 +121,7 @@
 
     .line 77
     .local v5, "hasTriggers":Z
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_66
 
     .line 78
     nop
@@ -142,12 +142,12 @@
 
     move-result-object v7
 
-    :goto_0
+    :goto_4e
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_66
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -171,11 +171,11 @@
 
     .line 83
     .end local v8    # "trigger":Landroidx/work/Constraints$ContentUriTrigger;
-    goto :goto_0
+    goto :goto_4e
 
     .line 86
     .end local v6    # "contentUriTriggers":Ljava/util/Set;, "Ljava/util/Set<Landroidx/work/Constraints$ContentUriTrigger;>;"
-    :cond_1
+    :cond_66
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v6
@@ -201,7 +201,7 @@
     .end local v5    # "hasTriggers":Z
     .end local v6    # "triggerMaxContentDelay":J
     .end local v8    # "triggerContentUpdateDelay":J
-    :cond_2
+    :cond_78
     invoke-virtual {v0}, Landroidx/work/Constraints$Builder;->build()Landroidx/work/Constraints;
 
     move-result-object v5
@@ -213,7 +213,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/Constraints;)V
-    .locals 0
+    .registers 2
     .param p1, "constraints"    # Landroidx/work/Constraints;
 
     .line 51
@@ -229,7 +229,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 111
     const/4 v0, 0x0
@@ -238,7 +238,7 @@
 .end method
 
 .method public getConstraints()Landroidx/work/Constraints;
-    .locals 1
+    .registers 2
 
     .line 146
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableConstraints;->mConstraints:Landroidx/work/Constraints;
@@ -247,7 +247,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 3
+    .registers 6
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
@@ -296,7 +296,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_37
 
     .line 126
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableConstraints;->mConstraints:Landroidx/work/Constraints;
@@ -308,12 +308,12 @@
     invoke-static {p1, v0}, Landroidx/work/multiprocess/parcelable/ParcelUtils;->writeBooleanValue(Landroid/os/Parcel;Z)V
 
     .line 129
-    :cond_0
+    :cond_37
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_67
 
     .line 130
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableConstraints;->mConstraints:Landroidx/work/Constraints;
@@ -327,7 +327,7 @@
     invoke-static {p1, v0}, Landroidx/work/multiprocess/parcelable/ParcelUtils;->writeBooleanValue(Landroid/os/Parcel;Z)V
 
     .line 132
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_55
 
     .line 133
     iget-object v1, p0, Landroidx/work/multiprocess/parcelable/ParcelableConstraints;->mConstraints:Landroidx/work/Constraints;
@@ -347,7 +347,7 @@
 
     .line 138
     .end local v1    # "serializedTriggers":[B
-    :cond_1
+    :cond_55
     iget-object v1, p0, Landroidx/work/multiprocess/parcelable/ParcelableConstraints;->mConstraints:Landroidx/work/Constraints;
 
     invoke-virtual {v1}, Landroidx/work/Constraints;->getContentTriggerMaxDelayMillis()J
@@ -367,6 +367,6 @@
 
     .line 142
     .end local v0    # "hasTriggers":Z
-    :cond_2
+    :cond_67
     return-void
 .end method

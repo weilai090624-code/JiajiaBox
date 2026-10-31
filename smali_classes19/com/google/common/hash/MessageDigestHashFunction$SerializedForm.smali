@@ -31,7 +31,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "algorithmName"    # Ljava/lang/String;
     .param p2, "bytes"    # I
     .param p3, "toString"    # Ljava/lang/String;
@@ -53,7 +53,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILjava/lang/String;Lcom/google/common/hash/MessageDigestHashFunction$1;)V
-    .locals 0
+    .registers 5
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # I
     .param p3, "x2"    # Ljava/lang/String;
@@ -66,7 +66,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 4
+    .registers 5
 
     .line 113
     new-instance v0, Lcom/google/common/hash/MessageDigestHashFunction;

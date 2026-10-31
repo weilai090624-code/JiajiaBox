@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(JJLjava/util/concurrent/TimeUnit;)V
-    .locals 0
+    .registers 6
 
     .line 132
     iput-wide p1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler$1;->val$initialDelay:J
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public schedule(Lcom/google/common/util/concurrent/AbstractService;Ljava/util/concurrent/ScheduledExecutorService;Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/AbstractScheduledService$Cancellable;
-    .locals 8
+    .registers 12
     .param p1, "service"    # Lcom/google/common/util/concurrent/AbstractService;
     .param p2, "executor"    # Ljava/util/concurrent/ScheduledExecutorService;
     .param p3, "task"    # Ljava/lang/Runnable;

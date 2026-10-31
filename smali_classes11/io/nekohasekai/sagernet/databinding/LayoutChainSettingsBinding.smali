@@ -18,7 +18,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;Landroid/widget/LinearLayout;Landroidx/fragment/app/FragmentContainerView;)V
-    .locals 0
+    .registers 5
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "configurationList"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
     .param p3, "listCell"    # Landroid/widget/LinearLayout;
@@ -58,7 +58,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutChainSettingsBinding;
-    .locals 6
+    .registers 7
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -82,7 +82,7 @@
 
     .line 70
     .local v1, "configurationList":Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2c
 
     .line 74
     const v0, 0x7f0a0190
@@ -96,7 +96,7 @@
 
     .line 76
     .local v2, "listCell":Landroid/widget/LinearLayout;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2b
 
     .line 80
     const v0, 0x7f0a0263
@@ -110,7 +110,7 @@
 
     .line 82
     .local v3, "settings":Landroidx/fragment/app/FragmentContainerView;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2a
 
     .line 86
     new-instance v4, Lio/nekohasekai/sagernet/databinding/LayoutChainSettingsBinding;
@@ -124,22 +124,22 @@
     return-object v4
 
     .line 83
-    :cond_0
-    goto :goto_0
+    :cond_2a
+    goto :goto_2d
 
     .line 77
     .end local v3    # "settings":Landroidx/fragment/app/FragmentContainerView;
-    :cond_1
-    goto :goto_0
+    :cond_2b
+    goto :goto_2d
 
     .line 71
     .end local v2    # "listCell":Landroid/widget/LinearLayout;
-    :cond_2
+    :cond_2c
     nop
 
     .line 89
     .end local v1    # "configurationList":Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
-    :goto_0
+    :goto_2d
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -164,7 +164,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutChainSettingsBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -188,7 +188,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutChainSettingsBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -216,13 +216,13 @@
 
     .line 56
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 57
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 59
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutChainSettingsBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutChainSettingsBinding;
 
     move-result-object v1
@@ -233,7 +233,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutChainSettingsBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -244,7 +244,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 44
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutChainSettingsBinding;->rootView:Landroid/widget/LinearLayout;

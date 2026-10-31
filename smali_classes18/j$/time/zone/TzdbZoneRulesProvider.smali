@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 4
+    .registers 5
 
     .line 108
     invoke-direct {p0}, Lj$/time/zone/ZoneRulesProvider;-><init>()V
@@ -43,7 +43,7 @@
     iput-object v0, p0, Lj$/time/zone/TzdbZoneRulesProvider;->regionToRules:Ljava/util/Map;
 
     .line 110
-    :try_start_0
+    :try_start_a
     const-class v0, Lj$/time/zone/TzdbZoneRulesProvider;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -81,8 +81,8 @@
     .line 114
     .local v1, "dis":Ljava/io/DataInputStream;
     invoke-direct {p0, v1}, Lj$/time/zone/TzdbZoneRulesProvider;->load(Ljava/io/DataInputStream;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2d
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_2d} :catch_2f
 
     .line 117
     .end local v0    # "datUrl":Ljava/net/URL;
@@ -93,7 +93,7 @@
     return-void
 
     .line 115
-    :catch_0
+    :catch_2f
     move-exception v0
 
     .line 116
@@ -108,7 +108,7 @@
 .end method
 
 .method private load(Ljava/io/DataInputStream;)V
-    .locals 12
+    .registers 14
     .param p1, "dis"    # Ljava/io/DataInputStream;
 
     .line 162
@@ -120,7 +120,7 @@
 
     const-string v2, "File format not recognised"
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_85
 
     .line 166
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
@@ -135,7 +135,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_7f
 
     .line 171
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readShort()S
@@ -147,8 +147,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_1a
+    if-ge v2, v1, :cond_25
 
     .line 173
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
@@ -160,11 +160,11 @@
     .line 172
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 176
     .end local v2    # "i":I
-    :cond_0
+    :cond_25
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readShort()S
 
     move-result v2
@@ -178,8 +178,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_1
-    if-ge v4, v2, :cond_1
+    :goto_2c
+    if-ge v4, v2, :cond_37
 
     .line 179
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
@@ -191,11 +191,11 @@
     .line 178
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 181
     .end local v4    # "i":I
-    :cond_1
+    :cond_37
     invoke-static {v3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v4
@@ -216,8 +216,8 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_2
-    if-ge v6, v4, :cond_2
+    :goto_44
+    if-ge v6, v4, :cond_54
 
     .line 186
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readShort()S
@@ -237,16 +237,16 @@
     .end local v7    # "bytes":[B
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_44
 
     .line 191
     .end local v6    # "i":I
-    :cond_2
+    :cond_54
     const/4 v6, 0x0
 
     .restart local v6    # "i":I
-    :goto_3
-    if-ge v6, v1, :cond_4
+    :goto_55
+    if-ge v6, v1, :cond_7e
 
     .line 192
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readShort()S
@@ -263,8 +263,8 @@
     const/4 v8, 0x0
 
     .local v8, "j":I
-    :goto_4
-    if-ge v8, v7, :cond_3
+    :goto_61
+    if-ge v8, v7, :cond_7b
 
     .line 195
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readShort()S
@@ -296,19 +296,19 @@
     .end local v10    # "rule":Ljava/lang/Object;
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_4
+    goto :goto_61
 
     .line 191
     .end local v7    # "versionRegionCount":I
     .end local v8    # "j":I
-    :cond_3
+    :cond_7b
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_3
+    goto :goto_55
 
     .line 200
     .end local v6    # "i":I
-    :cond_4
+    :cond_7e
     return-void
 
     .line 168
@@ -317,7 +317,7 @@
     .end local v3    # "regionArray":[Ljava/lang/String;
     .end local v4    # "ruleCount":I
     .end local v5    # "ruleArray":[Ljava/lang/Object;
-    :cond_5
+    :cond_7f
     new-instance v1, Ljava/io/StreamCorruptedException;
 
     invoke-direct {v1, v2}, Ljava/io/StreamCorruptedException;-><init>(Ljava/lang/String;)V
@@ -326,7 +326,7 @@
 
     .line 163
     .end local v0    # "groupId":Ljava/lang/String;
-    :cond_6
+    :cond_85
     new-instance v0, Ljava/io/StreamCorruptedException;
 
     invoke-direct {v0, v2}, Ljava/io/StreamCorruptedException;-><init>(Ljava/lang/String;)V
@@ -337,7 +337,7 @@
 
 # virtual methods
 .method protected provideRules(Ljava/lang/String;Z)Lj$/time/zone/ZoneRules;
-    .locals 6
+    .registers 9
     .param p1, "zoneId"    # Ljava/lang/String;
     .param p2, "forCaching"    # Z
 
@@ -350,13 +350,13 @@
 
     .line 129
     .local v0, "obj":Ljava/lang/Object;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4d
 
     .line 133
-    :try_start_0
+    :try_start_8
     instance-of v1, v0, [B
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 134
     move-object v1, v0
@@ -389,17 +389,17 @@
     .line 139
     .end local v1    # "bytes":[B
     .end local v2    # "dis":Ljava/io/DataInputStream;
-    :cond_0
+    :cond_23
     move-object v1, v0
 
     check-cast v1, Lj$/time/zone/ZoneRules;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_26} :catch_27
 
     return-object v1
 
     .line 140
-    :catch_0
+    :catch_27
     move-exception v1
 
     .line 141
@@ -442,7 +442,7 @@
 
     .line 130
     .end local v1    # "ex":Ljava/lang/Exception;
-    :cond_1
+    :cond_4d
     new-instance v1, Lj$/time/zone/ZoneRulesException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -469,7 +469,7 @@
 .end method
 
 .method protected provideVersions(Ljava/lang/String;)Ljava/util/NavigableMap;
-    .locals 3
+    .registers 5
     .param p1, "zoneId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -498,7 +498,7 @@
 
     .line 149
     .local v1, "rules":Lj$/time/zone/ZoneRules;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 150
     iget-object v2, p0, Lj$/time/zone/TzdbZoneRulesProvider;->versionId:Ljava/lang/String;
@@ -506,12 +506,12 @@
     invoke-virtual {v0, v2, v1}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 152
-    :cond_0
+    :cond_11
     return-object v0
 .end method
 
 .method protected provideZoneIds()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -532,7 +532,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 204
     iget-object v0, p0, Lj$/time/zone/TzdbZoneRulesProvider;->versionId:Ljava/lang/String;

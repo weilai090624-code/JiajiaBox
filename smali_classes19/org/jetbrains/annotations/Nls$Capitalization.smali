@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 51
     new-instance v0, Lorg/jetbrains/annotations/Nls$Capitalization;
@@ -92,7 +92,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -106,7 +106,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/jetbrains/annotations/Nls$Capitalization;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 49
@@ -122,7 +122,7 @@
 .end method
 
 .method public static values()[Lorg/jetbrains/annotations/Nls$Capitalization;
-    .locals 1
+    .registers 1
 
     .line 49
     sget-object v0, Lorg/jetbrains/annotations/Nls$Capitalization;->$VALUES:[Lorg/jetbrains/annotations/Nls$Capitalization;

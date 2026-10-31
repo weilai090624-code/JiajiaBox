@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 38
     new-instance v0, Lcom/google/android/material/animation/ChildrenAlphaProperty;
@@ -44,7 +44,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 42
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public get(Landroid/view/ViewGroup;)Ljava/lang/Float;
-    .locals 2
+    .registers 4
     .param p1, "object"    # Landroid/view/ViewGroup;
 
     .line 48
@@ -73,13 +73,13 @@
 
     .line 49
     .local v0, "alpha":Ljava/lang/Float;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 50
     return-object v0
 
     .line 52
-    :cond_0
+    :cond_b
     const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -90,7 +90,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 33
     check-cast p1, Landroid/view/ViewGroup;
@@ -103,7 +103,7 @@
 .end method
 
 .method public set(Landroid/view/ViewGroup;Ljava/lang/Float;)V
-    .locals 4
+    .registers 7
     .param p1, "object"    # Landroid/view/ViewGroup;
     .param p2, "value"    # Ljava/lang/Float;
 
@@ -131,8 +131,8 @@
     move-result v2
 
     .local v2, "count":I
-    :goto_0
-    if-ge v1, v2, :cond_0
+    :goto_12
+    if-ge v1, v2, :cond_1e
 
     .line 63
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -147,17 +147,17 @@
     .end local v3    # "child":Landroid/view/View;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 66
     .end local v1    # "i":I
     .end local v2    # "count":I
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 33
     check-cast p1, Landroid/view/ViewGroup;

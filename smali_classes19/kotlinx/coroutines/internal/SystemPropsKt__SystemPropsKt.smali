@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 11
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
@@ -52,7 +52,7 @@
 .end method
 
 .method public static final getAVAILABLE_PROCESSORS()I
-    .locals 1
+    .registers 1
 
     .line 11
     sget v0, Lkotlinx/coroutines/internal/SystemPropsKt__SystemPropsKt;->AVAILABLE_PROCESSORS:I
@@ -61,24 +61,24 @@
 .end method
 
 .method public static final systemProp(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "propertyName"    # Ljava/lang/String;
 
     .line 16
     nop
 
     .line 17
-    :try_start_0
+    :try_start_1
     invoke-static {p0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_5} :catch_6
 
-    goto :goto_0
+    goto :goto_9
 
     .line 18
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 19
@@ -89,6 +89,6 @@
 
     .line 20
     .end local v0    # "e":Ljava/lang/SecurityException;
-    :goto_0
+    :goto_9
     return-object v0
 .end method

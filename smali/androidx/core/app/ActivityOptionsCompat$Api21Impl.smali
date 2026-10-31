@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 431
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/view/View;Ljava/lang/String;)Landroid/app/ActivityOptions;
-    .locals 1
+    .registers 4
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "sharedElement"    # Landroid/view/View;
     .param p2, "sharedElementName"    # Ljava/lang/String;
@@ -40,7 +40,7 @@
 .end method
 
 .method static varargs makeSceneTransitionAnimation(Landroid/app/Activity;[Landroid/util/Pair;)Landroid/app/ActivityOptions;
-    .locals 1
+    .registers 3
     .param p0, "activity"    # Landroid/app/Activity;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -68,7 +68,7 @@
 .end method
 
 .method static makeTaskLaunchBehind()Landroid/app/ActivityOptions;
-    .locals 1
+    .registers 1
 
     .line 451
     invoke-static {}, Landroid/app/ActivityOptions;->makeTaskLaunchBehind()Landroid/app/ActivityOptions;

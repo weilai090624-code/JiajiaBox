@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/Fragment;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/fragment/app/Fragment;
 
     .line 318
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method onPreAttached()V
-    .locals 1
+    .registers 2
 
     .line 321
     iget-object v0, p0, Landroidx/fragment/app/Fragment$2;->this$0:Landroidx/fragment/app/Fragment;

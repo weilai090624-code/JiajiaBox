@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 409
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static commitContent(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
     .param p0, "inputConnection"    # Landroid/view/inputmethod/InputConnection;
     .param p1, "inputContentInfo"    # Landroid/view/inputmethod/InputContentInfo;
     .param p2, "i"    # I

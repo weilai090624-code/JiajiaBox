@@ -62,7 +62,7 @@
 
 # direct methods
 .method public static final addHeaderLenient(Lokhttp3/Headers$Builder;Ljava/lang/String;)Lokhttp3/Headers$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Lokhttp3/Headers$Builder;
     .param p1, "line"    # Ljava/lang/String;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static final addHeaderLenient(Lokhttp3/Headers$Builder;Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
-    .locals 1
+    .registers 4
     .param p0, "builder"    # Lokhttp3/Headers$Builder;
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
@@ -109,7 +109,7 @@
 .end method
 
 .method public static final applyConnectionSpec(Lokhttp3/ConnectionSpec;Ljavax/net/ssl/SSLSocket;Z)V
-    .locals 1
+    .registers 4
     .param p0, "connectionSpec"    # Lokhttp3/ConnectionSpec;
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "isFallback"    # Z
@@ -129,7 +129,7 @@
 .end method
 
 .method public static final cacheGet(Lokhttp3/Cache;Lokhttp3/Request;)Lokhttp3/Response;
-    .locals 1
+    .registers 3
     .param p0, "cache"    # Lokhttp3/Cache;
     .param p1, "request"    # Lokhttp3/Request;
 
@@ -150,7 +150,7 @@
 .end method
 
 .method public static final cookieToString(Lokhttp3/Cookie;Z)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "cookie"    # Lokhttp3/Cookie;
     .param p1, "forObsoleteRfc2965"    # Z
 
@@ -167,7 +167,7 @@
 .end method
 
 .method public static final effectiveCipherSuites(Lokhttp3/ConnectionSpec;[Ljava/lang/String;)[Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$effectiveCipherSuites"    # Lokhttp3/ConnectionSpec;
     .param p1, "socketEnabledCipherSuites"    # [Ljava/lang/String;
 
@@ -184,7 +184,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 52
     invoke-virtual {p0}, Lokhttp3/ConnectionSpec;->getCipherSuitesAsString$okhttp()[Ljava/lang/String;
@@ -201,19 +201,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_20
 
     .line 54
-    :cond_0
+    :cond_1f
     move-object v0, p1
 
     .line 51
-    :goto_0
+    :goto_20
     return-object v0
 .end method
 
 .method public static final getConnection(Lokhttp3/Response;)Lokhttp3/internal/connection/RealConnection;
-    .locals 1
+    .registers 2
     .param p0, "$this$connection"    # Lokhttp3/Response;
 
     const-string v0, "<this>"
@@ -235,7 +235,7 @@
 .end method
 
 .method public static final parseCookie(JLokhttp3/HttpUrl;Ljava/lang/String;)Lokhttp3/Cookie;
-    .locals 1
+    .registers 5
     .param p0, "currentTimeMillis"    # J
     .param p2, "url"    # Lokhttp3/HttpUrl;
     .param p3, "setCookie"    # Ljava/lang/String;

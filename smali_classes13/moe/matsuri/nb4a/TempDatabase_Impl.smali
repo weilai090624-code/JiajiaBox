@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Lmoe/matsuri/nb4a/TempDatabase;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method static synthetic access$000(Lmoe/matsuri/nb4a/TempDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lmoe/matsuri/nb4a/TempDatabase_Impl;
 
     .line 30
@@ -28,7 +28,7 @@
 .end method
 
 .method static synthetic access$100(Lmoe/matsuri/nb4a/TempDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lmoe/matsuri/nb4a/TempDatabase_Impl;
 
     .line 30
@@ -38,7 +38,7 @@
 .end method
 
 .method static synthetic access$202(Lmoe/matsuri/nb4a/TempDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lmoe/matsuri/nb4a/TempDatabase_Impl;
     .param p1, "x1"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -49,7 +49,7 @@
 .end method
 
 .method static synthetic access$300(Lmoe/matsuri/nb4a/TempDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lmoe/matsuri/nb4a/TempDatabase_Impl;
     .param p1, "x1"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method static synthetic access$400(Lmoe/matsuri/nb4a/TempDatabase_Impl;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lmoe/matsuri/nb4a/TempDatabase_Impl;
 
     .line 30
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public clearAllTables()V
-    .locals 4
+    .registers 5
 
     .line 121
     const-string v0, "VACUUM"
@@ -92,7 +92,7 @@
 
     .line 124
     .local v2, "_db":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :try_start_0
+    :try_start_f
     invoke-super {p0}, Lmoe/matsuri/nb4a/TempDatabase;->beginTransaction()V
 
     .line 125
@@ -102,8 +102,8 @@
 
     .line 126
     invoke-super {p0}, Lmoe/matsuri/nb4a/TempDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_f .. :try_end_1a} :catchall_2e
 
     .line 128
     invoke-super {p0}, Lmoe/matsuri/nb4a/TempDatabase;->endTransaction()V
@@ -120,17 +120,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2d
 
     .line 131
     invoke-interface {v2, v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 134
-    :cond_0
+    :cond_2d
     return-void
 
     .line 128
-    :catchall_0
+    :catchall_2e
     move-exception v3
 
     invoke-super {p0}, Lmoe/matsuri/nb4a/TempDatabase;->endTransaction()V
@@ -147,18 +147,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_42
 
     .line 131
     invoke-interface {v2, v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 133
-    :cond_1
+    :cond_42
     throw v3
 .end method
 
 .method protected createInvalidationTracker()Landroidx/room/InvalidationTracker;
-    .locals 4
+    .registers 5
 
     .line 114
     new-instance v0, Ljava/util/HashMap;
@@ -191,7 +191,7 @@
 .end method
 
 .method protected createOpenHelper(Landroidx/room/DatabaseConfiguration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 4
+    .registers 6
     .param p1, "config"    # Landroidx/room/DatabaseConfiguration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -253,7 +253,7 @@
 .end method
 
 .method public getAutoMigrations(Ljava/util/Map;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -291,7 +291,7 @@
 .end method
 
 .method public getRequiredAutoMigrationSpecs()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -314,7 +314,7 @@
 .end method
 
 .method protected getRequiredTypeConverters()Ljava/util/Map;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -347,12 +347,12 @@
 .end method
 
 .method public profileCacheDao()Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
-    .locals 1
+    .registers 2
 
     .line 161
     iget-object v0, p0, Lmoe/matsuri/nb4a/TempDatabase_Impl;->_keyValuePair:Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 162
     iget-object v0, p0, Lmoe/matsuri/nb4a/TempDatabase_Impl;->_keyValuePair:Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
@@ -360,14 +360,14 @@
     return-object v0
 
     .line 164
-    :cond_0
+    :cond_7
     monitor-enter p0
 
     .line 165
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Lmoe/matsuri/nb4a/TempDatabase_Impl;->_keyValuePair:Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 166
     new-instance v0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_TempDatabase_Impl;
@@ -377,7 +377,7 @@
     iput-object v0, p0, Lmoe/matsuri/nb4a/TempDatabase_Impl;->_keyValuePair:Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
 
     .line 168
-    :cond_1
+    :cond_13
     iget-object v0, p0, Lmoe/matsuri/nb4a/TempDatabase_Impl;->_keyValuePair:Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
 
     monitor-exit p0
@@ -385,12 +385,12 @@
     return-object v0
 
     .line 169
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
 
     throw v0
 .end method

@@ -97,7 +97,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lokhttp3/internal/http2/ErrorCode;
-    .locals 3
+    .registers 3
 
     const/16 v0, 0xe
 
@@ -191,7 +191,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 21
     new-instance v0, Lokhttp3/internal/http2/ErrorCode;
@@ -365,7 +365,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .param p3, "httpCode"    # I
@@ -384,7 +384,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lokhttp3/internal/http2/ErrorCode;
-    .locals 1
+    .registers 2
 
     const-class v0, Lokhttp3/internal/http2/ErrorCode;
 
@@ -398,7 +398,7 @@
 .end method
 
 .method public static values()[Lokhttp3/internal/http2/ErrorCode;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lokhttp3/internal/http2/ErrorCode;->$VALUES:[Lokhttp3/internal/http2/ErrorCode;
 
@@ -414,7 +414,7 @@
 
 # virtual methods
 .method public final getHttpCode()I
-    .locals 1
+    .registers 2
 
     .line 19
     iget v0, p0, Lokhttp3/internal/http2/ErrorCode;->httpCode:I

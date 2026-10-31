@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/DirectedGraphConnections;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/graph/DirectedGraphConnections;
 
     .line 383
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Lcom/google/common/graph/EndpointPair;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -70,7 +70,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 383
     .local p0, "this":Lcom/google/common/graph/DirectedGraphConnections$4;, "Lcom/google/common/graph/DirectedGraphConnections$4;"

@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;JJIII[ILjava/util/TreeMap;)V
-    .locals 0
+    .registers 12
     .param p1, "apkName"    # Ljava/lang/String;
     .param p2, "dexName"    # Ljava/lang/String;
     .param p3, "dexChecksum"    # J

@@ -86,7 +86,7 @@
 
 # direct methods
 .method public constructor <init>(ZZIZZIIII)V
-    .locals 0
+    .registers 10
     .param p1, "singleTop"    # Z
     .param p2, "restoreState"    # Z
     .param p3, "popUpToId"    # I
@@ -132,7 +132,7 @@
 .end method
 
 .method public constructor <init>(ZZLjava/lang/String;ZZIIII)V
-    .locals 12
+    .registers 22
     .param p1, "singleTop"    # Z
     .param p2, "restoreState"    # Z
     .param p3, "popUpToRoute"    # Ljava/lang/String;
@@ -214,21 +214,21 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 163
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 164
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_5c
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -242,12 +242,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_16
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 165
-    :cond_1
+    :cond_16
     move-object v2, p1
 
     check-cast v2, Landroidx/navigation/NavOptions;
@@ -258,21 +258,21 @@
 
     iget-boolean v4, v2, Landroidx/navigation/NavOptions;->singleTop:Z
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5a
 
     .line 167
     iget-boolean v3, p0, Landroidx/navigation/NavOptions;->restoreState:Z
 
     iget-boolean v4, v2, Landroidx/navigation/NavOptions;->restoreState:Z
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5a
 
     .line 168
     iget v3, p0, Landroidx/navigation/NavOptions;->popUpToId:I
 
     iget v4, v2, Landroidx/navigation/NavOptions;->popUpToId:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5a
 
     .line 169
     iget-object v3, p0, Landroidx/navigation/NavOptions;->popUpToRoute:Ljava/lang/String;
@@ -283,68 +283,68 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_5a
 
     .line 170
     iget-boolean v3, p0, Landroidx/navigation/NavOptions;->popUpToInclusive:Z
 
     iget-boolean v4, v2, Landroidx/navigation/NavOptions;->popUpToInclusive:Z
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5a
 
     .line 171
     iget-boolean v3, p0, Landroidx/navigation/NavOptions;->popUpToSaveState:Z
 
     iget-boolean v4, v2, Landroidx/navigation/NavOptions;->popUpToSaveState:Z
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5a
 
     .line 172
     iget v3, p0, Landroidx/navigation/NavOptions;->enterAnim:I
 
     iget v4, v2, Landroidx/navigation/NavOptions;->enterAnim:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5a
 
     .line 173
     iget v3, p0, Landroidx/navigation/NavOptions;->exitAnim:I
 
     iget v4, v2, Landroidx/navigation/NavOptions;->exitAnim:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5a
 
     .line 174
     iget v3, p0, Landroidx/navigation/NavOptions;->popEnterAnim:I
 
     iget v4, v2, Landroidx/navigation/NavOptions;->popEnterAnim:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5a
 
     .line 175
     iget v3, p0, Landroidx/navigation/NavOptions;->popExitAnim:I
 
     iget v4, v2, Landroidx/navigation/NavOptions;->popExitAnim:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5a
 
-    goto :goto_0
+    goto :goto_5b
 
-    :cond_2
+    :cond_5a
     const/4 v0, 0x0
 
     .line 166
-    :goto_0
+    :goto_5b
     return v0
 
     .line 164
     .end local v2    # "that":Landroidx/navigation/NavOptions;
-    :cond_3
-    :goto_1
+    :cond_5c
+    :goto_5c
     return v1
 .end method
 
 .method public final getEnterAnim()I
-    .locals 1
+    .registers 2
 
     .line 47
     iget v0, p0, Landroidx/navigation/NavOptions;->enterAnim:I
@@ -353,7 +353,7 @@
 .end method
 
 .method public final getExitAnim()I
-    .locals 1
+    .registers 2
 
     .line 53
     iget v0, p0, Landroidx/navigation/NavOptions;->exitAnim:I
@@ -362,7 +362,7 @@
 .end method
 
 .method public final getPopEnterAnim()I
-    .locals 1
+    .registers 2
 
     .line 60
     iget v0, p0, Landroidx/navigation/NavOptions;->popEnterAnim:I
@@ -371,7 +371,7 @@
 .end method
 
 .method public final getPopExitAnim()I
-    .locals 1
+    .registers 2
 
     .line 67
     iget v0, p0, Landroidx/navigation/NavOptions;->popExitAnim:I
@@ -380,7 +380,7 @@
 .end method
 
 .method public final getPopUpTo()I
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use popUpToId instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -396,7 +396,7 @@
 .end method
 
 .method public final getPopUpToId()I
-    .locals 1
+    .registers 2
 
     .line 39
     iget v0, p0, Landroidx/navigation/NavOptions;->popUpToId:I
@@ -405,7 +405,7 @@
 .end method
 
 .method public final getPopUpToRoute()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 91
     iget-object v0, p0, Landroidx/navigation/NavOptions;->popUpToRoute:Ljava/lang/String;
@@ -414,7 +414,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 179
     invoke-virtual {p0}, Landroidx/navigation/NavOptions;->shouldLaunchSingleTop()Z
@@ -447,18 +447,18 @@
 
     iget-object v2, p0, Landroidx/navigation/NavOptions;->popUpToRoute:Ljava/lang/String;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1c
     add-int/2addr v1, v2
 
     .line 183
@@ -526,7 +526,7 @@
 .end method
 
 .method public final isPopUpToInclusive()Z
-    .locals 1
+    .registers 2
 
     .line 148
     iget-boolean v0, p0, Landroidx/navigation/NavOptions;->popUpToInclusive:Z
@@ -535,7 +535,7 @@
 .end method
 
 .method public final shouldLaunchSingleTop()Z
-    .locals 1
+    .registers 2
 
     .line 130
     iget-boolean v0, p0, Landroidx/navigation/NavOptions;->singleTop:Z
@@ -544,7 +544,7 @@
 .end method
 
 .method public final shouldPopUpToSaveState()Z
-    .locals 1
+    .registers 2
 
     .line 159
     iget-boolean v0, p0, Landroidx/navigation/NavOptions;->popUpToSaveState:Z
@@ -553,7 +553,7 @@
 .end method
 
 .method public final shouldRestoreState()Z
-    .locals 1
+    .registers 2
 
     .line 138
     iget-boolean v0, p0, Landroidx/navigation/NavOptions;->restoreState:Z

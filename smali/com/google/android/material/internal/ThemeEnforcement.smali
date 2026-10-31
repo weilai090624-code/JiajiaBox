@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 44
     sget v0, Lcom/google/android/material/R$attr;->colorPrimary:I
@@ -39,7 +39,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public static checkAppCompatTheme(Landroid/content/Context;)V
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 212
@@ -63,7 +63,7 @@
 .end method
 
 .method private static checkCompatibleTheme(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 6
+    .registers 10
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "set"    # Landroid/util/AttributeSet;
     .param p2, "defStyleAttr"    # I
@@ -93,7 +93,7 @@
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 135
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_32
 
     .line 136
     new-instance v2, Landroid/util/TypedValue;
@@ -119,26 +119,26 @@
 
     .line 140
     .local v3, "resolvedValue":Z
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2f
 
     iget v4, v2, Landroid/util/TypedValue;->type:I
 
     const/16 v5, 0x12
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_32
 
     iget v4, v2, Landroid/util/TypedValue;->data:I
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_32
 
     .line 144
-    :cond_0
+    :cond_2f
     invoke-static {p0}, Lcom/google/android/material/internal/ThemeEnforcement;->checkMaterialTheme(Landroid/content/Context;)V
 
     .line 147
     .end local v2    # "isMaterialTheme":Landroid/util/TypedValue;
     .end local v3    # "resolvedValue":Z
-    :cond_1
+    :cond_32
     invoke-static {p0}, Lcom/google/android/material/internal/ThemeEnforcement;->checkAppCompatTheme(Landroid/content/Context;)V
 
     .line 148
@@ -146,7 +146,7 @@
 .end method
 
 .method public static checkMaterialTheme(Landroid/content/Context;)V
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 216
@@ -161,7 +161,7 @@
 .end method
 
 .method private static varargs checkTextAppearance(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)V
-    .locals 5
+    .registers 11
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "set"    # Landroid/util/AttributeSet;
     .param p2, "attrs"    # [I
@@ -190,7 +190,7 @@
 
     .line 163
     .local v1, "enforceTextAppearance":Z
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
     .line 164
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
@@ -199,17 +199,17 @@
     return-void
 
     .line 170
-    :cond_0
-    if-eqz p5, :cond_2
+    :cond_13
+    if-eqz p5, :cond_1f
 
     array-length v3, p5
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_19
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 178
-    :cond_1
+    :cond_19
     nop
 
     .line 179
@@ -218,12 +218,12 @@
     move-result v2
 
     .local v2, "validTextAppearance":Z
-    goto :goto_1
+    goto :goto_29
 
     .line 172
     .end local v2    # "validTextAppearance":Z
-    :cond_2
-    :goto_0
+    :cond_1f
+    :goto_1f
     sget v3, Lcom/google/android/material/R$styleable;->ThemeEnforcement_android_textAppearance:I
 
     .line 173
@@ -233,24 +233,24 @@
 
     move-result v3
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_29
 
     const/4 v2, 0x1
 
     .line 183
     .restart local v2    # "validTextAppearance":Z
-    :cond_3
-    :goto_1
+    :cond_29
+    :goto_29
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 185
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_2f
 
     .line 190
     return-void
 
     .line 186
-    :cond_4
+    :cond_2f
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string v4, "This component requires that you specify a valid TextAppearance attribute. Update your app theme to inherit from Theme.MaterialComponents (or a descendant)."
@@ -261,7 +261,7 @@
 .end method
 
 .method private static checkTheme(Landroid/content/Context;[ILjava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "themeAttributes"    # [I
     .param p2, "themeName"    # Ljava/lang/String;
@@ -271,13 +271,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 252
     return-void
 
     .line 247
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -310,7 +310,7 @@
 .end method
 
 .method public static isAppCompatTheme(Landroid/content/Context;)Z
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
 
     .line 220
@@ -324,7 +324,7 @@
 .end method
 
 .method private static varargs isCustomTextAppearanceValid(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Z
-    .locals 7
+    .registers 13
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "set"    # Landroid/util/AttributeSet;
     .param p2, "attrs"    # [I
@@ -348,8 +348,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_8
+    if-ge v3, v1, :cond_1a
 
     aget v4, p5, v3
 
@@ -361,7 +361,7 @@
 
     move-result v6
 
-    if-ne v6, v5, :cond_0
+    if-ne v6, v5, :cond_17
 
     .line 203
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
@@ -371,13 +371,13 @@
 
     .line 201
     .end local v4    # "customTextAppearanceIndex":I
-    :cond_0
+    :cond_17
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 207
-    :cond_1
+    :cond_1a
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 208
@@ -387,7 +387,7 @@
 .end method
 
 .method public static isMaterial3Theme(Landroid/content/Context;)Z
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 228
@@ -405,7 +405,7 @@
 .end method
 
 .method public static isMaterialTheme(Landroid/content/Context;)Z
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
 
     .line 224
@@ -419,7 +419,7 @@
 .end method
 
 .method private static isTheme(Landroid/content/Context;[I)Z
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "themeAttributes"    # [I
 
@@ -433,17 +433,17 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_5
     array-length v2, p1
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_16
 
     .line 235
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_13
 
     .line 236
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
@@ -454,14 +454,14 @@
     return v2
 
     .line 234
-    :cond_0
+    :cond_13
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 240
     .end local v1    # "i":I
-    :cond_1
+    :cond_16
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 241
@@ -471,7 +471,7 @@
 .end method
 
 .method public static varargs obtainStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;
-    .locals 1
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "set"    # Landroid/util/AttributeSet;
     .param p2, "attrs"    # [I
@@ -494,7 +494,7 @@
 .end method
 
 .method public static varargs obtainTintedStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroidx/appcompat/widget/TintTypedArray;
-    .locals 1
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "set"    # Landroid/util/AttributeSet;
     .param p2, "attrs"    # [I

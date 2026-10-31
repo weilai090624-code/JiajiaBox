@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMultiset;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 379
     .local p0, "this":Lcom/google/common/collect/ImmutableMultiset$EntrySetSerializedForm;, "Lcom/google/common/collect/ImmutableMultiset$EntrySetSerializedForm<TE;>;"

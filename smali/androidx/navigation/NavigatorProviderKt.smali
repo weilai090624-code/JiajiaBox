@@ -38,7 +38,7 @@
 
 # direct methods
 .method public static final get(Landroidx/navigation/NavigatorProvider;Ljava/lang/String;)Landroidx/navigation/Navigator;
-    .locals 2
+    .registers 4
     .param p0, "$this$get"    # Landroidx/navigation/NavigatorProvider;
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -74,7 +74,7 @@
 .end method
 
 .method public static final get(Landroidx/navigation/NavigatorProvider;Lkotlin/reflect/KClass;)Landroidx/navigation/Navigator;
-    .locals 2
+    .registers 4
     .param p0, "$this$get"    # Landroidx/navigation/NavigatorProvider;
     .param p1, "clazz"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
@@ -114,7 +114,7 @@
 .end method
 
 .method public static final plusAssign(Landroidx/navigation/NavigatorProvider;Landroidx/navigation/Navigator;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Landroidx/navigation/NavigatorProvider;
     .param p1, "navigator"    # Landroidx/navigation/Navigator;
     .annotation system Ldalvik/annotation/Signature;
@@ -147,7 +147,7 @@
 .end method
 
 .method public static final set(Landroidx/navigation/NavigatorProvider;Ljava/lang/String;Landroidx/navigation/Navigator;)Landroidx/navigation/Navigator;
-    .locals 2
+    .registers 5
     .param p0, "$this$set"    # Landroidx/navigation/NavigatorProvider;
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "navigator"    # Landroidx/navigation/Navigator;

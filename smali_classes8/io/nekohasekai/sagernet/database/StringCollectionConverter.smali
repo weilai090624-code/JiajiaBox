@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/database/StringCollectionConverter$Companion;
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,7 +63,7 @@
 .end method
 
 .method public static final fromSet(Ljava/util/Set;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "set"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,7 +89,7 @@
 .end method
 
 .method public static final toSet(Ljava/lang/String;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "str"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {

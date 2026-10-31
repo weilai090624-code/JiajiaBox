@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "result"    # I
 
     .line 130
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public compare(DD)Lcom/google/common/collect/ComparisonChain;
-    .locals 0
+    .registers 5
     .param p1, "left"    # D
     .param p3, "right"    # D
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public compare(FF)Lcom/google/common/collect/ComparisonChain;
-    .locals 0
+    .registers 3
     .param p1, "left"    # F
     .param p2, "right"    # F
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public compare(II)Lcom/google/common/collect/ComparisonChain;
-    .locals 0
+    .registers 3
     .param p1, "left"    # I
     .param p2, "right"    # I
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public compare(JJ)Lcom/google/common/collect/ComparisonChain;
-    .locals 0
+    .registers 5
     .param p1, "left"    # J
     .param p3, "right"    # J
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/ComparisonChain;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,7 +93,7 @@
 .end method
 
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)Lcom/google/common/collect/ComparisonChain;
-    .locals 0
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -121,7 +121,7 @@
 .end method
 
 .method public compareFalseFirst(ZZ)Lcom/google/common/collect/ComparisonChain;
-    .locals 0
+    .registers 3
     .param p1, "left"    # Z
     .param p2, "right"    # Z
 
@@ -130,7 +130,7 @@
 .end method
 
 .method public compareTrueFirst(ZZ)Lcom/google/common/collect/ComparisonChain;
-    .locals 0
+    .registers 3
     .param p1, "left"    # Z
     .param p2, "right"    # Z
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public result()I
-    .locals 1
+    .registers 2
 
     .line 177
     iget v0, p0, Lcom/google/common/collect/ComparisonChain$InactiveComparisonChain;->result:I

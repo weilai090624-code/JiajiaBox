@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$copyInto(Lj$/util/stream/Node$OfInt;[Ljava/lang/Integer;I)V
-    .locals 4
+    .registers 7
     .param p0, "_this"    # Lj$/util/stream/Node$OfInt;
     .param p1, "boxed"    # [Ljava/lang/Integer;
     .param p2, "offset"    # I
@@ -13,7 +13,7 @@
     .line 349
     sget-boolean v0, Lj$/util/stream/Tripwire;->ENABLED:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 350
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -25,7 +25,7 @@
     invoke-static {v0, v1}, Lj$/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 352
-    :cond_0
+    :cond_d
     invoke-interface {p0}, Lj$/util/stream/Node$OfInt;->asPrimitiveArray()Ljava/lang/Object;
 
     move-result-object v0
@@ -37,10 +37,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_14
     array-length v2, v0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_24
 
     .line 354
     add-int v2, p2, v1
@@ -56,16 +56,16 @@
     .line 353
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 356
     .end local v1    # "i":I
-    :cond_1
+    :cond_24
     return-void
 .end method
 
 .method public static bridge synthetic $default$copyInto(Lj$/util/stream/Node$OfInt;[Ljava/lang/Object;I)V
-    .locals 0
+    .registers 3
     .param p0, "_this"    # Lj$/util/stream/Node$OfInt;
 
     .line 317
@@ -77,14 +77,14 @@
 .end method
 
 .method public static $default$forEach(Lj$/util/stream/Node$OfInt;Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Lj$/util/stream/Node$OfInt;
 
     .line 329
     .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Integer;>;"
     instance-of v0, p1, Ljava/util/function/IntConsumer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 330
     move-object v0, p1
@@ -93,13 +93,13 @@
 
     invoke-interface {p0, v0}, Lj$/util/stream/Node$OfInt;->forEach(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 333
-    :cond_0
+    :cond_b
     sget-boolean v0, Lj$/util/stream/Tripwire;->ENABLED:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 334
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -111,7 +111,7 @@
     invoke-static {v0, v1}, Lj$/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 335
-    :cond_1
+    :cond_18
     invoke-interface {p0}, Lj$/util/stream/Node$OfInt;->spliterator()Lj$/util/Spliterator$OfPrimitive;
 
     move-result-object v0
@@ -121,12 +121,12 @@
     invoke-interface {v0, p1}, Lj$/util/Spliterator$OfInt;->forEachRemaining(Ljava/util/function/Consumer;)V
 
     .line 337
-    :goto_0
+    :goto_21
     return-void
 .end method
 
 .method public static $default$getShape(Lj$/util/stream/Node$OfInt;)Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/Node$OfInt;
 
     .line 387
@@ -136,7 +136,7 @@
 .end method
 
 .method public static bridge synthetic $default$newArray(Lj$/util/stream/Node$OfInt;I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/Node$OfInt;
 
     .line 317
@@ -148,7 +148,7 @@
 .end method
 
 .method public static $default$newArray(Lj$/util/stream/Node$OfInt;I)[I
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/util/stream/Node$OfInt;
     .param p1, "count"    # I
 
@@ -159,7 +159,7 @@
 .end method
 
 .method public static $default$truncate(Lj$/util/stream/Node$OfInt;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node$OfInt;
-    .locals 8
+    .registers 14
     .param p0, "_this"    # Lj$/util/stream/Node$OfInt;
     .param p1, "from"    # J
     .param p3, "to"    # J
@@ -170,7 +170,7 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_f
 
     invoke-interface {p0}, Lj$/util/stream/Node$OfInt;->count()J
 
@@ -178,13 +178,13 @@
 
     cmp-long v2, p3, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_f
 
     .line 361
     return-object p0
 
     .line 362
-    :cond_0
+    :cond_f
     sub-long v0, p3, p1
 
     .line 363
@@ -209,12 +209,12 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
+    :goto_1f
     int-to-long v5, v4
 
     cmp-long v7, v5, p1
 
-    if-gez v7, :cond_1
+    if-gez v7, :cond_32
 
     new-instance v5, Lj$/util/stream/Node$OfInt$$ExternalSyntheticLambda0;
 
@@ -224,54 +224,54 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_32
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 367
     .end local v4    # "i":I
-    :cond_1
+    :cond_32
     invoke-interface {p0}, Lj$/util/stream/Node$OfInt;->count()J
 
     move-result-wide v4
 
     cmp-long v6, p3, v4
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_3e
 
     .line 368
     invoke-interface {v2, v3}, Lj$/util/Spliterator$OfInt;->forEachRemaining(Ljava/util/function/IntConsumer;)V
 
-    goto :goto_2
+    goto :goto_4d
 
     .line 370
-    :cond_2
+    :cond_3e
     const/4 v4, 0x0
 
     .restart local v4    # "i":I
-    :goto_1
+    :goto_3f
     int-to-long v5, v4
 
     cmp-long v7, v5, v0
 
-    if-gez v7, :cond_3
+    if-gez v7, :cond_4d
 
     invoke-interface {v2, v3}, Lj$/util/Spliterator$OfInt;->tryAdvance(Ljava/util/function/IntConsumer;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4d
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 372
     .end local v4    # "i":I
-    :cond_3
-    :goto_2
+    :cond_4d
+    :goto_4d
     invoke-interface {v3}, Lj$/util/stream/Node$Builder$OfInt;->end()V
 
     .line 373
@@ -283,7 +283,7 @@
 .end method
 
 .method public static bridge synthetic $default$truncate(Lj$/util/stream/Node$OfInt;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node$OfPrimitive;
-    .locals 0
+    .registers 6
     .param p0, "_this"    # Lj$/util/stream/Node$OfInt;
 
     .line 317
@@ -295,7 +295,7 @@
 .end method
 
 .method public static bridge synthetic $default$truncate(Lj$/util/stream/Node$OfInt;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 0
+    .registers 6
     .param p0, "_this"    # Lj$/util/stream/Node$OfInt;
 
     .line 317
@@ -307,7 +307,7 @@
 .end method
 
 .method public static synthetic lambda$truncate$0(I)V
-    .locals 0
+    .registers 1
     .param p0, "e"    # I
 
     .line 366

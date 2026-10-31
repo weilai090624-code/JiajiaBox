@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MapMakerInternalMap;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/MapMakerInternalMap;
 
     .line 2764
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 2808
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$EntrySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.EntrySet;"
@@ -58,7 +58,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 2773
@@ -67,13 +67,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 2774
     return v1
 
     .line 2776
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/util/Map$Entry;
@@ -86,13 +86,13 @@
 
     .line 2778
     .local v2, "key":Ljava/lang/Object;
-    if-nez v2, :cond_1
+    if-nez v2, :cond_10
 
     .line 2779
     return v1
 
     .line 2781
-    :cond_1
+    :cond_10
     iget-object v3, p0, Lcom/google/common/collect/MapMakerInternalMap$EntrySet;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
 
     invoke-virtual {v3, v2}, Lcom/google/common/collect/MapMakerInternalMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -101,7 +101,7 @@
 
     .line 2783
     .local v3, "v":Ljava/lang/Object;, "TV;"
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_29
 
     iget-object v4, p0, Lcom/google/common/collect/MapMakerInternalMap$EntrySet;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
 
@@ -117,16 +117,16 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_29
 
     const/4 v1, 0x1
 
-    :cond_2
+    :cond_29
     return v1
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 2803
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$EntrySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.EntrySet;"
@@ -140,7 +140,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -162,7 +162,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 2788
@@ -171,13 +171,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 2789
     return v1
 
     .line 2791
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/util/Map$Entry;
@@ -190,7 +190,7 @@
 
     .line 2793
     .local v2, "key":Ljava/lang/Object;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     iget-object v3, p0, Lcom/google/common/collect/MapMakerInternalMap$EntrySet;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
 
@@ -202,16 +202,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1c
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_1c
     return v1
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 2798
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$EntrySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.EntrySet;"

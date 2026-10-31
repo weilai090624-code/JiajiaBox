@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/FilteredEntryMultimap$AsMap$1EntrySetImpl;)V
-    .locals 1
+    .registers 3
     .param p1, "this$2"    # Lcom/google/common/collect/FilteredEntryMultimap$AsMap$1EntrySetImpl;
 
     .line 258
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -96,7 +96,7 @@
 .end method
 
 .method protected computeNext()Ljava/util/Map$Entry;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -114,14 +114,14 @@
     .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap$AsMap$1EntrySetImpl$1;, "Lcom/google/common/collect/FilteredEntryMultimap$AsMap$1EntrySetImpl$1;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/FilteredEntryMultimap$AsMap$1EntrySetImpl$1;->backingIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_37
 
     .line 266
     iget-object v0, p0, Lcom/google/common/collect/FilteredEntryMultimap$AsMap$1EntrySetImpl$1;->backingIterator:Ljava/util/Iterator;
@@ -169,7 +169,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_36
 
     .line 271
     invoke-static {v1, v2}, Lcom/google/common/collect/Maps;->immutableEntry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;
@@ -182,11 +182,11 @@
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     .end local v1    # "key":Ljava/lang/Object;, "TK;"
     .end local v2    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_36
+    goto :goto_1
 
     .line 274
-    :cond_1
+    :cond_37
     invoke-virtual {p0}, Lcom/google/common/collect/FilteredEntryMultimap$AsMap$1EntrySetImpl$1;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

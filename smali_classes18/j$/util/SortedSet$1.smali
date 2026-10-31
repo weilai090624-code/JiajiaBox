@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/SortedSet;Ljava/util/Collection;I)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Ljava/util/SortedSet;
     .param p3, "characteristics"    # I
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

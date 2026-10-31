@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 31
     const-string v0, "RemoteWorkerService"
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 3
+    .registers 5
     .param p1, "intent"    # Landroid/content/Intent;
 
     .line 43
@@ -60,7 +60,7 @@
 .end method
 
 .method public onCreate()V
-    .locals 1
+    .registers 2
 
     .line 36
     invoke-super {p0}, Landroid/app/Service;->onCreate()V

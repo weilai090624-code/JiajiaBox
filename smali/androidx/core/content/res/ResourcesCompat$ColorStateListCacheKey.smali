@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)V
-    .locals 0
+    .registers 3
     .param p1, "resources"    # Landroid/content/res/Resources;
     .param p2, "theme"    # Landroid/content/res/Resources$Theme;
 
@@ -42,21 +42,21 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 337
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 338
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2c
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -66,12 +66,12 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_12
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 339
-    :cond_1
+    :cond_12
     move-object v2, p1
 
     check-cast v2, Landroidx/core/content/res/ResourcesCompat$ColorStateListCacheKey;
@@ -86,7 +86,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_2a
 
     iget-object v3, p0, Landroidx/core/content/res/ResourcesCompat$ColorStateListCacheKey;->mTheme:Landroid/content/res/Resources$Theme;
 
@@ -97,26 +97,26 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_2a
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_2
+    :cond_2a
     const/4 v0, 0x0
 
     .line 340
-    :goto_0
+    :goto_2b
     return v0
 
     .line 338
     .end local v2    # "that":Landroidx/core/content/res/ResourcesCompat$ColorStateListCacheKey;
-    :cond_3
-    :goto_1
+    :cond_2c
+    :goto_2c
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 346
     iget-object v0, p0, Landroidx/core/content/res/ResourcesCompat$ColorStateListCacheKey;->mResources:Landroid/content/res/Resources;

@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/sqlite/db/SupportSQLiteCompat$Api19Impl;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 181
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +68,7 @@
 .end method
 
 .method public static final getNotificationUri(Landroid/database/Cursor;)Landroid/net/Uri;
-    .locals 2
+    .registers 3
     .param p0, "cursor"    # Landroid/database/Cursor;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -90,7 +90,7 @@
 .end method
 
 .method public static final isLowRamDevice(Landroid/app/ActivityManager;)Z
-    .locals 1
+    .registers 2
     .param p0, "activityManager"    # Landroid/app/ActivityManager;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation

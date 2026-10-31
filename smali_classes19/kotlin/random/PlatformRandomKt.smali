@@ -33,7 +33,7 @@
 
 # direct methods
 .method public static final asJavaRandom(Lkotlin/random/Random;)Ljava/util/Random;
-    .locals 1
+    .registers 2
     .param p0, "$this$asJavaRandom"    # Lkotlin/random/Random;
 
     const-string v0, "<this>"
@@ -43,39 +43,39 @@
     .line 16
     instance-of v0, p0, Lkotlin/random/AbstractPlatformRandom;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     move-object v0, p0
 
     check-cast v0, Lkotlin/random/AbstractPlatformRandom;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_16
 
     invoke-virtual {v0}, Lkotlin/random/AbstractPlatformRandom;->getImpl()Ljava/util/Random;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1d
 
-    :cond_1
+    :cond_16
     new-instance v0, Lkotlin/random/KotlinRandom;
 
     invoke-direct {v0, p0}, Lkotlin/random/KotlinRandom;-><init>(Lkotlin/random/Random;)V
 
     check-cast v0, Ljava/util/Random;
 
-    :cond_2
+    :cond_1d
     return-object v0
 .end method
 
 .method public static final asKotlinRandom(Ljava/util/Random;)Lkotlin/random/Random;
-    .locals 1
+    .registers 2
     .param p0, "$this$asKotlinRandom"    # Ljava/util/Random;
 
     const-string v0, "<this>"
@@ -85,39 +85,39 @@
     .line 23
     instance-of v0, p0, Lkotlin/random/KotlinRandom;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     move-object v0, p0
 
     check-cast v0, Lkotlin/random/KotlinRandom;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_16
 
     invoke-virtual {v0}, Lkotlin/random/KotlinRandom;->getImpl()Lkotlin/random/Random;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1d
 
-    :cond_1
+    :cond_16
     new-instance v0, Lkotlin/random/PlatformRandom;
 
     invoke-direct {v0, p0}, Lkotlin/random/PlatformRandom;-><init>(Ljava/util/Random;)V
 
     check-cast v0, Lkotlin/random/Random;
 
-    :cond_2
+    :cond_1d
     return-object v0
 .end method
 
 .method private static final defaultPlatformRandom()Lkotlin/random/Random;
-    .locals 1
+    .registers 1
 
     .line 29
     sget-object v0, Lkotlin/internal/PlatformImplementationsKt;->IMPLEMENTATIONS:Lkotlin/internal/PlatformImplementations;
@@ -130,7 +130,7 @@
 .end method
 
 .method public static final doubleFromParts(II)D
-    .locals 4
+    .registers 6
     .param p0, "hi26"    # I
     .param p1, "low27"    # I
 

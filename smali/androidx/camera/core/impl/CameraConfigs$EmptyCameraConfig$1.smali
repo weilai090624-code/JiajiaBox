@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/CameraConfigs$EmptyCameraConfig;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/core/impl/CameraConfigs$EmptyCameraConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getConfig(Landroidx/camera/core/impl/UseCaseConfigFactory$CaptureType;)Landroidx/camera/core/impl/Config;
-    .locals 1
+    .registers 3
     .param p1, "captureType"    # Landroidx/camera/core/impl/UseCaseConfigFactory$CaptureType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

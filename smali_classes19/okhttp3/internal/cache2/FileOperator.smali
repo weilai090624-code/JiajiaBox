@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/nio/channels/FileChannel;)V
-    .locals 1
+    .registers 3
     .param p1, "fileChannel"    # Ljava/nio/channels/FileChannel;
 
     const-string v0, "fileChannel"
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public final read(JLokio/Buffer;J)V
-    .locals 14
+    .registers 20
     .param p1, "pos"    # J
     .param p3, "sink"    # Lokio/Buffer;
     .param p4, "byteCount"    # J
@@ -77,7 +77,7 @@
 
     cmp-long v3, p4, v1
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_25
 
     .line 61
     move-wide v3, p1
@@ -88,10 +88,10 @@
 
     .line 64
     .local v5, "mutableByteCount":J
-    :goto_0
+    :goto_10
     cmp-long v7, v5, v1
 
-    if-lez v7, :cond_0
+    if-lez v7, :cond_23
 
     .line 65
     move-object v13, p0
@@ -118,10 +118,10 @@
     sub-long/2addr v5, v7
 
     .end local v7    # "bytesRead":J
-    goto :goto_0
+    goto :goto_10
 
     .line 69
-    :cond_0
+    :cond_23
     move-object v13, p0
 
     return-void
@@ -129,7 +129,7 @@
     .line 59
     .end local v3    # "mutablePos":J
     .end local v5    # "mutableByteCount":J
-    :cond_1
+    :cond_25
     move-object v13, p0
 
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
@@ -140,7 +140,7 @@
 .end method
 
 .method public final write(JLokio/Buffer;J)V
-    .locals 14
+    .registers 20
     .param p1, "pos"    # J
     .param p3, "source"    # Lokio/Buffer;
     .param p4, "byteCount"    # J
@@ -161,7 +161,7 @@
 
     cmp-long v3, p4, v1
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_2d
 
     invoke-virtual/range {p3 .. p3}, Lokio/Buffer;->size()J
 
@@ -169,7 +169,7 @@
 
     cmp-long v5, p4, v3
 
-    if-gtz v5, :cond_1
+    if-gtz v5, :cond_2d
 
     .line 42
     move-wide v3, p1
@@ -180,10 +180,10 @@
 
     .line 45
     .local v5, "mutableByteCount":J
-    :goto_0
+    :goto_18
     cmp-long v7, v5, v1
 
-    if-lez v7, :cond_0
+    if-lez v7, :cond_2b
 
     .line 46
     move-object v13, p0
@@ -210,10 +210,10 @@
     sub-long/2addr v5, v7
 
     .end local v7    # "bytesWritten":J
-    goto :goto_0
+    goto :goto_18
 
     .line 50
-    :cond_0
+    :cond_2b
     move-object v13, p0
 
     return-void
@@ -221,7 +221,7 @@
     .line 39
     .end local v3    # "mutablePos":J
     .end local v5    # "mutableByteCount":J
-    :cond_1
+    :cond_2d
     move-object v13, p0
 
     .line 40

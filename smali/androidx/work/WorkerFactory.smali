@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     const-string v0, "WorkerFactory"
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public static getDefaultWorkerFactory()Landroidx/work/WorkerFactory;
-    .locals 1
+    .registers 1
 
     .line 123
     new-instance v0, Landroidx/work/WorkerFactory$1;
@@ -61,7 +61,7 @@
 .end method
 
 .method public final createWorkerWithDefaultFallback(Landroid/content/Context;Ljava/lang/String;Landroidx/work/WorkerParameters;)Landroidx/work/ListenableWorker;
-    .locals 7
+    .registers 11
     .param p1, "appContext"    # Landroid/content/Context;
     .param p2, "workerClassName"    # Ljava/lang/String;
     .param p3, "workerParameters"    # Landroidx/work/WorkerParameters;
@@ -85,14 +85,14 @@
 
     .line 84
     .local v0, "worker":Landroidx/work/ListenableWorker;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6e
 
     .line 86
     const/4 v1, 0x0
 
     .line 88
     .local v1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
-    :try_start_0
+    :try_start_7
     invoke-static {p2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v2
@@ -102,16 +102,16 @@
     invoke-virtual {v2, v3}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_7 .. :try_end_11} :catchall_13
 
     move-object v1, v2
 
     .line 91
-    goto :goto_0
+    goto :goto_30
 
     .line 89
-    :catchall_0
+    :catchall_13
     move-exception v2
 
     .line 90
@@ -144,13 +144,13 @@
 
     .line 92
     .end local v2    # "throwable":Ljava/lang/Throwable;
-    :goto_0
-    if-eqz v1, :cond_0
+    :goto_30
+    if-eqz v1, :cond_6e
 
     .line 94
     const/4 v2, 0x2
 
-    :try_start_1
+    :try_start_33
     new-array v3, v2, [Ljava/lang/Class;
 
     const-class v4, Landroid/content/Context;
@@ -183,17 +183,17 @@
     move-result-object v2
 
     check-cast v2, Landroidx/work/ListenableWorker;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_4f
+    .catchall {:try_start_33 .. :try_end_4f} :catchall_51
 
     move-object v0, v2
 
     .line 101
     .end local v3    # "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<+Landroidx/work/ListenableWorker;>;"
-    goto :goto_1
+    goto :goto_6e
 
     .line 99
-    :catchall_1
+    :catchall_51
     move-exception v2
 
     .line 100
@@ -227,20 +227,20 @@
     .line 105
     .end local v1    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
     .end local v2    # "e":Ljava/lang/Throwable;
-    :cond_0
-    :goto_1
-    if-eqz v0, :cond_2
+    :cond_6e
+    :goto_6e
+    if-eqz v0, :cond_a8
 
     invoke-virtual {v0}, Landroidx/work/ListenableWorker;->isUsed()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_77
 
-    goto :goto_2
+    goto :goto_a8
 
     .line 106
-    :cond_1
+    :cond_77
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -296,7 +296,7 @@
     .line 114
     .end local v1    # "factoryName":Ljava/lang/String;
     .end local v2    # "message":Ljava/lang/String;
-    :cond_2
-    :goto_2
+    :cond_a8
+    :goto_a8
     return-object v0
 .end method

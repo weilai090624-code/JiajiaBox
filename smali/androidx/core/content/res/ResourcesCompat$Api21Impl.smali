@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 698
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getDrawable(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 4
     .param p0, "resources"    # Landroid/content/res/Resources;
     .param p1, "id"    # I
     .param p2, "theme"    # Landroid/content/res/Resources$Theme;
@@ -40,7 +40,7 @@
 .end method
 
 .method static getDrawableForDensity(Landroid/content/res/Resources;IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 5
     .param p0, "resources"    # Landroid/content/res/Resources;
     .param p1, "id"    # I
     .param p2, "density"    # I

@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">உள்வரும் அழைப்பு</string>
     <string name="call_notification_ongoing_text">செயலில் இருக்கும் அழைப்பு</string>
     <string name="call_notification_screening_text">உள்வரும் அழைப்பை மதிப்பாய்வு செய்கிறது</string>
-    <string name="character_counter_content_description" formatted="false">%2$d இல் %1$d எழுத்துகள் உள்ளிடப்பட்டுள்ளன</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">%2$d இல் %1$d எழுத்து வரம்பு மீறப்பட்டது</string>
+    <string name="character_counter_content_description">%2$d இல் %1$d எழுத்துகள் உள்ளிடப்பட்டுள்ளன</string>
+    <string name="character_counter_overflowed_content_description">%2$d இல் %1$d எழுத்து வரம்பு மீறப்பட்டது</string>
     <string name="clear_text_end_icon_content_description">உரையை அழிக்கும்</string>
     <string name="copy">நகலெடு</string>
     <string name="copy_toast_msg">கிளிப்-போர்டுக்கு இணைப்பு நகலெடுக்கப்பட்டது</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">எல்லைக்கு வெளியே உள்ளது: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">தொடக்கத் தேதி – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – முடிவுத் தேதி</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">வரம்பைத் தேர்ந்தெடுக்கவும்</string>
     <string name="mtrl_picker_range_header_unselected">தொடக்கத் தேதி - முடிவுத் தேதி</string>
     <string name="mtrl_picker_save">சேமி</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது.</string>
     <string name="search_menu_title">தேடல்</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ஆஃப்</string>
     <string name="v7_preference_on">ஆன்</string>
 </resources>

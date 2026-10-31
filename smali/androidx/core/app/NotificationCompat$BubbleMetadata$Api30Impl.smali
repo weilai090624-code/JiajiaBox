@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8847
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,11 +26,11 @@
 .end method
 
 .method static fromPlatform(Landroid/app/Notification$BubbleMetadata;)Landroidx/core/app/NotificationCompat$BubbleMetadata;
-    .locals 4
+    .registers 5
     .param p0, "platformMetadata"    # Landroid/app/Notification$BubbleMetadata;
 
     .line 8902
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 8903
     const/4 v0, 0x0
@@ -38,7 +38,7 @@
     return-object v0
 
     .line 8906
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .line 8907
@@ -47,7 +47,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
     .line 8908
     new-instance v1, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
@@ -60,10 +60,10 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 8910
-    :cond_1
+    :cond_16
     new-instance v1, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
 
     invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getIntent()Landroid/app/PendingIntent;
@@ -84,7 +84,7 @@
     move-object v0, v1
 
     .line 8913
-    :goto_0
+    :goto_28
     nop
 
     .line 8914
@@ -118,7 +118,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4d
 
     .line 8920
     invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getDesiredHeight()I
@@ -128,12 +128,12 @@
     invoke-virtual {v0, v1}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->setDesiredHeight(I)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
 
     .line 8923
-    :cond_2
+    :cond_4d
     invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getDesiredHeightResId()I
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5a
 
     .line 8924
     invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getDesiredHeightResId()I
@@ -143,7 +143,7 @@
     invoke-virtual {v0, v1}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->setDesiredHeightResId(I)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
 
     .line 8927
-    :cond_3
+    :cond_5a
     invoke-virtual {v0}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->build()Landroidx/core/app/NotificationCompat$BubbleMetadata;
 
     move-result-object v1
@@ -152,11 +152,11 @@
 .end method
 
 .method static toPlatform(Landroidx/core/app/NotificationCompat$BubbleMetadata;)Landroid/app/Notification$BubbleMetadata;
-    .locals 4
+    .registers 5
     .param p0, "compatMetadata"    # Landroidx/core/app/NotificationCompat$BubbleMetadata;
 
     .line 8861
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 8862
     const/4 v0, 0x0
@@ -164,7 +164,7 @@
     return-object v0
 
     .line 8865
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .line 8866
@@ -173,7 +173,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
     .line 8867
     new-instance v1, Landroid/app/Notification$BubbleMetadata$Builder;
@@ -187,10 +187,10 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 8870
-    :cond_1
+    :cond_16
     new-instance v1, Landroid/app/Notification$BubbleMetadata$Builder;
 
     .line 8872
@@ -211,7 +211,7 @@
     move-object v0, v1
 
     .line 8874
-    :goto_0
+    :goto_28
     nop
 
     .line 8875
@@ -244,7 +244,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4d
 
     .line 8880
     invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata;->getDesiredHeight()I
@@ -254,12 +254,12 @@
     invoke-virtual {v0, v1}, Landroid/app/Notification$BubbleMetadata$Builder;->setDesiredHeight(I)Landroid/app/Notification$BubbleMetadata$Builder;
 
     .line 8883
-    :cond_2
+    :cond_4d
     invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata;->getDesiredHeightResId()I
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5b
 
     .line 8884
     nop
@@ -273,7 +273,7 @@
     invoke-virtual {v0, v1}, Landroid/app/Notification$BubbleMetadata$Builder;->setDesiredHeightResId(I)Landroid/app/Notification$BubbleMetadata$Builder;
 
     .line 8888
-    :cond_3
+    :cond_5b
     invoke-virtual {v0}, Landroid/app/Notification$BubbleMetadata$Builder;->build()Landroid/app/Notification$BubbleMetadata;
 
     move-result-object v1

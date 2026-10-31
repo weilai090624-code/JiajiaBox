@@ -81,7 +81,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 10
+    .registers 11
 
     .line 14
     const/4 v0, 0x0
@@ -294,7 +294,7 @@
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 14
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ShadowsocksSettingsActivity;->createEntity()Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
@@ -307,7 +307,7 @@
 .end method
 
 .method public createEntity()Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
-    .locals 1
+    .registers 2
 
     .line 16
     new-instance v0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
@@ -318,7 +318,7 @@
 .end method
 
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 5
+    .registers 9
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -418,7 +418,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 14
@@ -432,7 +432,7 @@
 .end method
 
 .method public init(Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;)V
-    .locals 7
+    .registers 9
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
 
     const-string v0, "<this>"
@@ -495,7 +495,7 @@
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 14
@@ -509,7 +509,7 @@
 .end method
 
 .method public serialize(Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;)V
-    .locals 4
+    .registers 6
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
 
     const-string v0, "<this>"
@@ -546,7 +546,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_37
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -570,12 +570,12 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_0
+    :cond_37
     const-string v2, ""
 
-    :goto_0
+    :goto_39
     iput-object v2, p1, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->plugin:Ljava/lang/String;
 
     .line 43

@@ -48,8 +48,8 @@
     <string name="call_notification_incoming_text">着信</string>
     <string name="call_notification_ongoing_text">通話中</string>
     <string name="call_notification_screening_text">着信をスクリーニング中</string>
-    <string name="character_counter_content_description" formatted="false">入力済み文字数: %1$d/%2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">文字数制限を超えています（%1$d/%2$d 文字）</string>
+    <string name="character_counter_content_description">入力済み文字数: %1$d/%2$d</string>
+    <string name="character_counter_overflowed_content_description">文字数制限を超えています（%1$d/%2$d 文字）</string>
     <string name="clear_text_end_icon_content_description">テキストを消去</string>
     <string name="connection_test_available">成功: HTTPS ハンドシェイクに要した時間は %dms です。</string>
     <string name="connection_test_error">失敗: %s</string>
@@ -144,7 +144,7 @@
     <string name="mtrl_picker_out_of_range">範囲外: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">開始日～%1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s～終了日</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s～%2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s～%2$s</string>
     <string name="mtrl_picker_range_header_title">期間を選択してください</string>
     <string name="mtrl_picker_range_header_unselected">開始日～終了日</string>
     <string name="mtrl_picker_save">保存</string>
@@ -195,15 +195,15 @@
     <string name="show_stop">中止バタンを表示</string>
     <string name="show_stop_sum">クィックタイトルを使えなくなりたいの場合</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"プロキシ： %1$s↑ %2$s↓ 
+    <string name="speed_detail">"プロキシ： %1$s↑ %2$s↓ 
 ダイレクト： %3$s↑ %4$s↓"</string>
     <string name="speed_interval">速度通知のアップデート間隔</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s、%2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s、%2$s</string>
     <string name="telegram">Telegram 更新チャンネル</string>
     <string name="theme">テーマ</string>
     <string name="tile_title">スイッチャー</string>
-    <string name="traffic" formatted="false">%1$s↑ %2$s↓</string>
+    <string name="traffic">%1$s↑ %2$s↓</string>
     <string name="transproxy_mode">透過プロキシモード</string>
     <string name="username">ユーザー名</string>
     <string name="username_opt">ユーザー名（選択可能）</string>

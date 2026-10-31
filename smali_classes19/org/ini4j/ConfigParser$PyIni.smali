@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 417
     const-string v0, "(?<!\\\\)\\%\\(([^\\)]+)\\)"
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 451
@@ -125,12 +125,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 453
     iget-object v0, p0, Lorg/ini4j/ConfigParser$PyIni;->_defaultSection:Lorg/ini4j/Profile$Section;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 455
     invoke-virtual {p0, p1}, Lorg/ini4j/ConfigParser$PyIni;->newSection(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
@@ -140,27 +140,27 @@
     iput-object v0, p0, Lorg/ini4j/ConfigParser$PyIni;->_defaultSection:Lorg/ini4j/Profile$Section;
 
     .line 458
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lorg/ini4j/ConfigParser$PyIni;->_defaultSection:Lorg/ini4j/Profile$Section;
 
     .local v0, "section":Lorg/ini4j/Profile$Section;
-    goto :goto_0
+    goto :goto_19
 
     .line 462
     .end local v0    # "section":Lorg/ini4j/Profile$Section;
-    :cond_1
+    :cond_15
     invoke-super {p0, p1}, Lorg/ini4j/Ini;->add(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
 
     move-result-object v0
 
     .line 465
     .restart local v0    # "section":Lorg/ini4j/Profile$Section;
-    :goto_0
+    :goto_19
     return-object v0
 .end method
 
 .method public fetch(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;
-    .locals 1
+    .registers 5
     .param p1, "sectionName"    # Ljava/lang/String;
     .param p2, "optionName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -198,7 +198,7 @@
 .end method
 
 .method protected fetch(Lorg/ini4j/Profile$Section;Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;
-    .locals 2
+    .registers 6
     .param p1, "section"    # Lorg/ini4j/Profile$Section;
     .param p2, "optionName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -230,7 +230,7 @@
 
     .line 483
     .local v0, "value":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     const/16 v1, 0x25
 
@@ -238,7 +238,7 @@
 
     move-result v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_1c
 
     .line 485
     new-instance v1, Ljava/lang/StringBuilder;
@@ -256,12 +256,12 @@
 
     .line 491
     .end local v1    # "buffer":Ljava/lang/StringBuilder;
-    :cond_0
+    :cond_1c
     return-object v0
 .end method
 
 .method protected getDefaultSection()Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 2
 
     .line 475
     iget-object v0, p0, Lorg/ini4j/ConfigParser$PyIni;->_defaultSection:Lorg/ini4j/Profile$Section;
@@ -270,7 +270,7 @@
 .end method
 
 .method public getDefaults()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -288,7 +288,7 @@
 .end method
 
 .method protected resolve(Ljava/lang/StringBuilder;Lorg/ini4j/Profile$Section;Ljava/util/Map;)V
-    .locals 5
+    .registers 9
     .param p1, "buffer"    # Ljava/lang/StringBuilder;
     .param p2, "owner"    # Lorg/ini4j/Profile$Section;
     .annotation system Ldalvik/annotation/Signature;
@@ -319,12 +319,12 @@
 
     .line 498
     .local v0, "m":Ljava/util/regex/Matcher;
-    :goto_0
+    :goto_6
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_52
 
     .line 500
     const/4 v1, 0x1
@@ -343,7 +343,7 @@
 
     .line 503
     .local v2, "value":Ljava/lang/String;
-    if-nez v2, :cond_0
+    if-nez v2, :cond_20
 
     .line 505
     invoke-interface {p3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -355,8 +355,8 @@
     check-cast v2, Ljava/lang/String;
 
     .line 508
-    :cond_0
-    if-nez v2, :cond_1
+    :cond_20
+    if-nez v2, :cond_2b
 
     .line 510
     iget-object v3, p0, Lorg/ini4j/ConfigParser$PyIni;->_defaults:Ljava/util/Map;
@@ -370,12 +370,12 @@
     check-cast v2, Ljava/lang/String;
 
     .line 513
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_2b
+    if-nez v2, :cond_3a
 
     iget-object v3, p0, Lorg/ini4j/ConfigParser$PyIni;->_defaultSection:Lorg/ini4j/Profile$Section;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3a
 
     .line 515
     iget-object v3, p0, Lorg/ini4j/ConfigParser$PyIni;->_defaultSection:Lorg/ini4j/Profile$Section;
@@ -389,8 +389,8 @@
     check-cast v2, Ljava/lang/String;
 
     .line 518
-    :cond_2
-    if-eqz v2, :cond_3
+    :cond_3a
+    if-eqz v2, :cond_4b
 
     .line 523
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->start()I
@@ -409,12 +409,12 @@
     .line 525
     .end local v1    # "optionName":Ljava/lang/String;
     .end local v2    # "value":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_6
 
     .line 520
     .restart local v1    # "optionName":Ljava/lang/String;
     .restart local v2    # "value":Ljava/lang/String;
-    :cond_3
+    :cond_4b
     new-instance v3, Lorg/ini4j/ConfigParser$InterpolationMissingOptionException;
 
     const/4 v4, 0x0
@@ -426,12 +426,12 @@
     .line 526
     .end local v1    # "optionName":Ljava/lang/String;
     .end local v2    # "value":Ljava/lang/String;
-    :cond_4
+    :cond_52
     return-void
 .end method
 
 .method public setConfig(Lorg/ini4j/Config;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Lorg/ini4j/Config;
 
     .line 440
@@ -439,7 +439,7 @@
 .end method
 
 .method protected store(Lorg/ini4j/spi/IniHandler;)V
-    .locals 2
+    .registers 4
     .param p1, "formatter"    # Lorg/ini4j/spi/IniHandler;
 
     .line 530
@@ -448,7 +448,7 @@
     .line 531
     iget-object v0, p0, Lorg/ini4j/ConfigParser$PyIni;->_defaultSection:Lorg/ini4j/Profile$Section;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 533
     iget-object v0, p0, Lorg/ini4j/ConfigParser$PyIni;->_defaultSection:Lorg/ini4j/Profile$Section;
@@ -456,7 +456,7 @@
     invoke-virtual {p0, p1, v0}, Lorg/ini4j/ConfigParser$PyIni;->store(Lorg/ini4j/spi/IniHandler;Lorg/ini4j/Profile$Section;)V
 
     .line 536
-    :cond_0
+    :cond_c
     invoke-virtual {p0}, Lorg/ini4j/ConfigParser$PyIni;->values()Ljava/util/Collection;
 
     move-result-object v0
@@ -466,12 +466,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_14
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_24
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -485,11 +485,11 @@
 
     .line 539
     .end local v1    # "s":Lorg/ini4j/Profile$Section;
-    goto :goto_0
+    goto :goto_14
 
     .line 541
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_1
+    :cond_24
     invoke-interface {p1}, Lorg/ini4j/spi/IniHandler;->endIni()V
 
     .line 542
@@ -497,7 +497,7 @@
 .end method
 
 .method protected store(Lorg/ini4j/spi/IniHandler;Lorg/ini4j/Profile$Section;)V
-    .locals 3
+    .registers 6
     .param p1, "formatter"    # Lorg/ini4j/spi/IniHandler;
     .param p2, "section"    # Lorg/ini4j/Profile$Section;
 
@@ -518,12 +518,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -543,11 +543,11 @@
 
     .line 550
     .end local v1    # "name":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_f
 
     .line 552
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_25
     invoke-interface {p1}, Lorg/ini4j/spi/IniHandler;->endSection()V
 
     .line 553

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/params/OutputConfiguration;)V
-    .locals 0
+    .registers 2
     .param p1, "configuration"    # Landroid/hardware/camera2/params/OutputConfiguration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -64,13 +64,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 115
     return v1
 
     .line 118
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl$OutputConfigurationParamsApi24;
@@ -85,13 +85,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_25
 
     iget-boolean v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl$OutputConfigurationParamsApi24;->mIsShared:Z
 
     iget-boolean v3, v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl$OutputConfigurationParamsApi24;->mIsShared:Z
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_25
 
     iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl$OutputConfigurationParamsApi24;->mPhysicalCameraId:Ljava/lang/String;
 
@@ -102,22 +102,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_25
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     nop
 
     .line 120
-    :goto_0
+    :goto_26
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 128
     const/4 v0, 0x1
@@ -153,20 +153,20 @@
     .line 135
     iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl$OutputConfigurationParamsApi24;->mPhysicalCameraId:Ljava/lang/String;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1c
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_1c
     iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl$OutputConfigurationParamsApi24;->mPhysicalCameraId:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v2
 
-    :goto_0
+    :goto_22
     xor-int v0, v1, v2
 
     .line 137

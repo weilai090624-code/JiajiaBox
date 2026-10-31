@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,14 +57,14 @@
 .end method
 
 .method private static addInfoFromAnimator(Lcom/google/android/material/animation/MotionSpec;Landroid/animation/Animator;)V
-    .locals 3
+    .registers 5
     .param p0, "spec"    # Lcom/google/android/material/animation/MotionSpec;
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 215
     instance-of v0, p1, Landroid/animation/ObjectAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 216
     move-object v0, p1
@@ -102,7 +102,7 @@
     return-void
 
     .line 220
-    :cond_0
+    :cond_1f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -129,7 +129,7 @@
 .end method
 
 .method private clonePropertyValuesHolder([Landroid/animation/PropertyValuesHolder;)[Landroid/animation/PropertyValuesHolder;
-    .locals 3
+    .registers 5
     .param p1, "values"    # [Landroid/animation/PropertyValuesHolder;
 
     .line 128
@@ -142,10 +142,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_4
     array-length v2, p1
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_12
 
     .line 130
     aget-object v2, p1, v1
@@ -159,16 +159,16 @@
     .line 129
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 132
     .end local v1    # "i":I
-    :cond_0
+    :cond_12
     return-object v0
 .end method
 
 .method public static createFromAttribute(Landroid/content/Context;Landroid/content/res/TypedArray;I)Lcom/google/android/material/animation/MotionSpec;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributes"    # Landroid/content/res/TypedArray;
     .param p2, "index"    # I
@@ -178,7 +178,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 176
     const/4 v0, 0x0
@@ -189,7 +189,7 @@
 
     .line 177
     .local v0, "resourceId":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 178
     invoke-static {p0, v0}, Lcom/google/android/material/animation/MotionSpec;->createFromResource(Landroid/content/Context;I)Lcom/google/android/material/animation/MotionSpec;
@@ -200,21 +200,21 @@
 
     .line 181
     .end local v0    # "resourceId":I
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public static createFromResource(Landroid/content/Context;I)Lcom/google/android/material/animation/MotionSpec;
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "id"    # I
 
     .line 188
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-static {p0, p1}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
     move-result-object v1
@@ -223,7 +223,7 @@
     .local v1, "animator":Landroid/animation/Animator;
     instance-of v2, v1, Landroid/animation/AnimatorSet;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     .line 190
     move-object v2, v1
@@ -244,8 +244,8 @@
 
     .line 192
     .end local v2    # "set":Landroid/animation/AnimatorSet;
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_15
+    if-eqz v1, :cond_24
 
     .line 193
     new-instance v2, Ljava/util/ArrayList;
@@ -260,19 +260,19 @@
     invoke-static {v2}, Lcom/google/android/material/animation/MotionSpec;->createSpecFromAnimators(Ljava/util/List;)Lcom/google/android/material/animation/MotionSpec;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_23
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_23} :catch_25
 
     return-object v0
 
     .line 197
     .end local v2    # "animators":Ljava/util/List;, "Ljava/util/List<Landroid/animation/Animator;>;"
-    :cond_1
+    :cond_24
     return-object v0
 
     .line 199
     .end local v1    # "animator":Landroid/animation/Animator;
-    :catch_0
+    :catch_25
     move-exception v1
 
     .line 200
@@ -308,7 +308,7 @@
 .end method
 
 .method private static createSpecFromAnimators(Ljava/util/List;)Lcom/google/android/material/animation/MotionSpec;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -335,8 +335,8 @@
     move-result v2
 
     .local v2, "count":I
-    :goto_0
-    if-ge v1, v2, :cond_0
+    :goto_a
+    if-ge v1, v2, :cond_18
 
     .line 209
     invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -350,23 +350,23 @@
     .line 208
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 211
     .end local v1    # "i":I
     .end local v2    # "count":I
-    :cond_0
+    :cond_18
     return-object v0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 226
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 227
     const/4 v0, 0x1
@@ -374,10 +374,10 @@
     return v0
 
     .line 229
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/android/material/animation/MotionSpec;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a
 
     .line 230
     const/4 v0, 0x0
@@ -385,7 +385,7 @@
     return v0
 
     .line 233
-    :cond_1
+    :cond_a
     move-object v0, p1
 
     check-cast v0, Lcom/google/android/material/animation/MotionSpec;
@@ -404,7 +404,7 @@
 .end method
 
 .method public getAnimator(Ljava/lang/String;Ljava/lang/Object;Landroid/util/Property;)Landroid/animation/ObjectAnimator;
-    .locals 2
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -449,7 +449,7 @@
 .end method
 
 .method public getPropertyValues(Ljava/lang/String;)[Landroid/animation/PropertyValuesHolder;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 110
@@ -457,7 +457,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 113
     iget-object v0, p0, Lcom/google/android/material/animation/MotionSpec;->propertyValues:Landroidx/collection/SimpleArrayMap;
@@ -475,7 +475,7 @@
     return-object v0
 
     .line 111
-    :cond_0
+    :cond_13
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -484,7 +484,7 @@
 .end method
 
 .method public getTiming(Ljava/lang/String;)Lcom/google/android/material/animation/MotionTiming;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 84
@@ -492,7 +492,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 87
     iget-object v0, p0, Lcom/google/android/material/animation/MotionSpec;->timings:Landroidx/collection/SimpleArrayMap;
@@ -506,7 +506,7 @@
     return-object v0
 
     .line 85
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -515,7 +515,7 @@
 .end method
 
 .method public getTotalDuration()J
-    .locals 9
+    .registers 10
 
     .line 160
     const-wide/16 v0, 0x0
@@ -532,8 +532,8 @@
     move-result v3
 
     .local v3, "count":I
-    :goto_0
-    if-ge v2, v3, :cond_0
+    :goto_9
+    if-ge v2, v3, :cond_23
 
     .line 162
     iget-object v4, p0, Lcom/google/android/material/animation/MotionSpec;->timings:Landroidx/collection/SimpleArrayMap;
@@ -564,17 +564,17 @@
     .end local v4    # "timing":Lcom/google/android/material/animation/MotionTiming;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 165
     .end local v2    # "i":I
     .end local v3    # "count":I
-    :cond_0
+    :cond_23
     return-wide v0
 .end method
 
 .method public hasPropertyValues(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 99
@@ -584,21 +584,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public hasTiming(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 76
@@ -608,21 +608,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 240
     iget-object v0, p0, Lcom/google/android/material/animation/MotionSpec;->timings:Landroidx/collection/SimpleArrayMap;
@@ -635,7 +635,7 @@
 .end method
 
 .method public setPropertyValues(Ljava/lang/String;[Landroid/animation/PropertyValuesHolder;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "values"    # [Landroid/animation/PropertyValuesHolder;
 
@@ -649,7 +649,7 @@
 .end method
 
 .method public setTiming(Ljava/lang/String;Lcom/google/android/material/animation/MotionTiming;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "timing"    # Lcom/google/android/material/animation/MotionTiming;
 
@@ -663,7 +663,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 246
     new-instance v0, Ljava/lang/StringBuilder;

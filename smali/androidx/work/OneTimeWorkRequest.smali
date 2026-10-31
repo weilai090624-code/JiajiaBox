@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/work/OneTimeWorkRequest$Companion;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/OneTimeWorkRequest$Builder;)V
-    .locals 3
+    .registers 5
     .param p1, "builder"    # Landroidx/work/OneTimeWorkRequest$Builder;
 
     const-string v0, "builder"
@@ -82,7 +82,7 @@
 .end method
 
 .method public static final from(Ljava/lang/Class;)Landroidx/work/OneTimeWorkRequest;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,7 +107,7 @@
 .end method
 
 .method public static final from(Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

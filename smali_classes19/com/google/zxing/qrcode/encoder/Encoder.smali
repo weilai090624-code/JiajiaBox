@@ -11,20 +11,20 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 41
     const/16 v0, 0x60
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_a
 
     sput-object v0, Lcom/google/zxing/qrcode/encoder/Encoder;->ALPHANUMERIC_TABLE:[I
 
     return-void
 
-    :array_0
+    :array_a
     .array-data 4
         -0x1
         -0x1
@@ -126,7 +126,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -136,7 +136,7 @@
 .end method
 
 .method static append8BitBytes(Ljava/lang/String;Lcom/google/zxing/common/BitArray;Ljava/lang/String;)V
-    .locals 5
+    .registers 8
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "bits"    # Lcom/google/zxing/common/BitArray;
     .param p2, "encoding"    # Ljava/lang/String;
@@ -151,8 +151,8 @@
     invoke-virtual {p0, p2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_4} :catch_14
 
     .line 579
     .local v0, "bytes":[B
@@ -163,8 +163,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_7
+    if-ge v2, v1, :cond_13
 
     aget-byte v3, v0, v2
 
@@ -178,15 +178,15 @@
     .end local v3    # "b":B
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 583
-    :cond_0
+    :cond_13
     return-void
 
     .line 577
     .end local v0    # "bytes":[B
-    :catch_0
+    :catch_14
     move-exception v0
 
     .line 578
@@ -199,7 +199,7 @@
 .end method
 
 .method static appendAlphanumericBytes(Ljava/lang/CharSequence;Lcom/google/zxing/common/BitArray;)V
-    .locals 6
+    .registers 8
     .param p0, "content"    # Ljava/lang/CharSequence;
     .param p1, "bits"    # Lcom/google/zxing/common/BitArray;
     .annotation system Ldalvik/annotation/Throws;
@@ -223,8 +223,8 @@
     const/4 v3, 0x0
 
     .line 551
-    :goto_0
-    if-ge v1, v0, :cond_3
+    :goto_7
+    if-ge v1, v0, :cond_46
 
     .line 552
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -241,12 +241,12 @@
 
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_2
+    if-eq v4, v5, :cond_40
 
     .line 556
     add-int/lit8 v4, v1, 0x1
 
-    if-ge v4, v0, :cond_1
+    if-ge v4, v0, :cond_38
 
     .line 557
     add-int/lit8 v4, v1, 0x1
@@ -263,7 +263,7 @@
     .local v3, "code2":I
     move v3, v4
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_32
 
     .line 562
     mul-int/lit8 v4, v2, 0x2d
@@ -281,11 +281,11 @@
     add-int/lit8 v1, v1, 0x2
 
     .line 564
-    goto :goto_0
+    goto :goto_7
 
     .line 559
     .restart local v3    # "code2":I
-    :cond_0
+    :cond_32
     new-instance v4, Lcom/google/zxing/WriterException;
 
     invoke-direct {v4}, Lcom/google/zxing/WriterException;-><init>()V
@@ -294,7 +294,7 @@
 
     .line 566
     .end local v3    # "code2":I
-    :cond_1
+    :cond_38
     const/4 v4, 0x6
 
     invoke-virtual {p1, v2, v4}, Lcom/google/zxing/common/BitArray;->appendBits(II)V
@@ -306,11 +306,11 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 569
-    goto :goto_0
+    goto :goto_7
 
     .line 554
     .restart local v2    # "code1":I
-    :cond_2
+    :cond_40
     new-instance v3, Lcom/google/zxing/WriterException;
 
     invoke-direct {v3}, Lcom/google/zxing/WriterException;-><init>()V
@@ -319,12 +319,12 @@
 
     .line 570
     .end local v2    # "code1":I
-    :cond_3
+    :cond_46
     return-void
 .end method
 
 .method static appendBytes(Ljava/lang/String;Lcom/google/zxing/qrcode/decoder/Mode;Lcom/google/zxing/common/BitArray;Ljava/lang/String;)V
-    .locals 3
+    .registers 7
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "mode"    # Lcom/google/zxing/qrcode/decoder/Mode;
     .param p2, "bits"    # Lcom/google/zxing/common/BitArray;
@@ -344,7 +344,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2c
 
     .line 520
     new-instance v0, Lcom/google/zxing/WriterException;
@@ -364,28 +364,28 @@
     throw v0
 
     .line 517
-    :pswitch_0
+    :pswitch_1b
     invoke-static {p0, p2}, Lcom/google/zxing/qrcode/encoder/Encoder;->appendKanjiBytes(Ljava/lang/String;Lcom/google/zxing/common/BitArray;)V
 
     .line 518
     return-void
 
     .line 514
-    :pswitch_1
+    :pswitch_1f
     invoke-static {p0, p2, p3}, Lcom/google/zxing/qrcode/encoder/Encoder;->append8BitBytes(Ljava/lang/String;Lcom/google/zxing/common/BitArray;Ljava/lang/String;)V
 
     .line 515
     return-void
 
     .line 511
-    :pswitch_2
+    :pswitch_23
     invoke-static {p0, p2}, Lcom/google/zxing/qrcode/encoder/Encoder;->appendAlphanumericBytes(Ljava/lang/CharSequence;Lcom/google/zxing/common/BitArray;)V
 
     .line 512
     return-void
 
     .line 508
-    :pswitch_3
+    :pswitch_27
     invoke-static {p0, p2}, Lcom/google/zxing/qrcode/encoder/Encoder;->appendNumericBytes(Ljava/lang/CharSequence;Lcom/google/zxing/common/BitArray;)V
 
     .line 509
@@ -393,17 +393,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_27
+        :pswitch_23
+        :pswitch_1f
+        :pswitch_1b
     .end packed-switch
 .end method
 
 .method private static appendECI(Lcom/google/zxing/common/CharacterSetECI;Lcom/google/zxing/common/BitArray;)V
-    .locals 2
+    .registers 4
     .param p0, "eci"    # Lcom/google/zxing/common/CharacterSetECI;
     .param p1, "bits"    # Lcom/google/zxing/common/BitArray;
 
@@ -432,7 +432,7 @@
 .end method
 
 .method static appendKanjiBytes(Ljava/lang/String;Lcom/google/zxing/common/BitArray;)V
-    .locals 9
+    .registers 11
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "bits"    # Lcom/google/zxing/common/BitArray;
     .annotation system Ldalvik/annotation/Throws;
@@ -448,8 +448,8 @@
     invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_6} :catch_50
 
     .line 591
     .local v0, "bytes":[B
@@ -463,8 +463,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_3
+    :goto_9
+    if-ge v2, v1, :cond_4f
 
     .line 594
     aget-byte v3, v0, v2
@@ -493,26 +493,26 @@
     .local v6, "subtracted":I
     const v7, 0x8140
 
-    if-lt v5, v7, :cond_0
+    if-lt v5, v7, :cond_26
 
     const v8, 0x9ffc
 
-    if-gt v5, v8, :cond_0
+    if-gt v5, v8, :cond_26
 
     .line 599
     sub-int v6, v5, v7
 
-    goto :goto_1
+    goto :goto_35
 
     .line 600
-    :cond_0
+    :cond_26
     const v7, 0xe040
 
-    if-lt v5, v7, :cond_1
+    if-lt v5, v7, :cond_35
 
     const v7, 0xebbf
 
-    if-gt v5, v7, :cond_1
+    if-gt v5, v7, :cond_35
 
     .line 601
     const v7, 0xc140
@@ -520,11 +520,11 @@
     sub-int v6, v5, v7
 
     .line 603
-    :cond_1
-    :goto_1
+    :cond_35
+    :goto_35
     const/4 v7, -0x1
 
-    if-eq v6, v7, :cond_2
+    if-eq v6, v7, :cond_47
 
     .line 606
     shr-int/lit8 v7, v6, 0x8
@@ -549,14 +549,14 @@
     .end local v7    # "encoded":I
     add-int/lit8 v2, v2, 0x2
 
-    goto :goto_0
+    goto :goto_9
 
     .line 604
     .restart local v3    # "byte1":I
     .restart local v4    # "byte2":I
     .restart local v5    # "code":I
     .restart local v6    # "subtracted":I
-    :cond_2
+    :cond_47
     new-instance v7, Lcom/google/zxing/WriterException;
 
     const-string v8, "Invalid byte sequence"
@@ -571,13 +571,13 @@
     .end local v4    # "byte2":I
     .end local v5    # "code":I
     .end local v6    # "subtracted":I
-    :cond_3
+    :cond_4f
     return-void
 
     .line 589
     .end local v0    # "bytes":[B
     .end local v1    # "length":I
-    :catch_0
+    :catch_50
     move-exception v0
 
     .line 590
@@ -590,7 +590,7 @@
 .end method
 
 .method static appendLengthInfo(ILcom/google/zxing/qrcode/decoder/Version;Lcom/google/zxing/qrcode/decoder/Mode;Lcom/google/zxing/common/BitArray;)V
-    .locals 5
+    .registers 9
     .param p0, "numLetters"    # I
     .param p1, "version"    # Lcom/google/zxing/qrcode/decoder/Version;
     .param p2, "mode"    # Lcom/google/zxing/qrcode/decoder/Mode;
@@ -612,7 +612,7 @@
 
     shl-int v2, v1, v0
 
-    if-ge p0, v2, :cond_0
+    if-ge p0, v2, :cond_d
 
     .line 496
     invoke-virtual {p3, p0, v0}, Lcom/google/zxing/common/BitArray;->appendBits(II)V
@@ -621,7 +621,7 @@
     return-void
 
     .line 494
-    :cond_0
+    :cond_d
     new-instance v2, Lcom/google/zxing/WriterException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -656,7 +656,7 @@
 .end method
 
 .method static appendModeInfo(Lcom/google/zxing/qrcode/decoder/Mode;Lcom/google/zxing/common/BitArray;)V
-    .locals 2
+    .registers 4
     .param p0, "mode"    # Lcom/google/zxing/qrcode/decoder/Mode;
     .param p1, "bits"    # Lcom/google/zxing/common/BitArray;
 
@@ -674,7 +674,7 @@
 .end method
 
 .method static appendNumericBytes(Ljava/lang/CharSequence;Lcom/google/zxing/common/BitArray;)V
-    .locals 7
+    .registers 9
     .param p0, "content"    # Ljava/lang/CharSequence;
     .param p1, "bits"    # Lcom/google/zxing/common/BitArray;
 
@@ -689,8 +689,8 @@
 
     .line 527
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_5
+    if-ge v1, v0, :cond_4f
 
     .line 528
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -703,7 +703,7 @@
     .local v2, "num1":I
     add-int/lit8 v3, v1, 0x2
 
-    if-ge v3, v0, :cond_0
+    if-ge v3, v0, :cond_30
 
     .line 531
     add-int/lit8 v3, v1, 0x1
@@ -746,12 +746,12 @@
     add-int/lit8 v1, v1, 0x3
 
     .line 535
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_30
     add-int/lit8 v3, v1, 0x1
 
-    if-ge v3, v0, :cond_1
+    if-ge v3, v0, :cond_47
 
     .line 537
     add-int/lit8 v3, v1, 0x1
@@ -779,10 +779,10 @@
     add-int/lit8 v1, v1, 0x2
 
     .line 540
-    goto :goto_0
+    goto :goto_5
 
     .line 542
-    :cond_1
+    :cond_47
     const/4 v3, 0x4
 
     invoke-virtual {p1, v2, v3}, Lcom/google/zxing/common/BitArray;->appendBits(II)V
@@ -794,15 +794,15 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 545
-    goto :goto_0
+    goto :goto_5
 
     .line 546
-    :cond_2
+    :cond_4f
     return-void
 .end method
 
 .method private static calculateBitsNeeded(Lcom/google/zxing/qrcode/decoder/Mode;Lcom/google/zxing/common/BitArray;Lcom/google/zxing/common/BitArray;Lcom/google/zxing/qrcode/decoder/Version;)I
-    .locals 2
+    .registers 6
     .param p0, "mode"    # Lcom/google/zxing/qrcode/decoder/Mode;
     .param p1, "headerBits"    # Lcom/google/zxing/common/BitArray;
     .param p2, "dataBits"    # Lcom/google/zxing/common/BitArray;
@@ -829,7 +829,7 @@
 .end method
 
 .method private static calculateMaskPenalty(Lcom/google/zxing/qrcode/encoder/ByteMatrix;)I
-    .locals 2
+    .registers 3
     .param p0, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
 
     .line 58
@@ -863,7 +863,7 @@
 .end method
 
 .method private static chooseMaskPattern(Lcom/google/zxing/common/BitArray;Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;Lcom/google/zxing/qrcode/decoder/Version;Lcom/google/zxing/qrcode/encoder/ByteMatrix;)I
-    .locals 5
+    .registers 9
     .param p0, "bits"    # Lcom/google/zxing/common/BitArray;
     .param p1, "ecLevel"    # Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
     .param p2, "version"    # Lcom/google/zxing/qrcode/decoder/Version;
@@ -888,10 +888,10 @@
     .local v2, "maskPattern":I
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_6
     const/16 v4, 0x8
 
-    if-ge v2, v4, :cond_1
+    if-ge v2, v4, :cond_19
 
     .line 269
     invoke-static {p0, p1, p2, v2, p3}, Lcom/google/zxing/qrcode/encoder/MatrixUtil;->buildMatrix(Lcom/google/zxing/common/BitArray;Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;Lcom/google/zxing/qrcode/decoder/Version;ILcom/google/zxing/qrcode/encoder/ByteMatrix;)V
@@ -905,7 +905,7 @@
     .local v3, "penalty":I
     move v3, v4
 
-    if-ge v4, v0, :cond_0
+    if-ge v4, v0, :cond_16
 
     .line 272
     move v0, v3
@@ -915,19 +915,19 @@
 
     .line 268
     .end local v3    # "penalty":I
-    :cond_0
+    :cond_16
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 276
     .end local v2    # "maskPattern":I
-    :cond_1
+    :cond_19
     return v1
 .end method
 
 .method public static chooseMode(Ljava/lang/String;)Lcom/google/zxing/qrcode/decoder/Mode;
-    .locals 1
+    .registers 2
     .param p0, "content"    # Ljava/lang/String;
 
     .line 207
@@ -941,7 +941,7 @@
 .end method
 
 .method private static chooseMode(Ljava/lang/String;Ljava/lang/String;)Lcom/google/zxing/qrcode/decoder/Mode;
-    .locals 6
+    .registers 8
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "encoding"    # Ljava/lang/String;
 
@@ -952,13 +952,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-static {p0}, Lcom/google/zxing/qrcode/encoder/Encoder;->isOnlyDoubleByteKanji(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 217
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->KANJI:Lcom/google/zxing/qrcode/decoder/Mode;
@@ -966,7 +966,7 @@
     return-object v0
 
     .line 219
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .line 220
@@ -980,12 +980,12 @@
     .local v2, "i":I
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_15
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    if-ge v2, v4, :cond_3
+    if-ge v2, v4, :cond_38
 
     .line 222
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
@@ -998,47 +998,47 @@
 
     const/16 v5, 0x30
 
-    if-lt v4, v5, :cond_1
+    if-lt v4, v5, :cond_2a
 
     const/16 v4, 0x39
 
-    if-gt v3, v4, :cond_1
+    if-gt v3, v4, :cond_2a
 
     .line 224
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_32
 
     .line 225
-    :cond_1
+    :cond_2a
     invoke-static {v3}, Lcom/google/zxing/qrcode/encoder/Encoder;->getAlphanumericCode(I)I
 
     move-result v4
 
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_2
+    if-eq v4, v5, :cond_35
 
     .line 226
     const/4 v1, 0x1
 
     .line 221
     .end local v3    # "c":C
-    :goto_1
+    :goto_32
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 228
-    :cond_2
+    :cond_35
     sget-object v4, Lcom/google/zxing/qrcode/decoder/Mode;->BYTE:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v4
 
     .line 231
     .end local v2    # "i":I
-    :cond_3
-    if-eqz v1, :cond_4
+    :cond_38
+    if-eqz v1, :cond_3d
 
     .line 232
     sget-object v2, Lcom/google/zxing/qrcode/decoder/Mode;->ALPHANUMERIC:Lcom/google/zxing/qrcode/decoder/Mode;
@@ -1046,8 +1046,8 @@
     return-object v2
 
     .line 234
-    :cond_4
-    if-eqz v0, :cond_5
+    :cond_3d
+    if-eqz v0, :cond_42
 
     .line 235
     sget-object v2, Lcom/google/zxing/qrcode/decoder/Mode;->NUMERIC:Lcom/google/zxing/qrcode/decoder/Mode;
@@ -1055,14 +1055,14 @@
     return-object v2
 
     .line 237
-    :cond_5
+    :cond_42
     sget-object v2, Lcom/google/zxing/qrcode/decoder/Mode;->BYTE:Lcom/google/zxing/qrcode/decoder/Mode;
 
     return-object v2
 .end method
 
 .method private static chooseVersion(ILcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;)Lcom/google/zxing/qrcode/decoder/Version;
-    .locals 3
+    .registers 5
     .param p0, "numInputBits"    # I
     .param p1, "ecLevel"    # Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
     .annotation system Ldalvik/annotation/Throws;
@@ -1075,10 +1075,10 @@
     const/4 v0, 0x1
 
     .local v0, "versionNum":I
-    :goto_0
+    :goto_1
     const/16 v1, 0x28
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_13
 
     .line 281
     invoke-static {v0}, Lcom/google/zxing/qrcode/decoder/Version;->getVersionForNumber(I)Lcom/google/zxing/qrcode/decoder/Version;
@@ -1091,21 +1091,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_10
 
     .line 283
     return-object v1
 
     .line 280
     .end local v1    # "version":Lcom/google/zxing/qrcode/decoder/Version;
-    :cond_0
+    :cond_10
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 286
     .end local v0    # "versionNum":I
-    :cond_1
+    :cond_13
     new-instance v0, Lcom/google/zxing/WriterException;
 
     const-string v1, "Data too big"
@@ -1116,7 +1116,7 @@
 .end method
 
 .method public static encode(Ljava/lang/String;Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;)Lcom/google/zxing/qrcode/encoder/QRCode;
-    .locals 1
+    .registers 3
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "ecLevel"    # Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
     .annotation system Ldalvik/annotation/Throws;
@@ -1136,7 +1136,7 @@
 .end method
 
 .method public static encode(Ljava/lang/String;Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;Ljava/util/Map;)Lcom/google/zxing/qrcode/encoder/QRCode;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1163,7 +1163,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_f
 
     sget-object v2, Lcom/google/zxing/EncodeHintType;->CHARACTER_SET:Lcom/google/zxing/EncodeHintType;
 
@@ -1171,18 +1171,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_f
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v2, 0x0
 
     .line 82
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_10
+    if-eqz v2, :cond_1d
 
     .line 83
     sget-object v3, Lcom/google/zxing/EncodeHintType;->CHARACTER_SET:Lcom/google/zxing/EncodeHintType;
@@ -1195,14 +1195,14 @@
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 82
-    :cond_1
+    :cond_1d
     const-string v3, "ISO-8859-1"
 
     .line 88
-    :goto_1
+    :goto_1f
     invoke-static {p0, v3}, Lcom/google/zxing/qrcode/encoder/Encoder;->chooseMode(Ljava/lang/String;Ljava/lang/String;)Lcom/google/zxing/qrcode/decoder/Mode;
 
     move-result-object v4
@@ -1215,9 +1215,9 @@
     .line 95
     sget-object v6, Lcom/google/zxing/qrcode/decoder/Mode;->BYTE:Lcom/google/zxing/qrcode/decoder/Mode;
 
-    if-ne v4, v6, :cond_2
+    if-ne v4, v6, :cond_37
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_37
 
     .line 96
     invoke-static {v3}, Lcom/google/zxing/common/CharacterSetECI;->getCharacterSetECIByName(Ljava/lang/String;)Lcom/google/zxing/common/CharacterSetECI;
@@ -1225,14 +1225,14 @@
     move-result-object v2
 
     .line 97
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_37
 
     .line 98
     invoke-static {v2, v5}, Lcom/google/zxing/qrcode/encoder/Encoder;->appendECI(Lcom/google/zxing/common/CharacterSetECI;Lcom/google/zxing/common/BitArray;)V
 
     .line 103
-    :cond_2
-    if-eqz p2, :cond_3
+    :cond_37
+    if-eqz p2, :cond_42
 
     sget-object v2, Lcom/google/zxing/EncodeHintType;->GS1_FORMAT:Lcom/google/zxing/EncodeHintType;
 
@@ -1240,16 +1240,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_42
 
-    goto :goto_2
+    goto :goto_43
 
-    :cond_3
+    :cond_42
     const/4 v0, 0x0
 
     .line 104
-    :goto_2
-    if-eqz v0, :cond_4
+    :goto_43
+    if-eqz v0, :cond_5e
 
     sget-object v0, Lcom/google/zxing/EncodeHintType;->GS1_FORMAT:Lcom/google/zxing/EncodeHintType;
 
@@ -1269,7 +1269,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5e
 
     .line 106
     sget-object v0, Lcom/google/zxing/qrcode/decoder/Mode;->FNC1_FIRST_POSITION:Lcom/google/zxing/qrcode/decoder/Mode;
@@ -1277,7 +1277,7 @@
     invoke-static {v0, v5}, Lcom/google/zxing/qrcode/encoder/Encoder;->appendModeInfo(Lcom/google/zxing/qrcode/decoder/Mode;Lcom/google/zxing/common/BitArray;)V
 
     .line 110
-    :cond_4
+    :cond_5e
     invoke-static {v4, v5}, Lcom/google/zxing/qrcode/encoder/Encoder;->appendModeInfo(Lcom/google/zxing/qrcode/decoder/Mode;Lcom/google/zxing/common/BitArray;)V
 
     .line 114
@@ -1289,7 +1289,7 @@
     invoke-static {p0, v4, v0, v3}, Lcom/google/zxing/qrcode/encoder/Encoder;->appendBytes(Ljava/lang/String;Lcom/google/zxing/qrcode/decoder/Mode;Lcom/google/zxing/common/BitArray;Ljava/lang/String;)V
 
     .line 118
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_98
 
     sget-object v1, Lcom/google/zxing/EncodeHintType;->QR_VERSION:Lcom/google/zxing/EncodeHintType;
 
@@ -1297,7 +1297,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_98
 
     .line 119
     sget-object v1, Lcom/google/zxing/EncodeHintType;->QR_VERSION:Lcom/google/zxing/EncodeHintType;
@@ -1329,13 +1329,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_90
 
     .line 125
-    goto :goto_3
+    goto :goto_9c
 
     .line 123
-    :cond_5
+    :cond_90
     new-instance p0, Lcom/google/zxing/WriterException;
 
     const-string p1, "Data too big for requested version"
@@ -1345,13 +1345,13 @@
     throw p0
 
     .line 126
-    :cond_6
+    :cond_98
     invoke-static {p1, v4, v5, v0}, Lcom/google/zxing/qrcode/encoder/Encoder;->recommendVersion(Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;Lcom/google/zxing/qrcode/decoder/Mode;Lcom/google/zxing/common/BitArray;Lcom/google/zxing/common/BitArray;)Lcom/google/zxing/qrcode/decoder/Version;
 
     move-result-object p2
 
     .line 129
-    :goto_3
+    :goto_9c
     new-instance v1, Lcom/google/zxing/common/BitArray;
 
     invoke-direct {v1}, Lcom/google/zxing/common/BitArray;-><init>()V
@@ -1362,21 +1362,21 @@
     .line 132
     sget-object v2, Lcom/google/zxing/qrcode/decoder/Mode;->BYTE:Lcom/google/zxing/qrcode/decoder/Mode;
 
-    if-ne v4, v2, :cond_7
+    if-ne v4, v2, :cond_ad
 
     invoke-virtual {v0}, Lcom/google/zxing/common/BitArray;->getSizeInBytes()I
 
     move-result p0
 
-    goto :goto_4
+    goto :goto_b1
 
-    :cond_7
+    :cond_ad
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p0
 
     .line 133
-    :goto_4
+    :goto_b1
     invoke-static {p0, p2, v4, v1}, Lcom/google/zxing/qrcode/encoder/Encoder;->appendLengthInfo(ILcom/google/zxing/qrcode/decoder/Version;Lcom/google/zxing/qrcode/decoder/Mode;Lcom/google/zxing/common/BitArray;)V
 
     .line 135
@@ -1462,7 +1462,7 @@
 .end method
 
 .method static generateECBytes([BI)[B
-    .locals 5
+    .registers 7
     .param p0, "dataBytes"    # [B
     .param p1, "numEcBytesInBlock"    # I
 
@@ -1484,8 +1484,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_7
+    if-ge v2, v1, :cond_12
 
     .line 469
     aget-byte v3, p0, v2
@@ -1497,11 +1497,11 @@
     .line 468
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 471
     .end local v2    # "i":I
-    :cond_0
+    :cond_12
     new-instance v2, Lcom/google/zxing/common/reedsolomon/ReedSolomonEncoder;
 
     sget-object v3, Lcom/google/zxing/common/reedsolomon/GenericGF;->QR_CODE_FIELD_256:Lcom/google/zxing/common/reedsolomon/GenericGF;
@@ -1518,8 +1518,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, p1, :cond_1
+    :goto_1f
+    if-ge v3, p1, :cond_2b
 
     .line 475
     add-int v4, v1, v3
@@ -1533,16 +1533,16 @@
     .line 474
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 477
     .end local v3    # "i":I
-    :cond_1
+    :cond_2b
     return-object v2
 .end method
 
 .method static getAlphanumericCode(I)I
-    .locals 1
+    .registers 2
     .param p0, "code"    # I
 
     .line 200
@@ -1550,7 +1550,7 @@
 
     array-length v0, v0
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_a
 
     .line 201
     sget-object v0, Lcom/google/zxing/qrcode/encoder/Encoder;->ALPHANUMERIC_TABLE:[I
@@ -1560,14 +1560,14 @@
     return v0
 
     .line 203
-    :cond_0
+    :cond_a
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method static getNumDataBytesAndNumECBytesForBlockID(IIII[I[I)V
-    .locals 10
+    .registers 16
     .param p0, "numTotalBytes"    # I
     .param p1, "numDataBytes"    # I
     .param p2, "numRSBlocks"    # I
@@ -1581,7 +1581,7 @@
     .end annotation
 
     .line 347
-    if-ge p3, p2, :cond_4
+    if-ge p3, p2, :cond_4c
 
     .line 351
     rem-int v0, p0, p2
@@ -1624,12 +1624,12 @@
 
     .line 368
     .local v7, "numEcBytesInGroup2":I
-    if-ne v6, v7, :cond_3
+    if-ne v6, v7, :cond_44
 
     .line 372
     add-int v8, v1, v0
 
-    if-ne p2, v8, :cond_2
+    if-ne p2, v8, :cond_3c
 
     .line 376
     add-int v8, v3, v6
@@ -1642,12 +1642,12 @@
 
     add-int/2addr v8, v9
 
-    if-ne p0, v8, :cond_1
+    if-ne p0, v8, :cond_34
 
     .line 384
     const/4 v8, 0x0
 
-    if-ge p3, v1, :cond_0
+    if-ge p3, v1, :cond_2f
 
     .line 385
     aput v3, p4, v8
@@ -1658,7 +1658,7 @@
     return-void
 
     .line 388
-    :cond_0
+    :cond_2f
     aput v5, p4, v8
 
     .line 389
@@ -1668,7 +1668,7 @@
     return-void
 
     .line 381
-    :cond_1
+    :cond_34
     new-instance v8, Lcom/google/zxing/WriterException;
 
     const-string v9, "Total bytes mismatch"
@@ -1678,7 +1678,7 @@
     throw v8
 
     .line 373
-    :cond_2
+    :cond_3c
     new-instance v8, Lcom/google/zxing/WriterException;
 
     const-string v9, "RS blocks mismatch"
@@ -1688,7 +1688,7 @@
     throw v8
 
     .line 369
-    :cond_3
+    :cond_44
     new-instance v8, Lcom/google/zxing/WriterException;
 
     const-string v9, "EC bytes mismatch"
@@ -1706,7 +1706,7 @@
     .end local v5    # "numDataBytesInGroup2":I
     .end local v6    # "numEcBytesInGroup1":I
     .end local v7    # "numEcBytesInGroup2":I
-    :cond_4
+    :cond_4c
     new-instance v0, Lcom/google/zxing/WriterException;
 
     const-string v1, "Block ID too large"
@@ -1717,7 +1717,7 @@
 .end method
 
 .method static interleaveWithECBytes(Lcom/google/zxing/common/BitArray;III)Lcom/google/zxing/common/BitArray;
-    .locals 17
+    .registers 21
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/WriterException;
@@ -1735,7 +1735,7 @@
 
     move-result v0
 
-    if-ne v0, v7, :cond_9
+    if-ne v0, v7, :cond_dc
 
     .line 409
     nop
@@ -1762,8 +1762,8 @@
 
     const/4 v14, 0x0
 
-    :goto_0
-    if-ge v11, v8, :cond_0
+    :goto_19
+    if-ge v11, v8, :cond_55
 
     .line 417
     const/4 v0, 0x1
@@ -1835,11 +1835,11 @@
     .line 416
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 433
-    :cond_0
-    if-ne v7, v12, :cond_8
+    :cond_55
+    if-ne v7, v12, :cond_d4
 
     .line 437
     new-instance v0, Lcom/google/zxing/common/BitArray;
@@ -1849,22 +1849,22 @@
     .line 440
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_5d
     const/16 v2, 0x8
 
-    if-ge v1, v13, :cond_3
+    if-ge v1, v13, :cond_81
 
     .line 441
     invoke-interface {v9}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_2
+    :goto_65
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_7e
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1880,7 +1880,7 @@
     .line 443
     array-length v5, v4
 
-    if-ge v1, v5, :cond_1
+    if-ge v1, v5, :cond_7d
 
     .line 444
     aget-byte v4, v4, v1
@@ -1888,33 +1888,33 @@
     invoke-virtual {v0, v4, v2}, Lcom/google/zxing/common/BitArray;->appendBits(II)V
 
     .line 446
-    :cond_1
-    goto :goto_2
+    :cond_7d
+    goto :goto_65
 
     .line 440
-    :cond_2
+    :cond_7e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 449
-    :cond_3
+    :cond_81
     nop
 
-    :goto_3
-    if-ge v10, v14, :cond_6
+    :goto_82
+    if-ge v10, v14, :cond_a4
 
     .line 450
     invoke-interface {v9}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_4
+    :goto_88
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_a1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1930,7 +1930,7 @@
     .line 452
     array-length v4, v3
 
-    if-ge v10, v4, :cond_4
+    if-ge v10, v4, :cond_a0
 
     .line 453
     aget-byte v3, v3, v10
@@ -1938,28 +1938,28 @@
     invoke-virtual {v0, v3, v2}, Lcom/google/zxing/common/BitArray;->appendBits(II)V
 
     .line 455
-    :cond_4
-    goto :goto_4
+    :cond_a0
+    goto :goto_88
 
     .line 449
-    :cond_5
+    :cond_a1
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_3
+    goto :goto_82
 
     .line 457
-    :cond_6
+    :cond_a4
     invoke-virtual {v0}, Lcom/google/zxing/common/BitArray;->getSizeInBytes()I
 
     move-result v1
 
-    if-ne v6, v1, :cond_7
+    if-ne v6, v1, :cond_ab
 
     .line 462
     return-object v0
 
     .line 458
-    :cond_7
+    :cond_ab
     new-instance v1, Lcom/google/zxing/WriterException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2002,7 +2002,7 @@
     throw v1
 
     .line 434
-    :cond_8
+    :cond_d4
     new-instance v0, Lcom/google/zxing/WriterException;
 
     const-string v1, "Data bytes does not match offset"
@@ -2012,7 +2012,7 @@
     throw v0
 
     .line 404
-    :cond_9
+    :cond_dc
     new-instance v0, Lcom/google/zxing/WriterException;
 
     const-string v1, "Number of bits and data bytes does not match"
@@ -2023,19 +2023,19 @@
 .end method
 
 .method private static isOnlyDoubleByteKanji(Ljava/lang/String;)Z
-    .locals 5
+    .registers 6
 
     .line 243
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     const-string v1, "Shift_JIS"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_7} :catch_2c
 
     .line 246
     nop
@@ -2046,17 +2046,17 @@
     .line 248
     rem-int/lit8 v2, v1, 0x2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     .line 249
     return v0
 
     .line 251
-    :cond_0
+    :cond_e
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_4
+    :goto_f
+    if-ge v2, v1, :cond_2a
 
     .line 252
     aget-byte v3, p0, v2
@@ -2066,42 +2066,42 @@
     .line 253
     const/16 v4, 0x81
 
-    if-lt v3, v4, :cond_1
+    if-lt v3, v4, :cond_1d
 
     const/16 v4, 0x9f
 
-    if-le v3, v4, :cond_2
+    if-le v3, v4, :cond_26
 
-    :cond_1
+    :cond_1d
     const/16 v4, 0xe0
 
-    if-lt v3, v4, :cond_3
+    if-lt v3, v4, :cond_29
 
     const/16 v4, 0xeb
 
-    if-le v3, v4, :cond_2
+    if-le v3, v4, :cond_26
 
-    goto :goto_1
+    goto :goto_29
 
     .line 251
-    :cond_2
+    :cond_26
     add-int/lit8 v2, v2, 0x2
 
-    goto :goto_0
+    goto :goto_f
 
     .line 254
-    :cond_3
-    :goto_1
+    :cond_29
+    :goto_29
     return v0
 
     .line 257
-    :cond_4
+    :cond_2a
     const/4 p0, 0x1
 
     return p0
 
     .line 244
-    :catch_0
+    :catch_2c
     move-exception p0
 
     .line 245
@@ -2109,7 +2109,7 @@
 .end method
 
 .method private static recommendVersion(Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;Lcom/google/zxing/qrcode/decoder/Mode;Lcom/google/zxing/common/BitArray;Lcom/google/zxing/common/BitArray;)Lcom/google/zxing/qrcode/decoder/Version;
-    .locals 2
+    .registers 6
     .param p0, "ecLevel"    # Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
     .param p1, "mode"    # Lcom/google/zxing/qrcode/decoder/Mode;
     .param p2, "headerBits"    # Lcom/google/zxing/common/BitArray;
@@ -2151,7 +2151,7 @@
 .end method
 
 .method static terminateBits(ILcom/google/zxing/common/BitArray;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/WriterException;
@@ -2166,23 +2166,23 @@
 
     move-result v1
 
-    if-gt v1, v0, :cond_5
+    if-gt v1, v0, :cond_52
 
     .line 315
     const/4 v1, 0x0
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_a
     const/4 v3, 0x4
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_19
 
     invoke-virtual {p1}, Lcom/google/zxing/common/BitArray;->getSize()I
 
     move-result v3
 
-    if-ge v3, v0, :cond_0
+    if-ge v3, v0, :cond_19
 
     .line 316
     invoke-virtual {p1, v1}, Lcom/google/zxing/common/BitArray;->appendBit(Z)V
@@ -2190,10 +2190,10 @@
     .line 315
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 320
-    :cond_0
+    :cond_19
     invoke-virtual {p1}, Lcom/google/zxing/common/BitArray;->getSize()I
 
     move-result v2
@@ -2203,13 +2203,13 @@
     .line 321
     const/16 v3, 0x8
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_2c
 
     .line 322
     nop
 
-    :goto_1
-    if-ge v2, v3, :cond_1
+    :goto_24
+    if-ge v2, v3, :cond_2c
 
     .line 323
     invoke-virtual {p1, v1}, Lcom/google/zxing/common/BitArray;->appendBit(Z)V
@@ -2217,10 +2217,10 @@
     .line 322
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
     .line 327
-    :cond_1
+    :cond_2c
     invoke-virtual {p1}, Lcom/google/zxing/common/BitArray;->getSizeInBytes()I
 
     move-result v2
@@ -2230,42 +2230,42 @@
     .line 328
     nop
 
-    :goto_2
-    if-ge v1, p0, :cond_3
+    :goto_32
+    if-ge v1, p0, :cond_43
 
     .line 329
     and-int/lit8 v2, v1, 0x1
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_3b
 
     const/16 v2, 0xec
 
-    goto :goto_3
+    goto :goto_3d
 
-    :cond_2
+    :cond_3b
     const/16 v2, 0x11
 
-    :goto_3
+    :goto_3d
     invoke-virtual {p1, v2, v3}, Lcom/google/zxing/common/BitArray;->appendBits(II)V
 
     .line 328
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_32
 
     .line 331
-    :cond_3
+    :cond_43
     invoke-virtual {p1}, Lcom/google/zxing/common/BitArray;->getSize()I
 
     move-result p0
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_4a
 
     .line 334
     return-void
 
     .line 332
-    :cond_4
+    :cond_4a
     new-instance p0, Lcom/google/zxing/WriterException;
 
     const-string p1, "Bits size does not equal capacity"
@@ -2275,7 +2275,7 @@
     throw p0
 
     .line 312
-    :cond_5
+    :cond_52
     new-instance p0, Lcom/google/zxing/WriterException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2312,7 +2312,7 @@
 .end method
 
 .method private static willFit(ILcom/google/zxing/qrcode/decoder/Version;Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;)Z
-    .locals 5
+    .registers 8
     .param p0, "numInputBits"    # I
     .param p1, "version"    # Lcom/google/zxing/qrcode/decoder/Version;
     .param p2, "ecLevel"    # Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
@@ -2345,13 +2345,13 @@
 
     .line 303
     .local v3, "totalInputBytes":I
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_16
 
     const/4 v4, 0x1
 
     return v4
 
-    :cond_0
+    :cond_16
     const/4 v4, 0x0
 
     return v4

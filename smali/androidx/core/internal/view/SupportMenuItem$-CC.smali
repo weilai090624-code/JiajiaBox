@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$setContentDescription(Landroidx/core/internal/view/SupportMenuItem;Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Landroidx/core/internal/view/SupportMenuItem;
 
     .line 40
@@ -17,7 +17,7 @@
 .end method
 
 .method public static bridge synthetic $default$setTooltipText(Landroidx/core/internal/view/SupportMenuItem;Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Landroidx/core/internal/view/SupportMenuItem;
 
     .line 40

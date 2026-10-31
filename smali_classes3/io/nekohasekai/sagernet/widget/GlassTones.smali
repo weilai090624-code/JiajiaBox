@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/widget/GlassTones;
 
@@ -96,7 +96,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public final isLightTheme(Landroid/content/Context;)Z
-    .locals 10
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -133,19 +133,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 54
     iget v1, v0, Landroid/util/TypedValue;->data:I
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 56
-    :cond_0
+    :cond_1b
     const/4 v1, -0x1
 
     .line 53
-    :goto_0
+    :goto_1c
     nop
 
     .line 58
@@ -194,13 +194,13 @@
 
     cmpl-double v2, v4, v6
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_50
 
-    goto :goto_1
+    goto :goto_51
 
-    :cond_1
+    :cond_50
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_51
     return v3
 .end method

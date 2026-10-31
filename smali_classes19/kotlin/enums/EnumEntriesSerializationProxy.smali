@@ -72,7 +72,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/enums/EnumEntriesSerializationProxy$Companion;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/Enum;)V
-    .locals 1
+    .registers 3
     .param p1, "entries"    # [Ljava/lang/Enum;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -119,7 +119,7 @@
 .end method
 
 .method private final readResolve()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 20
     iget-object v0, p0, Lkotlin/enums/EnumEntriesSerializationProxy;->c:Ljava/lang/Class;

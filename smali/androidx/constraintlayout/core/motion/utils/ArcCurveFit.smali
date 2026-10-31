@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>([I[D[[D)V
-    .locals 24
+    .registers 28
     .param p1, "arcModes"    # [I
     .param p2, "time"    # [D
     .param p3, "y"    # [[D
@@ -78,64 +78,64 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_0
+    :goto_15
     iget-object v6, v0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     array-length v6, v6
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_60
 
     .line 265
     aget v6, p1, v5
 
     const/4 v7, 0x2
 
-    packed-switch v6, :pswitch_data_0
+    packed-switch v6, :pswitch_data_62
 
-    goto :goto_2
+    goto :goto_2f
 
     .line 273
-    :pswitch_0
-    if-ne v4, v2, :cond_0
+    :pswitch_21
+    if-ne v4, v2, :cond_24
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_0
+    :cond_24
     const/4 v7, 0x1
 
-    :goto_1
+    :goto_25
     move v3, v7
 
     .line 274
     move v4, v3
 
     .line 275
-    goto :goto_2
+    goto :goto_2f
 
     .line 270
-    :pswitch_1
+    :pswitch_28
     move v3, v7
 
     move v4, v7
 
     .line 271
-    goto :goto_2
+    goto :goto_2f
 
     .line 267
-    :pswitch_2
+    :pswitch_2b
     move v3, v2
 
     move v4, v2
 
     .line 268
-    goto :goto_2
+    goto :goto_2f
 
     .line 277
-    :pswitch_3
+    :pswitch_2e
     const/4 v3, 0x3
 
     .line 279
-    :goto_2
+    :goto_2f
     iget-object v14, v0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     new-instance v20, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -187,28 +187,28 @@
     .line 264
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 281
     .end local v5    # "i":I
-    :cond_1
+    :cond_60
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_62
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2e
+        :pswitch_2b
+        :pswitch_28
+        :pswitch_21
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public getPos(DI)D
-    .locals 9
+    .registers 13
     .param p1, "t"    # D
     .param p3, "j"    # I
 
@@ -217,7 +217,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_cc
 
     .line 173
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -228,7 +228,7 @@
 
     cmpg-double v0, p1, v2
 
-    if-gez v0, :cond_3
+    if-gez v0, :cond_81
 
     .line 174
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -259,10 +259,10 @@
 
     iget-boolean v5, v5, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->linear:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_50
 
     .line 178
-    if-nez p3, :cond_0
+    if-nez p3, :cond_3c
 
     .line 179
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -288,7 +288,7 @@
     return-wide v5
 
     .line 181
-    :cond_0
+    :cond_3c
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v5, v5, v4
@@ -312,7 +312,7 @@
     return-wide v5
 
     .line 183
-    :cond_1
+    :cond_50
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v5, v5, v4
@@ -320,7 +320,7 @@
     invoke-virtual {v5, v2, v3}, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->setPoint(D)V
 
     .line 184
-    if-nez p3, :cond_2
+    if-nez p3, :cond_6d
 
     .line 185
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -346,7 +346,7 @@
     return-wide v5
 
     .line 187
-    :cond_2
+    :cond_6d
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v5, v5, v4
@@ -373,7 +373,7 @@
     .end local v0    # "dt":D
     .end local v2    # "t0":D
     .end local v4    # "p":I
-    :cond_3
+    :cond_81
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -388,7 +388,7 @@
 
     cmpl-double v2, p1, v0
 
-    if-lez v2, :cond_7
+    if-lez v2, :cond_f7
 
     .line 191
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -417,7 +417,7 @@
 
     .line 194
     .restart local v4    # "p":I
-    if-nez p3, :cond_4
+    if-nez p3, :cond_b8
 
     .line 195
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -443,7 +443,7 @@
     return-wide v5
 
     .line 197
-    :cond_4
+    :cond_b8
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v5, v5, v4
@@ -470,7 +470,7 @@
     .end local v0    # "t0":D
     .end local v2    # "dt":D
     .end local v4    # "p":I
-    :cond_5
+    :cond_cc
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v0, v0, v1
@@ -479,7 +479,7 @@
 
     cmpg-double v0, p1, v2
 
-    if-gez v0, :cond_6
+    if-gez v0, :cond_dd
 
     .line 201
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -488,10 +488,10 @@
 
     iget-wide p1, v0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->mTime1:D
 
-    goto :goto_0
+    goto :goto_f7
 
     .line 202
-    :cond_6
+    :cond_dd
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -506,7 +506,7 @@
 
     cmpl-double v2, p1, v0
 
-    if-lez v2, :cond_7
+    if-lez v2, :cond_f7
 
     .line 203
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -522,17 +522,17 @@
     iget-wide p1, v0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->mTime2:D
 
     .line 207
-    :cond_7
-    :goto_0
+    :cond_f7
+    :goto_f7
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_1
+    :goto_f8
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_c
+    if-ge v0, v1, :cond_141
 
     .line 208
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -543,7 +543,7 @@
 
     cmpg-double v3, p1, v1
 
-    if-gtz v3, :cond_b
+    if-gtz v3, :cond_13e
 
     .line 210
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -552,10 +552,10 @@
 
     iget-boolean v1, v1, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->linear:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_123
 
     .line 211
-    if-nez p3, :cond_8
+    if-nez p3, :cond_11a
 
     .line 212
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -569,7 +569,7 @@
     return-wide v1
 
     .line 214
-    :cond_8
+    :cond_11a
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v1, v1, v0
@@ -581,7 +581,7 @@
     return-wide v1
 
     .line 216
-    :cond_9
+    :cond_123
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v1, v1, v0
@@ -589,7 +589,7 @@
     invoke-virtual {v1, p1, p2}, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->setPoint(D)V
 
     .line 218
-    if-nez p3, :cond_a
+    if-nez p3, :cond_135
 
     .line 219
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -603,7 +603,7 @@
     return-wide v1
 
     .line 221
-    :cond_a
+    :cond_135
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v1, v1, v0
@@ -615,21 +615,21 @@
     return-wide v1
 
     .line 207
-    :cond_b
+    :cond_13e
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_f8
 
     .line 224
     .end local v0    # "i":I
-    :cond_c
+    :cond_141
     const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
 
     return-wide v0
 .end method
 
 .method public getPos(D[D)V
-    .locals 11
+    .registers 15
     .param p1, "t"    # D
     .param p3, "v"    # [D
 
@@ -640,7 +640,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_107
 
     .line 42
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -651,7 +651,7 @@
 
     cmpg-double v0, p1, v3
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_84
 
     .line 43
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -682,7 +682,7 @@
 
     iget-boolean v7, v7, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->linear:Z
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_52
 
     .line 47
     iget-object v7, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -730,10 +730,10 @@
 
     aput-wide v7, p3, v2
 
-    goto :goto_0
+    goto :goto_83
 
     .line 50
-    :cond_0
+    :cond_52
     iget-object v7, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v7, v7, v0
@@ -787,14 +787,14 @@
     aput-wide v7, p3, v2
 
     .line 54
-    :goto_0
+    :goto_83
     return-void
 
     .line 56
     .end local v0    # "p":I
     .end local v3    # "t0":D
     .end local v5    # "dt":D
-    :cond_1
+    :cond_84
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -809,7 +809,7 @@
 
     cmpl-double v0, p1, v3
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_12f
 
     .line 57
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -844,7 +844,7 @@
 
     iget-boolean v7, v7, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->linear:Z
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_d5
 
     .line 61
     iget-object v7, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -892,10 +892,10 @@
 
     aput-wide v7, p3, v2
 
-    goto :goto_1
+    goto :goto_106
 
     .line 64
-    :cond_2
+    :cond_d5
     iget-object v7, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v7, v7, v0
@@ -949,14 +949,14 @@
     aput-wide v7, p3, v2
 
     .line 68
-    :goto_1
+    :goto_106
     return-void
 
     .line 71
     .end local v0    # "p":I
     .end local v3    # "t0":D
     .end local v5    # "dt":D
-    :cond_3
+    :cond_107
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v0, v0, v1
@@ -965,7 +965,7 @@
 
     cmpg-double v0, p1, v3
 
-    if-gez v0, :cond_4
+    if-gez v0, :cond_117
 
     .line 72
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -975,7 +975,7 @@
     iget-wide p1, v0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->mTime1:D
 
     .line 74
-    :cond_4
+    :cond_117
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -990,7 +990,7 @@
 
     cmpl-double v0, p1, v3
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_12f
 
     .line 75
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1006,16 +1006,16 @@
     iget-wide p1, v0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->mTime2:D
 
     .line 79
-    :cond_5
+    :cond_12f
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_2
+    :goto_130
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     array-length v3, v3
 
-    if-ge v0, v3, :cond_8
+    if-ge v0, v3, :cond_17b
 
     .line 80
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1026,7 +1026,7 @@
 
     cmpg-double v5, p1, v3
 
-    if-gtz v5, :cond_7
+    if-gtz v5, :cond_178
 
     .line 81
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1035,7 +1035,7 @@
 
     iget-boolean v3, v3, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->linear:Z
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_15c
 
     .line 82
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1063,7 +1063,7 @@
     return-void
 
     .line 86
-    :cond_6
+    :cond_15c
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v3, v3, v0
@@ -1096,19 +1096,19 @@
     return-void
 
     .line 79
-    :cond_7
+    :cond_178
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_130
 
     .line 92
     .end local v0    # "i":I
-    :cond_8
+    :cond_17b
     return-void
 .end method
 
 .method public getPos(D[F)V
-    .locals 11
+    .registers 15
     .param p1, "t"    # D
     .param p3, "v"    # [F
 
@@ -1119,7 +1119,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_f9
 
     .line 97
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1130,7 +1130,7 @@
 
     cmpg-double v0, p1, v3
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_88
 
     .line 98
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1161,7 +1161,7 @@
 
     iget-boolean v7, v7, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->linear:Z
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_54
 
     .line 102
     iget-object v7, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1213,10 +1213,10 @@
 
     aput v1, p3, v2
 
-    goto :goto_0
+    goto :goto_87
 
     .line 105
-    :cond_0
+    :cond_54
     iget-object v7, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v7, v7, v0
@@ -1274,14 +1274,14 @@
     aput v1, p3, v2
 
     .line 109
-    :goto_0
+    :goto_87
     return-void
 
     .line 111
     .end local v0    # "p":I
     .end local v3    # "t0":D
     .end local v5    # "dt":D
-    :cond_1
+    :cond_88
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1296,7 +1296,7 @@
 
     cmpl-double v0, p1, v3
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_122
 
     .line 112
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1331,7 +1331,7 @@
 
     iget-boolean v7, v7, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->linear:Z
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_db
 
     .line 116
     iget-object v7, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1383,10 +1383,10 @@
 
     aput v1, p3, v2
 
-    goto :goto_1
+    goto :goto_f8
 
     .line 119
-    :cond_2
+    :cond_db
     iget-object v7, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v7, v7, v0
@@ -1420,14 +1420,14 @@
     aput v1, p3, v2
 
     .line 123
-    :goto_1
+    :goto_f8
     return-void
 
     .line 126
     .end local v0    # "p":I
     .end local v3    # "t0":D
     .end local v5    # "dt":D
-    :cond_3
+    :cond_f9
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v0, v0, v1
@@ -1436,7 +1436,7 @@
 
     cmpg-double v0, p1, v3
 
-    if-gez v0, :cond_4
+    if-gez v0, :cond_10a
 
     .line 127
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1445,10 +1445,10 @@
 
     iget-wide p1, v0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->mTime1:D
 
-    goto :goto_2
+    goto :goto_122
 
     .line 128
-    :cond_4
+    :cond_10a
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1463,7 +1463,7 @@
 
     cmpl-double v0, p1, v3
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_122
 
     .line 129
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1479,17 +1479,17 @@
     iget-wide p1, v0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->mTime2:D
 
     .line 132
-    :cond_5
-    :goto_2
+    :cond_122
+    :goto_122
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_3
+    :goto_123
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     array-length v3, v3
 
-    if-ge v0, v3, :cond_8
+    if-ge v0, v3, :cond_172
 
     .line 133
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1500,7 +1500,7 @@
 
     cmpg-double v5, p1, v3
 
-    if-gtz v5, :cond_7
+    if-gtz v5, :cond_16f
 
     .line 134
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1509,7 +1509,7 @@
 
     iget-boolean v3, v3, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->linear:Z
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_151
 
     .line 135
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1541,7 +1541,7 @@
     return-void
 
     .line 139
-    :cond_6
+    :cond_151
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v3, v3, v0
@@ -1578,19 +1578,19 @@
     return-void
 
     .line 132
-    :cond_7
+    :cond_16f
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_123
 
     .line 145
     .end local v0    # "i":I
-    :cond_8
+    :cond_172
     return-void
 .end method
 
 .method public getSlope(DI)D
-    .locals 4
+    .registers 8
     .param p1, "t"    # D
     .param p3, "j"    # I
 
@@ -1605,7 +1605,7 @@
 
     cmpg-double v0, p1, v2
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_11
 
     .line 230
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1615,7 +1615,7 @@
     iget-wide p1, v0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->mTime1:D
 
     .line 232
-    :cond_0
+    :cond_11
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1630,7 +1630,7 @@
 
     cmpl-double v2, p1, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_2b
 
     .line 233
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1646,16 +1646,16 @@
     iget-wide p1, v0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->mTime2:D
 
     .line 236
-    :cond_1
+    :cond_2b
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_2c
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_6
+    if-ge v0, v1, :cond_75
 
     .line 237
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1666,7 +1666,7 @@
 
     cmpg-double v3, p1, v1
 
-    if-gtz v3, :cond_5
+    if-gtz v3, :cond_72
 
     .line 238
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1675,10 +1675,10 @@
 
     iget-boolean v1, v1, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->linear:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_57
 
     .line 239
-    if-nez p3, :cond_2
+    if-nez p3, :cond_4e
 
     .line 240
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1692,7 +1692,7 @@
     return-wide v1
 
     .line 242
-    :cond_2
+    :cond_4e
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v1, v1, v0
@@ -1704,7 +1704,7 @@
     return-wide v1
 
     .line 244
-    :cond_3
+    :cond_57
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v1, v1, v0
@@ -1712,7 +1712,7 @@
     invoke-virtual {v1, p1, p2}, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->setPoint(D)V
 
     .line 245
-    if-nez p3, :cond_4
+    if-nez p3, :cond_69
 
     .line 246
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1726,7 +1726,7 @@
     return-wide v1
 
     .line 248
-    :cond_4
+    :cond_69
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v1, v1, v0
@@ -1738,21 +1738,21 @@
     return-wide v1
 
     .line 236
-    :cond_5
+    :cond_72
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 251
     .end local v0    # "i":I
-    :cond_6
+    :cond_75
     const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
 
     return-wide v0
 .end method
 
 .method public getSlope(D[D)V
-    .locals 6
+    .registers 10
     .param p1, "t"    # D
     .param p3, "v"    # [D
 
@@ -1769,7 +1769,7 @@
 
     cmpg-double v4, p1, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_13
 
     .line 150
     iget-object v2, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1778,10 +1778,10 @@
 
     iget-wide p1, v2, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->mTime1:D
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 151
-    :cond_0
+    :cond_13
     iget-object v2, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1796,7 +1796,7 @@
 
     cmpl-double v4, p1, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_2b
 
     .line 152
     iget-object v2, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1812,17 +1812,17 @@
     iget-wide p1, v2, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->mTime2:D
 
     .line 155
-    :cond_1
-    :goto_0
+    :cond_2b
+    :goto_2b
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_1
+    :goto_2c
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_4
+    if-ge v2, v3, :cond_77
 
     .line 156
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1833,7 +1833,7 @@
 
     cmpg-double v5, p1, v3
 
-    if-gtz v5, :cond_3
+    if-gtz v5, :cond_74
 
     .line 157
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1842,7 +1842,7 @@
 
     iget-boolean v3, v3, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;->linear:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_58
 
     .line 158
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
@@ -1870,7 +1870,7 @@
     return-void
 
     .line 162
-    :cond_2
+    :cond_58
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mArcs:[Landroidx/constraintlayout/core/motion/utils/ArcCurveFit$Arc;
 
     aget-object v3, v3, v2
@@ -1903,19 +1903,19 @@
     return-void
 
     .line 155
-    :cond_3
+    :cond_74
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 168
     .end local v2    # "i":I
-    :cond_4
+    :cond_77
     return-void
 .end method
 
 .method public getTimePoints()[D
-    .locals 1
+    .registers 2
 
     .line 256
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/ArcCurveFit;->mTime:[D

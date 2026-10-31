@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/king/zxing/DecodeConfig;)V
-    .locals 1
+    .registers 3
     .param p1, "config"    # Lcom/king/zxing/DecodeConfig;
 
     .line 27
@@ -55,7 +55,7 @@
     iput-object p1, p0, Lcom/king/zxing/analyze/AreaRectAnalyzer;->mDecodeConfig:Lcom/king/zxing/DecodeConfig;
 
     .line 29
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_33
 
     .line 30
     invoke-virtual {p1}, Lcom/king/zxing/DecodeConfig;->getHints()Ljava/util/Map;
@@ -92,23 +92,23 @@
 
     iput v0, p0, Lcom/king/zxing/analyze/AreaRectAnalyzer;->mAreaRectVerticalOffset:I
 
-    goto :goto_0
+    goto :goto_37
 
     .line 36
-    :cond_0
+    :cond_33
     sget-object v0, Lcom/king/zxing/DecodeFormatManager;->DEFAULT_HINTS:Ljava/util/Map;
 
     iput-object v0, p0, Lcom/king/zxing/analyze/AreaRectAnalyzer;->mHints:Ljava/util/Map;
 
     .line 39
-    :goto_0
+    :goto_37
     return-void
 .end method
 
 
 # virtual methods
 .method public analyze([BII)Lcom/google/zxing/Result;
-    .locals 11
+    .registers 15
     .param p1, "data"    # [B
     .param p2, "width"    # I
     .param p3, "height"    # I
@@ -116,7 +116,7 @@
     .line 44
     iget-object v0, p0, Lcom/king/zxing/analyze/AreaRectAnalyzer;->mDecodeConfig:Lcom/king/zxing/DecodeConfig;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
     .line 45
     iget-object v0, p0, Lcom/king/zxing/analyze/AreaRectAnalyzer;->mDecodeConfig:Lcom/king/zxing/DecodeConfig;
@@ -125,7 +125,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 47
     const/4 v5, 0x0
@@ -151,7 +151,7 @@
     return-object v0
 
     .line 50
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lcom/king/zxing/analyze/AreaRectAnalyzer;->mDecodeConfig:Lcom/king/zxing/DecodeConfig;
 
     invoke-virtual {v0}, Lcom/king/zxing/DecodeConfig;->getAnalyzeAreaRect()Landroid/graphics/Rect;
@@ -160,7 +160,7 @@
 
     .line 51
     .local v0, "rect":Landroid/graphics/Rect;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
     .line 52
     iget v5, v0, Landroid/graphics/Rect;->left:I
@@ -191,7 +191,7 @@
 
     .line 57
     .end local v0    # "rect":Landroid/graphics/Rect;
-    :cond_1
+    :cond_36
     invoke-static {p2, p3}, Ljava/lang/Math;->min(II)I
 
     move-result v0

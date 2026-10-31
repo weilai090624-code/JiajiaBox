@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Lcom/google/android/material/tabs/TabIndicatorInterpolator;-><init>()V
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method updateIndicatorForOffset(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;Landroid/view/View;FLandroid/graphics/drawable/Drawable;)V
-    .locals 7
+    .registers 13
     .param p1, "tabLayout"    # Lcom/google/android/material/tabs/TabLayout;
     .param p2, "startTitle"    # Landroid/view/View;
     .param p3, "endTitle"    # Landroid/view/View;
@@ -32,18 +32,18 @@
 
     cmpg-float v1, p4, v0
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_8
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-object v1, p3
 
     .line 44
     .local v1, "tab":Landroid/view/View;
-    :goto_0
+    :goto_9
     invoke-static {p1, v1}, Lcom/google/android/material/tabs/FadeTabIndicatorInterpolator;->calculateIndicatorWidthForTab(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;)Landroid/graphics/RectF;
 
     move-result-object v2
@@ -56,22 +56,22 @@
 
     cmpg-float v5, p4, v0
 
-    if-gez v5, :cond_1
+    if-gez v5, :cond_19
 
     .line 46
     invoke-static {v3, v4, v4, v0, p4}, Lcom/google/android/material/animation/AnimationUtils;->lerp(FFFFF)F
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 47
-    :cond_1
+    :cond_19
     invoke-static {v4, v3, v0, v3, p4}, Lcom/google/android/material/animation/AnimationUtils;->lerp(FFFFF)F
 
     move-result v0
 
-    :goto_1
+    :goto_1d
     nop
 
     .line 49

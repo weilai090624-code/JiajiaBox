@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">ଇନକମିଂ କଲ୍</string>
     <string name="call_notification_ongoing_text">ଚାଲିଥିବା କଲ୍</string>
     <string name="call_notification_screening_text">ଏକ ଇନକମିଂ କଲକୁ ସ୍କ୍ରିନ୍ କରୁଛି</string>
-    <string name="character_counter_content_description" formatted="false">%2$d ର %1$d ଅକ୍ଷର ଲେଖିଛନ୍ତି</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">%2$d ର %1$d ଅକ୍ଷର ଲେଖିଛନ୍ତି</string>
+    <string name="character_counter_content_description">%2$d ର %1$d ଅକ୍ଷର ଲେଖିଛନ୍ତି</string>
+    <string name="character_counter_overflowed_content_description">%2$d ର %1$d ଅକ୍ଷର ଲେଖିଛନ୍ତି</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
     <string name="copy">କପି କରନ୍ତୁ</string>
     <string name="copy_toast_msg">ଲିଙ୍କକୁ କ୍ଲିପ୍‍‍ବୋର୍ଡରେ କପି କରାଯାଇଛି</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Out of range: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Start date – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – End date</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Select Range</string>
     <string name="mtrl_picker_range_header_unselected">Start date – End date</string>
     <string name="mtrl_picker_save">Save</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" କ୍ଲିପବୋର୍ଡକୁ କପି ହୋ‍ଇଗଲା।</string>
     <string name="search_menu_title">ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ବନ୍ଦ</string>
     <string name="v7_preference_on">ଚାଲୁ ଅଛି</string>
 </resources>

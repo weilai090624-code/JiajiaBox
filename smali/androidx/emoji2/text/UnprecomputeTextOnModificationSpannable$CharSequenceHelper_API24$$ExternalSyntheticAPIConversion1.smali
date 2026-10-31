@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(Ljava/lang/CharSequence;)Lj$/util/stream/IntStream;
-    .locals 0
+    .registers 1
 
     .line 0
     invoke-interface {p0}, Ljava/lang/CharSequence;->chars()Ljava/util/stream/IntStream;

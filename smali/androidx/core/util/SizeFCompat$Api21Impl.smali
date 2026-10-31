@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static toSizeF(Landroidx/core/util/SizeFCompat;)Landroid/util/SizeF;
-    .locals 3
+    .registers 4
     .param p0, "size"    # Landroidx/core/util/SizeFCompat;
 
     .line 102
@@ -48,7 +48,7 @@
 .end method
 
 .method static toSizeFCompat(Landroid/util/SizeF;)Landroidx/core/util/SizeFCompat;
-    .locals 3
+    .registers 4
     .param p0, "size"    # Landroid/util/SizeF;
 
     .line 95

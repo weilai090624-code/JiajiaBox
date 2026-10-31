@@ -111,7 +111,7 @@
 
 # direct methods
 .method public static final synthetic access$durationOf(JI)J
-    .locals 2
+    .registers 5
     .param p0, "normalValue"    # J
     .param p2, "unitDiscriminator"    # I
 
@@ -124,7 +124,7 @@
 .end method
 
 .method public static final synthetic access$durationOfMillis(J)J
-    .locals 2
+    .registers 4
     .param p0, "normalMillis"    # J
 
     .line 1
@@ -136,7 +136,7 @@
 .end method
 
 .method public static final synthetic access$durationOfMillisNormalized(J)J
-    .locals 2
+    .registers 4
     .param p0, "millis"    # J
 
     .line 1
@@ -148,7 +148,7 @@
 .end method
 
 .method public static final synthetic access$durationOfNanos(J)J
-    .locals 2
+    .registers 4
     .param p0, "normalNanos"    # J
 
     .line 1
@@ -160,7 +160,7 @@
 .end method
 
 .method public static final synthetic access$durationOfNanosNormalized(J)J
-    .locals 2
+    .registers 4
     .param p0, "nanos"    # J
 
     .line 1
@@ -172,7 +172,7 @@
 .end method
 
 .method public static final synthetic access$millisToNanos(J)J
-    .locals 2
+    .registers 4
     .param p0, "millis"    # J
 
     .line 1
@@ -184,7 +184,7 @@
 .end method
 
 .method public static final synthetic access$nanosToMillis(J)J
-    .locals 2
+    .registers 4
     .param p0, "nanos"    # J
 
     .line 1
@@ -196,7 +196,7 @@
 .end method
 
 .method public static final synthetic access$parseDuration(Ljava/lang/String;Z)J
-    .locals 2
+    .registers 4
     .param p0, "value"    # Ljava/lang/String;
     .param p1, "strictIso"    # Z
 
@@ -209,7 +209,7 @@
 .end method
 
 .method private static final durationOf(JI)J
-    .locals 4
+    .registers 7
     .param p0, "normalValue"    # J
     .param p2, "unitDiscriminator"    # I
 
@@ -230,7 +230,7 @@
 .end method
 
 .method private static final durationOfMillis(J)J
-    .locals 4
+    .registers 6
     .param p0, "normalMillis"    # J
 
     .line 1475
@@ -250,7 +250,7 @@
 .end method
 
 .method private static final durationOfMillisNormalized(J)J
-    .locals 8
+    .registers 10
     .param p0, "millis"    # J
 
     .line 1485
@@ -260,18 +260,18 @@
 
     cmp-long v3, v0, p0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_14
 
     const-wide v0, 0x431bde82d7bL
 
     cmp-long v3, p0, v0
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_14
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_14
+    if-eqz v2, :cond_1f
 
     .line 1486
     invoke-static {p0, p1}, Lkotlin/time/DurationKt;->millisToNanos(J)J
@@ -282,10 +282,10 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_32
 
     .line 1488
-    :cond_1
+    :cond_1f
     const-wide v4, -0x3fffffffffffffffL    # -2.0000000000000004
 
     const-wide v6, 0x3fffffffffffffffL    # 1.9999999999999998
@@ -301,12 +301,12 @@
     move-result-wide v0
 
     .line 1489
-    :goto_0
+    :goto_32
     return-wide v0
 .end method
 
 .method private static final durationOfNanos(J)J
-    .locals 2
+    .registers 4
     .param p0, "normalNanos"    # J
 
     .line 1474
@@ -322,7 +322,7 @@
 .end method
 
 .method private static final durationOfNanosNormalized(J)J
-    .locals 4
+    .registers 6
     .param p0, "nanos"    # J
 
     .line 1478
@@ -332,28 +332,28 @@
 
     cmp-long v3, v0, p0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_14
 
     const-wide v0, 0x3ffffffffffa14c0L    # 1.999999999913868
 
     cmp-long v3, p0, v0
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_14
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_14
+    if-eqz v2, :cond_1b
 
     .line 1479
     invoke-static {p0, p1}, Lkotlin/time/DurationKt;->durationOfNanos(J)J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_23
 
     .line 1481
-    :cond_1
+    :cond_1b
     invoke-static {p0, p1}, Lkotlin/time/DurationKt;->nanosToMillis(J)J
 
     move-result-wide v0
@@ -363,12 +363,12 @@
     move-result-wide v0
 
     .line 1482
-    :goto_0
+    :goto_23
     return-wide v0
 .end method
 
 .method public static final synthetic getDays(D)J
-    .locals 2
+    .registers 4
     .param p0, "$this$days"    # D
 
     .line 1323
@@ -382,7 +382,7 @@
 .end method
 
 .method public static final synthetic getDays(I)J
-    .locals 2
+    .registers 3
     .param p0, "$this$days"    # I
 
     .line 1305
@@ -396,7 +396,7 @@
 .end method
 
 .method public static final synthetic getDays(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$days"    # J
 
     .line 1312
@@ -410,7 +410,7 @@
 .end method
 
 .method public static synthetic getDays$annotations(D)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.days\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -431,7 +431,7 @@
 .end method
 
 .method public static synthetic getDays$annotations(I)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.days\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -452,7 +452,7 @@
 .end method
 
 .method public static synthetic getDays$annotations(J)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.days\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -473,7 +473,7 @@
 .end method
 
 .method public static final synthetic getHours(D)J
-    .locals 2
+    .registers 4
     .param p0, "$this$hours"    # D
 
     .line 1297
@@ -487,7 +487,7 @@
 .end method
 
 .method public static final synthetic getHours(I)J
-    .locals 2
+    .registers 3
     .param p0, "$this$hours"    # I
 
     .line 1279
@@ -501,7 +501,7 @@
 .end method
 
 .method public static final synthetic getHours(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$hours"    # J
 
     .line 1286
@@ -515,7 +515,7 @@
 .end method
 
 .method public static synthetic getHours$annotations(D)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.hours\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -536,7 +536,7 @@
 .end method
 
 .method public static synthetic getHours$annotations(I)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.hours\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -557,7 +557,7 @@
 .end method
 
 .method public static synthetic getHours$annotations(J)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.hours\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -578,7 +578,7 @@
 .end method
 
 .method public static final synthetic getMicroseconds(D)J
-    .locals 2
+    .registers 4
     .param p0, "$this$microseconds"    # D
 
     .line 1193
@@ -592,7 +592,7 @@
 .end method
 
 .method public static final synthetic getMicroseconds(I)J
-    .locals 2
+    .registers 3
     .param p0, "$this$microseconds"    # I
 
     .line 1175
@@ -606,7 +606,7 @@
 .end method
 
 .method public static final synthetic getMicroseconds(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$microseconds"    # J
 
     .line 1182
@@ -620,7 +620,7 @@
 .end method
 
 .method public static synthetic getMicroseconds$annotations(D)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.microseconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -641,7 +641,7 @@
 .end method
 
 .method public static synthetic getMicroseconds$annotations(I)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.microseconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -662,7 +662,7 @@
 .end method
 
 .method public static synthetic getMicroseconds$annotations(J)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.microseconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -683,7 +683,7 @@
 .end method
 
 .method public static final synthetic getMilliseconds(D)J
-    .locals 2
+    .registers 4
     .param p0, "$this$milliseconds"    # D
 
     .line 1219
@@ -697,7 +697,7 @@
 .end method
 
 .method public static final synthetic getMilliseconds(I)J
-    .locals 2
+    .registers 3
     .param p0, "$this$milliseconds"    # I
 
     .line 1201
@@ -711,7 +711,7 @@
 .end method
 
 .method public static final synthetic getMilliseconds(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$milliseconds"    # J
 
     .line 1208
@@ -725,7 +725,7 @@
 .end method
 
 .method public static synthetic getMilliseconds$annotations(D)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.milliseconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -746,7 +746,7 @@
 .end method
 
 .method public static synthetic getMilliseconds$annotations(I)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.milliseconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -767,7 +767,7 @@
 .end method
 
 .method public static synthetic getMilliseconds$annotations(J)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.milliseconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -788,7 +788,7 @@
 .end method
 
 .method public static final synthetic getMinutes(D)J
-    .locals 2
+    .registers 4
     .param p0, "$this$minutes"    # D
 
     .line 1271
@@ -802,7 +802,7 @@
 .end method
 
 .method public static final synthetic getMinutes(I)J
-    .locals 2
+    .registers 3
     .param p0, "$this$minutes"    # I
 
     .line 1253
@@ -816,7 +816,7 @@
 .end method
 
 .method public static final synthetic getMinutes(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$minutes"    # J
 
     .line 1260
@@ -830,7 +830,7 @@
 .end method
 
 .method public static synthetic getMinutes$annotations(D)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.minutes\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -851,7 +851,7 @@
 .end method
 
 .method public static synthetic getMinutes$annotations(I)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.minutes\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -872,7 +872,7 @@
 .end method
 
 .method public static synthetic getMinutes$annotations(J)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.minutes\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -893,7 +893,7 @@
 .end method
 
 .method public static final synthetic getNanoseconds(D)J
-    .locals 2
+    .registers 4
     .param p0, "$this$nanoseconds"    # D
 
     .line 1167
@@ -907,7 +907,7 @@
 .end method
 
 .method public static final synthetic getNanoseconds(I)J
-    .locals 2
+    .registers 3
     .param p0, "$this$nanoseconds"    # I
 
     .line 1149
@@ -921,7 +921,7 @@
 .end method
 
 .method public static final synthetic getNanoseconds(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$nanoseconds"    # J
 
     .line 1156
@@ -935,7 +935,7 @@
 .end method
 
 .method public static synthetic getNanoseconds$annotations(D)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.nanoseconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -956,7 +956,7 @@
 .end method
 
 .method public static synthetic getNanoseconds$annotations(I)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.nanoseconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -977,7 +977,7 @@
 .end method
 
 .method public static synthetic getNanoseconds$annotations(J)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.nanoseconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -998,7 +998,7 @@
 .end method
 
 .method public static final synthetic getSeconds(D)J
-    .locals 2
+    .registers 4
     .param p0, "$this$seconds"    # D
 
     .line 1245
@@ -1012,7 +1012,7 @@
 .end method
 
 .method public static final synthetic getSeconds(I)J
-    .locals 2
+    .registers 3
     .param p0, "$this$seconds"    # I
 
     .line 1227
@@ -1026,7 +1026,7 @@
 .end method
 
 .method public static final synthetic getSeconds(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$seconds"    # J
 
     .line 1234
@@ -1040,7 +1040,7 @@
 .end method
 
 .method public static synthetic getSeconds$annotations(D)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.seconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -1061,7 +1061,7 @@
 .end method
 
 .method public static synthetic getSeconds$annotations(I)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.seconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -1082,7 +1082,7 @@
 .end method
 
 .method public static synthetic getSeconds$annotations(J)V
-    .locals 0
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.seconds\' extension property from Duration.Companion instead."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -1103,7 +1103,7 @@
 .end method
 
 .method private static final millisToNanos(J)J
-    .locals 2
+    .registers 4
     .param p0, "millis"    # J
 
     .line 1472
@@ -1117,7 +1117,7 @@
 .end method
 
 .method private static final nanosToMillis(J)J
-    .locals 2
+    .registers 4
     .param p0, "nanos"    # J
 
     .line 1471
@@ -1131,7 +1131,7 @@
 .end method
 
 .method private static final parseDuration(Ljava/lang/String;Z)J
-    .locals 32
+    .registers 34
     .param p0, "value"    # Ljava/lang/String;
     .param p1, "strictIso"    # Z
 
@@ -1144,7 +1144,7 @@
 
     .line 1348
     .local v7, "length":I
-    if-eqz v7, :cond_2e
+    if-eqz v7, :cond_378
 
     .line 1349
     const/4 v0, 0x0
@@ -1167,15 +1167,15 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_380
 
-    :pswitch_0
+    :pswitch_18
     move v11, v0
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 1353
-    :pswitch_1
+    :pswitch_1a
     add-int/lit8 v0, v0, 0x1
 
     move v11, v0
@@ -1183,19 +1183,19 @@
     .line 1355
     .end local v0    # "index":I
     .local v11, "index":I
-    :goto_0
+    :goto_1d
     const/4 v12, 0x0
 
-    if-lez v11, :cond_0
+    if-lez v11, :cond_22
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_23
     move v14, v0
 
     .line 1356
@@ -1204,7 +1204,7 @@
 
     const/4 v1, 0x2
 
-    if-eqz v14, :cond_1
+    if-eqz v14, :cond_35
 
     move-object v2, v6
 
@@ -1216,16 +1216,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     const/4 v2, 0x1
 
-    goto :goto_2
+    goto :goto_36
 
-    :cond_1
+    :cond_35
     const/4 v2, 0x0
 
-    :goto_2
+    :goto_36
     move v15, v2
 
     .line 1357
@@ -1235,7 +1235,7 @@
     .line 1358
     const-string v5, "No components"
 
-    if-le v7, v11, :cond_2d
+    if-le v7, v11, :cond_36f
 
     .line 1360
     invoke-virtual {v6, v11}, Ljava/lang/String;->charAt(I)C
@@ -1252,12 +1252,12 @@
 
     const-string v1, "null cannot be cast to non-null type java.lang.String"
 
-    if-ne v2, v3, :cond_12
+    if-ne v2, v3, :cond_1c0
 
     .line 1361
     add-int/lit8 v11, v11, 0x1
 
-    if-eq v11, v7, :cond_11
+    if-eq v11, v7, :cond_1ba
 
     .line 1362
     const-string v2, "+-."
@@ -1274,8 +1274,8 @@
 
     .line 1365
     .local v19, "prevUnit":Lkotlin/time/DurationUnit;
-    :goto_3
-    if-ge v11, v7, :cond_10
+    :goto_57
+    if-ge v11, v7, :cond_1ae
 
     .line 1366
     invoke-virtual {v6, v11}, Ljava/lang/String;->charAt(I)C
@@ -1284,14 +1284,14 @@
 
     const/16 v13, 0x54
 
-    if-ne v12, v13, :cond_3
+    if-ne v12, v13, :cond_70
 
     .line 1367
-    if-nez v3, :cond_2
+    if-nez v3, :cond_6a
 
     add-int/lit8 v11, v11, 0x1
 
-    if-eq v11, v7, :cond_2
+    if-eq v11, v7, :cond_6a
 
     .line 1368
     const/4 v3, 0x1
@@ -1299,10 +1299,10 @@
     .line 1369
     const/4 v12, 0x0
 
-    goto :goto_3
+    goto :goto_57
 
     .line 1367
-    :cond_2
+    :cond_6a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -1310,7 +1310,7 @@
     throw v0
 
     .line 1371
-    :cond_3
+    :cond_70
     move-object/from16 v12, p0
 
     .local v12, "$this$substringWhile$iv":Ljava/lang/String;
@@ -1331,7 +1331,7 @@
 
     .line 1500
     .local v5, "i$iv$iv":I
-    :goto_4
+    :goto_7b
     move/from16 v22, v13
 
     .end local v13    # "$i$f$substringWhile":I
@@ -1340,7 +1340,7 @@
 
     move-result v13
 
-    if-ge v5, v13, :cond_7
+    if-ge v5, v13, :cond_cb
 
     move/from16 v23, v15
 
@@ -1365,21 +1365,21 @@
 
     .end local v13    # "$this$skipWhile$iv$iv":Ljava/lang/String;
     .local v24, "$this$skipWhile$iv$iv":Ljava/lang/String;
-    if-gt v13, v15, :cond_4
+    if-gt v13, v15, :cond_99
 
     const/16 v13, 0x3a
 
-    if-ge v15, v13, :cond_4
+    if-ge v15, v13, :cond_99
 
     const/4 v13, 0x1
 
-    goto :goto_5
+    goto :goto_9a
 
-    :cond_4
+    :cond_99
     const/4 v13, 0x0
 
-    :goto_5
-    if-nez v13, :cond_6
+    :goto_9a
+    if-nez v13, :cond_b1
 
     move-object v13, v2
 
@@ -1407,14 +1407,14 @@
 
     move-result v13
 
-    if-eqz v13, :cond_5
+    if-eqz v13, :cond_af
 
-    goto :goto_6
+    goto :goto_b9
 
-    :cond_5
+    :cond_af
     const/4 v10, 0x0
 
-    goto :goto_7
+    goto :goto_ba
 
     .end local v17    # "hasSign":Z
     .end local v18    # "infinityString":Ljava/lang/String;
@@ -1422,7 +1422,7 @@
     .restart local v2    # "nonDigitSymbols":Ljava/lang/String;
     .restart local v10    # "infinityString":Ljava/lang/String;
     .restart local v14    # "hasSign":Z
-    :cond_6
+    :cond_b1
     move-object/from16 v25, v2
 
     move-object/from16 v18, v10
@@ -1439,14 +1439,14 @@
     .restart local v17    # "hasSign":Z
     .restart local v18    # "infinityString":Ljava/lang/String;
     .restart local v25    # "nonDigitSymbols":Ljava/lang/String;
-    :goto_6
+    :goto_b9
     const/4 v10, 0x1
 
     .line 1500
     .end local v15    # "it":C
     .end local v16    # "$i$a$-substringWhile-DurationKt$parseDuration$component$1":I
-    :goto_7
-    if-eqz v10, :cond_8
+    :goto_ba
+    if-eqz v10, :cond_d7
 
     add-int/lit8 v5, v5, 0x1
 
@@ -1462,7 +1462,7 @@
 
     move-object/from16 v2, v25
 
-    goto :goto_4
+    goto :goto_7b
 
     .end local v17    # "hasSign":Z
     .end local v18    # "infinityString":Ljava/lang/String;
@@ -1474,7 +1474,7 @@
     .restart local v14    # "hasSign":Z
     .local v15, "isNegative":Z
     .local v16, "$this$skipWhile$iv$iv":Ljava/lang/String;
-    :cond_7
+    :cond_cb
     move-object/from16 v25, v2
 
     move-object/from16 v18, v10
@@ -1500,7 +1500,7 @@
     .restart local v23    # "isNegative":Z
     .restart local v24    # "$this$skipWhile$iv$iv":Ljava/lang/String;
     .restart local v25    # "nonDigitSymbols":Ljava/lang/String;
-    :cond_8
+    :cond_d7
     nop
 
     .line 1496
@@ -1530,17 +1530,17 @@
 
     move-result v10
 
-    if-nez v10, :cond_9
+    if-nez v10, :cond_ee
 
     const/4 v10, 0x1
 
-    goto :goto_8
+    goto :goto_ef
 
-    :cond_9
+    :cond_ee
     const/4 v10, 0x0
 
-    :goto_8
-    if-nez v10, :cond_f
+    :goto_ef
+    if-nez v10, :cond_1a8
 
     .line 1373
     invoke-virtual {v5}, Ljava/lang/String;->length()I
@@ -1554,23 +1554,23 @@
 
     check-cast v10, Ljava/lang/CharSequence;
 
-    if-ltz v11, :cond_a
+    if-ltz v11, :cond_103
 
     invoke-interface {v10}, Ljava/lang/CharSequence;->length()I
 
     move-result v12
 
-    if-ge v11, v12, :cond_a
+    if-ge v11, v12, :cond_103
 
     const/4 v12, 0x1
 
-    goto :goto_9
+    goto :goto_104
 
-    :cond_a
+    :cond_103
     const/4 v12, 0x0
 
-    :goto_9
-    if-eqz v12, :cond_e
+    :goto_104
+    if-eqz v12, :cond_18d
 
     invoke-interface {v10, v11}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -1591,7 +1591,7 @@
 
     .end local v19    # "prevUnit":Lkotlin/time/DurationUnit;
     .local v13, "prevUnit":Lkotlin/time/DurationUnit;
-    if-eqz v13, :cond_c
+    if-eqz v13, :cond_124
 
     move-object v15, v12
 
@@ -1601,11 +1601,11 @@
 
     move-result v15
 
-    if-lez v15, :cond_b
+    if-lez v15, :cond_11e
 
-    goto :goto_a
+    goto :goto_124
 
-    :cond_b
+    :cond_11e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -1613,8 +1613,8 @@
     throw v0
 
     .line 1378
-    :cond_c
-    :goto_a
+    :cond_124
+    :goto_124
     move-object/from16 v19, v12
 
     .line 1379
@@ -1642,9 +1642,9 @@
     .local v13, "dotIndex":I
     sget-object v15, Lkotlin/time/DurationUnit;->SECONDS:Lkotlin/time/DurationUnit;
 
-    if-ne v12, v15, :cond_d
+    if-ne v12, v15, :cond_176
 
-    if-lez v13, :cond_d
+    if-lez v13, :cond_176
 
     .line 1381
     invoke-static {v5, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1703,10 +1703,10 @@
     const/4 v12, 0x0
 
     .end local v2    # "whole":Ljava/lang/String;
-    goto/16 :goto_3
+    goto/16 :goto_57
 
     .line 1385
-    :cond_d
+    :cond_176
     invoke-static {v5}, Lkotlin/time/DurationKt;->parseOverLongIsoComponent(Ljava/lang/String;)J
 
     move-result-wide v14
@@ -1733,11 +1733,11 @@
     .end local v10    # "unitChar":C
     .end local v12    # "unit":Lkotlin/time/DurationUnit;
     .end local v13    # "dotIndex":I
-    goto/16 :goto_3
+    goto/16 :goto_57
 
     .line 1374
     .restart local v5    # "component":Ljava/lang/String;
-    :cond_e
+    :cond_18d
     move v0, v11
 
     .line 1495
@@ -1773,7 +1773,7 @@
     .line 1372
     .end local v0    # "it":I
     .end local v1    # "$i$a$-getOrElse-DurationKt$parseDuration$unitChar$1":I
-    :cond_f
+    :cond_1a8
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -1790,7 +1790,7 @@
     .local v10, "infinityString":Ljava/lang/String;
     .restart local v14    # "hasSign":Z
     .restart local v15    # "isNegative":Z
-    :cond_10
+    :cond_1ae
     move-object/from16 v25, v2
 
     move-object/from16 v18, v10
@@ -1811,7 +1811,7 @@
     .restart local v18    # "infinityString":Ljava/lang/String;
     .restart local v23    # "isNegative":Z
     .restart local v25    # "nonDigitSymbols":Ljava/lang/String;
-    goto/16 :goto_18
+    goto/16 :goto_360
 
     .line 1361
     .end local v3    # "isTimeComponent":Z
@@ -1823,7 +1823,7 @@
     .restart local v10    # "infinityString":Ljava/lang/String;
     .restart local v14    # "hasSign":Z
     .restart local v15    # "isNegative":Z
-    :cond_11
+    :cond_1ba
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -1831,7 +1831,7 @@
     throw v0
 
     .line 1389
-    :cond_12
+    :cond_1c0
     move-object/from16 v18, v10
 
     move/from16 v17, v14
@@ -1844,7 +1844,7 @@
     .restart local v17    # "hasSign":Z
     .restart local v18    # "infinityString":Ljava/lang/String;
     .restart local v23    # "isNegative":Z
-    if-nez p1, :cond_2c
+    if-nez p1, :cond_369
 
     .line 1391
     sub-int v2, v7, v11
@@ -1883,7 +1883,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1ee
 
     .line 1392
     sget-object v0, Lkotlin/time/Duration;->Companion:Lkotlin/time/Duration$Companion;
@@ -1892,10 +1892,10 @@
 
     move-result-wide v8
 
-    goto/16 :goto_18
+    goto/16 :goto_360
 
     .line 1396
-    :cond_13
+    :cond_1ee
     const/4 v0, 0x0
 
     .line 1397
@@ -1904,21 +1904,21 @@
 
     .line 1398
     .local v1, "afterFirst":Z
-    if-nez v17, :cond_14
+    if-nez v17, :cond_1f4
 
     const/4 v10, 0x1
 
-    goto :goto_b
+    goto :goto_1f5
 
-    :cond_14
+    :cond_1f4
     const/4 v10, 0x0
 
-    :goto_b
+    :goto_1f5
     move v2, v10
 
     .line 1399
     .local v2, "allowSpaces":Z
-    if-eqz v17, :cond_16
+    if-eqz v17, :cond_219
 
     invoke-virtual {v6, v11}, Ljava/lang/String;->charAt(I)C
 
@@ -1926,7 +1926,7 @@
 
     const/16 v4, 0x28
 
-    if-ne v3, v4, :cond_16
+    if-ne v3, v4, :cond_219
 
     move-object v3, v6
 
@@ -1938,7 +1938,7 @@
 
     const/16 v4, 0x29
 
-    if-ne v3, v4, :cond_16
+    if-ne v3, v4, :cond_219
 
     .line 1400
     const/4 v2, 0x1
@@ -1948,11 +1948,11 @@
 
     add-int/lit8 v7, v7, -0x1
 
-    if-eq v11, v7, :cond_15
+    if-eq v11, v7, :cond_213
 
-    goto :goto_c
+    goto :goto_219
 
-    :cond_15
+    :cond_213
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v3, v15}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -1960,14 +1960,14 @@
     throw v3
 
     .line 1403
-    :cond_16
-    :goto_c
-    if-ge v11, v7, :cond_2a
+    :cond_219
+    :goto_219
+    if-ge v11, v7, :cond_35c
 
     .line 1404
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_243
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_243
 
     .line 1405
     move-object/from16 v3, p0
@@ -1981,12 +1981,12 @@
 
     .line 1503
     .local v5, "i$iv":I
-    :goto_d
+    :goto_223
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v10
 
-    if-ge v5, v10, :cond_18
+    if-ge v5, v10, :cond_23e
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->charAt(I)C
 
@@ -2003,36 +2003,36 @@
     .local v16, "afterFirst":Z
     const/16 v1, 0x20
 
-    if-ne v10, v1, :cond_17
+    if-ne v10, v1, :cond_236
 
     const/4 v10, 0x1
 
-    goto :goto_e
+    goto :goto_237
 
-    :cond_17
+    :cond_236
     const/4 v10, 0x0
 
     .line 1503
     .end local v10    # "it":C
     .end local v15    # "$i$a$-skipWhile-DurationKt$parseDuration$1":I
-    :goto_e
-    if-eqz v10, :cond_19
+    :goto_237
+    if-eqz v10, :cond_240
 
     add-int/lit8 v5, v5, 0x1
 
     move/from16 v1, v16
 
-    goto :goto_d
+    goto :goto_223
 
     .end local v16    # "afterFirst":Z
     .restart local v1    # "afterFirst":Z
-    :cond_18
+    :cond_23e
     move/from16 v16, v1
 
     .line 1504
     .end local v1    # "afterFirst":Z
     .restart local v16    # "afterFirst":Z
-    :cond_19
+    :cond_240
     nop
 
     .line 1405
@@ -2041,18 +2041,18 @@
     .end local v5    # "i$iv":I
     move v11, v5
 
-    goto :goto_f
+    goto :goto_245
 
     .line 1404
     .end local v16    # "afterFirst":Z
     .restart local v1    # "afterFirst":Z
-    :cond_1a
+    :cond_243
     move/from16 v16, v1
 
     .line 1407
     .end local v1    # "afterFirst":Z
     .restart local v16    # "afterFirst":Z
-    :goto_f
+    :goto_245
     const/4 v1, 0x1
 
     .line 1408
@@ -2076,7 +2076,7 @@
 
     .line 1509
     .local v15, "i$iv$iv":I
-    :goto_10
+    :goto_24c
     move/from16 v16, v1
 
     .end local v1    # "afterFirst":Z
@@ -2085,7 +2085,7 @@
 
     move-result v1
 
-    if-ge v15, v1, :cond_1f
+    if-ge v15, v1, :cond_27e
 
     invoke-virtual {v5, v15}, Ljava/lang/String;->charAt(I)C
 
@@ -2102,45 +2102,45 @@
 
     .end local v2    # "allowSpaces":Z
     .local v21, "allowSpaces":Z
-    if-gt v2, v1, :cond_1b
+    if-gt v2, v1, :cond_267
 
     const/16 v2, 0x3a
 
-    if-ge v1, v2, :cond_1c
+    if-ge v1, v2, :cond_269
 
     const/16 v20, 0x1
 
-    goto :goto_11
+    goto :goto_26b
 
-    :cond_1b
+    :cond_267
     const/16 v2, 0x3a
 
-    :cond_1c
+    :cond_269
     const/16 v20, 0x0
 
-    :goto_11
-    if-nez v20, :cond_1e
+    :goto_26b
+    if-nez v20, :cond_274
 
     const/16 v2, 0x2e
 
-    if-ne v1, v2, :cond_1d
+    if-ne v1, v2, :cond_272
 
-    goto :goto_12
+    goto :goto_274
 
-    :cond_1d
+    :cond_272
     const/4 v1, 0x0
 
-    goto :goto_13
+    goto :goto_275
 
-    :cond_1e
-    :goto_12
+    :cond_274
+    :goto_274
     const/4 v1, 0x1
 
     .line 1509
     .end local v1    # "it":C
     .end local v19    # "$i$a$-substringWhile-DurationKt$parseDuration$component$2":I
-    :goto_13
-    if-eqz v1, :cond_20
+    :goto_275
+    if-eqz v1, :cond_280
 
     add-int/lit8 v15, v15, 0x1
 
@@ -2148,17 +2148,17 @@
 
     move/from16 v2, v21
 
-    goto :goto_10
+    goto :goto_24c
 
     .end local v21    # "allowSpaces":Z
     .restart local v2    # "allowSpaces":Z
-    :cond_1f
+    :cond_27e
     move/from16 v21, v2
 
     .line 1510
     .end local v2    # "allowSpaces":Z
     .restart local v21    # "allowSpaces":Z
-    :cond_20
+    :cond_280
     nop
 
     .line 1505
@@ -2188,17 +2188,17 @@
 
     move-result v2
 
-    if-nez v2, :cond_21
+    if-nez v2, :cond_297
 
     const/4 v10, 0x1
 
-    goto :goto_14
+    goto :goto_298
 
-    :cond_21
+    :cond_297
     const/4 v10, 0x0
 
-    :goto_14
-    if-nez v10, :cond_29
+    :goto_298
+    if-nez v10, :cond_356
 
     .line 1410
     invoke-virtual {v1}, Ljava/lang/String;->length()I
@@ -2226,12 +2226,12 @@
 
     .line 1515
     .local v10, "i$iv$iv":I
-    :goto_15
+    :goto_2a5
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
     move-result v15
 
-    if-ge v10, v15, :cond_23
+    if-ge v10, v15, :cond_2c5
 
     invoke-virtual {v4, v10}, Ljava/lang/String;->charAt(I)C
 
@@ -2248,40 +2248,40 @@
     .restart local v22    # "$i$f$substringWhile":I
     const/16 v3, 0x61
 
-    if-gt v3, v15, :cond_22
+    if-gt v3, v15, :cond_2bd
 
     const/16 v3, 0x7b
 
-    if-ge v15, v3, :cond_22
+    if-ge v15, v3, :cond_2bd
 
     const/4 v3, 0x1
 
-    goto :goto_16
+    goto :goto_2be
 
-    :cond_22
+    :cond_2bd
     const/4 v3, 0x0
 
     .line 1515
     .end local v15    # "it":C
     .end local v19    # "$i$a$-substringWhile-DurationKt$parseDuration$unitName$1":I
-    :goto_16
-    if-eqz v3, :cond_24
+    :goto_2be
+    if-eqz v3, :cond_2c7
 
     add-int/lit8 v10, v10, 0x1
 
     move/from16 v3, v22
 
-    goto :goto_15
+    goto :goto_2a5
 
     .end local v22    # "$i$f$substringWhile":I
     .restart local v3    # "$i$f$substringWhile":I
-    :cond_23
+    :cond_2c5
     move/from16 v22, v3
 
     .line 1516
     .end local v3    # "$i$f$substringWhile":I
     .restart local v22    # "$i$f$substringWhile":I
-    :cond_24
+    :cond_2c7
     nop
 
     .line 1511
@@ -2316,7 +2316,7 @@
 
     .line 1414
     .local v3, "unit":Lkotlin/time/DurationUnit;
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_2ee
 
     move-object v4, v3
 
@@ -2326,11 +2326,11 @@
 
     move-result v4
 
-    if-lez v4, :cond_25
+    if-lez v4, :cond_2e8
 
-    goto :goto_17
+    goto :goto_2ee
 
-    :cond_25
+    :cond_2e8
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v4, v14}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -2338,8 +2338,8 @@
     throw v4
 
     .line 1415
-    :cond_26
-    :goto_17
+    :cond_2ee
+    :goto_2ee
     move-object v0, v3
 
     .line 1416
@@ -2363,7 +2363,7 @@
 
     .line 1417
     .local v4, "dotIndex":I
-    if-lez v4, :cond_28
+    if-lez v4, :cond_342
 
     .line 1418
     invoke-static {v1, v13}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -2416,7 +2416,7 @@
     .line 1421
     .end local v5    # "result":J
     .restart local v8    # "result":J
-    if-lt v11, v7, :cond_27
+    if-lt v11, v7, :cond_33a
 
     move-object/from16 v6, p0
 
@@ -2424,9 +2424,9 @@
 
     move/from16 v2, v21
 
-    goto/16 :goto_c
+    goto/16 :goto_219
 
-    :cond_27
+    :cond_33a
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     const-string v6, "Fractional component must be last"
@@ -2437,7 +2437,7 @@
 
     .line 1423
     .end local v10    # "whole":Ljava/lang/String;
-    :cond_28
+    :cond_342
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v5
@@ -2460,11 +2460,11 @@
     .end local v2    # "unitName":Ljava/lang/String;
     .end local v3    # "unit":Lkotlin/time/DurationUnit;
     .end local v4    # "dotIndex":I
-    goto/16 :goto_c
+    goto/16 :goto_219
 
     .line 1409
     .restart local v1    # "component":Ljava/lang/String;
-    :cond_29
+    :cond_356
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v2}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -2476,7 +2476,7 @@
     .end local v21    # "allowSpaces":Z
     .local v1, "afterFirst":Z
     .local v2, "allowSpaces":Z
-    :cond_2a
+    :cond_35c
     move/from16 v16, v1
 
     move/from16 v21, v2
@@ -2485,23 +2485,23 @@
     .end local v0    # "prevUnit":Lkotlin/time/DurationUnit;
     .end local v1    # "afterFirst":Z
     .end local v2    # "allowSpaces":Z
-    :goto_18
-    if-eqz v23, :cond_2b
+    :goto_360
+    if-eqz v23, :cond_367
 
     invoke-static {v8, v9}, Lkotlin/time/Duration;->unaryMinus-UwyO8pc(J)J
 
     move-result-wide v0
 
-    goto :goto_19
+    goto :goto_368
 
-    :cond_2b
+    :cond_367
     move-wide v0, v8
 
-    :goto_19
+    :goto_368
     return-wide v0
 
     .line 1390
-    :cond_2c
+    :cond_369
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -2515,7 +2515,7 @@
     .local v10, "infinityString":Ljava/lang/String;
     .restart local v14    # "hasSign":Z
     .local v15, "isNegative":Z
-    :cond_2d
+    :cond_36f
     move/from16 v23, v15
 
     move-object v15, v5
@@ -2534,7 +2534,7 @@
     .end local v11    # "index":I
     .end local v14    # "hasSign":Z
     .end local v23    # "isNegative":Z
-    :cond_2e
+    :cond_378
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "The string is empty"
@@ -2543,16 +2543,16 @@
 
     throw v0
 
-    :pswitch_data_0
+    :pswitch_data_380
     .packed-switch 0x2b
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_1a
+        :pswitch_18
+        :pswitch_1a
     .end packed-switch
 .end method
 
 .method private static final parseOverLongIsoComponent(Ljava/lang/String;)J
-    .locals 14
+    .registers 15
     .param p0, "value"    # Ljava/lang/String;
 
     .line 1433
@@ -2572,7 +2572,7 @@
 
     const/4 v4, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_1a
 
     const-string v5, "+-"
 
@@ -2586,19 +2586,19 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1a
 
     add-int/lit8 v1, v1, 0x1
 
     .line 1436
-    :cond_0
+    :cond_1a
     sub-int v5, v0, v1
 
     const/16 v6, 0x10
 
     const/4 v7, 0x1
 
-    if-le v5, v6, :cond_6
+    if-le v5, v6, :cond_79
 
     new-instance v5, Lkotlin/ranges/IntRange;
 
@@ -2621,7 +2621,7 @@
     .local v6, "$i$f$all":I
     instance-of v8, v5, Ljava/util/Collection;
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_3f
 
     move-object v8, v5
 
@@ -2631,24 +2631,24 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_3f
 
     const/4 v5, 0x1
 
-    goto :goto_1
+    goto :goto_66
 
     .line 1518
-    :cond_1
+    :cond_3f
     invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v8
 
-    :cond_2
+    :cond_43
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_65
 
     move-object v9, v8
 
@@ -2672,39 +2672,39 @@
 
     const/16 v13, 0x30
 
-    if-gt v13, v12, :cond_3
+    if-gt v13, v12, :cond_60
 
     const/16 v13, 0x3a
 
-    if-ge v12, v13, :cond_3
+    if-ge v12, v13, :cond_60
 
     const/4 v10, 0x1
 
-    goto :goto_0
+    goto :goto_61
 
-    :cond_3
+    :cond_60
     const/4 v10, 0x0
 
     .line 1518
     .end local v10    # "it":I
     .end local v11    # "$i$a$-all-DurationKt$parseOverLongIsoComponent$1":I
-    :goto_0
-    if-nez v10, :cond_2
+    :goto_61
+    if-nez v10, :cond_43
 
     const/4 v5, 0x0
 
-    goto :goto_1
+    goto :goto_66
 
     .line 1519
     .end local v9    # "element$iv":I
-    :cond_4
+    :cond_65
     const/4 v5, 0x1
 
     .line 1436
     .end local v5    # "$this$all$iv":Ljava/lang/Iterable;
     .end local v6    # "$i$f$all":I
-    :goto_1
-    if-eqz v5, :cond_6
+    :goto_66
+    if-eqz v5, :cond_79
 
     .line 1438
     invoke-virtual {p0, v4}, Ljava/lang/String;->charAt(I)C
@@ -2713,27 +2713,27 @@
 
     const/16 v3, 0x2d
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_73
 
     const-wide/high16 v2, -0x8000000000000000L
 
-    goto :goto_2
+    goto :goto_78
 
-    :cond_5
+    :cond_73
     const-wide v2, 0x7fffffffffffffffL
 
-    :goto_2
+    :goto_78
     return-wide v2
 
     .line 1441
-    :cond_6
+    :cond_79
     const-string v5, "+"
 
     invoke-static {p0, v5, v4, v3, v2}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8a
 
     invoke-static {p0, v7}, Lkotlin/text/StringsKt;->drop(Ljava/lang/String;I)Ljava/lang/String;
 
@@ -2743,19 +2743,19 @@
 
     move-result-wide v2
 
-    goto :goto_3
+    goto :goto_8e
 
-    :cond_7
+    :cond_8a
     invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v2
 
-    :goto_3
+    :goto_8e
     return-wide v2
 .end method
 
 .method private static final skipWhile(Ljava/lang/String;ILkotlin/jvm/functions/Function1;)I
-    .locals 3
+    .registers 6
     .param p0, "$this$skipWhile"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function1;
@@ -2780,12 +2780,12 @@
 
     .line 1451
     .local v1, "i":I
-    :goto_0
+    :goto_2
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1f
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
@@ -2805,19 +2805,19 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 1452
-    :cond_0
+    :cond_1f
     return v1
 .end method
 
 .method private static final substringWhile(Ljava/lang/String;ILkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 5
+    .registers 8
     .param p0, "$this$substringWhile"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function1;
@@ -2850,12 +2850,12 @@
 
     .line 1521
     .local v3, "i$iv":I
-    :goto_0
+    :goto_4
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_21
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->charAt(I)C
 
@@ -2875,14 +2875,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_21
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 1522
-    :cond_0
+    :cond_21
     nop
 
     .line 1447
@@ -2905,7 +2905,7 @@
 .end method
 
 .method private static final times-kIfJnKk(DJ)J
-    .locals 2
+    .registers 6
     .param p0, "$this$times_u2dkIfJnKk"    # D
     .param p2, "duration"    # J
 
@@ -2918,7 +2918,7 @@
 .end method
 
 .method private static final times-mvk6XK0(IJ)J
-    .locals 2
+    .registers 5
     .param p0, "$this$times_u2dmvk6XK0"    # I
     .param p1, "duration"    # J
 
@@ -2931,7 +2931,7 @@
 .end method
 
 .method public static final toDuration(DLkotlin/time/DurationUnit;)J
-    .locals 8
+    .registers 11
     .param p0, "$this$toDuration"    # D
     .param p2, "unit"    # Lkotlin/time/DurationUnit;
 
@@ -2952,7 +2952,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_40
 
     .line 1132
     invoke-static {v0, v1}, Lkotlin/math/MathKt;->roundToLong(D)J
@@ -2967,28 +2967,28 @@
 
     cmp-long v7, v4, v2
 
-    if-gtz v7, :cond_0
+    if-gtz v7, :cond_29
 
     const-wide v4, 0x3ffffffffffa14c0L    # 1.999999999913868
 
     cmp-long v7, v2, v4
 
-    if-gez v7, :cond_0
+    if-gez v7, :cond_29
 
     const/4 v6, 0x1
 
-    :cond_0
-    if-eqz v6, :cond_1
+    :cond_29
+    if-eqz v6, :cond_30
 
     .line 1134
     invoke-static {v2, v3}, Lkotlin/time/DurationKt;->durationOfNanos(J)J
 
     move-result-wide v4
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 1136
-    :cond_1
+    :cond_30
     sget-object v4, Lkotlin/time/DurationUnit;->MILLISECONDS:Lkotlin/time/DurationUnit;
 
     invoke-static {p0, p1, p2, v4}, Lkotlin/time/DurationUnitKt;->convertDurationUnit(DLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)D
@@ -3009,12 +3009,12 @@
 
     .line 1133
     .end local v4    # "millis":J
-    :goto_0
+    :goto_3f
     return-wide v4
 
     .line 1495
     .end local v2    # "nanos":J
-    :cond_2
+    :cond_40
     const/4 v2, 0x0
 
     .line 1131
@@ -3036,7 +3036,7 @@
 .end method
 
 .method public static final toDuration(ILkotlin/time/DurationUnit;)J
-    .locals 3
+    .registers 5
     .param p0, "$this$toDuration"    # I
     .param p1, "unit"    # Lkotlin/time/DurationUnit;
 
@@ -3053,7 +3053,7 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_1b
 
     .line 1102
     int-to-long v0, p0
@@ -3068,10 +3068,10 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_20
 
     .line 1104
-    :cond_0
+    :cond_1b
     int-to-long v0, p0
 
     invoke-static {v0, v1, p1}, Lkotlin/time/DurationKt;->toDuration(JLkotlin/time/DurationUnit;)J
@@ -3079,12 +3079,12 @@
     move-result-wide v0
 
     .line 1101
-    :goto_0
+    :goto_20
     return-wide v0
 .end method
 
 .method public static final toDuration(JLkotlin/time/DurationUnit;)J
-    .locals 11
+    .registers 14
     .param p0, "$this$toDuration"    # J
     .param p2, "unit"    # Lkotlin/time/DurationUnit;
 
@@ -3109,16 +3109,16 @@
 
     cmp-long v5, v2, p0
 
-    if-gtz v5, :cond_0
+    if-gtz v5, :cond_1b
 
     cmp-long v2, p0, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_1b
 
     const/4 v4, 0x1
 
-    :cond_0
-    if-eqz v4, :cond_1
+    :cond_1b
+    if-eqz v4, :cond_28
 
     .line 1113
     sget-object v2, Lkotlin/time/DurationUnit;->NANOSECONDS:Lkotlin/time/DurationUnit;
@@ -3134,7 +3134,7 @@
     return-wide v2
 
     .line 1115
-    :cond_1
+    :cond_28
     sget-object v2, Lkotlin/time/DurationUnit;->MILLISECONDS:Lkotlin/time/DurationUnit;
 
     invoke-static {p0, p1, p2, v2}, Lkotlin/time/DurationUnitKt;->convertDurationUnit(JLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)J

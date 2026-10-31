@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 1
+    .registers 4
     .param p1, "width"    # I
     .param p2, "height"    # I
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(III)V
-    .locals 1
+    .registers 5
     .param p1, "width"    # I
     .param p2, "height"    # I
     .param p3, "gravity"    # I
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 4
+    .registers 7
     .param p1, "c"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -131,7 +131,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .line 1666
@@ -152,7 +152,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .line 1670
@@ -173,7 +173,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/FrameLayout$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/widget/FrameLayout$LayoutParams;
 
     .line 1676
@@ -194,7 +194,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;
 
     .line 1682
@@ -227,7 +227,7 @@
 
 # virtual methods
 .method public getCollapseMode()I
-    .locals 1
+    .registers 2
 
     .line 1705
     iget v0, p0, Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;->collapseMode:I
@@ -236,7 +236,7 @@
 .end method
 
 .method public getParallaxMultiplier()F
-    .locals 1
+    .registers 2
 
     .line 1727
     iget v0, p0, Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;->parallaxMult:F
@@ -245,7 +245,7 @@
 .end method
 
 .method public setCollapseMode(I)V
-    .locals 0
+    .registers 2
     .param p1, "collapseMode"    # I
 
     .line 1694
@@ -256,7 +256,7 @@
 .end method
 
 .method public setParallaxMultiplier(F)V
-    .locals 0
+    .registers 2
     .param p1, "multiplier"    # F
 
     .line 1717

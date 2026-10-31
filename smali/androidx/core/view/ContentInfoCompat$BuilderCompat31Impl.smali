@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/ClipData;I)V
-    .locals 1
+    .registers 4
     .param p1, "clip"    # Landroid/content/ClipData;
     .param p2, "source"    # I
 
@@ -42,7 +42,7 @@
 .end method
 
 .method constructor <init>(Landroidx/core/view/ContentInfoCompat;)V
-    .locals 2
+    .registers 4
     .param p1, "other"    # Landroidx/core/view/ContentInfoCompat;
 
     .line 669
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public build()Landroidx/core/view/ContentInfoCompat;
-    .locals 3
+    .registers 4
 
     .line 701
     new-instance v0, Landroidx/core/view/ContentInfoCompat;
@@ -87,7 +87,7 @@
 .end method
 
 .method public setClip(Landroid/content/ClipData;)V
-    .locals 1
+    .registers 3
     .param p1, "clip"    # Landroid/content/ClipData;
 
     .line 675
@@ -100,7 +100,7 @@
 .end method
 
 .method public setExtras(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 695
@@ -113,7 +113,7 @@
 .end method
 
 .method public setFlags(I)V
-    .locals 1
+    .registers 3
     .param p1, "flags"    # I
 
     .line 685
@@ -126,7 +126,7 @@
 .end method
 
 .method public setLinkUri(Landroid/net/Uri;)V
-    .locals 1
+    .registers 3
     .param p1, "linkUri"    # Landroid/net/Uri;
 
     .line 690
@@ -139,7 +139,7 @@
 .end method
 
 .method public setSource(I)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # I
 
     .line 680

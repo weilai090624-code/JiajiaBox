@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 93
     .local p0, "this":Lcom/google/common/collect/ImmutableClassToInstanceMap$Builder;, "Lcom/google/common/collect/ImmutableClassToInstanceMap$Builder<TB;>;"
@@ -54,7 +54,7 @@
 .end method
 
 .method private static cast(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public build()Lcom/google/common/collect/ImmutableClassToInstanceMap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -105,7 +105,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 136
     invoke-static {}, Lcom/google/common/collect/ImmutableClassToInstanceMap;->of()Lcom/google/common/collect/ImmutableClassToInstanceMap;
@@ -115,7 +115,7 @@
     return-object v1
 
     .line 138
-    :cond_0
+    :cond_11
     new-instance v1, Lcom/google/common/collect/ImmutableClassToInstanceMap;
 
     const/4 v2, 0x0
@@ -126,7 +126,7 @@
 .end method
 
 .method public put(Ljava/lang/Class;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableClassToInstanceMap$Builder;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -150,7 +150,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)Lcom/google/common/collect/ImmutableClassToInstanceMap$Builder;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -174,12 +174,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -215,9 +215,9 @@
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+Ljava/lang/Class<+TT;>;+TT;>;"
     .end local v2    # "type":Ljava/lang/Class;, "Ljava/lang/Class<+TT;>;"
     .end local v3    # "value":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_8
 
     .line 120
-    :cond_0
+    :cond_28
     return-object p0
 .end method

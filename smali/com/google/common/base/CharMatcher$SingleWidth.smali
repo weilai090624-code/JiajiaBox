@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1480
     new-instance v0, Lcom/google/common/base/CharMatcher$SingleWidth;
@@ -33,7 +33,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 1483
     nop

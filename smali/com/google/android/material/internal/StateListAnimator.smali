@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,12 +62,12 @@
 .end method
 
 .method private cancel()V
-    .locals 1
+    .registers 2
 
     .line 98
     iget-object v0, p0, Lcom/google/android/material/internal/StateListAnimator;->runningAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 99
     iget-object v0, p0, Lcom/google/android/material/internal/StateListAnimator;->runningAnimator:Landroid/animation/ValueAnimator;
@@ -80,12 +80,12 @@
     iput-object v0, p0, Lcom/google/android/material/internal/StateListAnimator;->runningAnimator:Landroid/animation/ValueAnimator;
 
     .line 102
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method private start(Lcom/google/android/material/internal/StateListAnimator$Tuple;)V
-    .locals 1
+    .registers 3
     .param p1, "match"    # Lcom/google/android/material/internal/StateListAnimator$Tuple;
 
     .line 93
@@ -97,6 +97,7 @@
     iget-object v0, p0, Lcom/google/android/material/internal/StateListAnimator;->runningAnimator:Landroid/animation/ValueAnimator;
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
     .line 95
@@ -106,7 +107,7 @@
 
 # virtual methods
 .method public addState([ILandroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 5
     .param p1, "specs"    # [I
     .param p2, "animator"    # Landroid/animation/ValueAnimator;
 
@@ -131,12 +132,12 @@
 .end method
 
 .method public jumpToCurrentState()V
-    .locals 1
+    .registers 2
 
     .line 110
     iget-object v0, p0, Lcom/google/android/material/internal/StateListAnimator;->runningAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 111
     iget-object v0, p0, Lcom/google/android/material/internal/StateListAnimator;->runningAnimator:Landroid/animation/ValueAnimator;
@@ -149,12 +150,12 @@
     iput-object v0, p0, Lcom/google/android/material/internal/StateListAnimator;->runningAnimator:Landroid/animation/ValueAnimator;
 
     .line 114
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setState([I)V
-    .locals 5
+    .registers 7
     .param p1, "state"    # [I
 
     .line 69
@@ -173,8 +174,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_8
+    if-ge v2, v1, :cond_1f
 
     .line 72
     iget-object v3, p0, Lcom/google/android/material/internal/StateListAnimator;->tuples:Ljava/util/ArrayList;
@@ -193,52 +194,52 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1c
 
     .line 74
     move-object v0, v3
 
     .line 75
-    goto :goto_1
+    goto :goto_1f
 
     .line 71
     .end local v3    # "tuple":Lcom/google/android/material/internal/StateListAnimator$Tuple;
-    :cond_0
+    :cond_1c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 78
     .end local v2    # "i":I
-    :cond_1
-    :goto_1
+    :cond_1f
+    :goto_1f
     iget-object v2, p0, Lcom/google/android/material/internal/StateListAnimator;->lastMatch:Lcom/google/android/material/internal/StateListAnimator$Tuple;
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_24
 
     .line 79
     return-void
 
     .line 81
-    :cond_2
+    :cond_24
     iget-object v2, p0, Lcom/google/android/material/internal/StateListAnimator;->lastMatch:Lcom/google/android/material/internal/StateListAnimator$Tuple;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2b
 
     .line 82
     invoke-direct {p0}, Lcom/google/android/material/internal/StateListAnimator;->cancel()V
 
     .line 85
-    :cond_3
+    :cond_2b
     iput-object v0, p0, Lcom/google/android/material/internal/StateListAnimator;->lastMatch:Lcom/google/android/material/internal/StateListAnimator$Tuple;
 
     .line 87
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_32
 
     .line 88
     invoke-direct {p0, v0}, Lcom/google/android/material/internal/StateListAnimator;->start(Lcom/google/android/material/internal/StateListAnimator$Tuple;)V
 
     .line 90
-    :cond_4
+    :cond_32
     return-void
 .end method

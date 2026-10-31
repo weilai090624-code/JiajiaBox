@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "onVideoSavedCallback"    # Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method synthetic lambda$onError$1$androidx-camera-core-VideoCapture$VideoSavedListenerWrapper(ILjava/lang/String;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 5
     .param p1, "videoCaptureError"    # I
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "cause"    # Ljava/lang/Throwable;
@@ -69,7 +69,7 @@
 .end method
 
 .method synthetic lambda$onVideoSaved$0$androidx-camera-core-VideoCapture$VideoSavedListenerWrapper(Landroidx/camera/core/VideoCapture$OutputFileResults;)V
-    .locals 1
+    .registers 3
     .param p1, "outputFileResults"    # Landroidx/camera/core/VideoCapture$OutputFileResults;
 
     .line 1164
@@ -81,7 +81,7 @@
 .end method
 
 .method public onError(ILjava/lang/String;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 7
     .param p1, "videoCaptureError"    # I
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "cause"    # Ljava/lang/Throwable;
@@ -107,14 +107,14 @@
     invoke-direct {v1, p0, p1, p2, p3}, Landroidx/camera/core/VideoCapture$VideoSavedListenerWrapper$$ExternalSyntheticLambda0;-><init>(Landroidx/camera/core/VideoCapture$VideoSavedListenerWrapper;ILjava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_a} :catch_b
 
     .line 1178
-    goto :goto_0
+    goto :goto_13
 
     .line 1176
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 1177
@@ -127,12 +127,12 @@
 
     .line 1179
     .end local v0    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method public onVideoSaved(Landroidx/camera/core/VideoCapture$OutputFileResults;)V
-    .locals 3
+    .registers 5
     .param p1, "outputFileResults"    # Landroidx/camera/core/VideoCapture$OutputFileResults;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -152,14 +152,14 @@
     invoke-direct {v1, p0, p1}, Landroidx/camera/core/VideoCapture$VideoSavedListenerWrapper$$ExternalSyntheticLambda1;-><init>(Landroidx/camera/core/VideoCapture$VideoSavedListenerWrapper;Landroidx/camera/core/VideoCapture$OutputFileResults;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_a} :catch_b
 
     .line 1167
-    goto :goto_0
+    goto :goto_13
 
     .line 1165
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 1166
@@ -172,6 +172,6 @@
 
     .line 1168
     .end local v0    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_13
     return-void
 .end method

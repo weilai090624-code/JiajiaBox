@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/activity/ImmLeaksCleaner$FailedInitialization;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 66
     const/4 v0, 0x0
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public clearNextServedView(Landroid/view/inputmethod/InputMethodManager;)Z
-    .locals 1
+    .registers 3
     .param p1, "$this$clearNextServedView"    # Landroid/view/inputmethod/InputMethodManager;
 
     const-string v0, "<this>"
@@ -89,7 +89,7 @@
 .end method
 
 .method public getLock(Landroid/view/inputmethod/InputMethodManager;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "$this$lock"    # Landroid/view/inputmethod/InputMethodManager;
 
     const-string v0, "<this>"
@@ -103,7 +103,7 @@
 .end method
 
 .method public getServedView(Landroid/view/inputmethod/InputMethodManager;)Landroid/view/View;
-    .locals 1
+    .registers 3
     .param p1, "$this$servedView"    # Landroid/view/inputmethod/InputMethodManager;
 
     const-string v0, "<this>"

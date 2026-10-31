@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,20 +28,20 @@
 
 # virtual methods
 .method public apply(Landroid/content/SharedPreferences$Editor;)V
-    .locals 1
+    .registers 3
     .param p1, "editor"    # Landroid/content/SharedPreferences$Editor;
 
     .line 45
     :try_start_0
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
-    :try_end_0
-    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_3} :catch_4
 
     .line 51
-    goto :goto_0
+    goto :goto_8
 
     .line 46
-    :catch_0
+    :catch_4
     move-exception v0
 
     .line 50
@@ -50,6 +50,6 @@
 
     .line 52
     .end local v0    # "unused":Ljava/lang/AbstractMethodError;
-    :goto_0
+    :goto_8
     return-void
 .end method

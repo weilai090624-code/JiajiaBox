@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "index"    # I
 
@@ -76,22 +76,22 @@
 .end method
 
 .method public static synthetic copy$default(Landroidx/room/AmbiguousColumnResolver$ResultColumn;Ljava/lang/String;IILjava/lang/Object;)Landroidx/room/AmbiguousColumnResolver$ResultColumn;
-    .locals 0
+    .registers 5
 
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     iget-object p1, p0, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->name:Ljava/lang/String;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_c
 
     iget p2, p0, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->index:I
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2}, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->copy(Ljava/lang/String;I)Landroidx/room/AmbiguousColumnResolver$ResultColumn;
 
     move-result-object p0
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->name:Ljava/lang/String;
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public final component2()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->index:I
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public final copy(Ljava/lang/String;I)Landroidx/room/AmbiguousColumnResolver$ResultColumn;
-    .locals 1
+    .registers 4
 
     const-string v0, "name"
 
@@ -132,24 +132,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/room/AmbiguousColumnResolver$ResultColumn;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Landroidx/room/AmbiguousColumnResolver$ResultColumn;
@@ -162,25 +162,25 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget v3, p0, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->index:I
 
     iget v1, v1, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->index:I
 
-    if-eq v3, v1, :cond_3
+    if-eq v3, v1, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     return v0
 .end method
 
 .method public final getIndex()I
-    .locals 1
+    .registers 2
 
     .line 195
     iget v0, p0, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->index:I
@@ -189,7 +189,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 195
     iget-object v0, p0, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->name:Ljava/lang/String;
@@ -198,7 +198,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->name:Ljava/lang/String;
 
@@ -216,7 +216,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

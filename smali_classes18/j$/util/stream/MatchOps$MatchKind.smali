@@ -40,7 +40,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetshortCircuitResult(Lj$/util/stream/MatchOps$MatchKind;)Z
-    .locals 0
+    .registers 1
 
     iget-boolean p0, p0, Lj$/util/stream/MatchOps$MatchKind;->shortCircuitResult:Z
 
@@ -48,7 +48,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$fgetstopOnPredicateMatches(Lj$/util/stream/MatchOps$MatchKind;)Z
-    .locals 0
+    .registers 1
 
     iget-boolean p0, p0, Lj$/util/stream/MatchOps$MatchKind;->stopOnPredicateMatches:Z
 
@@ -56,7 +56,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 52
     new-instance v0, Lj$/util/stream/MatchOps$MatchKind;
@@ -114,7 +114,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZZ)V
-    .locals 0
+    .registers 5
     .param p3, "stopOnPredicateMatches"    # Z
     .param p4, "shortCircuitResult"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -137,7 +137,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/util/stream/MatchOps$MatchKind;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 50
@@ -153,7 +153,7 @@
 .end method
 
 .method public static values()[Lj$/util/stream/MatchOps$MatchKind;
-    .locals 1
+    .registers 1
 
     .line 50
     sget-object v0, Lj$/util/stream/MatchOps$MatchKind;->$VALUES:[Lj$/util/stream/MatchOps$MatchKind;

@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static final highlightDelimiters(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$highlightDelimiters"    # Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -69,18 +69,18 @@
 .end method
 
 .method public static synthetic highlightDelimiters$default(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 21
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     sget-object p1, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/ActionsKt$highlightDelimiters$1;->INSTANCE:Lcom/blacksquircle/ui/editorkit/plugin/delimiters/ActionsKt$highlightDelimiters$1;
 
     check-cast p1, Lkotlin/jvm/functions/Function1;
 
-    :cond_0
+    :cond_8
     invoke-static {p0, p1}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/ActionsKt;->highlightDelimiters(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;Lkotlin/jvm/functions/Function1;)V
 
     return-void

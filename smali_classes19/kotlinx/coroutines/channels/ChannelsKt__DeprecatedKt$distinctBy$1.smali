@@ -129,7 +129,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,7 +162,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -191,7 +191,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/channels/ProducerScope;
 
@@ -205,7 +205,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -235,7 +235,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 10
+    .registers 12
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -244,7 +244,7 @@
     .line 385
     iget v1, p0, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$distinctBy$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_ea
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -254,7 +254,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v1, p0
 
     .local v1, "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$distinctBy$1;
@@ -278,14 +278,14 @@
     .local v5, "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_d5
 
     .end local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$distinctBy$1;
     .end local v2    # "k":Ljava/lang/Object;
     .end local v4    # "keys":Ljava/util/HashSet;
     .end local v5    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_25
     move-object v1, p0
 
     .restart local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$distinctBy$1;
@@ -323,14 +323,14 @@
 
     move-object v0, p1
 
-    goto/16 :goto_2
+    goto/16 :goto_b1
 
     .end local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$distinctBy$1;
     .end local v2    # "e":Ljava/lang/Object;
     .end local v4    # "keys":Ljava/util/HashSet;
     .end local v5    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_40
     move-object v1, p0
 
     .restart local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$distinctBy$1;
@@ -363,13 +363,13 @@
 
     move-object v0, p1
 
-    goto :goto_1
+    goto :goto_8b
 
     .end local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$distinctBy$1;
     .end local v3    # "keys":Ljava/util/HashSet;
     .end local v4    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_3
+    :pswitch_57
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -402,7 +402,7 @@
 
     .end local v2    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .restart local v4    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :goto_0
+    :goto_6d
     move-object v5, v1
 
     check-cast v5, Lkotlin/coroutines/Continuation;
@@ -425,13 +425,13 @@
 
     move-result-object v5
 
-    if-ne v5, v0, :cond_0
+    if-ne v5, v0, :cond_83
 
     .line 385
     return-object v0
 
     .line 387
-    :cond_0
+    :cond_83
     move-object v9, v0
 
     move-object v0, p1
@@ -455,14 +455,14 @@
     .local v2, "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$distinctBy$1;
     .local v4, "keys":Ljava/util/HashSet;
     .restart local v5    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :goto_1
+    :goto_8b
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_e6
 
     invoke-interface {v3}, Lkotlinx/coroutines/channels/ChannelIterator;->next()Ljava/lang/Object;
 
@@ -488,13 +488,13 @@
 
     move-result-object v6
 
-    if-ne v6, v1, :cond_1
+    if-ne v6, v1, :cond_ab
 
     .line 385
     return-object v1
 
     .line 388
-    :cond_1
+    :cond_ab
     move-object v9, v3
 
     move-object v3, p1
@@ -513,7 +513,7 @@
     .local v3, "e":Ljava/lang/Object;
     .local v5, "keys":Ljava/util/HashSet;
     .local v6, "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :goto_2
+    :goto_b1
     nop
 
     .line 389
@@ -522,7 +522,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_3
+    if-nez v7, :cond_df
 
     .line 390
     move-object v7, v2
@@ -546,13 +546,13 @@
     move-result-object v3
 
     .end local v3    # "e":Ljava/lang/Object;
-    if-ne v3, v1, :cond_2
+    if-ne v3, v1, :cond_cd
 
     .line 385
     return-object v1
 
     .line 390
-    :cond_2
+    :cond_cd
     move-object v3, v4
 
     move-object v4, v5
@@ -577,7 +577,7 @@
     .restart local v4    # "keys":Ljava/util/HashSet;
     .local v5, "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .local p1, "$result":Ljava/lang/Object;
-    :goto_3
+    :goto_d5
     move-object v6, v4
 
     check-cast v6, Ljava/util/Collection;
@@ -590,7 +590,7 @@
 
     move-object v4, v5
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 389
     .end local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$distinctBy$1;
@@ -601,7 +601,7 @@
     .local v5, "keys":Ljava/util/HashSet;
     .restart local v6    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .local p1, "k":Ljava/lang/Object;
-    :cond_3
+    :cond_df
     move-object p1, v0
 
     move-object v0, v1
@@ -614,7 +614,7 @@
 
     move-object v4, v6
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 394
     .end local v3    # "e":Ljava/lang/Object;
@@ -622,18 +622,18 @@
     .end local p1    # "k":Ljava/lang/Object;
     .restart local v4    # "keys":Ljava/util/HashSet;
     .local v5, "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :cond_4
+    :cond_e6
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_ea
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_57
+        :pswitch_40
+        :pswitch_25
+        :pswitch_11
     .end packed-switch
 .end method

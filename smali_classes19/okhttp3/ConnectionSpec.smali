@@ -99,7 +99,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 12
+    .registers 12
 
     new-instance v0, Lokhttp3/ConnectionSpec$Companion;
 
@@ -526,7 +526,7 @@
 .end method
 
 .method public constructor <init>(ZZ[Ljava/lang/String;[Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p1, "isTls"    # Z
     .param p2, "supportsTlsExtensions"    # Z
     .param p3, "cipherSuitesAsString"    # [Ljava/lang/String;
@@ -552,7 +552,7 @@
 .end method
 
 .method public static final synthetic access$getTlsVersionsAsString$p(Lokhttp3/ConnectionSpec;)[Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/ConnectionSpec;
 
     .line 47
@@ -562,7 +562,7 @@
 .end method
 
 .method private final supportedSpec(Ljavax/net/ssl/SSLSocket;Z)Lokhttp3/ConnectionSpec;
-    .locals 7
+    .registers 10
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "isFallback"    # Z
 
@@ -585,7 +585,7 @@
     .local v1, "cipherSuitesIntersection":[Ljava/lang/String;
     iget-object v2, p0, Lokhttp3/ConnectionSpec;->tlsVersionsAsString:[Ljava/lang/String;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_25
 
     .line 114
     invoke-virtual {p1}, Ljavax/net/ssl/SSLSocket;->getEnabledProtocols()[Ljava/lang/String;
@@ -606,16 +606,16 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_29
 
     .line 116
-    :cond_0
+    :cond_25
     invoke-virtual {p1}, Ljavax/net/ssl/SSLSocket;->getEnabledProtocols()[Ljava/lang/String;
 
     move-result-object v2
 
     .line 113
-    :goto_0
+    :goto_29
     nop
 
     .line 121
@@ -646,11 +646,11 @@
 
     .line 124
     .local v4, "indexOfFallbackScsv":I
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_50
 
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_50
 
     .line 125
     nop
@@ -668,7 +668,7 @@
     move-result-object v1
 
     .line 129
-    :cond_1
+    :cond_50
     new-instance v5, Lokhttp3/ConnectionSpec$Builder;
 
     invoke-direct {v5, p0}, Lokhttp3/ConnectionSpec$Builder;-><init>(Lokhttp3/ConnectionSpec;)V
@@ -715,7 +715,7 @@
 
 # virtual methods
 .method public final -deprecated_cipherSuites()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -743,7 +743,7 @@
 .end method
 
 .method public final -deprecated_supportsTlsExtensions()Z
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -760,7 +760,7 @@
 .end method
 
 .method public final -deprecated_tlsVersions()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -788,7 +788,7 @@
 .end method
 
 .method public final apply$okhttp(Ljavax/net/ssl/SSLSocket;Z)V
-    .locals 2
+    .registers 5
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "isFallback"    # Z
 
@@ -807,7 +807,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 98
     iget-object v1, v0, Lokhttp3/ConnectionSpec;->tlsVersionsAsString:[Ljava/lang/String;
@@ -815,12 +815,12 @@
     invoke-virtual {p1, v1}, Ljavax/net/ssl/SSLSocket;->setEnabledProtocols([Ljava/lang/String;)V
 
     .line 101
-    :cond_0
+    :cond_14
     invoke-virtual {v0}, Lokhttp3/ConnectionSpec;->cipherSuites()Ljava/util/List;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     .line 102
     iget-object v1, v0, Lokhttp3/ConnectionSpec;->cipherSuitesAsString:[Ljava/lang/String;
@@ -828,12 +828,12 @@
     invoke-virtual {p1, v1}, Ljavax/net/ssl/SSLSocket;->setEnabledCipherSuites([Ljava/lang/String;)V
 
     .line 104
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 .method public final cipherSuites()Ljava/util/List;
-    .locals 11
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -846,14 +846,14 @@
     .line 60
     iget-object v0, p0, Lokhttp3/ConnectionSpec;->cipherSuitesAsString:[Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_30
 
     .local v0, "$this$map$iv":[Ljava/lang/Object;
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
     .line 349
@@ -878,8 +878,8 @@
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-ge v6, v5, :cond_1
+    :goto_13
+    if-ge v6, v5, :cond_26
 
     aget-object v7, v3, v6
 
@@ -908,10 +908,10 @@
     .end local v7    # "item$iv$iv":Ljava/lang/Object;
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 352
-    :cond_1
+    :cond_26
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -931,12 +931,12 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_30
     return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 166
@@ -944,20 +944,20 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 167
-    :cond_0
+    :cond_6
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_1
+    if-ne p1, p0, :cond_a
 
     return v0
 
     .line 169
-    :cond_1
+    :cond_a
     iget-boolean v2, p0, Lokhttp3/ConnectionSpec;->isTls:Z
 
     move-object v3, p1
@@ -966,15 +966,15 @@
 
     iget-boolean v3, v3, Lokhttp3/ConnectionSpec;->isTls:Z
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_14
 
     return v1
 
     .line 171
-    :cond_2
+    :cond_14
     iget-boolean v2, p0, Lokhttp3/ConnectionSpec;->isTls:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_3e
 
     .line 172
     iget-object v2, p0, Lokhttp3/ConnectionSpec;->cipherSuitesAsString:[Ljava/lang/String;
@@ -989,12 +989,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_26
 
     return v1
 
     .line 173
-    :cond_3
+    :cond_26
     iget-object v2, p0, Lokhttp3/ConnectionSpec;->tlsVersionsAsString:[Ljava/lang/String;
 
     move-object v3, p1
@@ -1007,12 +1007,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_34
 
     return v1
 
     .line 174
-    :cond_4
+    :cond_34
     iget-boolean v2, p0, Lokhttp3/ConnectionSpec;->supportsTlsExtensions:Z
 
     move-object v3, p1
@@ -1021,17 +1021,17 @@
 
     iget-boolean v3, v3, Lokhttp3/ConnectionSpec;->supportsTlsExtensions:Z
 
-    if-eq v2, v3, :cond_5
+    if-eq v2, v3, :cond_3e
 
     return v1
 
     .line 177
-    :cond_5
+    :cond_3e
     return v0
 .end method
 
 .method public final getCipherSuitesAsString$okhttp()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Lokhttp3/ConnectionSpec;->cipherSuitesAsString:[Ljava/lang/String;
@@ -1040,7 +1040,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 181
     const/16 v0, 0x11
@@ -1049,7 +1049,7 @@
     .local v0, "result":I
     iget-boolean v1, p0, Lokhttp3/ConnectionSpec;->isTls:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_28
 
     .line 183
     mul-int/lit8 v1, v0, 0x1f
@@ -1058,18 +1058,18 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_f
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_f
     invoke-static {v2}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
 
     move-result v2
 
-    :goto_0
+    :goto_13
     add-int/2addr v1, v2
 
     .line 184
@@ -1079,16 +1079,16 @@
 
     iget-object v2, p0, Lokhttp3/ConnectionSpec;->tlsVersionsAsString:[Ljava/lang/String;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1b
 
-    goto :goto_1
+    goto :goto_1f
 
-    :cond_1
+    :cond_1b
     invoke-static {v2}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
 
     move-result v3
 
-    :goto_1
+    :goto_1f
     add-int/2addr v0, v3
 
     .line 185
@@ -1103,12 +1103,12 @@
     add-int v0, v1, v2
 
     .line 187
-    :cond_2
+    :cond_28
     return v0
 .end method
 
 .method public final isCompatible(Ljavax/net/ssl/SSLSocket;)Z
-    .locals 4
+    .registers 6
     .param p1, "socket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "socket"
@@ -1120,16 +1120,16 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 148
     return v1
 
     .line 151
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lokhttp3/ConnectionSpec;->tlsVersionsAsString:[Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 152
     iget-object v0, p0, Lokhttp3/ConnectionSpec;->tlsVersionsAsString:[Ljava/lang/String;
@@ -1146,16 +1146,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_20
 
     .line 153
     return v1
 
     .line 156
-    :cond_1
+    :cond_20
     iget-object v0, p0, Lokhttp3/ConnectionSpec;->cipherSuitesAsString:[Ljava/lang/String;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_37
 
     .line 157
     iget-object v0, p0, Lokhttp3/ConnectionSpec;->cipherSuitesAsString:[Ljava/lang/String;
@@ -1176,20 +1176,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_37
 
     .line 159
     return v1
 
     .line 162
-    :cond_2
+    :cond_37
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public final isTls()Z
-    .locals 1
+    .registers 2
 
     .line 48
     iget-boolean v0, p0, Lokhttp3/ConnectionSpec;->isTls:Z
@@ -1198,7 +1198,7 @@
 .end method
 
 .method public final supportsTlsExtensions()Z
-    .locals 1
+    .registers 2
 
     .line 49
     iget-boolean v0, p0, Lokhttp3/ConnectionSpec;->supportsTlsExtensions:Z
@@ -1207,7 +1207,7 @@
 .end method
 
 .method public final tlsVersions()Ljava/util/List;
-    .locals 11
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1220,14 +1220,14 @@
     .line 76
     iget-object v0, p0, Lokhttp3/ConnectionSpec;->tlsVersionsAsString:[Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_30
 
     .local v0, "$this$map$iv":[Ljava/lang/Object;
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
     .line 353
@@ -1252,8 +1252,8 @@
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-ge v6, v5, :cond_1
+    :goto_13
+    if-ge v6, v5, :cond_26
 
     aget-object v7, v3, v6
 
@@ -1282,10 +1282,10 @@
     .end local v7    # "item$iv$iv":Ljava/lang/Object;
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 356
-    :cond_1
+    :cond_26
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -1305,24 +1305,24 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_30
     return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 191
     iget-boolean v0, p0, Lokhttp3/ConnectionSpec;->isTls:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const-string v0, "ConnectionSpec()"
 
     return-object v0
 
     .line 193
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     invoke-static {}, Lkotlin/io/FileWalkDirection;->values()[Lkotlin/io/FileWalkDirection;
 
@@ -40,7 +40,7 @@
 
     new-array v0, v0, [I
 
-    :try_start_0
+    :try_start_7
     sget-object v1, Lkotlin/io/FileWalkDirection;->TOP_DOWN:Lkotlin/io/FileWalkDirection;
 
     invoke-virtual {v1}, Lkotlin/io/FileWalkDirection;->ordinal()I
@@ -50,16 +50,16 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_10} :catch_11
 
-    goto :goto_0
+    goto :goto_12
 
-    :catch_0
+    :catch_11
     move-exception v1
 
-    :goto_0
-    :try_start_1
+    :goto_12
+    :try_start_12
     sget-object v1, Lkotlin/io/FileWalkDirection;->BOTTOM_UP:Lkotlin/io/FileWalkDirection;
 
     invoke-virtual {v1}, Lkotlin/io/FileWalkDirection;->ordinal()I
@@ -69,15 +69,15 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_1b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_12 .. :try_end_1b} :catch_1c
 
-    goto :goto_1
+    goto :goto_1d
 
-    :catch_1
+    :catch_1c
     move-exception v1
 
-    :goto_1
+    :goto_1d
     sput-object v0, Lkotlin/io/FileTreeWalk$FileTreeWalkIterator$WhenMappings;->$EnumSwitchMapping$0:[I
 
     return-void

@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(FZ)V
-    .locals 0
+    .registers 3
     .param p1, "size"    # F
     .param p2, "inside"    # Z
 
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getEdgePath(FFFLcom/google/android/material/shape/ShapePath;)V
-    .locals 3
+    .registers 8
     .param p1, "length"    # F
     .param p2, "center"    # F
     .param p3, "interpolation"    # F
@@ -42,7 +42,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 51
     iget v0, p0, Lcom/google/android/material/shape/TriangleEdgeTreatment;->size:F
@@ -69,10 +69,10 @@
     .line 53
     invoke-virtual {p4, p1, v1}, Lcom/google/android/material/shape/ShapePath;->lineTo(FF)V
 
-    goto :goto_0
+    goto :goto_34
 
     .line 55
-    :cond_0
+    :cond_1e
     iget v0, p0, Lcom/google/android/material/shape/TriangleEdgeTreatment;->size:F
 
     mul-float v0, v0, p3
@@ -97,6 +97,6 @@
     invoke-virtual {p4, v0, v1, p1, v1}, Lcom/google/android/material/shape/ShapePath;->lineTo(FFFF)V
 
     .line 58
-    :goto_0
+    :goto_34
     return-void
 .end method

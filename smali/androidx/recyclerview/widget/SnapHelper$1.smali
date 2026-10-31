@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/SnapHelper;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/recyclerview/widget/SnapHelper;
 
     .line 44
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onScrollStateChanged(Landroidx/recyclerview/widget/RecyclerView;I)V
-    .locals 1
+    .registers 4
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "newState"    # I
 
@@ -49,11 +49,11 @@
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$OnScrollListener;->onScrollStateChanged(Landroidx/recyclerview/widget/RecyclerView;I)V
 
     .line 50
-    if-nez p2, :cond_0
+    if-nez p2, :cond_11
 
     iget-boolean v0, p0, Landroidx/recyclerview/widget/SnapHelper$1;->mScrolled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 51
     const/4 v0, 0x0
@@ -66,28 +66,28 @@
     invoke-virtual {v0}, Landroidx/recyclerview/widget/SnapHelper;->snapToTargetExistingView()V
 
     .line 54
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V
-    .locals 1
+    .registers 5
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "dx"    # I
     .param p3, "dy"    # I
 
     .line 58
-    if-nez p2, :cond_0
+    if-nez p2, :cond_4
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_7
 
     .line 59
-    :cond_0
+    :cond_4
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroidx/recyclerview/widget/SnapHelper$1;->mScrolled:Z
 
     .line 61
-    :cond_1
+    :cond_7
     return-void
 .end method

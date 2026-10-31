@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CancellableContinuation;Landroidx/room/RoomDatabase;Lkotlin/jvm/functions/Function2;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,13 +101,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 6
+    .registers 7
 
     .line 95
     nop
 
     .line 99
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/room/RoomDatabaseKt$startTransactionCoroutine$2$1;->$context:Lkotlin/coroutines/CoroutineContext;
 
     sget-object v1, Lkotlin/coroutines/ContinuationInterceptor;->Key:Lkotlin/coroutines/ContinuationInterceptor$Key;
@@ -133,13 +133,13 @@
     check-cast v1, Lkotlin/jvm/functions/Function2;
 
     invoke-static {v0, v1}, Lkotlinx/coroutines/BuildersKt;->runBlocking(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_1 .. :try_end_1c} :catchall_1d
 
-    goto :goto_0
+    goto :goto_23
 
     .line 106
-    :catchall_0
+    :catchall_1d
     move-exception v0
 
     .line 108
@@ -150,6 +150,6 @@
 
     .line 110
     .end local v0    # "ex":Ljava/lang/Throwable;
-    :goto_0
+    :goto_23
     return-void
 .end method

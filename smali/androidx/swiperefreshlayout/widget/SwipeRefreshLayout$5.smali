@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
     .line 1201
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .line 1209
@@ -45,7 +45,7 @@
 
     iget-boolean v0, v0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mScale:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 1210
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$5;->this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
@@ -55,12 +55,12 @@
     invoke-virtual {v0, v1}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->startScaleDownAnimation(Landroid/view/animation/Animation$AnimationListener;)V
 
     .line 1212
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .line 1216
@@ -68,7 +68,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .line 1205

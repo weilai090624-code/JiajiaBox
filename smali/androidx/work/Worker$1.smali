@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/Worker;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/work/Worker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 82
     :try_start_0
@@ -62,17 +62,17 @@
     iget-object v1, v1, Landroidx/work/Worker;->mFuture:Landroidx/work/impl/utils/futures/SettableFuture;
 
     invoke-virtual {v1, v0}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_0 .. :try_end_d} :catchall_f
 
     .line 86
     nop
 
     .end local v0    # "result":Landroidx/work/ListenableWorker$Result;
-    goto :goto_0
+    goto :goto_17
 
     .line 84
-    :catchall_0
+    :catchall_f
     move-exception v0
 
     .line 85
@@ -85,6 +85,6 @@
 
     .line 88
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_17
     return-void
 .end method

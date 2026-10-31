@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 713
     new-instance v0, Lcom/google/common/collect/Range$RangeLexOrdering;
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 712
     invoke-direct {p0}, Lcom/google/common/collect/Ordering;-><init>()V
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public compare(Lcom/google/common/collect/Range;Lcom/google/common/collect/Range;)I
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -112,7 +112,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 712
     check-cast p1, Lcom/google/common/collect/Range;

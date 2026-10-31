@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 38
@@ -43,7 +43,7 @@
 .end method
 
 .method static synthetic lambda$setUpdateListener$0(Landroidx/core/view/ViewPropertyAnimatorUpdateListener;Landroid/view/View;Landroid/animation/ValueAnimator;)V
-    .locals 0
+    .registers 3
     .param p0, "listener"    # Landroidx/core/view/ViewPropertyAnimatorUpdateListener;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "valueAnimator"    # Landroid/animation/ValueAnimator;
@@ -55,12 +55,12 @@
 .end method
 
 .method private setListenerInternal(Landroid/view/View;Landroidx/core/view/ViewPropertyAnimatorListener;)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "listener"    # Landroidx/core/view/ViewPropertyAnimatorListener;
 
     .line 680
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_f
 
     .line 681
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -73,10 +73,10 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
-    goto :goto_0
+    goto :goto_17
 
     .line 698
-    :cond_0
+    :cond_f
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
@@ -86,14 +86,14 @@
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
     .line 700
-    :goto_0
+    :goto_17
     return-void
 .end method
 
 
 # virtual methods
 .method public alpha(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 70
@@ -108,7 +108,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 71
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -118,12 +118,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
 
     .line 73
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public alphaBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 86
@@ -138,7 +138,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 87
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -148,12 +148,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->alphaBy(F)Landroid/view/ViewPropertyAnimator;
 
     .line 89
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public cancel()V
-    .locals 2
+    .registers 3
 
     .line 408
     iget-object v0, p0, Landroidx/core/view/ViewPropertyAnimatorCompat;->mView:Ljava/lang/ref/WeakReference;
@@ -167,7 +167,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 409
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -177,12 +177,12 @@
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
 
     .line 411
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public getDuration()J
-    .locals 4
+    .registers 5
 
     .line 169
     iget-object v0, p0, Landroidx/core/view/ViewPropertyAnimatorCompat;->mView:Ljava/lang/ref/WeakReference;
@@ -196,7 +196,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 170
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -210,14 +210,14 @@
     return-wide v2
 
     .line 172
-    :cond_0
+    :cond_14
     const-wide/16 v2, 0x0
 
     return-wide v2
 .end method
 
 .method public getInterpolator()Landroid/view/animation/Interpolator;
-    .locals 3
+    .registers 4
 
     .line 201
     iget-object v0, p0, Landroidx/core/view/ViewPropertyAnimatorCompat;->mView:Ljava/lang/ref/WeakReference;
@@ -231,7 +231,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 202
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -250,14 +250,14 @@
 
     .line 205
     .end local v0    # "animator":Landroid/view/ViewPropertyAnimator;
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public getStartDelay()J
-    .locals 4
+    .registers 5
 
     .line 236
     iget-object v0, p0, Landroidx/core/view/ViewPropertyAnimatorCompat;->mView:Ljava/lang/ref/WeakReference;
@@ -271,7 +271,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 237
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -285,14 +285,14 @@
     return-wide v2
 
     .line 239
-    :cond_0
+    :cond_14
     const-wide/16 v2, 0x0
 
     return-wide v2
 .end method
 
 .method public rotation(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 253
@@ -307,7 +307,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 254
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -317,12 +317,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->rotation(F)Landroid/view/ViewPropertyAnimator;
 
     .line 256
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public rotationBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 269
@@ -337,7 +337,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 270
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -347,12 +347,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->rotationBy(F)Landroid/view/ViewPropertyAnimator;
 
     .line 272
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public rotationX(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 285
@@ -367,7 +367,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 286
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -377,12 +377,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->rotationX(F)Landroid/view/ViewPropertyAnimator;
 
     .line 288
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public rotationXBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 301
@@ -397,7 +397,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 302
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -407,12 +407,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->rotationXBy(F)Landroid/view/ViewPropertyAnimator;
 
     .line 304
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public rotationY(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 317
@@ -427,7 +427,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 318
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -437,12 +437,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->rotationY(F)Landroid/view/ViewPropertyAnimator;
 
     .line 320
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public rotationYBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 333
@@ -457,7 +457,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 334
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -467,12 +467,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->rotationYBy(F)Landroid/view/ViewPropertyAnimator;
 
     .line 336
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public scaleX(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 349
@@ -487,7 +487,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 350
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -497,12 +497,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->scaleX(F)Landroid/view/ViewPropertyAnimator;
 
     .line 352
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public scaleXBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 365
@@ -517,7 +517,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 366
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -527,12 +527,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->scaleXBy(F)Landroid/view/ViewPropertyAnimator;
 
     .line 368
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public scaleY(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 381
@@ -547,7 +547,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 382
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -557,12 +557,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->scaleY(F)Landroid/view/ViewPropertyAnimator;
 
     .line 384
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public scaleYBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 397
@@ -577,7 +577,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 398
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -587,12 +587,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->scaleYBy(F)Landroid/view/ViewPropertyAnimator;
 
     .line 400
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public setDuration(J)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 5
     .param p1, "value"    # J
 
     .line 54
@@ -607,7 +607,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 55
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -617,12 +617,12 @@
     invoke-virtual {v0, p1, p2}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
     .line 57
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public setInterpolator(Landroid/view/animation/Interpolator;)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Landroid/view/animation/Interpolator;
 
     .line 187
@@ -637,7 +637,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 188
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -647,12 +647,12 @@
     invoke-static {v0, p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/view/ViewPropertyAnimator;Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
 
     .line 190
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public setListener(Landroidx/core/view/ViewPropertyAnimatorListener;)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "listener"    # Landroidx/core/view/ViewPropertyAnimatorListener;
 
     .line 673
@@ -667,18 +667,18 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 674
     invoke-direct {p0, v1, p1}, Landroidx/core/view/ViewPropertyAnimatorCompat;->setListenerInternal(Landroid/view/View;Landroidx/core/view/ViewPropertyAnimatorListener;)V
 
     .line 676
-    :cond_0
+    :cond_e
     return-object p0
 .end method
 
 .method public setStartDelay(J)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 5
     .param p1, "value"    # J
 
     .line 220
@@ -693,7 +693,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 221
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -703,12 +703,12 @@
     invoke-virtual {v0, p1, p2}, Landroid/view/ViewPropertyAnimator;->setStartDelay(J)Landroid/view/ViewPropertyAnimator;
 
     .line 223
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public setUpdateListener(Landroidx/core/view/ViewPropertyAnimatorUpdateListener;)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Landroidx/core/view/ViewPropertyAnimatorUpdateListener;
 
     .line 714
@@ -723,14 +723,14 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 715
     const/4 v0, 0x0
 
     .line 716
     .local v0, "wrapped":Landroid/animation/ValueAnimator$AnimatorUpdateListener;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     .line 717
     new-instance v2, Landroidx/core/view/ViewPropertyAnimatorCompat$$ExternalSyntheticLambda0;
@@ -740,7 +740,7 @@
     move-object v0, v2
 
     .line 719
-    :cond_0
+    :cond_14
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v2
@@ -752,12 +752,12 @@
     .line 722
     .end local v0    # "wrapped":Landroid/animation/ValueAnimator$AnimatorUpdateListener;
     .end local v2    # "animator":Landroid/view/ViewPropertyAnimator;
-    :cond_1
+    :cond_1b
     return-object p0
 .end method
 
 .method public start()V
-    .locals 2
+    .registers 3
 
     .line 602
     iget-object v0, p0, Landroidx/core/view/ViewPropertyAnimatorCompat;->mView:Ljava/lang/ref/WeakReference;
@@ -771,7 +771,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 603
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -781,12 +781,12 @@
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
     .line 605
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public translationX(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 102
@@ -801,7 +801,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 103
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -811,12 +811,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->translationX(F)Landroid/view/ViewPropertyAnimator;
 
     .line 105
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public translationXBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 487
@@ -831,7 +831,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 488
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -841,12 +841,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->translationXBy(F)Landroid/view/ViewPropertyAnimator;
 
     .line 490
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public translationY(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 118
@@ -861,7 +861,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 119
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -871,12 +871,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
 
     .line 121
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public translationYBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 503
@@ -891,7 +891,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 504
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -901,12 +901,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->translationYBy(F)Landroid/view/ViewPropertyAnimator;
 
     .line 506
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public translationZ(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 542
@@ -921,7 +921,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 543
     nop
@@ -937,12 +937,12 @@
 
     .line 548
     .end local v0    # "animator":Landroid/view/ViewPropertyAnimator;
-    :cond_0
+    :cond_13
     return-object p0
 .end method
 
 .method public translationZBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 521
@@ -957,7 +957,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 522
     nop
@@ -973,12 +973,12 @@
 
     .line 527
     .end local v0    # "animator":Landroid/view/ViewPropertyAnimator;
-    :cond_0
+    :cond_13
     return-object p0
 .end method
 
 .method public withEndAction(Ljava/lang/Runnable;)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 152
@@ -993,7 +993,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 153
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -1006,12 +1006,12 @@
 
     .line 156
     .end local v0    # "animator":Landroid/view/ViewPropertyAnimator;
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public withLayer()Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 3
 
     .line 633
     iget-object v0, p0, Landroidx/core/view/ViewPropertyAnimatorCompat;->mView:Ljava/lang/ref/WeakReference;
@@ -1025,7 +1025,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 634
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -1038,12 +1038,12 @@
 
     .line 637
     .end local v0    # "animator":Landroid/view/ViewPropertyAnimator;
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public withStartAction(Ljava/lang/Runnable;)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 654
@@ -1058,7 +1058,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 655
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -1071,12 +1071,12 @@
 
     .line 658
     .end local v0    # "animator":Landroid/view/ViewPropertyAnimator;
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public x(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 423
@@ -1091,7 +1091,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 424
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -1101,12 +1101,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->x(F)Landroid/view/ViewPropertyAnimator;
 
     .line 426
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public xBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 439
@@ -1121,7 +1121,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 440
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -1131,12 +1131,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->xBy(F)Landroid/view/ViewPropertyAnimator;
 
     .line 442
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public y(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 455
@@ -1151,7 +1151,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 456
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -1161,12 +1161,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->y(F)Landroid/view/ViewPropertyAnimator;
 
     .line 458
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public yBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 471
@@ -1181,7 +1181,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 472
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
@@ -1191,12 +1191,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->yBy(F)Landroid/view/ViewPropertyAnimator;
 
     .line 474
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method public z(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 563
@@ -1211,7 +1211,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 564
     nop
@@ -1227,12 +1227,12 @@
 
     .line 569
     .end local v0    # "animator":Landroid/view/ViewPropertyAnimator;
-    :cond_0
+    :cond_13
     return-object p0
 .end method
 
 .method public zBy(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 584
@@ -1247,7 +1247,7 @@
     move-object v1, v0
 
     .local v1, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 585
     nop
@@ -1263,6 +1263,6 @@
 
     .line 590
     .end local v0    # "animator":Landroid/view/ViewPropertyAnimator;
-    :cond_0
+    :cond_13
     return-object p0
 .end method

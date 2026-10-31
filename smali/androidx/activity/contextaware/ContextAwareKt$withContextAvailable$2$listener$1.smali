@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/CancellableContinuation;Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 3
     .param p1, "$co"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p2, "$onContextAvailable"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public onContextAvailable(Landroid/content/Context;)V
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -105,7 +105,7 @@
 
     iget-object v1, p0, Landroidx/activity/contextaware/ContextAwareKt$withContextAvailable$2$listener$1;->$onContextAvailable:Lkotlin/jvm/functions/Function1;
 
-    :try_start_0
+    :try_start_9
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v2, p0
@@ -127,12 +127,12 @@
     invoke-static {v1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_9 .. :try_end_17} :catchall_18
 
-    goto :goto_0
+    goto :goto_23
 
-    :catchall_0
+    :catchall_18
     move-exception v1
 
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -145,7 +145,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_23
     invoke-interface {v0, v1}, Lkotlinx/coroutines/CancellableContinuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 81

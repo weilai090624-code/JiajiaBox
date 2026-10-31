@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/BufferedReader;)V
-    .locals 1
+    .registers 3
     .param p1, "bufferedReader"    # Ljava/io/BufferedReader;
 
     .line 38
@@ -46,21 +46,21 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 44
     iget-object v0, p0, Lj$/io/DesugarBufferedReaderLinesIterator;->nextLine:Ljava/lang/String;
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     .line 45
     return v1
 
     .line 48
-    :cond_0
-    :try_start_0
+    :cond_6
+    :try_start_6
     iget-object v0, p0, Lj$/io/DesugarBufferedReaderLinesIterator;->bufferedReader:Ljava/io/BufferedReader;
 
     invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
@@ -71,21 +71,21 @@
 
     .line 49
     iget-object v0, p0, Lj$/io/DesugarBufferedReaderLinesIterator;->nextLine:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_10} :catch_15
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_14
     return v1
 
     .line 50
-    :catch_0
+    :catch_15
     move-exception v0
 
     .line 51
@@ -98,7 +98,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-virtual {p0}, Lj$/io/DesugarBufferedReaderLinesIterator;->next()Ljava/lang/String;
@@ -109,23 +109,23 @@
 .end method
 
 .method public next()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 58
     iget-object v0, p0, Lj$/io/DesugarBufferedReaderLinesIterator;->nextLine:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     invoke-virtual {p0}, Lj$/io/DesugarBufferedReaderLinesIterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
-    goto :goto_0
+    goto :goto_11
 
     .line 63
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -133,8 +133,8 @@
     throw v0
 
     .line 59
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     iget-object v0, p0, Lj$/io/DesugarBufferedReaderLinesIterator;->nextLine:Ljava/lang/String;
 
     .line 60

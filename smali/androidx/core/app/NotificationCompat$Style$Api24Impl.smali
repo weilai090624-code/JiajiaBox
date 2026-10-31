@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3173
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static setChronometerCountDown(Landroid/widget/RemoteViews;IZ)V
-    .locals 0
+    .registers 3
     .param p0, "remoteViews"    # Landroid/widget/RemoteViews;
     .param p1, "viewId"    # I
     .param p2, "isCountDown"    # Z

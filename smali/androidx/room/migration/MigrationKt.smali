@@ -32,7 +32,7 @@
 
 # direct methods
 .method public static final Migration(IILkotlin/jvm/functions/Function1;)Landroidx/room/migration/Migration;
-    .locals 1
+    .registers 4
     .param p0, "startVersion"    # I
     .param p1, "endVersion"    # I
     .param p2, "migrate"    # Lkotlin/jvm/functions/Function1;

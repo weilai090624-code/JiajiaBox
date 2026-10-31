@@ -91,7 +91,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Ljava/util/List;ZLio/nekohasekai/sagernet/ui/ConfigurationFragment;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,7 +128,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -167,7 +167,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -181,7 +181,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -210,7 +210,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 20
+    .registers 22
 
     move-object/from16 v0, p0
 
@@ -221,7 +221,7 @@
     .line 721
     iget v2, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$pingTest$mainJob$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_fe
 
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -231,16 +231,16 @@
 
     throw v1
 
-    :pswitch_0
+    :pswitch_13
     move-object/from16 v1, p1
 
     .local v1, "$result":Ljava/lang/Object;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_ed
 
     .end local v1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1a
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p1
@@ -294,8 +294,8 @@
     move-result-object v9
 
     .end local v4    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    :cond_0
-    :goto_0
+    :cond_44
+    :goto_44
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
@@ -304,7 +304,7 @@
 
     const/4 v11, 0x1
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_75
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -320,7 +320,7 @@
 
     .line 723
     .local v13, "$i$a$-filter-ConfigurationFragment$pingTest$mainJob$1$profilesList$1":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_62
 
     .line 724
     invoke-virtual {v12}, Lio/nekohasekai/sagernet/database/ProxyEntity;->requireBean()Lio/nekohasekai/sagernet/fmt/AbstractBean;
@@ -331,17 +331,17 @@
 
     move-result v14
 
-    if-eqz v14, :cond_2
+    if-eqz v14, :cond_6e
 
     .line 725
     .end local v12    # "it":Lio/nekohasekai/sagernet/database/ProxyEntity;
     const/4 v10, 0x1
 
-    goto :goto_1
+    goto :goto_6f
 
     .line 728
     .restart local v12    # "it":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :cond_1
+    :cond_62
     invoke-virtual {v12}, Lio/nekohasekai/sagernet/database/ProxyEntity;->requireBean()Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     move-result-object v14
@@ -350,30 +350,30 @@
 
     move-result v14
 
-    if-eqz v14, :cond_2
+    if-eqz v14, :cond_6e
 
     .line 729
     .end local v12    # "it":Lio/nekohasekai/sagernet/database/ProxyEntity;
     const/4 v10, 0x1
 
-    goto :goto_1
+    goto :goto_6f
 
     .line 732
-    :cond_2
+    :cond_6e
     nop
 
     .line 1766
     .end local v13    # "$i$a$-filter-ConfigurationFragment$pingTest$mainJob$1$profilesList$1":I
-    :goto_1
-    if-eqz v10, :cond_0
+    :goto_6f
+    if-eqz v10, :cond_44
 
     invoke-interface {v7, v4}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_44
 
     .line 1767
     .end local v4    # "element$iv$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_75
     nop
 
     .end local v7    # "destination$iv$iv":Ljava/util/Collection;
@@ -425,8 +425,8 @@
 
     iget-object v5, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$pingTest$mainJob$1;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
-    :goto_2
-    if-ge v10, v9, :cond_4
+    :goto_9a
+    if-ge v10, v9, :cond_dc
 
     const/16 v18, 0x0
 
@@ -509,12 +509,12 @@
 
     move/from16 v6, v19
 
-    goto :goto_2
+    goto :goto_9a
 
     .line 821
     .end local v3    # "$this$runOnDefaultDispatcher":Lkotlinx/coroutines/CoroutineScope;
     .end local v13    # "profiles":Ljava/util/concurrent/ConcurrentLinkedQueue;
-    :cond_4
+    :cond_dc
     iget-object v3, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$pingTest$mainJob$1;->$testJobs:Ljava/util/List;
 
     check-cast v3, Ljava/util/Collection;
@@ -529,19 +529,19 @@
 
     move-result-object v3
 
-    if-ne v3, v1, :cond_5
+    if-ne v3, v1, :cond_ec
 
     .line 721
     return-object v1
 
     .line 821
-    :cond_5
+    :cond_ec
     move-object v1, v2
 
     .line 823
     .end local v2    # "$result":Ljava/lang/Object;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :goto_3
+    :goto_ed
     new-instance v2, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$pingTest$mainJob$1$2;
 
     iget-object v3, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$pingTest$mainJob$1;->$test:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;
@@ -561,9 +561,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_fe
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_13
     .end packed-switch
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "theProp"    # Ljava/lang/String;
 
     .line 59
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public run()Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
 
     .line 70
     iget-object v0, p0, Lj$/sun/security/action/GetBooleanAction;->theProp:Ljava/lang/String;
@@ -56,7 +56,7 @@
 .end method
 
 .method public bridge synthetic run()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 49
     invoke-virtual {p0}, Lj$/sun/security/action/GetBooleanAction;->run()Ljava/lang/Boolean;

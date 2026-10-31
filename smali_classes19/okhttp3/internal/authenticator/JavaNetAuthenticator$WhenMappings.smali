@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     invoke-static {}, Ljava/net/Proxy$Type;->values()[Ljava/net/Proxy$Type;
 

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static getFieldSetter(Ljava/lang/Class;Ljava/lang/String;)Lcom/google/common/collect/Serialization$FieldSetter;
-    .locals 3
+    .registers 5
     .param p1, "fieldName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,14 +55,14 @@
     const/4 v2, 0x0
 
     invoke-direct {v1, v0, v2}, Lcom/google/common/collect/Serialization$FieldSetter;-><init>(Ljava/lang/reflect/Field;Lcom/google/common/collect/Serialization$1;)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_a} :catch_b
 
     return-object v1
 
     .line 194
     .end local v0    # "field":Ljava/lang/reflect/Field;
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 195
@@ -75,7 +75,7 @@
 .end method
 
 .method static populateMap(Ljava/util/Map;Ljava/io/ObjectInputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -113,7 +113,7 @@
 .end method
 
 .method static populateMap(Ljava/util/Map;Ljava/io/ObjectInputStream;I)V
-    .locals 3
+    .registers 6
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .param p2, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -142,8 +142,8 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p2, :cond_0
+    :goto_1
+    if-ge v0, p2, :cond_11
 
     .line 87
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
@@ -165,16 +165,16 @@
     .end local v2    # "value":Ljava/lang/Object;, "TV;"
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 92
     .end local v0    # "i":I
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method static populateMultimap(Lcom/google/common/collect/Multimap;Ljava/io/ObjectInputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -212,7 +212,7 @@
 .end method
 
 .method static populateMultimap(Lcom/google/common/collect/Multimap;Ljava/io/ObjectInputStream;I)V
-    .locals 6
+    .registers 9
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .param p2, "distinctKeys"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -241,8 +241,8 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p2, :cond_1
+    :goto_1
+    if-ge v0, p2, :cond_1f
 
     .line 178
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
@@ -266,8 +266,8 @@
     const/4 v4, 0x0
 
     .local v4, "j":I
-    :goto_1
-    if-ge v4, v3, :cond_0
+    :goto_10
+    if-ge v4, v3, :cond_1c
 
     .line 183
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
@@ -282,26 +282,26 @@
     .end local v5    # "value":Ljava/lang/Object;, "TV;"
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_10
 
     .line 176
     .end local v1    # "key":Ljava/lang/Object;, "TK;"
     .end local v2    # "values":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     .end local v3    # "valueCount":I
     .end local v4    # "j":I
-    :cond_0
+    :cond_1c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 187
     .end local v0    # "i":I
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 .method static populateMultiset(Lcom/google/common/collect/Multiset;Ljava/io/ObjectInputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -337,7 +337,7 @@
 .end method
 
 .method static populateMultiset(Lcom/google/common/collect/Multiset;Ljava/io/ObjectInputStream;I)V
-    .locals 3
+    .registers 6
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .param p2, "distinctElements"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -364,8 +364,8 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p2, :cond_0
+    :goto_1
+    if-ge v0, p2, :cond_11
 
     .line 131
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
@@ -387,16 +387,16 @@
     .end local v2    # "count":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 135
     .end local v0    # "i":I
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method static readCount(Ljava/io/ObjectInputStream;)I
-    .locals 1
+    .registers 2
     .param p0, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -413,7 +413,7 @@
 .end method
 
 .method static writeMap(Ljava/util/Map;Ljava/io/ObjectOutputStream;)V
-    .locals 3
+    .registers 5
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -452,12 +452,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -482,15 +482,15 @@
 
     .line 65
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    goto :goto_0
+    goto :goto_f
 
     .line 66
-    :cond_0
+    :cond_2a
     return-void
 .end method
 
 .method static writeMultimap(Lcom/google/common/collect/Multimap;Ljava/io/ObjectOutputStream;)V
-    .locals 4
+    .registers 6
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -537,12 +537,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_17
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_50
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -582,12 +582,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_41
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_4f
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -599,20 +599,20 @@
 
     .line 153
     .end local v3    # "value":Ljava/lang/Object;, "TV;"
-    goto :goto_1
+    goto :goto_41
 
     .line 154
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
-    :cond_0
-    goto :goto_0
+    :cond_4f
+    goto :goto_17
 
     .line 155
-    :cond_1
+    :cond_50
     return-void
 .end method
 
 .method static writeMultiset(Lcom/google/common/collect/Multiset;Ljava/io/ObjectOutputStream;)V
-    .locals 4
+    .registers 6
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -655,12 +655,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_13
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2e
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -685,9 +685,9 @@
 
     .line 108
     .end local v2    # "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<TE;>;"
-    goto :goto_0
+    goto :goto_13
 
     .line 109
-    :cond_0
+    :cond_2e
     return-void
 .end method

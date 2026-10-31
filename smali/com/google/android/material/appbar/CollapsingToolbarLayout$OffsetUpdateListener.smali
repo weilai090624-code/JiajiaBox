@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/appbar/CollapsingToolbarLayout;)V
-    .locals 0
+    .registers 2
 
     .line 1750
     iput-object p1, p0, Lcom/google/android/material/appbar/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onOffsetChanged(Lcom/google/android/material/appbar/AppBarLayout;I)V
-    .locals 9
+    .registers 12
     .param p1, "layout"    # Lcom/google/android/material/appbar/AppBarLayout;
     .param p2, "verticalOffset"    # I
 
@@ -52,7 +52,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     iget-object v0, p0, Lcom/google/android/material/appbar/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
 
@@ -62,14 +62,14 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     .line 1758
     .local v0, "insetTop":I
-    :goto_0
+    :goto_15
     const/4 v2, 0x0
 
     .local v2, "i":I
@@ -80,8 +80,8 @@
     move-result v3
 
     .local v3, "z":I
-    :goto_1
-    if-ge v2, v3, :cond_1
+    :goto_1c
+    if-ge v2, v3, :cond_54
 
     .line 1759
     iget-object v4, p0, Lcom/google/android/material/appbar/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
@@ -108,12 +108,12 @@
     .local v6, "offsetHelper":Lcom/google/android/material/appbar/ViewOffsetHelper;
     iget v7, v5, Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;->collapseMode:I
 
-    packed-switch v7, :pswitch_data_0
+    packed-switch v7, :pswitch_data_a8
 
-    goto :goto_2
+    goto :goto_51
 
     .line 1769
-    :pswitch_0
+    :pswitch_34
     neg-int v7, p2
 
     int-to-float v7, v7
@@ -129,10 +129,10 @@
     invoke-virtual {v6, v7}, Lcom/google/android/material/appbar/ViewOffsetHelper;->setTopAndBottomOffset(I)Z
 
     .line 1770
-    goto :goto_2
+    goto :goto_51
 
     .line 1765
-    :pswitch_1
+    :pswitch_42
     neg-int v7, p2
 
     iget-object v8, p0, Lcom/google/android/material/appbar/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
@@ -156,15 +156,15 @@
     .end local v4    # "child":Landroid/view/View;
     .end local v5    # "lp":Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;
     .end local v6    # "offsetHelper":Lcom/google/android/material/appbar/ViewOffsetHelper;
-    :goto_2
+    :goto_51
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 1777
     .end local v2    # "i":I
     .end local v3    # "z":I
-    :cond_1
+    :cond_54
     iget-object v1, p0, Lcom/google/android/material/appbar/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
 
     invoke-virtual {v1}, Lcom/google/android/material/appbar/CollapsingToolbarLayout;->updateScrimVisibility()V
@@ -174,9 +174,9 @@
 
     iget-object v1, v1, Lcom/google/android/material/appbar/CollapsingToolbarLayout;->statusBarScrim:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_66
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_66
 
     .line 1780
     iget-object v1, p0, Lcom/google/android/material/appbar/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
@@ -184,7 +184,7 @@
     invoke-static {v1}, Landroidx/core/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
 
     .line 1784
-    :cond_2
+    :cond_66
     iget-object v1, p0, Lcom/google/android/material/appbar/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
 
     invoke-virtual {v1}, Lcom/google/android/material/appbar/CollapsingToolbarLayout;->getHeight()I
@@ -269,9 +269,9 @@
     .line 1792
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_a8
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_42
+        :pswitch_34
     .end packed-switch
 .end method

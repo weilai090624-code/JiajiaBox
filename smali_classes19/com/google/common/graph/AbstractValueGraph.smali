@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"
@@ -37,7 +37,7 @@
 .end method
 
 .method private static edgeValueMap(Lcom/google/common/graph/ValueGraph;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public asGraph()Lcom/google/common/graph/Graph;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -94,7 +94,7 @@
 .end method
 
 .method public bridge synthetic degree(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 40
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"
@@ -106,7 +106,7 @@
 .end method
 
 .method public bridge synthetic edges()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 40
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"
@@ -118,7 +118,7 @@
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -128,24 +128,24 @@
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 113
     return v0
 
     .line 115
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/graph/ValueGraph;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 116
     return v2
 
     .line 118
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/common/graph/ValueGraph;
@@ -160,7 +160,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_34
 
     .line 121
     invoke-virtual {p0}, Lcom/google/common/graph/AbstractValueGraph;->nodes()Ljava/util/Set;
@@ -175,7 +175,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_34
 
     .line 122
     invoke-static {p0}, Lcom/google/common/graph/AbstractValueGraph;->edgeValueMap(Lcom/google/common/graph/ValueGraph;)Ljava/util/Map;
@@ -190,20 +190,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_34
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_2
+    :cond_34
     const/4 v0, 0x0
 
     .line 120
-    :goto_0
+    :goto_35
     return v0
 .end method
 
 .method public bridge synthetic hasEdgeConnecting(Lcom/google/common/graph/EndpointPair;)Z
-    .locals 0
+    .registers 2
 
     .line 40
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"
@@ -215,7 +215,7 @@
 .end method
 
 .method public bridge synthetic hasEdgeConnecting(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     .line 40
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"
@@ -227,7 +227,7 @@
 .end method
 
 .method public final hashCode()I
-    .locals 1
+    .registers 2
 
     .line 127
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"
@@ -243,7 +243,7 @@
 .end method
 
 .method public bridge synthetic inDegree(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 40
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"
@@ -255,7 +255,7 @@
 .end method
 
 .method public bridge synthetic incidentEdgeOrder()Lcom/google/common/graph/ElementOrder;
-    .locals 1
+    .registers 2
 
     .line 40
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"
@@ -267,7 +267,7 @@
 .end method
 
 .method public bridge synthetic incidentEdges(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
 
     .line 40
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"
@@ -279,7 +279,7 @@
 .end method
 
 .method public bridge synthetic outDegree(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 40
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"
@@ -291,7 +291,7 @@
 .end method
 
 .method public bridge synthetic predecessors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/google/common/graph/ValueGraph$-CC;->$default$predecessors(Lcom/google/common/graph/ValueGraph;Ljava/lang/Object;)Ljava/lang/Iterable;
 
@@ -301,7 +301,7 @@
 .end method
 
 .method public bridge synthetic successors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/google/common/graph/ValueGraph$-CC;->$default$successors(Lcom/google/common/graph/ValueGraph;Ljava/lang/Object;)Ljava/lang/Iterable;
 
@@ -311,7 +311,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 133
     .local p0, "this":Lcom/google/common/graph/AbstractValueGraph;, "Lcom/google/common/graph/AbstractValueGraph<TN;TV;>;"

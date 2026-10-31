@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/os/ResultReceiver;ILandroid/os/Bundle;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroid/support/v4/os/ResultReceiver;
     .param p2, "resultCode"    # I
     .param p3, "resultData"    # Landroid/os/Bundle;
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 63
     iget-object v0, p0, Landroid/support/v4/os/ResultReceiver$MyRunnable;->this$0:Landroid/support/v4/os/ResultReceiver;

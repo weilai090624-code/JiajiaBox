@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 21
     .local p0, "this":Lcom/google/android/material/datepicker/PickerFragment;, "Lcom/google/android/material/datepicker/PickerFragment<TS;>;"
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method addOnSelectionChangedListener(Lcom/google/android/material/datepicker/OnSelectionChangedListener;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,7 +69,7 @@
 .end method
 
 .method clearOnSelectionChangedListeners()V
-    .locals 1
+    .registers 2
 
     .line 40
     .local p0, "this":Lcom/google/android/material/datepicker/PickerFragment;, "Lcom/google/android/material/datepicker/PickerFragment<TS;>;"
@@ -92,7 +92,7 @@
 .end method
 
 .method removeOnSelectionChangedListener(Lcom/google/android/material/datepicker/OnSelectionChangedListener;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

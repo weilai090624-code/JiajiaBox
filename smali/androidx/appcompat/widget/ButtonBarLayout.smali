@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 8
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -73,7 +73,7 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_2e
 
     .line 63
     iget-boolean v1, p0, Landroidx/appcompat/widget/ButtonBarLayout;->mAllowStacking:Z
@@ -81,12 +81,12 @@
     invoke-direct {p0, v1}, Landroidx/appcompat/widget/ButtonBarLayout;->setStacked(Z)V
 
     .line 65
-    :cond_0
+    :cond_2e
     return-void
 .end method
 
 .method private getNextVisibleChildIndex(I)I
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 156
@@ -98,8 +98,8 @@
     move-result v1
 
     .local v1, "count":I
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_5
+    if-ge v0, v1, :cond_15
 
     .line 157
     invoke-virtual {p0, v0}, Landroidx/appcompat/widget/ButtonBarLayout;->getChildAt(I)Landroid/view/View;
@@ -110,28 +110,28 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
     .line 158
     return v0
 
     .line 156
-    :cond_0
+    :cond_12
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 161
     .end local v0    # "i":I
     .end local v1    # "count":I
-    :cond_1
+    :cond_15
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method private isStacked()Z
-    .locals 1
+    .registers 2
 
     .line 186
     iget-boolean v0, p0, Landroidx/appcompat/widget/ButtonBarLayout;->mStacked:Z
@@ -140,38 +140,38 @@
 .end method
 
 .method private setStacked(Z)V
-    .locals 4
+    .registers 6
     .param p1, "stacked"    # Z
 
     .line 165
     iget-boolean v0, p0, Landroidx/appcompat/widget/ButtonBarLayout;->mStacked:Z
 
-    if-eq v0, p1, :cond_4
+    if-eq v0, p1, :cond_3d
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     iget-boolean v0, p0, Landroidx/appcompat/widget/ButtonBarLayout;->mAllowStacking:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3d
 
     .line 166
-    :cond_0
+    :cond_a
     iput-boolean p1, p0, Landroidx/appcompat/widget/ButtonBarLayout;->mStacked:Z
 
     .line 168
     invoke-virtual {p0, p1}, Landroidx/appcompat/widget/ButtonBarLayout;->setOrientation(I)V
 
     .line 169
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_15
 
     const v0, 0x800005
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_15
     const/16 v0, 0x50
 
-    :goto_0
+    :goto_17
     invoke-virtual {p0, v0}, Landroidx/appcompat/widget/ButtonBarLayout;->setGravity(I)V
 
     .line 171
@@ -183,23 +183,23 @@
 
     .line 172
     .local v0, "spacer":Landroid/view/View;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2b
 
     .line 173
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_27
 
     const/16 v1, 0x8
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_2
+    :cond_27
     const/4 v1, 0x4
 
-    :goto_1
+    :goto_28
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 178
-    :cond_3
+    :cond_2b
     invoke-virtual {p0}, Landroidx/appcompat/widget/ButtonBarLayout;->getChildCount()I
 
     move-result v1
@@ -209,8 +209,8 @@
     add-int/lit8 v2, v1, -0x2
 
     .local v2, "i":I
-    :goto_2
-    if-ltz v2, :cond_4
+    :goto_31
+    if-ltz v2, :cond_3d
 
     .line 180
     invoke-virtual {p0, v2}, Landroidx/appcompat/widget/ButtonBarLayout;->getChildAt(I)Landroid/view/View;
@@ -222,20 +222,20 @@
     .line 179
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_2
+    goto :goto_31
 
     .line 183
     .end local v0    # "spacer":Landroid/view/View;
     .end local v1    # "childCount":I
     .end local v2    # "i":I
-    :cond_4
+    :cond_3d
     return-void
 .end method
 
 
 # virtual methods
 .method protected onMeasure(II)V
-    .locals 11
+    .registers 14
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -250,28 +250,28 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_18
 
     .line 82
     iget v1, p0, Landroidx/appcompat/widget/ButtonBarLayout;->mLastWidthSize:I
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_16
 
     invoke-direct {p0}, Landroidx/appcompat/widget/ButtonBarLayout;->isStacked()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     .line 84
     invoke-direct {p0, v2}, Landroidx/appcompat/widget/ButtonBarLayout;->setStacked(Z)V
 
     .line 87
-    :cond_0
+    :cond_16
     iput v0, p0, Landroidx/appcompat/widget/ButtonBarLayout;->mLastWidthSize:I
 
     .line 90
-    :cond_1
+    :cond_18
     const/4 v1, 0x0
 
     .line 96
@@ -280,7 +280,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_2f
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
@@ -288,7 +288,7 @@
 
     const/high16 v4, 0x40000000    # 2.0f
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_2f
 
     .line 97
     const/high16 v3, -0x80000000
@@ -301,28 +301,28 @@
     .local v3, "initialWidthMeasureSpec":I
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
     .line 102
     .end local v3    # "initialWidthMeasureSpec":I
-    :cond_2
+    :cond_2f
     move v3, p1
 
     .line 105
     .restart local v3    # "initialWidthMeasureSpec":I
-    :goto_0
+    :goto_30
     invoke-super {p0, v3, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
     .line 107
     iget-boolean v4, p0, Landroidx/appcompat/widget/ButtonBarLayout;->mAllowStacking:Z
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_52
 
     invoke-direct {p0}, Landroidx/appcompat/widget/ButtonBarLayout;->isStacked()Z
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_52
 
     .line 110
     invoke-virtual {p0}, Landroidx/appcompat/widget/ButtonBarLayout;->getMeasuredWidthAndState()I
@@ -341,19 +341,19 @@
 
     const/4 v7, 0x1
 
-    if-ne v5, v6, :cond_3
+    if-ne v5, v6, :cond_4b
 
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_3
+    :cond_4b
     const/4 v6, 0x0
 
     .line 114
     .local v6, "stack":Z
-    :goto_1
-    if-eqz v6, :cond_4
+    :goto_4c
+    if-eqz v6, :cond_52
 
     .line 115
     invoke-direct {p0, v7}, Landroidx/appcompat/widget/ButtonBarLayout;->setStacked(Z)V
@@ -365,14 +365,14 @@
     .end local v4    # "measuredWidth":I
     .end local v5    # "measuredWidthState":I
     .end local v6    # "stack":Z
-    :cond_4
-    if-eqz v1, :cond_5
+    :cond_52
+    if-eqz v1, :cond_57
 
     .line 122
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
     .line 127
-    :cond_5
+    :cond_57
     const/4 v4, 0x0
 
     .line 128
@@ -383,7 +383,7 @@
 
     .line 129
     .local v2, "firstVisible":I
-    if-ltz v2, :cond_8
+    if-ltz v2, :cond_a5
 
     .line 130
     invoke-virtual {p0, v2}, Landroidx/appcompat/widget/ButtonBarLayout;->getChildAt(I)Landroid/view/View;
@@ -425,7 +425,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_a0
 
     .line 135
     add-int/lit8 v7, v2, 0x1
@@ -436,7 +436,7 @@
 
     .line 136
     .local v7, "secondVisible":I
-    if-ltz v7, :cond_6
+    if-ltz v7, :cond_9f
 
     .line 137
     invoke-virtual {p0, v7}, Landroidx/appcompat/widget/ButtonBarLayout;->getChildAt(I)Landroid/view/View;
@@ -470,11 +470,11 @@
 
     .line 140
     .end local v7    # "secondVisible":I
-    :cond_6
-    goto :goto_2
+    :cond_9f
+    goto :goto_a5
 
     .line 141
-    :cond_7
+    :cond_a0
     invoke-virtual {p0}, Landroidx/appcompat/widget/ButtonBarLayout;->getPaddingBottom()I
 
     move-result v7
@@ -484,36 +484,36 @@
     .line 145
     .end local v5    # "firstButton":Landroid/view/View;
     .end local v6    # "firstParams":Landroid/widget/LinearLayout$LayoutParams;
-    :cond_8
-    :goto_2
+    :cond_a5
+    :goto_a5
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->getMinimumHeight(Landroid/view/View;)I
 
     move-result v5
 
-    if-eq v5, v4, :cond_9
+    if-eq v5, v4, :cond_b3
 
     .line 146
     invoke-virtual {p0, v4}, Landroidx/appcompat/widget/ButtonBarLayout;->setMinimumHeight(I)V
 
     .line 149
-    if-nez p2, :cond_9
+    if-nez p2, :cond_b3
 
     .line 150
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
     .line 153
-    :cond_9
+    :cond_b3
     return-void
 .end method
 
 .method public setAllowStacking(Z)V
-    .locals 1
+    .registers 3
     .param p1, "allowStacking"    # Z
 
     .line 68
     iget-boolean v0, p0, Landroidx/appcompat/widget/ButtonBarLayout;->mAllowStacking:Z
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_17
 
     .line 69
     iput-boolean p1, p0, Landroidx/appcompat/widget/ButtonBarLayout;->mAllowStacking:Z
@@ -521,13 +521,13 @@
     .line 70
     iget-boolean v0, p0, Landroidx/appcompat/widget/ButtonBarLayout;->mAllowStacking:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     invoke-direct {p0}, Landroidx/appcompat/widget/ButtonBarLayout;->isStacked()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 71
     const/4 v0, 0x0
@@ -535,10 +535,10 @@
     invoke-direct {p0, v0}, Landroidx/appcompat/widget/ButtonBarLayout;->setStacked(Z)V
 
     .line 73
-    :cond_0
+    :cond_14
     invoke-virtual {p0}, Landroidx/appcompat/widget/ButtonBarLayout;->requestLayout()V
 
     .line 75
-    :cond_1
+    :cond_17
     return-void
 .end method

@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/serializers/BeanSerializer;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/esotericsoftware/kryo/serializers/BeanSerializer;
 
     .line 64
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public compare(Ljava/beans/PropertyDescriptor;Ljava/beans/PropertyDescriptor;)I
-    .locals 2
+    .registers 5
     .param p1, "o1"    # Ljava/beans/PropertyDescriptor;
     .param p2, "o2"    # Ljava/beans/PropertyDescriptor;
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 64
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$1;, "Lcom/esotericsoftware/kryo/serializers/BeanSerializer$1;"

@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 978
     new-instance v0, Ljava/util/HashMap;
@@ -44,7 +44,7 @@
 
     const/16 v1, 0x16
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_21
 
     .line 982
     sget-object v0, Landroidx/core/content/ContextCompat$LegacyServiceMapHolder;->SERVICES:Ljava/util/HashMap;
@@ -65,7 +65,7 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 985
-    :cond_0
+    :cond_21
     nop
 
     .line 986
@@ -514,7 +514,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 977
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

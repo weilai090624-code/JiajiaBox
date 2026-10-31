@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 28
     new-instance v0, Lcom/google/zxing/FormatException;
@@ -28,7 +28,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Lcom/google/zxing/ReaderException;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 37
@@ -49,12 +49,12 @@
 .end method
 
 .method public static getFormatInstance()Lcom/google/zxing/FormatException;
-    .locals 1
+    .registers 1
 
     .line 41
     sget-boolean v0, Lcom/google/zxing/FormatException;->isStackTrace:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     new-instance v0, Lcom/google/zxing/FormatException;
 
@@ -62,20 +62,20 @@
 
     return-object v0
 
-    :cond_0
+    :cond_a
     sget-object v0, Lcom/google/zxing/FormatException;->INSTANCE:Lcom/google/zxing/FormatException;
 
     return-object v0
 .end method
 
 .method public static getFormatInstance(Ljava/lang/Throwable;)Lcom/google/zxing/FormatException;
-    .locals 1
+    .registers 2
     .param p0, "cause"    # Ljava/lang/Throwable;
 
     .line 45
     sget-boolean v0, Lcom/google/zxing/FormatException;->isStackTrace:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     new-instance v0, Lcom/google/zxing/FormatException;
 
@@ -83,7 +83,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_a
     sget-object v0, Lcom/google/zxing/FormatException;->INSTANCE:Lcom/google/zxing/FormatException;
 
     return-object v0

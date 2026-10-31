@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/sync/MutexImpl$onLock$2;
 
@@ -57,7 +57,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 6
+    .registers 7
 
     const-class v2, Lkotlinx/coroutines/sync/MutexImpl;
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
     .param p3, "p3"    # Ljava/lang/Object;
@@ -97,7 +97,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/sync/MutexImpl;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "p0"    # Lkotlinx/coroutines/sync/MutexImpl;
     .param p2, "p1"    # Ljava/lang/Object;
     .param p3, "p2"    # Ljava/lang/Object;

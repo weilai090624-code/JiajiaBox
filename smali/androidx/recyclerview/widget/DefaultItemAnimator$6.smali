@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/DefaultItemAnimator;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILandroid/view/View;ILandroid/view/ViewPropertyAnimator;)V
-    .locals 0
+    .registers 7
     .param p1, "this$0"    # Landroidx/recyclerview/widget/DefaultItemAnimator;
 
     .line 297
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 305
@@ -62,7 +62,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 306
     iget-object v0, p0, Landroidx/recyclerview/widget/DefaultItemAnimator$6;->val$view:Landroid/view/View;
@@ -70,10 +70,10 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
 
     .line 308
-    :cond_0
+    :cond_a
     iget v0, p0, Landroidx/recyclerview/widget/DefaultItemAnimator$6;->val$deltaY:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 309
     iget-object v0, p0, Landroidx/recyclerview/widget/DefaultItemAnimator$6;->val$view:Landroid/view/View;
@@ -81,12 +81,12 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
 
     .line 311
-    :cond_1
+    :cond_13
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 315
@@ -122,7 +122,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 300

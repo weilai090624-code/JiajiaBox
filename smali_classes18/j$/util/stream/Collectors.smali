@@ -76,7 +76,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$smcastingIdentity()Ljava/util/function/Function;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lj$/util/stream/Collectors;->castingIdentity()Ljava/util/function/Function;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 106
     sget-object v0, Lj$/util/stream/Collector$Characteristics;->CONCURRENT:Lj$/util/stream/Collector$Characteristics;
@@ -178,7 +178,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 122
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -187,7 +187,7 @@
 .end method
 
 .method public static averagingDouble(Ljava/util/function/ToDoubleFunction;)Lj$/util/stream/Collector;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -232,7 +232,7 @@
 .end method
 
 .method public static averagingInt(Ljava/util/function/ToIntFunction;)Lj$/util/stream/Collector;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -277,7 +277,7 @@
 .end method
 
 .method public static averagingLong(Ljava/util/function/ToLongFunction;)Lj$/util/stream/Collector;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -322,7 +322,7 @@
 .end method
 
 .method private static boxSupplier(Ljava/lang/Object;)Ljava/util/function/Supplier;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -343,7 +343,7 @@
 .end method
 
 .method private static castingIdentity()Ljava/util/function/Function;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<I:",
@@ -365,7 +365,7 @@
 .end method
 
 .method public static collectingAndThen(Lj$/util/stream/Collector;Ljava/util/function/Function;)Lj$/util/stream/Collector;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -401,7 +401,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     .line 588
     invoke-interface {v0}, Ljava/util/Set;->size()I
@@ -410,15 +410,15 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_16
 
     .line 589
     sget-object v0, Lj$/util/stream/Collectors;->CH_NOID:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_23
 
     .line 591
-    :cond_0
+    :cond_16
     invoke-static {v0}, Ljava/util/EnumSet;->copyOf(Ljava/util/Collection;)Ljava/util/EnumSet;
 
     move-result-object v0
@@ -434,8 +434,8 @@
     move-result-object v0
 
     .line 596
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     new-instance v7, Lj$/util/stream/Collectors$CollectorImpl;
 
     invoke-interface {p0}, Lj$/util/stream/Collector;->supplier()Ljava/util/function/Supplier;
@@ -472,7 +472,7 @@
 .end method
 
 .method static computeFinalSum([D)D
-    .locals 5
+    .registers 6
     .param p0, "summands"    # [D
 
     .line 761
@@ -500,24 +500,24 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_18
 
     invoke-static {v2, v3}, Ljava/lang/Double;->isInfinite(D)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_18
 
     .line 764
     return-wide v2
 
     .line 766
-    :cond_0
+    :cond_18
     return-wide v0
 .end method
 
 .method public static counting()Lj$/util/stream/Collector;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -543,7 +543,7 @@
 .end method
 
 .method private static duplicateKeyException(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/IllegalStateException;
-    .locals 3
+    .registers 6
     .param p0, "k"    # Ljava/lang/Object;
     .param p1, "u"    # Ljava/lang/Object;
     .param p2, "v"    # Ljava/lang/Object;
@@ -579,7 +579,7 @@
 .end method
 
 .method public static filtering(Ljava/util/function/Predicate;Lj$/util/stream/Collector;)Lj$/util/stream/Collector;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -640,7 +640,7 @@
 .end method
 
 .method public static flatMapping(Ljava/util/function/Function;Lj$/util/stream/Collector;)Lj$/util/stream/Collector;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -705,7 +705,7 @@
 .end method
 
 .method public static groupingBy(Ljava/util/function/Function;)Lj$/util/stream/Collector;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -738,7 +738,7 @@
 .end method
 
 .method public static groupingBy(Ljava/util/function/Function;Lj$/util/stream/Collector;)Lj$/util/stream/Collector;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -776,7 +776,7 @@
 .end method
 
 .method public static groupingBy(Ljava/util/function/Function;Ljava/util/function/Supplier;Lj$/util/stream/Collector;)Lj$/util/stream/Collector;
-    .locals 13
+    .registers 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -847,7 +847,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2a
 
     .line 1136
     new-instance v3, Lj$/util/stream/Collectors$CollectorImpl;
@@ -859,7 +859,7 @@
     return-object v3
 
     .line 1140
-    :cond_0
+    :cond_2a
     invoke-interface {p2}, Lj$/util/stream/Collector;->finisher()Ljava/util/function/Function;
 
     move-result-object v11
@@ -890,7 +890,7 @@
 .end method
 
 .method public static groupingByConcurrent(Ljava/util/function/Function;)Lj$/util/stream/Collector;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -927,7 +927,7 @@
 .end method
 
 .method public static groupingByConcurrent(Ljava/util/function/Function;Lj$/util/stream/Collector;)Lj$/util/stream/Collector;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -965,7 +965,7 @@
 .end method
 
 .method public static groupingByConcurrent(Ljava/util/function/Function;Ljava/util/function/Supplier;Lj$/util/stream/Collector;)Lj$/util/stream/Collector;
-    .locals 13
+    .registers 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1030,7 +1030,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_24
 
     .line 1289
     new-instance v3, Lj$/util/stream/Collectors$$ExternalSyntheticLambda7;
@@ -1040,11 +1040,11 @@
     move-object v10, v3
 
     .local v3, "accumulator":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<Ljava/util/concurrent/ConcurrentMap<TK;TA;>;TT;>;"
-    goto :goto_0
+    goto :goto_2a
 
     .line 1296
     .end local v3    # "accumulator":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<Ljava/util/concurrent/ConcurrentMap<TK;TA;>;TT;>;"
-    :cond_0
+    :cond_24
     new-instance v3, Lj$/util/stream/Collectors$$ExternalSyntheticLambda8;
 
     invoke-direct {v3, p0, v0, v1}, Lj$/util/stream/Collectors$$ExternalSyntheticLambda8;-><init>(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;)V
@@ -1053,7 +1053,7 @@
 
     .line 1305
     .local v10, "accumulator":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<Ljava/util/concurrent/ConcurrentMap<TK;TA;>;TT;>;"
-    :goto_0
+    :goto_2a
     invoke-interface {p2}, Lj$/util/stream/Collector;->characteristics()Ljava/util/Set;
 
     move-result-object v3
@@ -1064,7 +1064,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3e
 
     .line 1306
     new-instance v3, Lj$/util/stream/Collectors$CollectorImpl;
@@ -1076,7 +1076,7 @@
     return-object v3
 
     .line 1310
-    :cond_1
+    :cond_3e
     invoke-interface {p2}, Lj$/util/stream/Collector;->finisher()Ljava/util/function/Function;
 
     move-result-object v11
@@ -1107,7 +1107,7 @@
 .end method
 
 .method public static joining()Lj$/util/stream/Collector;
-    .locals 7
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1148,7 +1148,7 @@
 .end method
 
 .method public static joining(Ljava/lang/CharSequence;)Lj$/util/stream/Collector;
-    .locals 1
+    .registers 2
     .param p0, "delimiter"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1174,7 +1174,7 @@
 .end method
 
 .method public static joining(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Lj$/util/stream/Collector;
-    .locals 7
+    .registers 10
     .param p0, "delimiter"    # Ljava/lang/CharSequence;
     .param p1, "prefix"    # Ljava/lang/CharSequence;
     .param p2, "suffix"    # Ljava/lang/CharSequence;
@@ -1222,7 +1222,7 @@
 .end method
 
 .method static synthetic lambda$averagingDouble$38()[D
-    .locals 1
+    .registers 1
 
     .line 839
     const/4 v0, 0x4
@@ -1233,7 +1233,7 @@
 .end method
 
 .method static synthetic lambda$averagingDouble$39(Ljava/util/function/ToDoubleFunction;[DLjava/lang/Object;)V
-    .locals 7
+    .registers 10
     .param p0, "mapper"    # Ljava/util/function/ToDoubleFunction;
     .param p1, "a"    # [D
     .param p2, "t"    # Ljava/lang/Object;
@@ -1268,7 +1268,7 @@
 .end method
 
 .method static synthetic lambda$averagingDouble$40([D[D)[D
-    .locals 5
+    .registers 7
     .param p0, "a"    # [D
     .param p1, "b"    # [D
 
@@ -1309,7 +1309,7 @@
 .end method
 
 .method static synthetic lambda$averagingDouble$41([D)Ljava/lang/Double;
-    .locals 6
+    .registers 7
     .param p0, "a"    # [D
 
     .line 842
@@ -1321,11 +1321,11 @@
 
     cmpl-double v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_a
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_a
     invoke-static {p0}, Lj$/util/stream/Collectors;->computeFinalSum([D)D
 
     move-result-wide v1
@@ -1334,7 +1334,7 @@
 
     div-double v3, v1, v3
 
-    :goto_0
+    :goto_12
     invoke-static {v3, v4}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v0
@@ -1343,7 +1343,7 @@
 .end method
 
 .method static synthetic lambda$averagingInt$30()[J
-    .locals 1
+    .registers 1
 
     .line 782
     const/4 v0, 0x2
@@ -1354,7 +1354,7 @@
 .end method
 
 .method static synthetic lambda$averagingInt$31(Ljava/util/function/ToIntFunction;[JLjava/lang/Object;)V
-    .locals 5
+    .registers 8
     .param p0, "mapper"    # Ljava/util/function/ToIntFunction;
     .param p1, "a"    # [J
     .param p2, "t"    # Ljava/lang/Object;
@@ -1388,7 +1388,7 @@
 .end method
 
 .method static synthetic lambda$averagingInt$32([J[J)[J
-    .locals 5
+    .registers 7
     .param p0, "a"    # [J
     .param p1, "b"    # [J
 
@@ -1417,7 +1417,7 @@
 .end method
 
 .method static synthetic lambda$averagingInt$33([J)Ljava/lang/Double;
-    .locals 6
+    .registers 7
     .param p0, "a"    # [J
 
     .line 785
@@ -1429,13 +1429,13 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_c
 
     const-wide/16 v0, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
     aget-wide v1, p0, v1
@@ -1448,7 +1448,7 @@
 
     div-double v0, v1, v3
 
-    :goto_0
+    :goto_15
     invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v0
@@ -1457,7 +1457,7 @@
 .end method
 
 .method static synthetic lambda$averagingLong$34()[J
-    .locals 1
+    .registers 1
 
     .line 801
     const/4 v0, 0x2
@@ -1468,7 +1468,7 @@
 .end method
 
 .method static synthetic lambda$averagingLong$35(Ljava/util/function/ToLongFunction;[JLjava/lang/Object;)V
-    .locals 5
+    .registers 8
     .param p0, "mapper"    # Ljava/util/function/ToLongFunction;
     .param p1, "a"    # [J
     .param p2, "t"    # Ljava/lang/Object;
@@ -1500,7 +1500,7 @@
 .end method
 
 .method static synthetic lambda$averagingLong$36([J[J)[J
-    .locals 5
+    .registers 7
     .param p0, "a"    # [J
     .param p1, "b"    # [J
 
@@ -1529,7 +1529,7 @@
 .end method
 
 .method static synthetic lambda$averagingLong$37([J)Ljava/lang/Double;
-    .locals 6
+    .registers 7
     .param p0, "a"    # [J
 
     .line 804
@@ -1541,13 +1541,13 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_c
 
     const-wide/16 v0, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
     aget-wide v1, p0, v1
@@ -1560,7 +1560,7 @@
 
     div-double v0, v1, v3
 
-    :goto_0
+    :goto_15
     invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v0
@@ -1569,7 +1569,7 @@
 .end method
 
 .method static synthetic lambda$boxSupplier$45(Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "identity"    # Ljava/lang/Object;
 
     .line 878
@@ -1585,7 +1585,7 @@
 .end method
 
 .method static synthetic lambda$castingIdentity$2(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .param p0, "i"    # Ljava/lang/Object;
 
     .line 186
@@ -1593,7 +1593,7 @@
 .end method
 
 .method static synthetic lambda$counting$17(Ljava/lang/Object;)J
-    .locals 2
+    .registers 3
     .param p0, "e"    # Ljava/lang/Object;
 
     .line 619
@@ -1603,7 +1603,7 @@
 .end method
 
 .method static synthetic lambda$filtering$16(Ljava/util/function/Predicate;Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "predicate"    # Ljava/util/function/Predicate;
     .param p1, "downstreamAccumulator"    # Ljava/util/function/BiConsumer;
     .param p2, "r"    # Ljava/lang/Object;
@@ -1614,18 +1614,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 558
     invoke-interface {p1, p2, p3}, Ljava/util/function/BiConsumer;->accept(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 560
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method static synthetic lambda$flatMapping$14(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p0, "downstreamAccumulator"    # Ljava/util/function/BiConsumer;
     .param p1, "r"    # Ljava/lang/Object;
     .param p2, "u"    # Ljava/lang/Object;
@@ -1637,7 +1637,7 @@
 .end method
 
 .method static synthetic lambda$flatMapping$15(Ljava/util/function/Function;Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .param p0, "mapper"    # Ljava/util/function/Function;
     .param p1, "downstreamAccumulator"    # Ljava/util/function/BiConsumer;
     .param p2, "r"    # Ljava/lang/Object;
@@ -1652,10 +1652,10 @@
 
     .line 508
     .local v0, "result":Lj$/util/stream/Stream;, "Ljava/util/stream/Stream<+TU;>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 509
-    :try_start_0
+    :try_start_8
     invoke-interface {v0}, Lj$/util/stream/Stream;->sequential()Lj$/util/stream/BaseStream;
 
     move-result-object v1
@@ -1667,48 +1667,48 @@
     invoke-direct {v2, p1, p2}, Lj$/util/stream/Collectors$$ExternalSyntheticLambda14;-><init>(Ljava/util/function/BiConsumer;Ljava/lang/Object;)V
 
     invoke-interface {v1, v2}, Lj$/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_8 .. :try_end_16} :catchall_17
 
-    goto :goto_1
+    goto :goto_23
 
     .line 507
-    :catchall_0
+    :catchall_17
     move-exception v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
-    :try_start_1
+    :try_start_1a
     invoke-interface {v0}, Lj$/util/stream/Stream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_1d
+    .catchall {:try_start_1a .. :try_end_1d} :catchall_1e
 
-    goto :goto_0
+    goto :goto_22
 
-    :catchall_1
+    :catchall_1e
     move-exception v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :cond_0
-    :goto_0
+    :cond_22
+    :goto_22
     throw v1
 
     .line 510
-    :cond_1
-    :goto_1
-    if-eqz v0, :cond_2
+    :cond_23
+    :goto_23
+    if-eqz v0, :cond_28
 
     invoke-interface {v0}, Lj$/util/stream/Stream;->close()V
 
     .line 511
     .end local v0    # "result":Lj$/util/stream/Stream;, "Ljava/util/stream/Stream<+TU;>;"
-    :cond_2
+    :cond_28
     return-void
 .end method
 
 .method static synthetic lambda$groupingBy$52(Ljava/util/function/Supplier;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "downstreamSupplier"    # Ljava/util/function/Supplier;
     .param p1, "k"    # Ljava/lang/Object;
 
@@ -1721,7 +1721,7 @@
 .end method
 
 .method static synthetic lambda$groupingBy$53(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/Map;Ljava/lang/Object;)V
-    .locals 2
+    .registers 7
     .param p0, "classifier"    # Ljava/util/function/Function;
     .param p1, "downstreamSupplier"    # Ljava/util/function/Supplier;
     .param p2, "downstreamAccumulator"    # Ljava/util/function/BiConsumer;
@@ -1758,7 +1758,7 @@
 .end method
 
 .method static synthetic lambda$groupingBy$54(Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "downstreamFinisher"    # Ljava/util/function/Function;
     .param p1, "k"    # Ljava/lang/Object;
     .param p2, "v"    # Ljava/lang/Object;
@@ -1772,7 +1772,7 @@
 .end method
 
 .method static synthetic lambda$groupingBy$55(Ljava/util/function/Function;Ljava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p0, "downstreamFinisher"    # Ljava/util/function/Function;
     .param p1, "intermediate"    # Ljava/util/Map;
 
@@ -1792,7 +1792,7 @@
 .end method
 
 .method static synthetic lambda$groupingByConcurrent$56(Ljava/util/function/Supplier;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "downstreamSupplier"    # Ljava/util/function/Supplier;
     .param p1, "k"    # Ljava/lang/Object;
 
@@ -1805,7 +1805,7 @@
 .end method
 
 .method static synthetic lambda$groupingByConcurrent$57(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;)V
-    .locals 2
+    .registers 7
     .param p0, "classifier"    # Ljava/util/function/Function;
     .param p1, "downstreamSupplier"    # Ljava/util/function/Supplier;
     .param p2, "downstreamAccumulator"    # Ljava/util/function/BiConsumer;
@@ -1842,7 +1842,7 @@
 .end method
 
 .method static synthetic lambda$groupingByConcurrent$58(Ljava/util/function/Supplier;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "downstreamSupplier"    # Ljava/util/function/Supplier;
     .param p1, "k"    # Ljava/lang/Object;
 
@@ -1855,7 +1855,7 @@
 .end method
 
 .method static synthetic lambda$groupingByConcurrent$59(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;)V
-    .locals 3
+    .registers 8
     .param p0, "classifier"    # Ljava/util/function/Function;
     .param p1, "downstreamSupplier"    # Ljava/util/function/Supplier;
     .param p2, "downstreamAccumulator"    # Ljava/util/function/BiConsumer;
@@ -1888,7 +1888,7 @@
     monitor-enter v1
 
     .line 1300
-    :try_start_0
+    :try_start_14
     invoke-interface {p2, v1, p4}, Ljava/util/function/BiConsumer;->accept(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 1301
@@ -1898,18 +1898,18 @@
     return-void
 
     .line 1301
-    :catchall_0
+    :catchall_19
     move-exception v2
 
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_14 .. :try_end_1b} :catchall_19
 
     throw v2
 .end method
 
 .method static synthetic lambda$groupingByConcurrent$60(Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "downstreamFinisher"    # Ljava/util/function/Function;
     .param p1, "k"    # Ljava/lang/Object;
     .param p2, "v"    # Ljava/lang/Object;
@@ -1923,7 +1923,7 @@
 .end method
 
 .method static synthetic lambda$groupingByConcurrent$61(Ljava/util/function/Function;Ljava/util/concurrent/ConcurrentMap;)Ljava/util/concurrent/ConcurrentMap;
-    .locals 1
+    .registers 3
     .param p0, "downstreamFinisher"    # Ljava/util/function/Function;
     .param p1, "intermediate"    # Ljava/util/concurrent/ConcurrentMap;
 
@@ -1943,7 +1943,7 @@
 .end method
 
 .method static synthetic lambda$joining$10(Ljava/lang/StringBuilder;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
-    .locals 0
+    .registers 2
     .param p0, "r1"    # Ljava/lang/StringBuilder;
     .param p1, "r2"    # Ljava/lang/StringBuilder;
 
@@ -1954,7 +1954,7 @@
 .end method
 
 .method static synthetic lambda$joining$11(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Lj$/util/StringJoiner;
-    .locals 1
+    .registers 4
     .param p0, "delimiter"    # Ljava/lang/CharSequence;
     .param p1, "prefix"    # Ljava/lang/CharSequence;
     .param p2, "suffix"    # Ljava/lang/CharSequence;
@@ -1968,7 +1968,7 @@
 .end method
 
 .method static synthetic lambda$mapMerger$12(Ljava/util/function/BinaryOperator;Ljava/util/Map;Ljava/util/Map;)Ljava/util/Map;
-    .locals 4
+    .registers 7
     .param p0, "mergeFunction"    # Ljava/util/function/BinaryOperator;
     .param p1, "m1"    # Ljava/util/Map;
     .param p2, "m2"    # Ljava/util/Map;
@@ -1982,12 +1982,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2007,16 +2007,16 @@
 
     invoke-static {p1, v2, v3, p0}, Lj$/util/Map$-EL;->merge(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_8
 
     .line 425
     .end local v1    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
+    :cond_20
     return-object p1
 .end method
 
 .method static synthetic lambda$mapping$13(Ljava/util/function/BiConsumer;Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "downstreamAccumulator"    # Ljava/util/function/BiConsumer;
     .param p1, "mapper"    # Ljava/util/function/Function;
     .param p2, "r"    # Ljava/lang/Object;
@@ -2033,7 +2033,7 @@
 .end method
 
 .method static synthetic lambda$partitioningBy$62(Ljava/util/function/BiConsumer;Ljava/util/function/Predicate;Lj$/util/stream/Collectors$Partition;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "downstreamAccumulator"    # Ljava/util/function/BiConsumer;
     .param p1, "predicate"    # Ljava/util/function/Predicate;
     .param p2, "result"    # Lj$/util/stream/Collectors$Partition;
@@ -2044,23 +2044,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     iget-object v0, p2, Lj$/util/stream/Collectors$Partition;->forTrue:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     iget-object v0, p2, Lj$/util/stream/Collectors$Partition;->forFalse:Ljava/lang/Object;
 
-    :goto_0
+    :goto_b
     invoke-interface {p0, v0, p3}, Ljava/util/function/BiConsumer;->accept(Ljava/lang/Object;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method static synthetic lambda$partitioningBy$63(Ljava/util/function/BinaryOperator;Lj$/util/stream/Collectors$Partition;Lj$/util/stream/Collectors$Partition;)Lj$/util/stream/Collectors$Partition;
-    .locals 4
+    .registers 7
     .param p0, "op"    # Ljava/util/function/BinaryOperator;
     .param p1, "left"    # Lj$/util/stream/Collectors$Partition;
     .param p2, "right"    # Lj$/util/stream/Collectors$Partition;
@@ -2092,7 +2092,7 @@
 .end method
 
 .method static synthetic lambda$partitioningBy$64(Lj$/util/stream/Collector;)Lj$/util/stream/Collectors$Partition;
-    .locals 3
+    .registers 4
     .param p0, "downstream"    # Lj$/util/stream/Collector;
 
     .line 1387
@@ -2122,7 +2122,7 @@
 .end method
 
 .method static synthetic lambda$partitioningBy$65(Lj$/util/stream/Collector;Lj$/util/stream/Collectors$Partition;)Ljava/util/Map;
-    .locals 4
+    .registers 6
     .param p0, "downstream"    # Lj$/util/stream/Collector;
     .param p1, "par"    # Lj$/util/stream/Collectors$Partition;
 
@@ -2157,7 +2157,7 @@
 .end method
 
 .method static synthetic lambda$reducing$42(Ljava/util/function/BinaryOperator;[Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p0, "op"    # Ljava/util/function/BinaryOperator;
     .param p1, "a"    # [Ljava/lang/Object;
     .param p2, "t"    # Ljava/lang/Object;
@@ -2177,7 +2177,7 @@
 .end method
 
 .method static synthetic lambda$reducing$43(Ljava/util/function/BinaryOperator;[Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "op"    # Ljava/util/function/BinaryOperator;
     .param p1, "a"    # [Ljava/lang/Object;
     .param p2, "b"    # [Ljava/lang/Object;
@@ -2199,7 +2199,7 @@
 .end method
 
 .method static synthetic lambda$reducing$44([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "a"    # [Ljava/lang/Object;
 
     .line 872
@@ -2211,7 +2211,7 @@
 .end method
 
 .method static synthetic lambda$reducing$46(Ljava/util/function/BinaryOperator;)Lj$/util/stream/Collectors$1OptionalBox;
-    .locals 1
+    .registers 2
     .param p0, "op"    # Ljava/util/function/BinaryOperator;
 
     .line 928
@@ -2223,25 +2223,25 @@
 .end method
 
 .method static synthetic lambda$reducing$47(Lj$/util/stream/Collectors$1OptionalBox;Lj$/util/stream/Collectors$1OptionalBox;)Lj$/util/stream/Collectors$1OptionalBox;
-    .locals 1
+    .registers 3
     .param p0, "a"    # Lj$/util/stream/Collectors$1OptionalBox;
     .param p1, "b"    # Lj$/util/stream/Collectors$1OptionalBox;
 
     .line 929
     iget-boolean v0, p1, Lj$/util/stream/Collectors$1OptionalBox;->present:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     iget-object v0, p1, Lj$/util/stream/Collectors$1OptionalBox;->value:Ljava/lang/Object;
 
     invoke-virtual {p0, v0}, Lj$/util/stream/Collectors$1OptionalBox;->accept(Ljava/lang/Object;)V
 
-    :cond_0
+    :cond_9
     return-object p0
 .end method
 
 .method static synthetic lambda$reducing$48(Lj$/util/stream/Collectors$1OptionalBox;)Lj$/util/Optional;
-    .locals 1
+    .registers 2
     .param p0, "a"    # Lj$/util/stream/Collectors$1OptionalBox;
 
     .line 930
@@ -2255,7 +2255,7 @@
 .end method
 
 .method static synthetic lambda$reducing$49(Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .param p0, "op"    # Ljava/util/function/BinaryOperator;
     .param p1, "mapper"    # Ljava/util/function/Function;
     .param p2, "a"    # [Ljava/lang/Object;
@@ -2280,7 +2280,7 @@
 .end method
 
 .method static synthetic lambda$reducing$50(Ljava/util/function/BinaryOperator;[Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "op"    # Ljava/util/function/BinaryOperator;
     .param p1, "a"    # [Ljava/lang/Object;
     .param p2, "b"    # [Ljava/lang/Object;
@@ -2302,7 +2302,7 @@
 .end method
 
 .method static synthetic lambda$reducing$51([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "a"    # [Ljava/lang/Object;
 
     .line 978
@@ -2314,7 +2314,7 @@
 .end method
 
 .method static synthetic lambda$summarizingDouble$74(Ljava/util/function/ToDoubleFunction;Lj$/util/DoubleSummaryStatistics;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p0, "mapper"    # Ljava/util/function/ToDoubleFunction;
     .param p1, "r"    # Lj$/util/DoubleSummaryStatistics;
     .param p2, "t"    # Ljava/lang/Object;
@@ -2330,7 +2330,7 @@
 .end method
 
 .method static synthetic lambda$summarizingDouble$75(Lj$/util/DoubleSummaryStatistics;Lj$/util/DoubleSummaryStatistics;)Lj$/util/DoubleSummaryStatistics;
-    .locals 0
+    .registers 2
     .param p0, "l"    # Lj$/util/DoubleSummaryStatistics;
     .param p1, "r"    # Lj$/util/DoubleSummaryStatistics;
 
@@ -2341,7 +2341,7 @@
 .end method
 
 .method static synthetic lambda$summarizingInt$70(Ljava/util/function/ToIntFunction;Lj$/util/IntSummaryStatistics;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p0, "mapper"    # Ljava/util/function/ToIntFunction;
     .param p1, "r"    # Lj$/util/IntSummaryStatistics;
     .param p2, "t"    # Ljava/lang/Object;
@@ -2357,7 +2357,7 @@
 .end method
 
 .method static synthetic lambda$summarizingInt$71(Lj$/util/IntSummaryStatistics;Lj$/util/IntSummaryStatistics;)Lj$/util/IntSummaryStatistics;
-    .locals 0
+    .registers 2
     .param p0, "l"    # Lj$/util/IntSummaryStatistics;
     .param p1, "r"    # Lj$/util/IntSummaryStatistics;
 
@@ -2368,7 +2368,7 @@
 .end method
 
 .method static synthetic lambda$summarizingLong$72(Ljava/util/function/ToLongFunction;Lj$/util/LongSummaryStatistics;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p0, "mapper"    # Ljava/util/function/ToLongFunction;
     .param p1, "r"    # Lj$/util/LongSummaryStatistics;
     .param p2, "t"    # Ljava/lang/Object;
@@ -2384,7 +2384,7 @@
 .end method
 
 .method static synthetic lambda$summarizingLong$73(Lj$/util/LongSummaryStatistics;Lj$/util/LongSummaryStatistics;)Lj$/util/LongSummaryStatistics;
-    .locals 0
+    .registers 2
     .param p0, "l"    # Lj$/util/LongSummaryStatistics;
     .param p1, "r"    # Lj$/util/LongSummaryStatistics;
 
@@ -2395,7 +2395,7 @@
 .end method
 
 .method static synthetic lambda$summingDouble$26()[D
-    .locals 1
+    .registers 1
 
     .line 723
     const/4 v0, 0x3
@@ -2406,7 +2406,7 @@
 .end method
 
 .method static synthetic lambda$summingDouble$27(Ljava/util/function/ToDoubleFunction;[DLjava/lang/Object;)V
-    .locals 5
+    .registers 8
     .param p0, "mapper"    # Ljava/util/function/ToDoubleFunction;
     .param p1, "a"    # [D
     .param p2, "t"    # Ljava/lang/Object;
@@ -2433,7 +2433,7 @@
 .end method
 
 .method static synthetic lambda$summingDouble$28([D[D)[D
-    .locals 5
+    .registers 7
     .param p0, "a"    # [D
     .param p1, "b"    # [D
 
@@ -2468,7 +2468,7 @@
 .end method
 
 .method static synthetic lambda$summingDouble$29([D)Ljava/lang/Double;
-    .locals 2
+    .registers 3
     .param p0, "a"    # [D
 
     .line 730
@@ -2484,7 +2484,7 @@
 .end method
 
 .method static synthetic lambda$summingInt$18()[I
-    .locals 1
+    .registers 1
 
     .line 672
     const/4 v0, 0x1
@@ -2495,7 +2495,7 @@
 .end method
 
 .method static synthetic lambda$summingInt$19(Ljava/util/function/ToIntFunction;[ILjava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p0, "mapper"    # Ljava/util/function/ToIntFunction;
     .param p1, "a"    # [I
     .param p2, "t"    # Ljava/lang/Object;
@@ -2517,7 +2517,7 @@
 .end method
 
 .method static synthetic lambda$summingInt$20([I[I)[I
-    .locals 3
+    .registers 5
     .param p0, "a"    # [I
     .param p1, "b"    # [I
 
@@ -2536,7 +2536,7 @@
 .end method
 
 .method static synthetic lambda$summingInt$21([I)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "a"    # [I
 
     .line 675
@@ -2552,7 +2552,7 @@
 .end method
 
 .method static synthetic lambda$summingLong$22()[J
-    .locals 1
+    .registers 1
 
     .line 690
     const/4 v0, 0x1
@@ -2563,7 +2563,7 @@
 .end method
 
 .method static synthetic lambda$summingLong$23(Ljava/util/function/ToLongFunction;[JLjava/lang/Object;)V
-    .locals 5
+    .registers 8
     .param p0, "mapper"    # Ljava/util/function/ToLongFunction;
     .param p1, "a"    # [J
     .param p2, "t"    # Ljava/lang/Object;
@@ -2585,7 +2585,7 @@
 .end method
 
 .method static synthetic lambda$summingLong$24([J[J)[J
-    .locals 5
+    .registers 7
     .param p0, "a"    # [J
     .param p1, "b"    # [J
 
@@ -2604,7 +2604,7 @@
 .end method
 
 .method static synthetic lambda$summingLong$25([J)Ljava/lang/Long;
-    .locals 2
+    .registers 3
     .param p0, "a"    # [J
 
     .line 693
@@ -2620,7 +2620,7 @@
 .end method
 
 .method static synthetic lambda$toCollection$3(Ljava/util/Collection;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p0, "r1"    # Ljava/util/Collection;
     .param p1, "r2"    # Ljava/util/Collection;
 
@@ -2631,7 +2631,7 @@
 .end method
 
 .method static synthetic lambda$toConcurrentMap$69(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;)V
-    .locals 2
+    .registers 7
     .param p0, "keyMapper"    # Ljava/util/function/Function;
     .param p1, "valueMapper"    # Ljava/util/function/Function;
     .param p2, "mergeFunction"    # Ljava/util/function/BinaryOperator;
@@ -2655,7 +2655,7 @@
 .end method
 
 .method static synthetic lambda$toList$4(Ljava/util/List;Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .param p0, "left"    # Ljava/util/List;
     .param p1, "right"    # Ljava/util/List;
 
@@ -2666,7 +2666,7 @@
 .end method
 
 .method static synthetic lambda$toMap$68(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/Map;Ljava/lang/Object;)V
-    .locals 2
+    .registers 7
     .param p0, "keyMapper"    # Ljava/util/function/Function;
     .param p1, "valueMapper"    # Ljava/util/function/Function;
     .param p2, "mergeFunction"    # Ljava/util/function/BinaryOperator;
@@ -2690,7 +2690,7 @@
 .end method
 
 .method static synthetic lambda$toSet$7(Ljava/util/Set;Ljava/util/Set;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p0, "left"    # Ljava/util/Set;
     .param p1, "right"    # Ljava/util/Set;
 
@@ -2703,7 +2703,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_e
 
     .line 322
     invoke-interface {p1, p0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
@@ -2711,14 +2711,14 @@
     return-object p1
 
     .line 324
-    :cond_0
+    :cond_e
     invoke-interface {p0, p1}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
     return-object p0
 .end method
 
 .method static synthetic lambda$toUnmodifiableList$5(Ljava/util/List;Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .param p0, "left"    # Ljava/util/List;
     .param p1, "right"    # Ljava/util/List;
 
@@ -2729,7 +2729,7 @@
 .end method
 
 .method static synthetic lambda$toUnmodifiableList$6(Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "list"    # Ljava/util/List;
 
     .line 299
@@ -2745,7 +2745,7 @@
 .end method
 
 .method static synthetic lambda$toUnmodifiableMap$66(Ljava/util/Map;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .param p0, "map"    # Ljava/util/Map;
 
     .line 1501
@@ -2771,7 +2771,7 @@
 .end method
 
 .method static synthetic lambda$toUnmodifiableMap$67(Ljava/util/HashMap;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .param p0, "map"    # Ljava/util/HashMap;
 
     .line 1609
@@ -2797,7 +2797,7 @@
 .end method
 
 .method static synthetic lambda$toUnmodifiableSet$8(Ljava/util/Set;Ljava/util/Set;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p0, "left"    # Ljava/util/Set;
     .param p1, "right"    # Ljava/util/Set;
 
@@ -2810,7 +2810,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_e
 
     .line 351
     invoke-interface {p1, p0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
@@ -2818,14 +2818,14 @@
     return-object p1
 
     .line 353
-    :cond_0
+    :cond_e
     invoke-interface {p0, p1}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
     return-object p0
 .end method
 
 .method static synthetic lambda$toUnmodifiableSet$9(Ljava/util/Set;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "set"    # Ljava/util/Set;
 
     .line 356
@@ -2841,7 +2841,7 @@
 .end method
 
 .method static synthetic lambda$uniqKeysMapAccumulator$1(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/Map;Ljava/lang/Object;)V
-    .locals 4
+    .registers 8
     .param p0, "keyMapper"    # Ljava/util/function/Function;
     .param p1, "valueMapper"    # Ljava/util/function/Function;
     .param p2, "map"    # Ljava/util/Map;
@@ -2870,13 +2870,13 @@
 
     .line 180
     .local v2, "u":Ljava/lang/Object;, "TV;"
-    if-nez v2, :cond_0
+    if-nez v2, :cond_13
 
     .line 181
     return-void
 
     .line 180
-    :cond_0
+    :cond_13
     invoke-static {v0, v2, v1}, Lj$/util/stream/Collectors;->duplicateKeyException(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/IllegalStateException;
 
     move-result-object v3
@@ -2885,7 +2885,7 @@
 .end method
 
 .method static synthetic lambda$uniqKeysMapMerger$0(Ljava/util/Map;Ljava/util/Map;)Ljava/util/Map;
-    .locals 5
+    .registers 7
     .param p0, "m1"    # Ljava/util/Map;
     .param p1, "m2"    # Ljava/util/Map;
 
@@ -2898,12 +2898,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2935,21 +2935,21 @@
 
     .line 155
     .local v4, "u":Ljava/lang/Object;, "TV;"
-    if-nez v4, :cond_0
+    if-nez v4, :cond_27
 
     .line 156
     .end local v1    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     .end local v2    # "k":Ljava/lang/Object;, "TK;"
     .end local v3    # "v":Ljava/lang/Object;, "TV;"
     .end local v4    # "u":Ljava/lang/Object;, "TV;"
-    goto :goto_0
+    goto :goto_8
 
     .line 155
     .restart local v1    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     .restart local v2    # "k":Ljava/lang/Object;, "TK;"
     .restart local v3    # "v":Ljava/lang/Object;, "TV;"
     .restart local v4    # "u":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_27
     invoke-static {v2, v4, v3}, Lj$/util/stream/Collectors;->duplicateKeyException(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/IllegalStateException;
 
     move-result-object v0
@@ -2961,12 +2961,12 @@
     .end local v2    # "k":Ljava/lang/Object;, "TK;"
     .end local v3    # "v":Ljava/lang/Object;, "TV;"
     .end local v4    # "u":Ljava/lang/Object;, "TV;"
-    :cond_1
+    :cond_2c
     return-object p0
 .end method
 
 .method private static mapMerger(Ljava/util/function/BinaryOperator;)Ljava/util/function/BinaryOperator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -2993,7 +2993,7 @@
 .end method
 
 .method public static mapping(Ljava/util/function/Function;Lj$/util/stream/Collector;)Lj$/util/stream/Collector;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3056,7 +3056,7 @@
 .end method
 
 .method public static maxBy(Ljava/util/Comparator;)Lj$/util/stream/Collector;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3085,7 +3085,7 @@
 .end method
 
 .method public static minBy(Ljava/util/Comparator;)Lj$/util/stream/Collector;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3114,7 +3114,7 @@
 .end method
 
 .method public static partitioningBy(Ljava/util/function/Predicate;)Lj$/util/stream/Collector;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3145,7 +3145,7 @@
 .end method
 
 .method public static partitioningBy(Ljava/util/function/Predicate;Lj$/util/stream/Collector;)Lj$/util/stream/Collector;
-    .locals 12
+    .registers 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3214,7 +3214,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2d
 
     .line 1390
     new-instance v2, Lj$/util/stream/Collectors$CollectorImpl;
@@ -3226,7 +3226,7 @@
     return-object v2
 
     .line 1393
-    :cond_0
+    :cond_2d
     new-instance v6, Lj$/util/stream/Collectors$$ExternalSyntheticLambda51;
 
     invoke-direct {v6, p1}, Lj$/util/stream/Collectors$$ExternalSyntheticLambda51;-><init>(Lj$/util/stream/Collector;)V
@@ -3251,7 +3251,7 @@
 .end method
 
 .method public static reducing(Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Lj$/util/stream/Collector;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3297,7 +3297,7 @@
 .end method
 
 .method public static reducing(Ljava/lang/Object;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Lj$/util/stream/Collector;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3348,7 +3348,7 @@
 .end method
 
 .method public static reducing(Ljava/util/function/BinaryOperator;)Lj$/util/stream/Collector;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3393,7 +3393,7 @@
 .end method
 
 .method static sumWithCompensation([DD)[D
-    .locals 10
+    .registers 13
     .param p0, "intermediateSum"    # [D
     .param p1, "value"    # D
 
@@ -3430,7 +3430,7 @@
 .end method
 
 .method public static summarizingDouble(Ljava/util/function/ToDoubleFunction;)Lj$/util/stream/Collector;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3469,7 +3469,7 @@
 .end method
 
 .method public static summarizingInt(Ljava/util/function/ToIntFunction;)Lj$/util/stream/Collector;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3508,7 +3508,7 @@
 .end method
 
 .method public static summarizingLong(Ljava/util/function/ToLongFunction;)Lj$/util/stream/Collector;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3547,7 +3547,7 @@
 .end method
 
 .method public static summingDouble(Ljava/util/function/ToDoubleFunction;)Lj$/util/stream/Collector;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3592,7 +3592,7 @@
 .end method
 
 .method public static summingInt(Ljava/util/function/ToIntFunction;)Lj$/util/stream/Collector;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3637,7 +3637,7 @@
 .end method
 
 .method public static summingLong(Ljava/util/function/ToLongFunction;)Lj$/util/stream/Collector;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3682,7 +3682,7 @@
 .end method
 
 .method public static toCollection(Ljava/util/function/Supplier;)Lj$/util/stream/Collector;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3717,7 +3717,7 @@
 .end method
 
 .method public static toConcurrentMap(Ljava/util/function/Function;Ljava/util/function/Function;)Lj$/util/stream/Collector;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3766,7 +3766,7 @@
 .end method
 
 .method public static toConcurrentMap(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Lj$/util/stream/Collector;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3805,7 +3805,7 @@
 .end method
 
 .method public static toConcurrentMap(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/function/Supplier;)Lj$/util/stream/Collector;
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3855,7 +3855,7 @@
 .end method
 
 .method public static toList()Lj$/util/stream/Collector;
-    .locals 5
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3891,7 +3891,7 @@
 .end method
 
 .method public static toMap(Ljava/util/function/Function;Ljava/util/function/Function;)Lj$/util/stream/Collector;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3940,7 +3940,7 @@
 .end method
 
 .method public static toMap(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Lj$/util/stream/Collector;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3979,7 +3979,7 @@
 .end method
 
 .method public static toMap(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/function/Supplier;)Lj$/util/stream/Collector;
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -4029,7 +4029,7 @@
 .end method
 
 .method public static toSet()Lj$/util/stream/Collector;
-    .locals 5
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -4065,7 +4065,7 @@
 .end method
 
 .method public static toUnmodifiableList()Lj$/util/stream/Collector;
-    .locals 7
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -4107,7 +4107,7 @@
 .end method
 
 .method public static toUnmodifiableMap(Ljava/util/function/Function;Ljava/util/function/Function;)Lj$/util/stream/Collector;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -4161,7 +4161,7 @@
 .end method
 
 .method public static toUnmodifiableMap(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Lj$/util/stream/Collector;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -4225,7 +4225,7 @@
 .end method
 
 .method public static toUnmodifiableSet()Lj$/util/stream/Collector;
-    .locals 7
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -4267,7 +4267,7 @@
 .end method
 
 .method private static uniqKeysMapAccumulator(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/function/BiConsumer;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -4298,7 +4298,7 @@
 .end method
 
 .method private static uniqKeysMapMerger()Ljava/util/function/BinaryOperator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",

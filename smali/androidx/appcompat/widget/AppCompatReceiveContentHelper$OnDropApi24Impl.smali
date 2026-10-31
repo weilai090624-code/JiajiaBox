@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 118
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static onDropForTextView(Landroid/view/DragEvent;Landroid/widget/TextView;Landroid/app/Activity;)Z
-    .locals 4
+    .registers 7
     .param p0, "event"    # Landroid/view/DragEvent;
     .param p1, "view"    # Landroid/widget/TextView;
     .param p2, "activity"    # Landroid/app/Activity;
@@ -51,7 +51,7 @@
     invoke-virtual {p1}, Landroid/widget/TextView;->beginBatchEdit()V
 
     .line 127
-    :try_start_0
+    :try_start_12
     invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -79,8 +79,8 @@
     .line 130
     .local v1, "payload":Landroidx/core/view/ContentInfoCompat;
     invoke-static {p1, v1}, Landroidx/core/view/ViewCompat;->performReceiveContent(Landroid/view/View;Landroidx/core/view/ContentInfoCompat;)Landroidx/core/view/ContentInfoCompat;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_12 .. :try_end_2c} :catchall_33
 
     .line 132
     nop
@@ -97,7 +97,7 @@
     return v1
 
     .line 132
-    :catchall_0
+    :catchall_33
     move-exception v1
 
     invoke-virtual {p1}, Landroid/widget/TextView;->endBatchEdit()V
@@ -107,7 +107,7 @@
 .end method
 
 .method static onDropForView(Landroid/view/DragEvent;Landroid/view/View;Landroid/app/Activity;)Z
-    .locals 3
+    .registers 6
     .param p0, "event"    # Landroid/view/DragEvent;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "activity"    # Landroid/app/Activity;

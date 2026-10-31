@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/material/floatingactionbutton/BorderDrawable;)V
-    .locals 0
+    .registers 2
 
     .line 262
     iput-object p1, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable$BorderState;->this$0:Lcom/google/android/material/floatingactionbutton/BorderDrawable;
@@ -31,7 +31,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/floatingactionbutton/BorderDrawable;Lcom/google/android/material/floatingactionbutton/BorderDrawable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/android/material/floatingactionbutton/BorderDrawable;
     .param p2, "x1"    # Lcom/google/android/material/floatingactionbutton/BorderDrawable$1;
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getChangingConfigurations()I
-    .locals 1
+    .registers 2
 
     .line 272
     const/4 v0, 0x0
@@ -53,7 +53,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 267
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable$BorderState;->this$0:Lcom/google/android/material/floatingactionbutton/BorderDrawable;

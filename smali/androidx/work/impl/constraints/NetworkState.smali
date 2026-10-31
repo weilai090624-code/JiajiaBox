@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(ZZZZ)V
-    .locals 0
+    .registers 5
     .param p1, "isConnected"    # Z
     .param p2, "isValidated"    # Z
     .param p3, "isMetered"    # Z
@@ -79,36 +79,36 @@
 .end method
 
 .method public static synthetic copy$default(Landroidx/work/impl/constraints/NetworkState;ZZZZILjava/lang/Object;)Landroidx/work/impl/constraints/NetworkState;
-    .locals 0
+    .registers 7
 
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_6
 
     iget-boolean p1, p0, Landroidx/work/impl/constraints/NetworkState;->isConnected:Z
 
-    :cond_0
+    :cond_6
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_c
 
     iget-boolean p2, p0, Landroidx/work/impl/constraints/NetworkState;->isValidated:Z
 
-    :cond_1
+    :cond_c
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_12
 
     iget-boolean p3, p0, Landroidx/work/impl/constraints/NetworkState;->isMetered:Z
 
-    :cond_2
+    :cond_12
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_18
 
     iget-boolean p4, p0, Landroidx/work/impl/constraints/NetworkState;->isNotRoaming:Z
 
-    :cond_3
+    :cond_18
     invoke-virtual {p0, p1, p2, p3, p4}, Landroidx/work/impl/constraints/NetworkState;->copy(ZZZZ)Landroidx/work/impl/constraints/NetworkState;
 
     move-result-object p0
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public final component1()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Landroidx/work/impl/constraints/NetworkState;->isConnected:Z
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public final component2()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Landroidx/work/impl/constraints/NetworkState;->isValidated:Z
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public final component3()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Landroidx/work/impl/constraints/NetworkState;->isMetered:Z
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public final component4()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Landroidx/work/impl/constraints/NetworkState;->isNotRoaming:Z
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public final copy(ZZZZ)Landroidx/work/impl/constraints/NetworkState;
-    .locals 1
+    .registers 6
 
     new-instance v0, Landroidx/work/impl/constraints/NetworkState;
 
@@ -161,24 +161,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/work/impl/constraints/NetworkState;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Landroidx/work/impl/constraints/NetworkState;
@@ -187,94 +187,94 @@
 
     iget-boolean v4, v1, Landroidx/work/impl/constraints/NetworkState;->isConnected:Z
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_14
 
     return v2
 
-    :cond_2
+    :cond_14
     iget-boolean v3, p0, Landroidx/work/impl/constraints/NetworkState;->isValidated:Z
 
     iget-boolean v4, v1, Landroidx/work/impl/constraints/NetworkState;->isValidated:Z
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     return v2
 
-    :cond_3
+    :cond_1b
     iget-boolean v3, p0, Landroidx/work/impl/constraints/NetworkState;->isMetered:Z
 
     iget-boolean v4, v1, Landroidx/work/impl/constraints/NetworkState;->isMetered:Z
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_22
 
     return v2
 
-    :cond_4
+    :cond_22
     iget-boolean v3, p0, Landroidx/work/impl/constraints/NetworkState;->isNotRoaming:Z
 
     iget-boolean v1, v1, Landroidx/work/impl/constraints/NetworkState;->isNotRoaming:Z
 
-    if-eq v3, v1, :cond_5
+    if-eq v3, v1, :cond_29
 
     return v2
 
-    :cond_5
+    :cond_29
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-boolean v0, p0, Landroidx/work/impl/constraints/NetworkState;->isConnected:Z
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_6
     mul-int/lit8 v2, v0, 0x1f
 
     iget-boolean v3, p0, Landroidx/work/impl/constraints/NetworkState;->isValidated:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_d
 
     const/4 v3, 0x1
 
-    :cond_1
+    :cond_d
     add-int/2addr v2, v3
 
     mul-int/lit8 v0, v2, 0x1f
 
     iget-boolean v3, p0, Landroidx/work/impl/constraints/NetworkState;->isMetered:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_15
 
     const/4 v3, 0x1
 
-    :cond_2
+    :cond_15
     add-int/2addr v0, v3
 
     mul-int/lit8 v2, v0, 0x1f
 
     iget-boolean v3, p0, Landroidx/work/impl/constraints/NetworkState;->isNotRoaming:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_1d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_3
+    :cond_1d
     move v1, v3
 
-    :goto_0
+    :goto_1e
     add-int/2addr v2, v1
 
     return v2
 .end method
 
 .method public final isConnected()Z
-    .locals 1
+    .registers 2
 
     .line 25
     iget-boolean v0, p0, Landroidx/work/impl/constraints/NetworkState;->isConnected:Z
@@ -283,7 +283,7 @@
 .end method
 
 .method public final isMetered()Z
-    .locals 1
+    .registers 2
 
     .line 35
     iget-boolean v0, p0, Landroidx/work/impl/constraints/NetworkState;->isMetered:Z
@@ -292,7 +292,7 @@
 .end method
 
 .method public final isNotRoaming()Z
-    .locals 1
+    .registers 2
 
     .line 40
     iget-boolean v0, p0, Landroidx/work/impl/constraints/NetworkState;->isNotRoaming:Z
@@ -301,7 +301,7 @@
 .end method
 
 .method public final isValidated()Z
-    .locals 1
+    .registers 2
 
     .line 30
     iget-boolean v0, p0, Landroidx/work/impl/constraints/NetworkState;->isValidated:Z
@@ -310,7 +310,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

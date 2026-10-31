@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/activity/ImmLeaksCleaner$Companion;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -109,7 +109,7 @@
 .end method
 
 .method public static final synthetic access$getCleaner$delegate$cp()Lkotlin/Lazy;
-    .locals 1
+    .registers 1
 
     .line 28
     sget-object v0, Landroidx/activity/ImmLeaksCleaner;->cleaner$delegate:Lkotlin/Lazy;
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 7
+    .registers 10
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -135,13 +135,13 @@
     .line 30
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-eq p2, v0, :cond_0
+    if-eq p2, v0, :cond_10
 
     .line 31
     return-void
 
     .line 34
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroidx/activity/ImmLeaksCleaner;->activity:Landroid/app/Activity;
 
     const-string v1, "input_method"
@@ -176,27 +176,27 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2e
 
     return-void
 
     .line 38
     .local v3, "lock":Ljava/lang/Object;
-    :cond_1
+    :cond_2e
     monitor-enter v3
 
     const/4 v4, 0x0
 
     .line 39
     .local v4, "$i$a$-synchronized-ImmLeaksCleaner$onStateChanged$1$success$1":I
-    :try_start_0
+    :try_start_30
     invoke-virtual {v1, v0}, Landroidx/activity/ImmLeaksCleaner$Cleaner;->getServedView(Landroid/view/inputmethod/InputMethodManager;)Landroid/view/View;
 
     move-result-object v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_34
+    .catchall {:try_start_30 .. :try_end_34} :catchall_4f
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_38
 
     .end local v4    # "$i$a$-synchronized-ImmLeaksCleaner$onStateChanged$1$success$1":I
     monitor-exit v3
@@ -206,15 +206,15 @@
     .line 40
     .restart local v4    # "$i$a$-synchronized-ImmLeaksCleaner$onStateChanged$1$success$1":I
     .local v5, "servedView":Landroid/view/View;
-    :cond_2
-    :try_start_1
+    :cond_38
+    :try_start_38
     invoke-virtual {v5}, Landroid/view/View;->isAttachedToWindow()Z
 
     move-result v6
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3c
+    .catchall {:try_start_38 .. :try_end_3c} :catchall_4f
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_41
 
     .line 41
     nop
@@ -228,13 +228,13 @@
     .line 46
     .restart local v4    # "$i$a$-synchronized-ImmLeaksCleaner$onStateChanged$1$success$1":I
     .restart local v5    # "servedView":Landroid/view/View;
-    :cond_3
-    :try_start_2
+    :cond_41
+    :try_start_41
     invoke-virtual {v1, v0}, Landroidx/activity/ImmLeaksCleaner$Cleaner;->clearNextServedView(Landroid/view/inputmethod/InputMethodManager;)Z
 
     move-result v6
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_45
+    .catchall {:try_start_41 .. :try_end_45} :catchall_4f
 
     .line 38
     .end local v4    # "$i$a$-synchronized-ImmLeaksCleaner$onStateChanged$1$success$1":I
@@ -246,13 +246,13 @@
 
     .line 48
     .local v4, "success":Z
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_4c
 
     .line 51
     invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->isActive()Z
 
     .line 53
-    :cond_4
+    :cond_4c
     nop
 
     .line 35
@@ -269,7 +269,7 @@
     .restart local v1    # "$this$onStateChanged_u24lambda_u241":Landroidx/activity/ImmLeaksCleaner$Cleaner;
     .restart local v2    # "$i$a$-with-ImmLeaksCleaner$onStateChanged$1":I
     .restart local v3    # "lock":Ljava/lang/Object;
-    :catchall_0
+    :catchall_4f
     move-exception v4
 
     monitor-exit v3

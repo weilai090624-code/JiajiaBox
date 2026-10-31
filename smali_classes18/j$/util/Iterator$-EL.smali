@@ -5,11 +5,11 @@
 
 # direct methods
 .method public static synthetic forEachRemaining(Ljava/util/Iterator;Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
 
     instance-of v0, p0, Lj$/util/Iterator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     check-cast p0, Lj$/util/Iterator;
 
@@ -17,7 +17,7 @@
 
     return-void
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Lj$/util/Iterator$-CC;->$default$forEachRemaining(Ljava/util/Iterator;Ljava/util/function/Consumer;)V
 
     return-void

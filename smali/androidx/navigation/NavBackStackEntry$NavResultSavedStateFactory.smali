@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/savedstate/SavedStateRegistryOwner;)V
-    .locals 1
+    .registers 3
     .param p1, "owner"    # Landroidx/savedstate/SavedStateRegistryOwner;
 
     const-string v0, "owner"
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method protected create(Ljava/lang/String;Ljava/lang/Class;Landroidx/lifecycle/SavedStateHandle;)Landroidx/lifecycle/ViewModel;
-    .locals 1
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "modelClass"    # Ljava/lang/Class;
     .param p3, "handle"    # Landroidx/lifecycle/SavedStateHandle;

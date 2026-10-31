@@ -17,14 +17,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 21
+    .registers 21
 
     .line 28
     const/16 v0, 0x10
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_ec
 
     sput-object v0, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->FACTOR_SETS:[I
 
@@ -33,91 +33,91 @@
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_1
+    fill-array-data v1, :array_110
 
     const/16 v2, 0xa
 
     new-array v3, v2, [I
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_122
 
     const/16 v4, 0xb
 
     new-array v5, v4, [I
 
-    fill-array-data v5, :array_3
+    fill-array-data v5, :array_13a
 
     const/16 v6, 0xc
 
     new-array v7, v6, [I
 
-    fill-array-data v7, :array_4
+    fill-array-data v7, :array_154
 
     const/16 v8, 0xe
 
     new-array v8, v8, [I
 
-    fill-array-data v8, :array_5
+    fill-array-data v8, :array_170
 
     const/16 v9, 0x12
 
     new-array v9, v9, [I
 
-    fill-array-data v9, :array_6
+    fill-array-data v9, :array_190
 
     const/16 v10, 0x14
 
     new-array v10, v10, [I
 
-    fill-array-data v10, :array_7
+    fill-array-data v10, :array_1b8
 
     const/16 v11, 0x18
 
     new-array v11, v11, [I
 
-    fill-array-data v11, :array_8
+    fill-array-data v11, :array_1e4
 
     const/16 v12, 0x1c
 
     new-array v12, v12, [I
 
-    fill-array-data v12, :array_9
+    fill-array-data v12, :array_218
 
     const/16 v13, 0x24
 
     new-array v13, v13, [I
 
-    fill-array-data v13, :array_a
+    fill-array-data v13, :array_254
 
     const/16 v14, 0x2a
 
     new-array v14, v14, [I
 
-    fill-array-data v14, :array_b
+    fill-array-data v14, :array_2a0
 
     const/16 v15, 0x30
 
     new-array v6, v15, [I
 
-    fill-array-data v6, :array_c
+    fill-array-data v6, :array_2f8
 
     const/16 v4, 0x38
 
     new-array v4, v4, [I
 
-    fill-array-data v4, :array_d
+    fill-array-data v4, :array_35c
 
     const/16 v2, 0x3e
 
     new-array v0, v2, [I
 
-    fill-array-data v0, :array_e
+    fill-array-data v0, :array_3d0
 
     const/16 v2, 0x44
 
     new-array v2, v2, [I
 
-    fill-array-data v2, :array_f
+    fill-array-data v2, :array_450
 
     const/16 v15, 0x10
 
@@ -235,8 +235,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_d5
+    if-ge v2, v0, :cond_eb
 
     .line 82
     sget-object v3, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->ALOG:[I
@@ -256,24 +256,24 @@
 
     const/16 v4, 0x100
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_e8
 
     .line 86
     xor-int/lit16 v1, v1, 0x12d
 
     .line 81
-    :cond_0
+    :cond_e8
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d5
 
     .line 89
     .end local v1    # "p":I
     .end local v2    # "i":I
-    :cond_1
+    :cond_eb
     return-void
 
-    :array_0
+    :array_ec
     .array-data 4
         0x5
         0x7
@@ -293,7 +293,7 @@
         0x44
     .end array-data
 
-    :array_1
+    :array_110
     .array-data 4
         0x17
         0x44
@@ -304,7 +304,7 @@
         0xfe
     .end array-data
 
-    :array_2
+    :array_122
     .array-data 4
         0x1c
         0x18
@@ -318,7 +318,7 @@
         0x3d
     .end array-data
 
-    :array_3
+    :array_13a
     .array-data 4
         0xaf
         0x8a
@@ -333,7 +333,7 @@
         0x78
     .end array-data
 
-    :array_4
+    :array_154
     .array-data 4
         0x29
         0x99
@@ -349,7 +349,7 @@
         0xf2
     .end array-data
 
-    :array_5
+    :array_170
     .array-data 4
         0x9c
         0x61
@@ -367,7 +367,7 @@
         0xb9
     .end array-data
 
-    :array_6
+    :array_190
     .array-data 4
         0x53
         0xc3
@@ -389,7 +389,7 @@
         0xbc
     .end array-data
 
-    :array_7
+    :array_1b8
     .array-data 4
         0xf
         0xc3
@@ -413,7 +413,7 @@
         0xac
     .end array-data
 
-    :array_8
+    :array_1e4
     .array-data 4
         0x34
         0xbe
@@ -441,7 +441,7 @@
         0xc1
     .end array-data
 
-    :array_9
+    :array_218
     .array-data 4
         0xd3
         0xe7
@@ -473,7 +473,7 @@
         0xff
     .end array-data
 
-    :array_a
+    :array_254
     .array-data 4
         0xf5
         0x7f
@@ -513,7 +513,7 @@
         0x70
     .end array-data
 
-    :array_b
+    :array_2a0
     .array-data 4
         0x4d
         0xc1
@@ -559,7 +559,7 @@
         0x5
     .end array-data
 
-    :array_c
+    :array_2f8
     .array-data 4
         0xf5
         0x84
@@ -611,7 +611,7 @@
         0x13
     .end array-data
 
-    :array_d
+    :array_35c
     .array-data 4
         0xaf
         0x9
@@ -671,7 +671,7 @@
         0x2e
     .end array-data
 
-    :array_e
+    :array_3d0
     .array-data 4
         0xf2
         0x5d
@@ -737,7 +737,7 @@
         0xcc
     .end array-data
 
-    :array_f
+    :array_450
     .array-data 4
         0xdc
         0xe4
@@ -811,7 +811,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -821,7 +821,7 @@
 .end method
 
 .method private static createECCBlock(Ljava/lang/CharSequence;I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "codewords"    # Ljava/lang/CharSequence;
     .param p1, "numECWords"    # I
 
@@ -840,7 +840,7 @@
 .end method
 
 .method private static createECCBlock(Ljava/lang/CharSequence;III)Ljava/lang/String;
-    .locals 12
+    .registers 16
     .param p0, "codewords"    # Ljava/lang/CharSequence;
     .param p1, "start"    # I
     .param p2, "len"    # I
@@ -854,37 +854,37 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     sget-object v2, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->FACTOR_SETS:[I
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_12
 
     .line 148
     sget-object v2, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->FACTOR_SETS:[I
 
     aget v2, v2, v1
 
-    if-ne v2, p3, :cond_0
+    if-ne v2, p3, :cond_f
 
     .line 149
     move v0, v1
 
     .line 150
-    goto :goto_1
+    goto :goto_12
 
     .line 147
-    :cond_0
+    :cond_f
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 153
     .end local v1    # "i":I
-    :cond_1
-    :goto_1
-    if-ltz v0, :cond_8
+    :cond_12
+    :goto_12
+    if-ltz v0, :cond_93
 
     .line 157
     sget-object v1, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->FACTORS:[[I
@@ -900,10 +900,10 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_2
+    :goto_1b
     const/4 v4, 0x0
 
-    if-ge v3, p3, :cond_2
+    if-ge v3, p3, :cond_23
 
     .line 160
     aput-char v4, v2, v3
@@ -911,18 +911,18 @@
     .line 159
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_1b
 
     .line 162
     .end local v3    # "i":I
-    :cond_2
+    :cond_23
     move v3, p1
 
     .restart local v3    # "i":I
-    :goto_3
+    :goto_24
     add-int v5, p1, p2
 
-    if-ge v3, v5, :cond_6
+    if-ge v3, v5, :cond_7e
 
     .line 163
     add-int/lit8 v5, p3, -0x1
@@ -940,15 +940,15 @@
     add-int/lit8 v6, p3, -0x1
 
     .local v6, "k":I
-    :goto_4
-    if-lez v6, :cond_4
+    :goto_33
+    if-lez v6, :cond_5e
 
     .line 165
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_55
 
     aget v7, v1, v6
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_55
 
     .line 166
     add-int/lit8 v7, v6, -0x1
@@ -979,10 +979,10 @@
 
     aput-char v7, v2, v6
 
-    goto :goto_5
+    goto :goto_5b
 
     .line 168
-    :cond_3
+    :cond_55
     add-int/lit8 v7, v6, -0x1
 
     aget-char v7, v2, v7
@@ -990,19 +990,19 @@
     aput-char v7, v2, v6
 
     .line 164
-    :goto_5
+    :goto_5b
     add-int/lit8 v6, v6, -0x1
 
-    goto :goto_4
+    goto :goto_33
 
     .line 171
     .end local v6    # "k":I
-    :cond_4
-    if-eqz v5, :cond_5
+    :cond_5e
+    if-eqz v5, :cond_79
 
     aget v6, v1, v4
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_79
 
     .line 172
     sget-object v6, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->ALOG:[I
@@ -1027,22 +1027,22 @@
 
     aput-char v6, v2, v4
 
-    goto :goto_6
+    goto :goto_7b
 
     .line 174
-    :cond_5
+    :cond_79
     aput-char v4, v2, v4
 
     .line 162
     .end local v5    # "m":I
-    :goto_6
+    :goto_7b
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_24
 
     .line 177
     .end local v3    # "i":I
-    :cond_6
+    :cond_7e
     new-array v3, p3, [C
 
     .line 178
@@ -1050,8 +1050,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_7
-    if-ge v4, p3, :cond_7
+    :goto_81
+    if-ge v4, p3, :cond_8e
 
     .line 179
     sub-int v5, p3, v4
@@ -1065,11 +1065,11 @@
     .line 178
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_7
+    goto :goto_81
 
     .line 181
     .end local v4    # "i":I
-    :cond_7
+    :cond_8e
     invoke-static {v3}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
 
     move-result-object v4
@@ -1080,7 +1080,7 @@
     .end local v1    # "poly":[I
     .end local v2    # "ecc":[C
     .end local v3    # "eccReversed":[C
-    :cond_8
+    :cond_93
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Illegal number of error correction codewords specified: "
@@ -1099,7 +1099,7 @@
 .end method
 
 .method public static encodeECC200(Ljava/lang/String;Lcom/google/zxing/datamatrix/encoder/SymbolInfo;)Ljava/lang/String;
-    .locals 12
+    .registers 14
     .param p0, "codewords"    # Ljava/lang/String;
     .param p1, "symbolInfo"    # Lcom/google/zxing/datamatrix/encoder/SymbolInfo;
 
@@ -1112,7 +1112,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_a9
 
     .line 106
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1150,7 +1150,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_33
 
     .line 110
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/SymbolInfo;->getErrorCodewords()I
@@ -1167,10 +1167,10 @@
 
     .line 112
     .end local v0    # "ecc":Ljava/lang/String;
-    goto/16 :goto_4
+    goto/16 :goto_a4
 
     .line 113
-    :cond_0
+    :cond_33
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->capacity()I
 
     move-result v0
@@ -1193,8 +1193,8 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_0
-    if-ge v5, v2, :cond_2
+    :goto_41
+    if-ge v5, v2, :cond_64
 
     .line 118
     add-int/lit8 v6, v5, 0x1
@@ -1220,7 +1220,7 @@
     aput v6, v4, v5
 
     .line 121
-    if-lez v5, :cond_1
+    if-lez v5, :cond_61
 
     .line 122
     add-int/lit8 v6, v5, -0x1
@@ -1234,19 +1234,19 @@
     aput v6, v4, v5
 
     .line 117
-    :cond_1
+    :cond_61
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_41
 
     .line 125
     .end local v5    # "i":I
-    :cond_2
+    :cond_64
     const/4 v5, 0x0
 
     .local v5, "block":I
-    :goto_1
-    if-ge v5, v2, :cond_5
+    :goto_65
+    if-ge v5, v2, :cond_a4
 
     .line 126
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1260,12 +1260,12 @@
     move v7, v5
 
     .local v7, "d":I
-    :goto_2
+    :goto_6f
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/SymbolInfo;->getDataCapacity()I
 
     move-result v8
 
-    if-ge v7, v8, :cond_3
+    if-ge v7, v8, :cond_7e
 
     .line 128
     invoke-virtual {p0, v7}, Ljava/lang/String;->charAt(I)C
@@ -1277,11 +1277,11 @@
     .line 127
     add-int/2addr v7, v2
 
-    goto :goto_2
+    goto :goto_6f
 
     .line 130
     .end local v7    # "d":I
-    :cond_3
+    :cond_7e
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
@@ -1301,12 +1301,12 @@
     move v9, v5
 
     .local v9, "e":I
-    :goto_3
+    :goto_8a
     aget v10, v3, v5
 
     mul-int v10, v10, v2
 
-    if-ge v9, v10, :cond_4
+    if-ge v9, v10, :cond_a1
 
     .line 133
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/SymbolInfo;->getDataCapacity()I
@@ -1330,25 +1330,25 @@
 
     move v8, v11
 
-    goto :goto_3
+    goto :goto_8a
 
     .line 125
     .end local v6    # "temp":Ljava/lang/StringBuilder;
     .end local v7    # "ecc":Ljava/lang/String;
     .end local v9    # "e":I
     .end local v11    # "pos":I
-    :cond_4
+    :cond_a1
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_65
 
     .line 137
     .end local v0    # "dataSizes":[I
     .end local v3    # "errorSizes":[I
     .end local v4    # "startPos":[I
     .end local v5    # "block":I
-    :cond_5
-    :goto_4
+    :cond_a4
+    :goto_a4
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -1358,7 +1358,7 @@
     .line 103
     .end local v1    # "sb":Ljava/lang/StringBuilder;
     .end local v2    # "blockCount":I
-    :cond_6
+    :cond_a9
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "The number of codewords does not match the selected symbol"

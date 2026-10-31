@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/Channel;Z)V
-    .locals 1
+    .registers 5
     .param p1, "parentContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "channel"    # Lkotlinx/coroutines/channels/Channel;
     .param p3, "active"    # Z
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method protected handleJobException(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "exception"    # Ljava/lang/Throwable;
 
     .line 143
@@ -116,7 +116,7 @@
 .end method
 
 .method protected onCancelling(Ljava/lang/Throwable;)V
-    .locals 5
+    .registers 7
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 137
@@ -126,7 +126,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2d
 
     move-object v2, p1
 
@@ -137,14 +137,14 @@
     .local v3, "$i$a$-let-ActorCoroutine$onCancelling$1":I
     instance-of v4, v2, Ljava/util/concurrent/CancellationException;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_10
 
     move-object v1, v2
 
     check-cast v1, Ljava/util/concurrent/CancellationException;
 
-    :cond_0
-    if-nez v1, :cond_1
+    :cond_10
+    if-nez v1, :cond_2d
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -175,7 +175,7 @@
     .line 137
     .end local v2    # "it":Ljava/lang/Throwable;
     .end local v3    # "$i$a$-let-ActorCoroutine$onCancelling$1":I
-    :cond_1
+    :cond_2d
     invoke-interface {v0, v1}, Lkotlinx/coroutines/channels/Channel;->cancel(Ljava/util/concurrent/CancellationException;)V
 
     .line 140

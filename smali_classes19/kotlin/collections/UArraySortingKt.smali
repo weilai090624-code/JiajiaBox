@@ -57,7 +57,7 @@
 
 # direct methods
 .method private static final partition--nroSd4([JII)I
-    .locals 8
+    .registers 11
     .param p0, "array"    # [J
     .param p1, "left"    # I
     .param p2, "right"    # I
@@ -81,12 +81,12 @@
 
     .line 114
     .local v2, "pivot":J
-    :cond_0
-    :goto_0
-    if-gt v0, v1, :cond_3
+    :cond_a
+    :goto_a
+    if-gt v0, v1, :cond_3c
 
     .line 115
-    :goto_1
+    :goto_c
     invoke-static {p0, v0}, Lkotlin/ULongArray;->get-s-VKNKU([JI)J
 
     move-result-wide v4
@@ -95,16 +95,16 @@
 
     move-result v4
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_19
 
     .line 116
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_c
 
     .line 117
-    :cond_1
-    :goto_2
+    :cond_19
+    :goto_19
     invoke-static {p0, v1}, Lkotlin/ULongArray;->get-s-VKNKU([JI)J
 
     move-result-wide v4
@@ -113,16 +113,16 @@
 
     move-result v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_26
 
     .line 118
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_2
+    goto :goto_19
 
     .line 119
-    :cond_2
-    if-gt v0, v1, :cond_0
+    :cond_26
+    if-gt v0, v1, :cond_a
 
     .line 120
     invoke-static {p0, v0}, Lkotlin/ULongArray;->get-s-VKNKU([JI)J
@@ -149,15 +149,15 @@
     .end local v4    # "tmp":J
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 127
-    :cond_3
+    :cond_3c
     return v0
 .end method
 
 .method private static final partition-4UcCI2c([BII)I
-    .locals 5
+    .registers 8
     .param p0, "array"    # [B
     .param p1, "left"    # I
     .param p2, "right"    # I
@@ -181,12 +181,12 @@
 
     .line 15
     .local v2, "pivot":B
-    :cond_0
-    :goto_0
-    if-gt v0, v1, :cond_3
+    :cond_a
+    :goto_a
+    if-gt v0, v1, :cond_44
 
     .line 16
-    :goto_1
+    :goto_c
     invoke-static {p0, v0}, Lkotlin/UByteArray;->get-w2LRezQ([BI)B
 
     move-result v3
@@ -199,16 +199,16 @@
 
     move-result v3
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_1d
 
     .line 17
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_c
 
     .line 18
-    :cond_1
-    :goto_2
+    :cond_1d
+    :goto_1d
     invoke-static {p0, v1}, Lkotlin/UByteArray;->get-w2LRezQ([BI)B
 
     move-result v3
@@ -221,16 +221,16 @@
 
     move-result v3
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_2e
 
     .line 19
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_2
+    goto :goto_1d
 
     .line 20
-    :cond_2
-    if-gt v0, v1, :cond_0
+    :cond_2e
+    if-gt v0, v1, :cond_a
 
     .line 21
     invoke-static {p0, v0}, Lkotlin/UByteArray;->get-w2LRezQ([BI)B
@@ -257,15 +257,15 @@
     .end local v3    # "tmp":B
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 28
-    :cond_3
+    :cond_44
     return v0
 .end method
 
 .method private static final partition-Aa5vz7o([SII)I
-    .locals 6
+    .registers 9
     .param p0, "array"    # [S
     .param p1, "left"    # I
     .param p2, "right"    # I
@@ -289,12 +289,12 @@
 
     .line 48
     .local v2, "pivot":S
-    :cond_0
-    :goto_0
-    if-gt v0, v1, :cond_3
+    :cond_a
+    :goto_a
+    if-gt v0, v1, :cond_45
 
     .line 49
-    :goto_1
+    :goto_c
     invoke-static {p0, v0}, Lkotlin/UShortArray;->get-Mh2AYeg([SI)S
 
     move-result v3
@@ -309,16 +309,16 @@
 
     move-result v3
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_1f
 
     .line 50
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_c
 
     .line 51
-    :cond_1
-    :goto_2
+    :cond_1f
+    :goto_1f
     invoke-static {p0, v1}, Lkotlin/UShortArray;->get-Mh2AYeg([SI)S
 
     move-result v3
@@ -331,16 +331,16 @@
 
     move-result v3
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_2f
 
     .line 52
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_2
+    goto :goto_1f
 
     .line 53
-    :cond_2
-    if-gt v0, v1, :cond_0
+    :cond_2f
+    if-gt v0, v1, :cond_a
 
     .line 54
     invoke-static {p0, v0}, Lkotlin/UShortArray;->get-Mh2AYeg([SI)S
@@ -367,15 +367,15 @@
     .end local v3    # "tmp":S
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 61
-    :cond_3
+    :cond_45
     return v0
 .end method
 
 .method private static final partition-oBK06Vg([III)I
-    .locals 5
+    .registers 8
     .param p0, "array"    # [I
     .param p1, "left"    # I
     .param p2, "right"    # I
@@ -399,12 +399,12 @@
 
     .line 81
     .local v2, "pivot":I
-    :cond_0
-    :goto_0
-    if-gt v0, v1, :cond_3
+    :cond_a
+    :goto_a
+    if-gt v0, v1, :cond_3c
 
     .line 82
-    :goto_1
+    :goto_c
     invoke-static {p0, v0}, Lkotlin/UIntArray;->get-pVg5ArA([II)I
 
     move-result v3
@@ -413,16 +413,16 @@
 
     move-result v3
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_19
 
     .line 83
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_c
 
     .line 84
-    :cond_1
-    :goto_2
+    :cond_19
+    :goto_19
     invoke-static {p0, v1}, Lkotlin/UIntArray;->get-pVg5ArA([II)I
 
     move-result v3
@@ -431,16 +431,16 @@
 
     move-result v3
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_26
 
     .line 85
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_2
+    goto :goto_19
 
     .line 86
-    :cond_2
-    if-gt v0, v1, :cond_0
+    :cond_26
+    if-gt v0, v1, :cond_a
 
     .line 87
     invoke-static {p0, v0}, Lkotlin/UIntArray;->get-pVg5ArA([II)I
@@ -467,15 +467,15 @@
     .end local v3    # "tmp":I
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 94
-    :cond_3
+    :cond_3c
     return v0
 .end method
 
 .method private static final quickSort--nroSd4([JII)V
-    .locals 2
+    .registers 5
     .param p0, "array"    # [J
     .param p1, "left"    # I
     .param p2, "right"    # I
@@ -489,7 +489,7 @@
     .local v0, "index":I
     add-int/lit8 v1, v0, -0x1
 
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_d
 
     .line 135
     add-int/lit8 v1, v0, -0x1
@@ -497,19 +497,19 @@
     invoke-static {p0, p1, v1}, Lkotlin/collections/UArraySortingKt;->quickSort--nroSd4([JII)V
 
     .line 136
-    :cond_0
-    if-ge v0, p2, :cond_1
+    :cond_d
+    if-ge v0, p2, :cond_12
 
     .line 137
     invoke-static {p0, v0, p2}, Lkotlin/collections/UArraySortingKt;->quickSort--nroSd4([JII)V
 
     .line 138
-    :cond_1
+    :cond_12
     return-void
 .end method
 
 .method private static final quickSort-4UcCI2c([BII)V
-    .locals 2
+    .registers 5
     .param p0, "array"    # [B
     .param p1, "left"    # I
     .param p2, "right"    # I
@@ -523,7 +523,7 @@
     .local v0, "index":I
     add-int/lit8 v1, v0, -0x1
 
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_d
 
     .line 36
     add-int/lit8 v1, v0, -0x1
@@ -531,19 +531,19 @@
     invoke-static {p0, p1, v1}, Lkotlin/collections/UArraySortingKt;->quickSort-4UcCI2c([BII)V
 
     .line 37
-    :cond_0
-    if-ge v0, p2, :cond_1
+    :cond_d
+    if-ge v0, p2, :cond_12
 
     .line 38
     invoke-static {p0, v0, p2}, Lkotlin/collections/UArraySortingKt;->quickSort-4UcCI2c([BII)V
 
     .line 39
-    :cond_1
+    :cond_12
     return-void
 .end method
 
 .method private static final quickSort-Aa5vz7o([SII)V
-    .locals 2
+    .registers 5
     .param p0, "array"    # [S
     .param p1, "left"    # I
     .param p2, "right"    # I
@@ -557,7 +557,7 @@
     .local v0, "index":I
     add-int/lit8 v1, v0, -0x1
 
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_d
 
     .line 69
     add-int/lit8 v1, v0, -0x1
@@ -565,19 +565,19 @@
     invoke-static {p0, p1, v1}, Lkotlin/collections/UArraySortingKt;->quickSort-Aa5vz7o([SII)V
 
     .line 70
-    :cond_0
-    if-ge v0, p2, :cond_1
+    :cond_d
+    if-ge v0, p2, :cond_12
 
     .line 71
     invoke-static {p0, v0, p2}, Lkotlin/collections/UArraySortingKt;->quickSort-Aa5vz7o([SII)V
 
     .line 72
-    :cond_1
+    :cond_12
     return-void
 .end method
 
 .method private static final quickSort-oBK06Vg([III)V
-    .locals 2
+    .registers 5
     .param p0, "array"    # [I
     .param p1, "left"    # I
     .param p2, "right"    # I
@@ -591,7 +591,7 @@
     .local v0, "index":I
     add-int/lit8 v1, v0, -0x1
 
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_d
 
     .line 102
     add-int/lit8 v1, v0, -0x1
@@ -599,19 +599,19 @@
     invoke-static {p0, p1, v1}, Lkotlin/collections/UArraySortingKt;->quickSort-oBK06Vg([III)V
 
     .line 103
-    :cond_0
-    if-ge v0, p2, :cond_1
+    :cond_d
+    if-ge v0, p2, :cond_12
 
     .line 104
     invoke-static {p0, v0, p2}, Lkotlin/collections/UArraySortingKt;->quickSort-oBK06Vg([III)V
 
     .line 105
-    :cond_1
+    :cond_12
     return-void
 .end method
 
 .method public static final sortArray--nroSd4([JII)V
-    .locals 1
+    .registers 4
     .param p0, "array"    # [J
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -629,7 +629,7 @@
 .end method
 
 .method public static final sortArray-4UcCI2c([BII)V
-    .locals 1
+    .registers 4
     .param p0, "array"    # [B
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -647,7 +647,7 @@
 .end method
 
 .method public static final sortArray-Aa5vz7o([SII)V
-    .locals 1
+    .registers 4
     .param p0, "array"    # [S
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -665,7 +665,7 @@
 .end method
 
 .method public static final sortArray-oBK06Vg([III)V
-    .locals 1
+    .registers 4
     .param p0, "array"    # [I
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I

@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 264
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public final addArgumentName(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -104,7 +104,7 @@
 .end method
 
 .method public final getArgumentName(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 273
@@ -120,7 +120,7 @@
 .end method
 
 .method public final getArguments()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -137,7 +137,7 @@
 .end method
 
 .method public final getParamRegex()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 265
     iget-object v0, p0, Landroidx/navigation/NavDeepLink$ParamQuery;->paramRegex:Ljava/lang/String;
@@ -146,7 +146,7 @@
 .end method
 
 .method public final setParamRegex(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 265
@@ -156,7 +156,7 @@
 .end method
 
 .method public final size()I
-    .locals 1
+    .registers 2
 
     .line 277
     iget-object v0, p0, Landroidx/navigation/NavDeepLink$ParamQuery;->arguments:Ljava/util/List;

@@ -63,7 +63,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/BufferedInputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Ljava/io/BufferedInputStream;
 
     iput-object p1, p0, Lkotlin/io/ByteStreamsKt$iterator$1;->$this_iterator:Ljava/io/BufferedInputStream;
@@ -81,16 +81,16 @@
 .end method
 
 .method private final prepareNext()V
-    .locals 3
+    .registers 4
 
     .line 25
     iget-boolean v0, p0, Lkotlin/io/ByteStreamsKt$iterator$1;->nextPrepared:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     iget-boolean v0, p0, Lkotlin/io/ByteStreamsKt$iterator$1;->finished:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     .line 26
     iget-object v0, p0, Lkotlin/io/ByteStreamsKt$iterator$1;->$this_iterator:Ljava/io/BufferedInputStream;
@@ -111,25 +111,25 @@
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_19
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1a
     iput-boolean v0, p0, Lkotlin/io/ByteStreamsKt$iterator$1;->finished:Z
 
     .line 30
-    :cond_1
+    :cond_1c
     return-void
 .end method
 
 
 # virtual methods
 .method public final getFinished()Z
-    .locals 1
+    .registers 2
 
     .line 22
     iget-boolean v0, p0, Lkotlin/io/ByteStreamsKt$iterator$1;->finished:Z
@@ -138,7 +138,7 @@
 .end method
 
 .method public final getNextByte()I
-    .locals 1
+    .registers 2
 
     .line 18
     iget v0, p0, Lkotlin/io/ByteStreamsKt$iterator$1;->nextByte:I
@@ -147,7 +147,7 @@
 .end method
 
 .method public final getNextPrepared()Z
-    .locals 1
+    .registers 2
 
     .line 20
     iget-boolean v0, p0, Lkotlin/io/ByteStreamsKt$iterator$1;->nextPrepared:Z
@@ -156,7 +156,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-direct {p0}, Lkotlin/io/ByteStreamsKt$iterator$1;->prepareNext()V
@@ -170,7 +170,7 @@
 .end method
 
 .method public nextByte()B
-    .locals 2
+    .registers 3
 
     .line 38
     invoke-direct {p0}, Lkotlin/io/ByteStreamsKt$iterator$1;->prepareNext()V
@@ -178,7 +178,7 @@
     .line 39
     iget-boolean v0, p0, Lkotlin/io/ByteStreamsKt$iterator$1;->finished:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 41
     iget v0, p0, Lkotlin/io/ByteStreamsKt$iterator$1;->nextByte:I
@@ -196,7 +196,7 @@
 
     .line 40
     .end local v0    # "res":B
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "Input stream is over."
@@ -207,7 +207,7 @@
 .end method
 
 .method public final setFinished(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 22
@@ -217,7 +217,7 @@
 .end method
 
 .method public final setNextByte(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 18
@@ -227,7 +227,7 @@
 .end method
 
 .method public final setNextPrepared(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 20

@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 31
     const-string v0, "ConstraintProxy"
@@ -35,7 +35,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method static updateAll(Landroid/content/Context;Ljava/util/List;)V
-    .locals 9
+    .registers 11
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -89,12 +89,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_8
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3c
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -138,39 +138,39 @@
 
     sget-object v8, Landroidx/work/NetworkType;->NOT_REQUIRED:Landroidx/work/NetworkType;
 
-    if-eq v7, v8, :cond_0
+    if-eq v7, v8, :cond_30
 
     const/4 v7, 0x1
 
-    goto :goto_1
+    goto :goto_31
 
-    :cond_0
+    :cond_30
     const/4 v7, 0x0
 
-    :goto_1
+    :goto_31
     or-int/2addr v3, v7
 
     .line 84
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3b
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3b
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3b
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3b
 
     .line 86
-    goto :goto_2
+    goto :goto_3c
 
     .line 88
     .end local v5    # "workSpec":Landroidx/work/impl/model/WorkSpec;
     .end local v6    # "constraints":Landroidx/work/Constraints;
-    :cond_1
-    goto :goto_0
+    :cond_3b
+    goto :goto_8
 
     .line 90
-    :cond_2
-    :goto_2
+    :cond_3c
+    :goto_3c
     nop
 
     .line 91
@@ -189,7 +189,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/MethodParameters;

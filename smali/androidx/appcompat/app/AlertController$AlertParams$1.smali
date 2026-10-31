@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AlertController$AlertParams;Landroid/content/Context;II[Ljava/lang/CharSequence;Landroidx/appcompat/app/AlertController$RecycleListView;)V
-    .locals 0
+    .registers 7
     .param p1, "this$0"    # Landroidx/appcompat/app/AlertController$AlertParams;
     .param p2, "arg0"    # Landroid/content/Context;
     .param p3, "arg1"    # I
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 4
+    .registers 8
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
@@ -66,7 +66,7 @@
 
     iget-object v1, v1, Landroidx/appcompat/app/AlertController$AlertParams;->mCheckedItems:[Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 1000
     iget-object v1, p0, Landroidx/appcompat/app/AlertController$AlertParams$1;->this$0:Landroidx/appcompat/app/AlertController$AlertParams;
@@ -77,7 +77,7 @@
 
     .line 1001
     .local v1, "isItemChecked":Z
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 1002
     iget-object v2, p0, Landroidx/appcompat/app/AlertController$AlertParams$1;->val$listView:Landroidx/appcompat/app/AlertController$RecycleListView;
@@ -88,6 +88,6 @@
 
     .line 1005
     .end local v1    # "isItemChecked":Z
-    :cond_0
+    :cond_18
     return-object v0
 .end method

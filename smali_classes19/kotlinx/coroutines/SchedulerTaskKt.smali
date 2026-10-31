@@ -36,7 +36,7 @@
 
 # direct methods
 .method public static final afterTask(Lkotlinx/coroutines/scheduling/TaskContext;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$afterTask"    # Lkotlinx/coroutines/scheduling/TaskContext;
 
     const/4 v0, 0x0
@@ -49,7 +49,7 @@
 .end method
 
 .method public static final getTaskContext(Lkotlinx/coroutines/scheduling/Task;)Lkotlinx/coroutines/scheduling/TaskContext;
-    .locals 1
+    .registers 2
     .param p0, "$this$taskContext"    # Lkotlinx/coroutines/scheduling/Task;
 
     .line 14
@@ -59,7 +59,7 @@
 .end method
 
 .method public static synthetic getTaskContext$annotations(Lkotlinx/coroutines/scheduling/Task;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method

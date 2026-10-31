@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;[C[C)V
-    .locals 5
+    .registers 9
     .param p1, "description"    # Ljava/lang/String;
     .param p2, "rangeStarts"    # [C
     .param p3, "rangeEnds"    # [C
@@ -50,42 +50,42 @@
 
     const/4 v3, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 1305
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_1
+    :goto_16
     array-length v1, p2
 
-    if-ge v0, v1, :cond_4
+    if-ge v0, v1, :cond_3b
 
     .line 1306
     aget-char v1, p2, v0
 
     aget-char v4, p3, v0
 
-    if-gt v1, v4, :cond_1
+    if-gt v1, v4, :cond_21
 
     const/4 v1, 0x1
 
-    goto :goto_2
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_22
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 1307
@@ -93,7 +93,7 @@
 
     array-length v4, p2
 
-    if-ge v1, v4, :cond_3
+    if-ge v1, v4, :cond_38
 
     .line 1308
     aget-char v1, p3, v0
@@ -102,34 +102,34 @@
 
     aget-char v4, p2, v4
 
-    if-ge v1, v4, :cond_2
+    if-ge v1, v4, :cond_34
 
     const/4 v1, 0x1
 
-    goto :goto_3
+    goto :goto_35
 
-    :cond_2
+    :cond_34
     const/4 v1, 0x0
 
-    :goto_3
+    :goto_35
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 1305
-    :cond_3
+    :cond_38
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_16
 
     .line 1311
     .end local v0    # "i":I
-    :cond_4
+    :cond_3b
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public matches(C)Z
-    .locals 3
+    .registers 5
     .param p1, "c"    # C
 
     .line 1315
@@ -158,13 +158,13 @@
     .local v0, "index":I
     const/4 v1, 0x1
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_a
 
     .line 1317
     return v1
 
     .line 1319
-    :cond_0
+    :cond_a
     not-int v2, v0
 
     sub-int/2addr v2, v1
@@ -172,25 +172,25 @@
     .line 1320
     .end local v0    # "index":I
     .local v2, "index":I
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_15
 
     iget-object v0, p0, Lcom/google/common/base/CharMatcher$RangesMatcher;->rangeEnds:[C
 
     aget-char v0, v0, v2
 
-    if-gt p1, v0, :cond_1
+    if-gt p1, v0, :cond_15
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     return v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1326
     iget-object v0, p0, Lcom/google/common/base/CharMatcher$RangesMatcher;->description:Ljava/lang/String;

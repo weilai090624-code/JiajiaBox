@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;)V
-    .locals 1
+    .registers 5
     .param p1, "k"    # Ljava/lang/String;
     .param p2, "v"    # Ljava/lang/String;
     .param p3, "child"    # Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
@@ -31,7 +31,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;Lj$/time/format/DateTimeFormatterBuilder-IA;)V
-    .locals 0
+    .registers 5
 
     invoke-direct {p0, p1, p2, p3}, Lj$/time/format/DateTimeFormatterBuilder$PrefixTree$CI;-><init>(Ljava/lang/String;Ljava/lang/String;Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;)V
 
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method protected isEqual(CC)Z
-    .locals 1
+    .registers 4
     .param p1, "c1"    # C
     .param p2, "c2"    # C
 
@@ -54,7 +54,7 @@
 .end method
 
 .method protected newNode(Ljava/lang/String;Ljava/lang/String;Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;)Lj$/time/format/DateTimeFormatterBuilder$PrefixTree$CI;
-    .locals 1
+    .registers 5
     .param p1, "k"    # Ljava/lang/String;
     .param p2, "v"    # Ljava/lang/String;
     .param p3, "child"    # Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
@@ -68,7 +68,7 @@
 .end method
 
 .method protected bridge synthetic newNode(Ljava/lang/String;Ljava/lang/String;Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;)Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
-    .locals 0
+    .registers 4
 
     .line 4571
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/format/DateTimeFormatterBuilder$PrefixTree$CI;->newNode(Ljava/lang/String;Ljava/lang/String;Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;)Lj$/time/format/DateTimeFormatterBuilder$PrefixTree$CI;
@@ -79,7 +79,7 @@
 .end method
 
 .method protected prefixOf(Ljava/lang/CharSequence;II)Z
-    .locals 5
+    .registers 9
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "off"    # I
     .param p3, "end"    # I
@@ -97,23 +97,23 @@
 
     const/4 v2, 0x0
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_c
 
     .line 4591
     return v2
 
     .line 4593
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
     .line 4594
     .local v1, "off0":I
-    :goto_0
+    :goto_d
     add-int/lit8 v3, v0, -0x1
 
     .end local v0    # "len":I
     .local v3, "len":I
-    if-lez v0, :cond_2
+    if-lez v0, :cond_2a
 
     .line 4595
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$PrefixTree$CI;->key:Ljava/lang/String;
@@ -138,26 +138,26 @@
 
     move-result p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_26
 
     .line 4596
     return v2
 
     .line 4595
-    :cond_1
+    :cond_26
     move p2, v1
 
     move v0, v3
 
     move v1, v4
 
-    goto :goto_0
+    goto :goto_d
 
     .line 4599
     .end local v4    # "off0":I
     .local v1, "off0":I
     .restart local p2    # "off":I
-    :cond_2
+    :cond_2a
     const/4 v0, 0x1
 
     return v0

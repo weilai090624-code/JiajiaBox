@@ -62,7 +62,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$N2DCpam7-vgbX9lRoEB79b85CEk(Lio/nekohasekai/sagernet/ui/VpnRequestActivity;Z)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/VpnRequestActivity;->connect$lambda$1(Lio/nekohasekai/sagernet/ui/VpnRequestActivity;Z)V
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$rk1vGo5p1qMUEykOhiSoZv2z7Mk(Lio/nekohasekai/sagernet/ui/VpnRequestActivity;Landroid/content/Context;Landroid/content/Intent;)Lkotlin/Unit;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/VpnRequestActivity;->onCreate$lambda$0(Lio/nekohasekai/sagernet/ui/VpnRequestActivity;Landroid/content/Context;Landroid/content/Intent;)Lkotlin/Unit;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 23
     invoke-direct {p0}, Landroidx/appcompat/app/AppCompatActivity;-><init>()V
@@ -107,12 +107,12 @@
 .end method
 
 .method private static final connect$lambda$1(Lio/nekohasekai/sagernet/ui/VpnRequestActivity;Z)V
-    .locals 3
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/VpnRequestActivity;
     .param p1, "it"    # Z
 
     .line 43
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     move-object v0, p0
 
@@ -129,7 +129,7 @@
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 44
-    :cond_0
+    :cond_10
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/VpnRequestActivity;->finish()V
 
     .line 45
@@ -137,7 +137,7 @@
 .end method
 
 .method private static final onCreate$lambda$0(Lio/nekohasekai/sagernet/ui/VpnRequestActivity;Landroid/content/Context;Landroid/content/Intent;)Lkotlin/Unit;
-    .locals 1
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/VpnRequestActivity;
 
     const-string v0, "<unused var>"
@@ -161,7 +161,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 27
@@ -194,7 +194,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_44
 
     .line 29
     new-instance v0, Lio/nekohasekai/sagernet/ui/VpnRequestActivity$$ExternalSyntheticLambda1;
@@ -214,7 +214,7 @@
 
     const-string v2, "android.intent.action.USER_PRESENT"
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_39
 
     .line 31
     nop
@@ -235,10 +235,10 @@
 
     invoke-virtual {p0, v0, v1, v2}, Lio/nekohasekai/sagernet/ui/VpnRequestActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 37
-    :cond_0
+    :cond_39
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/VpnRequestActivity;->receiver:Landroid/content/BroadcastReceiver;
 
     new-instance v1, Landroid/content/IntentFilter;
@@ -247,10 +247,10 @@
 
     invoke-virtual {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/VpnRequestActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 39
-    :cond_1
+    :cond_44
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/VpnRequestActivity;->connect:Landroidx/activity/result/ActivityResultLauncher;
 
     const/4 v1, 0x0
@@ -260,12 +260,12 @@
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 40
-    :goto_0
+    :goto_4c
     return-void
 .end method
 
 .method protected onDestroy()V
-    .locals 1
+    .registers 2
 
     .line 48
     invoke-super {p0}, Landroidx/appcompat/app/AppCompatActivity;->onDestroy()V
@@ -273,13 +273,13 @@
     .line 49
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/VpnRequestActivity;->receiver:Landroid/content/BroadcastReceiver;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/VpnRequestActivity;->receiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/VpnRequestActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 50
-    :cond_0
+    :cond_c
     return-void
 .end method

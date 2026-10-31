@@ -14,7 +14,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 61
     invoke-direct {p0}, Lcom/google/common/escape/Escaper;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method protected static codePointAt(Ljava/lang/CharSequence;II)I
-    .locals 10
+    .registers 13
     .param p0, "seq"    # Ljava/lang/CharSequence;
     .param p1, "index"    # I
     .param p2, "end"    # I
@@ -32,7 +32,7 @@
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 250
-    if-ge p1, p2, :cond_5
+    if-ge p1, p2, :cond_c0
 
     .line 251
     add-int/lit8 v0, p1, 0x1
@@ -47,16 +47,16 @@
     .local p1, "c1":C
     const v1, 0xd800
 
-    if-lt p1, v1, :cond_4
+    if-lt p1, v1, :cond_bf
 
     const v1, 0xdfff
 
-    if-le p1, v1, :cond_0
+    if-le p1, v1, :cond_17
 
-    goto/16 :goto_0
+    goto/16 :goto_bf
 
     .line 255
-    :cond_0
+    :cond_17
     const v1, 0xdbff
 
     const-string v2, "\'"
@@ -67,10 +67,10 @@
 
     const-string v5, "\' with value "
 
-    if-gt p1, v1, :cond_3
+    if-gt p1, v1, :cond_7a
 
     .line 257
-    if-ne v0, p2, :cond_1
+    if-ne v0, p2, :cond_28
 
     .line 258
     neg-int v1, p1
@@ -78,7 +78,7 @@
     return v1
 
     .line 261
-    :cond_1
+    :cond_28
     invoke-interface {p0, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v1
@@ -89,7 +89,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_37
 
     .line 263
     invoke-static {p1, v1}, Ljava/lang/Character;->toCodePoint(CC)I
@@ -99,7 +99,7 @@
     return v2
 
     .line 265
-    :cond_2
+    :cond_37
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -168,7 +168,7 @@
 
     .line 276
     .end local v1    # "c2":C
-    :cond_3
+    :cond_7a
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     add-int/lit8 v6, v0, -0x1
@@ -238,14 +238,14 @@
     throw v1
 
     .line 254
-    :cond_4
-    :goto_0
+    :cond_bf
+    :goto_bf
     return p1
 
     .line 288
     .end local v0    # "index":I
     .local p1, "index":I
-    :cond_5
+    :cond_c0
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     const-string v1, "Index exceeds specified range"
@@ -256,20 +256,20 @@
 .end method
 
 .method private static growBuffer([CII)[C
-    .locals 2
+    .registers 5
     .param p0, "dest"    # [C
     .param p1, "index"    # I
     .param p2, "size"    # I
 
     .line 296
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_b
 
     .line 299
     new-array v0, p2, [C
 
     .line 300
     .local v0, "copy":[C
-    if-lez p1, :cond_0
+    if-lez p1, :cond_a
 
     .line 301
     const/4 v1, 0x0
@@ -277,12 +277,12 @@
     invoke-static {p0, v1, v0, v1, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 303
-    :cond_0
+    :cond_a
     return-object v0
 
     .line 297
     .end local v0    # "copy":[C
-    :cond_1
+    :cond_b
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "Cannot increase internal buffer any further"
@@ -295,7 +295,7 @@
 
 # virtual methods
 .method public escape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "string"    # Ljava/lang/String;
 
     .line 105
@@ -316,18 +316,18 @@
 
     .line 108
     .local v1, "index":I
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_10
 
     move-object v2, p1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_10
     invoke-virtual {p0, p1, v1}, Lcom/google/common/escape/UnicodeEscaper;->escapeSlow(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v2
 
-    :goto_0
+    :goto_14
     return-object v2
 .end method
 
@@ -337,7 +337,7 @@
 .end method
 
 .method protected final escapeSlow(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 11
+    .registers 14
     .param p1, "s"    # Ljava/lang/String;
     .param p2, "index"    # I
 
@@ -362,10 +362,10 @@
 
     .line 168
     .local v3, "unescapedChunkStart":I
-    :goto_0
+    :goto_a
     const/4 v4, 0x0
 
-    if-ge p2, v0, :cond_6
+    if-ge p2, v0, :cond_52
 
     .line 169
     invoke-static {p1, p2, v0}, Lcom/google/common/escape/UnicodeEscaper;->codePointAt(Ljava/lang/CharSequence;II)I
@@ -374,7 +374,7 @@
 
     .line 170
     .local v5, "cp":I
-    if-ltz v5, :cond_5
+    if-ltz v5, :cond_4a
 
     .line 176
     invoke-virtual {p0, v5}, Lcom/google/common/escape/UnicodeEscaper;->escape(I)[C
@@ -387,21 +387,21 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_1f
 
     const/4 v7, 0x2
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_0
+    :cond_1f
     const/4 v7, 0x1
 
-    :goto_1
+    :goto_20
     add-int/2addr v7, p2
 
     .line 178
     .local v7, "nextIndex":I
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_45
 
     .line 179
     sub-int v8, p2, v3
@@ -418,7 +418,7 @@
     .local v9, "sizeNeeded":I
     array-length v10, v1
 
-    if-ge v10, v9, :cond_1
+    if-ge v10, v9, :cond_35
 
     .line 185
     sub-int v10, v0, p2
@@ -435,8 +435,8 @@
 
     .line 189
     .end local v10    # "destLength":I
-    :cond_1
-    if-lez v8, :cond_2
+    :cond_35
+    if-lez v8, :cond_3b
 
     .line 190
     invoke-virtual {p1, v3, p2, v1, v2}, Ljava/lang/String;->getChars(II[CI)V
@@ -445,10 +445,10 @@
     add-int/2addr v2, v8
 
     .line 193
-    :cond_2
+    :cond_3b
     array-length v10, v6
 
-    if-lez v10, :cond_3
+    if-lez v10, :cond_44
 
     .line 194
     array-length v10, v6
@@ -461,13 +461,13 @@
     add-int/2addr v2, v4
 
     .line 198
-    :cond_3
+    :cond_44
     move v3, v7
 
     .line 200
     .end local v8    # "charsSkipped":I
     .end local v9    # "sizeNeeded":I
-    :cond_4
+    :cond_45
     invoke-virtual {p0, p1, v7, v0}, Lcom/google/common/escape/UnicodeEscaper;->nextEscapeIndex(Ljava/lang/CharSequence;II)I
 
     move-result p2
@@ -476,11 +476,11 @@
     .end local v5    # "cp":I
     .end local v6    # "escaped":[C
     .end local v7    # "nextIndex":I
-    goto :goto_0
+    goto :goto_a
 
     .line 171
     .restart local v5    # "cp":I
-    :cond_5
+    :cond_4a
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string v6, "Trailing high surrogate at end of input"
@@ -491,12 +491,12 @@
 
     .line 205
     .end local v5    # "cp":I
-    :cond_6
+    :cond_52
     sub-int v5, v0, v3
 
     .line 206
     .local v5, "charsSkipped":I
-    if-lez v5, :cond_8
+    if-lez v5, :cond_63
 
     .line 207
     add-int v6, v2, v5
@@ -505,7 +505,7 @@
     .local v6, "endIndex":I
     array-length v7, v1
 
-    if-ge v7, v6, :cond_7
+    if-ge v7, v6, :cond_5f
 
     .line 209
     invoke-static {v1, v2, v6}, Lcom/google/common/escape/UnicodeEscaper;->growBuffer([CII)[C
@@ -513,7 +513,7 @@
     move-result-object v1
 
     .line 211
-    :cond_7
+    :cond_5f
     invoke-virtual {p1, v3, v0, v1, v2}, Ljava/lang/String;->getChars(II[CI)V
 
     .line 212
@@ -521,7 +521,7 @@
 
     .line 214
     .end local v6    # "endIndex":I
-    :cond_8
+    :cond_63
     new-instance v6, Ljava/lang/String;
 
     invoke-direct {v6, v1, v4, v2}, Ljava/lang/String;-><init>([CII)V
@@ -530,7 +530,7 @@
 .end method
 
 .method protected nextEscapeIndex(Ljava/lang/CharSequence;II)I
-    .locals 3
+    .registers 7
     .param p1, "csq"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -540,8 +540,8 @@
 
     .line 135
     .local v0, "index":I
-    :goto_0
-    if-ge v0, p3, :cond_2
+    :goto_1
+    if-ge v0, p3, :cond_1b
 
     .line 136
     invoke-static {p1, v0, p3}, Lcom/google/common/escape/UnicodeEscaper;->codePointAt(Ljava/lang/CharSequence;II)I
@@ -550,41 +550,41 @@
 
     .line 137
     .local v1, "cp":I
-    if-ltz v1, :cond_2
+    if-ltz v1, :cond_1b
 
     invoke-virtual {p0, v1}, Lcom/google/common/escape/UnicodeEscaper;->escape(I)[C
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_10
 
     .line 138
-    goto :goto_2
+    goto :goto_1b
 
     .line 140
-    :cond_0
+    :cond_10
     invoke-static {v1}, Ljava/lang/Character;->isSupplementaryCodePoint(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_18
 
     const/4 v2, 0x2
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_19
     add-int/2addr v0, v2
 
     .line 141
     .end local v1    # "cp":I
-    goto :goto_0
+    goto :goto_1
 
     .line 142
-    :cond_2
-    :goto_2
+    :cond_1b
+    :goto_1b
     return v0
 .end method

@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/concurrent/ExecutorService;)V
-    .locals 1
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/ExecutorService;
 
     .line 55
@@ -37,7 +37,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/lang/Exception;Z)Ljava/lang/Exception;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Ljava/lang/Exception;
     .param p1, "x1"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -55,7 +55,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/util/concurrent/SimpleTimeLimiter;Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;Z)Ljava/lang/Object;
-    .locals 1
+    .registers 7
     .param p0, "x0"    # Lcom/google/common/util/concurrent/SimpleTimeLimiter;
     .param p1, "x1"    # Ljava/util/concurrent/Callable;
     .param p2, "x2"    # J
@@ -76,7 +76,7 @@
 .end method
 
 .method private callWithTimeout(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;Z)Ljava/lang/Object;
-    .locals 3
+    .registers 9
     .param p2, "timeoutDuration"    # J
     .param p4, "timeoutUnit"    # Ljava/util/concurrent/TimeUnit;
     .param p5, "amInterruptible"    # Z
@@ -119,27 +119,27 @@
     .local v0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<TT;>;"
     const/4 v1, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_1d
 
     .line 134
-    :try_start_0
+    :try_start_12
     invoke-interface {v0, p2, p3, p4}, Ljava/util/concurrent/Future;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_16
+    .catch Ljava/lang/InterruptedException; {:try_start_12 .. :try_end_16} :catch_17
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_12 .. :try_end_16} :catch_2c
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_12 .. :try_end_16} :catch_22
 
     return-object v1
 
     .line 135
-    :catch_0
+    :catch_17
     move-exception v2
 
     .line 136
     .local v2, "e":Ljava/lang/InterruptedException;
-    :try_start_1
+    :try_start_18
     invoke-interface {v0, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
     .line 137
@@ -159,18 +159,18 @@
     .restart local p2    # "timeoutDuration":J
     .restart local p4    # "timeoutUnit":Ljava/util/concurrent/TimeUnit;
     .restart local p5    # "amInterruptible":Z
-    :cond_0
+    :cond_1d
     invoke-static {v0, p2, p3, p4}, Lcom/google/common/util/concurrent/Uninterruptibles;->getUninterruptibly(Ljava/util/concurrent/Future;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/util/concurrent/TimeoutException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_21
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_18 .. :try_end_21} :catch_2c
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_18 .. :try_end_21} :catch_22
 
     return-object v1
 
     .line 144
-    :catch_1
+    :catch_22
     move-exception v2
 
     .line 145
@@ -186,7 +186,7 @@
 
     .line 142
     .end local v2    # "e":Ljava/util/concurrent/TimeoutException;
-    :catch_2
+    :catch_2c
     move-exception v2
 
     .line 143
@@ -199,7 +199,7 @@
 .end method
 
 .method private static checkPositiveTimeout(J)V
-    .locals 3
+    .registers 5
     .param p0, "timeoutDuration"    # J
 
     .line 293
@@ -207,16 +207,16 @@
 
     cmp-long v2, p0, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     const-string v1, "timeout must be positive: %s"
 
     invoke-static {v0, v1, p0, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -226,7 +226,7 @@
 .end method
 
 .method public static create(Ljava/util/concurrent/ExecutorService;)Lcom/google/common/util/concurrent/SimpleTimeLimiter;
-    .locals 1
+    .registers 2
     .param p0, "executor"    # Ljava/util/concurrent/ExecutorService;
 
     .line 71
@@ -238,7 +238,7 @@
 .end method
 
 .method private static declaresInterruptedEx(Ljava/lang/reflect/Method;)Z
-    .locals 6
+    .registers 7
     .param p0, "method"    # Ljava/lang/reflect/Method;
 
     .line 265
@@ -252,8 +252,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_7
+    if-ge v3, v1, :cond_14
 
     aget-object v4, v0, v3
 
@@ -261,7 +261,7 @@
     .local v4, "exType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-class v5, Ljava/lang/InterruptedException;
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_11
 
     .line 268
     const/4 v0, 0x1
@@ -270,18 +270,18 @@
 
     .line 265
     .end local v4    # "exType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_0
+    :cond_11
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 271
-    :cond_1
+    :cond_14
     return v2
 .end method
 
 .method private static findInterruptibleMethods(Ljava/lang/Class;)Ljava/util/Set;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -309,8 +309,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_a
+    if-ge v3, v2, :cond_1a
 
     aget-object v4, v1, v3
 
@@ -320,25 +320,25 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_17
 
     .line 258
     invoke-interface {v0, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 256
     .end local v4    # "m":Ljava/lang/reflect/Method;
-    :cond_0
+    :cond_17
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 261
-    :cond_1
+    :cond_1a
     return-object v0
 .end method
 
 .method private static newProxy(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "handler"    # Ljava/lang/reflect/InvocationHandler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -384,7 +384,7 @@
 .end method
 
 .method private static throwCause(Ljava/lang/Exception;Z)Ljava/lang/Exception;
-    .locals 4
+    .registers 6
     .param p0, "e"    # Ljava/lang/Exception;
     .param p1, "combineStackTraces"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -400,10 +400,10 @@
 
     .line 236
     .local v0, "cause":Ljava/lang/Throwable;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2d
 
     .line 239
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1c
 
     .line 240
     nop
@@ -431,15 +431,15 @@
 
     .line 244
     .end local v1    # "combined":[Ljava/lang/StackTraceElement;
-    :cond_0
+    :cond_1c
     instance-of v1, v0, Ljava/lang/Exception;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_29
 
     .line 247
     instance-of v1, v0, Ljava/lang/Error;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     .line 248
     move-object v1, v0
@@ -449,11 +449,11 @@
     throw v1
 
     .line 251
-    :cond_1
+    :cond_28
     throw p0
 
     .line 245
-    :cond_2
+    :cond_29
     move-object v1, v0
 
     check-cast v1, Ljava/lang/Exception;
@@ -461,12 +461,12 @@
     throw v1
 
     .line 237
-    :cond_3
+    :cond_2d
     throw p0
 .end method
 
 .method private wrapAndThrowExecutionExceptionOrError(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -477,12 +477,12 @@
     .line 275
     instance-of v0, p1, Ljava/lang/Error;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 277
     instance-of v0, p1, Ljava/lang/RuntimeException;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 278
     new-instance v0, Lcom/google/common/util/concurrent/UncheckedExecutionException;
@@ -492,7 +492,7 @@
     throw v0
 
     .line 280
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/util/concurrent/ExecutionException;
 
     invoke-direct {v0, p1}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V
@@ -500,7 +500,7 @@
     throw v0
 
     .line 276
-    :cond_1
+    :cond_14
     new-instance v0, Lcom/google/common/util/concurrent/ExecutionError;
 
     move-object v1, p1
@@ -513,13 +513,13 @@
 .end method
 
 .method private wrapAndThrowRuntimeExecutionExceptionOrError(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 285
     instance-of v0, p1, Ljava/lang/Error;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 286
     new-instance v0, Lcom/google/common/util/concurrent/ExecutionError;
@@ -533,7 +533,7 @@
     throw v0
 
     .line 288
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/google/common/util/concurrent/UncheckedExecutionException;
 
     invoke-direct {v0, p1}, Lcom/google/common/util/concurrent/UncheckedExecutionException;-><init>(Ljava/lang/Throwable;)V
@@ -544,7 +544,7 @@
 
 # virtual methods
 .method public callUninterruptiblyWithTimeout(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 3
+    .registers 8
     .param p2, "timeoutDuration"    # J
     .param p4, "timeoutUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -585,18 +585,18 @@
 
     .line 184
     .local v0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<TT;>;"
-    :try_start_0
+    :try_start_f
     invoke-static {v0, p2, p3, p4}, Lcom/google/common/util/concurrent/Uninterruptibles;->getUninterruptibly(Ljava/util/concurrent/Future;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_f .. :try_end_13} :catch_22
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_f .. :try_end_13} :catch_14
 
     return-object v1
 
     .line 188
-    :catch_0
+    :catch_14
     move-exception v1
 
     .line 189
@@ -616,7 +616,7 @@
 
     .line 185
     .end local v1    # "e":Ljava/util/concurrent/ExecutionException;
-    :catch_1
+    :catch_22
     move-exception v1
 
     .line 186
@@ -630,7 +630,7 @@
 .end method
 
 .method public callWithTimeout(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 3
+    .registers 8
     .param p2, "timeoutDuration"    # J
     .param p4, "timeoutUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -672,19 +672,19 @@
 
     .line 162
     .local v0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<TT;>;"
-    :try_start_0
+    :try_start_f
     invoke-interface {v0, p2, p3, p4}, Ljava/util/concurrent/Future;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/InterruptedException; {:try_start_f .. :try_end_13} :catch_24
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_f .. :try_end_13} :catch_22
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_f .. :try_end_13} :catch_14
 
     return-object v1
 
     .line 166
-    :catch_0
+    :catch_14
     move-exception v1
 
     .line 167
@@ -704,17 +704,17 @@
 
     .line 163
     .end local v1    # "e":Ljava/util/concurrent/ExecutionException;
-    :catch_1
+    :catch_22
     move-exception v1
 
-    goto :goto_0
+    goto :goto_25
 
-    :catch_2
+    :catch_24
     move-exception v1
 
     .line 164
     .local v1, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_25
     const/4 v2, 0x1
 
     invoke-interface {v0, v2}, Ljava/util/concurrent/Future;->cancel(Z)Z
@@ -724,7 +724,7 @@
 .end method
 
 .method public newProxy(Ljava/lang/Object;Ljava/lang/Class;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 9
+    .registers 15
     .param p3, "timeoutDuration"    # J
     .param p5, "timeoutUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -795,7 +795,7 @@
 .end method
 
 .method public runUninterruptiblyWithTimeout(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)V
-    .locals 3
+    .registers 8
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .param p2, "timeoutDuration"    # J
     .param p4, "timeoutUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -823,11 +823,11 @@
 
     .line 224
     .local v0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
-    :try_start_0
+    :try_start_f
     invoke-static {v0, p2, p3, p4}, Lcom/google/common/util/concurrent/Uninterruptibles;->getUninterruptibly(Ljava/util/concurrent/Future;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_f .. :try_end_12} :catch_22
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_f .. :try_end_12} :catch_14
 
     .line 231
     nop
@@ -836,7 +836,7 @@
     return-void
 
     .line 228
-    :catch_0
+    :catch_14
     move-exception v1
 
     .line 229
@@ -856,7 +856,7 @@
 
     .line 225
     .end local v1    # "e":Ljava/util/concurrent/ExecutionException;
-    :catch_1
+    :catch_22
     move-exception v1
 
     .line 226
@@ -870,7 +870,7 @@
 .end method
 
 .method public runWithTimeout(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)V
-    .locals 3
+    .registers 8
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .param p2, "timeoutDuration"    # J
     .param p4, "timeoutUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -899,12 +899,12 @@
 
     .line 204
     .local v0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
-    :try_start_0
+    :try_start_f
     invoke-interface {v0, p2, p3, p4}, Ljava/util/concurrent/Future;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/lang/InterruptedException; {:try_start_f .. :try_end_12} :catch_24
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_f .. :try_end_12} :catch_22
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_f .. :try_end_12} :catch_14
 
     .line 211
     nop
@@ -913,7 +913,7 @@
     return-void
 
     .line 208
-    :catch_0
+    :catch_14
     move-exception v1
 
     .line 209
@@ -933,17 +933,17 @@
 
     .line 205
     .end local v1    # "e":Ljava/util/concurrent/ExecutionException;
-    :catch_1
+    :catch_22
     move-exception v1
 
-    goto :goto_0
+    goto :goto_25
 
-    :catch_2
+    :catch_24
     move-exception v1
 
     .line 206
     .local v1, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_25
     const/4 v2, 0x1
 
     invoke-interface {v0, v2}, Ljava/util/concurrent/Future;->cancel(Z)Z

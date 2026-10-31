@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">ಒಳಬರುವ ಕರೆ</string>
     <string name="call_notification_ongoing_text">ಚಾಲ್ತಿಯಲ್ಲಿರುವ ಕರೆ</string>
     <string name="call_notification_screening_text">ಒಳಬರುವ ಕರೆಯನ್ನು ಸ್ಕ್ರೀನ್ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
-    <string name="character_counter_content_description" formatted="false">%2$d ರಲ್ಲಿ %1$d ಅಕ್ಷರಗಳನ್ನು ನಮೂದಿಸಲಾಗಿದೆ</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">ಅಕ್ಷರ ಮಿತಿಯು %2$d ರಲ್ಲಿ %1$d ಮೀರಿದೆ</string>
+    <string name="character_counter_content_description">%2$d ರಲ್ಲಿ %1$d ಅಕ್ಷರಗಳನ್ನು ನಮೂದಿಸಲಾಗಿದೆ</string>
+    <string name="character_counter_overflowed_content_description">ಅಕ್ಷರ ಮಿತಿಯು %2$d ರಲ್ಲಿ %1$d ಮೀರಿದೆ</string>
     <string name="clear_text_end_icon_content_description">ಪಠ್ಯ ತೆರವುಗೊಳಿಸಿ</string>
     <string name="copy">ನಕಲಿಸಿ</string>
     <string name="copy_toast_msg">ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ಲಿಂಕ್ ಅನ್ನು ನಕಲಿಸಲಾಗಿದೆ</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">ವ್ಯಾಪ್ತಿಯ ಹೊರಗಿದೆ: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">ಪ್ರಾರಂಭ ದಿನಾಂಕ – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – ಮುಕ್ತಾಯ ದಿನಾಂಕ</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">ಶ್ರೇಣಿಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="mtrl_picker_range_header_unselected">ಪ್ರಾರಂಭ ದಿನಾಂಕ – ಮುಕ್ತಾಯ ದಿನಾಂಕ</string>
     <string name="mtrl_picker_save">ಉಳಿಸಿ</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ.</string>
     <string name="search_menu_title">ಹುಡುಕಿ</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ಆಫ್</string>
     <string name="v7_preference_on">ಆನ್</string>
 </resources>

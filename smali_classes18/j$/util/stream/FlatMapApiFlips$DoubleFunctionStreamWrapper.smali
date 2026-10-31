@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/function/DoubleFunction;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,7 +63,7 @@
 .end method
 
 .method private flipStream(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)TR;"
@@ -73,7 +73,7 @@
     .line 122
     .local p0, "this":Lj$/util/stream/FlatMapApiFlips$DoubleFunctionStreamWrapper;, "Ljava/util/stream/FlatMapApiFlips$DoubleFunctionStreamWrapper<TR;>;"
     .local p1, "maybeStream":Ljava/lang/Object;, "TR;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 123
     const/4 v0, 0x0
@@ -81,10 +81,10 @@
     return-object v0
 
     .line 125
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lj$/util/stream/DoubleStream;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 126
     move-object v0, p1
@@ -100,10 +100,10 @@
     return-object v0
 
     .line 129
-    :cond_1
+    :cond_10
     instance-of v0, p1, Ljava/util/stream/DoubleStream;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1c
 
     .line 130
     move-object v0, p1
@@ -119,7 +119,7 @@
     return-object v0
 
     .line 133
-    :cond_2
+    :cond_1c
     const-string v0, "java.util.stream.DoubleStream"
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public apply(D)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "arg"    # D
     .annotation system Ldalvik/annotation/Signature;
         value = {

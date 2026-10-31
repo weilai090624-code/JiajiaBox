@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ForwardingListener;)V
-    .locals 0
+    .registers 2
 
     .line 316
     iput-object p1, p0, Landroidx/appcompat/widget/ForwardingListener$DisallowIntercept;->this$0:Landroidx/appcompat/widget/ForwardingListener;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 321
     iget-object v0, p0, Landroidx/appcompat/widget/ForwardingListener$DisallowIntercept;->this$0:Landroidx/appcompat/widget/ForwardingListener;
@@ -50,7 +50,7 @@
 
     .line 322
     .local v0, "parent":Landroid/view/ViewParent;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 323
     const/4 v1, 0x1
@@ -58,6 +58,6 @@
     invoke-interface {v0, v1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
     .line 325
-    :cond_0
+    :cond_e
     return-void
 .end method

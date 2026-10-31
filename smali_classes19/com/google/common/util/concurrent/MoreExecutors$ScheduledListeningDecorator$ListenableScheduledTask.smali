@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/util/concurrent/ScheduledFuture;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public cancel(Z)Z
-    .locals 2
+    .registers 4
     .param p1, "mayInterruptIfRunning"    # Z
 
     .line 624
@@ -80,7 +80,7 @@
 
     .line 625
     .local v0, "cancelled":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 627
     iget-object v1, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask;->scheduledDelegate:Ljava/util/concurrent/ScheduledFuture;
@@ -88,12 +88,12 @@
     invoke-interface {v1, p1}, Ljava/util/concurrent/ScheduledFuture;->cancel(Z)Z
 
     .line 631
-    :cond_0
+    :cond_b
     return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 611
     .local p0, "this":Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask;, "Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask<TV;>;"
@@ -107,7 +107,7 @@
 .end method
 
 .method public compareTo(Ljava/util/concurrent/Delayed;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/util/concurrent/Delayed;
 
     .line 641
@@ -122,7 +122,7 @@
 .end method
 
 .method public getDelay(Ljava/util/concurrent/TimeUnit;)J
-    .locals 2
+    .registers 4
     .param p1, "unit"    # Ljava/util/concurrent/TimeUnit;
 
     .line 636

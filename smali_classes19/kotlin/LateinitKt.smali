@@ -29,7 +29,7 @@
 
 # direct methods
 .method private static final isInitialized(Lkotlin/reflect/KProperty0;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isInitialized"    # Lkotlin/reflect/KProperty0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,7 +54,7 @@
 .end method
 
 .method public static synthetic isInitialized$annotations(Lkotlin/reflect/KProperty0;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method

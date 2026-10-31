@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;-><init>()V
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 5
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/VMessSettingsActivity;->createEntity()Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
@@ -53,7 +53,7 @@
 .end method
 
 .method public createEntity()Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
-    .locals 6
+    .registers 7
 
     .line 7
     new-instance v0, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
@@ -73,7 +73,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_18
 
     const-string v5, "vless"
 
@@ -83,12 +83,12 @@
 
     const/4 v5, 0x1
 
-    if-ne v3, v5, :cond_0
+    if-ne v3, v5, :cond_18
 
     const/4 v4, 0x1
 
-    :cond_0
-    if-eqz v4, :cond_1
+    :cond_18
+    if-eqz v4, :cond_21
 
     .line 9
     const/4 v3, -0x1
@@ -100,7 +100,7 @@
     iput-object v3, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->alterId:Ljava/lang/Integer;
 
     .line 11
-    :cond_1
+    :cond_21
     nop
 
     .line 7

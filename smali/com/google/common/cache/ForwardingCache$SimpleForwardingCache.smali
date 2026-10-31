@@ -39,7 +39,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/google/common/cache/Cache;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method protected final delegate()Lcom/google/common/cache/Cache;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -86,7 +86,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 123
     .local p0, "this":Lcom/google/common/cache/ForwardingCache$SimpleForwardingCache;, "Lcom/google/common/cache/ForwardingCache$SimpleForwardingCache<TK;TV;>;"

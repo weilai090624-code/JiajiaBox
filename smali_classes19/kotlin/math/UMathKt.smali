@@ -35,7 +35,7 @@
 
 # direct methods
 .method private static final max-J1ME1BU(II)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # I
     .param p1, "b"    # I
 
@@ -48,7 +48,7 @@
 .end method
 
 .method private static final max-eb3DHEI(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -61,7 +61,7 @@
 .end method
 
 .method private static final min-J1ME1BU(II)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # I
     .param p1, "b"    # I
 
@@ -74,7 +74,7 @@
 .end method
 
 .method private static final min-eb3DHEI(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "a"    # J
     .param p2, "b"    # J
 

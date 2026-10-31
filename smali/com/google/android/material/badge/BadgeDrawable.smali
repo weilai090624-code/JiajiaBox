@@ -86,7 +86,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 149
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_Badge:I
@@ -102,7 +102,7 @@
 .end method
 
 .method private constructor <init>(Landroid/content/Context;IIILcom/google/android/material/badge/BadgeState$State;)V
-    .locals 7
+    .registers 13
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "badgeResId"    # I
     .param p3, "defStyleAttr"    # I
@@ -186,7 +186,7 @@
 .end method
 
 .method private calculateCenterAndBounds(Landroid/content/Context;Landroid/graphics/Rect;Landroid/view/View;)V
-    .locals 5
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "anchorRect"    # Landroid/graphics/Rect;
     .param p3, "anchorView"    # Landroid/view/View;
@@ -204,10 +204,10 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_ba
 
     .line 903
-    :pswitch_0
+    :pswitch_d
     iget v1, p2, Landroid/graphics/Rect;->top:I
 
     add-int/2addr v1, v0
@@ -216,10 +216,10 @@
 
     iput v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->badgeCenterY:F
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 898
-    :pswitch_1
+    :pswitch_14
     iget v1, p2, Landroid/graphics/Rect;->bottom:I
 
     sub-int/2addr v1, v0
@@ -232,34 +232,34 @@
     nop
 
     .line 907
-    :goto_0
+    :goto_1b
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->getNumber()I
 
     move-result v1
 
     const/16 v2, 0x9
 
-    if-gt v1, v2, :cond_1
+    if-gt v1, v2, :cond_3d
 
     .line 908
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->hasNumber()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2e
 
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
     iget v1, v1, Lcom/google/android/material/badge/BadgeState;->badgeRadius:F
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_0
+    :cond_2e
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
     iget v1, v1, Lcom/google/android/material/badge/BadgeState;->badgeWithTextRadius:F
 
-    :goto_1
+    :goto_32
     iput v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->cornerRadius:F
 
     .line 909
@@ -272,10 +272,10 @@
 
     iput v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->halfBadgeWidth:F
 
-    goto :goto_2
+    goto :goto_5b
 
     .line 912
-    :cond_1
+    :cond_3d
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
     iget v1, v1, Lcom/google/android/material/badge/BadgeState;->badgeWithTextRadius:F
@@ -314,7 +314,7 @@
 
     .line 918
     .end local v1    # "badgeText":Ljava/lang/String;
-    :goto_2
+    :goto_5b
     nop
 
     .line 920
@@ -327,19 +327,19 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_69
 
     .line 923
     sget v2, Lcom/google/android/material/R$dimen;->mtrl_badge_text_horizontal_edge_offset:I
 
-    goto :goto_3
+    goto :goto_6b
 
     .line 924
-    :cond_2
+    :cond_69
     sget v2, Lcom/google/android/material/R$dimen;->mtrl_badge_horizontal_edge_offset:I
 
     .line 921
-    :goto_3
+    :goto_6b
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
@@ -358,7 +358,7 @@
 
     move-result v3
 
-    sparse-switch v3, :sswitch_data_0
+    sparse-switch v3, :sswitch_data_c4
 
     .line 940
     nop
@@ -368,7 +368,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_ad
 
     .line 942
     iget v3, p2, Landroid/graphics/Rect;->right:I
@@ -387,10 +387,10 @@
 
     sub-float/2addr v3, v4
 
-    goto :goto_5
+    goto :goto_b7
 
     .line 932
-    :sswitch_0
+    :sswitch_8e
     nop
 
     .line 933
@@ -398,7 +398,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_a0
 
     .line 934
     iget v3, p2, Landroid/graphics/Rect;->left:I
@@ -417,10 +417,10 @@
 
     add-float/2addr v3, v4
 
-    goto :goto_4
+    goto :goto_aa
 
     .line 935
-    :cond_3
+    :cond_a0
     iget v3, p2, Landroid/graphics/Rect;->right:I
 
     int-to-float v3, v3
@@ -437,14 +437,14 @@
 
     sub-float/2addr v3, v4
 
-    :goto_4
+    :goto_aa
     iput v3, p0, Lcom/google/android/material/badge/BadgeDrawable;->badgeCenterX:F
 
     .line 936
-    goto :goto_6
+    goto :goto_b9
 
     .line 943
-    :cond_4
+    :cond_ad
     iget v3, p2, Landroid/graphics/Rect;->left:I
 
     int-to-float v3, v3
@@ -461,29 +461,29 @@
 
     add-float/2addr v3, v4
 
-    :goto_5
+    :goto_b7
     iput v3, p0, Lcom/google/android/material/badge/BadgeDrawable;->badgeCenterX:F
 
     .line 946
-    :goto_6
+    :goto_b9
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_ba
     .packed-switch 0x800053
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_14
+        :pswitch_d
+        :pswitch_14
     .end packed-switch
 
-    :sswitch_data_0
+    :sswitch_data_c4
     .sparse-switch
-        0x800033 -> :sswitch_0
-        0x800053 -> :sswitch_0
+        0x800033 -> :sswitch_8e
+        0x800053 -> :sswitch_8e
     .end sparse-switch
 .end method
 
 .method public static create(Landroid/content/Context;)Lcom/google/android/material/badge/BadgeDrawable;
-    .locals 7
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
 
     .line 191
@@ -507,7 +507,7 @@
 .end method
 
 .method public static createFromResource(Landroid/content/Context;I)Lcom/google/android/material/badge/BadgeDrawable;
-    .locals 7
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "id"    # I
 
@@ -532,7 +532,7 @@
 .end method
 
 .method static createFromSavedState(Landroid/content/Context;Lcom/google/android/material/badge/BadgeState$State;)Lcom/google/android/material/badge/BadgeDrawable;
-    .locals 7
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "savedState"    # Lcom/google/android/material/badge/BadgeState$State;
 
@@ -557,7 +557,7 @@
 .end method
 
 .method private drawText(Landroid/graphics/Canvas;)V
-    .locals 5
+    .registers 7
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 949
@@ -618,7 +618,7 @@
 .end method
 
 .method private getBadgeText()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 962
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->getNumber()I
@@ -627,7 +627,7 @@
 
     iget v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->maxBadgeNumber:I
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_1c
 
     .line 963
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -653,7 +653,7 @@
     return-object v0
 
     .line 965
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->contextRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -664,7 +664,7 @@
 
     .line 966
     .local v0, "context":Landroid/content/Context;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 967
     const-string v1, ""
@@ -672,7 +672,7 @@
     return-object v1
 
     .line 970
-    :cond_1
+    :cond_29
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
     .line 971
@@ -717,14 +717,14 @@
 .end method
 
 .method private getTotalHorizontalOffsetForState()I
-    .locals 2
+    .registers 3
 
     .line 888
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->hasNumber()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
@@ -732,9 +732,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
     invoke-virtual {v0}, Lcom/google/android/material/badge/BadgeState;->getHorizontalOffsetWithoutText()I
@@ -743,7 +743,7 @@
 
     .line 889
     .local v0, "hOffset":I
-    :goto_0
+    :goto_13
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
     invoke-virtual {v1}, Lcom/google/android/material/badge/BadgeState;->getAdditionalHorizontalOffset()I
@@ -756,14 +756,14 @@
 .end method
 
 .method private getTotalVerticalOffsetForState()I
-    .locals 2
+    .registers 3
 
     .line 882
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->hasNumber()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
@@ -771,9 +771,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
     invoke-virtual {v0}, Lcom/google/android/material/badge/BadgeState;->getVerticalOffsetWithoutText()I
@@ -782,7 +782,7 @@
 
     .line 883
     .local v0, "vOffset":I
-    :goto_0
+    :goto_13
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
     invoke-virtual {v1}, Lcom/google/android/material/badge/BadgeState;->getAdditionalVerticalOffset()I
@@ -795,7 +795,7 @@
 .end method
 
 .method private onAlphaUpdated()V
-    .locals 2
+    .registers 3
 
     .line 582
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->textDrawableHelper:Lcom/google/android/material/internal/TextDrawableHelper;
@@ -818,7 +818,7 @@
 .end method
 
 .method private onBackgroundColorUpdated()V
-    .locals 2
+    .registers 3
 
     .line 408
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -839,7 +839,7 @@
 
     move-result-object v1
 
-    if-eq v1, v0, :cond_0
+    if-eq v1, v0, :cond_1a
 
     .line 410
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->shapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -850,17 +850,17 @@
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->invalidateSelf()V
 
     .line 413
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method private onBadgeGravityUpdated()V
-    .locals 2
+    .registers 3
 
     .line 554
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->anchorViewRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->anchorViewRef:Ljava/lang/ref/WeakReference;
 
@@ -868,7 +868,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     .line 555
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->anchorViewRef:Ljava/lang/ref/WeakReference;
@@ -882,7 +882,7 @@
 
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->customBadgeParentRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->customBadgeParentRef:Ljava/lang/ref/WeakReference;
 
@@ -892,22 +892,22 @@
 
     check-cast v1, Landroid/widget/FrameLayout;
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     const/4 v1, 0x0
 
     .line 555
-    :goto_0
+    :goto_22
     invoke-virtual {p0, v0, v1}, Lcom/google/android/material/badge/BadgeDrawable;->updateBadgeCoordinates(Landroid/view/View;Landroid/widget/FrameLayout;)V
 
     .line 558
-    :cond_1
+    :cond_25
     return-void
 .end method
 
 .method private onBadgeTextColorUpdated()V
-    .locals 2
+    .registers 3
 
     .line 440
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->textDrawableHelper:Lcom/google/android/material/internal/TextDrawableHelper;
@@ -932,7 +932,7 @@
 .end method
 
 .method private onMaxCharacterCountUpdated()V
-    .locals 2
+    .registers 3
 
     .line 530
     invoke-direct {p0}, Lcom/google/android/material/badge/BadgeDrawable;->updateMaxBadgeNumber()V
@@ -955,7 +955,7 @@
 .end method
 
 .method private onNumberUpdated()V
-    .locals 2
+    .registers 3
 
     .line 501
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->textDrawableHelper:Lcom/google/android/material/internal/TextDrawableHelper;
@@ -975,7 +975,7 @@
 .end method
 
 .method private onVisibilityUpdated()V
-    .locals 2
+    .registers 3
 
     .line 221
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -993,15 +993,15 @@
     .line 225
     sget-boolean v1, Lcom/google/android/material/badge/BadgeUtils;->USE_COMPAT_PARENT:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->getCustomBadgeParent()Landroid/widget/FrameLayout;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     .line 226
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->getCustomBadgeParent()Landroid/widget/FrameLayout;
@@ -1017,12 +1017,12 @@
     invoke-virtual {v1}, Landroid/view/ViewGroup;->invalidate()V
 
     .line 228
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method private restoreState()V
-    .locals 0
+    .registers 1
 
     .line 231
     invoke-direct {p0}, Lcom/google/android/material/badge/BadgeDrawable;->onMaxCharacterCountUpdated()V
@@ -1053,7 +1053,7 @@
 .end method
 
 .method private setTextAppearance(Lcom/google/android/material/resources/TextAppearance;)V
-    .locals 2
+    .registers 4
     .param p1, "textAppearance"    # Lcom/google/android/material/resources/TextAppearance;
 
     .line 838
@@ -1063,13 +1063,13 @@
 
     move-result-object v0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_9
 
     .line 839
     return-void
 
     .line 841
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->contextRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -1080,13 +1080,13 @@
 
     .line 842
     .local v0, "context":Landroid/content/Context;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 843
     return-void
 
     .line 845
-    :cond_1
+    :cond_14
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->textDrawableHelper:Lcom/google/android/material/internal/TextDrawableHelper;
 
     invoke-virtual {v1, p1, v0}, Lcom/google/android/material/internal/TextDrawableHelper;->setTextAppearance(Lcom/google/android/material/resources/TextAppearance;Landroid/content/Context;)V
@@ -1099,7 +1099,7 @@
 .end method
 
 .method private setTextAppearanceResource(I)V
-    .locals 2
+    .registers 4
     .param p1, "id"    # I
 
     .line 830
@@ -1113,13 +1113,13 @@
 
     .line 831
     .local v0, "context":Landroid/content/Context;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 832
     return-void
 
     .line 834
-    :cond_0
+    :cond_b
     new-instance v1, Lcom/google/android/material/resources/TextAppearance;
 
     invoke-direct {v1, v0, p1}, Lcom/google/android/material/resources/TextAppearance;-><init>(Landroid/content/Context;I)V
@@ -1131,7 +1131,7 @@
 .end method
 
 .method private tryWrapAnchorInCompatParent(Landroid/view/View;)V
-    .locals 5
+    .registers 7
     .param p1, "anchorView"    # Landroid/view/View;
 
     .line 342
@@ -1143,7 +1143,7 @@
 
     .line 343
     .local v0, "anchorViewParent":Landroid/view/ViewGroup;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getId()I
 
@@ -1151,12 +1151,12 @@
 
     sget v2, Lcom/google/android/material/R$id;->mtrl_anchor_parent:I
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_1c
 
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->customBadgeParentRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1d
 
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->customBadgeParentRef:Ljava/lang/ref/WeakReference;
 
@@ -1165,14 +1165,14 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_1d
 
     .line 345
-    :cond_1
+    :cond_1c
     return-void
 
     .line 348
-    :cond_2
+    :cond_1d
     invoke-static {p1}, Lcom/google/android/material/badge/BadgeDrawable;->updateAnchorParentToNotClip(Landroid/view/View;)V
 
     .line 351
@@ -1262,7 +1262,7 @@
 .end method
 
 .method private static updateAnchorParentToNotClip(Landroid/view/View;)V
-    .locals 2
+    .registers 3
     .param p0, "anchorView"    # Landroid/view/View;
 
     .line 380
@@ -1286,7 +1286,7 @@
 .end method
 
 .method private updateCenterAndBounds()V
-    .locals 10
+    .registers 11
 
     .line 850
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->contextRef:Ljava/lang/ref/WeakReference;
@@ -1303,7 +1303,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->anchorViewRef:Ljava/lang/ref/WeakReference;
 
@@ -1313,22 +1313,22 @@
 
     check-cast v1, Landroid/view/View;
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     move-object v1, v2
 
     .line 852
     .local v1, "anchorView":Landroid/view/View;
-    :goto_0
-    if-eqz v0, :cond_7
+    :goto_17
+    if-eqz v0, :cond_74
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1c
 
-    goto :goto_2
+    goto :goto_74
 
     .line 855
-    :cond_1
+    :cond_1c
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
@@ -1351,7 +1351,7 @@
     .line 862
     iget-object v5, p0, Lcom/google/android/material/badge/BadgeDrawable;->customBadgeParentRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3a
 
     iget-object v2, p0, Lcom/google/android/material/badge/BadgeDrawable;->customBadgeParentRef:Ljava/lang/ref/WeakReference;
 
@@ -1363,16 +1363,16 @@
 
     .line 863
     .local v2, "customBadgeParent":Landroid/view/ViewGroup;
-    :cond_2
-    if-nez v2, :cond_3
+    :cond_3a
+    if-nez v2, :cond_40
 
     sget-boolean v5, Lcom/google/android/material/badge/BadgeUtils;->USE_COMPAT_PARENT:Z
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_4d
 
     .line 866
-    :cond_3
-    if-nez v2, :cond_4
+    :cond_40
+    if-nez v2, :cond_49
 
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
@@ -1380,19 +1380,19 @@
 
     check-cast v5, Landroid/view/ViewGroup;
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_4
+    :cond_49
     move-object v5, v2
 
     .line 867
     .local v5, "viewGroup":Landroid/view/ViewGroup;
-    :goto_1
+    :goto_4a
     invoke-virtual {v5, v1, v4}, Landroid/view/ViewGroup;->offsetDescendantRectToMyCoords(Landroid/view/View;Landroid/graphics/Rect;)V
 
     .line 870
     .end local v5    # "viewGroup":Landroid/view/ViewGroup;
-    :cond_5
+    :cond_4d
     invoke-direct {p0, v0, v4, v1}, Lcom/google/android/material/badge/BadgeDrawable;->calculateCenterAndBounds(Landroid/content/Context;Landroid/graphics/Rect;Landroid/view/View;)V
 
     .line 872
@@ -1422,7 +1422,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_6
+    if-nez v5, :cond_73
 
     .line 876
     iget-object v5, p0, Lcom/google/android/material/badge/BadgeDrawable;->shapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1432,20 +1432,20 @@
     invoke-virtual {v5, v6}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setBounds(Landroid/graphics/Rect;)V
 
     .line 878
-    :cond_6
+    :cond_73
     return-void
 
     .line 853
     .end local v2    # "customBadgeParent":Landroid/view/ViewGroup;
     .end local v3    # "tmpRect":Landroid/graphics/Rect;
     .end local v4    # "anchorRect":Landroid/graphics/Rect;
-    :cond_7
-    :goto_2
+    :cond_74
+    :goto_74
     return-void
 .end method
 
 .method private updateMaxBadgeNumber()V
-    .locals 4
+    .registers 5
 
     .line 979
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->getMaxCharacterCount()I
@@ -1477,14 +1477,14 @@
 
 # virtual methods
 .method public clearNumber()V
-    .locals 1
+    .registers 2
 
     .line 494
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->hasNumber()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 495
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1495,12 +1495,12 @@
     invoke-direct {p0}, Lcom/google/android/material/badge/BadgeDrawable;->onNumberUpdated()V
 
     .line 498
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 2
+    .registers 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 605
@@ -1514,24 +1514,24 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_26
 
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->getAlpha()I
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_26
 
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->isVisible()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
-    goto :goto_0
+    goto :goto_26
 
     .line 609
-    :cond_0
+    :cond_17
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->shapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     invoke-virtual {v1, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->draw(Landroid/graphics/Canvas;)V
@@ -1541,23 +1541,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_25
 
     .line 611
     invoke-direct {p0, p1}, Lcom/google/android/material/badge/BadgeDrawable;->drawText(Landroid/graphics/Canvas;)V
 
     .line 613
-    :cond_1
+    :cond_25
     return-void
 
     .line 607
-    :cond_2
-    :goto_0
+    :cond_26
+    :goto_26
     return-void
 .end method
 
 .method getAdditionalHorizontalOffset()I
-    .locals 1
+    .registers 2
 
     .line 747
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1570,7 +1570,7 @@
 .end method
 
 .method getAdditionalVerticalOffset()I
-    .locals 1
+    .registers 2
 
     .line 826
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1583,7 +1583,7 @@
 .end method
 
 .method public getAlpha()I
-    .locals 1
+    .registers 2
 
     .line 572
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1596,7 +1596,7 @@
 .end method
 
 .method public getBackgroundColor()I
-    .locals 1
+    .registers 2
 
     .line 393
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->shapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1613,7 +1613,7 @@
 .end method
 
 .method public getBadgeGravity()I
-    .locals 1
+    .registers 2
 
     .line 538
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1626,7 +1626,7 @@
 .end method
 
 .method public getBadgeNumberLocale()Ljava/util/Locale;
-    .locals 1
+    .registers 2
 
     .line 447
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1639,7 +1639,7 @@
 .end method
 
 .method public getBadgeTextColor()I
-    .locals 1
+    .registers 2
 
     .line 423
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->textDrawableHelper:Lcom/google/android/material/internal/TextDrawableHelper;
@@ -1656,7 +1656,7 @@
 .end method
 
 .method public getContentDescription()Ljava/lang/CharSequence;
-    .locals 7
+    .registers 8
 
     .line 646
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->isVisible()Z
@@ -1665,18 +1665,18 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 647
     return-object v1
 
     .line 649
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->hasNumber()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_61
 
     .line 650
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1685,7 +1685,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_60
 
     .line 651
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->contextRef:Ljava/lang/ref/WeakReference;
@@ -1698,13 +1698,13 @@
 
     .line 652
     .local v0, "context":Landroid/content/Context;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 653
     return-object v1
 
     .line 655
-    :cond_1
+    :cond_21
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->getNumber()I
 
     move-result v1
@@ -1715,7 +1715,7 @@
 
     const/4 v4, 0x1
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_4b
 
     .line 656
     nop
@@ -1757,7 +1757,7 @@
     return-object v1
 
     .line 661
-    :cond_2
+    :cond_4b
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
     .line 662
@@ -1784,11 +1784,11 @@
 
     .line 665
     .end local v0    # "context":Landroid/content/Context;
-    :cond_3
+    :cond_60
     return-object v1
 
     .line 668
-    :cond_4
+    :cond_61
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
     invoke-virtual {v0}, Lcom/google/android/material/badge/BadgeState;->getContentDescriptionNumberless()Ljava/lang/CharSequence;
@@ -1799,12 +1799,12 @@
 .end method
 
 .method public getCustomBadgeParent()Landroid/widget/FrameLayout;
-    .locals 1
+    .registers 2
 
     .line 334
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->customBadgeParentRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->customBadgeParentRef:Ljava/lang/ref/WeakReference;
 
@@ -1814,17 +1814,17 @@
 
     check-cast v0, Landroid/widget/FrameLayout;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public getHorizontalOffset()I
-    .locals 1
+    .registers 2
 
     .line 693
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1837,7 +1837,7 @@
 .end method
 
 .method public getHorizontalOffsetWithText()I
-    .locals 1
+    .registers 2
 
     .line 733
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1850,7 +1850,7 @@
 .end method
 
 .method public getHorizontalOffsetWithoutText()I
-    .locals 1
+    .registers 2
 
     .line 713
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1863,7 +1863,7 @@
 .end method
 
 .method public getIntrinsicHeight()I
-    .locals 1
+    .registers 2
 
     .line 594
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->badgeBounds:Landroid/graphics/Rect;
@@ -1876,7 +1876,7 @@
 .end method
 
 .method public getIntrinsicWidth()I
-    .locals 1
+    .registers 2
 
     .line 600
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->badgeBounds:Landroid/graphics/Rect;
@@ -1889,7 +1889,7 @@
 .end method
 
 .method public getMaxCharacterCount()I
-    .locals 1
+    .registers 2
 
     .line 513
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1902,14 +1902,14 @@
 .end method
 
 .method public getNumber()I
-    .locals 1
+    .registers 2
 
     .line 473
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->hasNumber()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
 
@@ -1917,17 +1917,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 .end method
 
 .method public getOpacity()I
-    .locals 1
+    .registers 2
 
     .line 588
     const/4 v0, -0x3
@@ -1936,7 +1936,7 @@
 .end method
 
 .method getSavedState()Lcom/google/android/material/badge/BadgeState$State;
-    .locals 1
+    .registers 2
 
     .line 178
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1949,7 +1949,7 @@
 .end method
 
 .method public getVerticalOffset()I
-    .locals 1
+    .registers 2
 
     .line 771
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1962,7 +1962,7 @@
 .end method
 
 .method public getVerticalOffsetWithText()I
-    .locals 1
+    .registers 2
 
     .line 811
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1975,7 +1975,7 @@
 .end method
 
 .method public getVerticalOffsetWithoutText()I
-    .locals 1
+    .registers 2
 
     .line 791
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -1988,7 +1988,7 @@
 .end method
 
 .method public hasNumber()Z
-    .locals 1
+    .registers 2
 
     .line 460
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -2001,7 +2001,7 @@
 .end method
 
 .method public isStateful()Z
-    .locals 1
+    .registers 2
 
     .line 562
     const/4 v0, 0x0
@@ -2010,7 +2010,7 @@
 .end method
 
 .method public onStateChange([I)Z
-    .locals 1
+    .registers 3
     .param p1, "state"    # [I
 
     .line 628
@@ -2022,7 +2022,7 @@
 .end method
 
 .method public onTextSizeChange()V
-    .locals 0
+    .registers 1
 
     .line 623
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->invalidateSelf()V
@@ -2032,7 +2032,7 @@
 .end method
 
 .method setAdditionalHorizontalOffset(I)V
-    .locals 1
+    .registers 3
     .param p1, "px"    # I
 
     .line 742
@@ -2048,7 +2048,7 @@
 .end method
 
 .method setAdditionalVerticalOffset(I)V
-    .locals 1
+    .registers 3
     .param p1, "px"    # I
 
     .line 820
@@ -2064,7 +2064,7 @@
 .end method
 
 .method public setAlpha(I)V
-    .locals 1
+    .registers 3
     .param p1, "alpha"    # I
 
     .line 577
@@ -2080,7 +2080,7 @@
 .end method
 
 .method public setBackgroundColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "backgroundColor"    # I
 
     .line 403
@@ -2096,7 +2096,7 @@
 .end method
 
 .method public setBadgeGravity(I)V
-    .locals 1
+    .registers 3
     .param p1, "gravity"    # I
 
     .line 547
@@ -2106,7 +2106,7 @@
 
     move-result v0
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_10
 
     .line 548
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -2117,12 +2117,12 @@
     invoke-direct {p0}, Lcom/google/android/material/badge/BadgeDrawable;->onBadgeGravityUpdated()V
 
     .line 551
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public setBadgeNumberLocale(Ljava/util/Locale;)V
-    .locals 1
+    .registers 3
     .param p1, "locale"    # Ljava/util/Locale;
 
     .line 452
@@ -2136,7 +2136,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 453
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -2147,12 +2147,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->invalidateSelf()V
 
     .line 456
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public setBadgeTextColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "badgeTextColor"    # I
 
     .line 433
@@ -2166,7 +2166,7 @@
 
     move-result v0
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_14
 
     .line 434
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -2177,12 +2177,12 @@
     invoke-direct {p0}, Lcom/google/android/material/badge/BadgeDrawable;->onBadgeTextColorUpdated()V
 
     .line 437
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 0
+    .registers 2
     .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
 
     .line 568
@@ -2190,7 +2190,7 @@
 .end method
 
 .method public setContentDescriptionExceedsMaxBadgeNumberStringResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "stringsResource"    # I
 
     .line 641
@@ -2203,7 +2203,7 @@
 .end method
 
 .method public setContentDescriptionNumberless(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
 
     .line 632
@@ -2216,7 +2216,7 @@
 .end method
 
 .method public setContentDescriptionQuantityStringsResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "stringsResource"    # I
 
     .line 636
@@ -2229,7 +2229,7 @@
 .end method
 
 .method public setHorizontalOffset(I)V
-    .locals 0
+    .registers 2
     .param p1, "px"    # I
 
     .line 680
@@ -2243,7 +2243,7 @@
 .end method
 
 .method public setHorizontalOffsetWithText(I)V
-    .locals 1
+    .registers 3
     .param p1, "px"    # I
 
     .line 723
@@ -2259,7 +2259,7 @@
 .end method
 
 .method public setHorizontalOffsetWithoutText(I)V
-    .locals 1
+    .registers 3
     .param p1, "px"    # I
 
     .line 703
@@ -2275,7 +2275,7 @@
 .end method
 
 .method public setMaxCharacterCount(I)V
-    .locals 1
+    .registers 3
     .param p1, "maxCharacterCount"    # I
 
     .line 523
@@ -2285,7 +2285,7 @@
 
     move-result v0
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_10
 
     .line 524
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -2296,12 +2296,12 @@
     invoke-direct {p0}, Lcom/google/android/material/badge/BadgeDrawable;->onMaxCharacterCountUpdated()V
 
     .line 527
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public setNumber(I)V
-    .locals 1
+    .registers 3
     .param p1, "number"    # I
 
     .line 485
@@ -2318,7 +2318,7 @@
 
     move-result v0
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_15
 
     .line 487
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->state:Lcom/google/android/material/badge/BadgeState;
@@ -2329,12 +2329,12 @@
     invoke-direct {p0}, Lcom/google/android/material/badge/BadgeDrawable;->onNumberUpdated()V
 
     .line 490
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public setVerticalOffset(I)V
-    .locals 0
+    .registers 2
     .param p1, "px"    # I
 
     .line 758
@@ -2348,7 +2348,7 @@
 .end method
 
 .method public setVerticalOffsetWithText(I)V
-    .locals 1
+    .registers 3
     .param p1, "px"    # I
 
     .line 801
@@ -2364,7 +2364,7 @@
 .end method
 
 .method public setVerticalOffsetWithoutText(I)V
-    .locals 1
+    .registers 3
     .param p1, "px"    # I
 
     .line 781
@@ -2380,7 +2380,7 @@
 .end method
 
 .method public setVisible(Z)V
-    .locals 1
+    .registers 3
     .param p1, "visible"    # Z
 
     .line 216
@@ -2396,7 +2396,7 @@
 .end method
 
 .method public updateBadgeCoordinates(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "anchorView"    # Landroid/view/View;
 
     .line 298
@@ -2409,7 +2409,7 @@
 .end method
 
 .method public updateBadgeCoordinates(Landroid/view/View;Landroid/view/ViewGroup;)V
-    .locals 2
+    .registers 5
     .param p1, "anchorView"    # Landroid/view/View;
     .param p2, "customBadgeParent"    # Landroid/view/ViewGroup;
     .annotation runtime Ljava/lang/Deprecated;
@@ -2418,7 +2418,7 @@
     .line 279
     instance-of v0, p2, Landroid/widget/FrameLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 282
     move-object v0, p2
@@ -2431,7 +2431,7 @@
     return-void
 
     .line 280
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "customBadgeParent must be a FrameLayout"
@@ -2442,7 +2442,7 @@
 .end method
 
 .method public updateBadgeCoordinates(Landroid/view/View;Landroid/widget/FrameLayout;)V
-    .locals 1
+    .registers 4
     .param p1, "anchorView"    # Landroid/view/View;
     .param p2, "customBadgeParent"    # Landroid/widget/FrameLayout;
 
@@ -2456,17 +2456,17 @@
     .line 319
     sget-boolean v0, Lcom/google/android/material/badge/BadgeUtils;->USE_COMPAT_PARENT:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_11
 
     .line 320
     invoke-direct {p0, p1}, Lcom/google/android/material/badge/BadgeDrawable;->tryWrapAnchorInCompatParent(Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_18
 
     .line 322
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
@@ -2474,16 +2474,16 @@
     iput-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable;->customBadgeParentRef:Ljava/lang/ref/WeakReference;
 
     .line 324
-    :goto_0
+    :goto_18
     sget-boolean v0, Lcom/google/android/material/badge/BadgeUtils;->USE_COMPAT_PARENT:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     .line 325
     invoke-static {p1}, Lcom/google/android/material/badge/BadgeDrawable;->updateAnchorParentToNotClip(Landroid/view/View;)V
 
     .line 327
-    :cond_1
+    :cond_1f
     invoke-direct {p0}, Lcom/google/android/material/badge/BadgeDrawable;->updateCenterAndBounds()V
 
     .line 328

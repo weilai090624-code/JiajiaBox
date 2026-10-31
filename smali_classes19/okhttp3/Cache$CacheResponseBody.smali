@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/cache/DiskLruCache$Snapshot;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 6
     .param p1, "snapshot"    # Lokhttp3/internal/cache/DiskLruCache$Snapshot;
     .param p2, "contentType"    # Ljava/lang/String;
     .param p3, "contentLength"    # Ljava/lang/String;
@@ -118,51 +118,51 @@
 
 # virtual methods
 .method public contentLength()J
-    .locals 3
+    .registers 4
 
     .line 698
     iget-object v0, p0, Lokhttp3/Cache$CacheResponseBody;->contentLength:Ljava/lang/String;
 
     const-wide/16 v1, -0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_7
     invoke-static {v0, v1, v2}, Lokhttp3/internal/Util;->toLongOrDefault(Ljava/lang/String;J)J
 
     move-result-wide v1
 
-    :goto_0
+    :goto_b
     return-wide v1
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 2
+    .registers 3
 
     .line 696
     iget-object v0, p0, Lokhttp3/Cache$CacheResponseBody;->contentType:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_6
     sget-object v1, Lokhttp3/MediaType;->Companion:Lokhttp3/MediaType$Companion;
 
     invoke-virtual {v1, v0}, Lokhttp3/MediaType$Companion;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public final getSnapshot()Lokhttp3/internal/cache/DiskLruCache$Snapshot;
-    .locals 1
+    .registers 2
 
     .line 679
     iget-object v0, p0, Lokhttp3/Cache$CacheResponseBody;->snapshot:Lokhttp3/internal/cache/DiskLruCache$Snapshot;
@@ -171,7 +171,7 @@
 .end method
 
 .method public source()Lokio/BufferedSource;
-    .locals 1
+    .registers 2
 
     .line 700
     iget-object v0, p0, Lokhttp3/Cache$CacheResponseBody;->bodySource:Lokio/BufferedSource;

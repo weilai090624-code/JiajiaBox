@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/concurrent/Future;)V
-    .locals 0
+    .registers 2
     .param p1, "future"    # Ljava/util/concurrent/Future;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 45
@@ -82,11 +82,11 @@
 .end method
 
 .method public invoke(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 49
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     iget-object v0, p0, Lkotlinx/coroutines/CancelFutureOnCancel;->future:Ljava/util/concurrent/Future;
 
@@ -95,12 +95,12 @@
     invoke-interface {v0, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
     .line 50
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 51
     new-instance v0, Ljava/lang/StringBuilder;

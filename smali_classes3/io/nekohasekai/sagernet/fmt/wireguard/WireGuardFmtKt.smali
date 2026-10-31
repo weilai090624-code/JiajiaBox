@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final buildSingBoxOutboundWireguardBean(Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;)Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_WireGuardOptions;
-    .locals 5
+    .registers 6
     .param p0, "bean"    # Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;
 
     const-string v0, "bean"
@@ -113,7 +113,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_4f
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->reserved:Ljava/lang/String;
 
@@ -126,7 +126,7 @@
     iput-object v3, v1, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_WireGuardOptions;->reserved:Ljava/lang/String;
 
     .line 40
-    :cond_0
+    :cond_4f
     nop
 
     .line 30
@@ -136,7 +136,7 @@
 .end method
 
 .method public static final genReserved(Ljava/lang/String;)Ljava/lang/String;
-    .locals 28
+    .registers 29
     .param p0, "anyStr"    # Ljava/lang/String;
 
     move-object/from16 v1, p0
@@ -149,7 +149,7 @@
     nop
 
     .line 9
-    :try_start_0
+    :try_start_8
     invoke-static/range {p0 .. p0}, Lmoe/matsuri/nb4a/utils/KotlinUtilKt;->listByLineOrComma(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
@@ -166,7 +166,7 @@
 
     move-result v4
 
-    if-ne v4, v2, :cond_3
+    if-ne v4, v2, :cond_74
 
     .line 12
     move-object v2, v0
@@ -186,12 +186,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_1e
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_6c
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -202,11 +202,11 @@
 
     .end local v5    # "index$iv":I
     .local v8, "index$iv":I
-    if-gez v5, :cond_0
+    if-gez v5, :cond_2f
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    :cond_0
+    :cond_2f
     move-object v9, v7
 
     check-cast v9, Ljava/lang/String;
@@ -270,7 +270,7 @@
     move-result-object v10
 
     .line 13
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_6b
 
     invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
 
@@ -293,14 +293,14 @@
     move v5, v8
 
     .end local v7    # "item$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1e
 
     .line 17
     .restart local v5    # "index":I
     .restart local v7    # "item$iv":Ljava/lang/Object;
     .restart local v9    # "s":Ljava/lang/String;
     .restart local v15    # "$i$a$-forEachIndexed-WireGuardFmtKt$genReserved$1":I
-    :cond_1
+    :cond_6b
     return-object v1
 
     .line 45
@@ -309,7 +309,7 @@
     .end local v9    # "s":Ljava/lang/String;
     .end local v15    # "$i$a$-forEachIndexed-WireGuardFmtKt$genReserved$1":I
     .local v5, "index$iv":I
-    :cond_2
+    :cond_6c
     nop
 
     .line 20
@@ -321,19 +321,19 @@
     invoke-virtual {v2, v3}, Lmoe/matsuri/nb4a/utils/Util;->b64EncodeOneLine([B)Ljava/lang/String;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_73
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_73} :catch_75
 
     return-object v2
 
     .line 22
-    :cond_3
+    :cond_74
     return-object v1
 
     .line 24
     .end local v0    # "list":Ljava/util/List;
     .end local v3    # "ba":[B
-    :catch_0
+    :catch_75
     move-exception v0
 
     .line 25

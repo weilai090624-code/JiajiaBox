@@ -32,7 +32,7 @@
 
 # direct methods
 .method public static final toFile(Landroid/net/Uri;)Ljava/io/File;
-    .locals 3
+    .registers 4
     .param p0, "$this$toFile"    # Landroid/net/Uri;
 
     .line 43
@@ -46,14 +46,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
     .line 44
     invoke-virtual {p0}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     new-instance v1, Ljava/io/File;
 
@@ -62,7 +62,7 @@
     return-object v1
 
     .line 47
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     .line 44
@@ -97,7 +97,7 @@
     throw v1
 
     .line 47
-    :cond_1
+    :cond_36
     const/4 v0, 0x0
 
     .line 43
@@ -133,7 +133,7 @@
 .end method
 
 .method public static final toUri(Ljava/io/File;)Landroid/net/Uri;
-    .locals 2
+    .registers 3
     .param p0, "$this$toUri"    # Ljava/io/File;
 
     const/4 v0, 0x0
@@ -148,7 +148,7 @@
 .end method
 
 .method public static final toUri(Ljava/lang/String;)Landroid/net/Uri;
-    .locals 2
+    .registers 3
     .param p0, "$this$toUri"    # Ljava/lang/String;
 
     const/4 v0, 0x0

@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/app/PendingIntent;)V
-    .locals 1
+    .registers 4
     .param p1, "title"    # Ljava/lang/String;
     .param p2, "action"    # Landroid/app/PendingIntent;
 
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroid/app/PendingIntent;I)V
-    .locals 0
+    .registers 4
     .param p1, "title"    # Ljava/lang/String;
     .param p2, "action"    # Landroid/app/PendingIntent;
     .param p3, "iconId"    # I
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroid/app/PendingIntent;Landroid/net/Uri;)V
-    .locals 0
+    .registers 4
     .param p1, "title"    # Ljava/lang/String;
     .param p2, "action"    # Landroid/app/PendingIntent;
     .param p3, "iconUri"    # Landroid/net/Uri;
@@ -80,7 +80,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 4
     .param p1, "title"    # Ljava/lang/String;
     .param p2, "action"    # Ljava/lang/Runnable;
 
@@ -105,12 +105,12 @@
 
 # virtual methods
 .method public getAction()Landroid/app/PendingIntent;
-    .locals 2
+    .registers 3
 
     .line 117
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionItem;->mAction:Landroid/app/PendingIntent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 124
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionItem;->mAction:Landroid/app/PendingIntent;
@@ -118,7 +118,7 @@
     return-object v0
 
     .line 121
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Can\'t call getAction on BrowserActionItem with null action."
@@ -129,7 +129,7 @@
 .end method
 
 .method public getIconId()I
-    .locals 1
+    .registers 2
 
     .line 101
     iget v0, p0, Landroidx/browser/browseractions/BrowserActionItem;->mIconId:I
@@ -138,7 +138,7 @@
 .end method
 
 .method public getIconUri()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 134
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionItem;->mIconUri:Landroid/net/Uri;
@@ -147,7 +147,7 @@
 .end method
 
 .method getRunnableAction()Ljava/lang/Runnable;
-    .locals 1
+    .registers 2
 
     .line 144
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionItem;->mRunnableAction:Ljava/lang/Runnable;
@@ -156,7 +156,7 @@
 .end method
 
 .method public getTitle()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 109
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionItem;->mTitle:Ljava/lang/String;

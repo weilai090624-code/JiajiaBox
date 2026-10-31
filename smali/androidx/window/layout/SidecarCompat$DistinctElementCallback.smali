@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;)V
-    .locals 1
+    .registers 3
     .param p1, "callbackInterface"    # Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;
 
     const-string v0, "callbackInterface"
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public onWindowLayoutChanged(Landroid/app/Activity;Landroidx/window/layout/WindowLayoutInfo;)V
-    .locals 4
+    .registers 7
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "newLayout"    # Landroidx/window/layout/WindowLayoutInfo;
 
@@ -123,7 +123,7 @@
 
     .line 391
     .local v1, "$i$a$-withLock-SidecarCompat$DistinctElementCallback$onWindowLayoutChanged$1":I
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Landroidx/window/layout/SidecarCompat$DistinctElementCallback;->activityWindowLayoutInfo:Ljava/util/WeakHashMap;
 
     invoke-virtual {v2, p1}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -137,10 +137,10 @@
     invoke-static {p2, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_12 .. :try_end_1e} :catchall_36
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_25
 
     .line 393
     nop
@@ -154,8 +154,8 @@
     .line 395
     .restart local v1    # "$i$a$-withLock-SidecarCompat$DistinctElementCallback$onWindowLayoutChanged$1":I
     .restart local v2    # "lastInfo":Landroidx/window/layout/WindowLayoutInfo;
-    :cond_0
-    :try_start_1
+    :cond_25
+    :try_start_25
     iget-object v3, p0, Landroidx/window/layout/SidecarCompat$DistinctElementCallback;->activityWindowLayoutInfo:Ljava/util/WeakHashMap;
 
     invoke-virtual {v3, p1, p2}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -163,8 +163,8 @@
     move-result-object v3
 
     check-cast v3, Landroidx/window/layout/WindowLayoutInfo;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2d
+    .catchall {:try_start_25 .. :try_end_2d} :catchall_36
 
     .line 390
     .end local v1    # "$i$a$-withLock-SidecarCompat$DistinctElementCallback$onWindowLayoutChanged$1":I
@@ -180,7 +180,7 @@
     return-void
 
     .line 390
-    :catchall_0
+    :catchall_36
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V

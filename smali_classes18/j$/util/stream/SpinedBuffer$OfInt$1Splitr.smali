@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/SpinedBuffer$OfInt;IIII)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Lj$/util/stream/SpinedBuffer$OfInt;
     .param p2, "firstSpineIndex"    # I
     .param p3, "lastSpineIndex"    # I
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method bridge synthetic arrayForOne(Ljava/lang/Object;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 815
     check-cast p1, [I
@@ -69,7 +69,7 @@
 .end method
 
 .method arrayForOne([IILjava/util/function/IntConsumer;)V
-    .locals 1
+    .registers 5
     .param p1, "array"    # [I
     .param p2, "index"    # I
     .param p3, "consumer"    # Ljava/util/function/IntConsumer;
@@ -84,7 +84,7 @@
 .end method
 
 .method arraySpliterator([III)Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 5
     .param p1, "array"    # [I
     .param p2, "offset"    # I
     .param p3, "len"    # I
@@ -100,7 +100,7 @@
 .end method
 
 .method bridge synthetic arraySpliterator(Ljava/lang/Object;II)Lj$/util/Spliterator$OfPrimitive;
-    .locals 0
+    .registers 4
 
     .line 815
     check-cast p1, [I
@@ -113,7 +113,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)V
 
@@ -121,7 +121,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/util/function/IntConsumer;)V
-    .locals 0
+    .registers 2
 
     .line 815
     invoke-super {p0, p1}, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->forEachRemaining(Ljava/lang/Object;)V
@@ -130,7 +130,7 @@
 .end method
 
 .method bridge synthetic newSpliterator(IIII)Lj$/util/Spliterator$OfPrimitive;
-    .locals 0
+    .registers 5
 
     .line 815
     invoke-virtual {p0, p1, p2, p3, p4}, Lj$/util/stream/SpinedBuffer$OfInt$1Splitr;->newSpliterator(IIII)Lj$/util/stream/SpinedBuffer$OfInt$1Splitr;
@@ -141,7 +141,7 @@
 .end method
 
 .method newSpliterator(IIII)Lj$/util/stream/SpinedBuffer$OfInt$1Splitr;
-    .locals 7
+    .registers 12
     .param p1, "firstSpineIndex"    # I
     .param p2, "lastSpineIndex"    # I
     .param p3, "firstSpineElementIndex"    # I
@@ -168,7 +168,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)Z
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/util/function/IntConsumer;)Z
-    .locals 0
+    .registers 2
 
     .line 815
     invoke-super {p0, p1}, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->tryAdvance(Ljava/lang/Object;)Z
@@ -189,7 +189,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 2
 
     .line 815
     invoke-super {p0}, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->trySplit()Lj$/util/Spliterator$OfPrimitive;

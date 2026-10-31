@@ -81,7 +81,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/Cache;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lokhttp3/Cache;
 
     iput-object p1, p0, Lokhttp3/Cache$urls$1;->this$0:Lokhttp3/Cache;
@@ -109,38 +109,38 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 8
+    .registers 9
 
     .line 309
     iget-object v0, p0, Lokhttp3/Cache$urls$1;->nextUrl:Ljava/lang/String;
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     return v1
 
     .line 311
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lokhttp3/Cache$urls$1;->canRemove:Z
 
     .line 312
-    :goto_0
+    :goto_9
     iget-object v2, p0, Lokhttp3/Cache$urls$1;->delegate:Ljava/util/Iterator;
 
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3e
 
     .line 313
     nop
 
     .line 314
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Lokhttp3/Cache$urls$1;->delegate:Ljava/util/Iterator;
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -154,10 +154,10 @@
     move-object v4, v3
 
     check-cast v4, Ljava/lang/Throwable;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/io/IOException; {:try_start_12 .. :try_end_1e} :catch_3c
 
-    :try_start_1
+    :try_start_1e
     move-object v4, v2
 
     check-cast v4, Lokhttp3/internal/cache/DiskLruCache$Snapshot;
@@ -182,8 +182,8 @@
     move-result-object v7
 
     iput-object v7, p0, Lokhttp3/Cache$urls$1;->nextUrl:Ljava/lang/String;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_30
+    .catchall {:try_start_1e .. :try_end_30} :catchall_35
 
     .line 317
     nop
@@ -191,44 +191,44 @@
     .end local v4    # "snapshot":Lokhttp3/internal/cache/DiskLruCache$Snapshot;
     .end local v5    # "$i$a$-use-Cache$urls$1$hasNext$1":I
     .end local v6    # "metadata":Lokio/BufferedSource;
-    :try_start_2
+    :try_start_31
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_34
+    .catch Ljava/io/IOException; {:try_start_31 .. :try_end_34} :catch_3c
 
     return v1
 
-    :catchall_0
+    :catchall_35
     move-exception v3
 
-    :try_start_3
+    :try_start_36
     throw v3
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_37
+    .catchall {:try_start_36 .. :try_end_37} :catchall_37
 
-    :catchall_1
+    :catchall_37
     move-exception v4
 
-    :try_start_4
+    :try_start_38
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     throw v4
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_3c
+    .catch Ljava/io/IOException; {:try_start_38 .. :try_end_3c} :catch_3c
 
     .line 319
-    :catch_0
+    :catch_3c
     move-exception v2
 
-    goto :goto_0
+    goto :goto_9
 
     .line 325
-    :cond_1
+    :cond_3e
     return v0
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 303
     invoke-virtual {p0}, Lokhttp3/Cache$urls$1;->next()Ljava/lang/String;
@@ -239,14 +239,14 @@
 .end method
 
 .method public next()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 329
     invoke-virtual {p0}, Lokhttp3/Cache$urls$1;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 330
     iget-object v0, p0, Lokhttp3/Cache$urls$1;->nextUrl:Ljava/lang/String;
@@ -269,7 +269,7 @@
 
     .line 329
     .end local v0    # "result":Ljava/lang/String;
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -278,12 +278,12 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     .line 337
     iget-boolean v0, p0, Lokhttp3/Cache$urls$1;->canRemove:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 338
     iget-object v0, p0, Lokhttp3/Cache$urls$1;->delegate:Ljava/util/Iterator;
@@ -294,7 +294,7 @@
     return-void
 
     .line 795
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .line 337

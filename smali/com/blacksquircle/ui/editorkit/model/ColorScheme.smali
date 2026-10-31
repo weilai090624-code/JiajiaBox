@@ -172,7 +172,7 @@
 
 # direct methods
 .method public constructor <init>(IIIIIIIIIIIIIIIIIIIIIIIIIII)V
-    .locals 16
+    .registers 44
     .param p1, "textColor"    # I
     .param p2, "cursorColor"    # I
     .param p3, "backgroundColor"    # I
@@ -346,7 +346,7 @@
 .end method
 
 .method public static synthetic copy$default(Lcom/blacksquircle/ui/editorkit/model/ColorScheme;IIIIIIIIIIIIIIIIIIIIIIIIIIIILjava/lang/Object;)Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 17
+    .registers 47
 
     move-object/from16 v0, p0
 
@@ -354,376 +354,376 @@
 
     and-int/lit8 v2, v1, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_b
 
     iget v2, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->textColor:I
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     move/from16 v2, p1
 
-    :goto_0
+    :goto_d
     and-int/lit8 v3, v1, 0x2
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_14
 
     iget v3, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->cursorColor:I
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_14
     move/from16 v3, p2
 
-    :goto_1
+    :goto_16
     and-int/lit8 v4, v1, 0x4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1d
 
     iget v4, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->backgroundColor:I
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_2
+    :cond_1d
     move/from16 v4, p3
 
-    :goto_2
+    :goto_1f
     and-int/lit8 v5, v1, 0x8
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_26
 
     iget v5, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterColor:I
 
-    goto :goto_3
+    goto :goto_28
 
-    :cond_3
+    :cond_26
     move/from16 v5, p4
 
-    :goto_3
+    :goto_28
     and-int/lit8 v6, v1, 0x10
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_2f
 
     iget v6, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterDividerColor:I
 
-    goto :goto_4
+    goto :goto_31
 
-    :cond_4
+    :cond_2f
     move/from16 v6, p5
 
-    :goto_4
+    :goto_31
     and-int/lit8 v7, v1, 0x20
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_38
 
     iget v7, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterCurrentLineNumberColor:I
 
-    goto :goto_5
+    goto :goto_3a
 
-    :cond_5
+    :cond_38
     move/from16 v7, p6
 
-    :goto_5
+    :goto_3a
     and-int/lit8 v8, v1, 0x40
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_41
 
     iget v8, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterTextColor:I
 
-    goto :goto_6
+    goto :goto_43
 
-    :cond_6
+    :cond_41
     move/from16 v8, p7
 
-    :goto_6
+    :goto_43
     and-int/lit16 v9, v1, 0x80
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_4a
 
     iget v9, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectedLineColor:I
 
-    goto :goto_7
+    goto :goto_4c
 
-    :cond_7
+    :cond_4a
     move/from16 v9, p8
 
-    :goto_7
+    :goto_4c
     and-int/lit16 v10, v1, 0x100
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_53
 
     iget v10, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectionColor:I
 
-    goto :goto_8
+    goto :goto_55
 
-    :cond_8
+    :cond_53
     move/from16 v10, p9
 
-    :goto_8
+    :goto_55
     and-int/lit16 v11, v1, 0x200
 
-    if-eqz v11, :cond_9
+    if-eqz v11, :cond_5c
 
     iget v11, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->suggestionQueryColor:I
 
-    goto :goto_9
+    goto :goto_5e
 
-    :cond_9
+    :cond_5c
     move/from16 v11, p10
 
-    :goto_9
+    :goto_5e
     and-int/lit16 v12, v1, 0x400
 
-    if-eqz v12, :cond_a
+    if-eqz v12, :cond_65
 
     iget v12, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->findResultBackgroundColor:I
 
-    goto :goto_a
+    goto :goto_67
 
-    :cond_a
+    :cond_65
     move/from16 v12, p11
 
-    :goto_a
+    :goto_67
     and-int/lit16 v13, v1, 0x800
 
-    if-eqz v13, :cond_b
+    if-eqz v13, :cond_6e
 
     iget v13, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->delimiterBackgroundColor:I
 
-    goto :goto_b
+    goto :goto_70
 
-    :cond_b
+    :cond_6e
     move/from16 v13, p12
 
-    :goto_b
+    :goto_70
     and-int/lit16 v14, v1, 0x1000
 
-    if-eqz v14, :cond_c
+    if-eqz v14, :cond_77
 
     iget v14, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->numberColor:I
 
-    goto :goto_c
+    goto :goto_79
 
-    :cond_c
+    :cond_77
     move/from16 v14, p13
 
-    :goto_c
+    :goto_79
     and-int/lit16 v15, v1, 0x2000
 
-    if-eqz v15, :cond_d
+    if-eqz v15, :cond_80
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->operatorColor:I
 
-    goto :goto_d
+    goto :goto_82
 
-    :cond_d
+    :cond_80
     move/from16 v15, p14
 
-    :goto_d
+    :goto_82
     move/from16 p14, v15
 
     and-int/lit16 v15, v1, 0x4000
 
-    if-eqz v15, :cond_e
+    if-eqz v15, :cond_8b
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->keywordColor:I
 
-    goto :goto_e
+    goto :goto_8d
 
-    :cond_e
+    :cond_8b
     move/from16 v15, p15
 
-    :goto_e
+    :goto_8d
     const v16, 0x8000
 
     and-int v16, v1, v16
 
     move/from16 p15, v15
 
-    if-eqz v16, :cond_f
+    if-eqz v16, :cond_99
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->typeColor:I
 
-    goto :goto_f
+    goto :goto_9b
 
-    :cond_f
+    :cond_99
     move/from16 v15, p16
 
-    :goto_f
+    :goto_9b
     const/high16 v16, 0x10000
 
     and-int v16, v1, v16
 
     move/from16 p16, v15
 
-    if-eqz v16, :cond_10
+    if-eqz v16, :cond_a6
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->langConstColor:I
 
-    goto :goto_10
+    goto :goto_a8
 
-    :cond_10
+    :cond_a6
     move/from16 v15, p17
 
-    :goto_10
+    :goto_a8
     const/high16 v16, 0x20000
 
     and-int v16, v1, v16
 
     move/from16 p17, v15
 
-    if-eqz v16, :cond_11
+    if-eqz v16, :cond_b3
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->preprocessorColor:I
 
-    goto :goto_11
+    goto :goto_b5
 
-    :cond_11
+    :cond_b3
     move/from16 v15, p18
 
-    :goto_11
+    :goto_b5
     const/high16 v16, 0x40000
 
     and-int v16, v1, v16
 
     move/from16 p18, v15
 
-    if-eqz v16, :cond_12
+    if-eqz v16, :cond_c0
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->variableColor:I
 
-    goto :goto_12
+    goto :goto_c2
 
-    :cond_12
+    :cond_c0
     move/from16 v15, p19
 
-    :goto_12
+    :goto_c2
     const/high16 v16, 0x80000
 
     and-int v16, v1, v16
 
     move/from16 p19, v15
 
-    if-eqz v16, :cond_13
+    if-eqz v16, :cond_cd
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->methodColor:I
 
-    goto :goto_13
+    goto :goto_cf
 
-    :cond_13
+    :cond_cd
     move/from16 v15, p20
 
-    :goto_13
+    :goto_cf
     const/high16 v16, 0x100000
 
     and-int v16, v1, v16
 
     move/from16 p20, v15
 
-    if-eqz v16, :cond_14
+    if-eqz v16, :cond_da
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->stringColor:I
 
-    goto :goto_14
+    goto :goto_dc
 
-    :cond_14
+    :cond_da
     move/from16 v15, p21
 
-    :goto_14
+    :goto_dc
     const/high16 v16, 0x200000
 
     and-int v16, v1, v16
 
     move/from16 p21, v15
 
-    if-eqz v16, :cond_15
+    if-eqz v16, :cond_e7
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->commentColor:I
 
-    goto :goto_15
+    goto :goto_e9
 
-    :cond_15
+    :cond_e7
     move/from16 v15, p22
 
-    :goto_15
+    :goto_e9
     const/high16 v16, 0x400000
 
     and-int v16, v1, v16
 
     move/from16 p22, v15
 
-    if-eqz v16, :cond_16
+    if-eqz v16, :cond_f4
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagColor:I
 
-    goto :goto_16
+    goto :goto_f6
 
-    :cond_16
+    :cond_f4
     move/from16 v15, p23
 
-    :goto_16
+    :goto_f6
     const/high16 v16, 0x800000
 
     and-int v16, v1, v16
 
     move/from16 p23, v15
 
-    if-eqz v16, :cond_17
+    if-eqz v16, :cond_101
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagNameColor:I
 
-    goto :goto_17
+    goto :goto_103
 
-    :cond_17
+    :cond_101
     move/from16 v15, p24
 
-    :goto_17
+    :goto_103
     const/high16 v16, 0x1000000
 
     and-int v16, v1, v16
 
     move/from16 p24, v15
 
-    if-eqz v16, :cond_18
+    if-eqz v16, :cond_10e
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrNameColor:I
 
-    goto :goto_18
+    goto :goto_110
 
-    :cond_18
+    :cond_10e
     move/from16 v15, p25
 
-    :goto_18
+    :goto_110
     const/high16 v16, 0x2000000
 
     and-int v16, v1, v16
 
     move/from16 p25, v15
 
-    if-eqz v16, :cond_19
+    if-eqz v16, :cond_11b
 
     iget v15, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrValueColor:I
 
-    goto :goto_19
+    goto :goto_11d
 
-    :cond_19
+    :cond_11b
     move/from16 v15, p26
 
-    :goto_19
+    :goto_11d
     const/high16 v16, 0x4000000
 
     and-int v1, v1, v16
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_126
 
     iget v1, v0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->entityRefColor:I
 
-    goto :goto_1a
+    goto :goto_128
 
-    :cond_1a
+    :cond_126
     move/from16 v1, p27
 
-    :goto_1a
+    :goto_128
     move/from16 p1, v2
 
     move/from16 p2, v3
@@ -764,7 +764,7 @@
 
 # virtual methods
 .method public final component1()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->textColor:I
 
@@ -772,7 +772,7 @@
 .end method
 
 .method public final component10()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->suggestionQueryColor:I
 
@@ -780,7 +780,7 @@
 .end method
 
 .method public final component11()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->findResultBackgroundColor:I
 
@@ -788,7 +788,7 @@
 .end method
 
 .method public final component12()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->delimiterBackgroundColor:I
 
@@ -796,7 +796,7 @@
 .end method
 
 .method public final component13()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->numberColor:I
 
@@ -804,7 +804,7 @@
 .end method
 
 .method public final component14()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->operatorColor:I
 
@@ -812,7 +812,7 @@
 .end method
 
 .method public final component15()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->keywordColor:I
 
@@ -820,7 +820,7 @@
 .end method
 
 .method public final component16()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->typeColor:I
 
@@ -828,7 +828,7 @@
 .end method
 
 .method public final component17()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->langConstColor:I
 
@@ -836,7 +836,7 @@
 .end method
 
 .method public final component18()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->preprocessorColor:I
 
@@ -844,7 +844,7 @@
 .end method
 
 .method public final component19()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->variableColor:I
 
@@ -852,7 +852,7 @@
 .end method
 
 .method public final component2()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->cursorColor:I
 
@@ -860,7 +860,7 @@
 .end method
 
 .method public final component20()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->methodColor:I
 
@@ -868,7 +868,7 @@
 .end method
 
 .method public final component21()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->stringColor:I
 
@@ -876,7 +876,7 @@
 .end method
 
 .method public final component22()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->commentColor:I
 
@@ -884,7 +884,7 @@
 .end method
 
 .method public final component23()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagColor:I
 
@@ -892,7 +892,7 @@
 .end method
 
 .method public final component24()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagNameColor:I
 
@@ -900,7 +900,7 @@
 .end method
 
 .method public final component25()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrNameColor:I
 
@@ -908,7 +908,7 @@
 .end method
 
 .method public final component26()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrValueColor:I
 
@@ -916,7 +916,7 @@
 .end method
 
 .method public final component27()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->entityRefColor:I
 
@@ -924,7 +924,7 @@
 .end method
 
 .method public final component3()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->backgroundColor:I
 
@@ -932,7 +932,7 @@
 .end method
 
 .method public final component4()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterColor:I
 
@@ -940,7 +940,7 @@
 .end method
 
 .method public final component5()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterDividerColor:I
 
@@ -948,7 +948,7 @@
 .end method
 
 .method public final component6()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterCurrentLineNumberColor:I
 
@@ -956,7 +956,7 @@
 .end method
 
 .method public final component7()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterTextColor:I
 
@@ -964,7 +964,7 @@
 .end method
 
 .method public final component8()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectedLineColor:I
 
@@ -972,7 +972,7 @@
 .end method
 
 .method public final component9()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectionColor:I
 
@@ -980,7 +980,7 @@
 .end method
 
 .method public final copy(IIIIIIIIIIIIIIIIIIIIIIIIIII)Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 29
+    .registers 57
 
     move/from16 v1, p1
 
@@ -1046,24 +1046,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
@@ -1072,250 +1072,250 @@
 
     iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->textColor:I
 
-    if-eq v3, v4, :cond_2
-
-    return v2
-
-    :cond_2
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->cursorColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->cursorColor:I
-
-    if-eq v3, v4, :cond_3
-
-    return v2
-
-    :cond_3
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->backgroundColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->backgroundColor:I
-
-    if-eq v3, v4, :cond_4
-
-    return v2
-
-    :cond_4
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterColor:I
-
-    if-eq v3, v4, :cond_5
-
-    return v2
-
-    :cond_5
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterDividerColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterDividerColor:I
-
-    if-eq v3, v4, :cond_6
-
-    return v2
-
-    :cond_6
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterCurrentLineNumberColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterCurrentLineNumberColor:I
-
-    if-eq v3, v4, :cond_7
-
-    return v2
-
-    :cond_7
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterTextColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterTextColor:I
-
-    if-eq v3, v4, :cond_8
-
-    return v2
-
-    :cond_8
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectedLineColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectedLineColor:I
-
-    if-eq v3, v4, :cond_9
-
-    return v2
-
-    :cond_9
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectionColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectionColor:I
-
-    if-eq v3, v4, :cond_a
-
-    return v2
-
-    :cond_a
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->suggestionQueryColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->suggestionQueryColor:I
-
-    if-eq v3, v4, :cond_b
-
-    return v2
-
-    :cond_b
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->findResultBackgroundColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->findResultBackgroundColor:I
-
-    if-eq v3, v4, :cond_c
-
-    return v2
-
-    :cond_c
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->delimiterBackgroundColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->delimiterBackgroundColor:I
-
-    if-eq v3, v4, :cond_d
-
-    return v2
-
-    :cond_d
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->numberColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->numberColor:I
-
-    if-eq v3, v4, :cond_e
-
-    return v2
-
-    :cond_e
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->operatorColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->operatorColor:I
-
-    if-eq v3, v4, :cond_f
-
-    return v2
-
-    :cond_f
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->keywordColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->keywordColor:I
-
-    if-eq v3, v4, :cond_10
-
-    return v2
-
-    :cond_10
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->typeColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->typeColor:I
-
-    if-eq v3, v4, :cond_11
-
-    return v2
-
-    :cond_11
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->langConstColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->langConstColor:I
-
-    if-eq v3, v4, :cond_12
-
-    return v2
-
-    :cond_12
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->preprocessorColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->preprocessorColor:I
-
-    if-eq v3, v4, :cond_13
-
-    return v2
-
-    :cond_13
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->variableColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->variableColor:I
-
     if-eq v3, v4, :cond_14
 
     return v2
 
     :cond_14
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->methodColor:I
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->cursorColor:I
 
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->methodColor:I
-
-    if-eq v3, v4, :cond_15
-
-    return v2
-
-    :cond_15
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->stringColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->stringColor:I
-
-    if-eq v3, v4, :cond_16
-
-    return v2
-
-    :cond_16
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->commentColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->commentColor:I
-
-    if-eq v3, v4, :cond_17
-
-    return v2
-
-    :cond_17
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagColor:I
-
-    if-eq v3, v4, :cond_18
-
-    return v2
-
-    :cond_18
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagNameColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagNameColor:I
-
-    if-eq v3, v4, :cond_19
-
-    return v2
-
-    :cond_19
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrNameColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrNameColor:I
-
-    if-eq v3, v4, :cond_1a
-
-    return v2
-
-    :cond_1a
-    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrValueColor:I
-
-    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrValueColor:I
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->cursorColor:I
 
     if-eq v3, v4, :cond_1b
 
     return v2
 
     :cond_1b
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->backgroundColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->backgroundColor:I
+
+    if-eq v3, v4, :cond_22
+
+    return v2
+
+    :cond_22
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterColor:I
+
+    if-eq v3, v4, :cond_29
+
+    return v2
+
+    :cond_29
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterDividerColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterDividerColor:I
+
+    if-eq v3, v4, :cond_30
+
+    return v2
+
+    :cond_30
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterCurrentLineNumberColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterCurrentLineNumberColor:I
+
+    if-eq v3, v4, :cond_37
+
+    return v2
+
+    :cond_37
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterTextColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterTextColor:I
+
+    if-eq v3, v4, :cond_3e
+
+    return v2
+
+    :cond_3e
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectedLineColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectedLineColor:I
+
+    if-eq v3, v4, :cond_45
+
+    return v2
+
+    :cond_45
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectionColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectionColor:I
+
+    if-eq v3, v4, :cond_4c
+
+    return v2
+
+    :cond_4c
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->suggestionQueryColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->suggestionQueryColor:I
+
+    if-eq v3, v4, :cond_53
+
+    return v2
+
+    :cond_53
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->findResultBackgroundColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->findResultBackgroundColor:I
+
+    if-eq v3, v4, :cond_5a
+
+    return v2
+
+    :cond_5a
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->delimiterBackgroundColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->delimiterBackgroundColor:I
+
+    if-eq v3, v4, :cond_61
+
+    return v2
+
+    :cond_61
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->numberColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->numberColor:I
+
+    if-eq v3, v4, :cond_68
+
+    return v2
+
+    :cond_68
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->operatorColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->operatorColor:I
+
+    if-eq v3, v4, :cond_6f
+
+    return v2
+
+    :cond_6f
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->keywordColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->keywordColor:I
+
+    if-eq v3, v4, :cond_76
+
+    return v2
+
+    :cond_76
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->typeColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->typeColor:I
+
+    if-eq v3, v4, :cond_7d
+
+    return v2
+
+    :cond_7d
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->langConstColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->langConstColor:I
+
+    if-eq v3, v4, :cond_84
+
+    return v2
+
+    :cond_84
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->preprocessorColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->preprocessorColor:I
+
+    if-eq v3, v4, :cond_8b
+
+    return v2
+
+    :cond_8b
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->variableColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->variableColor:I
+
+    if-eq v3, v4, :cond_92
+
+    return v2
+
+    :cond_92
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->methodColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->methodColor:I
+
+    if-eq v3, v4, :cond_99
+
+    return v2
+
+    :cond_99
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->stringColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->stringColor:I
+
+    if-eq v3, v4, :cond_a0
+
+    return v2
+
+    :cond_a0
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->commentColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->commentColor:I
+
+    if-eq v3, v4, :cond_a7
+
+    return v2
+
+    :cond_a7
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagColor:I
+
+    if-eq v3, v4, :cond_ae
+
+    return v2
+
+    :cond_ae
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagNameColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagNameColor:I
+
+    if-eq v3, v4, :cond_b5
+
+    return v2
+
+    :cond_b5
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrNameColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrNameColor:I
+
+    if-eq v3, v4, :cond_bc
+
+    return v2
+
+    :cond_bc
+    iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrValueColor:I
+
+    iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrValueColor:I
+
+    if-eq v3, v4, :cond_c3
+
+    return v2
+
+    :cond_c3
     iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->entityRefColor:I
 
     iget v1, v1, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->entityRefColor:I
 
-    if-eq v3, v1, :cond_1c
+    if-eq v3, v1, :cond_ca
 
     return v2
 
-    :cond_1c
+    :cond_ca
     return v0
 .end method
 
 .method public final getAttrNameColor()I
-    .locals 1
+    .registers 2
 
     .line 46
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrNameColor:I
@@ -1324,7 +1324,7 @@
 .end method
 
 .method public final getAttrValueColor()I
-    .locals 1
+    .registers 2
 
     .line 47
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->attrValueColor:I
@@ -1333,7 +1333,7 @@
 .end method
 
 .method public final getBackgroundColor()I
-    .locals 1
+    .registers 2
 
     .line 24
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->backgroundColor:I
@@ -1342,7 +1342,7 @@
 .end method
 
 .method public final getCommentColor()I
-    .locals 1
+    .registers 2
 
     .line 43
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->commentColor:I
@@ -1351,7 +1351,7 @@
 .end method
 
 .method public final getCursorColor()I
-    .locals 1
+    .registers 2
 
     .line 23
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->cursorColor:I
@@ -1360,7 +1360,7 @@
 .end method
 
 .method public final getDelimiterBackgroundColor()I
-    .locals 1
+    .registers 2
 
     .line 33
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->delimiterBackgroundColor:I
@@ -1369,7 +1369,7 @@
 .end method
 
 .method public final getEntityRefColor()I
-    .locals 1
+    .registers 2
 
     .line 48
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->entityRefColor:I
@@ -1378,7 +1378,7 @@
 .end method
 
 .method public final getFindResultBackgroundColor()I
-    .locals 1
+    .registers 2
 
     .line 32
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->findResultBackgroundColor:I
@@ -1387,7 +1387,7 @@
 .end method
 
 .method public final getGutterColor()I
-    .locals 1
+    .registers 2
 
     .line 25
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterColor:I
@@ -1396,7 +1396,7 @@
 .end method
 
 .method public final getGutterCurrentLineNumberColor()I
-    .locals 1
+    .registers 2
 
     .line 27
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterCurrentLineNumberColor:I
@@ -1405,7 +1405,7 @@
 .end method
 
 .method public final getGutterDividerColor()I
-    .locals 1
+    .registers 2
 
     .line 26
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterDividerColor:I
@@ -1414,7 +1414,7 @@
 .end method
 
 .method public final getGutterTextColor()I
-    .locals 1
+    .registers 2
 
     .line 28
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->gutterTextColor:I
@@ -1423,7 +1423,7 @@
 .end method
 
 .method public final getKeywordColor()I
-    .locals 1
+    .registers 2
 
     .line 36
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->keywordColor:I
@@ -1432,7 +1432,7 @@
 .end method
 
 .method public final getLangConstColor()I
-    .locals 1
+    .registers 2
 
     .line 38
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->langConstColor:I
@@ -1441,7 +1441,7 @@
 .end method
 
 .method public final getMethodColor()I
-    .locals 1
+    .registers 2
 
     .line 41
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->methodColor:I
@@ -1450,7 +1450,7 @@
 .end method
 
 .method public final getNumberColor()I
-    .locals 1
+    .registers 2
 
     .line 34
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->numberColor:I
@@ -1459,7 +1459,7 @@
 .end method
 
 .method public final getOperatorColor()I
-    .locals 1
+    .registers 2
 
     .line 35
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->operatorColor:I
@@ -1468,7 +1468,7 @@
 .end method
 
 .method public final getPreprocessorColor()I
-    .locals 1
+    .registers 2
 
     .line 39
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->preprocessorColor:I
@@ -1477,7 +1477,7 @@
 .end method
 
 .method public final getSelectedLineColor()I
-    .locals 1
+    .registers 2
 
     .line 29
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectedLineColor:I
@@ -1486,7 +1486,7 @@
 .end method
 
 .method public final getSelectionColor()I
-    .locals 1
+    .registers 2
 
     .line 30
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->selectionColor:I
@@ -1495,7 +1495,7 @@
 .end method
 
 .method public final getStringColor()I
-    .locals 1
+    .registers 2
 
     .line 42
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->stringColor:I
@@ -1504,7 +1504,7 @@
 .end method
 
 .method public final getSuggestionQueryColor()I
-    .locals 1
+    .registers 2
 
     .line 31
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->suggestionQueryColor:I
@@ -1513,7 +1513,7 @@
 .end method
 
 .method public final getTagColor()I
-    .locals 1
+    .registers 2
 
     .line 44
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagColor:I
@@ -1522,7 +1522,7 @@
 .end method
 
 .method public final getTagNameColor()I
-    .locals 1
+    .registers 2
 
     .line 45
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->tagNameColor:I
@@ -1531,7 +1531,7 @@
 .end method
 
 .method public final getTextColor()I
-    .locals 1
+    .registers 2
 
     .line 22
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->textColor:I
@@ -1540,7 +1540,7 @@
 .end method
 
 .method public final getTypeColor()I
-    .locals 1
+    .registers 2
 
     .line 37
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->typeColor:I
@@ -1549,7 +1549,7 @@
 .end method
 
 .method public final getVariableColor()I
-    .locals 1
+    .registers 2
 
     .line 40
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->variableColor:I
@@ -1558,7 +1558,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->textColor:I
 
@@ -1722,7 +1722,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 29
+    .registers 30
 
     move-object/from16 v0, p0
 

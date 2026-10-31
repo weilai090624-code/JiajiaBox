@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 28
     const/4 v0, 0x0
@@ -61,7 +61,7 @@
 .end method
 
 .method public static final appendPlaceholders(Ljava/lang/StringBuilder;I)V
-    .locals 2
+    .registers 4
     .param p0, "builder"    # Ljava/lang/StringBuilder;
     .param p1, "count"    # I
 
@@ -73,8 +73,8 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p1, :cond_1
+    :goto_6
+    if-ge v0, p1, :cond_19
 
     .line 49
     const-string v1, "?"
@@ -84,7 +84,7 @@
     .line 50
     add-int/lit8 v1, p1, -0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_16
 
     .line 51
     const-string v1, ","
@@ -92,25 +92,25 @@
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 48
-    :cond_0
+    :cond_16
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 54
     .end local v0    # "i":I
-    :cond_1
+    :cond_19
     return-void
 .end method
 
 .method public static synthetic getEMPTY_STRING_ARRAY$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final joinIntoString(Ljava/util/List;)Ljava/lang/String;
-    .locals 9
+    .registers 10
     .param p0, "input"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -123,7 +123,7 @@
     .end annotation
 
     .line 84
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_16
 
     move-object v0, p0
 
@@ -151,17 +151,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static final newStringBuilder()Ljava/lang/StringBuilder;
-    .locals 1
+    .registers 1
 
     .line 37
     new-instance v0, Ljava/lang/StringBuilder;
@@ -172,7 +172,7 @@
 .end method
 
 .method public static final splitToIntList(Ljava/lang/String;)Ljava/util/List;
-    .locals 17
+    .registers 18
     .param p0, "input"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -186,7 +186,7 @@
     .end annotation
 
     .line 66
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_63
 
     move-object/from16 v2, p0
 
@@ -212,7 +212,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_63
 
     move-object v2, v0
 
@@ -250,12 +250,12 @@
 
     move-result-object v9
 
-    :goto_0
+    :goto_2b
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5c
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -281,7 +281,7 @@
     nop
 
     .line 68
-    :try_start_0
+    :try_start_3c
     invoke-static {v13}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
@@ -289,13 +289,13 @@
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_44
+    .catch Ljava/lang/NumberFormatException; {:try_start_3c .. :try_end_44} :catch_45
 
-    goto :goto_1
+    goto :goto_53
 
     .line 69
-    :catch_0
+    :catch_45
     move-exception v0
 
     .line 70
@@ -319,13 +319,13 @@
 
     .line 67
     .end local v16    # "ex":Ljava/lang/NumberFormatException;
-    :goto_1
+    :goto_53
     nop
 
     .line 95
     .end local v13    # "item":Ljava/lang/String;
     .end local v14    # "$i$a$-mapNotNull-StringUtil$splitToIntList$1":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5a
 
     .line 97
     .local v0, "it$iv$iv":Ljava/lang/Object;
@@ -340,14 +340,14 @@
     .end local v1    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
     .end local v11    # "element$iv$iv":Ljava/lang/Object;
     .end local v12    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
-    :cond_0
+    :cond_5a
     nop
 
     .end local v10    # "element$iv$iv$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_2b
 
     .line 98
-    :cond_1
+    :cond_5c
     nop
 
     .line 99
@@ -367,12 +367,12 @@
 
     .end local v2    # "$this$mapNotNull$iv":Ljava/lang/Iterable;
     .end local v3    # "$i$f$mapNotNull":I
-    goto :goto_2
+    goto :goto_64
 
     .line 66
-    :cond_2
+    :cond_63
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_64
     return-object v1
 .end method

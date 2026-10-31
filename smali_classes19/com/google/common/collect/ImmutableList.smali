@@ -49,7 +49,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 378
     new-instance v0, Lcom/google/common/collect/ImmutableList$Itr;
@@ -66,7 +66,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 352
     .local p0, "this":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
@@ -76,7 +76,7 @@
 .end method
 
 .method static asImmutableList([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .param p0, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,7 +101,7 @@
 .end method
 
 .method static asImmutableList([Ljava/lang/Object;I)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 3
     .param p0, "elements"    # [Ljava/lang/Object;
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -117,7 +117,7 @@
     .end annotation
 
     .line 346
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 347
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
@@ -127,7 +127,7 @@
     return-object v0
 
     .line 349
-    :cond_0
+    :cond_7
     new-instance v0, Lcom/google/common/collect/RegularImmutableList;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/RegularImmutableList;-><init>([Ljava/lang/Object;I)V
@@ -136,7 +136,7 @@
 .end method
 
 .method public static builder()Lcom/google/common/collect/ImmutableList$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -156,7 +156,7 @@
 .end method
 
 .method public static builderWithExpectedSize(I)Lcom/google/common/collect/ImmutableList$Builder;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -182,7 +182,7 @@
 .end method
 
 .method private static varargs construct([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .param p0, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -209,7 +209,7 @@
 .end method
 
 .method public static copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -229,7 +229,7 @@
     .line 221
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 222
     move-object v0, p0
@@ -240,10 +240,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 223
-    :cond_0
+    :cond_f
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -253,12 +253,12 @@
     move-result-object v0
 
     .line 221
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -275,7 +275,7 @@
     .local p0, "elements":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     instance-of v0, p0, Lcom/google/common/collect/ImmutableCollection;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 246
     move-object v0, p0
@@ -292,7 +292,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->toArray()[Ljava/lang/Object;
 
@@ -302,17 +302,17 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     move-object v1, v0
 
-    :goto_0
+    :goto_1b
     return-object v1
 
     .line 249
     .end local v0    # "list":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
-    :cond_1
+    :cond_1c
     invoke-interface {p0}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
 
     move-result-object v0
@@ -325,7 +325,7 @@
 .end method
 
 .method public static copyOf(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -344,7 +344,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 260
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
@@ -354,7 +354,7 @@
     return-object v0
 
     .line 262
-    :cond_0
+    :cond_b
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -365,7 +365,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1a
 
     .line 264
     invoke-static {v0}, Lcom/google/common/collect/ImmutableList;->of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
@@ -375,7 +375,7 @@
     return-object v1
 
     .line 266
-    :cond_1
+    :cond_1a
     new-instance v1, Lcom/google/common/collect/ImmutableList$Builder;
 
     invoke-direct {v1}, Lcom/google/common/collect/ImmutableList$Builder;-><init>()V
@@ -396,7 +396,7 @@
 .end method
 
 .method public static copyOf([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -411,17 +411,17 @@
     .local p0, "elements":[Ljava/lang/Object;, "[TE;"
     array-length v0, p0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 278
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_12
 
     .line 279
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
@@ -433,12 +433,12 @@
     move-result-object v0
 
     .line 277
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public static of()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -456,7 +456,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -485,7 +485,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -519,7 +519,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -558,7 +558,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -602,7 +602,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -651,7 +651,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -705,7 +705,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -764,7 +764,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -828,7 +828,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -897,7 +897,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -971,7 +971,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1050,7 +1050,7 @@
 .end method
 
 .method public static varargs of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 5
+    .registers 18
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1088,16 +1088,16 @@
 
     const/4 v4, 0x0
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_c
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_d
     const-string v2, "the total number of elements must fit in an int"
 
     invoke-static {v1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -1182,7 +1182,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1202,7 +1202,7 @@
 .end method
 
 .method public static sortedCopyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -1247,7 +1247,7 @@
 .end method
 
 .method public static sortedCopyOf(Ljava/util/Comparator;Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1290,7 +1290,7 @@
 
 # virtual methods
 .method public final add(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1312,7 +1312,7 @@
 .end method
 
 .method public final addAll(ILjava/util/Collection;)Z
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1336,7 +1336,7 @@
 .end method
 
 .method public final asList()Lcom/google/common/collect/ImmutableList;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1354,7 +1354,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1366,21 +1366,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method copyIntoArray([Ljava/lang/Object;I)I
-    .locals 4
+    .registers 7
     .param p1, "dst"    # [Ljava/lang/Object;
     .param p2, "offset"    # I
 
@@ -1395,8 +1395,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_5
+    if-ge v1, v0, :cond_12
 
     .line 560
     add-int v2, p2, v1
@@ -1410,18 +1410,18 @@
     .line 559
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 562
     .end local v1    # "i":I
-    :cond_0
+    :cond_12
     add-int v1, p2, v0
 
     return v1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1437,7 +1437,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 5
+    .registers 6
 
     .line 643
     .local p0, "this":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
@@ -1454,8 +1454,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_6
+    if-ge v2, v1, :cond_18
 
     .line 646
     mul-int/lit8 v3, v0, 0x1f
@@ -1482,16 +1482,16 @@
     .restart local v0    # "hashCode":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 651
     .end local v2    # "i":I
-    :cond_0
+    :cond_18
     return v0
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1499,23 +1499,23 @@
 
     .line 397
     .local p0, "this":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->indexOfImpl(Ljava/util/List;Ljava/lang/Object;)I
 
     move-result v0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1534,7 +1534,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 58
     .local p0, "this":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
@@ -1546,7 +1546,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1554,23 +1554,23 @@
 
     .line 402
     .local p0, "this":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->lastIndexOfImpl(Ljava/util/List;Ljava/lang/Object;)I
 
     move-result v0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public listIterator()Lcom/google/common/collect/UnmodifiableListIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1591,7 +1591,7 @@
 .end method
 
 .method public listIterator(I)Lcom/google/common/collect/UnmodifiableListIterator;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1614,7 +1614,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 371
     sget-object v0, Lcom/google/common/collect/ImmutableList;->EMPTY_ITR:Lcom/google/common/collect/UnmodifiableListIterator;
@@ -1622,7 +1622,7 @@
     return-object v0
 
     .line 373
-    :cond_0
+    :cond_10
     new-instance v0, Lcom/google/common/collect/ImmutableList$Itr;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/ImmutableList$Itr;-><init>(Lcom/google/common/collect/ImmutableList;I)V
@@ -1631,7 +1631,7 @@
 .end method
 
 .method public bridge synthetic listIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
 
     .line 58
     .local p0, "this":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
@@ -1643,7 +1643,7 @@
 .end method
 
 .method public bridge synthetic listIterator(I)Ljava/util/ListIterator;
-    .locals 0
+    .registers 2
 
     .line 58
     .local p0, "this":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
@@ -1655,7 +1655,7 @@
 .end method
 
 .method public final remove(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1676,7 +1676,7 @@
 .end method
 
 .method public reverse()Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1693,23 +1693,23 @@
 
     const/4 v1, 0x1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_9
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_9
     new-instance v0, Lcom/google/common/collect/ImmutableList$ReverseImmutableList;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableList$ReverseImmutableList;-><init>(Lcom/google/common/collect/ImmutableList;)V
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public final set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1731,7 +1731,7 @@
 .end method
 
 .method public subList(II)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 5
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1759,14 +1759,14 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 422
     return-object p0
 
     .line 423
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_10
+    if-nez v0, :cond_17
 
     .line 424
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
@@ -1776,7 +1776,7 @@
     return-object v1
 
     .line 426
-    :cond_1
+    :cond_17
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/ImmutableList;->subListUnchecked(II)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v1
@@ -1785,7 +1785,7 @@
 .end method
 
 .method public bridge synthetic subList(II)Ljava/util/List;
-    .locals 0
+    .registers 3
 
     .line 58
     .local p0, "this":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
@@ -1797,7 +1797,7 @@
 .end method
 
 .method subListUnchecked(II)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 5
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1820,7 +1820,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 678
     .local p0, "this":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"

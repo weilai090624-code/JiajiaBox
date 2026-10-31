@@ -90,7 +90,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Lkotlin/jvm/internal/Ref$LongRef;Lkotlin/jvm/internal/Ref$IntRef;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -149,7 +149,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -192,7 +192,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 13
+    .registers 15
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -201,7 +201,7 @@
     .line 296
     iget v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_e2
 
     .end local p0    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -214,7 +214,7 @@
 
     .restart local p0    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     const/4 v1, 0x0
 
     .local v1, "$i$f$forEach":I
@@ -234,7 +234,7 @@
     check-cast v5, Ljava/util/List;
 
     .local v5, "beans":Ljava/util/List;
-    :try_start_0
+    :try_start_1f
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v6, v5
@@ -245,31 +245,31 @@
 
     move-object v3, p0
 
-    goto/16 :goto_2
+    goto/16 :goto_be
 
     .end local v1    # "$i$f$forEach":I
     .end local v2    # "$i$a$-forEach-JJHomeFragment$importNodes$1$1$1":I
     .end local v5    # "beans":Ljava/util/List;
-    :pswitch_1
+    :pswitch_28
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2b
+    .catch Ljava/lang/Exception; {:try_start_1f .. :try_end_2b} :catch_2d
 
     move-object v1, p1
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 304
-    :catch_0
+    :catch_2d
     move-exception v0
 
     move-object v2, p0
 
-    goto/16 :goto_3
+    goto/16 :goto_d6
 
     .line 296
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_31
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 297
@@ -277,8 +277,12 @@
     nop
 
     .line 298
-    :try_start_1
+    :try_start_35
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;->$text:Ljava/lang/String;
+
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/FileImportGroup;->content(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
 
     move-object v2, p0
 
@@ -288,19 +292,39 @@
 
     iput v3, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;->label:I
 
+    const-string v4, "proxies:"
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_52
+
+    sget-object v4, Lio/nekohasekai/sagernet/group/RawUpdater;->INSTANCE:Lio/nekohasekai/sagernet/group/RawUpdater;
+
+    const-string v5, ""
+
+    invoke-virtual {v4, v1, v5, v2}, Lio/nekohasekai/sagernet/group/RawUpdater;->parseRaw(Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    goto :goto_56
+
+    :cond_52
     invoke-static {v1, v2}, Lio/nekohasekai/sagernet/ktx/FormatsKt;->parseProxies(Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
+    :try_end_56
+    .catch Ljava/lang/Exception; {:try_start_35 .. :try_end_56} :catch_d4
 
-    if-ne v1, v0, :cond_0
+    :goto_56
+    if-ne v1, v0, :cond_59
 
     .line 296
     return-object v0
 
     .line 298
-    :cond_0
+    :cond_59
     move-object v12, v1
 
     move-object v1, p1
@@ -310,8 +334,15 @@
     .line 296
     .end local p1    # "$result":Ljava/lang/Object;
     .local v1, "$result":Ljava/lang/Object;
-    :goto_0
-    :try_start_2
+    :goto_5c
+    :try_start_5c
+    if-nez p1, :cond_62
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object p1
+
+    :cond_62
     check-cast p1, Ljava/util/List;
 
     .line 299
@@ -319,38 +350,38 @@
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v2
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3
+    :try_end_68
+    .catch Ljava/lang/Exception; {:try_start_5c .. :try_end_68} :catch_d0
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_72
 
-    :try_start_3
+    :try_start_6a
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_6c
+    .catch Ljava/lang/Exception; {:try_start_6a .. :try_end_6c} :catch_6d
 
     return-object v0
 
     .line 304
     .end local p1    # "beans":Ljava/util/List;
-    :catch_1
+    :catch_6d
     move-exception v0
 
     move-object v2, p0
 
     move-object p1, v1
 
-    goto/16 :goto_3
+    goto/16 :goto_d6
 
     .line 300
     .restart local p1    # "beans":Ljava/util/List;
-    :cond_1
-    :try_start_4
+    :cond_72
+    :try_start_72
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;->$nodeGroupId:Lkotlin/jvm/internal/Ref$LongRef;
 
-    sget-object v3, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
+    iget-object v3, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;->$text:Ljava/lang/String;
 
-    invoke-virtual {v3}, Lio/nekohasekai/sagernet/database/DataStore;->selectedGroupForImport()J
+    invoke-static {v3}, Lio/nekohasekai/sagernet/ui/FileImportGroup;->group(Ljava/lang/String;)J
 
     move-result-wide v3
 
@@ -380,8 +411,8 @@
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_3
+    :try_end_8f
+    .catch Ljava/lang/Exception; {:try_start_72 .. :try_end_8f} :catch_d0
 
     move-object v2, p0
 
@@ -403,13 +434,13 @@
     .local v2, "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;
     .restart local v5    # "beans":Ljava/util/List;
     .local p1, "$result":Ljava/lang/Object;
-    :goto_1
-    :try_start_5
+    :goto_96
+    :try_start_96
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_c4
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -446,13 +477,13 @@
     move-result-object v8
 
     .end local v6    # "it":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    if-ne v8, v0, :cond_2
+    if-ne v8, v0, :cond_b9
 
     .line 296
     return-object v0
 
     .line 302
-    :cond_2
+    :cond_b9
     move-object v6, v5
 
     move-object v5, v4
@@ -468,7 +499,7 @@
     .local v2, "$i$a$-forEach-JJHomeFragment$importNodes$1$1$1":I
     .local v3, "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;
     .local v6, "beans":Ljava/util/List;
-    :goto_2
+    :goto_be
     nop
 
     .line 1014
@@ -481,14 +512,14 @@
 
     move-object v5, v6
 
-    goto :goto_1
+    goto :goto_96
 
     .line 1015
     .end local v3    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;
     .end local v6    # "beans":Ljava/util/List;
     .local v2, "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;
     .restart local v5    # "beans":Ljava/util/List;
-    :cond_3
+    :cond_c4
     nop
 
     .line 303
@@ -500,33 +531,33 @@
     move-result v1
 
     iput v1, v0, Lkotlin/jvm/internal/Ref$IntRef;->element:I
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
+    :try_end_cd
+    .catch Ljava/lang/Exception; {:try_start_96 .. :try_end_cd} :catch_ce
 
     .end local v5    # "beans":Ljava/util/List;
-    goto :goto_4
+    goto :goto_de
 
     .line 304
-    :catch_2
+    :catch_ce
     move-exception v0
 
-    goto :goto_3
+    goto :goto_d6
 
     .end local v2    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;
     .end local p1    # "$result":Ljava/lang/Object;
     .local v1, "$result":Ljava/lang/Object;
-    :catch_3
+    :catch_d0
     move-exception v0
 
     move-object v2, p0
 
     move-object p1, v1
 
-    goto :goto_3
+    goto :goto_d6
 
     .end local v1    # "$result":Ljava/lang/Object;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catch_4
+    :catch_d4
     move-exception v0
 
     move-object v2, p0
@@ -534,7 +565,7 @@
     .line 305
     .local v0, "e":Ljava/lang/Exception;
     .restart local v2    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1$1;
-    :goto_3
+    :goto_d6
     sget-object v1, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v3, v0
@@ -545,15 +576,17 @@
 
     .line 307
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_4
+    :goto_de
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    nop
+
+    :pswitch_data_e2
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_31
+        :pswitch_28
+        :pswitch_11
     .end packed-switch
 .end method

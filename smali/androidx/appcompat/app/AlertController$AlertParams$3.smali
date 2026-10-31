@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AlertController$AlertParams;Landroidx/appcompat/app/AlertController;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/appcompat/app/AlertController$AlertParams;
 
     .line 1065
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 2
+    .registers 8
     .param p2, "v"    # Landroid/view/View;
     .param p3, "position"    # I
     .param p4, "id"    # J
@@ -72,7 +72,7 @@
 
     iget-boolean v0, v0, Landroidx/appcompat/app/AlertController$AlertParams;->mIsSingleChoice:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 1070
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$AlertParams$3;->val$dialog:Landroidx/appcompat/app/AlertController;
@@ -82,6 +82,6 @@
     invoke-virtual {v0}, Landroidx/appcompat/app/AppCompatDialog;->dismiss()V
 
     .line 1072
-    :cond_0
+    :cond_18
     return-void
 .end method

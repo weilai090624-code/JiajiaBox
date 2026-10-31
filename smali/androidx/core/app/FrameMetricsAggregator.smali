@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 198
     const/4 v0, 0x1
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "metricTypeFlags"    # I
 
     .line 211
@@ -84,7 +84,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 213
     new-instance v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -93,10 +93,10 @@
 
     iput-object v0, p0, Landroidx/core/app/FrameMetricsAggregator;->mInstance:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 215
-    :cond_0
+    :cond_11
     new-instance v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
     invoke-direct {v0}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;-><init>()V
@@ -104,14 +104,14 @@
     iput-object v0, p0, Landroidx/core/app/FrameMetricsAggregator;->mInstance:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
     .line 217
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 225
@@ -124,7 +124,7 @@
 .end method
 
 .method public getMetrics()[Landroid/util/SparseIntArray;
-    .locals 1
+    .registers 2
 
     .line 300
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator;->mInstance:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
@@ -137,7 +137,7 @@
 .end method
 
 .method public remove(Landroid/app/Activity;)[Landroid/util/SparseIntArray;
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 242
@@ -151,7 +151,7 @@
 .end method
 
 .method public reset()[Landroid/util/SparseIntArray;
-    .locals 1
+    .registers 2
 
     .line 272
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator;->mInstance:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
@@ -164,7 +164,7 @@
 .end method
 
 .method public stop()[Landroid/util/SparseIntArray;
-    .locals 1
+    .registers 2
 
     .line 259
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator;->mInstance:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;

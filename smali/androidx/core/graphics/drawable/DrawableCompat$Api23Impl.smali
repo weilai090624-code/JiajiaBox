@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 481
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getLayoutDirection(Landroid/graphics/drawable/Drawable;)I
-    .locals 1
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 492
@@ -38,7 +38,7 @@
 .end method
 
 .method static setLayoutDirection(Landroid/graphics/drawable/Drawable;I)Z
-    .locals 1
+    .registers 3
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "layoutDirection"    # I
 

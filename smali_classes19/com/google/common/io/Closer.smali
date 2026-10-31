@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 99
     invoke-static {}, Lcom/google/common/io/Closer$SuppressingSuppressor;->tryCreate()Lcom/google/common/io/Closer$SuppressingSuppressor;
@@ -53,16 +53,16 @@
 
     .line 100
     .local v0, "suppressingSuppressor":Lcom/google/common/io/Closer$SuppressingSuppressor;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     sget-object v1, Lcom/google/common/io/Closer$LoggingSuppressor;->INSTANCE:Lcom/google/common/io/Closer$LoggingSuppressor;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     move-object v1, v0
 
-    :goto_0
+    :goto_a
     sput-object v1, Lcom/google/common/io/Closer;->SUPPRESSOR:Lcom/google/common/io/Closer$Suppressor;
 
     .line 101
@@ -71,7 +71,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/io/Closer$Suppressor;)V
-    .locals 2
+    .registers 4
     .param p1, "suppressor"    # Lcom/google/common/io/Closer$Suppressor;
 
     .line 115
@@ -100,7 +100,7 @@
 .end method
 
 .method public static create()Lcom/google/common/io/Closer;
-    .locals 2
+    .registers 2
 
     .line 105
     new-instance v0, Lcom/google/common/io/Closer;
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -127,14 +127,14 @@
 
     .line 215
     .local v0, "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_2
     iget-object v1, p0, Lcom/google/common/io/Closer;->stack:Ljava/util/Deque;
 
     invoke-interface {v1}, Ljava/util/Deque;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_21
 
     .line 216
     iget-object v1, p0, Lcom/google/common/io/Closer;->stack:Ljava/util/Deque;
@@ -147,29 +147,29 @@
 
     .line 218
     .local v1, "closeable":Ljava/io/Closeable;
-    :try_start_0
+    :try_start_12
     invoke-interface {v1}, Ljava/io/Closeable;->close()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_12 .. :try_end_15} :catchall_16
 
     .line 225
-    goto :goto_1
+    goto :goto_20
 
     .line 219
-    :catchall_0
+    :catchall_16
     move-exception v2
 
     .line 220
     .local v2, "e":Ljava/lang/Throwable;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 221
     move-object v0, v2
 
-    goto :goto_1
+    goto :goto_20
 
     .line 223
-    :cond_0
+    :cond_1b
     iget-object v3, p0, Lcom/google/common/io/Closer;->suppressor:Lcom/google/common/io/Closer$Suppressor;
 
     invoke-interface {v3, v1, v0, v2}, Lcom/google/common/io/Closer$Suppressor;->suppress(Ljava/io/Closeable;Ljava/lang/Throwable;Ljava/lang/Throwable;)V
@@ -177,21 +177,21 @@
     .line 226
     .end local v1    # "closeable":Ljava/io/Closeable;
     .end local v2    # "e":Ljava/lang/Throwable;
-    :goto_1
-    goto :goto_0
-
-    .line 228
-    :cond_1
-    iget-object v1, p0, Lcom/google/common/io/Closer;->thrown:Ljava/lang/Throwable;
-
-    if-nez v1, :cond_3
-
-    if-nez v0, :cond_2
-
+    :goto_20
     goto :goto_2
 
+    .line 228
+    :cond_21
+    iget-object v1, p0, Lcom/google/common/io/Closer;->thrown:Ljava/lang/Throwable;
+
+    if-nez v1, :cond_33
+
+    if-nez v0, :cond_28
+
+    goto :goto_33
+
     .line 229
-    :cond_2
+    :cond_28
     const-class v1, Ljava/io/IOException;
 
     invoke-static {v0, v1}, Lcom/google/common/base/Throwables;->propagateIfPossible(Ljava/lang/Throwable;Ljava/lang/Class;)V
@@ -204,13 +204,13 @@
     throw v1
 
     .line 232
-    :cond_3
-    :goto_2
+    :cond_33
+    :goto_33
     return-void
 .end method
 
 .method public register(Ljava/io/Closeable;)Ljava/io/Closeable;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/io/Closeable;
         .annotation runtime Lcom/google/common/io/ParametricNullness;
         .end annotation
@@ -228,7 +228,7 @@
 
     .line 129
     .local p1, "closeable":Ljava/io/Closeable;, "TC;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 130
     iget-object v0, p0, Lcom/google/common/io/Closer;->stack:Ljava/util/Deque;
@@ -236,12 +236,12 @@
     invoke-interface {v0, p1}, Ljava/util/Deque;->addFirst(Ljava/lang/Object;)V
 
     .line 133
-    :cond_0
+    :cond_7
     return-object p1
 .end method
 
 .method public rethrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
-    .locals 1
+    .registers 3
     .param p1, "e"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -269,7 +269,7 @@
 .end method
 
 .method public rethrow(Ljava/lang/Throwable;Ljava/lang/Class;)Ljava/lang/RuntimeException;
-    .locals 1
+    .registers 4
     .param p1, "e"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -317,7 +317,7 @@
 .end method
 
 .method public rethrow(Ljava/lang/Throwable;Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/RuntimeException;
-    .locals 1
+    .registers 5
     .param p1, "e"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {

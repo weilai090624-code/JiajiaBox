@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/core/state/State;)V
-    .locals 1
+    .registers 3
     .param p1, "state"    # Landroidx/constraintlayout/core/state/State;
 
     .line 28
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public apply()V
-    .locals 5
+    .registers 6
 
     .line 32
     iget-object v0, p0, Landroidx/constraintlayout/core/state/helpers/AlignVerticallyReference;->mReferences:Ljava/util/ArrayList;
@@ -38,12 +38,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_59
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -64,75 +64,75 @@
     .line 35
     iget-object v3, p0, Landroidx/constraintlayout/core/state/helpers/AlignVerticallyReference;->mTopToTop:Ljava/lang/Object;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_23
 
     .line 36
     iget-object v3, p0, Landroidx/constraintlayout/core/state/helpers/AlignVerticallyReference;->mTopToTop:Ljava/lang/Object;
 
     invoke-virtual {v2, v3}, Landroidx/constraintlayout/core/state/ConstraintReference;->topToTop(Ljava/lang/Object;)Landroidx/constraintlayout/core/state/ConstraintReference;
 
-    goto :goto_1
+    goto :goto_32
 
     .line 37
-    :cond_0
+    :cond_23
     iget-object v3, p0, Landroidx/constraintlayout/core/state/helpers/AlignVerticallyReference;->mTopToBottom:Ljava/lang/Object;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2d
 
     .line 38
     iget-object v3, p0, Landroidx/constraintlayout/core/state/helpers/AlignVerticallyReference;->mTopToBottom:Ljava/lang/Object;
 
     invoke-virtual {v2, v3}, Landroidx/constraintlayout/core/state/ConstraintReference;->topToBottom(Ljava/lang/Object;)Landroidx/constraintlayout/core/state/ConstraintReference;
 
-    goto :goto_1
+    goto :goto_32
 
     .line 40
-    :cond_1
+    :cond_2d
     sget-object v3, Landroidx/constraintlayout/core/state/State;->PARENT:Ljava/lang/Integer;
 
     invoke-virtual {v2, v3}, Landroidx/constraintlayout/core/state/ConstraintReference;->topToTop(Ljava/lang/Object;)Landroidx/constraintlayout/core/state/ConstraintReference;
 
     .line 42
-    :goto_1
+    :goto_32
     iget-object v3, p0, Landroidx/constraintlayout/core/state/helpers/AlignVerticallyReference;->mBottomToTop:Ljava/lang/Object;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3c
 
     .line 43
     iget-object v3, p0, Landroidx/constraintlayout/core/state/helpers/AlignVerticallyReference;->mBottomToTop:Ljava/lang/Object;
 
     invoke-virtual {v2, v3}, Landroidx/constraintlayout/core/state/ConstraintReference;->bottomToTop(Ljava/lang/Object;)Landroidx/constraintlayout/core/state/ConstraintReference;
 
-    goto :goto_2
+    goto :goto_4b
 
     .line 44
-    :cond_2
+    :cond_3c
     iget-object v3, p0, Landroidx/constraintlayout/core/state/helpers/AlignVerticallyReference;->mBottomToBottom:Ljava/lang/Object;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_46
 
     .line 45
     iget-object v3, p0, Landroidx/constraintlayout/core/state/helpers/AlignVerticallyReference;->mBottomToBottom:Ljava/lang/Object;
 
     invoke-virtual {v2, v3}, Landroidx/constraintlayout/core/state/ConstraintReference;->bottomToBottom(Ljava/lang/Object;)Landroidx/constraintlayout/core/state/ConstraintReference;
 
-    goto :goto_2
+    goto :goto_4b
 
     .line 47
-    :cond_3
+    :cond_46
     sget-object v3, Landroidx/constraintlayout/core/state/State;->PARENT:Ljava/lang/Integer;
 
     invoke-virtual {v2, v3}, Landroidx/constraintlayout/core/state/ConstraintReference;->bottomToBottom(Ljava/lang/Object;)Landroidx/constraintlayout/core/state/ConstraintReference;
 
     .line 49
-    :goto_2
+    :goto_4b
     iget v3, p0, Landroidx/constraintlayout/core/state/helpers/AlignVerticallyReference;->mBias:F
 
     const/high16 v4, 0x3f000000    # 0.5f
 
     cmpl-float v3, v3, v4
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_58
 
     .line 50
     iget v3, p0, Landroidx/constraintlayout/core/state/helpers/AlignVerticallyReference;->mBias:F
@@ -142,10 +142,10 @@
     .line 52
     .end local v1    # "key":Ljava/lang/Object;
     .end local v2    # "reference":Landroidx/constraintlayout/core/state/ConstraintReference;
-    :cond_4
-    goto :goto_0
+    :cond_58
+    goto :goto_6
 
     .line 53
-    :cond_5
+    :cond_59
     return-void
 .end method

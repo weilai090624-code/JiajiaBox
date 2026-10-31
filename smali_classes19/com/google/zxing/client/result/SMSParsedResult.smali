@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 6
     .param p1, "number"    # Ljava/lang/String;
     .param p2, "via"    # Ljava/lang/String;
     .param p3, "subject"    # Ljava/lang/String;
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 6
     .param p1, "numbers"    # [Ljava/lang/String;
     .param p2, "vias"    # [Ljava/lang/String;
     .param p3, "subject"    # Ljava/lang/String;
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public getBody()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 102
     iget-object v0, p0, Lcom/google/zxing/client/result/SMSParsedResult;->body:Ljava/lang/String;
@@ -90,7 +90,7 @@
 .end method
 
 .method public getDisplayResult()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 107
     new-instance v0, Ljava/lang/StringBuilder;
@@ -124,7 +124,7 @@
 .end method
 
 .method public getNumbers()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 90
     iget-object v0, p0, Lcom/google/zxing/client/result/SMSParsedResult;->numbers:[Ljava/lang/String;
@@ -133,7 +133,7 @@
 .end method
 
 .method public getSMSURI()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 55
     new-instance v0, Ljava/lang/StringBuilder;
@@ -158,29 +158,29 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_e
     iget-object v3, p0, Lcom/google/zxing/client/result/SMSParsedResult;->numbers:[Ljava/lang/String;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_3c
 
     .line 59
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 60
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 62
-    :cond_0
+    :cond_17
     const/16 v3, 0x2c
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 64
-    :goto_1
+    :goto_1c
     iget-object v3, p0, Lcom/google/zxing/client/result/SMSParsedResult;->numbers:[Ljava/lang/String;
 
     aget-object v3, v3, v2
@@ -190,13 +190,13 @@
     .line 65
     iget-object v3, p0, Lcom/google/zxing/client/result/SMSParsedResult;->vias:[Ljava/lang/String;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_39
 
     iget-object v3, p0, Lcom/google/zxing/client/result/SMSParsedResult;->vias:[Ljava/lang/String;
 
     aget-object v3, v3, v2
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_39
 
     .line 66
     const-string v3, ";via="
@@ -211,53 +211,53 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 58
-    :cond_1
+    :cond_39
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 70
     .end local v2    # "i":I
-    :cond_2
+    :cond_3c
     iget-object v2, p0, Lcom/google/zxing/client/result/SMSParsedResult;->body:Ljava/lang/String;
 
     const/4 v3, 0x0
 
     const/4 v4, 0x1
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_44
 
     const/4 v2, 0x1
 
-    goto :goto_2
+    goto :goto_45
 
-    :cond_3
+    :cond_44
     const/4 v2, 0x0
 
     .line 71
     .local v2, "hasBody":Z
-    :goto_2
+    :goto_45
     iget-object v5, p0, Lcom/google/zxing/client/result/SMSParsedResult;->subject:Ljava/lang/String;
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_4a
 
     const/4 v3, 0x1
 
     .line 72
     .local v3, "hasSubject":Z
-    :cond_4
-    if-nez v2, :cond_5
+    :cond_4a
+    if-nez v2, :cond_4e
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_72
 
     .line 73
-    :cond_5
+    :cond_4e
     const/16 v4, 0x3f
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 74
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5f
 
     .line 75
     const-string v4, "body="
@@ -270,11 +270,11 @@
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 78
-    :cond_6
-    if-eqz v3, :cond_8
+    :cond_5f
+    if-eqz v3, :cond_72
 
     .line 79
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_68
 
     .line 80
     const/16 v4, 0x26
@@ -282,7 +282,7 @@
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 82
-    :cond_7
+    :cond_68
     const-string v4, "subject="
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -293,7 +293,7 @@
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 86
-    :cond_8
+    :cond_72
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -302,7 +302,7 @@
 .end method
 
 .method public getSubject()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 98
     iget-object v0, p0, Lcom/google/zxing/client/result/SMSParsedResult;->subject:Ljava/lang/String;
@@ -311,7 +311,7 @@
 .end method
 
 .method public getVias()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 94
     iget-object v0, p0, Lcom/google/zxing/client/result/SMSParsedResult;->vias:[Ljava/lang/String;

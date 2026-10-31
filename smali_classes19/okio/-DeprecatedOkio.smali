@@ -58,7 +58,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokio/-DeprecatedOkio;
 
@@ -70,7 +70,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public final appendingSink(Ljava/io/File;)Lokio/Sink;
-    .locals 1
+    .registers 3
     .param p1, "file"    # Ljava/io/File;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -107,7 +107,7 @@
 .end method
 
 .method public final blackhole()Lokio/Sink;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to extension function"
@@ -128,7 +128,7 @@
 .end method
 
 .method public final buffer(Lokio/Sink;)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .param p1, "sink"    # Lokio/Sink;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -154,7 +154,7 @@
 .end method
 
 .method public final buffer(Lokio/Source;)Lokio/BufferedSource;
-    .locals 1
+    .registers 3
     .param p1, "source"    # Lokio/Source;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -180,7 +180,7 @@
 .end method
 
 .method public final sink(Ljava/io/File;)Lokio/Sink;
-    .locals 3
+    .registers 5
     .param p1, "file"    # Ljava/io/File;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -212,7 +212,7 @@
 .end method
 
 .method public final sink(Ljava/io/OutputStream;)Lokio/Sink;
-    .locals 1
+    .registers 3
     .param p1, "outputStream"    # Ljava/io/OutputStream;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -238,7 +238,7 @@
 .end method
 
 .method public final sink(Ljava/net/Socket;)Lokio/Sink;
-    .locals 1
+    .registers 3
     .param p1, "socket"    # Ljava/net/Socket;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -264,7 +264,7 @@
 .end method
 
 .method public final varargs sink(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Lokio/Sink;
-    .locals 1
+    .registers 4
     .param p1, "path"    # Ljava/nio/file/Path;
     .param p2, "options"    # [Ljava/nio/file/OpenOption;
     .annotation runtime Lkotlin/Deprecated;
@@ -303,7 +303,7 @@
 .end method
 
 .method public final source(Ljava/io/File;)Lokio/Source;
-    .locals 1
+    .registers 3
     .param p1, "file"    # Ljava/io/File;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -329,7 +329,7 @@
 .end method
 
 .method public final source(Ljava/io/InputStream;)Lokio/Source;
-    .locals 1
+    .registers 3
     .param p1, "inputStream"    # Ljava/io/InputStream;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -355,7 +355,7 @@
 .end method
 
 .method public final source(Ljava/net/Socket;)Lokio/Source;
-    .locals 1
+    .registers 3
     .param p1, "socket"    # Ljava/net/Socket;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -381,7 +381,7 @@
 .end method
 
 .method public final varargs source(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Lokio/Source;
-    .locals 1
+    .registers 4
     .param p1, "path"    # Ljava/nio/file/Path;
     .param p2, "options"    # [Ljava/nio/file/OpenOption;
     .annotation runtime Lkotlin/Deprecated;

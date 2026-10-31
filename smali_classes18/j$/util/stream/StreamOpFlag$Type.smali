@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 344
     new-instance v0, Lj$/util/stream/StreamOpFlag$Type;
@@ -126,7 +126,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -140,7 +140,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/util/stream/StreamOpFlag$Type;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 340
@@ -156,7 +156,7 @@
 .end method
 
 .method public static values()[Lj$/util/stream/StreamOpFlag$Type;
-    .locals 1
+    .registers 1
 
     .line 340
     sget-object v0, Lj$/util/stream/StreamOpFlag$Type;->$VALUES:[Lj$/util/stream/StreamOpFlag$Type;

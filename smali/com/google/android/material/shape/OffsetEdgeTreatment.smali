@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/shape/EdgeTreatment;F)V
-    .locals 0
+    .registers 3
     .param p1, "other"    # Lcom/google/android/material/shape/EdgeTreatment;
     .param p2, "offset"    # F
 
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method forceIntersection()Z
-    .locals 1
+    .registers 2
 
     .line 40
     iget-object v0, p0, Lcom/google/android/material/shape/OffsetEdgeTreatment;->other:Lcom/google/android/material/shape/EdgeTreatment;
@@ -44,7 +44,7 @@
 .end method
 
 .method public getEdgePath(FFFLcom/google/android/material/shape/ShapePath;)V
-    .locals 2
+    .registers 7
     .param p1, "length"    # F
     .param p2, "center"    # F
     .param p3, "interpolation"    # F

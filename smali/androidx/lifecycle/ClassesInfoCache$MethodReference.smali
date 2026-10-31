@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/reflect/Method;)V
-    .locals 2
+    .registers 5
     .param p1, "callType"    # I
     .param p2, "method"    # Ljava/lang/reflect/Method;
 
@@ -52,30 +52,30 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 240
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 241
     return v0
 
     .line 243
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/lifecycle/ClassesInfoCache$MethodReference;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 244
     return v2
 
     .line 247
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Landroidx/lifecycle/ClassesInfoCache$MethodReference;
@@ -86,7 +86,7 @@
 
     iget v4, v1, Landroidx/lifecycle/ClassesInfoCache$MethodReference;->mCallType:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_26
 
     iget-object v3, p0, Landroidx/lifecycle/ClassesInfoCache$MethodReference;->mMethod:Ljava/lang/reflect/Method;
 
@@ -104,19 +104,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_26
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_2
+    :cond_26
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_27
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 253
     iget v0, p0, Landroidx/lifecycle/ClassesInfoCache$MethodReference;->mCallType:I
@@ -139,7 +139,7 @@
 .end method
 
 .method invokeCallback(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;Ljava/lang/Object;)V
-    .locals 4
+    .registers 8
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
     .param p3, "target"    # Ljava/lang/Object;
@@ -152,12 +152,12 @@
 
     const/4 v2, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_3e
 
-    goto :goto_0
+    goto :goto_27
 
     .line 228
-    :pswitch_0
+    :pswitch_8
     iget-object v0, p0, Landroidx/lifecycle/ClassesInfoCache$MethodReference;->mMethod:Ljava/lang/reflect/Method;
 
     const/4 v3, 0x2
@@ -170,10 +170,10 @@
 
     invoke-virtual {v0, p3, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_27
 
     .line 225
-    :pswitch_1
+    :pswitch_15
     iget-object v0, p0, Landroidx/lifecycle/ClassesInfoCache$MethodReference;->mMethod:Ljava/lang/reflect/Method;
 
     new-array v1, v1, [Ljava/lang/Object;
@@ -183,31 +183,31 @@
     invoke-virtual {v0, p3, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 226
-    goto :goto_0
+    goto :goto_27
 
     .line 222
-    :pswitch_2
+    :pswitch_1f
     iget-object v0, p0, Landroidx/lifecycle/ClassesInfoCache$MethodReference;->mMethod:Ljava/lang/reflect/Method;
 
     new-array v1, v2, [Ljava/lang/Object;
 
     invoke-virtual {v0, p3, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_26} :catch_30
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_26} :catch_29
 
     .line 223
     nop
 
     .line 235
-    :goto_0
+    :goto_27
     nop
 
     .line 236
     return-void
 
     .line 233
-    :catch_0
+    :catch_29
     move-exception v0
 
     .line 234
@@ -220,7 +220,7 @@
 
     .line 231
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :catch_1
+    :catch_30
     move-exception v0
 
     .line 232
@@ -239,10 +239,10 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1f
+        :pswitch_15
+        :pswitch_8
     .end packed-switch
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5559
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static createDecoratedCustomViewStyle()Landroid/app/Notification$Style;
-    .locals 1
+    .registers 1
 
     .line 5563
     new-instance v0, Landroid/app/Notification$DecoratedCustomViewStyle;

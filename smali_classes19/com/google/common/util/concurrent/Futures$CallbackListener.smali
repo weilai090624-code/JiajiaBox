@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Future;Lcom/google/common/util/concurrent/FutureCallback;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 1088
     .local p0, "this":Lcom/google/common/util/concurrent/Futures$CallbackListener;, "Lcom/google/common/util/concurrent/Futures$CallbackListener<TV;>;"
@@ -87,7 +87,7 @@
 
     instance-of v0, v0, Lcom/google/common/util/concurrent/internal/InternalFutureFailureAccess;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 1089
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->future:Ljava/util/concurrent/Future;
@@ -101,7 +101,7 @@
 
     .line 1091
     .local v0, "failure":Ljava/lang/Throwable;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 1092
     iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/FutureCallback;
@@ -113,17 +113,17 @@
 
     .line 1098
     .end local v0    # "failure":Ljava/lang/Throwable;
-    :cond_0
-    :try_start_0
+    :cond_16
+    :try_start_16
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->future:Ljava/util/concurrent/Future;
 
     invoke-static {v0}, Lcom/google/common/util/concurrent/Futures;->getDone(Ljava/util/concurrent/Future;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1c
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_16 .. :try_end_1c} :catch_2c
+    .catch Ljava/lang/RuntimeException; {:try_start_16 .. :try_end_1c} :catch_25
+    .catch Ljava/lang/Error; {:try_start_16 .. :try_end_1c} :catch_23
 
     .line 1105
     .local v0, "value":Ljava/lang/Object;, "TV;"
@@ -139,17 +139,17 @@
 
     .line 1102
     .end local v0    # "value":Ljava/lang/Object;, "TV;"
-    :catch_0
+    :catch_23
     move-exception v0
 
-    goto :goto_0
+    goto :goto_26
 
-    :catch_1
+    :catch_25
     move-exception v0
 
     .line 1103
     .local v0, "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_26
     iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/FutureCallback;
 
     invoke-interface {v1, v0}, Lcom/google/common/util/concurrent/FutureCallback;->onFailure(Ljava/lang/Throwable;)V
@@ -159,7 +159,7 @@
 
     .line 1099
     .end local v0    # "e":Ljava/lang/Throwable;
-    :catch_2
+    :catch_2c
     move-exception v0
 
     .line 1100
@@ -177,7 +177,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 1111
     .local p0, "this":Lcom/google/common/util/concurrent/Futures$CallbackListener;, "Lcom/google/common/util/concurrent/Futures$CallbackListener<TV;>;"

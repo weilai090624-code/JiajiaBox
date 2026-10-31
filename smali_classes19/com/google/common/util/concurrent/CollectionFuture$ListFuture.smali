@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableCollection;Z)V
-    .locals 0
+    .registers 3
     .param p2, "allMustSucceed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public bridge synthetic combine(Ljava/util/List;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 84
     .local p0, "this":Lcom/google/common/util/concurrent/CollectionFuture$ListFuture;, "Lcom/google/common/util/concurrent/CollectionFuture$ListFuture<TV;>;"
@@ -67,7 +67,7 @@
 .end method
 
 .method public combine(Ljava/util/List;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,12 +96,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_22
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -111,24 +111,24 @@
 
     .line 97
     .local v2, "element":Lcom/google/common/util/concurrent/CollectionFuture$Present;, "Lcom/google/common/util/concurrent/CollectionFuture$Present<TV;>;"
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     iget-object v3, v2, Lcom/google/common/util/concurrent/CollectionFuture$Present;->value:Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_1e
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 98
     .end local v2    # "element":Lcom/google/common/util/concurrent/CollectionFuture$Present;, "Lcom/google/common/util/concurrent/CollectionFuture$Present<TV;>;"
-    goto :goto_0
+    goto :goto_c
 
     .line 99
-    :cond_1
+    :cond_22
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v1

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;Landroid/os/Handler;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;
     .param p2, "arg0"    # Landroid/os/Handler;
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
-    .locals 1
+    .registers 4
     .param p1, "selfChange"    # Z
     .param p2, "uri"    # Landroid/net/Uri;
 

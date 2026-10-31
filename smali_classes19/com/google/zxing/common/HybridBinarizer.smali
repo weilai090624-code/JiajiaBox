@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/zxing/LuminanceSource;)V
-    .locals 0
+    .registers 2
     .param p1, "source"    # Lcom/google/zxing/LuminanceSource;
 
     .line 53
@@ -32,7 +32,7 @@
 .end method
 
 .method private static calculateBlackPoints([BIIII)[[I
-    .locals 20
+    .registers 25
     .param p0, "luminances"    # [B
     .param p1, "subWidth"    # I
     .param p2, "subHeight"    # I
@@ -81,8 +81,8 @@
 
     const/4 v9, 0x0
 
-    :goto_0
-    if-ge v7, v1, :cond_c
+    :goto_1c
+    if-ge v7, v1, :cond_bd
 
     .line 170
     shl-int/lit8 v10, v7, 0x3
@@ -91,18 +91,18 @@
     .local v8, "yoffset":I
     move v8, v10
 
-    if-le v10, v2, :cond_0
+    if-le v10, v2, :cond_24
 
     .line 172
     move v8, v2
 
     .line 174
-    :cond_0
+    :cond_24
     const/4 v10, 0x0
 
     .local v10, "x":I
-    :goto_1
-    if-ge v10, v0, :cond_b
+    :goto_25
+    if-ge v10, v0, :cond_b4
 
     .line 175
     shl-int/lit8 v11, v10, 0x3
@@ -111,13 +111,13 @@
     .local v9, "xoffset":I
     move v9, v11
 
-    if-le v11, v3, :cond_1
+    if-le v11, v3, :cond_2d
 
     .line 177
     move v9, v3
 
     .line 179
-    :cond_1
+    :cond_2d
     const/4 v11, 0x0
 
     .line 180
@@ -138,10 +138,10 @@
     add-int/2addr v15, v9
 
     .local v15, "offset":I
-    :goto_2
+    :goto_35
     const/16 v6, 0x8
 
-    if-ge v14, v6, :cond_7
+    if-ge v14, v6, :cond_76
 
     .line 183
     const/16 v18, 0x0
@@ -149,8 +149,8 @@
     move/from16 v4, v18
 
     .local v4, "xx":I
-    :goto_3
-    if-ge v4, v6, :cond_4
+    :goto_3d
+    if-ge v4, v6, :cond_51
 
     .line 184
     add-int v19, v15, v4
@@ -164,52 +164,52 @@
     add-int/2addr v11, v6
 
     .line 187
-    if-ge v6, v12, :cond_2
+    if-ge v6, v12, :cond_49
 
     .line 188
     move v12, v6
 
     .line 190
-    :cond_2
-    if-le v6, v13, :cond_3
+    :cond_49
+    if-le v6, v13, :cond_4c
 
     .line 191
     move v13, v6
 
     .line 183
     .end local v6    # "pixel":I
-    :cond_3
+    :cond_4c
     add-int/lit8 v4, v4, 0x1
 
     const/16 v6, 0x8
 
-    goto :goto_3
+    goto :goto_3d
 
     .line 195
     .end local v4    # "xx":I
-    :cond_4
+    :cond_51
     sub-int v4, v13, v12
 
     const/16 v6, 0x18
 
-    if-le v4, v6, :cond_6
+    if-le v4, v6, :cond_6f
 
     .line 197
-    :goto_4
+    :goto_57
     add-int/lit8 v14, v14, 0x1
 
     add-int v15, v15, p3
 
     const/16 v4, 0x8
 
-    if-ge v14, v4, :cond_6
+    if-ge v14, v4, :cond_6f
 
     .line 198
     const/4 v6, 0x0
 
     .local v6, "xx":I
-    :goto_5
-    if-ge v6, v4, :cond_5
+    :goto_60
+    if-ge v6, v4, :cond_6e
 
     .line 199
     add-int v18, v15, v6
@@ -225,14 +225,14 @@
 
     const/16 v4, 0x8
 
-    goto :goto_5
+    goto :goto_60
 
     .end local v6    # "xx":I
-    :cond_5
-    goto :goto_4
+    :cond_6e
+    goto :goto_57
 
     .line 182
-    :cond_6
+    :cond_6f
     const/4 v4, 0x1
 
     add-int/2addr v14, v4
@@ -243,9 +243,9 @@
 
     const/4 v6, 0x1
 
-    goto :goto_2
+    goto :goto_35
 
-    :cond_7
+    :cond_76
     const/4 v4, 0x1
 
     .line 206
@@ -259,15 +259,15 @@
 
     const/16 v15, 0x18
 
-    if-gt v14, v15, :cond_9
+    if-gt v14, v15, :cond_a8
 
     .line 214
     div-int/lit8 v6, v12, 0x2
 
     .line 216
-    if-lez v7, :cond_8
+    if-lez v7, :cond_a5
 
-    if-lez v10, :cond_8
+    if-lez v10, :cond_a5
 
     .line 224
     add-int/lit8 v14, v7, -0x1
@@ -302,27 +302,27 @@
 
     .line 226
     .local v14, "averageNeighborBlackPoint":I
-    if-ge v12, v14, :cond_a
+    if-ge v12, v14, :cond_aa
 
     .line 227
     move v6, v14
 
-    goto :goto_6
+    goto :goto_aa
 
     .line 216
     .end local v14    # "averageNeighborBlackPoint":I
-    :cond_8
+    :cond_a5
     const/16 v16, 0x2
 
-    goto :goto_6
+    goto :goto_aa
 
     .line 207
-    :cond_9
+    :cond_a8
     const/16 v16, 0x2
 
     .line 231
-    :cond_a
-    :goto_6
+    :cond_aa
+    :goto_aa
     aget-object v14, v5, v7
 
     aput v6, v14, v10
@@ -339,9 +339,9 @@
 
     const/4 v6, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_25
 
-    :cond_b
+    :cond_b4
     const/4 v4, 0x1
 
     const/16 v16, 0x2
@@ -355,16 +355,16 @@
 
     const/4 v6, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_1c
 
     .line 234
     .end local v7    # "y":I
-    :cond_c
+    :cond_bd
     return-object v5
 .end method
 
 .method private static calculateThresholdForBlock([BIIII[[ILcom/google/zxing/common/BitMatrix;)V
-    .locals 19
+    .registers 26
     .param p0, "luminances"    # [B
     .param p1, "subWidth"    # I
     .param p2, "subHeight"    # I
@@ -393,8 +393,8 @@
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-ge v4, v1, :cond_4
+    :goto_b
+    if-ge v4, v1, :cond_64
 
     .line 111
     shl-int/lit8 v7, v4, 0x3
@@ -403,13 +403,13 @@
     .local v5, "yoffset":I
     move v5, v7
 
-    if-le v7, v2, :cond_0
+    if-le v7, v2, :cond_13
 
     .line 113
     move v5, v2
 
     .line 115
-    :cond_0
+    :cond_13
     add-int/lit8 v7, v1, -0x3
 
     const/4 v13, 0x2
@@ -425,8 +425,8 @@
     move v15, v7
 
     .local v15, "x":I
-    :goto_1
-    if-ge v15, v0, :cond_3
+    :goto_1c
+    if-ge v15, v0, :cond_61
 
     .line 117
     shl-int/lit8 v7, v15, 0x3
@@ -435,13 +435,13 @@
     .local v6, "xoffset":I
     move v6, v7
 
-    if-le v7, v3, :cond_1
+    if-le v7, v3, :cond_24
 
     .line 119
     move v6, v3
 
     .line 121
-    :cond_1
+    :cond_24
     add-int/lit8 v7, v0, -0x3
 
     invoke-static {v15, v13, v7}, Lcom/google/zxing/common/HybridBinarizer;->cap(III)I
@@ -461,8 +461,8 @@
     .end local v7    # "sum":I
     .local v8, "z":I
     .local v17, "sum":I
-    :goto_2
-    if-gt v8, v13, :cond_2
+    :goto_2e
+    if-gt v8, v13, :cond_4f
 
     .line 124
     add-int v7, v14, v8
@@ -503,11 +503,11 @@
     .end local v7    # "blackRow":[I
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_2
+    goto :goto_2e
 
     .line 127
     .end local v8    # "z":I
-    :cond_2
+    :cond_4f
     div-int/lit8 v18, v17, 0x19
 
     .line 128
@@ -533,45 +533,45 @@
     .end local v18    # "average":I
     add-int/lit8 v15, v15, 0x1
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 110
     .end local v5    # "yoffset":I
     .end local v14    # "top":I
     .end local v15    # "x":I
-    :cond_3
+    :cond_61
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 131
     .end local v4    # "y":I
-    :cond_4
+    :cond_64
     return-void
 .end method
 
 .method private static cap(III)I
-    .locals 0
+    .registers 3
     .param p0, "value"    # I
     .param p1, "min"    # I
     .param p2, "max"    # I
 
     .line 134
-    if-ge p0, p1, :cond_0
+    if-ge p0, p1, :cond_3
 
     return p1
 
-    :cond_0
-    if-le p0, p2, :cond_1
+    :cond_3
+    if-le p0, p2, :cond_6
 
     return p2
 
-    :cond_1
+    :cond_6
     return p0
 .end method
 
 .method private static thresholdBlock([BIIIILcom/google/zxing/common/BitMatrix;)V
-    .locals 6
+    .registers 12
     .param p0, "luminances"    # [B
     .param p1, "xoffset"    # I
     .param p2, "yoffset"    # I
@@ -588,17 +588,17 @@
     add-int/2addr v1, p1
 
     .local v1, "offset":I
-    :goto_0
+    :goto_4
     const/16 v2, 0x8
 
-    if-ge v0, v2, :cond_2
+    if-ge v0, v2, :cond_21
 
     .line 147
     const/4 v3, 0x0
 
     .local v3, "x":I
-    :goto_1
-    if-ge v3, v2, :cond_1
+    :goto_9
+    if-ge v3, v2, :cond_1d
 
     .line 149
     add-int v4, v1, v3
@@ -607,7 +607,7 @@
 
     and-int/lit16 v4, v4, 0xff
 
-    if-gt v4, p3, :cond_0
+    if-gt v4, p3, :cond_1a
 
     .line 150
     add-int v4, p1, v3
@@ -617,31 +617,31 @@
     invoke-virtual {p5, v4, v5}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     .line 147
-    :cond_0
+    :cond_1a
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_9
 
     .line 146
     .end local v3    # "x":I
-    :cond_1
+    :cond_1d
     add-int/lit8 v0, v0, 0x1
 
     add-int/2addr v1, p4
 
-    goto :goto_0
+    goto :goto_4
 
     .line 154
     .end local v0    # "y":I
     .end local v1    # "offset":I
-    :cond_2
+    :cond_21
     return-void
 .end method
 
 
 # virtual methods
 .method public createBinarizer(Lcom/google/zxing/LuminanceSource;)Lcom/google/zxing/Binarizer;
-    .locals 1
+    .registers 3
     .param p1, "source"    # Lcom/google/zxing/LuminanceSource;
 
     .line 93
@@ -653,7 +653,7 @@
 .end method
 
 .method public getBlackMatrix()Lcom/google/zxing/common/BitMatrix;
-    .locals 15
+    .registers 16
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/NotFoundException;
@@ -663,7 +663,7 @@
     .line 63
     iget-object v0, p0, Lcom/google/zxing/common/HybridBinarizer;->matrix:Lcom/google/zxing/common/BitMatrix;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 64
     iget-object v0, p0, Lcom/google/zxing/common/HybridBinarizer;->matrix:Lcom/google/zxing/common/BitMatrix;
@@ -671,7 +671,7 @@
     return-object v0
 
     .line 66
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lcom/google/zxing/common/HybridBinarizer;->getLuminanceSource()Lcom/google/zxing/LuminanceSource;
 
     move-result-object v0
@@ -696,9 +696,9 @@
     .local v9, "height":I
     const/16 v2, 0x28
 
-    if-lt v0, v2, :cond_3
+    if-lt v0, v2, :cond_4c
 
-    if-lt v9, v2, :cond_3
+    if-lt v9, v2, :cond_4c
 
     .line 70
     invoke-virtual {v1}, Lcom/google/zxing/LuminanceSource;->getMatrix()[B
@@ -713,46 +713,46 @@
     .local v2, "subWidth":I
     and-int/lit8 v3, v0, 0x7
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_29
 
     .line 73
     add-int/lit8 v2, v2, 0x1
 
     move v11, v2
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 72
-    :cond_1
+    :cond_29
     move v11, v2
 
     .line 75
     .end local v2    # "subWidth":I
     .local v11, "subWidth":I
-    :goto_0
+    :goto_2a
     shr-int/lit8 v2, v9, 0x3
 
     .line 76
     .local v2, "subHeight":I
     and-int/lit8 v3, v9, 0x7
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_34
 
     .line 77
     add-int/lit8 v2, v2, 0x1
 
     move v12, v2
 
-    goto :goto_1
+    goto :goto_35
 
     .line 76
-    :cond_2
+    :cond_34
     move v12, v2
 
     .line 79
     .end local v2    # "subHeight":I
     .local v12, "subHeight":I
-    :goto_1
+    :goto_35
     invoke-static {v10, v11, v12, v0, v9}, Lcom/google/zxing/common/HybridBinarizer;->calculateBlackPoints([BIIII)[[I
 
     move-result-object v13
@@ -792,10 +792,10 @@
     .end local v12    # "subHeight":I
     .end local v13    # "blackPoints":[[I
     .end local v14    # "newMatrix":Lcom/google/zxing/common/BitMatrix;
-    goto :goto_2
+    goto :goto_52
 
     .line 86
-    :cond_3
+    :cond_4c
     invoke-super {p0}, Lcom/google/zxing/common/GlobalHistogramBinarizer;->getBlackMatrix()Lcom/google/zxing/common/BitMatrix;
 
     move-result-object v2
@@ -803,7 +803,7 @@
     iput-object v2, p0, Lcom/google/zxing/common/HybridBinarizer;->matrix:Lcom/google/zxing/common/BitMatrix;
 
     .line 88
-    :goto_2
+    :goto_52
     iget-object v2, p0, Lcom/google/zxing/common/HybridBinarizer;->matrix:Lcom/google/zxing/common/BitMatrix;
 
     return-object v2

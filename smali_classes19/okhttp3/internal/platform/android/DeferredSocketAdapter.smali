@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;)V
-    .locals 1
+    .registers 3
     .param p1, "socketAdapterFactory"    # Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
 
     const-string v0, "socketAdapterFactory"
@@ -75,16 +75,16 @@
 .end method
 
 .method private final declared-synchronized getDelegate(Ljavax/net/ssl/SSLSocket;)Lokhttp3/internal/platform/android/SocketAdapter;
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     monitor-enter p0
 
     .line 52
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/platform/android/DeferredSocketAdapter;->delegate:Lokhttp3/internal/platform/android/SocketAdapter;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     iget-object v0, p0, Lokhttp3/internal/platform/android/DeferredSocketAdapter;->socketAdapterFactory:Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
 
@@ -92,7 +92,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 53
     iget-object v0, p0, Lokhttp3/internal/platform/android/DeferredSocketAdapter;->socketAdapterFactory:Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
@@ -105,10 +105,10 @@
 
     .line 56
     .end local p0    # "this":Lokhttp3/internal/platform/android/DeferredSocketAdapter;
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lokhttp3/internal/platform/android/DeferredSocketAdapter;->delegate:Lokhttp3/internal/platform/android/SocketAdapter;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_1 .. :try_end_17} :catchall_19
 
     monitor-exit p0
 
@@ -116,13 +116,13 @@
 
     .line 51
     .end local p1    # "sslSocket":Ljavax/net/ssl/SSLSocket;
-    :catchall_0
+    :catchall_19
     move-exception p1
 
-    :try_start_1
+    :try_start_1a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_1a .. :try_end_1b} :catchall_19
 
     throw p1
 .end method
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 1
+    .registers 5
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -159,20 +159,20 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_11
     invoke-interface {v0, p1, p2, p3}, Lokhttp3/internal/platform/android/SocketAdapter;->configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
 
     .line 45
-    :goto_0
+    :goto_14
     return-void
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -184,23 +184,23 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-interface {v0, p1}, Lokhttp3/internal/platform/android/SocketAdapter;->getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method
 
 .method public isSupported()Z
-    .locals 1
+    .registers 2
 
     .line 33
     const/4 v0, 0x1
@@ -209,7 +209,7 @@
 .end method
 
 .method public matchesSocket(Ljavax/net/ssl/SSLSocket;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -227,7 +227,7 @@
 .end method
 
 .method public matchesSocketFactory(Ljavax/net/ssl/SSLSocketFactory;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 29
@@ -239,7 +239,7 @@
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 29

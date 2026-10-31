@@ -21,7 +21,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Landroid/content/res/TypedArray;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "array"    # Landroid/content/res/TypedArray;
 
@@ -39,7 +39,7 @@
 .end method
 
 .method public static obtainStyledAttributes(Landroid/content/Context;I[I)Landroidx/appcompat/widget/TintTypedArray;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "resid"    # I
     .param p2, "attrs"    # [I
@@ -57,7 +57,7 @@
 .end method
 
 .method public static obtainStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[I)Landroidx/appcompat/widget/TintTypedArray;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "set"    # Landroid/util/AttributeSet;
     .param p2, "attrs"    # [I
@@ -75,7 +75,7 @@
 .end method
 
 .method public static obtainStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III)Landroidx/appcompat/widget/TintTypedArray;
-    .locals 2
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "set"    # Landroid/util/AttributeSet;
     .param p2, "attrs"    # [I
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public getBoolean(IZ)Z
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "defValue"    # Z
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public getChangingConfigurations()I
-    .locals 1
+    .registers 2
 
     .line 258
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
@@ -127,7 +127,7 @@
 .end method
 
 .method public getColor(II)I
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "defValue"    # I
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public getColorStateList(I)Landroid/content/res/ColorStateList;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 175
@@ -152,7 +152,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 176
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
@@ -165,7 +165,7 @@
 
     .line 177
     .local v0, "resourceId":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 178
     iget-object v1, p0, Landroidx/appcompat/widget/TintTypedArray;->mContext:Landroid/content/Context;
@@ -177,7 +177,7 @@
 
     .line 180
     .local v1, "value":Landroid/content/res/ColorStateList;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 181
     return-object v1
@@ -185,7 +185,7 @@
     .line 185
     .end local v0    # "resourceId":I
     .end local v1    # "value":Landroid/content/res/ColorStateList;
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
@@ -196,7 +196,7 @@
 .end method
 
 .method public getDimension(IF)F
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "defValue"    # F
 
@@ -211,7 +211,7 @@
 .end method
 
 .method public getDimensionPixelOffset(II)I
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "defValue"    # I
 
@@ -226,7 +226,7 @@
 .end method
 
 .method public getDimensionPixelSize(II)I
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "defValue"    # I
 
@@ -241,7 +241,7 @@
 .end method
 
 .method public getDrawable(I)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 81
@@ -251,7 +251,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 82
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
@@ -264,7 +264,7 @@
 
     .line 83
     .local v0, "resourceId":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 84
     iget-object v1, p0, Landroidx/appcompat/widget/TintTypedArray;->mContext:Landroid/content/Context;
@@ -277,7 +277,7 @@
 
     .line 87
     .end local v0    # "resourceId":I
-    :cond_0
+    :cond_18
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
     invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -288,7 +288,7 @@
 .end method
 
 .method public getDrawableIfKnown(I)Landroid/graphics/drawable/Drawable;
-    .locals 4
+    .registers 6
     .param p1, "index"    # I
 
     .line 91
@@ -298,7 +298,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 92
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
@@ -311,7 +311,7 @@
 
     .line 93
     .local v0, "resourceId":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 94
     invoke-static {}, Landroidx/appcompat/widget/AppCompatDrawableManager;->get()Landroidx/appcompat/widget/AppCompatDrawableManager;
@@ -330,14 +330,14 @@
 
     .line 97
     .end local v0    # "resourceId":I
-    :cond_0
+    :cond_1d
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public getFloat(IF)F
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "defValue"    # F
 
@@ -352,7 +352,7 @@
 .end method
 
 .method public getFont(IILandroidx/core/content/res/ResourcesCompat$FontCallback;)Landroid/graphics/Typeface;
-    .locals 3
+    .registers 7
     .param p1, "index"    # I
     .param p2, "style"    # I
     .param p3, "fontCallback"    # Landroidx/core/content/res/ResourcesCompat$FontCallback;
@@ -368,7 +368,7 @@
 
     .line 121
     .local v0, "resourceId":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 122
     const/4 v1, 0x0
@@ -376,10 +376,10 @@
     return-object v1
 
     .line 124
-    :cond_0
+    :cond_b
     iget-object v1, p0, Landroidx/appcompat/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_16
 
     .line 125
     new-instance v1, Landroid/util/TypedValue;
@@ -389,7 +389,7 @@
     iput-object v1, p0, Landroidx/appcompat/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
 
     .line 127
-    :cond_1
+    :cond_16
     iget-object v1, p0, Landroidx/appcompat/widget/TintTypedArray;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Landroidx/appcompat/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
@@ -402,7 +402,7 @@
 .end method
 
 .method public getFraction(IIIF)F
-    .locals 1
+    .registers 6
     .param p1, "index"    # I
     .param p2, "base"    # I
     .param p3, "pbase"    # I
@@ -419,7 +419,7 @@
 .end method
 
 .method public getIndex(I)I
-    .locals 1
+    .registers 3
     .param p1, "at"    # I
 
     .line 139
@@ -433,7 +433,7 @@
 .end method
 
 .method public getIndexCount()I
-    .locals 1
+    .registers 2
 
     .line 135
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
@@ -446,7 +446,7 @@
 .end method
 
 .method public getInt(II)I
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "defValue"    # I
 
@@ -461,7 +461,7 @@
 .end method
 
 .method public getInteger(II)I
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "defValue"    # I
 
@@ -476,7 +476,7 @@
 .end method
 
 .method public getLayoutDimension(II)I
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "defValue"    # I
 
@@ -491,7 +491,7 @@
 .end method
 
 .method public getLayoutDimension(ILjava/lang/String;)I
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "name"    # Ljava/lang/String;
 
@@ -506,7 +506,7 @@
 .end method
 
 .method public getNonResourceString(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 155
@@ -520,7 +520,7 @@
 .end method
 
 .method public getPositionDescription()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 249
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
@@ -533,7 +533,7 @@
 .end method
 
 .method public getResourceId(II)I
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "defValue"    # I
 
@@ -548,7 +548,7 @@
 .end method
 
 .method public getResources()Landroid/content/res/Resources;
-    .locals 1
+    .registers 2
 
     .line 143
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
@@ -561,7 +561,7 @@
 .end method
 
 .method public getString(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 151
@@ -575,7 +575,7 @@
 .end method
 
 .method public getText(I)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 147
@@ -589,7 +589,7 @@
 .end method
 
 .method public getTextArray(I)[Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 221
@@ -603,7 +603,7 @@
 .end method
 
 .method public getType(I)I
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 229
@@ -620,7 +620,7 @@
 .end method
 
 .method public getValue(ILandroid/util/TypedValue;)Z
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "outValue"    # Landroid/util/TypedValue;
 
@@ -635,7 +635,7 @@
 .end method
 
 .method public getWrappedTypeArray()Landroid/content/res/TypedArray;
-    .locals 1
+    .registers 2
 
     .line 77
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
@@ -644,7 +644,7 @@
 .end method
 
 .method public hasValue(I)Z
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 241
@@ -658,7 +658,7 @@
 .end method
 
 .method public length()I
-    .locals 1
+    .registers 2
 
     .line 131
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
@@ -671,7 +671,7 @@
 .end method
 
 .method public peekValue(I)Landroid/util/TypedValue;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 245
@@ -685,7 +685,7 @@
 .end method
 
 .method public recycle()V
-    .locals 1
+    .registers 2
 
     .line 253
     iget-object v0, p0, Landroidx/appcompat/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;

@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/cache/DiskLruCache;Ljava/lang/String;JLjava/util/List;[J)V
-    .locals 1
+    .registers 8
     .param p1, "this$0"    # Lokhttp3/internal/cache/DiskLruCache;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "sequenceNumber"    # J
@@ -134,7 +134,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 3
+    .registers 4
 
     .line 830
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->sources:Ljava/util/List;
@@ -143,12 +143,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -165,15 +165,15 @@
     invoke-static {v2}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
     .end local v1    # "source":Lokio/Source;
-    goto :goto_0
+    goto :goto_6
 
     .line 833
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public final edit()Lokhttp3/internal/cache/DiskLruCache$Editor;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -195,7 +195,7 @@
 .end method
 
 .method public final getLength(I)J
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 827
@@ -207,7 +207,7 @@
 .end method
 
 .method public final getSource(I)Lokio/Source;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 824
@@ -223,7 +223,7 @@
 .end method
 
 .method public final key()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 814
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->key:Ljava/lang/String;

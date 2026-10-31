@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 173
     invoke-direct {p0}, Landroidx/emoji2/text/UnprecomputeTextOnModificationSpannable$PrecomputedTextDetector;-><init>()V
@@ -27,29 +27,29 @@
 
 # virtual methods
 .method isPrecomputedText(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     .line 177
     instance-of v0, p1, Landroid/text/PrecomputedText;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_b
 
     instance-of v0, p1, Landroidx/core/text/PrecomputedTextCompat;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_c
     return v0
 .end method

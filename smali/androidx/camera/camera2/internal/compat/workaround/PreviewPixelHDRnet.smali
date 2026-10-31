@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static setHDRnet(Landroidx/camera/core/impl/SessionConfig$Builder;)V
-    .locals 4
+    .registers 5
     .param p0, "sessionBuilder"    # Landroidx/camera/core/impl/SessionConfig$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -37,13 +37,13 @@
 
     .line 42
     .local v0, "quirk":Landroidx/camera/camera2/internal/compat/quirk/PreviewPixelHDRnetQuirk;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 43
     return-void
 
     .line 46
-    :cond_0
+    :cond_b
     new-instance v1, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
     invoke-direct {v1}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;-><init>()V

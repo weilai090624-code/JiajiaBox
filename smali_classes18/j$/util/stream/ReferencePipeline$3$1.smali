@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/ReferencePipeline$3;Lj$/util/stream/Sink;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lj$/util/stream/ReferencePipeline$3;
 
     .line 192
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TP_OUT;)V"

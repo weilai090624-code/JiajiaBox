@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method static calculateFadeOutAndInAlphas(F[F)V
-    .locals 6
+    .registers 8
     .param p0, "progress"    # F
     .param p1, "out"    # [F
 
@@ -37,7 +37,7 @@
 
     cmpg-float v0, p0, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_15
 
     .line 29
     mul-float v2, v2, p0
@@ -49,10 +49,10 @@
     .line 30
     aput v4, p1, v3
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 32
-    :cond_0
+    :cond_15
     aput v4, p1, v5
 
     .line 33
@@ -63,6 +63,6 @@
     aput v2, p1, v3
 
     .line 35
-    :goto_0
+    :goto_1c
     return-void
 .end method

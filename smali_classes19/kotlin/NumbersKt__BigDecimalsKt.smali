@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,7 +49,7 @@
 .end method
 
 .method private static final dec(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 3
     .param p0, "$this$dec"    # Ljava/math/BigDecimal;
 
     const-string v0, "<this>"
@@ -71,7 +71,7 @@
 .end method
 
 .method private static final div(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 4
     .param p0, "$this$div"    # Ljava/math/BigDecimal;
     .param p1, "other"    # Ljava/math/BigDecimal;
 
@@ -98,7 +98,7 @@
 .end method
 
 .method private static final inc(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 3
     .param p0, "$this$inc"    # Ljava/math/BigDecimal;
 
     const-string v0, "<this>"
@@ -120,7 +120,7 @@
 .end method
 
 .method private static final minus(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 4
     .param p0, "$this$minus"    # Ljava/math/BigDecimal;
     .param p1, "other"    # Ljava/math/BigDecimal;
 
@@ -145,7 +145,7 @@
 .end method
 
 .method private static final plus(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 4
     .param p0, "$this$plus"    # Ljava/math/BigDecimal;
     .param p1, "other"    # Ljava/math/BigDecimal;
 
@@ -170,7 +170,7 @@
 .end method
 
 .method private static final rem(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 4
     .param p0, "$this$rem"    # Ljava/math/BigDecimal;
     .param p1, "other"    # Ljava/math/BigDecimal;
 
@@ -195,7 +195,7 @@
 .end method
 
 .method private static final times(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 4
     .param p0, "$this$times"    # Ljava/math/BigDecimal;
     .param p1, "other"    # Ljava/math/BigDecimal;
 
@@ -220,7 +220,7 @@
 .end method
 
 .method private static final toBigDecimal(D)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 4
     .param p0, "$this$toBigDecimal"    # D
 
     .line 127
@@ -236,7 +236,7 @@
 .end method
 
 .method private static final toBigDecimal(DLjava/math/MathContext;)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 5
     .param p0, "$this$toBigDecimal"    # D
     .param p2, "mathContext"    # Ljava/math/MathContext;
 
@@ -257,7 +257,7 @@
 .end method
 
 .method private static final toBigDecimal(F)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 3
     .param p0, "$this$toBigDecimal"    # F
 
     .line 107
@@ -273,7 +273,7 @@
 .end method
 
 .method private static final toBigDecimal(FLjava/math/MathContext;)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 4
     .param p0, "$this$toBigDecimal"    # F
     .param p1, "mathContext"    # Ljava/math/MathContext;
 
@@ -294,7 +294,7 @@
 .end method
 
 .method private static final toBigDecimal(I)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 3
     .param p0, "$this$toBigDecimal"    # I
 
     .line 73
@@ -312,7 +312,7 @@
 .end method
 
 .method private static final toBigDecimal(ILjava/math/MathContext;)Ljava/math/BigDecimal;
-    .locals 1
+    .registers 3
     .param p0, "$this$toBigDecimal"    # I
     .param p1, "mathContext"    # Ljava/math/MathContext;
 
@@ -329,7 +329,7 @@
 .end method
 
 .method private static final toBigDecimal(J)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 4
     .param p0, "$this$toBigDecimal"    # J
 
     .line 89
@@ -345,7 +345,7 @@
 .end method
 
 .method private static final toBigDecimal(JLjava/math/MathContext;)Ljava/math/BigDecimal;
-    .locals 1
+    .registers 4
     .param p0, "$this$toBigDecimal"    # J
     .param p2, "mathContext"    # Ljava/math/MathContext;
 
@@ -362,7 +362,7 @@
 .end method
 
 .method private static final unaryMinus(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 3
     .param p0, "$this$unaryMinus"    # Ljava/math/BigDecimal;
 
     const-string v0, "<this>"

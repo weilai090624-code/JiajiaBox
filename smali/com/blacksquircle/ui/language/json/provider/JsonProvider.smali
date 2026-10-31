@@ -62,7 +62,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/language/json/provider/JsonProvider$Companion;
 
@@ -76,7 +76,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -93,7 +93,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lcom/blacksquircle/ui/language/json/provider/JsonProvider;-><init>()V
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public static final synthetic access$getJsonProvider$cp()Lcom/blacksquircle/ui/language/json/provider/JsonProvider;
-    .locals 1
+    .registers 1
 
     .line 24
     sget-object v0, Lcom/blacksquircle/ui/language/json/provider/JsonProvider;->jsonProvider:Lcom/blacksquircle/ui/language/json/provider/JsonProvider;
@@ -110,7 +110,7 @@
 .end method
 
 .method public static final synthetic access$setJsonProvider$cp(Lcom/blacksquircle/ui/language/json/provider/JsonProvider;)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Lcom/blacksquircle/ui/language/json/provider/JsonProvider;
 
     .line 24
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public clearLines()V
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Lcom/blacksquircle/ui/language/json/provider/JsonProvider;->wordsManager:Lcom/blacksquircle/ui/language/base/utils/WordsManager;
@@ -134,7 +134,7 @@
 .end method
 
 .method public deleteLine(I)V
-    .locals 1
+    .registers 3
     .param p1, "lineNumber"    # I
 
     .line 52
@@ -147,7 +147,7 @@
 .end method
 
 .method public getAll()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -168,7 +168,7 @@
 .end method
 
 .method public processAllLines(Lcom/blacksquircle/ui/language/base/model/TextStructure;)V
-    .locals 1
+    .registers 3
     .param p1, "structure"    # Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
     const-string/jumbo v0, "structure"
@@ -185,7 +185,7 @@
 .end method
 
 .method public processLine(ILjava/lang/CharSequence;)V
-    .locals 1
+    .registers 4
     .param p1, "lineNumber"    # I
     .param p2, "text"    # Ljava/lang/CharSequence;
 

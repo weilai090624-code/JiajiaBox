@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/asm/ClassWriter;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 8
 
     const/high16 v0, 0x50000
 
@@ -36,18 +36,18 @@
 
     iget-object v0, p1, Lcom/esotericsoftware/asm/ClassWriter;->B:Lcom/esotericsoftware/asm/FieldWriter;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     iput-object p0, p1, Lcom/esotericsoftware/asm/ClassWriter;->B:Lcom/esotericsoftware/asm/FieldWriter;
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     iget-object v0, p1, Lcom/esotericsoftware/asm/ClassWriter;->C:Lcom/esotericsoftware/asm/FieldWriter;
 
     iput-object p0, v0, Lcom/esotericsoftware/asm/FieldWriter;->fv:Lcom/esotericsoftware/asm/FieldVisitor;
 
-    :goto_0
+    :goto_10
     iput-object p0, p1, Lcom/esotericsoftware/asm/ClassWriter;->C:Lcom/esotericsoftware/asm/FieldWriter;
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
@@ -66,7 +66,7 @@
 
     iput p2, p0, Lcom/esotericsoftware/asm/FieldWriter;->e:I
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_2a
 
     invoke-virtual {p1, p5}, Lcom/esotericsoftware/asm/ClassWriter;->newUTF8(Ljava/lang/String;)I
 
@@ -74,8 +74,8 @@
 
     iput p2, p0, Lcom/esotericsoftware/asm/FieldWriter;->f:I
 
-    :cond_1
-    if-eqz p6, :cond_2
+    :cond_2a
+    if-eqz p6, :cond_34
 
     invoke-virtual {p1, p6}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/Object;)Lcom/esotericsoftware/asm/Item;
 
@@ -85,20 +85,20 @@
 
     iput p1, p0, Lcom/esotericsoftware/asm/FieldWriter;->g:I
 
-    :cond_2
+    :cond_34
     return-void
 .end method
 
 
 # virtual methods
 .method a()I
-    .locals 8
+    .registers 9
 
     iget v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->g:I
 
     const/16 v1, 0x8
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -108,17 +108,17 @@
 
     const/16 v0, 0x10
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const/16 v0, 0x8
 
-    :goto_0
+    :goto_12
     iget v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->c:I
 
     and-int/lit16 v2, v2, 0x1000
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_34
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -130,7 +130,7 @@
 
     const/16 v3, 0x31
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_2b
 
     iget v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->c:I
 
@@ -138,9 +138,9 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_34
 
-    :cond_1
+    :cond_2b
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
     const-string v3, "Synthetic"
@@ -149,14 +149,14 @@
 
     add-int/lit8 v0, v0, 0x6
 
-    :cond_2
+    :cond_34
     iget v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->c:I
 
     const/high16 v3, 0x20000
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_44
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -166,10 +166,10 @@
 
     add-int/lit8 v0, v0, 0x6
 
-    :cond_3
+    :cond_44
     iget v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->f:I
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_51
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -179,10 +179,10 @@
 
     add-int/lit8 v0, v0, 0x8
 
-    :cond_4
+    :cond_51
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->h:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_64
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -200,10 +200,10 @@
 
     add-int/2addr v0, v2
 
-    :cond_5
+    :cond_64
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->i:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_77
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -221,10 +221,10 @@
 
     add-int/2addr v0, v2
 
-    :cond_6
+    :cond_77
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->k:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8a
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -242,10 +242,10 @@
 
     add-int/2addr v0, v2
 
-    :cond_7
+    :cond_8a
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->l:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9d
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -263,10 +263,10 @@
 
     add-int/2addr v0, v2
 
-    :cond_8
+    :cond_9d
     iget-object v1, p0, Lcom/esotericsoftware/asm/FieldWriter;->j:Lcom/esotericsoftware/asm/Attribute;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_ae
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/FieldWriter;->j:Lcom/esotericsoftware/asm/Attribute;
 
@@ -286,12 +286,12 @@
 
     add-int/2addr v0, v1
 
-    :cond_9
+    :cond_ae
     return v0
 .end method
 
 .method a(Lcom/esotericsoftware/asm/ByteVector;)V
-    .locals 8
+    .registers 10
 
     iget v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->c:I
 
@@ -329,16 +329,16 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_24
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_25
     iget v3, p0, Lcom/esotericsoftware/asm/FieldWriter;->c:I
 
     and-int/lit16 v3, v3, 0x1000
@@ -347,7 +347,7 @@
 
     const v5, 0xffff
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3e
 
     iget-object v3, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -355,67 +355,67 @@
 
     and-int/2addr v3, v5
 
-    if-lt v3, v4, :cond_1
+    if-lt v3, v4, :cond_3c
 
     iget v3, p0, Lcom/esotericsoftware/asm/FieldWriter;->c:I
 
     and-int/2addr v3, v1
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3e
 
-    :cond_1
+    :cond_3c
     add-int/lit8 v0, v0, 0x1
 
-    :cond_2
+    :cond_3e
     iget v3, p0, Lcom/esotericsoftware/asm/FieldWriter;->c:I
 
     const/high16 v6, 0x20000
 
     and-int/2addr v3, v6
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_47
 
     add-int/lit8 v0, v0, 0x1
 
-    :cond_3
+    :cond_47
     iget v3, p0, Lcom/esotericsoftware/asm/FieldWriter;->f:I
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_4d
 
     add-int/lit8 v0, v0, 0x1
 
-    :cond_4
+    :cond_4d
     iget-object v3, p0, Lcom/esotericsoftware/asm/FieldWriter;->h:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_53
 
     add-int/lit8 v0, v0, 0x1
 
-    :cond_5
+    :cond_53
     iget-object v3, p0, Lcom/esotericsoftware/asm/FieldWriter;->i:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_59
 
     add-int/lit8 v0, v0, 0x1
 
-    :cond_6
+    :cond_59
     iget-object v3, p0, Lcom/esotericsoftware/asm/FieldWriter;->k:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_5f
 
     add-int/lit8 v0, v0, 0x1
 
-    :cond_7
+    :cond_5f
     iget-object v3, p0, Lcom/esotericsoftware/asm/FieldWriter;->l:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_65
 
     add-int/lit8 v0, v0, 0x1
 
-    :cond_8
+    :cond_65
     iget-object v3, p0, Lcom/esotericsoftware/asm/FieldWriter;->j:Lcom/esotericsoftware/asm/Attribute;
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_70
 
     iget-object v3, p0, Lcom/esotericsoftware/asm/FieldWriter;->j:Lcom/esotericsoftware/asm/Attribute;
 
@@ -425,14 +425,14 @@
 
     add-int/2addr v0, v3
 
-    :cond_9
+    :cond_70
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
     iget v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->g:I
 
     const/4 v3, 0x2
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_8c
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -452,12 +452,12 @@
 
     invoke-virtual {v0, v7}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_a
+    :cond_8c
     iget v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->c:I
 
     and-int/lit16 v0, v0, 0x1000
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_ad
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -465,15 +465,15 @@
 
     and-int/2addr v0, v5
 
-    if-lt v0, v4, :cond_b
+    if-lt v0, v4, :cond_9e
 
     iget v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->c:I
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_ad
 
-    :cond_b
+    :cond_9e
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
     const-string v1, "Synthetic"
@@ -488,12 +488,12 @@
 
     invoke-virtual {v0, v2}, Lcom/esotericsoftware/asm/ByteVector;->putInt(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_c
+    :cond_ad
     iget v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->c:I
 
     and-int/2addr v0, v6
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_c1
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -509,10 +509,10 @@
 
     invoke-virtual {v0, v2}, Lcom/esotericsoftware/asm/ByteVector;->putInt(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_d
+    :cond_c1
     iget v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->f:I
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_d9
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -532,10 +532,10 @@
 
     invoke-virtual {v0, v1}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    :cond_e
+    :cond_d9
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->h:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_ed
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -551,10 +551,10 @@
 
     invoke-virtual {v0, p1}, Lcom/esotericsoftware/asm/AnnotationWriter;->a(Lcom/esotericsoftware/asm/ByteVector;)V
 
-    :cond_f
+    :cond_ed
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->i:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_101
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -570,10 +570,10 @@
 
     invoke-virtual {v0, p1}, Lcom/esotericsoftware/asm/AnnotationWriter;->a(Lcom/esotericsoftware/asm/ByteVector;)V
 
-    :cond_10
+    :cond_101
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->k:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_115
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -589,10 +589,10 @@
 
     invoke-virtual {v0, p1}, Lcom/esotericsoftware/asm/AnnotationWriter;->a(Lcom/esotericsoftware/asm/ByteVector;)V
 
-    :cond_11
+    :cond_115
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->l:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_129
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
@@ -608,10 +608,10 @@
 
     invoke-virtual {v0, p1}, Lcom/esotericsoftware/asm/AnnotationWriter;->a(Lcom/esotericsoftware/asm/ByteVector;)V
 
-    :cond_12
+    :cond_129
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->j:Lcom/esotericsoftware/asm/Attribute;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_139
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/FieldWriter;->j:Lcom/esotericsoftware/asm/Attribute;
 
@@ -629,12 +629,12 @@
 
     invoke-virtual/range {v1 .. v7}, Lcom/esotericsoftware/asm/Attribute;->a(Lcom/esotericsoftware/asm/ClassWriter;[BIIILcom/esotericsoftware/asm/ByteVector;)V
 
-    :cond_13
+    :cond_139
     return-void
 .end method
 
 .method public visitAnnotation(Ljava/lang/String;Z)Lcom/esotericsoftware/asm/AnnotationVisitor;
-    .locals 6
+    .registers 9
 
     new-instance v4, Lcom/esotericsoftware/asm/ByteVector;
 
@@ -668,7 +668,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/esotericsoftware/asm/AnnotationWriter;-><init>(Lcom/esotericsoftware/asm/ClassWriter;ZLcom/esotericsoftware/asm/ByteVector;Lcom/esotericsoftware/asm/ByteVector;I)V
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_27
 
     iget-object p2, p0, Lcom/esotericsoftware/asm/FieldWriter;->h:Lcom/esotericsoftware/asm/AnnotationWriter;
 
@@ -676,21 +676,21 @@
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/FieldWriter;->h:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_27
     iget-object p2, p0, Lcom/esotericsoftware/asm/FieldWriter;->i:Lcom/esotericsoftware/asm/AnnotationWriter;
 
     iput-object p2, p1, Lcom/esotericsoftware/asm/AnnotationWriter;->g:Lcom/esotericsoftware/asm/AnnotationWriter;
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/FieldWriter;->i:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    :goto_0
+    :goto_2d
     return-object p1
 .end method
 
 .method public visitAttribute(Lcom/esotericsoftware/asm/Attribute;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/FieldWriter;->j:Lcom/esotericsoftware/asm/Attribute;
 
@@ -702,13 +702,13 @@
 .end method
 
 .method public visitEnd()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public visitTypeAnnotation(ILcom/esotericsoftware/asm/TypePath;Ljava/lang/String;Z)Lcom/esotericsoftware/asm/AnnotationVisitor;
-    .locals 6
+    .registers 11
 
     new-instance v4, Lcom/esotericsoftware/asm/ByteVector;
 
@@ -746,7 +746,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/esotericsoftware/asm/AnnotationWriter;-><init>(Lcom/esotericsoftware/asm/ClassWriter;ZLcom/esotericsoftware/asm/ByteVector;Lcom/esotericsoftware/asm/ByteVector;I)V
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_2d
 
     iget-object p2, p0, Lcom/esotericsoftware/asm/FieldWriter;->k:Lcom/esotericsoftware/asm/AnnotationWriter;
 
@@ -754,15 +754,15 @@
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/FieldWriter;->k:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_0
+    :cond_2d
     iget-object p2, p0, Lcom/esotericsoftware/asm/FieldWriter;->l:Lcom/esotericsoftware/asm/AnnotationWriter;
 
     iput-object p2, p1, Lcom/esotericsoftware/asm/AnnotationWriter;->g:Lcom/esotericsoftware/asm/AnnotationWriter;
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/FieldWriter;->l:Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    :goto_0
+    :goto_33
     return-object p1
 .end method

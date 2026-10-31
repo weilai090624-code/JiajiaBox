@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/collections/AbstractList;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lkotlin/collections/AbstractList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method protected final getIndex()I
-    .locals 1
+    .registers 2
 
     .line 78
     iget v0, p0, Lkotlin/collections/AbstractList$IteratorImpl;->index:I
@@ -99,7 +99,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 80
     iget v0, p0, Lkotlin/collections/AbstractList$IteratorImpl;->index:I
@@ -110,21 +110,21 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -136,7 +136,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 84
     iget-object v0, p0, Lkotlin/collections/AbstractList$IteratorImpl;->this$0:Lkotlin/collections/AbstractList;
@@ -154,7 +154,7 @@
     return-object v0
 
     .line 83
-    :cond_0
+    :cond_13
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -163,7 +163,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -175,7 +175,7 @@
 .end method
 
 .method protected final setIndex(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 78

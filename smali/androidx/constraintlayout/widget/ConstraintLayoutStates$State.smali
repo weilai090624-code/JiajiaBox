@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 9
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -87,8 +87,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_2
+    :goto_1c
+    if-ge v3, v2, :cond_68
 
     .line 150
     invoke-virtual {v1, v3}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -99,7 +99,7 @@
     .local v4, "attr":I
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->State_android_id:I
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_2f
 
     .line 152
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintLayoutStates$State;->mId:I
@@ -110,13 +110,13 @@
 
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintLayoutStates$State;->mId:I
 
-    goto :goto_1
+    goto :goto_65
 
     .line 153
-    :cond_0
+    :cond_2f
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->State_constraints:I
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_65
 
     .line 154
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintLayoutStates$State;->mConstraintID:I
@@ -158,7 +158,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_65
 
     .line 159
     new-instance v7, Landroidx/constraintlayout/widget/ConstraintSet;
@@ -178,15 +178,15 @@
     .end local v4    # "attr":I
     .end local v5    # "type":Ljava/lang/String;
     .end local v6    # "name":Ljava/lang/String;
-    :cond_1
-    :goto_1
+    :cond_65
+    :goto_65
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 167
     .end local v3    # "i":I
-    :cond_2
+    :cond_68
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 168
@@ -196,7 +196,7 @@
 
 # virtual methods
 .method add(Landroidx/constraintlayout/widget/ConstraintLayoutStates$Variant;)V
-    .locals 1
+    .registers 3
     .param p1, "size"    # Landroidx/constraintlayout/widget/ConstraintLayoutStates$Variant;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -217,7 +217,7 @@
 .end method
 
 .method public findMatch(FF)I
-    .locals 2
+    .registers 5
     .param p1, "width"    # F
     .param p2, "height"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -235,14 +235,14 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Landroidx/constraintlayout/widget/ConstraintLayoutStates$State;->mVariants:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1b
 
     .line 176
     iget-object v1, p0, Landroidx/constraintlayout/widget/ConstraintLayoutStates$State;->mVariants:Ljava/util/ArrayList;
@@ -257,20 +257,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 177
     return v0
 
     .line 175
-    :cond_0
+    :cond_18
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 180
     .end local v0    # "i":I
-    :cond_1
+    :cond_1b
     const/4 v0, -0x1
 
     return v0

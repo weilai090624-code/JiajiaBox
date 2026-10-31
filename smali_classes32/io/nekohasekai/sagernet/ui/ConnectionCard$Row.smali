@@ -38,7 +38,7 @@
         }
     .end annotation
 
-    .line 102
+    .line 116
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->getContext()Landroid/content/Context;
@@ -51,7 +51,7 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->setOrientation(I)V
 
-    const/high16 v1, 0x40a00000    # 5.0f
+    const/high16 v1, 0x40c00000    # 6.0f
 
     # invokes: Lio/nekohasekai/sagernet/ui/ConnectionCard;->dp(F)I
     invoke-static {p1, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$300(Lio/nekohasekai/sagernet/ui/ConnectionCard;F)I
@@ -67,7 +67,7 @@
 
     invoke-virtual {p0, v3, v2, v3, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->setPadding(IIII)V
 
-    const/16 v1, 0xc
+    const/16 v1, 0xd
 
     const-string v2, ""
 
@@ -83,14 +83,12 @@
     # invokes: Lio/nekohasekai/sagernet/ui/ConnectionCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
     invoke-static {p1, v2, v4, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$400(Lio/nekohasekai/sagernet/ui/ConnectionCard;Ljava/lang/String;IZ)Landroid/widget/TextView;
 
-    move-result-object v4
+    move-result-object v5
 
-    iput-object v4, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->host:Landroid/widget/TextView;
-
-    const/16 v5, 0xa
+    iput-object v5, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->host:Landroid/widget/TextView;
 
     # invokes: Lio/nekohasekai/sagernet/ui/ConnectionCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
-    invoke-static {p1, v2, v5, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$400(Lio/nekohasekai/sagernet/ui/ConnectionCard;Ljava/lang/String;IZ)Landroid/widget/TextView;
+    invoke-static {p1, v2, v4, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$400(Lio/nekohasekai/sagernet/ui/ConnectionCard;Ljava/lang/String;IZ)Landroid/widget/TextView;
 
     move-result-object p1
 
@@ -100,7 +98,7 @@
 
     invoke-virtual {p0, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->addView(Landroid/view/View;)V
 
-    invoke-virtual {p0, v4}, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v5}, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->addView(Landroid/view/View;)V
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->addView(Landroid/view/View;)V
 
@@ -122,7 +120,7 @@
 .method bind(Lorg/json/JSONObject;)V
     .registers 7
 
-    .line 103
+    .line 117
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->value:Lorg/json/JSONObject;
 
     const-string v0, "metadata"
@@ -280,7 +278,7 @@
 .method synthetic lambda$new$0$io-nekohasekai-sagernet-ui-ConnectionCard$Row(Landroid/view/View;)V
     .registers 4
 
-    .line 102
+    .line 116
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->value:Lorg/json/JSONObject;
 
     if-eqz p1, :cond_13

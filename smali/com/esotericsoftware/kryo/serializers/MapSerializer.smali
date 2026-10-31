@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 47
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/MapSerializer;, "Lcom/esotericsoftware/kryo/serializers/MapSerializer<TT;>;"
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public bridge synthetic copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 42
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/MapSerializer;, "Lcom/esotericsoftware/kryo/serializers/MapSerializer<TT;>;"
@@ -74,7 +74,7 @@
 .end method
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/Map;)Ljava/util/Map;
-    .locals 5
+    .registers 8
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -102,12 +102,12 @@
     move-result-object v1
 
     .local v1, "iter":Ljava/util/Iterator;
-    :goto_0
+    :goto_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2c
 
     .line 249
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -138,16 +138,16 @@
 
     .line 251
     .end local v2    # "entry":Ljava/util/Map$Entry;
-    goto :goto_0
+    goto :goto_c
 
     .line 252
     .end local v1    # "iter":Ljava/util/Iterator;
-    :cond_0
+    :cond_2c
     return-object v0
 .end method
 
 .method protected create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/Map;
-    .locals 2
+    .registers 7
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p4, "size"    # I
@@ -166,23 +166,23 @@
     .local p3, "type":Ljava/lang/Class;, "Ljava/lang/Class<+TT;>;"
     const-class v0, Ljava/util/HashMap;
 
-    if-ne p3, v0, :cond_2
+    if-ne p3, v0, :cond_1c
 
     .line 177
     const/4 v0, 0x3
 
-    if-ge p4, v0, :cond_0
+    if-ge p4, v0, :cond_a
 
     .line 178
     add-int/lit8 p4, p4, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 179
-    :cond_0
+    :cond_a
     const/high16 v0, 0x40000000    # 2.0f
 
-    if-ge p4, v0, :cond_1
+    if-ge p4, v0, :cond_16
 
     .line 180
     int-to-float v0, p4
@@ -198,8 +198,8 @@
     float-to-int p4, v0
 
     .line 181
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0, p4}, Ljava/util/HashMap;-><init>(I)V
@@ -207,7 +207,7 @@
     return-object v0
 
     .line 183
-    :cond_2
+    :cond_1c
     invoke-virtual {p1, p3}, Lcom/esotericsoftware/kryo/Kryo;->newInstance(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
@@ -218,7 +218,7 @@
 .end method
 
 .method protected createCopy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -245,7 +245,7 @@
 .end method
 
 .method public getKeyClass()Ljava/lang/Class;
-    .locals 1
+    .registers 2
 
     .line 64
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/MapSerializer;, "Lcom/esotericsoftware/kryo/serializers/MapSerializer<TT;>;"
@@ -255,7 +255,7 @@
 .end method
 
 .method public getKeySerializer()Lcom/esotericsoftware/kryo/Serializer;
-    .locals 1
+    .registers 2
 
     .line 80
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/MapSerializer;, "Lcom/esotericsoftware/kryo/serializers/MapSerializer<TT;>;"
@@ -265,7 +265,7 @@
 .end method
 
 .method public getValueClass()Ljava/lang/Class;
-    .locals 1
+    .registers 2
 
     .line 90
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/MapSerializer;, "Lcom/esotericsoftware/kryo/serializers/MapSerializer<TT;>;"
@@ -275,7 +275,7 @@
 .end method
 
 .method public getValueSerializer()Lcom/esotericsoftware/kryo/Serializer;
-    .locals 1
+    .registers 2
 
     .line 106
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/MapSerializer;, "Lcom/esotericsoftware/kryo/serializers/MapSerializer<TT;>;"
@@ -285,7 +285,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 42
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/MapSerializer;, "Lcom/esotericsoftware/kryo/serializers/MapSerializer<TT;>;"
@@ -297,7 +297,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Map;
-    .locals 11
+    .registers 15
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .annotation system Ldalvik/annotation/Signature;
@@ -321,14 +321,14 @@
 
     .line 188
     .local v1, "length":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 189
-    :cond_0
+    :cond_9
     add-int/lit8 v1, v1, -0x1
 
     .line 191
@@ -341,12 +341,12 @@
     invoke-virtual {p1, v2}, Lcom/esotericsoftware/kryo/Kryo;->reference(Ljava/lang/Object;)V
 
     .line 193
-    if-nez v1, :cond_1
+    if-nez v1, :cond_15
 
     return-object v2
 
     .line 195
-    :cond_1
+    :cond_15
     iget-object v3, p0, Lcom/esotericsoftware/kryo/serializers/MapSerializer;->keyClass:Ljava/lang/Class;
 
     .line 196
@@ -374,10 +374,10 @@
     .local v7, "genericTypes":[Lcom/esotericsoftware/kryo/util/Generics$GenericType;
     const/4 v8, 0x0
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_5a
 
     .line 201
-    if-nez v5, :cond_2
+    if-nez v5, :cond_41
 
     .line 202
     aget-object v9, v7, v8
@@ -392,13 +392,13 @@
 
     .line 203
     .local v9, "genericClass":Ljava/lang/Class;
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_41
 
     invoke-virtual {p1, v9}, Lcom/esotericsoftware/kryo/Kryo;->isFinal(Ljava/lang/Class;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_41
 
     .line 204
     invoke-virtual {p1, v9}, Lcom/esotericsoftware/kryo/Kryo;->getSerializer(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
@@ -410,8 +410,8 @@
 
     .line 208
     .end local v9    # "genericClass":Ljava/lang/Class;
-    :cond_2
-    if-nez v6, :cond_3
+    :cond_41
+    if-nez v6, :cond_5a
 
     .line 209
     aget-object v0, v7, v0
@@ -426,13 +426,13 @@
 
     .line 210
     .local v0, "genericClass":Ljava/lang/Class;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5a
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/Kryo;->isFinal(Ljava/lang/Class;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_5a
 
     .line 211
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/Kryo;->getSerializer(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
@@ -444,15 +444,15 @@
 
     .line 217
     .end local v0    # "genericClass":Ljava/lang/Class;
-    :cond_3
+    :cond_5a
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, v1, :cond_a
+    :goto_5b
+    if-ge v0, v1, :cond_9f
 
     .line 219
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_68
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
@@ -463,13 +463,13 @@
     invoke-interface {v9, v10}, Lcom/esotericsoftware/kryo/util/Generics;->pushGenericType(Lcom/esotericsoftware/kryo/util/Generics$GenericType;)V
 
     .line 220
-    :cond_4
-    if-eqz v5, :cond_6
+    :cond_68
+    if-eqz v5, :cond_78
 
     .line 221
     iget-boolean v9, p0, Lcom/esotericsoftware/kryo/serializers/MapSerializer;->keysCanBeNull:Z
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_73
 
     .line 222
     invoke-virtual {p1, p2, v3, v5}, Lcom/esotericsoftware/kryo/Kryo;->readObjectOrNull(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;)Ljava/lang/Object;
@@ -477,29 +477,29 @@
     move-result-object v9
 
     .local v9, "key":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_7c
 
     .line 224
     .end local v9    # "key":Ljava/lang/Object;
-    :cond_5
+    :cond_73
     invoke-virtual {p1, p2, v3, v5}, Lcom/esotericsoftware/kryo/Kryo;->readObject(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;)Ljava/lang/Object;
 
     move-result-object v9
 
     .restart local v9    # "key":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_7c
 
     .line 226
     .end local v9    # "key":Ljava/lang/Object;
-    :cond_6
+    :cond_78
     invoke-virtual {p1, p2}, Lcom/esotericsoftware/kryo/Kryo;->readClassAndObject(Lcom/esotericsoftware/kryo/io/Input;)Ljava/lang/Object;
 
     move-result-object v9
 
     .line 227
     .restart local v9    # "key":Ljava/lang/Object;
-    :goto_1
-    if-eqz v7, :cond_7
+    :goto_7c
+    if-eqz v7, :cond_85
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
@@ -508,13 +508,13 @@
     invoke-interface {v10}, Lcom/esotericsoftware/kryo/util/Generics;->popGenericType()V
 
     .line 229
-    :cond_7
-    if-eqz v6, :cond_9
+    :cond_85
+    if-eqz v6, :cond_95
 
     .line 230
     iget-boolean v10, p0, Lcom/esotericsoftware/kryo/serializers/MapSerializer;->valuesCanBeNull:Z
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_90
 
     .line 231
     invoke-virtual {p1, p2, v4, v6}, Lcom/esotericsoftware/kryo/Kryo;->readObjectOrNull(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;)Ljava/lang/Object;
@@ -522,28 +522,28 @@
     move-result-object v10
 
     .local v10, "value":Ljava/lang/Object;
-    goto :goto_2
+    goto :goto_99
 
     .line 233
     .end local v10    # "value":Ljava/lang/Object;
-    :cond_8
+    :cond_90
     invoke-virtual {p1, p2, v4, v6}, Lcom/esotericsoftware/kryo/Kryo;->readObject(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;)Ljava/lang/Object;
 
     move-result-object v10
 
     .restart local v10    # "value":Ljava/lang/Object;
-    goto :goto_2
+    goto :goto_99
 
     .line 235
     .end local v10    # "value":Ljava/lang/Object;
-    :cond_9
+    :cond_95
     invoke-virtual {p1, p2}, Lcom/esotericsoftware/kryo/Kryo;->readClassAndObject(Lcom/esotericsoftware/kryo/io/Input;)Ljava/lang/Object;
 
     move-result-object v10
 
     .line 236
     .restart local v10    # "value":Ljava/lang/Object;
-    :goto_2
+    :goto_99
     invoke-interface {v2, v9, v10}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 217
@@ -551,11 +551,11 @@
     .end local v10    # "value":Ljava/lang/Object;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 238
     .end local v0    # "i":I
-    :cond_a
+    :cond_9f
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
     move-result-object v0
@@ -567,7 +567,7 @@
 .end method
 
 .method public setKeyClass(Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
     .param p1, "keyClass"    # Ljava/lang/Class;
 
     .line 60
@@ -579,7 +579,7 @@
 .end method
 
 .method public setKeyClass(Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;)V
-    .locals 0
+    .registers 3
     .param p1, "keyClass"    # Ljava/lang/Class;
     .param p2, "keySerializer"    # Lcom/esotericsoftware/kryo/Serializer;
 
@@ -595,7 +595,7 @@
 .end method
 
 .method public setKeySerializer(Lcom/esotericsoftware/kryo/Serializer;)V
-    .locals 0
+    .registers 2
     .param p1, "keySerializer"    # Lcom/esotericsoftware/kryo/Serializer;
 
     .line 76
@@ -607,7 +607,7 @@
 .end method
 
 .method public setKeysCanBeNull(Z)V
-    .locals 0
+    .registers 2
     .param p1, "keysCanBeNull"    # Z
 
     .line 54
@@ -619,7 +619,7 @@
 .end method
 
 .method public setValueClass(Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
     .param p1, "valueClass"    # Ljava/lang/Class;
 
     .line 86
@@ -631,7 +631,7 @@
 .end method
 
 .method public setValueClass(Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;)V
-    .locals 0
+    .registers 3
     .param p1, "valueClass"    # Ljava/lang/Class;
     .param p2, "valueSerializer"    # Lcom/esotericsoftware/kryo/Serializer;
 
@@ -647,7 +647,7 @@
 .end method
 
 .method public setValueSerializer(Lcom/esotericsoftware/kryo/Serializer;)V
-    .locals 0
+    .registers 2
     .param p1, "valueSerializer"    # Lcom/esotericsoftware/kryo/Serializer;
 
     .line 102
@@ -659,7 +659,7 @@
 .end method
 
 .method public setValuesCanBeNull(Z)V
-    .locals 0
+    .registers 2
     .param p1, "valuesCanBeNull"    # Z
 
     .line 112
@@ -671,7 +671,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 42
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/MapSerializer;, "Lcom/esotericsoftware/kryo/serializers/MapSerializer<TT;>;"
@@ -683,7 +683,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/Map;)V
-    .locals 9
+    .registers 13
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .annotation system Ldalvik/annotation/Signature;
@@ -700,7 +700,7 @@
     .local p3, "map":Ljava/util/Map;, "TT;"
     const/4 v0, 0x0
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_7
 
     .line 117
     invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
@@ -709,7 +709,7 @@
     return-void
 
     .line 121
-    :cond_0
+    :cond_7
     invoke-interface {p3}, Ljava/util/Map;->size()I
 
     move-result v1
@@ -718,7 +718,7 @@
     .local v1, "size":I
     const/4 v2, 0x1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_15
 
     .line 123
     invoke-virtual {p2, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
@@ -730,7 +730,7 @@
     return-void
 
     .line 128
-    :cond_1
+    :cond_15
     add-int/lit8 v3, v1, 0x1
 
     invoke-virtual {p2, v3, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
@@ -756,10 +756,10 @@
 
     .line 134
     .local v5, "genericTypes":[Lcom/esotericsoftware/kryo/util/Generics$GenericType;
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_5b
 
     .line 135
-    if-nez v3, :cond_2
+    if-nez v3, :cond_43
 
     .line 136
     aget-object v6, v5, v0
@@ -774,13 +774,13 @@
 
     .line 137
     .local v6, "keyType":Ljava/lang/Class;
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_43
 
     invoke-virtual {p1, v6}, Lcom/esotericsoftware/kryo/Kryo;->isFinal(Ljava/lang/Class;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_43
 
     invoke-virtual {p1, v6}, Lcom/esotericsoftware/kryo/Kryo;->getSerializer(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
 
@@ -788,8 +788,8 @@
 
     .line 139
     .end local v6    # "keyType":Ljava/lang/Class;
-    :cond_2
-    if-nez v4, :cond_3
+    :cond_43
+    if-nez v4, :cond_5b
 
     .line 140
     aget-object v2, v5, v2
@@ -804,13 +804,13 @@
 
     .line 141
     .local v2, "valueType":Ljava/lang/Class;
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5b
 
     invoke-virtual {p1, v2}, Lcom/esotericsoftware/kryo/Kryo;->isFinal(Ljava/lang/Class;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_5b
 
     invoke-virtual {p1, v2}, Lcom/esotericsoftware/kryo/Kryo;->getSerializer(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
 
@@ -818,7 +818,7 @@
 
     .line 145
     .end local v2    # "valueType":Ljava/lang/Class;
-    :cond_3
+    :cond_5b
     invoke-interface {p3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v2
@@ -828,12 +828,12 @@
     move-result-object v2
 
     .local v2, "iter":Ljava/util/Iterator;
-    :goto_0
+    :goto_63
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_be
 
     .line 146
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -844,7 +844,7 @@
 
     .line 147
     .local v6, "entry":Ljava/util/Map$Entry;
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_7a
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
@@ -855,13 +855,13 @@
     invoke-interface {v7, v8}, Lcom/esotericsoftware/kryo/util/Generics;->pushGenericType(Lcom/esotericsoftware/kryo/util/Generics$GenericType;)V
 
     .line 148
-    :cond_4
-    if-eqz v3, :cond_6
+    :cond_7a
+    if-eqz v3, :cond_90
 
     .line 149
     iget-boolean v7, p0, Lcom/esotericsoftware/kryo/serializers/MapSerializer;->keysCanBeNull:Z
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_88
 
     .line 150
     invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -870,20 +870,20 @@
 
     invoke-virtual {p1, p2, v7, v3}, Lcom/esotericsoftware/kryo/Kryo;->writeObjectOrNull(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;Lcom/esotericsoftware/kryo/Serializer;)V
 
-    goto :goto_1
+    goto :goto_97
 
     .line 152
-    :cond_5
+    :cond_88
     invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v7
 
     invoke-virtual {p1, p2, v7, v3}, Lcom/esotericsoftware/kryo/Kryo;->writeObject(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;Lcom/esotericsoftware/kryo/Serializer;)V
 
-    goto :goto_1
+    goto :goto_97
 
     .line 154
-    :cond_6
+    :cond_90
     invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v7
@@ -891,8 +891,8 @@
     invoke-virtual {p1, p2, v7}, Lcom/esotericsoftware/kryo/Kryo;->writeClassAndObject(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
 
     .line 155
-    :goto_1
-    if-eqz v5, :cond_7
+    :goto_97
+    if-eqz v5, :cond_a0
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
@@ -901,13 +901,13 @@
     invoke-interface {v7}, Lcom/esotericsoftware/kryo/util/Generics;->popGenericType()V
 
     .line 156
-    :cond_7
-    if-eqz v4, :cond_9
+    :cond_a0
+    if-eqz v4, :cond_b6
 
     .line 157
     iget-boolean v7, p0, Lcom/esotericsoftware/kryo/serializers/MapSerializer;->valuesCanBeNull:Z
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_ae
 
     .line 158
     invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -916,20 +916,20 @@
 
     invoke-virtual {p1, p2, v7, v4}, Lcom/esotericsoftware/kryo/Kryo;->writeObjectOrNull(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;Lcom/esotericsoftware/kryo/Serializer;)V
 
-    goto :goto_2
+    goto :goto_bd
 
     .line 160
-    :cond_8
+    :cond_ae
     invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v7
 
     invoke-virtual {p1, p2, v7, v4}, Lcom/esotericsoftware/kryo/Kryo;->writeObject(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;Lcom/esotericsoftware/kryo/Serializer;)V
 
-    goto :goto_2
+    goto :goto_bd
 
     .line 162
-    :cond_9
+    :cond_b6
     invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v7
@@ -938,12 +938,12 @@
 
     .line 163
     .end local v6    # "entry":Ljava/util/Map$Entry;
-    :goto_2
-    goto :goto_0
+    :goto_bd
+    goto :goto_63
 
     .line 164
     .end local v2    # "iter":Ljava/util/Iterator;
-    :cond_a
+    :cond_be
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/Kryo;->getGenerics()Lcom/esotericsoftware/kryo/util/Generics;
 
     move-result-object v0
@@ -955,7 +955,7 @@
 .end method
 
 .method protected writeHeader(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/Map;)V
-    .locals 0
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .annotation system Ldalvik/annotation/Signature;

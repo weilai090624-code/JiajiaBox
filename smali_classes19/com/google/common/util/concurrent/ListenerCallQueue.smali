@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 59
     const-class v0, Lcom/google/common/util/concurrent/ListenerCallQueue;
@@ -63,7 +63,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 57
     .local p0, "this":Lcom/google/common/util/concurrent/ListenerCallQueue;, "Lcom/google/common/util/concurrent/ListenerCallQueue<TL;>;"
@@ -86,7 +86,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 1
 
     .line 57
     sget-object v0, Lcom/google/common/util/concurrent/ListenerCallQueue;->logger:Ljava/util/logging/Logger;
@@ -95,7 +95,7 @@
 .end method
 
 .method private enqueueHelper(Lcom/google/common/util/concurrent/ListenerCallQueue$Event;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p2, "label"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -127,19 +127,19 @@
     monitor-enter v0
 
     .line 107
-    :try_start_0
+    :try_start_d
     iget-object v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->listeners:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_13
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -153,22 +153,22 @@
 
     .line 109
     .end local v2    # "queue":Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;, "Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue<TL;>;"
-    goto :goto_0
+    goto :goto_13
 
     .line 110
-    :cond_0
+    :cond_23
     monitor-exit v0
 
     .line 111
     return-void
 
     .line 110
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_d .. :try_end_27} :catchall_25
 
     throw v1
 .end method
@@ -176,7 +176,7 @@
 
 # virtual methods
 .method public addListener(Ljava/lang/Object;Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 5
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -213,21 +213,21 @@
 .end method
 
 .method public dispatch()V
-    .locals 2
+    .registers 3
 
     .line 120
     .local p0, "this":Lcom/google/common/util/concurrent/ListenerCallQueue;, "Lcom/google/common/util/concurrent/ListenerCallQueue<TL;>;"
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->listeners:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_17
 
     .line 121
     iget-object v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->listeners:Ljava/util/List;
@@ -243,16 +243,16 @@
     .line 120
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 123
     .end local v0    # "i":I
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public enqueue(Lcom/google/common/util/concurrent/ListenerCallQueue$Event;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -273,7 +273,7 @@
 .end method
 
 .method public enqueue(Lcom/google/common/util/concurrent/ListenerCallQueue$Event;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p2, "label"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {

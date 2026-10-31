@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/DiscreteDomain;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public asList()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -66,7 +66,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -80,7 +80,7 @@
 .end method
 
 .method createDescendingSet()Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -107,7 +107,7 @@
 .end method
 
 .method public descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -126,7 +126,7 @@
 .end method
 
 .method public bridge synthetic descendingIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 28
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -138,7 +138,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -148,7 +148,7 @@
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
     instance-of v0, p1, Ljava/util/Set;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 127
     move-object v0, p1
@@ -165,14 +165,14 @@
 
     .line 130
     .end local v0    # "that":Ljava/util/Set;, "Ljava/util/Set<*>;"
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public first()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -189,7 +189,7 @@
 .end method
 
 .method public bridge synthetic first()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 28
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -201,7 +201,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 141
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -211,7 +211,7 @@
 .end method
 
 .method headSetImpl(Ljava/lang/Comparable;Z)Lcom/google/common/collect/ContiguousSet;
-    .locals 0
+    .registers 3
     .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -228,7 +228,7 @@
 .end method
 
 .method bridge synthetic headSetImpl(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 3
 
     .line 28
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -242,7 +242,7 @@
 .end method
 
 .method indexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -256,7 +256,7 @@
 .end method
 
 .method public intersection(Lcom/google/common/collect/ContiguousSet;)Lcom/google/common/collect/ContiguousSet;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -274,7 +274,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 111
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -284,7 +284,7 @@
 .end method
 
 .method isHashCodeFast()Z
-    .locals 1
+    .registers 2
 
     .line 136
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -294,7 +294,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 106
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -304,7 +304,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -323,7 +323,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 28
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -335,7 +335,7 @@
 .end method
 
 .method public last()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -352,7 +352,7 @@
 .end method
 
 .method public bridge synthetic last()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 28
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -364,7 +364,7 @@
 .end method
 
 .method public range()Lcom/google/common/collect/Range;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -383,7 +383,7 @@
 .end method
 
 .method public range(Lcom/google/common/collect/BoundType;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/Range;
-    .locals 1
+    .registers 4
     .param p1, "lowerBoundType"    # Lcom/google/common/collect/BoundType;
     .param p2, "upperBoundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
@@ -407,7 +407,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -417,7 +417,7 @@
 .end method
 
 .method subSetImpl(Ljava/lang/Comparable;ZLjava/lang/Comparable;Z)Lcom/google/common/collect/ContiguousSet;
-    .locals 0
+    .registers 5
     .param p2, "fromInclusive"    # Z
     .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -436,7 +436,7 @@
 .end method
 
 .method bridge synthetic subSetImpl(Ljava/lang/Object;ZLjava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 5
 
     .line 28
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -452,7 +452,7 @@
 .end method
 
 .method tailSetImpl(Ljava/lang/Comparable;Z)Lcom/google/common/collect/ContiguousSet;
-    .locals 0
+    .registers 3
     .param p2, "fromInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -469,7 +469,7 @@
 .end method
 
 .method bridge synthetic tailSetImpl(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 0
+    .registers 3
 
     .line 28
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -483,7 +483,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 121
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"
@@ -493,7 +493,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 3
+    .registers 4
 
     .line 162
     .local p0, "this":Lcom/google/common/collect/EmptyContiguousSet;, "Lcom/google/common/collect/EmptyContiguousSet<TC;>;"

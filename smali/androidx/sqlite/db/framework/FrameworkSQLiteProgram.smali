@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/sqlite/SQLiteProgram;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Landroid/database/sqlite/SQLiteProgram;
 
     const-string v0, "delegate"
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public bindBlob(I[B)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # [B
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public bindDouble(ID)V
-    .locals 1
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # D
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public bindLong(IJ)V
-    .locals 1
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # J
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public bindNull(I)V
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 28
@@ -129,7 +129,7 @@
 .end method
 
 .method public bindString(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/String;
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public clearBindings()V
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteProgram;->delegate:Landroid/database/sqlite/SQLiteProgram;
@@ -159,7 +159,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteProgram;->delegate:Landroid/database/sqlite/SQLiteProgram;

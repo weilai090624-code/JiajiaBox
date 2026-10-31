@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/CancellableContinuation;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Landroidx/work/multiprocess/RemoteCoroutineWorker$setProgress$$inlined$await$1;->$cancellableContinuation:Lkotlinx/coroutines/CancellableContinuation;
 
@@ -63,13 +63,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .registers 5
 
     .line 51
     nop
 
     .line 52
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteCoroutineWorker$setProgress$$inlined$await$1;->$cancellableContinuation:Lkotlinx/coroutines/CancellableContinuation;
 
     check-cast v0, Lkotlin/coroutines/Continuation;
@@ -87,13 +87,13 @@
     move-result-object v1
 
     invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_1 .. :try_end_14} :catchall_15
 
-    goto :goto_0
+    goto :goto_39
 
     .line 53
-    :catchall_0
+    :catchall_15
     move-exception v0
 
     .line 54
@@ -102,28 +102,28 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1d
 
     move-object v1, v0
 
     .line 55
     .local v1, "cause":Ljava/lang/Throwable;
-    :cond_0
+    :cond_1d
     nop
 
     .line 56
     instance-of v2, v0, Ljava/util/concurrent/CancellationException;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_28
 
     iget-object v2, p0, Landroidx/work/multiprocess/RemoteCoroutineWorker$setProgress$$inlined$await$1;->$cancellableContinuation:Lkotlinx/coroutines/CancellableContinuation;
 
     invoke-interface {v2, v1}, Lkotlinx/coroutines/CancellableContinuation;->cancel(Ljava/lang/Throwable;)Z
 
-    goto :goto_0
+    goto :goto_39
 
     .line 57
-    :cond_1
+    :cond_28
     iget-object v2, p0, Landroidx/work/multiprocess/RemoteCoroutineWorker$setProgress$$inlined$await$1;->$cancellableContinuation:Lkotlinx/coroutines/CancellableContinuation;
 
     check-cast v2, Lkotlin/coroutines/Continuation;
@@ -143,6 +143,6 @@
     .line 60
     .end local v0    # "throwable":Ljava/lang/Throwable;
     .end local v1    # "cause":Ljava/lang/Throwable;
-    :goto_0
+    :goto_39
     return-void
 .end method

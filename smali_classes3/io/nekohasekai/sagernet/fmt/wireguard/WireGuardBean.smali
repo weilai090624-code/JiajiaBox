@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 68
     new-instance v0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean$1;
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public canTCPing()Z
-    .locals 1
+    .registers 2
 
     .line 59
     const/4 v0, 0x0
@@ -64,7 +64,7 @@
 .end method
 
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->clone()Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;
@@ -75,7 +75,7 @@
 .end method
 
 .method public clone()Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;
-    .locals 2
+    .registers 3
 
     .line 65
     new-instance v0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;
@@ -96,7 +96,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -112,7 +112,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -183,7 +183,7 @@
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 2
+    .registers 3
 
     .line 24
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->initializeDefaultValues()V
@@ -193,39 +193,39 @@
 
     const-string v1, ""
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->localAddress:Ljava/lang/String;
 
     .line 26
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->privateKey:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->privateKey:Ljava/lang/String;
 
     .line 27
-    :cond_1
+    :cond_11
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->peerPublicKey:Ljava/lang/String;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_17
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->peerPublicKey:Ljava/lang/String;
 
     .line 28
-    :cond_2
+    :cond_17
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->peerPreSharedKey:Ljava/lang/String;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_1d
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->peerPreSharedKey:Ljava/lang/String;
 
     .line 29
-    :cond_3
+    :cond_1d
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->mtu:Ljava/lang/Integer;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_29
 
     const/16 v0, 0x58c
 
@@ -236,20 +236,20 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->mtu:Ljava/lang/Integer;
 
     .line 30
-    :cond_4
+    :cond_29
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->reserved:Ljava/lang/String;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_2f
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->reserved:Ljava/lang/String;
 
     .line 31
-    :cond_5
+    :cond_2f
     return-void
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

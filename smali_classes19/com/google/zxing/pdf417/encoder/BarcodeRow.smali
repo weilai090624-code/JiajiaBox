@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "width"    # I
 
     .line 31
@@ -32,7 +32,7 @@
 .end method
 
 .method private set(IZ)V
-    .locals 2
+    .registers 5
     .param p1, "x"    # I
     .param p2, "black"    # Z
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method addBar(ZI)V
-    .locals 3
+    .registers 6
     .param p1, "black"    # Z
     .param p2, "width"    # I
 
@@ -58,8 +58,8 @@
     const/4 v0, 0x0
 
     .local v0, "ii":I
-    :goto_0
-    if-ge v0, p2, :cond_0
+    :goto_1
+    if-ge v0, p2, :cond_f
 
     .line 62
     iget v1, p0, Lcom/google/zxing/pdf417/encoder/BarcodeRow;->currentLocation:I
@@ -73,16 +73,16 @@
     .line 61
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 64
     .end local v0    # "ii":I
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method getScaledRow(I)[B
-    .locals 4
+    .registers 6
     .param p1, "scale"    # I
 
     .line 79
@@ -99,10 +99,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_8
     array-length v2, v0
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_16
 
     .line 81
     iget-object v2, p0, Lcom/google/zxing/pdf417/encoder/BarcodeRow;->row:[B
@@ -116,16 +116,16 @@
     .line 80
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 83
     .end local v1    # "i":I
-    :cond_0
+    :cond_16
     return-object v0
 .end method
 
 .method set(IB)V
-    .locals 1
+    .registers 4
     .param p1, "x"    # I
     .param p2, "value"    # B
 

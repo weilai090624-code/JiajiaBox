@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/reflect/Type;Z)V
-    .locals 0
+    .registers 3
     .param p1, "bounds"    # [Ljava/lang/reflect/Type;
     .param p2, "target"    # Z
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method isSubtypeOf(Ljava/lang/reflect/Type;)Z
-    .locals 6
+    .registers 8
     .param p1, "supertype"    # Ljava/lang/reflect/Type;
 
     .line 1086
@@ -52,8 +52,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_4
+    if-ge v2, v1, :cond_1a
 
     aget-object v3, v0, v2
 
@@ -69,7 +69,7 @@
 
     iget-boolean v5, p0, Lcom/google/common/reflect/TypeToken$Bounds;->target:Z
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_17
 
     .line 1088
     iget-boolean v0, p0, Lcom/google/common/reflect/TypeToken$Bounds;->target:Z
@@ -78,13 +78,13 @@
 
     .line 1086
     .end local v3    # "bound":Ljava/lang/reflect/Type;
-    :cond_0
+    :cond_17
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 1091
-    :cond_1
+    :cond_1a
     iget-boolean v0, p0, Lcom/google/common/reflect/TypeToken$Bounds;->target:Z
 
     xor-int/lit8 v0, v0, 0x1
@@ -93,7 +93,7 @@
 .end method
 
 .method isSupertypeOf(Ljava/lang/reflect/Type;)Z
-    .locals 7
+    .registers 9
     .param p1, "subtype"    # Ljava/lang/reflect/Type;
 
     .line 1095
@@ -109,8 +109,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_8
+    if-ge v3, v2, :cond_1a
 
     aget-object v4, v1, v3
 
@@ -122,7 +122,7 @@
 
     iget-boolean v6, p0, Lcom/google/common/reflect/TypeToken$Bounds;->target:Z
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v6, :cond_17
 
     .line 1098
     iget-boolean v1, p0, Lcom/google/common/reflect/TypeToken$Bounds;->target:Z
@@ -131,13 +131,13 @@
 
     .line 1096
     .end local v4    # "bound":Ljava/lang/reflect/Type;
-    :cond_0
+    :cond_17
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 1101
-    :cond_1
+    :cond_1a
     iget-boolean v1, p0, Lcom/google/common/reflect/TypeToken$Bounds;->target:Z
 
     xor-int/lit8 v1, v1, 0x1

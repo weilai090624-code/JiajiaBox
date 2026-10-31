@@ -36,7 +36,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 78
     .local p0, "this":Lj$/util/AbstractList;, "Ljava/util/AbstractList<TE;>;"
@@ -52,7 +52,7 @@
 .end method
 
 .method private outOfBoundsMsg(I)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 636
@@ -93,24 +93,24 @@
 .end method
 
 .method private rangeCheckForAdd(I)V
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 631
     .local p0, "this":Lj$/util/AbstractList;, "Ljava/util/AbstractList<TE;>;"
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_9
 
     invoke-virtual {p0}, Lj$/util/AbstractList;->size()I
 
     move-result v0
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_9
 
     .line 633
     return-void
 
     .line 632
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {p0, p1}, Lj$/util/AbstractList;->outOfBoundsMsg(I)Ljava/lang/String;
@@ -123,25 +123,25 @@
 .end method
 
 .method static subListRangeCheck(III)V
-    .locals 3
+    .registers 6
     .param p0, "fromIndex"    # I
     .param p1, "toIndex"    # I
     .param p2, "size"    # I
 
     .line 504
-    if-ltz p0, :cond_2
+    if-ltz p0, :cond_49
 
     .line 506
-    if-gt p1, p2, :cond_1
+    if-gt p1, p2, :cond_30
 
     .line 508
-    if-gt p0, p1, :cond_0
+    if-gt p0, p1, :cond_7
 
     .line 511
     return-void
 
     .line 509
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -183,7 +183,7 @@
     throw v0
 
     .line 507
-    :cond_1
+    :cond_30
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -209,7 +209,7 @@
     throw v0
 
     .line 505
-    :cond_2
+    :cond_49
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -238,7 +238,7 @@
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -257,7 +257,7 @@
 .end method
 
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -280,7 +280,7 @@
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
-    .locals 4
+    .registers 7
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -304,12 +304,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -330,17 +330,17 @@
     .end local v2    # "e":Ljava/lang/Object;, "TE;"
     move p1, v3
 
-    goto :goto_0
+    goto :goto_8
 
     .line 273
     .end local v3    # "index":I
     .restart local p1    # "index":I
-    :cond_0
+    :cond_1a
     return v0
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 243
     .local p0, "this":Lj$/util/AbstractList;, "Ljava/util/AbstractList<TE;>;"
@@ -357,31 +357,31 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 538
     .local p0, "this":Lj$/util/AbstractList;, "Ljava/util/AbstractList<TE;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 539
     return v0
 
     .line 540
-    :cond_0
+    :cond_4
     instance-of v1, p1, Ljava/util/List;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 541
     return v2
 
     .line 543
-    :cond_1
+    :cond_a
     invoke-virtual {p0}, Lj$/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v1
@@ -398,18 +398,18 @@
 
     .line 545
     .local v3, "e2":Ljava/util/ListIterator;, "Ljava/util/ListIterator<*>;"
-    :goto_0
+    :goto_15
     invoke-interface {v1}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_36
 
     invoke-interface {v3}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_36
 
     .line 546
     invoke-interface {v1}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -424,50 +424,50 @@
 
     .line 548
     .local v5, "o2":Ljava/lang/Object;
-    if-nez v4, :cond_2
+    if-nez v4, :cond_2e
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_34
 
-    goto :goto_1
+    goto :goto_35
 
-    :cond_2
+    :cond_2e
     invoke-virtual {v4, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_35
 
     .line 549
-    :cond_3
+    :cond_34
     return v2
 
     .line 550
     .end local v4    # "o1":Ljava/lang/Object;, "TE;"
     .end local v5    # "o2":Ljava/lang/Object;
-    :cond_4
-    :goto_1
-    goto :goto_0
+    :cond_35
+    :goto_35
+    goto :goto_15
 
     .line 551
-    :cond_5
+    :cond_36
     invoke-interface {v1}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_43
 
     invoke-interface {v3}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_43
 
-    goto :goto_2
+    goto :goto_44
 
-    :cond_6
+    :cond_43
     const/4 v0, 0x0
 
-    :goto_2
+    :goto_44
     return v0
 .end method
 
@@ -480,7 +480,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 5
+    .registers 6
 
     .line 565
     .local p0, "this":Lj$/util/AbstractList;, "Ljava/util/AbstractList<TE;>;"
@@ -492,12 +492,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_5
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -507,30 +507,30 @@
     .local v2, "e":Ljava/lang/Object;, "TE;"
     mul-int/lit8 v3, v0, 0x1f
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     const/4 v4, 0x0
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_0
+    :cond_15
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v4
 
-    :goto_1
+    :goto_19
     add-int v0, v3, v4
 
     .end local v2    # "e":Ljava/lang/Object;, "TE;"
-    goto :goto_0
+    goto :goto_5
 
     .line 568
-    :cond_1
+    :cond_1c
     return v0
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 185
@@ -541,22 +541,22 @@
 
     .line 186
     .local v0, "it":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
-    if-nez p1, :cond_1
+    if-nez p1, :cond_17
 
     .line 187
-    :cond_0
+    :cond_6
     invoke-interface {v0}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2c
 
     .line 188
     invoke-interface {v0}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_6
 
     .line 189
     invoke-interface {v0}, Ljava/util/ListIterator;->previousIndex()I
@@ -566,12 +566,12 @@
     return v1
 
     .line 191
-    :cond_1
+    :cond_17
     invoke-interface {v0}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2c
 
     .line 192
     invoke-interface {v0}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -582,7 +582,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     .line 193
     invoke-interface {v0}, Ljava/util/ListIterator;->previousIndex()I
@@ -592,14 +592,14 @@
     return v1
 
     .line 195
-    :cond_2
+    :cond_2c
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -620,7 +620,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 211
@@ -635,22 +635,22 @@
 
     .line 212
     .local v0, "it":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
-    if-nez p1, :cond_1
+    if-nez p1, :cond_1b
 
     .line 213
-    :cond_0
+    :cond_a
     invoke-interface {v0}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_30
 
     .line 214
     invoke-interface {v0}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     .line 215
     invoke-interface {v0}, Ljava/util/ListIterator;->nextIndex()I
@@ -660,12 +660,12 @@
     return v1
 
     .line 217
-    :cond_1
+    :cond_1b
     invoke-interface {v0}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_30
 
     .line 218
     invoke-interface {v0}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -676,7 +676,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     .line 219
     invoke-interface {v0}, Ljava/util/ListIterator;->nextIndex()I
@@ -686,14 +686,14 @@
     return v1
 
     .line 221
-    :cond_2
+    :cond_30
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method public listIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -714,7 +714,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -737,7 +737,7 @@
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -755,7 +755,7 @@
 .end method
 
 .method protected removeRange(II)V
-    .locals 3
+    .registers 6
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
 
@@ -773,8 +773,8 @@
     sub-int v2, p2, p1
 
     .local v2, "n":I
-    :goto_0
-    if-ge v1, v2, :cond_0
+    :goto_7
+    if-ge v1, v2, :cond_12
 
     .line 597
     invoke-interface {v0}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -785,17 +785,17 @@
     .line 596
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 600
     .end local v1    # "i":I
     .end local v2    # "n":I
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -814,7 +814,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -836,22 +836,22 @@
     .line 498
     instance-of v0, p0, Ljava/util/RandomAccess;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 499
     new-instance v0, Lj$/util/AbstractList$RandomAccessSubList;
 
     invoke-direct {v0, p0, p1, p2}, Lj$/util/AbstractList$RandomAccessSubList;-><init>(Lj$/util/AbstractList;II)V
 
-    goto :goto_0
+    goto :goto_16
 
     .line 500
-    :cond_0
+    :cond_11
     new-instance v0, Lj$/util/AbstractList$SubList;
 
     invoke-direct {v0, p0, p1, p2}, Lj$/util/AbstractList$SubList;-><init>(Lj$/util/AbstractList;II)V
 
     .line 498
-    :goto_0
+    :goto_16
     return-object v0
 .end method

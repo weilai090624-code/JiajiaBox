@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/core/ExtendableBuilder;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public setCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Landroidx/camera/camera2/interop/Camera2Interop$Extender;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -118,7 +118,7 @@
 .end method
 
 .method public setCaptureRequestTemplate(I)Landroidx/camera/camera2/interop/Camera2Interop$Extender;
-    .locals 3
+    .registers 5
     .param p1, "templateType"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -158,7 +158,7 @@
 .end method
 
 .method public setDeviceStateCallback(Landroid/hardware/camera2/CameraDevice$StateCallback;)Landroidx/camera/camera2/interop/Camera2Interop$Extender;
-    .locals 2
+    .registers 4
     .param p1, "stateCallback"    # Landroid/hardware/camera2/CameraDevice$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -196,7 +196,7 @@
 .end method
 
 .method public setSessionCaptureCallback(Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)Landroidx/camera/camera2/interop/Camera2Interop$Extender;
-    .locals 2
+    .registers 4
     .param p1, "captureCallback"    # Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -234,7 +234,7 @@
 .end method
 
 .method public setSessionStateCallback(Landroid/hardware/camera2/CameraCaptureSession$StateCallback;)Landroidx/camera/camera2/interop/Camera2Interop$Extender;
-    .locals 2
+    .registers 4
     .param p1, "stateCallback"    # Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -71,7 +71,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,7 +125,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,7 +168,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -179,7 +179,7 @@
 
     const/4 v2, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_46
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -190,23 +190,23 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
-    :try_start_0
+    :pswitch_12
+    :try_start_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/Exception; {:try_start_12 .. :try_end_15} :catch_16
 
-    goto :goto_0
+    goto :goto_36
 
     .line 643
-    :catch_0
+    :catch_16
     move-exception v0
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 639
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_18
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 640
@@ -214,7 +214,7 @@
     nop
 
     .line 641
-    :try_start_1
+    :try_start_1c
     sget-object v3, Lio/nekohasekai/sagernet/database/ProfileManager;->INSTANCE:Lio/nekohasekai/sagernet/database/ProfileManager;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$performDeleteNode$1$1;->$entity:Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -239,25 +239,25 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_36
 
     .line 639
     return-object v0
 
     .line 642
-    :cond_0
-    :goto_0
+    :cond_36
+    :goto_36
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$performDeleteNode$1$1;->$deleted:Lkotlin/jvm/internal/Ref$BooleanRef;
 
     iput-boolean v2, v0, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_3a
+    .catch Ljava/lang/Exception; {:try_start_1c .. :try_end_3a} :catch_16
 
-    goto :goto_2
+    goto :goto_43
 
     .line 644
     .local v0, "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_3b
     sget-object v1, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v2, v0
@@ -268,14 +268,14 @@
 
     .line 646
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_2
+    :goto_43
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_46
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_18
+        :pswitch_12
     .end packed-switch
 .end method

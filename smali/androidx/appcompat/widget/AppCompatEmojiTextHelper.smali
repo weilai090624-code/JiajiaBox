@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/widget/TextView;
 
     .line 41
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method getFilters([Landroid/text/InputFilter;)[Landroid/text/InputFilter;
-    .locals 1
+    .registers 3
     .param p1, "filters"    # [Landroid/text/InputFilter;
 
     .line 99
@@ -50,7 +50,7 @@
 .end method
 
 .method public isEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 84
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;->mEmojiTextViewHelper:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper;
@@ -63,7 +63,7 @@
 .end method
 
 .method loadFromAttributes(Landroid/util/AttributeSet;I)V
-    .locals 5
+    .registers 8
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyleAttr"    # I
 
@@ -90,14 +90,14 @@
 
     .line 57
     .local v2, "enabled":Z
-    :try_start_0
+    :try_start_e
     sget v3, Landroidx/appcompat/R$styleable;->AppCompatTextView_emojiCompatEnabled:I
 
     invoke-virtual {v1, v3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1e
 
     .line 58
     sget v3, Landroidx/appcompat/R$styleable;->AppCompatTextView_emojiCompatEnabled:I
@@ -107,13 +107,13 @@
     invoke-virtual {v1, v3, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_e .. :try_end_1d} :catchall_26
 
     move v2, v3
 
     .line 61
-    :cond_0
+    :cond_1e
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 62
@@ -126,7 +126,7 @@
     return-void
 
     .line 61
-    :catchall_0
+    :catchall_26
     move-exception v3
 
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
@@ -136,7 +136,7 @@
 .end method
 
 .method setAllCaps(Z)V
-    .locals 1
+    .registers 3
     .param p1, "allCaps"    # Z
 
     .line 109
@@ -149,7 +149,7 @@
 .end method
 
 .method setEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "enabled"    # Z
 
     .line 77
@@ -162,7 +162,7 @@
 .end method
 
 .method public wrapTransformationMethod(Landroid/text/method/TransformationMethod;)Landroid/text/method/TransformationMethod;
-    .locals 1
+    .registers 3
     .param p1, "transformationMethod"    # Landroid/text/method/TransformationMethod;
 
     .line 122

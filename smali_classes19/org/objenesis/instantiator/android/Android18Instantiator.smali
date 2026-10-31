@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,7 +76,7 @@
 .end method
 
 .method private static findConstructorIdForJavaLangObjectConstructor()Ljava/lang/Long;
-    .locals 6
+    .registers 6
 
     .line 68
     :try_start_0
@@ -116,37 +116,37 @@
     move-result-object v1
 
     check-cast v1, Ljava/lang/Long;
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_20
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_20} :catch_27
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_20} :catch_25
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_20} :catch_23
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_20} :catch_21
 
     return-object v1
 
     .line 74
     .end local v0    # "newInstanceMethod":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_21
     move-exception v0
 
-    goto :goto_0
+    goto :goto_28
 
-    :catch_1
+    :catch_23
     move-exception v0
 
-    goto :goto_0
+    goto :goto_28
 
-    :catch_2
+    :catch_25
     move-exception v0
 
-    goto :goto_0
+    goto :goto_28
 
-    :catch_3
+    :catch_27
     move-exception v0
 
     .line 75
     .local v0, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_28
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
@@ -155,7 +155,7 @@
 .end method
 
 .method private static getNewInstanceMethod()Ljava/lang/reflect/Method;
-    .locals 5
+    .registers 5
 
     .line 56
     :try_start_0
@@ -186,26 +186,26 @@
     .line 58
     .local v0, "newInstanceMethod":Ljava/lang/reflect/Method;
     invoke-virtual {v0, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_18} :catch_1b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_18} :catch_19
 
     .line 59
     return-object v0
 
     .line 61
     .end local v0    # "newInstanceMethod":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_19
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1c
 
-    :catch_1
+    :catch_1b
     move-exception v0
 
     .line 62
     .local v0, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_1c
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
@@ -216,7 +216,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -255,13 +255,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_1a} :catch_1b
 
     return-object v0
 
     .line 49
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 50

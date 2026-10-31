@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(FF)V
-    .locals 0
+    .registers 3
     .param p1, "start"    # F
     .param p2, "end"    # F
 
@@ -40,7 +40,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/google/android/material/transition/MaterialContainerTransform$ProgressThresholds;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/transition/MaterialContainerTransform$ProgressThresholds;
 
     .line 1534
@@ -50,7 +50,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/google/android/material/transition/MaterialContainerTransform$ProgressThresholds;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/transition/MaterialContainerTransform$ProgressThresholds;
 
     .line 1534
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public getEnd()F
-    .locals 1
+    .registers 2
 
     .line 1555
     iget v0, p0, Lcom/google/android/material/transition/MaterialContainerTransform$ProgressThresholds;->end:F
@@ -71,7 +71,7 @@
 .end method
 
 .method public getStart()F
-    .locals 1
+    .registers 2
 
     .line 1550
     iget v0, p0, Lcom/google/android/material/transition/MaterialContainerTransform$ProgressThresholds;->start:F

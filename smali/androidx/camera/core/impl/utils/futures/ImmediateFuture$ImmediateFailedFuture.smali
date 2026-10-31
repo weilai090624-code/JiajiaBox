@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public get()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -80,7 +80,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 141
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateFailedFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateFailedFuture<TV;>;"

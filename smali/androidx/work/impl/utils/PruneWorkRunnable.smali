@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/impl/WorkManagerImpl;)V
-    .locals 1
+    .registers 3
     .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getOperation()Landroidx/work/Operation;
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Landroidx/work/impl/utils/PruneWorkRunnable;->mOperation:Landroidx/work/impl/OperationImpl;
@@ -54,7 +54,7 @@
 .end method
 
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 57
     :try_start_0
@@ -80,16 +80,16 @@
     sget-object v3, Landroidx/work/Operation;->SUCCESS:Landroidx/work/Operation$State$SUCCESS;
 
     invoke-virtual {v2, v3}, Landroidx/work/impl/OperationImpl;->markState(Landroidx/work/Operation$State;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_0 .. :try_end_14} :catchall_15
 
     .line 63
     .end local v0    # "workDatabase":Landroidx/work/impl/WorkDatabase;
     .end local v1    # "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
-    goto :goto_0
+    goto :goto_20
 
     .line 61
-    :catchall_0
+    :catchall_15
     move-exception v0
 
     .line 62
@@ -104,6 +104,6 @@
 
     .line 64
     .end local v0    # "exception":Ljava/lang/Throwable;
-    :goto_0
+    :goto_20
     return-void
 .end method

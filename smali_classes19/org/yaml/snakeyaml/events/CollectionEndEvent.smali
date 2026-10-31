@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 0
+    .registers 3
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p2, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
 

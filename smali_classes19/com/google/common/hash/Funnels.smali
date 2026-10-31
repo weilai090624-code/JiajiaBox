@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method public static asOutputStream(Lcom/google/common/hash/PrimitiveSink;)Ljava/io/OutputStream;
-    .locals 1
+    .registers 2
     .param p0, "sink"    # Lcom/google/common/hash/PrimitiveSink;
 
     .line 243
@@ -43,7 +43,7 @@
 .end method
 
 .method public static byteArrayFunnel()Lcom/google/common/hash/Funnel;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -59,7 +59,7 @@
 .end method
 
 .method public static integerFunnel()Lcom/google/common/hash/Funnel;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -76,7 +76,7 @@
 .end method
 
 .method public static longFunnel()Lcom/google/common/hash/Funnel;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -93,7 +93,7 @@
 .end method
 
 .method public static sequentialFunnel(Lcom/google/common/hash/Funnel;)Lcom/google/common/hash/Funnel;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -117,7 +117,7 @@
 .end method
 
 .method public static stringFunnel(Ljava/nio/charset/Charset;)Lcom/google/common/hash/Funnel;
-    .locals 1
+    .registers 2
     .param p0, "charset"    # Ljava/nio/charset/Charset;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -139,7 +139,7 @@
 .end method
 
 .method public static unencodedCharsFunnel()Lcom/google/common/hash/Funnel;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

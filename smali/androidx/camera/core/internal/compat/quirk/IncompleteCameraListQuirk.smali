@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 32
+    .registers 32
 
     .line 38
     new-instance v0, Ljava/util/ArrayList;
@@ -105,7 +105,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -114,7 +114,7 @@
 .end method
 
 .method static load()Z
-    .locals 3
+    .registers 3
 
     .line 47
     sget-object v0, Landroidx/camera/core/internal/compat/quirk/IncompleteCameraListQuirk;->KNOWN_AFFECTED_DEVICES:Ljava/util/List;

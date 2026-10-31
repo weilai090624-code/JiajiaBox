@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 54
     const-string v0, "UTF-8"
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/InputStream;
 
     .line 67
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -101,7 +101,7 @@
 .end method
 
 .method public getEncoding()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 77
     iget-object v0, p0, Lorg/yaml/snakeyaml/reader/UnicodeReader;->internalIn2:Ljava/io/InputStreamReader;
@@ -114,7 +114,7 @@
 .end method
 
 .method protected init()V
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -124,13 +124,13 @@
     .line 86
     iget-object v0, p0, Lorg/yaml/snakeyaml/reader/UnicodeReader;->internalIn2:Ljava/io/InputStreamReader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 87
     return-void
 
     .line 90
-    :cond_0
+    :cond_5
     const/4 v0, 0x3
 
     new-array v0, v0, [B
@@ -155,13 +155,13 @@
 
     const/4 v5, 0x1
 
-    if-ne v2, v4, :cond_1
+    if-ne v2, v4, :cond_29
 
     aget-byte v2, v0, v5
 
     const/16 v4, -0x45
 
-    if-ne v2, v4, :cond_1
+    if-ne v2, v4, :cond_29
 
     const/4 v2, 0x2
 
@@ -169,7 +169,7 @@
 
     const/16 v4, -0x41
 
-    if-ne v2, v4, :cond_1
+    if-ne v2, v4, :cond_29
 
     .line 95
     sget-object v2, Lorg/yaml/snakeyaml/reader/UnicodeReader;->UTF8:Ljava/nio/charset/Charset;
@@ -179,23 +179,23 @@
     add-int/lit8 v3, v1, -0x3
 
     .local v3, "unread":I
-    goto :goto_0
+    goto :goto_48
 
     .line 97
     .end local v2    # "encoding":Ljava/nio/charset/Charset;
     .end local v3    # "unread":I
-    :cond_1
+    :cond_29
     aget-byte v2, v0, v3
 
     const/4 v4, -0x1
 
     const/4 v6, -0x2
 
-    if-ne v2, v6, :cond_2
+    if-ne v2, v6, :cond_38
 
     aget-byte v2, v0, v5
 
-    if-ne v2, v4, :cond_2
+    if-ne v2, v4, :cond_38
 
     .line 98
     sget-object v2, Lorg/yaml/snakeyaml/reader/UnicodeReader;->UTF16BE:Ljava/nio/charset/Charset;
@@ -205,19 +205,19 @@
     add-int/lit8 v3, v1, -0x2
 
     .restart local v3    # "unread":I
-    goto :goto_0
+    goto :goto_48
 
     .line 100
     .end local v2    # "encoding":Ljava/nio/charset/Charset;
     .end local v3    # "unread":I
-    :cond_2
+    :cond_38
     aget-byte v2, v0, v3
 
-    if-ne v2, v4, :cond_3
+    if-ne v2, v4, :cond_45
 
     aget-byte v2, v0, v5
 
-    if-ne v2, v6, :cond_3
+    if-ne v2, v6, :cond_45
 
     .line 101
     sget-object v2, Lorg/yaml/snakeyaml/reader/UnicodeReader;->UTF16LE:Ljava/nio/charset/Charset;
@@ -227,12 +227,12 @@
     add-int/lit8 v3, v1, -0x2
 
     .restart local v3    # "unread":I
-    goto :goto_0
+    goto :goto_48
 
     .line 105
     .end local v2    # "encoding":Ljava/nio/charset/Charset;
     .end local v3    # "unread":I
-    :cond_3
+    :cond_45
     sget-object v2, Lorg/yaml/snakeyaml/reader/UnicodeReader;->UTF8:Ljava/nio/charset/Charset;
 
     .line 106
@@ -241,8 +241,8 @@
 
     .line 109
     .restart local v3    # "unread":I
-    :goto_0
-    if-lez v3, :cond_4
+    :goto_48
+    if-lez v3, :cond_51
 
     .line 110
     iget-object v4, p0, Lorg/yaml/snakeyaml/reader/UnicodeReader;->internalIn:Ljava/io/PushbackInputStream;
@@ -252,7 +252,7 @@
     invoke-virtual {v4, v0, v5, v3}, Ljava/io/PushbackInputStream;->unread([BII)V
 
     .line 113
-    :cond_4
+    :cond_51
     invoke-virtual {v2}, Ljava/nio/charset/Charset;->newDecoder()Ljava/nio/charset/CharsetDecoder;
 
     move-result-object v4
@@ -278,7 +278,7 @@
 .end method
 
 .method public read([CII)I
-    .locals 1
+    .registers 5
     .param p1, "cbuf"    # [C
     .param p2, "off"    # I
     .param p3, "len"    # I

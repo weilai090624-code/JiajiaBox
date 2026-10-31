@@ -80,7 +80,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/InvalidationTracker$Observer;[I[Ljava/lang/String;)V
-    .locals 4
+    .registers 8
     .param p1, "observer"    # Landroidx/room/InvalidationTracker$Observer;
     .param p2, "tableIds"    # [I
     .param p3, "tableNames"    # [Ljava/lang/String;
@@ -118,17 +118,17 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_24
+    if-nez v0, :cond_2f
 
     .line 588
     iget-object v0, p0, Landroidx/room/InvalidationTracker$ObserverWrapper;->tableNames:[Ljava/lang/String;
@@ -139,16 +139,16 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_33
 
     .line 590
-    :cond_1
+    :cond_2f
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
     .line 587
-    :goto_1
+    :goto_33
     iput-object v0, p0, Landroidx/room/InvalidationTracker$ObserverWrapper;->singleTableSet:Ljava/util/Set;
 
     .line 593
@@ -163,15 +163,15 @@
 
     array-length v3, v3
 
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_3f
 
-    goto :goto_2
+    goto :goto_40
 
-    :cond_2
+    :cond_3f
     const/4 v1, 0x0
 
-    :goto_2
-    if-eqz v1, :cond_3
+    :goto_40
+    if-eqz v1, :cond_44
 
     .line 595
     nop
@@ -180,7 +180,7 @@
     return-void
 
     .line 594
-    :cond_3
+    :cond_44
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Check failed."
@@ -197,7 +197,7 @@
 
 # virtual methods
 .method public final getObserver$room_runtime_release()Landroidx/room/InvalidationTracker$Observer;
-    .locals 1
+    .registers 2
 
     .line 583
     iget-object v0, p0, Landroidx/room/InvalidationTracker$ObserverWrapper;->observer:Landroidx/room/InvalidationTracker$Observer;
@@ -206,7 +206,7 @@
 .end method
 
 .method public final getTableIds$room_runtime_release()[I
-    .locals 1
+    .registers 2
 
     .line 584
     iget-object v0, p0, Landroidx/room/InvalidationTracker$ObserverWrapper;->tableIds:[I
@@ -215,7 +215,7 @@
 .end method
 
 .method public final notifyByTableInvalidStatus$room_runtime_release(Ljava/util/Set;)V
-    .locals 13
+    .registers 15
     .param p1, "invalidatedTablesIds"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -237,7 +237,7 @@
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_68
 
     .line 611
     invoke-static {}, Lkotlin/collections/SetsKt;->createSetBuilder()Ljava/util/Set;
@@ -264,7 +264,7 @@
     .local v6, "index$iv":I
     array-length v7, v4
 
-    goto :goto_0
+    goto :goto_33
 
     .line 606
     .end local v2    # "$this$notifyByTableInvalidStatus_u24lambda_u241":Ljava/util/Set;
@@ -272,7 +272,7 @@
     .end local v4    # "$this$forEachIndexed$iv":[I
     .end local v5    # "$i$f$forEachIndexed":I
     .end local v6    # "index$iv":I
-    :pswitch_0
+    :pswitch_18
     iget-object v0, p0, Landroidx/room/InvalidationTracker$ObserverWrapper;->tableIds:[I
 
     aget v0, v0, v1
@@ -285,28 +285,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 607
     iget-object v0, p0, Landroidx/room/InvalidationTracker$ObserverWrapper;->singleTableSet:Ljava/util/Set;
 
-    goto :goto_1
+    goto :goto_58
 
     .line 609
-    :cond_0
+    :cond_29
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_58
 
     .line 605
-    :pswitch_1
+    :pswitch_2e
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_58
 
     .line 842
     .restart local v2    # "$this$notifyByTableInvalidStatus_u24lambda_u241":Ljava/util/Set;
@@ -314,8 +314,8 @@
     .restart local v4    # "$this$forEachIndexed$iv":[I
     .restart local v5    # "$i$f$forEachIndexed":I
     .restart local v6    # "index$iv":I
-    :goto_0
-    if-ge v1, v7, :cond_2
+    :goto_33
+    if-ge v1, v7, :cond_52
 
     aget v8, v4, v1
 
@@ -339,7 +339,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_1
+    if-eqz v12, :cond_4c
 
     .line 614
     iget-object v12, p0, Landroidx/room/InvalidationTracker$ObserverWrapper;->tableNames:[Ljava/lang/String;
@@ -349,7 +349,7 @@
     invoke-interface {v2, v12}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 616
-    :cond_1
+    :cond_4c
     nop
 
     .line 842
@@ -363,12 +363,12 @@
 
     move v6, v9
 
-    goto :goto_0
+    goto :goto_33
 
     .line 843
     .end local v9    # "index$iv":I
     .local v6, "index$iv":I
-    :cond_2
+    :cond_52
     nop
 
     .line 617
@@ -385,7 +385,7 @@
     move-result-object v0
 
     .line 604
-    :goto_1
+    :goto_58
     nop
 
     .line 620
@@ -398,7 +398,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_67
 
     .line 621
     iget-object v1, p0, Landroidx/room/InvalidationTracker$ObserverWrapper;->observer:Landroidx/room/InvalidationTracker$Observer;
@@ -406,18 +406,18 @@
     invoke-virtual {v1, v0}, Landroidx/room/InvalidationTracker$Observer;->onInvalidated(Ljava/util/Set;)V
 
     .line 623
-    :cond_3
+    :cond_67
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_68
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2e
+        :pswitch_18
     .end packed-switch
 .end method
 
 .method public final notifyByTableNames$room_runtime_release([Ljava/lang/String;)V
-    .locals 20
+    .registers 22
     .param p1, "tables"    # [Ljava/lang/String;
 
     move-object/from16 v0, p0
@@ -437,7 +437,7 @@
 
     const/4 v4, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_94
 
     .line 639
     invoke-static {}, Lkotlin/collections/SetsKt;->createSetBuilder()Ljava/util/Set;
@@ -462,14 +462,14 @@
 
     const/4 v10, 0x0
 
-    goto :goto_2
+    goto :goto_48
 
     .line 634
     .end local v5    # "$this$notifyByTableNames_u24lambda_u245":Ljava/util/Set;
     .end local v6    # "$i$a$-buildSet-InvalidationTracker$ObserverWrapper$notifyByTableNames$invalidatedTables$2":I
     .end local v7    # "$this$forEach$iv":[Ljava/lang/Object;
     .end local v8    # "$i$f$forEach":I
-    :pswitch_0
+    :pswitch_1e
     move-object/from16 v1, p1
 
     .local v1, "$this$any$iv":[Ljava/lang/Object;
@@ -481,8 +481,8 @@
 
     const/4 v7, 0x0
 
-    :goto_0
-    if-ge v7, v6, :cond_1
+    :goto_23
+    if-ge v7, v6, :cond_38
 
     aget-object v8, v1, v7
 
@@ -505,56 +505,56 @@
     .line 844
     .end local v9    # "it":Ljava/lang/String;
     .end local v10    # "$i$a$-any-InvalidationTracker$ObserverWrapper$notifyByTableNames$invalidatedTables$1":I
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_35
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_39
 
     .end local v8    # "element$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_35
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 845
-    :cond_1
+    :cond_38
     nop
 
     .line 634
     .end local v1    # "$this$any$iv":[Ljava/lang/Object;
     .end local v5    # "$i$f$any":I
-    :goto_1
-    if-eqz v3, :cond_2
+    :goto_39
+    if-eqz v3, :cond_3e
 
     .line 635
     iget-object v1, v0, Landroidx/room/InvalidationTracker$ObserverWrapper;->singleTableSet:Ljava/util/Set;
 
-    goto :goto_5
+    goto :goto_83
 
     .line 637
-    :cond_2
+    :cond_3e
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v1
 
-    goto :goto_5
+    goto :goto_83
 
     .line 633
-    :pswitch_1
+    :pswitch_43
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v1
 
-    goto :goto_5
+    goto :goto_83
 
     .line 846
     .local v5, "$this$notifyByTableNames_u24lambda_u245":Ljava/util/Set;
     .restart local v6    # "$i$a$-buildSet-InvalidationTracker$ObserverWrapper$notifyByTableNames$invalidatedTables$2":I
     .restart local v7    # "$this$forEach$iv":[Ljava/lang/Object;
     .local v8, "$i$f$forEach":I
-    :goto_2
-    if-ge v10, v9, :cond_5
+    :goto_48
+    if-ge v10, v9, :cond_7d
 
     aget-object v11, v7, v10
 
@@ -577,8 +577,8 @@
 
     const/4 v4, 0x0
 
-    :goto_3
-    if-ge v4, v3, :cond_4
+    :goto_53
+    if-ge v4, v3, :cond_73
 
     aget-object v17, v14, v4
 
@@ -602,22 +602,22 @@
 
     move-result v18
 
-    if-eqz v18, :cond_3
+    if-eqz v18, :cond_6a
 
     .line 643
     invoke-interface {v5, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 644
-    goto :goto_4
+    goto :goto_6b
 
     .line 646
-    :cond_3
+    :cond_6a
     nop
 
     .line 847
     .end local v2    # "ourTable":Ljava/lang/String;
     .end local v19    # "$i$a$-forEach-InvalidationTracker$ObserverWrapper$notifyByTableNames$invalidatedTables$2$1$1":I
-    :goto_4
+    :goto_6b
     nop
 
     .end local v17    # "element$iv":Ljava/lang/Object;
@@ -627,10 +627,10 @@
 
     move/from16 v3, v16
 
-    goto :goto_3
+    goto :goto_53
 
     .line 848
-    :cond_4
+    :cond_73
     const/4 v3, 0x1
 
     .line 647
@@ -652,10 +652,10 @@
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_48
 
     .line 849
-    :cond_5
+    :cond_7d
     nop
 
     .line 648
@@ -671,7 +671,7 @@
     move-result-object v1
 
     .line 632
-    :goto_5
+    :goto_83
     nop
 
     .line 650
@@ -684,7 +684,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_92
 
     .line 651
     iget-object v2, v0, Landroidx/room/InvalidationTracker$ObserverWrapper;->observer:Landroidx/room/InvalidationTracker$Observer;
@@ -692,14 +692,14 @@
     invoke-virtual {v2, v1}, Landroidx/room/InvalidationTracker$Observer;->onInvalidated(Ljava/util/Set;)V
 
     .line 653
-    :cond_6
+    :cond_92
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_94
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_43
+        :pswitch_1e
     .end packed-switch
 .end method

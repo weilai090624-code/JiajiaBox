@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;
 
     .line 3647
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 

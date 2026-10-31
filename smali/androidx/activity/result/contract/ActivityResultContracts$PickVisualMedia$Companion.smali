@@ -63,7 +63,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 596
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,7 +72,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$Companion;-><init>()V
 
@@ -80,31 +80,31 @@
 .end method
 
 .method public static synthetic getACTION_SYSTEM_FALLBACK_PICK_IMAGES$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getEXTRA_SYSTEM_FALLBACK_PICK_IMAGES_ACCENT_COLOR$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getEXTRA_SYSTEM_FALLBACK_PICK_IMAGES_IN_ORDER$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getEXTRA_SYSTEM_FALLBACK_PICK_IMAGES_LAUNCH_TAB$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getEXTRA_SYSTEM_FALLBACK_PICK_IMAGES_MAX$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public final getSystemFallbackPicker$activity_release(Landroid/content/Context;)Landroid/content/pm/ResolveInfo;
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -147,7 +147,7 @@
 .end method
 
 .method public final getVisualMimeType$activity_release(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "input"    # Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
 
     const-string v0, "input"
@@ -160,27 +160,27 @@
     .line 733
     instance-of v0, p1, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$ImageOnly;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const-string v0, "image/*"
 
-    goto :goto_0
+    goto :goto_26
 
     .line 734
-    :cond_0
+    :cond_d
     instance-of v0, p1, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VideoOnly;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     const-string/jumbo v0, "video/*"
 
-    goto :goto_0
+    goto :goto_26
 
     .line 735
-    :cond_1
+    :cond_15
     instance-of v0, p1, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$SingleMimeType;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     move-object v0, p1
 
@@ -190,22 +190,22 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_26
 
     .line 736
-    :cond_2
+    :cond_21
     instance-of v0, p1, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$ImageAndVideo;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_27
 
     const/4 v0, 0x0
 
     .line 732
-    :goto_0
+    :goto_26
     return-object v0
 
     .line 736
-    :cond_3
+    :cond_27
     new-instance v0, Lkotlin/NoWhenBranchMatchedException;
 
     invoke-direct {v0}, Lkotlin/NoWhenBranchMatchedException;-><init>()V
@@ -214,7 +214,7 @@
 .end method
 
 .method public final isPhotoPickerAvailable()Z
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "This method is deprecated in favor of isPhotoPickerAvailable(context) to support the picker provided by updatable system apps"
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -235,7 +235,7 @@
 .end method
 
 .method public final isPhotoPickerAvailable(Landroid/content/Context;)Z
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -249,31 +249,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     invoke-virtual {p0, p1}, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$Companion;->isSystemFallbackPickerAvailable$activity_release(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_15
     return v0
 .end method
 
 .method public final isSystemFallbackPickerAvailable$activity_release(Landroid/content/Context;)Z
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -287,21 +287,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 .end method
 
 .method public final isSystemPickerAvailable$activity_release()Z
-    .locals 4
+    .registers 5
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -312,20 +312,20 @@
 
     const/4 v2, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     .line 707
-    goto :goto_0
+    goto :goto_1a
 
     .line 708
-    :cond_0
+    :cond_8
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/4 v1, 0x0
 
     const/16 v3, 0x1e
 
-    if-lt v0, v3, :cond_2
+    if-lt v0, v3, :cond_19
 
     .line 711
     invoke-static {v3}, Landroid/os/ext/SdkExtensions;->getExtensionVersion(I)I
@@ -334,20 +334,20 @@
 
     const/4 v3, 0x2
 
-    if-lt v0, v3, :cond_1
+    if-lt v0, v3, :cond_17
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_1
+    :cond_17
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 713
-    :cond_2
+    :cond_19
     const/4 v2, 0x0
 
     .line 706
-    :goto_0
+    :goto_1a
     return v2
 .end method

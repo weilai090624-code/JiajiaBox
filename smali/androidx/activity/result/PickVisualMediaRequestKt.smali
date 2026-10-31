@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final PickVisualMediaRequest(JLandroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;IZLandroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;)Landroidx/activity/result/PickVisualMediaRequest;
-    .locals 1
+    .registers 7
     .param p0, "accentColor"    # J
     .param p2, "mediaType"    # Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
     .param p3, "maxItems"    # I
@@ -89,7 +89,7 @@
 .end method
 
 .method public static final synthetic PickVisualMediaRequest(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;)Landroidx/activity/result/PickVisualMediaRequest;
-    .locals 1
+    .registers 2
     .param p0, "mediaType"    # Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
@@ -117,7 +117,7 @@
 .end method
 
 .method public static final synthetic PickVisualMediaRequest(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;I)Landroidx/activity/result/PickVisualMediaRequest;
-    .locals 1
+    .registers 3
     .param p0, "mediaType"    # Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
     .param p1, "maxItems"    # I
     .annotation runtime Lkotlin/Deprecated;
@@ -150,7 +150,7 @@
 .end method
 
 .method public static final PickVisualMediaRequest(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;IZLandroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;)Landroidx/activity/result/PickVisualMediaRequest;
-    .locals 1
+    .registers 5
     .param p0, "mediaType"    # Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
     .param p1, "maxItems"    # I
     .param p2, "isOrderedSelection"    # Z
@@ -198,12 +198,12 @@
 .end method
 
 .method public static synthetic PickVisualMediaRequest$default(JLandroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;IZLandroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;ILjava/lang/Object;)Landroidx/activity/result/PickVisualMediaRequest;
-    .locals 6
+    .registers 14
 
     .line 99
     and-int/lit8 p7, p6, 0x2
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_a
 
     .line 101
     sget-object p2, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$ImageAndVideo;->INSTANCE:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$ImageAndVideo;
@@ -212,16 +212,16 @@
 
     move-object v2, p2
 
-    goto :goto_0
+    goto :goto_b
 
     .line 99
-    :cond_0
+    :cond_a
     move-object v2, p2
 
-    :goto_0
+    :goto_b
     and-int/lit8 p2, p6, 0x4
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_17
 
     .line 102
     sget-object p2, Landroidx/activity/result/contract/ActivityResultContracts$PickMultipleVisualMedia;->Companion:Landroidx/activity/result/contract/ActivityResultContracts$PickMultipleVisualMedia$Companion;
@@ -232,32 +232,32 @@
 
     move v3, p3
 
-    goto :goto_1
+    goto :goto_18
 
     .line 99
-    :cond_1
+    :cond_17
     move v3, p3
 
-    :goto_1
+    :goto_18
     and-int/lit8 p2, p6, 0x8
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1f
 
     .line 103
     const/4 p4, 0x0
 
     const/4 v4, 0x0
 
-    goto :goto_2
+    goto :goto_20
 
     .line 99
-    :cond_2
+    :cond_1f
     move v4, p4
 
-    :goto_2
+    :goto_20
     and-int/lit8 p2, p6, 0x10
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_2b
 
     .line 104
     sget-object p2, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab$PhotosTab;->INSTANCE:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab$PhotosTab;
@@ -268,13 +268,13 @@
 
     move-object v5, p5
 
-    goto :goto_3
+    goto :goto_2c
 
     .line 99
-    :cond_3
+    :cond_2b
     move-object v5, p5
 
-    :goto_3
+    :goto_2c
     move-wide v0, p0
 
     invoke-static/range {v0 .. v5}, Landroidx/activity/result/PickVisualMediaRequestKt;->PickVisualMediaRequest(JLandroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;IZLandroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;)Landroidx/activity/result/PickVisualMediaRequest;
@@ -285,12 +285,12 @@
 .end method
 
 .method public static synthetic PickVisualMediaRequest$default(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;IILjava/lang/Object;)Landroidx/activity/result/PickVisualMediaRequest;
-    .locals 0
+    .registers 4
 
     .line 54
     and-int/lit8 p3, p2, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_8
 
     .line 55
     sget-object p0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$ImageAndVideo;->INSTANCE:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$ImageAndVideo;
@@ -298,10 +298,10 @@
     check-cast p0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
 
     .line 54
-    :cond_0
+    :cond_8
     and-int/lit8 p2, p2, 0x2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_12
 
     .line 56
     sget-object p1, Landroidx/activity/result/contract/ActivityResultContracts$PickMultipleVisualMedia;->Companion:Landroidx/activity/result/contract/ActivityResultContracts$PickMultipleVisualMedia$Companion;
@@ -311,7 +311,7 @@
     move-result p1
 
     .line 54
-    :cond_1
+    :cond_12
     invoke-static {p0, p1}, Landroidx/activity/result/PickVisualMediaRequestKt;->PickVisualMediaRequest(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;I)Landroidx/activity/result/PickVisualMediaRequest;
 
     move-result-object p0
@@ -320,18 +320,18 @@
 .end method
 
 .method public static synthetic PickVisualMediaRequest$default(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;ILjava/lang/Object;)Landroidx/activity/result/PickVisualMediaRequest;
-    .locals 0
+    .registers 3
 
     .line 37
     and-int/lit8 p1, p1, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     sget-object p0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$ImageAndVideo;->INSTANCE:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$ImageAndVideo;
 
     check-cast p0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
 
-    :cond_0
+    :cond_8
     invoke-static {p0}, Landroidx/activity/result/PickVisualMediaRequestKt;->PickVisualMediaRequest(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;)Landroidx/activity/result/PickVisualMediaRequest;
 
     move-result-object p0
@@ -340,12 +340,12 @@
 .end method
 
 .method public static synthetic PickVisualMediaRequest$default(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;IZLandroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;ILjava/lang/Object;)Landroidx/activity/result/PickVisualMediaRequest;
-    .locals 0
+    .registers 6
 
     .line 72
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     .line 73
     sget-object p0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$ImageAndVideo;->INSTANCE:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$ImageAndVideo;
@@ -353,10 +353,10 @@
     check-cast p0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
 
     .line 72
-    :cond_0
+    :cond_8
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_12
 
     .line 74
     sget-object p1, Landroidx/activity/result/contract/ActivityResultContracts$PickMultipleVisualMedia;->Companion:Landroidx/activity/result/contract/ActivityResultContracts$PickMultipleVisualMedia$Companion;
@@ -366,19 +366,19 @@
     move-result p1
 
     .line 72
-    :cond_1
+    :cond_12
     and-int/lit8 p5, p4, 0x4
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_17
 
     .line 75
     const/4 p2, 0x0
 
     .line 72
-    :cond_2
+    :cond_17
     and-int/lit8 p4, p4, 0x8
 
-    if-eqz p4, :cond_3
+    if-eqz p4, :cond_1f
 
     .line 76
     sget-object p3, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab$PhotosTab;->INSTANCE:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab$PhotosTab;
@@ -386,7 +386,7 @@
     check-cast p3, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;
 
     .line 72
-    :cond_3
+    :cond_1f
     invoke-static {p0, p1, p2, p3}, Landroidx/activity/result/PickVisualMediaRequestKt;->PickVisualMediaRequest(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;IZLandroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;)Landroidx/activity/result/PickVisualMediaRequest;
 
     move-result-object p0

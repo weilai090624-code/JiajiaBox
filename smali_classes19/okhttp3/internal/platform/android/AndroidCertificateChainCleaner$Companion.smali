@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/android/AndroidCertificateChainCleaner$Companion;-><init>()V
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final buildIfSupported(Ljavax/net/ssl/X509TrustManager;)Lokhttp3/internal/platform/android/AndroidCertificateChainCleaner;
-    .locals 3
+    .registers 5
     .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     const-string v0, "trustManager"
@@ -71,17 +71,17 @@
     .line 60
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_7
     new-instance v1, Landroid/net/http/X509TrustManagerExtensions;
 
     invoke-direct {v1, p1}, Landroid/net/http/X509TrustManagerExtensions;-><init>(Ljavax/net/ssl/X509TrustManager;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_c} :catch_d
 
-    goto :goto_0
+    goto :goto_12
 
     .line 61
-    :catch_0
+    :catch_d
     move-exception v1
 
     .line 63
@@ -94,7 +94,7 @@
 
     .line 59
     .end local v1    # "iae":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_12
     nop
 
     .line 66
@@ -102,19 +102,19 @@
     nop
 
     .line 67
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     new-instance v0, Lokhttp3/internal/platform/android/AndroidCertificateChainCleaner;
 
     invoke-direct {v0, p1, v1}, Lokhttp3/internal/platform/android/AndroidCertificateChainCleaner;-><init>(Ljavax/net/ssl/X509TrustManager;Landroid/net/http/X509TrustManagerExtensions;)V
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 68
-    :cond_0
+    :cond_1c
     nop
 
     .line 66
-    :goto_1
+    :goto_1d
     return-object v0
 .end method

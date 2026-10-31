@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;Lcom/google/android/material/appbar/AppBarLayout;Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;Landroid/widget/LinearLayout;Lcom/google/android/material/textfield/TextInputEditText;Landroid/widget/LinearLayout;Lcom/google/android/material/chip/Chip;Lcom/google/android/material/appbar/MaterialToolbar;)V
-    .locals 0
+    .registers 10
     .param p1, "rootView"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "appPlaceholder"    # Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;
     .param p3, "appbar"    # Lcom/google/android/material/appbar/AppBarLayout;
@@ -98,7 +98,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
-    .locals 22
+    .registers 23
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -122,7 +122,7 @@
 
     .line 96
     .local v2, "appPlaceholder":Landroid/view/View;
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_87
 
     .line 99
     invoke-static {v2}, Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;
@@ -144,7 +144,7 @@
 
     .line 103
     .local v14, "appbar":Lcom/google/android/material/appbar/AppBarLayout;
-    if-eqz v14, :cond_6
+    if-eqz v14, :cond_86
 
     .line 107
     const v1, 0x7f0a018e
@@ -160,7 +160,7 @@
 
     .line 109
     .local v15, "list":Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
-    if-eqz v15, :cond_5
+    if-eqz v15, :cond_85
 
     .line 113
     const v1, 0x7f0a0192
@@ -176,7 +176,7 @@
 
     .line 115
     .local v16, "loading":Landroid/widget/LinearLayout;
-    if-eqz v16, :cond_4
+    if-eqz v16, :cond_84
 
     .line 119
     const v1, 0x7f0a0243
@@ -192,7 +192,7 @@
 
     .line 121
     .local v17, "search":Lcom/google/android/material/textfield/TextInputEditText;
-    if-eqz v17, :cond_3
+    if-eqz v17, :cond_83
 
     .line 125
     const v1, 0x7f0a024b
@@ -208,7 +208,7 @@
 
     .line 127
     .local v18, "searchLayout":Landroid/widget/LinearLayout;
-    if-eqz v18, :cond_2
+    if-eqz v18, :cond_82
 
     .line 131
     const v1, 0x7f0a026d
@@ -224,7 +224,7 @@
 
     .line 133
     .local v19, "showSystemApps":Lcom/google/android/material/chip/Chip;
-    if-eqz v19, :cond_1
+    if-eqz v19, :cond_81
 
     .line 137
     const v1, 0x7f0a02ba
@@ -240,7 +240,7 @@
 
     .line 139
     .local v20, "toolbar":Lcom/google/android/material/appbar/MaterialToolbar;
-    if-eqz v20, :cond_0
+    if-eqz v20, :cond_80
 
     .line 143
     new-instance v21, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
@@ -272,48 +272,48 @@
     return-object v21
 
     .line 140
-    :cond_0
-    goto :goto_0
+    :cond_80
+    goto :goto_88
 
     .line 134
     .end local v20    # "toolbar":Lcom/google/android/material/appbar/MaterialToolbar;
-    :cond_1
-    goto :goto_0
+    :cond_81
+    goto :goto_88
 
     .line 128
     .end local v19    # "showSystemApps":Lcom/google/android/material/chip/Chip;
-    :cond_2
-    goto :goto_0
+    :cond_82
+    goto :goto_88
 
     .line 122
     .end local v18    # "searchLayout":Landroid/widget/LinearLayout;
-    :cond_3
-    goto :goto_0
+    :cond_83
+    goto :goto_88
 
     .line 116
     .end local v17    # "search":Lcom/google/android/material/textfield/TextInputEditText;
-    :cond_4
-    goto :goto_0
+    :cond_84
+    goto :goto_88
 
     .line 110
     .end local v16    # "loading":Landroid/widget/LinearLayout;
-    :cond_5
-    goto :goto_0
+    :cond_85
+    goto :goto_88
 
     .line 104
     .end local v15    # "list":Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
-    :cond_6
-    goto :goto_0
+    :cond_86
+    goto :goto_88
 
     .line 97
     .end local v13    # "binding_appPlaceholder":Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;
     .end local v14    # "appbar":Lcom/google/android/material/appbar/AppBarLayout;
-    :cond_7
+    :cond_87
     nop
 
     .line 146
     .end local v2    # "appPlaceholder":Landroid/view/View;
-    :goto_0
+    :goto_88
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -338,7 +338,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -362,7 +362,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -390,13 +390,13 @@
 
     .line 82
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 83
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 85
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
     move-result-object v1
@@ -407,7 +407,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 23
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->getRoot()Landroidx/coordinatorlayout/widget/CoordinatorLayout;
@@ -418,7 +418,7 @@
 .end method
 
 .method public getRoot()Landroidx/coordinatorlayout/widget/CoordinatorLayout;
-    .locals 1
+    .registers 2
 
     .line 70
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->rootView:Landroidx/coordinatorlayout/widget/CoordinatorLayout;

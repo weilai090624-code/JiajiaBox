@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 23
     const v0, 0x7f0d004e
@@ -71,7 +71,7 @@
 .end method
 
 .method private final getColorForLine(Ljava/lang/String;)Landroid/text/style/ForegroundColorSpan;
-    .locals 7
+    .registers 9
     .param p1, "line"    # Ljava/lang/String;
 
     .line 48
@@ -104,7 +104,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_6c
 
     move-object v1, p1
 
@@ -118,12 +118,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
-    goto :goto_1
+    goto :goto_6c
 
     .line 54
-    :cond_0
+    :cond_27
     move-object v1, p1
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -138,7 +138,7 @@
 
     const/high16 v2, -0x10000
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_65
 
     move-object v1, p1
 
@@ -152,12 +152,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_44
 
-    goto :goto_0
+    goto :goto_65
 
     .line 58
-    :cond_1
+    :cond_44
     move-object v1, p1
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -170,7 +170,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_5e
 
     move-object v1, p1
 
@@ -184,32 +184,32 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_75
 
     .line 59
-    :cond_2
+    :cond_5e
     new-instance v1, Landroid/text/style/ForegroundColorSpan;
 
     invoke-direct {v1, v2}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
 
     move-object v0, v1
 
-    goto :goto_2
+    goto :goto_75
 
     .line 55
-    :cond_3
-    :goto_0
+    :cond_65
+    :goto_65
     new-instance v1, Landroid/text/style/ForegroundColorSpan;
 
     invoke-direct {v1, v2}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
 
     move-object v0, v1
 
-    goto :goto_2
+    goto :goto_75
 
     .line 51
-    :cond_4
-    :goto_1
+    :cond_6c
+    :goto_6c
     new-instance v1, Landroid/text/style/ForegroundColorSpan;
 
     const v2, -0x793e9a
@@ -219,13 +219,13 @@
     move-object v0, v1
 
     .line 62
-    :cond_5
-    :goto_2
+    :cond_75
+    :goto_75
     return-object v0
 .end method
 
 .method private final reloadSession()V
-    .locals 9
+    .registers 10
 
     .line 66
     new-instance v0, Landroid/text/SpannableString;
@@ -268,12 +268,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_23
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_46
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -314,10 +314,10 @@
 
     .end local v3    # "line":Ljava/lang/String;
     .end local v4    # "color":Landroid/text/style/ForegroundColorSpan;
-    goto :goto_0
+    goto :goto_23
 
     .line 77
-    :cond_0
+    :cond_46
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/LogcatFragment;->getBinding()Lio/nekohasekai/sagernet/databinding/LayoutLogcatBinding;
 
     move-result-object v2
@@ -361,13 +361,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_8d
 
     invoke-virtual {v2}, Landroid/view/View;->isLayoutRequested()Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_8d
 
     .line 121
     move-object v4, v2
@@ -403,10 +403,10 @@
     .line 121
     .end local v4    # "it":Landroid/view/View;
     .end local v5    # "$i$a$-doOnLayout-LogcatFragment$reloadSession$1":I
-    goto :goto_1
+    goto :goto_9a
 
     .line 123
-    :cond_1
+    :cond_8d
     move-object v4, v2
 
     .local v4, "$this$doOnNextLayout$iv$iv":Landroid/view/View;
@@ -428,7 +428,7 @@
     .line 126
     .end local v4    # "$this$doOnNextLayout$iv$iv":Landroid/view/View;
     .end local v5    # "$i$f$doOnNextLayout":I
-    :goto_1
+    :goto_9a
     nop
 
     .line 83
@@ -440,16 +440,16 @@
 
 # virtual methods
 .method public final getBinding()Lio/nekohasekai/sagernet/databinding/LayoutLogcatBinding;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/LogcatFragment;->binding:Lio/nekohasekai/sagernet/databinding/LayoutLogcatBinding;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "binding"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -460,7 +460,7 @@
 .end method
 
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .locals 3
+    .registers 5
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -474,12 +474,12 @@
 
     const/4 v1, 0x0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_32
 
-    goto :goto_0
+    goto :goto_30
 
     .line 106
-    :sswitch_0
+    :sswitch_e
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/LogcatFragment;->requireContext()Landroid/content/Context;
 
     move-result-object v0
@@ -499,16 +499,16 @@
     invoke-static {v2}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .end local v0    # "context":Landroid/content/Context;
-    goto :goto_0
+    goto :goto_30
 
     .line 113
-    :sswitch_1
+    :sswitch_22
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/LogcatFragment;->reloadSession()V
 
-    goto :goto_0
+    goto :goto_30
 
     .line 88
-    :sswitch_2
+    :sswitch_26
     new-instance v0, Lio/nekohasekai/sagernet/ui/LogcatFragment$onMenuItemClick$1;
 
     invoke-direct {v0, p0, v1}, Lio/nekohasekai/sagernet/ui/LogcatFragment$onMenuItemClick$1;-><init>(Lio/nekohasekai/sagernet/ui/LogcatFragment;Lkotlin/coroutines/Continuation;)V
@@ -518,21 +518,21 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 116
-    :goto_0
+    :goto_30
     const/4 v0, 0x1
 
     return v0
 
-    :sswitch_data_0
+    :sswitch_data_32
     .sparse-switch
-        0x7f0a003f -> :sswitch_2
-        0x7f0a007a -> :sswitch_1
-        0x7f0a007f -> :sswitch_0
+        0x7f0a003f -> :sswitch_26
+        0x7f0a007a -> :sswitch_22
+        0x7f0a007f -> :sswitch_e
     .end sparse-switch
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -584,7 +584,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_3d
 
     .line 39
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/LogcatFragment;->getBinding()Lio/nekohasekai/sagernet/databinding/LayoutLogcatBinding;
@@ -598,7 +598,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBreakStrategy(I)V
 
     .line 42
-    :cond_0
+    :cond_3d
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/LogcatFragment;->getBinding()Lio/nekohasekai/sagernet/databinding/LayoutLogcatBinding;
 
     move-result-object v0
@@ -623,7 +623,7 @@
 .end method
 
 .method public final setBinding(Lio/nekohasekai/sagernet/databinding/LayoutLogcatBinding;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/databinding/LayoutLogcatBinding;
 
     const-string v0, "<set-?>"

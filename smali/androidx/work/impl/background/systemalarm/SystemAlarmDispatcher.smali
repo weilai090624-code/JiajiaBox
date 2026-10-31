@@ -58,7 +58,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 54
     const-string v0, "SystemAlarmDispatcher"
@@ -73,7 +73,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -94,7 +94,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroidx/work/impl/Processor;Landroidx/work/impl/WorkManagerImpl;)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "processor"    # Landroidx/work/impl/Processor;
     .param p3, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
@@ -140,18 +140,18 @@
     iput-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mCommandHandler:Landroidx/work/impl/background/systemalarm/CommandHandler;
 
     .line 90
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1f
 
     move-object v0, p3
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_1f
     invoke-static {p1}, Landroidx/work/impl/WorkManagerImpl;->getInstance(Landroid/content/Context;)Landroidx/work/impl/WorkManagerImpl;
 
     move-result-object v0
 
-    :goto_0
+    :goto_23
     iput-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mWorkManager:Landroidx/work/impl/WorkManagerImpl;
 
     .line 91
@@ -172,20 +172,20 @@
     iput-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mWorkTimer:Landroidx/work/impl/utils/WorkTimer;
 
     .line 92
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_3a
 
     move-object v0, p2
 
-    goto :goto_1
+    goto :goto_40
 
-    :cond_1
+    :cond_3a
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mWorkManager:Landroidx/work/impl/WorkManagerImpl;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkManagerImpl;->getProcessor()Landroidx/work/impl/Processor;
 
     move-result-object v0
 
-    :goto_1
+    :goto_40
     iput-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mProcessor:Landroidx/work/impl/Processor;
 
     .line 93
@@ -219,7 +219,7 @@
 .end method
 
 .method private assertMainThread()V
-    .locals 2
+    .registers 3
 
     .line 309
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -234,13 +234,13 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     .line 312
     return-void
 
     .line 310
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Needs to be invoked on the main thread."
@@ -251,7 +251,7 @@
 .end method
 
 .method private hasIntentWithAction(Ljava/lang/String;)Z
-    .locals 4
+    .registers 6
     .param p1, "action"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -271,19 +271,19 @@
     monitor-enter v0
 
     .line 299
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mIntents:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -301,7 +301,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_25
 
     .line 301
     monitor-exit v0
@@ -312,11 +312,11 @@
 
     .line 303
     .end local v2    # "intent":Landroid/content/Intent;
-    :cond_0
-    goto :goto_0
+    :cond_25
+    goto :goto_c
 
     .line 304
-    :cond_1
+    :cond_26
     monitor-exit v0
 
     const/4 v0, 0x0
@@ -324,18 +324,18 @@
     return v0
 
     .line 305
-    :catchall_0
+    :catchall_29
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_6 .. :try_end_2b} :catchall_29
 
     throw v1
 .end method
 
 .method private processCommand()V
-    .locals 3
+    .registers 4
 
     .line 244
     invoke-direct {p0}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->assertMainThread()V
@@ -352,7 +352,7 @@
 
     .line 248
     .local v0, "processCommandLock":Landroid/os/PowerManager$WakeLock;
-    :try_start_0
+    :try_start_b
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
     .line 250
@@ -367,8 +367,8 @@
     invoke-direct {v2, p0}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;-><init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
 
     invoke-interface {v1, v2}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnTaskThread(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_b .. :try_end_1c} :catchall_21
 
     .line 291
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
@@ -380,7 +380,7 @@
     return-void
 
     .line 291
-    :catchall_0
+    :catchall_21
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
@@ -392,7 +392,7 @@
 
 # virtual methods
 .method public add(Landroid/content/Intent;I)Z
-    .locals 5
+    .registers 8
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "startId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -465,7 +465,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_46
 
     .line 141
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -482,14 +482,14 @@
     return v2
 
     .line 148
-    :cond_0
+    :cond_46
     const-string v1, "ACTION_CONSTRAINTS_CHANGED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_57
 
     const-string v1, "ACTION_CONSTRAINTS_CHANGED"
 
@@ -498,13 +498,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_57
 
     .line 150
     return v2
 
     .line 153
-    :cond_1
+    :cond_57
     const-string v1, "KEY_START_ID"
 
     invoke-virtual {p1, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
@@ -515,7 +515,7 @@
     monitor-enter v1
 
     .line 155
-    :try_start_0
+    :try_start_5f
     iget-object v3, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mIntents:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
@@ -524,44 +524,44 @@
 
     const/4 v4, 0x1
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_69
 
     const/4 v2, 0x1
 
     .line 156
     .local v2, "hasCommands":Z
-    :cond_2
+    :cond_69
     iget-object v3, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mIntents:Ljava/util/List;
 
     invoke-interface {v3, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 157
-    if-nez v2, :cond_3
+    if-nez v2, :cond_73
 
     .line 161
     invoke-direct {p0}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->processCommand()V
 
     .line 163
     .end local v2    # "hasCommands":Z
-    :cond_3
+    :cond_73
     monitor-exit v1
 
     .line 164
     return v4
 
     .line 163
-    :catchall_0
+    :catchall_75
     move-exception v2
 
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_77
+    .catchall {:try_start_5f .. :try_end_77} :catchall_75
 
     throw v2
 .end method
 
 .method dequeueAndCheckForCompletion()V
-    .locals 5
+    .registers 6
 
     .line 196
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -583,10 +583,10 @@
     monitor-enter v0
 
     .line 216
-    :try_start_0
+    :try_start_11
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mCurrentIntent:Landroid/content/Intent;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_50
 
     .line 217
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -634,17 +634,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_48
 
     .line 221
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mCurrentIntent:Landroid/content/Intent;
 
-    goto :goto_0
+    goto :goto_50
 
     .line 219
-    :cond_0
+    :cond_48
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Dequeue-d command is not the first."
@@ -654,8 +654,8 @@
     throw v1
 
     .line 223
-    :cond_1
-    :goto_0
+    :cond_50
+    :goto_50
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
     invoke-interface {v1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->getSerialTaskExecutor()Landroidx/work/impl/utils/taskexecutor/SerialExecutor;
@@ -670,7 +670,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_81
 
     iget-object v2, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mIntents:Ljava/util/List;
 
@@ -679,14 +679,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_81
 
     .line 226
     invoke-interface {v1}, Landroidx/work/impl/utils/taskexecutor/SerialExecutor;->hasPendingTasks()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_81
 
     .line 230
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -702,50 +702,50 @@
     .line 231
     iget-object v2, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mCompletedListener:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$CommandsCompletedListener;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_8c
 
     .line 232
     iget-object v2, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mCompletedListener:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$CommandsCompletedListener;
 
     invoke-interface {v2}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$CommandsCompletedListener;->onAllCommandsCompleted()V
 
-    goto :goto_1
+    goto :goto_8c
 
     .line 234
-    :cond_2
+    :cond_81
     iget-object v2, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mIntents:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_8c
 
     .line 236
     invoke-direct {p0}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->processCommand()V
 
     .line 238
     .end local v1    # "serialExecutor":Landroidx/work/impl/utils/taskexecutor/SerialExecutor;
-    :cond_3
-    :goto_1
+    :cond_8c
+    :goto_8c
     monitor-exit v0
 
     .line 239
     return-void
 
     .line 238
-    :catchall_0
+    :catchall_8e
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_90
+    .catchall {:try_start_11 .. :try_end_90} :catchall_8e
 
     throw v1
 .end method
 
 .method getProcessor()Landroidx/work/impl/Processor;
-    .locals 1
+    .registers 2
 
     .line 178
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mProcessor:Landroidx/work/impl/Processor;
@@ -754,7 +754,7 @@
 .end method
 
 .method getTaskExecutor()Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    .locals 1
+    .registers 2
 
     .line 190
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
@@ -763,7 +763,7 @@
 .end method
 
 .method getWorkManager()Landroidx/work/impl/WorkManagerImpl;
-    .locals 1
+    .registers 2
 
     .line 186
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mWorkManager:Landroidx/work/impl/WorkManagerImpl;
@@ -772,7 +772,7 @@
 .end method
 
 .method getWorkTimer()Landroidx/work/impl/utils/WorkTimer;
-    .locals 1
+    .registers 2
 
     .line 182
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mWorkTimer:Landroidx/work/impl/utils/WorkTimer;
@@ -781,7 +781,7 @@
 .end method
 
 .method onDestroy()V
-    .locals 3
+    .registers 4
 
     .line 106
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -809,7 +809,7 @@
 .end method
 
 .method public onExecuted(Landroidx/work/impl/model/WorkGenerationalId;Z)V
-    .locals 4
+    .registers 7
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "needsReschedule"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -851,7 +851,7 @@
 .end method
 
 .method setCompletedListener(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$CommandsCompletedListener;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$CommandsCompletedListener;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -865,7 +865,7 @@
     .line 168
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mCompletedListener:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$CommandsCompletedListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 169
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -882,7 +882,7 @@
     return-void
 
     .line 174
-    :cond_0
+    :cond_10
     iput-object p1, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mCompletedListener:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$CommandsCompletedListener;
 
     .line 175

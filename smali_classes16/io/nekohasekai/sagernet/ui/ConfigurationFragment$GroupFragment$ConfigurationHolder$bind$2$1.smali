@@ -110,7 +110,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -140,7 +140,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -169,7 +169,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -183,7 +183,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -212,7 +212,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 20
+    .registers 22
 
     move-object/from16 v1, p0
 
@@ -227,7 +227,7 @@
 
     const/4 v4, 0x0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_150
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -237,16 +237,16 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_15
     move-object/from16 v0, p1
 
     .local v0, "$result":Ljava/lang/Object;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_fe
 
     .end local v0    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1c
     move-object/from16 v2, p1
 
     .local v2, "$result":Ljava/lang/Object;
@@ -274,28 +274,28 @@
     check-cast v10, Lkotlin/jvm/internal/Ref$BooleanRef;
 
     .local v10, "update":Lkotlin/jvm/internal/Ref$BooleanRef;
-    :try_start_0
+    :try_start_2d
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_30
+    .catchall {:try_start_2d .. :try_end_30} :catchall_32
 
-    goto/16 :goto_2
+    goto/16 :goto_d6
 
     .line 1774
     .end local v6    # "$i$a$-withLock$default-ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$2$1$1":I
     .end local v9    # "lastSelected":Lkotlin/jvm/internal/Ref$LongRef;
     .end local v10    # "update":Lkotlin/jvm/internal/Ref$BooleanRef;
-    :catchall_0
+    :catchall_32
     move-exception v0
 
-    goto/16 :goto_5
+    goto/16 :goto_14b
 
     .line 1521
     .end local v2    # "$result":Ljava/lang/Object;
     .end local v5    # "$i$f$withLock":I
     .end local v7    # "owner$iv":Ljava/lang/Object;
     .end local v8    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
-    :pswitch_2
+    :pswitch_35
     move-object/from16 v2, p1
 
     .restart local v2    # "$result":Ljava/lang/Object;
@@ -330,7 +330,7 @@
     .local v11, "update":Lkotlin/jvm/internal/Ref$BooleanRef;
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_90
 
     .end local v2    # "$result":Ljava/lang/Object;
     .end local v5    # "$i$f$withLock":I
@@ -338,7 +338,7 @@
     .end local v9    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     .end local v10    # "lastSelected":Lkotlin/jvm/internal/Ref$LongRef;
     .end local v11    # "update":Lkotlin/jvm/internal/Ref$BooleanRef;
-    :pswitch_3
+    :pswitch_51
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p1
@@ -399,13 +399,13 @@
 
     move-result-object v12
 
-    if-ne v12, v0, :cond_0
+    if-ne v12, v0, :cond_83
 
     .line 1521
     return-object v0
 
     .line 1770
-    :cond_0
+    :cond_83
     move/from16 v18, v11
 
     move-object v11, v5
@@ -432,7 +432,7 @@
     .restart local v9    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     .local v10, "lastSelected":Lkotlin/jvm/internal/Ref$LongRef;
     .local v11, "update":Lkotlin/jvm/internal/Ref$BooleanRef;
-    :goto_0
+    :goto_90
     nop
 
     .line 1772
@@ -440,7 +440,7 @@
 
     .line 1525
     .local v12, "$i$a$-withLock$default-ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$2$1$1":I
-    :try_start_1
+    :try_start_92
     sget-object v13, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v13}, Lio/nekohasekai/sagernet/database/DataStore;->getSelectedProxy()J
@@ -453,16 +453,16 @@
 
     cmp-long v17, v13, v15
 
-    if-eqz v17, :cond_1
+    if-eqz v17, :cond_a2
 
     const/4 v13, 0x1
 
-    goto :goto_1
+    goto :goto_a3
 
-    :cond_1
+    :cond_a2
     const/4 v13, 0x0
 
-    :goto_1
+    :goto_a3
     iput-boolean v13, v11, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
 
     .line 1526
@@ -507,16 +507,16 @@
     invoke-static {v7, v1}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->onMainDispatcher(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v6
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_ce
+    .catchall {:try_start_92 .. :try_end_ce} :catchall_148
 
-    if-ne v6, v0, :cond_2
+    if-ne v6, v0, :cond_d1
 
     .line 1521
     return-object v0
 
     .line 1528
-    :cond_2
+    :cond_d1
     move-object v7, v8
 
     move-object v8, v9
@@ -535,11 +535,11 @@
     .local v8, "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     .local v9, "lastSelected":Lkotlin/jvm/internal/Ref$LongRef;
     .local v10, "update":Lkotlin/jvm/internal/Ref$BooleanRef;
-    :goto_2
-    :try_start_2
+    :goto_d6
+    :try_start_d6
     sget-object v6, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_d8
+    .catchall {:try_start_d6 .. :try_end_d8} :catchall_32
 
     .line 1772
     .end local v6    # "$i$a$-withLock$default-ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$2$1$1":I
@@ -557,7 +557,7 @@
     .end local v5    # "$i$f$withLock":I
     iget-boolean v5, v10, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_126
 
     .line 1534
     .end local v10    # "update":Lkotlin/jvm/internal/Ref$BooleanRef;
@@ -590,19 +590,19 @@
     move-result-object v5
 
     .end local v9    # "lastSelected":Lkotlin/jvm/internal/Ref$LongRef;
-    if-ne v5, v0, :cond_3
+    if-ne v5, v0, :cond_fd
 
     .line 1521
     return-object v0
 
     .line 1534
-    :cond_3
+    :cond_fd
     move-object v0, v2
 
     .line 1535
     .end local v2    # "$result":Ljava/lang/Object;
     .restart local v0    # "$result":Ljava/lang/Object;
-    :goto_3
+    :goto_fe
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/DataStore;->getServiceState()Lio/nekohasekai/sagernet/bg/BaseService$State;
@@ -613,7 +613,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_124
 
     iget-object v2, v1, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$2$1;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
@@ -625,7 +625,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_124
 
     .line 1536
     sget-object v2, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -642,22 +642,22 @@
     invoke-static {v2, v4, v3, v4}, Lkotlinx/coroutines/sync/Mutex$DefaultImpls;->unlock$default(Lkotlinx/coroutines/sync/Mutex;Ljava/lang/Object;ILjava/lang/Object;)V
 
     .line 1546
-    :cond_4
+    :cond_124
     move-object v2, v0
 
-    goto :goto_4
+    goto :goto_145
 
     .line 1539
     .end local v0    # "$result":Ljava/lang/Object;
     .restart local v2    # "$result":Ljava/lang/Object;
-    :cond_5
+    :cond_126
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->isTv()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_145
 
     .line 1540
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -670,24 +670,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_140
 
     .line 1541
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->stopService()V
 
-    goto :goto_4
+    goto :goto_145
 
     .line 1543
-    :cond_6
+    :cond_140
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->startService()V
 
     .line 1546
-    :cond_7
-    :goto_4
+    :cond_145
+    :goto_145
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
@@ -696,7 +696,7 @@
     .restart local v5    # "$i$f$withLock":I
     .local v8, "owner$iv":Ljava/lang/Object;
     .local v9, "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
-    :catchall_1
+    :catchall_148
     move-exception v0
 
     move-object v7, v8
@@ -706,18 +706,18 @@
     .end local v9    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     .restart local v7    # "owner$iv":Ljava/lang/Object;
     .local v8, "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
-    :goto_5
+    :goto_14b
     invoke-interface {v8, v7}, Lkotlinx/coroutines/sync/Mutex;->unlock(Ljava/lang/Object;)V
 
     throw v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_150
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_51
+        :pswitch_35
+        :pswitch_1c
+        :pswitch_15
     .end packed-switch
 .end method

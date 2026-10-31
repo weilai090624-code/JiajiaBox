@@ -18,7 +18,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;J)V
-    .locals 0
+    .registers 6
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
+    .registers 6
 
     .line 0
     iget-object v0, p0, Landroidx/camera/core/impl/DeferrableSurfaces$$ExternalSyntheticLambda2;->f$0:Ljava/util/concurrent/Executor;

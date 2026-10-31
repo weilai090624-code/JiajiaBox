@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m([Ljava/lang/Object;)Ljava/util/List;
-    .locals 4
+    .registers 5
 
     .line 0
     new-instance v0, Ljava/util/ArrayList;
@@ -18,8 +18,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_8
+    if-ge v2, v1, :cond_16
 
     aget-object v3, p0, v2
 
@@ -31,9 +31,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_16
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object p0

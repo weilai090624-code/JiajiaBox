@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 63
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 0
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public getDisableDependentsState()Z
-    .locals 1
+    .registers 2
 
     .line 184
     iget-boolean v0, p0, Landroidx/preference/TwoStatePreference;->mDisableDependentsState:Z
@@ -92,7 +92,7 @@
 .end method
 
 .method public getSummaryOff()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 165
     iget-object v0, p0, Landroidx/preference/TwoStatePreference;->mSummaryOff:Ljava/lang/CharSequence;
@@ -101,7 +101,7 @@
 .end method
 
 .method public getSummaryOn()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 132
     iget-object v0, p0, Landroidx/preference/TwoStatePreference;->mSummaryOn:Ljava/lang/CharSequence;
@@ -110,7 +110,7 @@
 .end method
 
 .method public isChecked()Z
-    .locals 1
+    .registers 2
 
     .line 82
     iget-boolean v0, p0, Landroidx/preference/TwoStatePreference;->mChecked:Z
@@ -119,7 +119,7 @@
 .end method
 
 .method protected onClick()V
-    .locals 2
+    .registers 3
 
     .line 68
     invoke-super {p0}, Landroidx/preference/Preference;->onClick()V
@@ -141,18 +141,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     .line 72
     invoke-virtual {p0, v0}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 74
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "a"    # Landroid/content/res/TypedArray;
     .param p2, "index"    # I
 
@@ -171,11 +171,11 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroid/os/Parcelable;
 
     .line 271
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1f
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -187,12 +187,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 277
-    :cond_0
+    :cond_f
     move-object v0, p1
 
     check-cast v0, Landroidx/preference/TwoStatePreference$SavedState;
@@ -215,8 +215,8 @@
 
     .line 273
     .end local v0    # "myState":Landroidx/preference/TwoStatePreference$SavedState;
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     .line 274
@@ -224,7 +224,7 @@
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 3
+    .registers 4
 
     .line 258
     invoke-super {p0}, Landroidx/preference/Preference;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -237,13 +237,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     .line 261
     return-object v0
 
     .line 264
-    :cond_0
+    :cond_b
     new-instance v1, Landroidx/preference/TwoStatePreference$SavedState;
 
     invoke-direct {v1, v0}, Landroidx/preference/TwoStatePreference$SavedState;-><init>(Landroid/os/Parcelable;)V
@@ -261,11 +261,11 @@
 .end method
 
 .method protected onSetInitialValue(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "defaultValue"    # Ljava/lang/Object;
 
     .line 204
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 205
     const/4 v0, 0x0
@@ -275,7 +275,7 @@
     move-result-object p1
 
     .line 207
-    :cond_0
+    :cond_7
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Boolean;
@@ -295,7 +295,7 @@
 .end method
 
 .method public setChecked(Z)V
-    .locals 3
+    .registers 5
     .param p1, "checked"    # Z
 
     .line 92
@@ -303,26 +303,26 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     .line 93
     .local v0, "changed":Z
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_8
+    if-nez v0, :cond_e
 
     iget-boolean v2, p0, Landroidx/preference/TwoStatePreference;->mCheckedSet:Z
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_21
 
     .line 94
-    :cond_1
+    :cond_e
     iput-boolean p1, p0, Landroidx/preference/TwoStatePreference;->mChecked:Z
 
     .line 95
@@ -332,7 +332,7 @@
     invoke-virtual {p0, p1}, Landroidx/preference/TwoStatePreference;->persistBoolean(Z)Z
 
     .line 97
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     .line 98
     invoke-virtual {p0}, Landroidx/preference/TwoStatePreference;->shouldDisableDependents()Z
@@ -345,12 +345,12 @@
     invoke-virtual {p0}, Landroidx/preference/TwoStatePreference;->notifyChanged()V
 
     .line 102
-    :cond_2
+    :cond_21
     return-void
 .end method
 
 .method public setDisableDependentsState(Z)V
-    .locals 0
+    .registers 2
     .param p1, "disableDependentsState"    # Z
 
     .line 194
@@ -361,7 +361,7 @@
 .end method
 
 .method public setSummaryOff(I)V
-    .locals 1
+    .registers 3
     .param p1, "summaryResId"    # I
 
     .line 173
@@ -380,7 +380,7 @@
 .end method
 
 .method public setSummaryOff(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "summary"    # Ljava/lang/CharSequence;
 
     .line 152
@@ -391,18 +391,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 154
     invoke-virtual {p0}, Landroidx/preference/TwoStatePreference;->notifyChanged()V
 
     .line 156
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setSummaryOn(I)V
-    .locals 1
+    .registers 3
     .param p1, "summaryResId"    # I
 
     .line 140
@@ -421,7 +421,7 @@
 .end method
 
 .method public setSummaryOn(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "summary"    # Ljava/lang/CharSequence;
 
     .line 119
@@ -432,18 +432,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 121
     invoke-virtual {p0}, Landroidx/preference/TwoStatePreference;->notifyChanged()V
 
     .line 123
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public shouldDisableDependents()Z
-    .locals 4
+    .registers 5
 
     .line 106
     iget-boolean v0, p0, Landroidx/preference/TwoStatePreference;->mDisableDependentsState:Z
@@ -452,59 +452,59 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     iget-boolean v0, p0, Landroidx/preference/TwoStatePreference;->mChecked:Z
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_9
     iget-boolean v0, p0, Landroidx/preference/TwoStatePreference;->mChecked:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v0, 0x0
 
     .line 107
     .local v0, "shouldDisable":Z
-    :goto_0
-    if-nez v0, :cond_3
+    :goto_10
+    if-nez v0, :cond_1a
 
     invoke-super {p0}, Landroidx/preference/Preference;->shouldDisableDependents()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_19
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_2
+    :cond_19
     const/4 v1, 0x0
 
-    :cond_3
-    :goto_1
+    :cond_1a
+    :goto_1a
     return v1
 .end method
 
 .method protected syncSummaryView(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
 
     .line 226
     instance-of v0, p1, Landroid/widget/TextView;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 227
     return-void
 
     .line 229
-    :cond_0
+    :cond_5
     move-object v0, p1
 
     check-cast v0, Landroid/widget/TextView;
@@ -517,7 +517,7 @@
     .local v1, "useDefaultSummary":Z
     iget-boolean v2, p0, Landroidx/preference/TwoStatePreference;->mChecked:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     iget-object v2, p0, Landroidx/preference/TwoStatePreference;->mSummaryOn:Ljava/lang/CharSequence;
 
@@ -525,7 +525,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1c
 
     .line 232
     iget-object v2, p0, Landroidx/preference/TwoStatePreference;->mSummaryOn:Ljava/lang/CharSequence;
@@ -535,13 +535,13 @@
     .line 233
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 234
-    :cond_1
+    :cond_1c
     iget-boolean v2, p0, Landroidx/preference/TwoStatePreference;->mChecked:Z
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2e
 
     iget-object v2, p0, Landroidx/preference/TwoStatePreference;->mSummaryOff:Ljava/lang/CharSequence;
 
@@ -549,7 +549,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2e
 
     .line 235
     iget-object v2, p0, Landroidx/preference/TwoStatePreference;->mSummaryOff:Ljava/lang/CharSequence;
@@ -560,9 +560,9 @@
     const/4 v1, 0x0
 
     .line 238
-    :cond_2
-    :goto_0
-    if-eqz v1, :cond_3
+    :cond_2e
+    :goto_2e
+    if-eqz v1, :cond_3e
 
     .line 239
     invoke-virtual {p0}, Landroidx/preference/TwoStatePreference;->getSummary()Ljava/lang/CharSequence;
@@ -575,7 +575,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_3e
 
     .line 241
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -585,34 +585,34 @@
 
     .line 245
     .end local v2    # "summary":Ljava/lang/CharSequence;
-    :cond_3
+    :cond_3e
     const/16 v2, 0x8
 
     .line 246
     .local v2, "newVisibility":I
-    if-nez v1, :cond_4
+    if-nez v1, :cond_43
 
     .line 248
     const/4 v2, 0x0
 
     .line 250
-    :cond_4
+    :cond_43
     invoke-virtual {v0}, Landroid/widget/TextView;->getVisibility()I
 
     move-result v3
 
-    if-eq v2, v3, :cond_5
+    if-eq v2, v3, :cond_4c
 
     .line 251
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 253
-    :cond_5
+    :cond_4c
     return-void
 .end method
 
 .method protected syncSummaryView(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 1
+    .registers 3
     .param p1, "holder"    # Landroidx/preference/PreferenceViewHolder;
 
     .line 217

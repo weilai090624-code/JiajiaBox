@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/PreferenceGroupAdapter;Landroidx/preference/PreferenceGroup;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/preference/PreferenceGroupAdapter;
 
     .line 295
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroidx/preference/Preference;)Z
-    .locals 2
+    .registers 4
     .param p1, "preference"    # Landroidx/preference/Preference;
 
     .line 298
@@ -66,13 +66,13 @@
 
     .line 302
     .local v0, "listener":Landroidx/preference/PreferenceGroup$OnExpandButtonClickListener;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 303
     invoke-interface {v0}, Landroidx/preference/PreferenceGroup$OnExpandButtonClickListener;->onExpandButtonClick()V
 
     .line 305
-    :cond_0
+    :cond_18
     const/4 v1, 0x1
 
     return v1

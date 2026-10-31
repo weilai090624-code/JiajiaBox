@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public allowDataLossOnRecovery(Z)Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;
-    .locals 2
+    .registers 4
     .param p1, "allowDataLossOnRecovery"    # Z
 
     .line 393
@@ -115,21 +115,21 @@
 .end method
 
 .method public build()Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;
-    .locals 8
+    .registers 9
 
     .line 337
     iget-object v6, p0, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;->callback:Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;
 
     .line 338
     .local v6, "callback":Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_3f
 
     .line 341
     iget-boolean v0, p0, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;->useNoBackupDirectory:Z
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_1e
 
     iget-object v0, p0, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;->name:Ljava/lang/String;
 
@@ -137,36 +137,36 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     const/4 v0, 0x1
 
-    :goto_1
-    if-nez v0, :cond_2
+    :goto_1a
+    if-nez v0, :cond_1d
 
-    goto :goto_2
+    goto :goto_1e
 
-    :cond_2
+    :cond_1d
     const/4 v1, 0x0
 
-    :cond_3
-    :goto_2
-    if-eqz v1, :cond_4
+    :cond_1e
+    :goto_1e
+    if-eqz v1, :cond_31
 
     .line 345
     new-instance v7, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;
@@ -196,7 +196,7 @@
     return-object v7
 
     .line 341
-    :cond_4
+    :cond_31
     const/4 v0, 0x0
 
     .line 342
@@ -218,7 +218,7 @@
     throw v0
 
     .line 338
-    :cond_5
+    :cond_3f
     const/4 v0, 0x0
 
     .line 339
@@ -241,7 +241,7 @@
 .end method
 
 .method public callback(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;)Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;
-    .locals 2
+    .registers 4
     .param p1, "callback"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;
 
     const-string v0, "callback"
@@ -275,7 +275,7 @@
 .end method
 
 .method public name(Ljava/lang/String;)Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
 
     .line 362
@@ -305,7 +305,7 @@
 .end method
 
 .method public noBackupDirectory(Z)Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;
-    .locals 2
+    .registers 4
     .param p1, "useNoBackupDirectory"    # Z
 
     .line 381

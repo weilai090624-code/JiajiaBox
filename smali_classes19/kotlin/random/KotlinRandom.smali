@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/random/KotlinRandom$Companion;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/random/Random;)V
-    .locals 1
+    .registers 3
     .param p1, "impl"    # Lkotlin/random/Random;
 
     const-string v0, "impl"
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public final getImpl()Lkotlin/random/Random;
-    .locals 1
+    .registers 2
 
     .line 65
     iget-object v0, p0, Lkotlin/random/KotlinRandom;->impl:Lkotlin/random/Random;
@@ -110,7 +110,7 @@
 .end method
 
 .method protected next(I)I
-    .locals 1
+    .registers 3
     .param p1, "bits"    # I
 
     .line 66
@@ -124,7 +124,7 @@
 .end method
 
 .method public nextBoolean()Z
-    .locals 1
+    .registers 2
 
     .line 69
     iget-object v0, p0, Lkotlin/random/KotlinRandom;->impl:Lkotlin/random/Random;
@@ -137,7 +137,7 @@
 .end method
 
 .method public nextBytes([B)V
-    .locals 1
+    .registers 3
     .param p1, "bytes"    # [B
 
     const-string v0, "bytes"
@@ -154,7 +154,7 @@
 .end method
 
 .method public nextDouble()D
-    .locals 2
+    .registers 3
 
     .line 72
     iget-object v0, p0, Lkotlin/random/KotlinRandom;->impl:Lkotlin/random/Random;
@@ -167,7 +167,7 @@
 .end method
 
 .method public nextFloat()F
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Lkotlin/random/KotlinRandom;->impl:Lkotlin/random/Random;
@@ -180,7 +180,7 @@
 .end method
 
 .method public nextInt()I
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Lkotlin/random/KotlinRandom;->impl:Lkotlin/random/Random;
@@ -193,7 +193,7 @@
 .end method
 
 .method public nextInt(I)I
-    .locals 1
+    .registers 3
     .param p1, "bound"    # I
 
     .line 68
@@ -207,7 +207,7 @@
 .end method
 
 .method public nextLong()J
-    .locals 2
+    .registers 3
 
     .line 70
     iget-object v0, p0, Lkotlin/random/KotlinRandom;->impl:Lkotlin/random/Random;
@@ -220,13 +220,13 @@
 .end method
 
 .method public setSeed(J)V
-    .locals 2
+    .registers 5
     .param p1, "seed"    # J
 
     .line 81
     iget-boolean v0, p0, Lkotlin/random/KotlinRandom;->seedInitialized:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 83
     const/4 v0, 0x1
@@ -237,7 +237,7 @@
     return-void
 
     .line 85
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Setting seed is not supported."

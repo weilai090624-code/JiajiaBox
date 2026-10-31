@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-direct {p0}, Lcom/google/zxing/oned/UPCEANReader;-><init>()V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method protected decodeMiddle(Lcom/google/zxing/common/BitArray;[ILjava/lang/StringBuilder;)I
-    .locals 8
+    .registers 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/NotFoundException;
@@ -69,12 +69,12 @@
     .line 48
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_15
     const/4 v5, 0x4
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_33
 
-    if-ge p2, v3, :cond_1
+    if-ge p2, v3, :cond_33
 
     .line 49
     sget-object v5, Lcom/google/zxing/oned/EAN8Reader;->L_PATTERNS:[[I
@@ -95,8 +95,8 @@
 
     const/4 v6, 0x0
 
-    :goto_1
-    if-ge v6, v5, :cond_0
+    :goto_28
+    if-ge v6, v5, :cond_30
 
     aget v7, v0, v6
 
@@ -106,16 +106,16 @@
     .line 51
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_28
 
     .line 48
-    :cond_0
+    :cond_30
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 56
-    :cond_1
+    :cond_33
     sget-object v4, Lcom/google/zxing/oned/EAN8Reader;->MIDDLE_PATTERN:[I
 
     invoke-static {p1, p2, v2, v4}, Lcom/google/zxing/oned/EAN8Reader;->findGuardPattern(Lcom/google/zxing/common/BitArray;IZ[I)[I
@@ -128,10 +128,10 @@
     .line 59
     const/4 v2, 0x0
 
-    :goto_2
-    if-ge v2, v5, :cond_3
+    :goto_3c
+    if-ge v2, v5, :cond_59
 
-    if-ge p2, v3, :cond_3
+    if-ge p2, v3, :cond_59
 
     .line 60
     sget-object v4, Lcom/google/zxing/oned/EAN8Reader;->L_PATTERNS:[[I
@@ -152,8 +152,8 @@
 
     const/4 v6, 0x0
 
-    :goto_3
-    if-ge v6, v4, :cond_2
+    :goto_4e
+    if-ge v6, v4, :cond_56
 
     aget v7, v0, v6
 
@@ -163,21 +163,21 @@
     .line 62
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_3
+    goto :goto_4e
 
     .line 59
-    :cond_2
+    :cond_56
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_3c
 
     .line 67
-    :cond_3
+    :cond_59
     return p2
 .end method
 
 .method getBarcodeFormat()Lcom/google/zxing/BarcodeFormat;
-    .locals 1
+    .registers 2
 
     .line 72
     sget-object v0, Lcom/google/zxing/BarcodeFormat;->EAN_8:Lcom/google/zxing/BarcodeFormat;

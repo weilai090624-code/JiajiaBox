@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/String;I)V
-    .locals 1
+    .registers 5
     .param p1, "id"    # I
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "value"    # I
@@ -74,7 +74,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)S
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
 
     .line 556
@@ -84,7 +84,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
 
     .line 556
@@ -94,7 +94,7 @@
 .end method
 
 .method static synthetic access$1400(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
 
     .line 556
@@ -104,7 +104,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)B
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
 
     .line 556
@@ -114,7 +114,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)B
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
 
     .line 556

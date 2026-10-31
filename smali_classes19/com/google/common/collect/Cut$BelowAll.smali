@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 124
     new-instance v0, Lcom/google/common/collect/Cut$BelowAll;
@@ -43,7 +43,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 133
     const-string v0, ""
@@ -55,7 +55,7 @@
 .end method
 
 .method static synthetic access$000()Lcom/google/common/collect/Cut$BelowAll;
-    .locals 1
+    .registers 1
 
     .line 123
     sget-object v0, Lcom/google/common/collect/Cut$BelowAll;->INSTANCE:Lcom/google/common/collect/Cut$BelowAll;
@@ -64,7 +64,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 213
     sget-object v0, Lcom/google/common/collect/Cut$BelowAll;->INSTANCE:Lcom/google/common/collect/Cut$BelowAll;
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method canonical(Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,13 +98,13 @@
     invoke-static {v0}, Lcom/google/common/collect/Cut;->belowValue(Ljava/lang/Comparable;)Lcom/google/common/collect/Cut;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 192
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 193
@@ -113,7 +113,7 @@
 .end method
 
 .method public compareTo(Lcom/google/common/collect/Cut;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,21 +125,21 @@
 
     .line 199
     .local p1, "o":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<Ljava/lang/Comparable<*>;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 123
     check-cast p1, Lcom/google/common/collect/Cut;
@@ -152,7 +152,7 @@
 .end method
 
 .method describeAsLowerBound(Ljava/lang/StringBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .line 170
@@ -165,7 +165,7 @@
 .end method
 
 .method describeAsUpperBound(Ljava/lang/StringBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .line 175
@@ -177,7 +177,7 @@
 .end method
 
 .method endpoint()Ljava/lang/Comparable;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -197,7 +197,7 @@
 .end method
 
 .method greatestValueBelow(Lcom/google/common/collect/DiscreteDomain;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -219,7 +219,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 204
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
@@ -230,7 +230,7 @@
 .end method
 
 .method isLessThan(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -247,7 +247,7 @@
 .end method
 
 .method leastValueAbove(Lcom/google/common/collect/DiscreteDomain;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -269,7 +269,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 209
     const-string v0, "-\u221e"
@@ -278,7 +278,7 @@
 .end method
 
 .method typeAsLowerBound()Lcom/google/common/collect/BoundType;
-    .locals 1
+    .registers 2
 
     .line 148
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -289,7 +289,7 @@
 .end method
 
 .method typeAsUpperBound()Lcom/google/common/collect/BoundType;
-    .locals 2
+    .registers 3
 
     .line 153
     new-instance v0, Ljava/lang/AssertionError;
@@ -302,7 +302,7 @@
 .end method
 
 .method withLowerBoundType(Lcom/google/common/collect/BoundType;Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
-    .locals 1
+    .registers 4
     .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -327,7 +327,7 @@
 .end method
 
 .method withUpperBoundType(Lcom/google/common/collect/BoundType;Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
-    .locals 2
+    .registers 5
     .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {

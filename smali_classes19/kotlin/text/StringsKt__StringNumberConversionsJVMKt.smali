@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/text/StringsKt__StringBuilderKt;-><init>()V
 
@@ -72,7 +72,7 @@
 .end method
 
 .method private static final screenFloatValue$StringsKt__StringNumberConversionsJVMKt(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "str"    # Ljava/lang/String;
     .param p1, "parse"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -97,7 +97,7 @@
     .line 266
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_3
     sget-object v2, Lkotlin/text/ScreenFloatValueRegEx;->value:Lkotlin/text/Regex;
 
     move-object v3, p0
@@ -108,26 +108,26 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     .line 267
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_12} :catch_15
 
-    goto :goto_0
+    goto :goto_14
 
     .line 269
-    :cond_0
+    :cond_13
     nop
 
-    :goto_0
-    goto :goto_1
+    :goto_14
+    goto :goto_17
 
     .line 270
-    :catch_0
+    :catch_15
     move-exception v2
 
     .line 271
@@ -136,12 +136,12 @@
 
     .line 265
     .end local v2    # "e":Ljava/lang/NumberFormatException;
-    :goto_1
+    :goto_17
     return-object v1
 .end method
 
 .method private static final toBigDecimal(Ljava/lang/String;)Ljava/math/BigDecimal;
-    .locals 1
+    .registers 2
     .param p0, "$this$toBigDecimal"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -157,7 +157,7 @@
 .end method
 
 .method private static final toBigDecimal(Ljava/lang/String;Ljava/math/MathContext;)Ljava/math/BigDecimal;
-    .locals 1
+    .registers 3
     .param p0, "$this$toBigDecimal"    # Ljava/lang/String;
     .param p1, "mathContext"    # Ljava/math/MathContext;
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public static final toBigDecimalOrNull(Ljava/lang/String;)Ljava/math/BigDecimal;
-    .locals 5
+    .registers 6
     .param p0, "$this$toBigDecimalOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -195,7 +195,7 @@
     .line 290
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_8
     sget-object v2, Lkotlin/text/ScreenFloatValueRegEx;->value:Lkotlin/text/Regex;
 
     move-object v3, p0
@@ -206,7 +206,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .line 291
     move-object v2, p0
@@ -219,25 +219,25 @@
 
     .line 229
     invoke-direct {v4, v2}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/NumberFormatException; {:try_start_8 .. :try_end_1a} :catch_1e
 
     .line 291
     .end local v2    # "it":Ljava/lang/String;
     .end local v3    # "$i$a$-screenFloatValue-StringsKt__StringNumberConversionsJVMKt$toBigDecimalOrNull$1":I
     move-object v1, v4
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 293
-    :cond_0
+    :cond_1c
     nop
 
-    :goto_0
-    goto :goto_1
+    :goto_1d
+    goto :goto_20
 
     .line 294
-    :catch_0
+    :catch_1e
     move-exception v2
 
     .line 295
@@ -246,7 +246,7 @@
 
     .line 289
     .end local v2    # "e$iv":Ljava/lang/NumberFormatException;
-    :goto_1
+    :goto_20
     nop
 
     .line 229
@@ -255,7 +255,7 @@
 .end method
 
 .method public static final toBigDecimalOrNull(Ljava/lang/String;Ljava/math/MathContext;)Ljava/math/BigDecimal;
-    .locals 5
+    .registers 7
     .param p0, "$this$toBigDecimalOrNull"    # Ljava/lang/String;
     .param p1, "mathContext"    # Ljava/math/MathContext;
 
@@ -277,7 +277,7 @@
     .line 297
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_d
     sget-object v2, Lkotlin/text/ScreenFloatValueRegEx;->value:Lkotlin/text/Regex;
 
     move-object v3, p0
@@ -288,7 +288,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     .line 298
     move-object v2, p0
@@ -301,25 +301,25 @@
 
     .line 240
     invoke-direct {v4, v2, p1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;Ljava/math/MathContext;)V
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Ljava/lang/NumberFormatException; {:try_start_d .. :try_end_1f} :catch_23
 
     .line 298
     .end local v2    # "it":Ljava/lang/String;
     .end local v3    # "$i$a$-screenFloatValue-StringsKt__StringNumberConversionsJVMKt$toBigDecimalOrNull$2":I
     move-object v1, v4
 
-    goto :goto_0
+    goto :goto_22
 
     .line 300
-    :cond_0
+    :cond_21
     nop
 
-    :goto_0
-    goto :goto_1
+    :goto_22
+    goto :goto_25
 
     .line 301
-    :catch_0
+    :catch_23
     move-exception v2
 
     .line 302
@@ -328,7 +328,7 @@
 
     .line 296
     .end local v2    # "e$iv":Ljava/lang/NumberFormatException;
-    :goto_1
+    :goto_25
     nop
 
     .line 240
@@ -337,7 +337,7 @@
 .end method
 
 .method private static final toBigInteger(Ljava/lang/String;)Ljava/math/BigInteger;
-    .locals 1
+    .registers 2
     .param p0, "$this$toBigInteger"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -353,7 +353,7 @@
 .end method
 
 .method private static final toBigInteger(Ljava/lang/String;I)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$toBigInteger"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -374,7 +374,7 @@
 .end method
 
 .method public static final toBigIntegerOrNull(Ljava/lang/String;)Ljava/math/BigInteger;
-    .locals 1
+    .registers 2
     .param p0, "$this$toBigIntegerOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -392,7 +392,7 @@
 .end method
 
 .method public static final toBigIntegerOrNull(Ljava/lang/String;I)Ljava/math/BigInteger;
-    .locals 5
+    .registers 7
     .param p0, "$this$toBigIntegerOrNull"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -414,7 +414,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_42
 
     .line 191
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -423,14 +423,14 @@
 
     const/16 v4, 0x2d
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_27
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
     .line 189
-    :pswitch_0
+    :pswitch_1b
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
@@ -439,23 +439,23 @@
 
     move-result v1
 
-    if-gez v1, :cond_2
+    if-gez v1, :cond_38
 
     return-object v2
 
     .line 188
-    :pswitch_1
+    :pswitch_26
     return-object v2
 
     .line 192
     .local v1, "start":I
-    :cond_0
-    :goto_0
+    :cond_27
+    :goto_27
     move v3, v1
 
     .local v3, "index":I
-    :goto_1
-    if-ge v3, v0, :cond_2
+    :goto_28
+    if-ge v3, v0, :cond_38
 
     .line 193
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
@@ -466,20 +466,20 @@
 
     move-result v4
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_35
 
     .line 194
     return-object v2
 
     .line 192
-    :cond_1
+    :cond_35
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_28
 
     .end local v1    # "start":I
     .end local v3    # "index":I
-    :cond_2
+    :cond_38
     new-instance v1, Ljava/math/BigInteger;
 
     .line 198
@@ -491,15 +491,15 @@
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_42
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_26
+        :pswitch_1b
     .end packed-switch
 .end method
 
 .method private static final toBoolean(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$toBoolean"    # Ljava/lang/String;
 
     .line 55
@@ -511,7 +511,7 @@
 .end method
 
 .method private static final toByte(Ljava/lang/String;)B
-    .locals 1
+    .registers 2
     .param p0, "$this$toByte"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -527,7 +527,7 @@
 .end method
 
 .method private static final toByte(Ljava/lang/String;I)B
-    .locals 1
+    .registers 3
     .param p0, "$this$toByte"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -548,7 +548,7 @@
 .end method
 
 .method private static final toDouble(Ljava/lang/String;)D
-    .locals 2
+    .registers 3
     .param p0, "$this$toDouble"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -564,7 +564,7 @@
 .end method
 
 .method public static final toDoubleOrNull(Ljava/lang/String;)Ljava/lang/Double;
-    .locals 6
+    .registers 7
     .param p0, "$this$toDoubleOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -581,7 +581,7 @@
     .line 283
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_8
     sget-object v2, Lkotlin/text/ScreenFloatValueRegEx;->value:Lkotlin/text/Regex;
 
     move-object v3, p0
@@ -592,7 +592,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 284
     move-object v2, p0
@@ -611,21 +611,21 @@
     invoke-static {v4, v5}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/lang/NumberFormatException; {:try_start_8 .. :try_end_1d} :catch_20
 
     .line 284
-    goto :goto_0
+    goto :goto_1f
 
     .line 286
-    :cond_0
+    :cond_1e
     nop
 
-    :goto_0
-    goto :goto_1
+    :goto_1f
+    goto :goto_22
 
     .line 287
-    :catch_0
+    :catch_20
     move-exception v2
 
     .line 288
@@ -634,7 +634,7 @@
 
     .line 282
     .end local v2    # "e$iv":Ljava/lang/NumberFormatException;
-    :goto_1
+    :goto_22
     nop
 
     .line 149
@@ -643,7 +643,7 @@
 .end method
 
 .method private static final toFloat(Ljava/lang/String;)F
-    .locals 1
+    .registers 2
     .param p0, "$this$toFloat"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -659,7 +659,7 @@
 .end method
 
 .method public static final toFloatOrNull(Ljava/lang/String;)Ljava/lang/Float;
-    .locals 5
+    .registers 6
     .param p0, "$this$toFloatOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -676,7 +676,7 @@
     .line 276
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_8
     sget-object v2, Lkotlin/text/ScreenFloatValueRegEx;->value:Lkotlin/text/Regex;
 
     move-object v3, p0
@@ -687,7 +687,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 277
     move-object v2, p0
@@ -706,21 +706,21 @@
     invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/lang/NumberFormatException; {:try_start_8 .. :try_end_1d} :catch_20
 
     .line 277
-    goto :goto_0
+    goto :goto_1f
 
     .line 279
-    :cond_0
+    :cond_1e
     nop
 
-    :goto_0
-    goto :goto_1
+    :goto_1f
+    goto :goto_22
 
     .line 280
-    :catch_0
+    :catch_20
     move-exception v2
 
     .line 281
@@ -729,7 +729,7 @@
 
     .line 275
     .end local v2    # "e$iv":Ljava/lang/NumberFormatException;
-    :goto_1
+    :goto_22
     nop
 
     .line 142
@@ -738,7 +738,7 @@
 .end method
 
 .method private static final toInt(Ljava/lang/String;)I
-    .locals 1
+    .registers 2
     .param p0, "$this$toInt"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -754,7 +754,7 @@
 .end method
 
 .method private static final toInt(Ljava/lang/String;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$toInt"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -775,7 +775,7 @@
 .end method
 
 .method private static final toLong(Ljava/lang/String;)J
-    .locals 2
+    .registers 3
     .param p0, "$this$toLong"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -791,7 +791,7 @@
 .end method
 
 .method private static final toLong(Ljava/lang/String;I)J
-    .locals 2
+    .registers 4
     .param p0, "$this$toLong"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -812,7 +812,7 @@
 .end method
 
 .method private static final toShort(Ljava/lang/String;)S
-    .locals 1
+    .registers 2
     .param p0, "$this$toShort"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -828,7 +828,7 @@
 .end method
 
 .method private static final toShort(Ljava/lang/String;I)S
-    .locals 1
+    .registers 3
     .param p0, "$this$toShort"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -849,7 +849,7 @@
 .end method
 
 .method private static final toString(BI)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$toString"    # B
     .param p1, "radix"    # I
 
@@ -870,7 +870,7 @@
 .end method
 
 .method private static final toString(II)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$toString"    # I
     .param p1, "radix"    # I
 
@@ -891,7 +891,7 @@
 .end method
 
 .method private static final toString(JI)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p0, "$this$toString"    # J
     .param p2, "radix"    # I
 
@@ -912,7 +912,7 @@
 .end method
 
 .method private static final toString(SI)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$toString"    # S
     .param p1, "radix"    # I
 

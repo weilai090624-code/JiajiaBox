@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Bejövő hívás</string>
     <string name="call_notification_ongoing_text">Hívás folyamatban</string>
     <string name="call_notification_screening_text">Bejövő hívás szűrése</string>
-    <string name="character_counter_content_description" formatted="false">Begépelt karakterszám: %2$d/%1$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Maximális karakterszám túllépve: %2$d/%1$d</string>
+    <string name="character_counter_content_description">Begépelt karakterszám: %2$d/%1$d</string>
+    <string name="character_counter_overflowed_content_description">Maximális karakterszám túllépve: %2$d/%1$d</string>
     <string name="clear_text_end_icon_content_description">Szöveg törlése</string>
     <string name="copy">Másolás</string>
     <string name="copy_toast_msg">Link vágólapra másolva</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Tartományon kívül: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Kezdés dátuma – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Befejezés dátuma</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Válasszon dátumtartományt</string>
     <string name="mtrl_picker_range_header_unselected">Kezdés dátuma – Befejezés dátuma</string>
     <string name="mtrl_picker_save">Mentés</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">„%1$s” a vágólapra lett másolva.</string>
     <string name="search_menu_title">Keresés</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">KI</string>
     <string name="v7_preference_on">BE</string>
 </resources>

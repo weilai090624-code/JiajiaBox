@@ -80,7 +80,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -129,7 +129,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -173,7 +173,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -182,7 +182,7 @@
     .line 598
     iget v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$performDeleteGroup$1$remaining$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_54
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -193,29 +193,29 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$performDeleteGroup$1$remaining$1;->L$0:Ljava/lang/Object;
 
     check-cast v0, Ljava/util/List;
 
     .local v0, "list":Ljava/util/List;
-    :try_start_0
+    :try_start_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_18} :catch_19
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 603
-    :catch_0
+    :catch_19
     move-exception v1
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 598
     .end local v0    # "list":Ljava/util/List;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1b
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 599
@@ -229,7 +229,7 @@
     nop
 
     .line 601
-    :try_start_1
+    :try_start_23
     sget-object v2, Lio/nekohasekai/sagernet/database/GroupManager;->INSTANCE:Lio/nekohasekai/sagernet/database/GroupManager;
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$performDeleteGroup$1$remaining$1;->$group:Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -251,23 +251,23 @@
     invoke-virtual {v2, v3, v4, v5}, Lio/nekohasekai/sagernet/database/GroupManager;->deleteGroup(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_37
+    .catch Ljava/lang/Exception; {:try_start_23 .. :try_end_37} :catch_47
 
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_3a
 
     .line 598
     return-object v0
 
     .line 601
-    :cond_0
+    :cond_3a
     move-object v0, v1
 
     .line 602
     .end local v1    # "list":Ljava/util/List;
     .restart local v0    # "list":Ljava/util/List;
-    :goto_0
-    :try_start_2
+    :goto_3b
+    :try_start_3b
     sget-object v1, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getGroupDao()Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
@@ -277,17 +277,17 @@
     invoke-interface {v1}, Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;->allGroups()Ljava/util/List;
 
     move-result-object v1
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_45
+    .catch Ljava/lang/Exception; {:try_start_3b .. :try_end_45} :catch_19
 
     move-object v0, v1
 
-    goto :goto_2
+    goto :goto_53
 
     .line 603
     .end local v0    # "list":Ljava/util/List;
     .restart local v1    # "list":Ljava/util/List;
-    :catch_1
+    :catch_47
     move-exception v0
 
     move-object v7, v1
@@ -299,7 +299,7 @@
     .line 604
     .restart local v0    # "list":Ljava/util/List;
     .local v1, "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_4b
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v3, v1
@@ -310,12 +310,12 @@
 
     .line 606
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_2
+    :goto_53
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_54
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_11
     .end packed-switch
 .end method

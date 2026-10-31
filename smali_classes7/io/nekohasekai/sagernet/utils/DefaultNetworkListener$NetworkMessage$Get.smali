@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 23
     const/4 v0, 0x0
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final getResponse()Lkotlinx/coroutines/CompletableDeferred;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

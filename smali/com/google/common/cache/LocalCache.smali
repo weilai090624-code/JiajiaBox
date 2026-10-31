@@ -234,7 +234,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 163
     const-class v0, Lcom/google/common/cache/LocalCache;
@@ -267,7 +267,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/cache/CacheBuilder;Lcom/google/common/cache/CacheLoader;)V
-    .locals 18
+    .registers 21
     .param p2    # Lcom/google/common/cache/CacheLoader;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -381,22 +381,22 @@
 
     sget-object v2, Lcom/google/common/cache/CacheBuilder$NullListener;->INSTANCE:Lcom/google/common/cache/CacheBuilder$NullListener;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_59
 
     .line 257
     invoke-static {}, Lcom/google/common/cache/LocalCache;->discardingQueue()Ljava/util/Queue;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_5e
 
     .line 258
-    :cond_0
+    :cond_59
     new-instance v1, Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     invoke-direct {v1}, Ljava/util/concurrent/ConcurrentLinkedQueue;-><init>()V
 
-    :goto_0
+    :goto_5e
     iput-object v1, v0, Lcom/google/common/cache/LocalCache;->removalNotificationQueue:Ljava/util/Queue;
 
     .line 260
@@ -464,13 +464,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_aa
 
     invoke-virtual/range {p0 .. p0}, Lcom/google/common/cache/LocalCache;->customWeigher()Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_aa
 
     .line 267
     int-to-long v4, v3
@@ -484,7 +484,7 @@
     long-to-int v3, v4
 
     .line 275
-    :cond_1
+    :cond_aa
     const/4 v4, 0x0
 
     .line 276
@@ -493,16 +493,16 @@
 
     .line 277
     .local v5, "segmentCount":I
-    :goto_1
+    :goto_ac
     iget v6, v0, Lcom/google/common/cache/LocalCache;->concurrencyLevel:I
 
-    if-ge v5, v6, :cond_3
+    if-ge v5, v6, :cond_c4
 
     invoke-virtual/range {p0 .. p0}, Lcom/google/common/cache/LocalCache;->evictsBySize()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_bf
 
     mul-int/lit8 v6, v5, 0x14
 
@@ -512,19 +512,19 @@
 
     cmp-long v10, v6, v8
 
-    if-gtz v10, :cond_3
+    if-gtz v10, :cond_c4
 
     .line 278
-    :cond_2
+    :cond_bf
     add-int/lit8 v4, v4, 0x1
 
     .line 279
     shl-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_ac
 
     .line 281
-    :cond_3
+    :cond_c4
     rsub-int/lit8 v6, v4, 0x20
 
     iput v6, v0, Lcom/google/common/cache/LocalCache;->segmentShift:I
@@ -548,32 +548,32 @@
     .local v6, "segmentCapacity":I
     mul-int v7, v6, v5
 
-    if-ge v7, v3, :cond_4
+    if-ge v7, v3, :cond_da
 
     .line 288
     add-int/lit8 v6, v6, 0x1
 
     .line 291
-    :cond_4
+    :cond_da
     const/4 v7, 0x1
 
     .line 292
     .local v7, "segmentSize":I
-    :goto_2
-    if-ge v7, v6, :cond_5
+    :goto_db
+    if-ge v7, v6, :cond_e0
 
     .line 293
     shl-int/lit8 v7, v7, 0x1
 
-    goto :goto_2
+    goto :goto_db
 
     .line 296
-    :cond_5
+    :cond_e0
     invoke-virtual/range {p0 .. p0}, Lcom/google/common/cache/LocalCache;->evictsBySize()Z
 
     move-result v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_11c
 
     .line 298
     iget-wide v8, v0, Lcom/google/common/cache/LocalCache;->maxWeight:J
@@ -599,33 +599,33 @@
     const/4 v14, 0x0
 
     .local v14, "i":I
-    :goto_3
+    :goto_f2
     iget-object v15, v0, Lcom/google/common/cache/LocalCache;->segments:[Lcom/google/common/cache/LocalCache$Segment;
 
     array-length v15, v15
 
-    if-ge v14, v15, :cond_7
+    if-ge v14, v15, :cond_11b
 
     .line 301
     int-to-long v10, v14
 
     cmp-long v17, v10, v12
 
-    if-nez v17, :cond_6
+    if-nez v17, :cond_100
 
     .line 302
     const-wide/16 v10, 0x1
 
     sub-long/2addr v8, v10
 
-    goto :goto_4
+    goto :goto_102
 
     .line 301
-    :cond_6
+    :cond_100
     const-wide/16 v10, 0x1
 
     .line 304
-    :goto_4
+    :goto_102
     iget-object v15, v0, Lcom/google/common/cache/LocalCache;->segments:[Lcom/google/common/cache/LocalCache$Segment;
 
     .line 305
@@ -652,26 +652,26 @@
 
     const-wide/16 v10, 0x1
 
-    goto :goto_3
+    goto :goto_f2
 
     .line 307
     .end local v8    # "maxSegmentWeight":J
     .end local v12    # "remainder":J
     .end local v14    # "i":I
-    :cond_7
-    goto :goto_6
+    :cond_11b
+    goto :goto_139
 
     .line 308
-    :cond_8
+    :cond_11c
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_5
+    :goto_11d
     iget-object v9, v0, Lcom/google/common/cache/LocalCache;->segments:[Lcom/google/common/cache/LocalCache$Segment;
 
     array-length v9, v9
 
-    if-ge v8, v9, :cond_9
+    if-ge v8, v9, :cond_139
 
     .line 309
     iget-object v9, v0, Lcom/google/common/cache/LocalCache;->segments:[Lcom/google/common/cache/LocalCache$Segment;
@@ -698,17 +698,17 @@
     .line 308
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_5
+    goto :goto_11d
 
     .line 313
     .end local v8    # "i":I
-    :cond_9
-    :goto_6
+    :cond_139
+    :goto_139
     return-void
 .end method
 
 .method static synthetic access$200(Ljava/util/Collection;)Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/util/Collection;
 
     .line 102
@@ -720,7 +720,7 @@
 .end method
 
 .method static connectAccessOrder(Lcom/google/common/cache/ReferenceEntry;Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -748,7 +748,7 @@
 .end method
 
 .method static connectWriteOrder(Lcom/google/common/cache/ReferenceEntry;Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -776,7 +776,7 @@
 .end method
 
 .method static discardingQueue()Ljava/util/Queue;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -794,7 +794,7 @@
 .end method
 
 .method static nullEntry()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -814,7 +814,7 @@
 .end method
 
 .method static nullifyAccessOrder(Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -845,7 +845,7 @@
 .end method
 
 .method static nullifyWriteOrder(Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -876,7 +876,7 @@
 .end method
 
 .method static rehash(I)I
-    .locals 2
+    .registers 3
     .param p0, "h"    # I
 
     .line 1655
@@ -919,7 +919,7 @@
 .end method
 
 .method private static toArrayList(Ljava/util/Collection;)Ljava/util/ArrayList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -955,7 +955,7 @@
 .end method
 
 .method static unset()Lcom/google/common/cache/LocalCache$ValueReference;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -977,7 +977,7 @@
 
 # virtual methods
 .method public cleanUp()V
-    .locals 4
+    .registers 5
 
     .line 3790
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -987,8 +987,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_4
+    if-ge v2, v1, :cond_e
 
     aget-object v3, v0, v2
 
@@ -1000,15 +1000,15 @@
     .end local v3    # "segment":Lcom/google/common/cache/LocalCache$Segment;, "Lcom/google/common/cache/LocalCache$Segment<**>;"
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 3793
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public clear()V
-    .locals 4
+    .registers 5
 
     .line 4140
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -1018,8 +1018,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_4
+    if-ge v2, v1, :cond_e
 
     aget-object v3, v0, v2
 
@@ -1031,15 +1031,15 @@
     .end local v3    # "segment":Lcom/google/common/cache/LocalCache$Segment;, "Lcom/google/common/cache/LocalCache$Segment<TK;TV;>;"
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 4143
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public synthetic compute(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$compute(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -1049,7 +1049,7 @@
 .end method
 
 .method public synthetic computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$computeIfAbsent(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
 
@@ -1059,7 +1059,7 @@
 .end method
 
 .method public synthetic computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$computeIfPresent(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -1069,7 +1069,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -1077,7 +1077,7 @@
 
     .line 4031
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 4032
     const/4 v0, 0x0
@@ -1085,7 +1085,7 @@
     return v0
 
     .line 4034
-    :cond_0
+    :cond_4
     invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache;->hash(Ljava/lang/Object;)I
 
     move-result v0
@@ -1104,7 +1104,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 20
+    .registers 22
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -1118,13 +1118,13 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_8
 
     .line 4042
     return v2
 
     .line 4050
-    :cond_0
+    :cond_8
     iget-object v3, v0, Lcom/google/common/cache/LocalCache;->ticker:Lcom/google/common/base/Ticker;
 
     invoke-virtual {v3}, Lcom/google/common/base/Ticker;->read()J
@@ -1144,10 +1144,10 @@
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_0
+    :goto_13
     const/4 v9, 0x3
 
-    if-ge v8, v9, :cond_7
+    if-ge v8, v9, :cond_80
 
     .line 4054
     const-wide/16 v9, 0x0
@@ -1158,8 +1158,8 @@
 
     const/4 v12, 0x0
 
-    :goto_1
-    if-ge v12, v11, :cond_5
+    :goto_1a
+    if-ge v12, v11, :cond_6e
 
     aget-object v13, v5, v12
 
@@ -1178,7 +1178,7 @@
     move/from16 v2, v16
 
     .local v2, "j":I
-    :goto_2
+    :goto_26
     move-object/from16 v16, v5
 
     .end local v5    # "segments":[Lcom/google/common/cache/LocalCache$Segment;, "[Lcom/google/common/cache/LocalCache$Segment<TK;TV;>;"
@@ -1187,7 +1187,7 @@
 
     move-result v5
 
-    if-ge v2, v5, :cond_4
+    if-ge v2, v5, :cond_5e
 
     .line 4061
     invoke-virtual {v15, v2}, Ljava/util/concurrent/atomic/AtomicReferenceArray;->get(I)Ljava/lang/Object;
@@ -1197,8 +1197,8 @@
     check-cast v5, Lcom/google/common/cache/ReferenceEntry;
 
     .local v5, "e":Lcom/google/common/cache/ReferenceEntry;, "Lcom/google/common/cache/ReferenceEntry<TK;TV;>;"
-    :goto_3
-    if-eqz v5, :cond_3
+    :goto_34
+    if-eqz v5, :cond_55
 
     .line 4062
     move/from16 v17, v11
@@ -1209,7 +1209,7 @@
 
     .line 4063
     .local v11, "v":Ljava/lang/Object;, "TV;"
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_4a
 
     move-wide/from16 v18, v3
 
@@ -1221,7 +1221,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4c
 
     .line 4064
     const/4 v3, 0x1
@@ -1231,14 +1231,14 @@
     .line 4063
     .end local v18    # "now":J
     .restart local v3    # "now":J
-    :cond_1
+    :cond_4a
     move-wide/from16 v18, v3
 
     .line 4061
     .end local v3    # "now":J
     .end local v11    # "v":Ljava/lang/Object;, "TV;"
     .restart local v18    # "now":J
-    :cond_2
+    :cond_4c
     invoke-interface {v5}, Lcom/google/common/cache/ReferenceEntry;->getNext()Lcom/google/common/cache/ReferenceEntry;
 
     move-result-object v5
@@ -1247,11 +1247,11 @@
 
     move-wide/from16 v3, v18
 
-    goto :goto_3
+    goto :goto_34
 
     .end local v18    # "now":J
     .restart local v3    # "now":J
-    :cond_3
+    :cond_55
     move-wide/from16 v18, v3
 
     move/from16 v17, v11
@@ -1264,11 +1264,11 @@
 
     move-object/from16 v5, v16
 
-    goto :goto_2
+    goto :goto_26
 
     .end local v18    # "now":J
     .restart local v3    # "now":J
-    :cond_4
+    :cond_5e
     move-wide/from16 v18, v3
 
     move/from16 v17, v11
@@ -1295,14 +1295,14 @@
 
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_1a
 
     .line 4070
     .end local v16    # "segments":[Lcom/google/common/cache/LocalCache$Segment;, "[Lcom/google/common/cache/LocalCache$Segment<TK;TV;>;"
     .end local v18    # "now":J
     .restart local v3    # "now":J
     .local v5, "segments":[Lcom/google/common/cache/LocalCache$Segment;, "[Lcom/google/common/cache/LocalCache$Segment<TK;TV;>;"
-    :cond_5
+    :cond_6e
     move-wide/from16 v18, v3
 
     move-object/from16 v16, v5
@@ -1313,13 +1313,13 @@
     .restart local v18    # "now":J
     cmp-long v2, v9, v6
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_77
 
     .line 4071
-    goto :goto_4
+    goto :goto_84
 
     .line 4073
-    :cond_6
+    :cond_77
     move-wide v6, v9
 
     .line 4053
@@ -1332,13 +1332,13 @@
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_13
 
     .end local v16    # "segments":[Lcom/google/common/cache/LocalCache$Segment;, "[Lcom/google/common/cache/LocalCache$Segment<TK;TV;>;"
     .end local v18    # "now":J
     .restart local v3    # "now":J
     .restart local v5    # "segments":[Lcom/google/common/cache/LocalCache$Segment;, "[Lcom/google/common/cache/LocalCache$Segment<TK;TV;>;"
-    :cond_7
+    :cond_80
     move-wide/from16 v18, v3
 
     move-object/from16 v16, v5
@@ -1349,14 +1349,14 @@
     .end local v8    # "i":I
     .restart local v16    # "segments":[Lcom/google/common/cache/LocalCache$Segment;, "[Lcom/google/common/cache/LocalCache$Segment<TK;TV;>;"
     .restart local v18    # "now":J
-    :goto_4
+    :goto_84
     const/4 v2, 0x0
 
     return v2
 .end method
 
 .method copyEntry(Lcom/google/common/cache/ReferenceEntry;Lcom/google/common/cache/ReferenceEntry;)Lcom/google/common/cache/ReferenceEntry;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1391,7 +1391,7 @@
 .end method
 
 .method createSegment(IJLcom/google/common/cache/AbstractCache$StatsCounter;)Lcom/google/common/cache/LocalCache$Segment;
-    .locals 7
+    .registers 12
     .param p1, "initialCapacity"    # I
     .param p2, "maxSegmentWeight"    # J
     .param p4, "statsCounter"    # Lcom/google/common/cache/AbstractCache$StatsCounter;
@@ -1425,7 +1425,7 @@
 .end method
 
 .method customWeigher()Z
-    .locals 2
+    .registers 3
 
     .line 320
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -1433,21 +1433,21 @@
 
     sget-object v1, Lcom/google/common/cache/CacheBuilder$OneWeigher;->INSTANCE:Lcom/google/common/cache/CacheBuilder$OneWeigher;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1463,25 +1463,25 @@
 
     .line 4177
     .local v0, "es":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_6
     new-instance v1, Lcom/google/common/cache/LocalCache$EntrySet;
 
     invoke-direct {v1, p0}, Lcom/google/common/cache/LocalCache$EntrySet;-><init>(Lcom/google/common/cache/LocalCache;)V
 
     iput-object v1, p0, Lcom/google/common/cache/LocalCache;->entrySet:Ljava/util/Set;
 
-    :goto_0
+    :goto_d
     return-object v1
 .end method
 
 .method evictsBySize()Z
-    .locals 5
+    .registers 6
 
     .line 316
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -1491,21 +1491,21 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method expires()Z
-    .locals 1
+    .registers 2
 
     .line 324
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -1513,31 +1513,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/cache/LocalCache;->expiresAfterAccess()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method expiresAfterAccess()Z
-    .locals 5
+    .registers 6
 
     .line 332
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -1547,21 +1547,21 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method expiresAfterWrite()Z
-    .locals 5
+    .registers 6
 
     .line 328
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -1571,21 +1571,21 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public synthetic forEach(Ljava/util/function/BiConsumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$forEach(Ljava/util/concurrent/ConcurrentMap;Ljava/util/function/BiConsumer;)V
 
@@ -1593,7 +1593,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -1611,7 +1611,7 @@
 
     .line 3844
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 3845
     const/4 v0, 0x0
@@ -1619,7 +1619,7 @@
     return-object v0
 
     .line 3847
-    :cond_0
+    :cond_4
     invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache;->hash(Ljava/lang/Object;)I
 
     move-result v0
@@ -1638,7 +1638,7 @@
 .end method
 
 .method get(Ljava/lang/Object;Lcom/google/common/cache/CacheLoader;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -1679,7 +1679,7 @@
 .end method
 
 .method getAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 11
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1723,12 +1723,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_e
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_30
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1746,13 +1746,13 @@
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_2f
 
     .line 3910
     invoke-interface {v2, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 3911
-    if-nez v6, :cond_0
+    if-nez v6, :cond_2d
 
     .line 3912
     add-int/lit8 v1, v1, 0x1
@@ -1760,32 +1760,32 @@
     .line 3913
     invoke-interface {v3, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 3915
-    :cond_0
+    :cond_2d
     add-int/lit8 v0, v0, 0x1
 
     .line 3918
     .end local v5    # "key":Ljava/lang/Object;, "TK;"
     .end local v6    # "value":Ljava/lang/Object;, "TV;"
-    :cond_1
-    :goto_1
-    goto :goto_0
+    :cond_2f
+    :goto_2f
+    goto :goto_e
 
     .line 3921
-    :cond_2
-    :try_start_0
+    :cond_30
+    :try_start_30
     invoke-interface {v3}, Ljava/util/Set;->isEmpty()Z
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_34
+    .catchall {:try_start_30 .. :try_end_34} :catchall_a8
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_99
 
     .line 3923
-    :try_start_1
+    :try_start_36
     iget-object v4, p0, Lcom/google/common/cache/LocalCache;->defaultLoader:Lcom/google/common/cache/CacheLoader;
 
     invoke-virtual {p0, v3, v4}, Lcom/google/common/cache/LocalCache;->loadAll(Ljava/util/Set;Lcom/google/common/cache/CacheLoader;)Ljava/util/Map;
@@ -1798,12 +1798,12 @@
 
     move-result-object v5
 
-    :goto_2
+    :goto_40
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_7c
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1817,7 +1817,7 @@
 
     .line 3926
     .local v7, "value":Ljava/lang/Object;, "TV;"
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_55
 
     .line 3929
     invoke-interface {v2, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -1827,12 +1827,12 @@
 
     .end local v6    # "key":Ljava/lang/Object;, "TK;"
     .end local v7    # "value":Ljava/lang/Object;, "TV;"
-    goto :goto_2
+    goto :goto_40
 
     .line 3927
     .restart local v6    # "key":Ljava/lang/Object;, "TK;"
     .restart local v7    # "value":Ljava/lang/Object;, "TV;"
-    :cond_3
+    :cond_55
     new-instance v5, Lcom/google/common/cache/CacheLoader$InvalidCacheLoadException;
 
     invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -1875,9 +1875,9 @@
     .end local v3    # "keysToLoad":Ljava/util/Set;, "Ljava/util/Set<TK;>;"
     .end local p1    # "keys":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TK;>;"
     throw v5
-    :try_end_1
-    .catch Lcom/google/common/cache/CacheLoader$UnsupportedLoadingOperationException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7c
+    .catch Lcom/google/common/cache/CacheLoader$UnsupportedLoadingOperationException; {:try_start_36 .. :try_end_7c} :catch_7d
+    .catchall {:try_start_36 .. :try_end_7c} :catchall_a8
 
     .line 3937
     .end local v4    # "newEntries":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
@@ -1888,26 +1888,26 @@
     .restart local v2    # "result":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     .restart local v3    # "keysToLoad":Ljava/util/Set;, "Ljava/util/Set<TK;>;"
     .restart local p1    # "keys":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TK;>;"
-    :cond_4
-    goto :goto_4
+    :cond_7c
+    goto :goto_99
 
     .line 3931
-    :catch_0
+    :catch_7d
     move-exception v4
 
     .line 3933
     .local v4, "e":Lcom/google/common/cache/CacheLoader$UnsupportedLoadingOperationException;
-    :try_start_2
+    :try_start_7e
     invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
-    :goto_3
+    :goto_82
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_99
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1930,17 +1930,17 @@
     nop
 
     .end local v6    # "key":Ljava/lang/Object;, "TK;"
-    goto :goto_3
+    goto :goto_82
 
     .line 3939
     .end local v4    # "e":Lcom/google/common/cache/CacheLoader$UnsupportedLoadingOperationException;
-    :cond_5
-    :goto_4
+    :cond_99
+    :goto_99
     invoke-static {v2}, Lcom/google/common/collect/ImmutableMap;->copyOf(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v4
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_9d
+    .catchall {:try_start_7e .. :try_end_9d} :catchall_a8
 
     .line 3941
     iget-object v5, p0, Lcom/google/common/cache/LocalCache;->globalStatsCounter:Lcom/google/common/cache/AbstractCache$StatsCounter;
@@ -1956,7 +1956,7 @@
     return-object v4
 
     .line 3941
-    :catchall_0
+    :catchall_a8
     move-exception v4
 
     iget-object v5, p0, Lcom/google/common/cache/LocalCache;->globalStatsCounter:Lcom/google/common/cache/AbstractCache$StatsCounter;
@@ -1973,7 +1973,7 @@
 .end method
 
 .method getAllPresent(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2005,12 +2005,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_a
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_24
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2024,15 +2024,15 @@
 
     .line 3886
     .local v5, "value":Ljava/lang/Object;, "TV;"
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1d
 
     .line 3887
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_23
 
     .line 3891
-    :cond_0
+    :cond_1d
     move-object v6, v4
 
     .line 3892
@@ -2046,11 +2046,11 @@
     .end local v4    # "key":Ljava/lang/Object;
     .end local v5    # "value":Ljava/lang/Object;, "TV;"
     .end local v6    # "castKey":Ljava/lang/Object;, "TK;"
-    :goto_1
-    goto :goto_0
+    :goto_23
+    goto :goto_a
 
     .line 3896
-    :cond_1
+    :cond_24
     iget-object v3, p0, Lcom/google/common/cache/LocalCache;->globalStatsCounter:Lcom/google/common/cache/AbstractCache$StatsCounter;
 
     invoke-interface {v3, v0}, Lcom/google/common/cache/AbstractCache$StatsCounter;->recordHits(I)V
@@ -2069,7 +2069,7 @@
 .end method
 
 .method getEntry(Ljava/lang/Object;)Lcom/google/common/cache/ReferenceEntry;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -2086,7 +2086,7 @@
 
     .line 4016
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 4017
     const/4 v0, 0x0
@@ -2094,7 +2094,7 @@
     return-object v0
 
     .line 4019
-    :cond_0
+    :cond_4
     invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache;->hash(Ljava/lang/Object;)I
 
     move-result v0
@@ -2113,7 +2113,7 @@
 .end method
 
 .method public getIfPresent(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2150,28 +2150,28 @@
     .local v1, "value":Ljava/lang/Object;, "TV;"
     const/4 v2, 0x1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_19
 
     .line 3861
     iget-object v3, p0, Lcom/google/common/cache/LocalCache;->globalStatsCounter:Lcom/google/common/cache/AbstractCache$StatsCounter;
 
     invoke-interface {v3, v2}, Lcom/google/common/cache/AbstractCache$StatsCounter;->recordMisses(I)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 3863
-    :cond_0
+    :cond_19
     iget-object v3, p0, Lcom/google/common/cache/LocalCache;->globalStatsCounter:Lcom/google/common/cache/AbstractCache$StatsCounter;
 
     invoke-interface {v3, v2}, Lcom/google/common/cache/AbstractCache$StatsCounter;->recordHits(I)V
 
     .line 3865
-    :goto_0
+    :goto_1e
     return-object v1
 .end method
 
 .method getLiveValue(Lcom/google/common/cache/ReferenceEntry;J)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .param p2, "now"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2193,13 +2193,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 1748
     return-object v1
 
     .line 1750
-    :cond_0
+    :cond_8
     invoke-interface {p1}, Lcom/google/common/cache/ReferenceEntry;->getValueReference()Lcom/google/common/cache/LocalCache$ValueReference;
 
     move-result-object v0
@@ -2210,29 +2210,29 @@
 
     .line 1751
     .local v0, "value":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 1752
     return-object v1
 
     .line 1755
-    :cond_1
+    :cond_13
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/common/cache/LocalCache;->isExpired(Lcom/google/common/cache/ReferenceEntry;J)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1a
 
     .line 1756
     return-object v1
 
     .line 1758
-    :cond_2
+    :cond_1a
     return-object v0
 .end method
 
 .method public getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -2261,21 +2261,21 @@
 
     .line 3872
     .local v0, "result":Ljava/lang/Object;, "TV;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-object v1, p2
 
-    :goto_0
+    :goto_9
     return-object v1
 .end method
 
 .method getOrLoad(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -2301,7 +2301,7 @@
 .end method
 
 .method hash(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -2325,7 +2325,7 @@
 .end method
 
 .method invalidateAll(Ljava/lang/Iterable;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2341,12 +2341,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2358,15 +2358,15 @@
 
     .line 4149
     .end local v1    # "key":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_4
 
     .line 4150
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public isEmpty()Z
-    .locals 10
+    .registers 11
 
     .line 3806
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -2381,25 +2381,25 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_5
     array-length v4, v2
 
     const/4 v5, 0x0
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_19
 
     .line 3809
     aget-object v4, v2, v3
 
     iget v4, v4, Lcom/google/common/cache/LocalCache$Segment;->count:I
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_10
 
     .line 3810
     return v5
 
     .line 3812
-    :cond_0
+    :cond_10
     aget-object v4, v2, v3
 
     iget v4, v4, Lcom/google/common/cache/LocalCache$Segment;->modCount:I
@@ -2411,40 +2411,40 @@
     .line 3808
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 3815
     .end local v3    # "i":I
-    :cond_1
+    :cond_19
     const-wide/16 v3, 0x0
 
     const/4 v6, 0x1
 
     cmp-long v7, v0, v3
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_3a
 
     .line 3816
     const/4 v7, 0x0
 
     .local v7, "i":I
-    :goto_1
+    :goto_21
     array-length v8, v2
 
-    if-ge v7, v8, :cond_3
+    if-ge v7, v8, :cond_34
 
     .line 3817
     aget-object v8, v2, v7
 
     iget v8, v8, Lcom/google/common/cache/LocalCache$Segment;->count:I
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_2b
 
     .line 3818
     return v5
 
     .line 3820
-    :cond_2
+    :cond_2b
     aget-object v8, v2, v7
 
     iget v8, v8, Lcom/google/common/cache/LocalCache$Segment;->modCount:I
@@ -2456,27 +2456,27 @@
     .line 3816
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_21
 
     .line 3822
     .end local v7    # "i":I
-    :cond_3
+    :cond_34
     cmp-long v7, v0, v3
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_39
 
     const/4 v5, 0x1
 
-    :cond_4
+    :cond_39
     return v5
 
     .line 3824
-    :cond_5
+    :cond_3a
     return v6
 .end method
 
 .method isExpired(Lcom/google/common/cache/ReferenceEntry;J)Z
-    .locals 6
+    .registers 10
     .param p2, "now"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2498,7 +2498,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-interface {p1}, Lcom/google/common/cache/ReferenceEntry;->getAccessTime()J
 
@@ -2510,18 +2510,18 @@
 
     cmp-long v0, v2, v4
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_17
 
     .line 1767
     return v1
 
     .line 1769
-    :cond_0
+    :cond_17
     invoke-virtual {p0}, Lcom/google/common/cache/LocalCache;->expiresAfterWrite()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     invoke-interface {p1}, Lcom/google/common/cache/ReferenceEntry;->getWriteTime()J
 
@@ -2533,20 +2533,20 @@
 
     cmp-long v0, v2, v4
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_2a
 
     .line 1770
     return v1
 
     .line 1772
-    :cond_1
+    :cond_2a
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method isLive(Lcom/google/common/cache/ReferenceEntry;J)Z
-    .locals 1
+    .registers 5
     .param p2, "now"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2571,21 +2571,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2600,25 +2600,25 @@
 
     .line 4158
     .local v0, "ks":Ljava/util/Set;, "Ljava/util/Set<TK;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_6
     new-instance v1, Lcom/google/common/cache/LocalCache$KeySet;
 
     invoke-direct {v1, p0}, Lcom/google/common/cache/LocalCache$KeySet;-><init>(Lcom/google/common/cache/LocalCache;)V
 
     iput-object v1, p0, Lcom/google/common/cache/LocalCache;->keySet:Ljava/util/Set;
 
-    :goto_0
+    :goto_d
     return-object v1
 .end method
 
 .method loadAll(Ljava/util/Set;Lcom/google/common/cache/CacheLoader;)Ljava/util/Map;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2660,17 +2660,17 @@
 
     .line 3960
     .local v1, "success":Z
-    :try_start_0
+    :try_start_b
     invoke-virtual {p2, p1}, Lcom/google/common/cache/CacheLoader;->loadAll(Ljava/lang/Iterable;)Ljava/util/Map;
 
     move-result-object v2
-    :try_end_0
-    .catch Lcom/google/common/cache/CacheLoader$UnsupportedLoadingOperationException; {:try_start_0 .. :try_end_0} :catch_4
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catch Lcom/google/common/cache/CacheLoader$UnsupportedLoadingOperationException; {:try_start_b .. :try_end_f} :catch_e2
+    .catch Ljava/lang/InterruptedException; {:try_start_b .. :try_end_f} :catch_d4
+    .catch Ljava/lang/RuntimeException; {:try_start_b .. :try_end_f} :catch_cd
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_f} :catch_c6
+    .catch Ljava/lang/Error; {:try_start_b .. :try_end_f} :catch_bf
+    .catchall {:try_start_b .. :try_end_f} :catchall_bd
 
     .line 3961
     .local v2, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
@@ -2682,7 +2682,7 @@
 
     .line 3976
     .end local v2    # "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1e
 
     .line 3977
     iget-object v2, p0, Lcom/google/common/cache/LocalCache;->globalStatsCounter:Lcom/google/common/cache/AbstractCache$StatsCounter;
@@ -2696,8 +2696,8 @@
     invoke-interface {v2, v4, v5}, Lcom/google/common/cache/AbstractCache$StatsCounter;->recordLoadException(J)V
 
     .line 3981
-    :cond_0
-    if-eqz v3, :cond_5
+    :cond_1e
+    if-eqz v3, :cond_8b
 
     .line 3986
     invoke-virtual {v0}, Lcom/google/common/base/Stopwatch;->stop()Lcom/google/common/base/Stopwatch;
@@ -2715,12 +2715,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_2c
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4b
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2742,33 +2742,33 @@
 
     .line 3992
     .local v7, "value":Ljava/lang/Object;, "TV;"
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_49
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_45
 
-    goto :goto_1
+    goto :goto_49
 
     .line 3996
-    :cond_1
+    :cond_45
     invoke-virtual {p0, v6, v7}, Lcom/google/common/cache/LocalCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_4a
 
     .line 3994
-    :cond_2
-    :goto_1
+    :cond_49
+    :goto_49
     const/4 v2, 0x1
 
     .line 3998
     .end local v5    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     .end local v6    # "key":Ljava/lang/Object;, "TK;"
     .end local v7    # "value":Ljava/lang/Object;, "TV;"
-    :goto_2
-    goto :goto_0
+    :goto_4a
+    goto :goto_2c
 
     .line 4000
-    :cond_3
-    if-nez v2, :cond_4
+    :cond_4b
+    if-nez v2, :cond_59
 
     .line 4006
     iget-object v4, p0, Lcom/google/common/cache/LocalCache;->globalStatsCounter:Lcom/google/common/cache/AbstractCache$StatsCounter;
@@ -2785,7 +2785,7 @@
     return-object v3
 
     .line 4001
-    :cond_4
+    :cond_59
     iget-object v4, p0, Lcom/google/common/cache/LocalCache;->globalStatsCounter:Lcom/google/common/cache/AbstractCache$StatsCounter;
 
     sget-object v5, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -2837,7 +2837,7 @@
 
     .line 3982
     .end local v2    # "nullsPresent":Z
-    :cond_5
+    :cond_8b
     iget-object v2, p0, Lcom/google/common/cache/LocalCache;->globalStatsCounter:Lcom/google/common/cache/AbstractCache$StatsCounter;
 
     sget-object v4, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -2889,18 +2889,18 @@
 
     .line 3976
     .end local v3    # "result":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    :catchall_0
+    :catchall_bd
     move-exception v2
 
-    goto :goto_3
+    goto :goto_e6
 
     .line 3973
-    :catch_0
+    :catch_bf
     move-exception v2
 
     .line 3974
     .local v2, "e":Ljava/lang/Error;
-    :try_start_1
+    :try_start_c0
     new-instance v3, Lcom/google/common/util/concurrent/ExecutionError;
 
     invoke-direct {v3, v2}, Lcom/google/common/util/concurrent/ExecutionError;-><init>(Ljava/lang/Error;)V
@@ -2917,7 +2917,7 @@
     .restart local v1    # "success":Z
     .restart local p1    # "keys":Ljava/util/Set;, "Ljava/util/Set<+TK;>;"
     .restart local p2    # "loader":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<-TK;TV;>;"
-    :catch_1
+    :catch_c6
     move-exception v2
 
     .line 3972
@@ -2938,7 +2938,7 @@
     .restart local v1    # "success":Z
     .restart local p1    # "keys":Ljava/util/Set;, "Ljava/util/Set<+TK;>;"
     .restart local p2    # "loader":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<-TK;TV;>;"
-    :catch_2
+    :catch_cd
     move-exception v2
 
     .line 3970
@@ -2959,7 +2959,7 @@
     .restart local v1    # "success":Z
     .restart local p1    # "keys":Ljava/util/Set;, "Ljava/util/Set<+TK;>;"
     .restart local p2    # "loader":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<-TK;TV;>;"
-    :catch_3
+    :catch_d4
     move-exception v2
 
     .line 3967
@@ -2987,7 +2987,7 @@
     .restart local v1    # "success":Z
     .restart local p1    # "keys":Ljava/util/Set;, "Ljava/util/Set<+TK;>;"
     .restart local p2    # "loader":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<-TK;TV;>;"
-    :catch_4
+    :catch_e2
     move-exception v2
 
     .line 3964
@@ -3002,8 +3002,8 @@
     .end local p1    # "keys":Ljava/util/Set;, "Ljava/util/Set<+TK;>;"
     .end local p2    # "loader":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<-TK;TV;>;"
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_e6
+    .catchall {:try_start_c0 .. :try_end_e6} :catchall_bd
 
     .line 3976
     .end local v2    # "e":Lcom/google/common/cache/CacheLoader$UnsupportedLoadingOperationException;
@@ -3011,8 +3011,8 @@
     .restart local v1    # "success":Z
     .restart local p1    # "keys":Ljava/util/Set;, "Ljava/util/Set<+TK;>;"
     .restart local p2    # "loader":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<-TK;TV;>;"
-    :goto_3
-    if-nez v1, :cond_6
+    :goto_e6
+    if-nez v1, :cond_f3
 
     .line 3977
     iget-object v3, p0, Lcom/google/common/cache/LocalCache;->globalStatsCounter:Lcom/google/common/cache/AbstractCache$StatsCounter;
@@ -3026,12 +3026,12 @@
     invoke-interface {v3, v4, v5}, Lcom/google/common/cache/AbstractCache$StatsCounter;->recordLoadException(J)V
 
     .line 3979
-    :cond_6
+    :cond_f3
     throw v2
 .end method
 
 .method longSize()J
-    .locals 6
+    .registers 7
 
     .line 3828
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3046,10 +3046,10 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_5
     array-length v4, v0
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_16
 
     .line 3831
     aget-object v4, v0, v3
@@ -3069,16 +3069,16 @@
     .line 3830
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 3833
     .end local v3    # "i":I
-    :cond_0
+    :cond_16
     return-wide v1
 .end method
 
 .method public synthetic merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$merge(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -3088,7 +3088,7 @@
 .end method
 
 .method newEntry(Ljava/lang/Object;ILcom/google/common/cache/ReferenceEntry;)Lcom/google/common/cache/ReferenceEntry;
-    .locals 2
+    .registers 6
     .param p2, "hash"    # I
     .param p3    # Lcom/google/common/cache/ReferenceEntry;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
@@ -3117,12 +3117,12 @@
     invoke-virtual {v0}, Lcom/google/common/cache/LocalCache$Segment;->lock()V
 
     .line 1671
-    :try_start_0
+    :try_start_7
     invoke-virtual {v0, p1, p2, p3}, Lcom/google/common/cache/LocalCache$Segment;->newEntry(Ljava/lang/Object;ILcom/google/common/cache/ReferenceEntry;)Lcom/google/common/cache/ReferenceEntry;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_7 .. :try_end_b} :catchall_f
 
     .line 1673
     invoke-virtual {v0}, Lcom/google/common/cache/LocalCache$Segment;->unlock()V
@@ -3131,7 +3131,7 @@
     return-object v1
 
     .line 1673
-    :catchall_0
+    :catchall_f
     move-exception v1
 
     invoke-virtual {v0}, Lcom/google/common/cache/LocalCache$Segment;->unlock()V
@@ -3141,7 +3141,7 @@
 .end method
 
 .method final newSegmentArray(I)[Lcom/google/common/cache/LocalCache$Segment;
-    .locals 1
+    .registers 3
     .param p1, "ssize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3159,7 +3159,7 @@
 .end method
 
 .method newValueReference(Lcom/google/common/cache/ReferenceEntry;Ljava/lang/Object;I)Lcom/google/common/cache/LocalCache$ValueReference;
-    .locals 4
+    .registers 8
     .param p3, "weight"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3199,13 +3199,13 @@
 .end method
 
 .method processPendingNotifications()V
-    .locals 5
+    .registers 6
 
     .line 1810
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/cache/LocalCache;->removalNotificationQueue:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
@@ -3217,20 +3217,20 @@
     move-object v1, v0
 
     .local v1, "notification":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 1812
-    :try_start_0
+    :try_start_c
     iget-object v0, p0, Lcom/google/common/cache/LocalCache;->removalListener:Lcom/google/common/cache/RemovalListener;
 
     invoke-interface {v0, v1}, Lcom/google/common/cache/RemovalListener;->onRemoval(Lcom/google/common/cache/RemovalNotification;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_c .. :try_end_11} :catchall_12
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 1813
-    :catchall_0
+    :catchall_12
     move-exception v0
 
     .line 1814
@@ -3245,16 +3245,16 @@
 
     .line 1815
     .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_1
-    goto :goto_0
+    :goto_1c
+    goto :goto_1
 
     .line 1817
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -3291,7 +3291,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3311,12 +3311,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3338,15 +3338,15 @@
 
     .line 4098
     .end local v1    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    goto :goto_0
+    goto :goto_8
 
     .line 4099
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -3383,7 +3383,7 @@
 .end method
 
 .method reclaimKey(Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3412,7 +3412,7 @@
 .end method
 
 .method reclaimValue(Lcom/google/common/cache/LocalCache$ValueReference;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3451,7 +3451,7 @@
 .end method
 
 .method recordsAccess()Z
-    .locals 1
+    .registers 2
 
     .line 352
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3463,7 +3463,7 @@
 .end method
 
 .method recordsTime()Z
-    .locals 1
+    .registers 2
 
     .line 356
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3471,31 +3471,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/cache/LocalCache;->recordsAccess()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method recordsWrite()Z
-    .locals 1
+    .registers 2
 
     .line 348
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3503,31 +3503,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/cache/LocalCache;->refreshes()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method refresh(Ljava/lang/Object;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)V"
@@ -3562,7 +3562,7 @@
 .end method
 
 .method refreshes()Z
-    .locals 5
+    .registers 6
 
     .line 336
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3572,21 +3572,21 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -3601,7 +3601,7 @@
 
     .line 4103
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 4104
     const/4 v0, 0x0
@@ -3609,7 +3609,7 @@
     return-object v0
 
     .line 4106
-    :cond_0
+    :cond_4
     invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache;->hash(Ljava/lang/Object;)I
 
     move-result v0
@@ -3628,7 +3628,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -3640,14 +3640,14 @@
 
     .line 4112
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_12
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
-    goto :goto_0
+    goto :goto_12
 
     .line 4115
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache;->hash(Ljava/lang/Object;)I
 
     move-result v0
@@ -3666,15 +3666,15 @@
 
     .line 4113
     .end local v0    # "hash":I
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -3709,7 +3709,7 @@
 .end method
 
 .method public replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 6
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -3731,7 +3731,7 @@
     invoke-static {p3}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 4123
-    if-nez p2, :cond_0
+    if-nez p2, :cond_a
 
     .line 4124
     const/4 v0, 0x0
@@ -3739,7 +3739,7 @@
     return v0
 
     .line 4126
-    :cond_0
+    :cond_a
     invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache;->hash(Ljava/lang/Object;)I
 
     move-result v0
@@ -3758,7 +3758,7 @@
 .end method
 
 .method public synthetic replaceAll(Ljava/util/function/BiFunction;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$replaceAll(Ljava/util/concurrent/ConcurrentMap;Ljava/util/function/BiFunction;)V
 
@@ -3766,7 +3766,7 @@
 .end method
 
 .method segmentFor(I)Lcom/google/common/cache/LocalCache$Segment;
-    .locals 3
+    .registers 5
     .param p1, "hash"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3794,7 +3794,7 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 3838
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3810,7 +3810,7 @@
 .end method
 
 .method usesAccessEntries()Z
-    .locals 1
+    .registers 2
 
     .line 364
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3818,31 +3818,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/cache/LocalCache;->recordsAccess()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method usesAccessQueue()Z
-    .locals 1
+    .registers 2
 
     .line 340
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3850,31 +3850,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/cache/LocalCache;->evictsBySize()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method usesKeyReferences()Z
-    .locals 2
+    .registers 3
 
     .line 368
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3882,21 +3882,21 @@
 
     sget-object v1, Lcom/google/common/cache/LocalCache$Strength;->STRONG:Lcom/google/common/cache/LocalCache$Strength;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method usesValueReferences()Z
-    .locals 2
+    .registers 3
 
     .line 372
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3904,21 +3904,21 @@
 
     sget-object v1, Lcom/google/common/cache/LocalCache$Strength;->STRONG:Lcom/google/common/cache/LocalCache$Strength;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method usesWriteEntries()Z
-    .locals 1
+    .registers 2
 
     .line 360
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3926,31 +3926,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/cache/LocalCache;->recordsWrite()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method usesWriteQueue()Z
-    .locals 1
+    .registers 2
 
     .line 344
     .local p0, "this":Lcom/google/common/cache/LocalCache;, "Lcom/google/common/cache/LocalCache<TK;TV;>;"
@@ -3962,7 +3962,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -3977,19 +3977,19 @@
 
     .line 4167
     .local v0, "vs":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_6
     new-instance v1, Lcom/google/common/cache/LocalCache$Values;
 
     invoke-direct {v1, p0}, Lcom/google/common/cache/LocalCache$Values;-><init>(Lcom/google/common/cache/LocalCache;)V
 
     iput-object v1, p0, Lcom/google/common/cache/LocalCache;->values:Ljava/util/Collection;
 
-    :goto_0
+    :goto_d
     return-object v1
 .end method

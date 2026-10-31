@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 231
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method getKeyListener(Landroid/text/method/KeyListener;)Landroid/text/method/KeyListener;
-    .locals 0
+    .registers 2
     .param p1, "keyListener"    # Landroid/text/method/KeyListener;
 
     .line 235
@@ -35,7 +35,7 @@
 .end method
 
 .method isEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 256
     const/4 v0, 0x0
@@ -44,7 +44,7 @@
 .end method
 
 .method onCreateInputConnection(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
-    .locals 0
+    .registers 3
     .param p1, "inputConnection"    # Landroid/view/inputmethod/InputConnection;
     .param p2, "outAttrs"    # Landroid/view/inputmethod/EditorInfo;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method setEmojiReplaceStrategy(I)V
-    .locals 0
+    .registers 2
     .param p1, "replaceStrategy"    # I
 
     .line 249
@@ -61,7 +61,7 @@
 .end method
 
 .method setEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "isEnabled"    # Z
 
     .line 253
@@ -69,7 +69,7 @@
 .end method
 
 .method setMaxEmojiCount(I)V
-    .locals 0
+    .registers 2
     .param p1, "maxEmojiCount"    # I
 
     .line 245

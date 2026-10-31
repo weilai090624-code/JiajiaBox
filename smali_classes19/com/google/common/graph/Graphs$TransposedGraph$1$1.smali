@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/Graphs$TransposedGraph$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/google/common/graph/Graphs$TransposedGraph$1;
 
     .line 291
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/common/graph/EndpointPair;)Lcom/google/common/graph/EndpointPair;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,7 +87,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 291
     .local p0, "this":Lcom/google/common/graph/Graphs$TransposedGraph$1$1;, "Lcom/google/common/graph/Graphs$TransposedGraph$1$1;"

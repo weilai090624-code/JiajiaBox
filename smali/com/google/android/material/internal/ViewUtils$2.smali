@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(ZZZLcom/google/android/material/internal/ViewUtils$OnApplyWindowInsetsListener;)V
-    .locals 0
+    .registers 5
 
     .line 257
     iput-boolean p1, p0, Lcom/google/android/material/internal/ViewUtils$2;->val$paddingBottomSystemWindowInsets:Z
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;Lcom/google/android/material/internal/ViewUtils$RelativePadding;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 3
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "insets"    # Landroidx/core/view/WindowInsetsCompat;
     .param p3, "initialPadding"    # Lcom/google/android/material/internal/ViewUtils$RelativePadding;
@@ -56,7 +56,7 @@
     .line 264
     iget-boolean v0, p0, Lcom/google/android/material/internal/ViewUtils$2;->val$paddingBottomSystemWindowInsets:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 265
     iget v0, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->bottom:I
@@ -70,7 +70,7 @@
     iput v0, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->bottom:I
 
     .line 267
-    :cond_0
+    :cond_d
     invoke-static {p1}, Lcom/google/android/material/internal/ViewUtils;->isLayoutRtl(Landroid/view/View;)Z
 
     move-result v0
@@ -79,10 +79,10 @@
     .local v0, "isRtl":Z
     iget-boolean v1, p0, Lcom/google/android/material/internal/ViewUtils$2;->val$paddingLeftSystemWindowInsets:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2a
 
     .line 269
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 270
     iget v1, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->end:I
@@ -95,10 +95,10 @@
 
     iput v1, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->end:I
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 272
-    :cond_1
+    :cond_21
     iget v1, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->start:I
 
     invoke-virtual {p2}, Landroidx/core/view/WindowInsetsCompat;->getSystemWindowInsetLeft()I
@@ -110,14 +110,14 @@
     iput v1, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->start:I
 
     .line 275
-    :cond_2
-    :goto_0
+    :cond_2a
+    :goto_2a
     iget-boolean v1, p0, Lcom/google/android/material/internal/ViewUtils$2;->val$paddingRightSystemWindowInsets:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_43
 
     .line 276
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3a
 
     .line 277
     iget v1, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->start:I
@@ -130,10 +130,10 @@
 
     iput v1, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->start:I
 
-    goto :goto_1
+    goto :goto_43
 
     .line 279
-    :cond_3
+    :cond_3a
     iget v1, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->end:I
 
     invoke-virtual {p2}, Landroidx/core/view/WindowInsetsCompat;->getSystemWindowInsetRight()I
@@ -145,14 +145,14 @@
     iput v1, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->end:I
 
     .line 282
-    :cond_4
-    :goto_1
+    :cond_43
+    :goto_43
     invoke-virtual {p3, p1}, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->applyToView(Landroid/view/View;)V
 
     .line 283
     iget-object v1, p0, Lcom/google/android/material/internal/ViewUtils$2;->val$listener:Lcom/google/android/material/internal/ViewUtils$OnApplyWindowInsetsListener;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_51
 
     .line 284
     iget-object v1, p0, Lcom/google/android/material/internal/ViewUtils$2;->val$listener:Lcom/google/android/material/internal/ViewUtils$OnApplyWindowInsetsListener;
@@ -161,13 +161,13 @@
 
     move-result-object v1
 
-    goto :goto_2
+    goto :goto_52
 
     .line 285
-    :cond_5
+    :cond_51
     move-object v1, p2
 
     .line 283
-    :goto_2
+    :goto_52
     return-object v1
 .end method

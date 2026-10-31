@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(IIJJ)V
-    .locals 2
+    .registers 9
     .param p1, "c"    # I
     .param p2, "d"    # I
     .param p3, "k0"    # J
@@ -116,7 +116,7 @@
 .end method
 
 .method private processM(J)V
-    .locals 2
+    .registers 5
     .param p1, "m"    # J
 
     .line 159
@@ -143,15 +143,15 @@
 .end method
 
 .method private sipRound(I)V
-    .locals 6
+    .registers 8
     .param p1, "iterations"    # I
 
     .line 165
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p1, :cond_0
+    :goto_1
+    if-ge v0, p1, :cond_78
 
     .line 166
     iget-wide v1, p0, Lcom/google/common/hash/SipHashFunction$SipHasher;->v0:J
@@ -292,18 +292,18 @@
     .line 165
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 181
     .end local v0    # "i":I
-    :cond_0
+    :cond_78
     return-void
 .end method
 
 
 # virtual methods
 .method protected makeHash()Lcom/google/common/hash/HashCode;
-    .locals 5
+    .registers 6
 
     .line 149
     iget-wide v0, p0, Lcom/google/common/hash/SipHashFunction$SipHasher;->finalM:J
@@ -360,7 +360,7 @@
 .end method
 
 .method protected process(Ljava/nio/ByteBuffer;)V
-    .locals 4
+    .registers 6
     .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
     .line 134
@@ -384,7 +384,7 @@
 .end method
 
 .method protected processRemaining(Ljava/nio/ByteBuffer;)V
-    .locals 7
+    .registers 9
     .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
     .line 140
@@ -404,12 +404,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_b
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     .line 142
     iget-wide v1, p0, Lcom/google/common/hash/SipHashFunction$SipHasher;->finalM:J
@@ -433,10 +433,10 @@
     .line 141
     add-int/lit8 v0, v0, 0x8
 
-    goto :goto_0
+    goto :goto_b
 
     .line 144
     .end local v0    # "i":I
-    :cond_0
+    :cond_22
     return-void
 .end method

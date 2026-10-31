@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     .line 11
     invoke-static {}, Llibcore/Libcore;->touch()V
@@ -21,7 +21,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,19 +66,19 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     .line 46
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_b
 
     instance-of v0, p1, Llibcore/BoxInstance;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
-    goto :goto_0
+    goto :goto_b
 
     .line 49
-    :cond_0
+    :cond_7
     check-cast p1, Llibcore/BoxInstance;
 
     .line 52
@@ -87,15 +87,15 @@
     return p1
 
     .line 47
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     const/4 p1, 0x0
 
     return p1
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 56
     const/4 v0, 0x0
@@ -110,7 +110,7 @@
 .end method
 
 .method public final incRefnum()I
-    .locals 1
+    .registers 2
 
     .line 16
     iget v0, p0, Llibcore/BoxInstance;->refnum:I
@@ -155,7 +155,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 60
     new-instance v0, Ljava/lang/StringBuilder;

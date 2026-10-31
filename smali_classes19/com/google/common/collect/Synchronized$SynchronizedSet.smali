@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Set;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 225
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSet<TE;>;"
@@ -76,7 +76,7 @@
 .end method
 
 .method bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 225
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSet<TE;>;"
@@ -88,7 +88,7 @@
 .end method
 
 .method delegate()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -109,7 +109,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -117,7 +117,7 @@
 
     .line 239
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSet<TE;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 240
     const/4 v0, 0x1
@@ -125,13 +125,13 @@
     return v0
 
     .line 242
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v0
 
     .line 243
-    :try_start_0
+    :try_start_7
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSet;->delegate()Ljava/util/Set;
 
     move-result-object v1
@@ -145,18 +145,18 @@
     return v1
 
     .line 244
-    :catchall_0
+    :catchall_11
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_7 .. :try_end_13} :catchall_11
 
     throw v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 249
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSet<TE;>;"
@@ -165,7 +165,7 @@
     monitor-enter v0
 
     .line 250
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSet;->delegate()Ljava/util/Set;
 
     move-result-object v1
@@ -179,12 +179,12 @@
     return v1
 
     .line 251
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method

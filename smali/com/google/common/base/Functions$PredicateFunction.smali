@@ -49,7 +49,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/base/Predicate;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,7 +77,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/base/Predicate;Lcom/google/common/base/Functions$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/base/Predicate;
     .param p2, "x1"    # Lcom/google/common/base/Functions$1;
 
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -120,7 +120,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -136,7 +136,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -146,7 +146,7 @@
     .local p0, "this":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<TT;>;"
     instance-of v0, p1, Lcom/google/common/base/Functions$PredicateFunction;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 311
     move-object v0, p1
@@ -167,14 +167,14 @@
 
     .line 314
     .end local v0    # "that":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 319
     .local p0, "this":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<TT;>;"
@@ -188,7 +188,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 324
     .local p0, "this":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<TT;>;"

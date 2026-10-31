@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m([Ljava/util/Map$Entry;)Ljava/util/Map;
-    .locals 5
+    .registers 6
 
     .line 0
     new-instance v0, Ljava/util/HashMap;
@@ -18,8 +18,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_8
+    if-ge v2, v1, :cond_3e
 
     aget-object v3, p0, v2
 
@@ -43,13 +43,13 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_25
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_25
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -74,7 +74,7 @@
 
     throw p0
 
-    :cond_1
+    :cond_3e
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object p0

@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 12
+    .registers 12
 
     .line 87
     :try_start_0
@@ -86,16 +86,16 @@
     invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_c} :catch_d
 
     .line 92
     .local v0, "generateCancellationCauses":Z
-    goto :goto_0
+    goto :goto_10
 
     .line 90
     .end local v0    # "generateCancellationCauses":Z
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 91
@@ -106,7 +106,7 @@
 
     .line 93
     .local v0, "generateCancellationCauses":Z
-    :goto_0
+    :goto_10
     sput-boolean v0, Lcom/google/common/util/concurrent/AbstractFuture;->GENERATE_CANCELLATION_CAUSES:Z
 
     .line 147
@@ -134,22 +134,22 @@
     .local v2, "thrownAtomicReferenceFieldUpdaterFailure":Ljava/lang/Throwable;
     const/4 v3, 0x0
 
-    :try_start_1
+    :try_start_21
     new-instance v4, Lcom/google/common/util/concurrent/AbstractFuture$UnsafeAtomicHelper;
 
     invoke-direct {v4, v3}, Lcom/google/common/util/concurrent/AbstractFuture$UnsafeAtomicHelper;-><init>(Lcom/google/common/util/concurrent/AbstractFuture$1;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_26
+    .catchall {:try_start_21 .. :try_end_26} :catchall_28
 
     move-object v0, v4
 
     .line 183
     .local v0, "helper":Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
-    goto :goto_1
+    goto :goto_67
 
     .line 162
     .end local v0    # "helper":Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
-    :catchall_0
+    :catchall_28
     move-exception v4
 
     .line 163
@@ -157,7 +157,7 @@
     move-object v1, v4
 
     .line 168
-    :try_start_2
+    :try_start_2a
     new-instance v11, Lcom/google/common/util/concurrent/AbstractFuture$SafeAtomicHelper;
 
     const-class v5, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
@@ -212,18 +212,18 @@
     move-object v5, v11
 
     invoke-direct/range {v5 .. v10}, Lcom/google/common/util/concurrent/AbstractFuture$SafeAtomicHelper;-><init>(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_5c
+    .catchall {:try_start_2a .. :try_end_5c} :catchall_5e
 
     move-object v0, v11
 
     .line 182
     .restart local v0    # "helper":Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
-    goto :goto_1
+    goto :goto_67
 
     .line 175
     .end local v0    # "helper":Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
-    :catchall_1
+    :catchall_5e
     move-exception v0
 
     .line 180
@@ -242,7 +242,7 @@
     .line 184
     .end local v4    # "unsafeFailure":Ljava/lang/Throwable;
     .local v0, "helper":Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
-    :goto_1
+    :goto_67
     sput-object v0, Lcom/google/common/util/concurrent/AbstractFuture;->ATOMIC_HELPER:Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
 
     .line 189
@@ -250,7 +250,7 @@
 
     .line 193
     .local v3, "ensureLoaded":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_7f
 
     .line 194
     sget-object v4, Lcom/google/common/util/concurrent/AbstractFuture;->log:Ljava/util/logging/Logger;
@@ -275,7 +275,7 @@
     .end local v1    # "thrownUnsafeFailure":Ljava/lang/Throwable;
     .end local v2    # "thrownAtomicReferenceFieldUpdaterFailure":Ljava/lang/Throwable;
     .end local v3    # "ensureLoaded":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_0
+    :cond_7f
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
@@ -286,7 +286,7 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 391
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
@@ -296,7 +296,7 @@
 .end method
 
 .method static synthetic access$200()Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
-    .locals 1
+    .registers 1
 
     .line 77
     sget-object v0, Lcom/google/common/util/concurrent/AbstractFuture;->ATOMIC_HELPER:Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
@@ -305,7 +305,7 @@
 .end method
 
 .method static synthetic access$300()Z
-    .locals 1
+    .registers 1
 
     .line 77
     sget-boolean v0, Lcom/google/common/util/concurrent/AbstractFuture;->GENERATE_CANCELLATION_CAUSES:Z
@@ -314,7 +314,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractFuture;
 
     .line 77
@@ -324,7 +324,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/google/common/util/concurrent/AbstractFuture;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractFuture;
     .param p1, "x1"    # Ljava/lang/Object;
 
@@ -335,7 +335,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/common/util/concurrent/ListenableFuture;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 77
@@ -347,7 +347,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/util/concurrent/AbstractFuture;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractFuture;
 
     .line 77
@@ -357,7 +357,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/google/common/util/concurrent/AbstractFuture;)Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractFuture;
 
     .line 77
@@ -367,7 +367,7 @@
 .end method
 
 .method static synthetic access$802(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractFuture;
     .param p1, "x1"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
@@ -378,7 +378,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/google/common/util/concurrent/AbstractFuture;)Lcom/google/common/util/concurrent/AbstractFuture$Listener;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractFuture;
 
     .line 77
@@ -388,7 +388,7 @@
 .end method
 
 .method static synthetic access$902(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/AbstractFuture$Listener;)Lcom/google/common/util/concurrent/AbstractFuture$Listener;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractFuture;
     .param p1, "x1"    # Lcom/google/common/util/concurrent/AbstractFuture$Listener;
 
@@ -399,14 +399,14 @@
 .end method
 
 .method private addDoneString(Ljava/lang/StringBuilder;)V
-    .locals 4
+    .registers 6
     .param p1, "builder"    # Ljava/lang/StringBuilder;
 
     .line 1221
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
     const-string v0, "]"
 
-    :try_start_0
+    :try_start_2
     invoke-static {p0}, Lcom/google/common/util/concurrent/AbstractFuture;->getUninterruptibly(Ljava/util/concurrent/Future;)Ljava/lang/Object;
 
     move-result-object v1
@@ -422,19 +422,19 @@
 
     .line 1224
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_2 .. :try_end_11} :catch_2f
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_2 .. :try_end_11} :catch_28
+    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_11} :catch_13
 
     .line 1231
     nop
 
     .end local v1    # "value":Ljava/lang/Object;, "TV;"
-    goto :goto_1
+    goto :goto_42
 
     .line 1229
-    :catch_0
+    :catch_13
     move-exception v0
 
     .line 1230
@@ -457,11 +457,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_42
 
     .line 1227
     .end local v0    # "e":Ljava/lang/RuntimeException;
-    :catch_1
+    :catch_28
     move-exception v0
 
     .line 1228
@@ -471,10 +471,10 @@
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .end local v0    # "e":Ljava/util/concurrent/CancellationException;
-    goto :goto_0
+    goto :goto_41
 
     .line 1225
-    :catch_2
+    :catch_2f
     move-exception v1
 
     .line 1226
@@ -497,16 +497,16 @@
 
     .line 1231
     .end local v1    # "e":Ljava/util/concurrent/ExecutionException;
-    :goto_0
+    :goto_41
     nop
 
     .line 1232
-    :goto_1
+    :goto_42
     return-void
 .end method
 
 .method private addPendingString(Ljava/lang/StringBuilder;)V
-    .locals 7
+    .registers 9
     .param p1, "builder"    # Ljava/lang/StringBuilder;
 
     .line 1187
@@ -530,7 +530,7 @@
 
     const-string v3, "]"
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     .line 1193
     const-string v2, ", setFuture=["
@@ -549,11 +549,11 @@
     .line 1195
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_63
 
     .line 1199
-    :cond_0
-    :try_start_0
+    :cond_22
+    :try_start_22
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractFuture;->pendingToString()Ljava/lang/String;
 
     move-result-object v2
@@ -561,27 +561,27 @@
     invoke-static {v2}, Lcom/google/common/base/Strings;->emptyToNull(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/StackOverflowError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Ljava/lang/RuntimeException; {:try_start_22 .. :try_end_2a} :catch_2d
+    .catch Ljava/lang/StackOverflowError; {:try_start_22 .. :try_end_2a} :catch_2b
 
     .line 1204
     .local v2, "pendingDescription":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_54
 
     .line 1200
     .end local v2    # "pendingDescription":Ljava/lang/String;
-    :catch_0
+    :catch_2b
     move-exception v2
 
-    goto :goto_0
+    goto :goto_2e
 
-    :catch_1
+    :catch_2d
     move-exception v2
 
     .line 1203
     .local v2, "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_2e
     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
@@ -622,8 +622,8 @@
 
     .line 1205
     .local v2, "pendingDescription":Ljava/lang/String;
-    :goto_1
-    if-eqz v2, :cond_1
+    :goto_54
+    if-eqz v2, :cond_63
 
     .line 1206
     const-string v4, ", info=["
@@ -640,13 +640,13 @@
 
     .line 1212
     .end local v2    # "pendingDescription":Ljava/lang/String;
-    :cond_1
-    :goto_2
+    :cond_63
+    :goto_63
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractFuture;->isDone()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_73
 
     .line 1214
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->length()I
@@ -659,12 +659,12 @@
     invoke-direct {p0, p1}, Lcom/google/common/util/concurrent/AbstractFuture;->addDoneString(Ljava/lang/StringBuilder;)V
 
     .line 1217
-    :cond_2
+    :cond_73
     return-void
 .end method
 
 .method private appendResultObject(Ljava/lang/StringBuilder;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "builder"    # Ljava/lang/StringBuilder;
     .param p2, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -673,28 +673,28 @@
 
     .line 1240
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
-    if-nez p2, :cond_0
+    if-nez p2, :cond_8
 
     .line 1241
     const-string v0, "null"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 1242
-    :cond_0
-    if-ne p2, p0, :cond_1
+    :cond_8
+    if-ne p2, p0, :cond_10
 
     .line 1243
     const-string v0, "this future"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 1245
-    :cond_1
+    :cond_10
     nop
 
     .line 1246
@@ -729,12 +729,12 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1250
-    :goto_0
+    :goto_2e
     return-void
 .end method
 
 .method private appendUserObject(Ljava/lang/StringBuilder;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "builder"    # Ljava/lang/StringBuilder;
     .param p2, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -743,39 +743,39 @@
 
     .line 1259
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
-    if-ne p2, p0, :cond_0
+    if-ne p2, p0, :cond_8
 
     .line 1260
-    :try_start_0
+    :try_start_2
     const-string v0, "this future"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_b
 
     .line 1262
-    :cond_0
+    :cond_8
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/StackOverflowError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_b} :catch_e
+    .catch Ljava/lang/StackOverflowError; {:try_start_2 .. :try_end_b} :catch_c
 
     .line 1268
-    :goto_0
-    goto :goto_2
+    :goto_b
+    goto :goto_1c
 
     .line 1264
-    :catch_0
+    :catch_c
     move-exception v0
 
-    goto :goto_1
+    goto :goto_f
 
-    :catch_1
+    :catch_e
     move-exception v0
 
     .line 1267
     .local v0, "e":Ljava/lang/Throwable;
-    :goto_1
+    :goto_f
     const-string v1, "Exception thrown from implementation: "
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -790,12 +790,12 @@
 
     .line 1269
     .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_2
+    :goto_1c
     return-void
 .end method
 
 .method private static cancellationExceptionWithCause(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/util/concurrent/CancellationException;
-    .locals 1
+    .registers 3
     .param p0, "message"    # Ljava/lang/String;
     .param p1, "cause"    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -816,7 +816,7 @@
 .end method
 
 .method private clearListeners(Lcom/google/common/util/concurrent/AbstractFuture$Listener;)Lcom/google/common/util/concurrent/AbstractFuture$Listener;
-    .locals 3
+    .registers 5
     .param p1, "onto"    # Lcom/google/common/util/concurrent/AbstractFuture$Listener;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -828,7 +828,7 @@
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture;->listeners:Lcom/google/common/util/concurrent/AbstractFuture$Listener;
 
     .line 1135
@@ -841,15 +841,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 1136
     move-object v1, p1
 
     .line 1137
     .local v1, "reversedList":Lcom/google/common/util/concurrent/AbstractFuture$Listener;
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_17
 
     .line 1138
     move-object v2, v0
@@ -866,15 +866,15 @@
 
     .line 1142
     .end local v2    # "tmp":Lcom/google/common/util/concurrent/AbstractFuture$Listener;
-    goto :goto_0
+    goto :goto_e
 
     .line 1143
-    :cond_1
+    :cond_17
     return-object v1
 .end method
 
 .method private static complete(Lcom/google/common/util/concurrent/AbstractFuture;)V
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -893,7 +893,7 @@
 
     .line 1000
     .local v1, "next":Lcom/google/common/util/concurrent/AbstractFuture$Listener;
-    :goto_0
+    :goto_2
     invoke-direct {v0}, Lcom/google/common/util/concurrent/AbstractFuture;->releaseWaiters()V
 
     .line 1006
@@ -908,8 +908,8 @@
     const/4 v0, 0x0
 
     .line 1010
-    :goto_1
-    if-eqz v1, :cond_2
+    :goto_d
+    if-eqz v1, :cond_43
 
     .line 1011
     move-object v2, v1
@@ -931,7 +931,7 @@
     .local v3, "task":Ljava/lang/Runnable;
     instance-of v4, v3, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_37
 
     .line 1019
     move-object v4, v3
@@ -945,7 +945,7 @@
     .line 1026
     iget-object v5, v0, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
 
-    if-ne v5, v4, :cond_0
+    if-ne v5, v4, :cond_36
 
     .line 1027
     iget-object v5, v4, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;->future:Lcom/google/common/util/concurrent/ListenableFuture;
@@ -962,19 +962,19 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_36
 
     .line 1029
-    goto :goto_0
+    goto :goto_2
 
     .line 1033
     .end local v4    # "setFuture":Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;, "Lcom/google/common/util/concurrent/AbstractFuture$SetFuture<*>;"
     .end local v5    # "valueToSet":Ljava/lang/Object;
-    :cond_0
-    goto :goto_2
+    :cond_36
+    goto :goto_42
 
     .line 1038
-    :cond_1
+    :cond_37
     iget-object v4, v2, Lcom/google/common/util/concurrent/AbstractFuture$Listener;->executor:Ljava/util/concurrent/Executor;
 
     invoke-static {v4}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -988,30 +988,30 @@
     .line 1040
     .end local v2    # "curr":Lcom/google/common/util/concurrent/AbstractFuture$Listener;
     .end local v3    # "task":Ljava/lang/Runnable;
-    :goto_2
-    goto :goto_1
+    :goto_42
+    goto :goto_d
 
     .line 1043
-    :cond_2
+    :cond_43
     return-void
 .end method
 
 .method private static executeListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 7
+    .registers 9
     .param p0, "runnable"    # Ljava/lang/Runnable;
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 1277
     :try_start_0
     invoke-interface {p1, p0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_3} :catch_4
 
     .line 1286
-    goto :goto_0
+    goto :goto_44
 
     .line 1278
-    :catch_0
+    :catch_4
     move-exception v0
 
     .line 1282
@@ -1080,12 +1080,12 @@
 
     .line 1287
     .end local v0    # "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_44
     return-void
 .end method
 
 .method private getDoneValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
@@ -1108,17 +1108,17 @@
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
     instance-of v0, p1, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1e
 
     .line 587
     instance-of v0, p1, Lcom/google/common/util/concurrent/AbstractFuture$Failure;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 589
     sget-object v0, Lcom/google/common/util/concurrent/AbstractFuture;->NULL:Ljava/lang/Object;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_11
 
     .line 594
     invoke-static {}, Lcom/google/common/util/concurrent/NullnessCasts;->uncheckedNull()Ljava/lang/Object;
@@ -1128,7 +1128,7 @@
     return-object v0
 
     .line 597
-    :cond_0
+    :cond_11
     move-object v0, p1
 
     .line 598
@@ -1137,7 +1137,7 @@
 
     .line 588
     .end local v0    # "asV":Ljava/lang/Object;, "TV;"
-    :cond_1
+    :cond_13
     new-instance v0, Ljava/util/concurrent/ExecutionException;
 
     move-object v1, p1
@@ -1151,7 +1151,7 @@
     throw v0
 
     .line 586
-    :cond_2
+    :cond_1e
     move-object v0, p1
 
     check-cast v0, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
@@ -1168,7 +1168,7 @@
 .end method
 
 .method private static getFutureValue(Lcom/google/common/util/concurrent/ListenableFuture;)Ljava/lang/Object;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1186,7 +1186,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2b
 
     .line 900
     move-object v0, p0
@@ -1199,7 +1199,7 @@
     .local v0, "v":Ljava/lang/Object;
     instance-of v1, v0, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_26
 
     .line 905
     move-object v1, v0
@@ -1210,12 +1210,12 @@
     .local v1, "c":Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
     iget-boolean v3, v1, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->wasInterrupted:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_26
 
     .line 908
     iget-object v3, v1, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->cause:Ljava/lang/Throwable;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_23
 
     .line 909
     new-instance v3, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
@@ -1224,18 +1224,18 @@
 
     invoke-direct {v3, v2, v4}, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;-><init>(ZLjava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_25
 
     .line 910
-    :cond_0
+    :cond_23
     sget-object v3, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->CAUSELESS_CANCELLED:Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
 
-    :goto_0
+    :goto_25
     move-object v0, v3
 
     .line 914
     .end local v1    # "c":Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
-    :cond_1
+    :cond_26
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -1244,10 +1244,10 @@
 
     .line 916
     .end local v0    # "v":Ljava/lang/Object;
-    :cond_2
+    :cond_2b
     instance-of v1, p0, Lcom/google/common/util/concurrent/internal/InternalFutureFailureAccess;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3e
 
     .line 917
     move-object v1, p0
@@ -1261,7 +1261,7 @@
 
     .line 919
     .local v1, "throwable":Ljava/lang/Throwable;
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3e
 
     .line 920
     new-instance v0, Lcom/google/common/util/concurrent/AbstractFuture$Failure;
@@ -1272,7 +1272,7 @@
 
     .line 923
     .end local v1    # "throwable":Ljava/lang/Throwable;
-    :cond_3
+    :cond_3e
     invoke-interface {p0}, Lcom/google/common/util/concurrent/ListenableFuture;->isCancelled()Z
 
     move-result v1
@@ -1285,7 +1285,7 @@
 
     and-int/2addr v3, v1
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_50
 
     .line 930
     sget-object v0, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->CAUSELESS_CANCELLED:Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
@@ -1297,15 +1297,15 @@
     return-object v0
 
     .line 934
-    :cond_4
-    :try_start_0
+    :cond_50
+    :try_start_50
     invoke-static {p0}, Lcom/google/common/util/concurrent/AbstractFuture;->getUninterruptibly(Ljava/util/concurrent/Future;)Ljava/lang/Object;
 
     move-result-object v3
 
     .line 935
     .local v3, "v":Ljava/lang/Object;
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_80
 
     .line 936
     new-instance v4, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
@@ -1349,26 +1349,26 @@
     return-object v4
 
     .line 943
-    :cond_5
-    if-nez v3, :cond_6
+    :cond_80
+    if-nez v3, :cond_85
 
     sget-object v0, Lcom/google/common/util/concurrent/AbstractFuture;->NULL:Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_84
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_50 .. :try_end_84} :catch_c3
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_50 .. :try_end_84} :catch_8e
+    .catchall {:try_start_50 .. :try_end_84} :catchall_87
 
-    goto :goto_1
+    goto :goto_86
 
-    :cond_6
+    :cond_85
     move-object v0, v3
 
-    :goto_1
+    :goto_86
     return-object v0
 
     .line 964
     .end local v3    # "v":Ljava/lang/Object;
-    :catchall_0
+    :catchall_87
     move-exception v0
 
     .line 965
@@ -1381,12 +1381,12 @@
 
     .line 955
     .end local v0    # "t":Ljava/lang/Throwable;
-    :catch_0
+    :catch_8e
     move-exception v0
 
     .line 956
     .local v0, "cancellation":Ljava/util/concurrent/CancellationException;
-    if-nez v1, :cond_7
+    if-nez v1, :cond_bd
 
     .line 957
     new-instance v2, Lcom/google/common/util/concurrent/AbstractFuture$Failure;
@@ -1432,7 +1432,7 @@
     return-object v2
 
     .line 963
-    :cond_7
+    :cond_bd
     new-instance v3, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
 
     invoke-direct {v3, v2, v0}, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;-><init>(ZLjava/lang/Throwable;)V
@@ -1441,12 +1441,12 @@
 
     .line 944
     .end local v0    # "cancellation":Ljava/util/concurrent/CancellationException;
-    :catch_1
+    :catch_c3
     move-exception v3
 
     .line 945
     .local v3, "exception":Ljava/util/concurrent/ExecutionException;
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_f0
 
     .line 946
     new-instance v4, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
@@ -1490,7 +1490,7 @@
     return-object v4
 
     .line 954
-    :cond_8
+    :cond_f0
     new-instance v0, Lcom/google/common/util/concurrent/AbstractFuture$Failure;
 
     invoke-virtual {v3}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
@@ -1503,7 +1503,7 @@
 .end method
 
 .method private static getUninterruptibly(Ljava/util/concurrent/Future;)Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -1529,17 +1529,17 @@
 
     .line 980
     .local v0, "interrupted":Z
-    :goto_0
-    :try_start_0
+    :goto_1
+    :try_start_1
     invoke-interface {p0}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_5} :catch_1a
+    .catchall {:try_start_1 .. :try_end_5} :catchall_f
 
     .line 986
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 987
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -1549,14 +1549,14 @@
     invoke-virtual {v2}, Ljava/lang/Thread;->interrupt()V
 
     .line 980
-    :cond_0
+    :cond_e
     return-object v1
 
     .line 986
-    :catchall_0
+    :catchall_f
     move-exception v1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 987
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -1566,11 +1566,11 @@
     invoke-virtual {v2}, Ljava/lang/Thread;->interrupt()V
 
     .line 989
-    :cond_1
+    :cond_19
     throw v1
 
     .line 981
-    :catch_0
+    :catch_1a
     move-exception v1
 
     .line 982
@@ -1579,17 +1579,17 @@
 
     .line 983
     .end local v1    # "e":Ljava/lang/InterruptedException;
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private releaseWaiters()V
-    .locals 3
+    .registers 4
 
     .line 1113
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture;->waiters:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
     .line 1114
@@ -1602,14 +1602,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 1115
     move-object v1, v0
 
     .local v1, "currentWaiter":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_e
+    if-eqz v1, :cond_16
 
     .line 1116
     invoke-virtual {v1}, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->unpark()V
@@ -1617,16 +1617,16 @@
     .line 1115
     iget-object v1, v1, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->next:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
-    goto :goto_0
+    goto :goto_e
 
     .line 1118
     .end local v1    # "currentWaiter":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
-    :cond_1
+    :cond_16
     return-void
 .end method
 
 .method private removeWaiter(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)V
-    .locals 4
+    .registers 6
     .param p1, "node"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
     .line 248
@@ -1636,7 +1636,7 @@
     iput-object v0, p1, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->thread:Ljava/lang/Thread;
 
     .line 251
-    :goto_0
+    :goto_3
     const/4 v0, 0x0
 
     .line 252
@@ -1647,15 +1647,15 @@
     .local v1, "curr":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     sget-object v2, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->TOMBSTONE:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_b
 
     .line 254
     return-void
 
     .line 257
-    :cond_0
-    :goto_1
-    if-eqz v1, :cond_4
+    :cond_b
+    :goto_b
+    if-eqz v1, :cond_29
 
     .line 258
     iget-object v2, v1, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->next:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
@@ -1664,16 +1664,16 @@
     .local v2, "succ":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     iget-object v3, v1, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->thread:Ljava/lang/Thread;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_15
 
     .line 260
     move-object v0, v1
 
-    goto :goto_2
+    goto :goto_27
 
     .line 261
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_15
+    if-eqz v0, :cond_1e
 
     .line 262
     iput-object v2, v0, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->next:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
@@ -1681,43 +1681,43 @@
     .line 263
     iget-object v3, v0, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->thread:Ljava/lang/Thread;
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_27
 
     .line 264
-    goto :goto_0
+    goto :goto_3
 
     .line 266
-    :cond_2
+    :cond_1e
     sget-object v3, Lcom/google/common/util/concurrent/AbstractFuture;->ATOMIC_HELPER:Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
 
     invoke-virtual {v3, p0, v1, v2}, Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;->casWaiters(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)Z
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_27
 
     .line 267
-    goto :goto_0
+    goto :goto_3
 
     .line 269
-    :cond_3
-    :goto_2
+    :cond_27
+    :goto_27
     move-object v1, v2
 
-    goto :goto_1
+    goto :goto_b
 
     .line 273
     .end local v0    # "pred":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     .end local v1    # "curr":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     .end local v2    # "succ":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
-    :cond_4
+    :cond_29
     return-void
 .end method
 
 
 # virtual methods
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 3
+    .registers 6
     .param p1, "listener"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
@@ -1737,7 +1737,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2c
 
     .line 747
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture;->listeners:Lcom/google/common/util/concurrent/AbstractFuture$Listener;
@@ -1746,7 +1746,7 @@
     .local v0, "oldHead":Lcom/google/common/util/concurrent/AbstractFuture$Listener;
     sget-object v1, Lcom/google/common/util/concurrent/AbstractFuture$Listener;->TOMBSTONE:Lcom/google/common/util/concurrent/AbstractFuture$Listener;
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_2c
 
     .line 749
     new-instance v1, Lcom/google/common/util/concurrent/AbstractFuture$Listener;
@@ -1755,7 +1755,7 @@
 
     .line 751
     .local v1, "newNode":Lcom/google/common/util/concurrent/AbstractFuture$Listener;
-    :cond_0
+    :cond_1b
     iput-object v0, v1, Lcom/google/common/util/concurrent/AbstractFuture$Listener;->next:Lcom/google/common/util/concurrent/AbstractFuture$Listener;
 
     .line 752
@@ -1765,24 +1765,24 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     .line 753
     return-void
 
     .line 755
-    :cond_1
+    :cond_26
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture;->listeners:Lcom/google/common/util/concurrent/AbstractFuture$Listener;
 
     .line 756
     sget-object v2, Lcom/google/common/util/concurrent/AbstractFuture$Listener;->TOMBSTONE:Lcom/google/common/util/concurrent/AbstractFuture$Listener;
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_1b
 
     .line 761
     .end local v0    # "oldHead":Lcom/google/common/util/concurrent/AbstractFuture$Listener;
     .end local v1    # "newNode":Lcom/google/common/util/concurrent/AbstractFuture$Listener;
-    :cond_2
+    :cond_2c
     invoke-static {p1, p2}, Lcom/google/common/util/concurrent/AbstractFuture;->executeListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
     .line 762
@@ -1790,7 +1790,7 @@
 .end method
 
 .method protected afterDone()V
-    .locals 0
+    .registers 1
 
     .line 1058
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
@@ -1798,7 +1798,7 @@
 .end method
 
 .method public cancel(Z)Z
-    .locals 10
+    .registers 12
     .param p1, "mayInterruptIfRunning"    # Z
 
     .line 633
@@ -1815,26 +1815,26 @@
 
     const/4 v3, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_a
     instance-of v5, v0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
     or-int/2addr v4, v5
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_68
 
     .line 639
     sget-boolean v4, Lcom/google/common/util/concurrent/AbstractFuture;->GENERATE_CANCELLATION_CAUSES:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_20
 
     .line 640
     new-instance v4, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
@@ -1847,28 +1847,28 @@
 
     invoke-direct {v4, p1, v5}, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;-><init>(ZLjava/lang/Throwable;)V
 
-    goto :goto_2
+    goto :goto_2b
 
     .line 653
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_20
+    if-eqz p1, :cond_25
 
     .line 654
     sget-object v4, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->CAUSELESS_INTERRUPTED:Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
 
-    goto :goto_1
+    goto :goto_27
 
     .line 655
-    :cond_2
+    :cond_25
     sget-object v4, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->CAUSELESS_CANCELLED:Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
 
     .line 652
-    :goto_1
+    :goto_27
     invoke-static {v4}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
 
-    :goto_2
+    :goto_2b
     nop
 
     .line 656
@@ -1877,33 +1877,33 @@
 
     .line 658
     .local v5, "abstractFuture":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<*>;"
-    :cond_3
-    :goto_3
+    :cond_2d
+    :goto_2d
     sget-object v6, Lcom/google/common/util/concurrent/AbstractFuture;->ATOMIC_HELPER:Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
 
     invoke-virtual {v6, v5, v0, v4}, Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;->casValue(Lcom/google/common/util/concurrent/AbstractFuture;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_61
 
     .line 659
     const/4 v1, 0x1
 
     .line 662
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3b
 
     .line 663
     invoke-virtual {v5}, Lcom/google/common/util/concurrent/AbstractFuture;->interruptTask()V
 
     .line 665
-    :cond_4
+    :cond_3b
     invoke-static {v5}, Lcom/google/common/util/concurrent/AbstractFuture;->complete(Lcom/google/common/util/concurrent/AbstractFuture;)V
 
     .line 666
     instance-of v6, v0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_68
 
     .line 669
     move-object v6, v0
@@ -1916,7 +1916,7 @@
     .local v6, "futureToPropagateTo":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<*>;"
     instance-of v7, v6, Lcom/google/common/util/concurrent/AbstractFuture$Trusted;
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_5d
 
     .line 678
     move-object v7, v6
@@ -1928,50 +1928,50 @@
     iget-object v0, v7, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
 
     .line 680
-    if-nez v0, :cond_5
+    if-nez v0, :cond_54
 
     const/4 v8, 0x1
 
-    goto :goto_4
+    goto :goto_55
 
-    :cond_5
+    :cond_54
     const/4 v8, 0x0
 
-    :goto_4
+    :goto_55
     instance-of v9, v0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
     or-int/2addr v8, v9
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_5c
 
     .line 681
     move-object v5, v7
 
     .line 682
-    goto :goto_3
+    goto :goto_2d
 
     .line 684
     .end local v7    # "trusted":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<*>;"
-    :cond_6
-    goto :goto_5
+    :cond_5c
+    goto :goto_60
 
     .line 686
-    :cond_7
+    :cond_5d
     invoke-interface {v6, p1}, Lcom/google/common/util/concurrent/ListenableFuture;->cancel(Z)Z
 
     .line 688
     .end local v6    # "futureToPropagateTo":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<*>;"
-    :goto_5
-    goto :goto_6
+    :goto_60
+    goto :goto_68
 
     .line 692
-    :cond_8
+    :cond_61
     iget-object v0, v5, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
 
     .line 693
     instance-of v6, v0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_2d
 
     .line 697
     nop
@@ -1979,13 +1979,13 @@
     .line 701
     .end local v4    # "valueToSet":Ljava/lang/Object;
     .end local v5    # "abstractFuture":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<*>;"
-    :cond_9
-    :goto_6
+    :cond_68
+    :goto_68
     return v1
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 7
+    .registers 8
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -2008,7 +2008,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_65
 
     .line 545
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
@@ -2019,23 +2019,23 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_f
     instance-of v4, v0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
     xor-int/2addr v4, v2
 
     and-int/2addr v3, v4
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1a
 
     .line 547
     invoke-direct {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->getDoneValue(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2045,14 +2045,14 @@
     return-object v1
 
     .line 549
-    :cond_1
+    :cond_1a
     iget-object v3, p0, Lcom/google/common/util/concurrent/AbstractFuture;->waiters:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
     .line 550
     .local v3, "oldHead":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     sget-object v4, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->TOMBSTONE:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
-    if-eq v3, v4, :cond_7
+    if-eq v3, v4, :cond_5a
 
     .line 551
     new-instance v4, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
@@ -2061,7 +2061,7 @@
 
     .line 553
     .local v4, "node":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
-    :cond_2
+    :cond_25
     invoke-virtual {v4, v3}, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->setNext(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)V
 
     .line 554
@@ -2071,10 +2071,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_54
 
     .line 557
-    :cond_3
+    :cond_30
     invoke-static {p0}, Ljava/util/concurrent/locks/LockSupport;->park(Ljava/lang/Object;)V
 
     .line 559
@@ -2082,29 +2082,29 @@
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_4b
 
     .line 565
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
 
     .line 566
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3f
 
     const/4 v5, 0x1
 
-    goto :goto_1
+    goto :goto_40
 
-    :cond_4
+    :cond_3f
     const/4 v5, 0x0
 
-    :goto_1
+    :goto_40
     instance-of v6, v0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
     xor-int/2addr v6, v2
 
     and-int/2addr v5, v6
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_30
 
     .line 567
     invoke-direct {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->getDoneValue(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2114,7 +2114,7 @@
     return-object v1
 
     .line 560
-    :cond_5
+    :cond_4b
     invoke-direct {p0, v4}, Lcom/google/common/util/concurrent/AbstractFuture;->removeWaiter(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)V
 
     .line 561
@@ -2125,17 +2125,17 @@
     throw v1
 
     .line 571
-    :cond_6
+    :cond_54
     iget-object v3, p0, Lcom/google/common/util/concurrent/AbstractFuture;->waiters:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
     .line 572
     sget-object v5, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->TOMBSTONE:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
-    if-ne v3, v5, :cond_2
+    if-ne v3, v5, :cond_25
 
     .line 577
     .end local v4    # "node":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
-    :cond_7
+    :cond_5a
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
 
     invoke-static {v1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2151,7 +2151,7 @@
     .line 543
     .end local v0    # "localValue":Ljava/lang/Object;
     .end local v3    # "oldHead":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
-    :cond_8
+    :cond_65
     new-instance v0, Ljava/lang/InterruptedException;
 
     invoke-direct {v0}, Ljava/lang/InterruptedException;-><init>()V
@@ -2160,7 +2160,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 28
+    .registers 32
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -2204,7 +2204,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_16
+    if-nez v8, :cond_20d
 
     .line 437
     iget-object v8, v0, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
@@ -2213,23 +2213,23 @@
     .local v8, "localValue":Ljava/lang/Object;
     const/4 v10, 0x1
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_18
 
     const/4 v11, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v11, 0x0
 
-    :goto_0
+    :goto_19
     instance-of v12, v8, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
     xor-int/2addr v12, v10
 
     and-int/2addr v11, v12
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_24
 
     .line 439
     invoke-direct {v0, v8}, Lcom/google/common/util/concurrent/AbstractFuture;->getDoneValue(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2239,12 +2239,12 @@
     return-object v9
 
     .line 442
-    :cond_1
+    :cond_24
     const-wide/16 v11, 0x0
 
     cmp-long v13, v6, v11
 
-    if-lez v13, :cond_2
+    if-lez v13, :cond_30
 
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
@@ -2252,19 +2252,19 @@
 
     add-long/2addr v13, v6
 
-    goto :goto_1
+    goto :goto_31
 
-    :cond_2
+    :cond_30
     move-wide v13, v11
 
     .line 444
     .local v13, "endNanos":J
-    :goto_1
+    :goto_31
     const-wide/16 v15, 0x3e8
 
     cmp-long v17, v6, v15
 
-    if-ltz v17, :cond_a
+    if-ltz v17, :cond_99
 
     .line 445
     iget-object v9, v0, Lcom/google/common/util/concurrent/AbstractFuture;->waiters:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
@@ -2273,7 +2273,7 @@
     .local v9, "oldHead":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     sget-object v11, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->TOMBSTONE:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
-    if-eq v9, v11, :cond_9
+    if-eq v9, v11, :cond_8e
 
     .line 447
     new-instance v11, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
@@ -2282,7 +2282,7 @@
 
     .line 449
     .local v11, "node":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
-    :goto_2
+    :goto_42
     invoke-virtual {v11, v9}, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->setNext(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)V
 
     .line 450
@@ -2292,10 +2292,10 @@
 
     move-result v12
 
-    if-eqz v12, :cond_7
+    if-eqz v12, :cond_84
 
     .line 452
-    :goto_3
+    :goto_4d
     invoke-static {v0, v6, v7}, Lcom/google/common/util/concurrent/OverflowAvoidingLockSupport;->parkNanos(Ljava/lang/Object;J)V
 
     .line 454
@@ -2303,29 +2303,29 @@
 
     move-result v12
 
-    if-nez v12, :cond_6
+    if-nez v12, :cond_7b
 
     .line 461
     iget-object v8, v0, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
 
     .line 462
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_5c
 
     const/4 v12, 0x1
 
-    goto :goto_4
+    goto :goto_5d
 
-    :cond_3
+    :cond_5c
     const/4 v12, 0x0
 
-    :goto_4
+    :goto_5d
     instance-of v15, v8, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
     xor-int/2addr v15, v10
 
     and-int/2addr v12, v15
 
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_68
 
     .line 463
     invoke-direct {v0, v8}, Lcom/google/common/util/concurrent/AbstractFuture;->getDoneValue(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2335,7 +2335,7 @@
     return-object v10
 
     .line 467
-    :cond_4
+    :cond_68
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v15
@@ -2347,22 +2347,22 @@
 
     cmp-long v12, v6, v15
 
-    if-gez v12, :cond_5
+    if-gez v12, :cond_78
 
     .line 470
     invoke-direct {v0, v11}, Lcom/google/common/util/concurrent/AbstractFuture;->removeWaiter(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)V
 
     .line 471
-    goto :goto_6
+    goto :goto_99
 
     .line 468
-    :cond_5
+    :cond_78
     const-wide/16 v15, 0x3e8
 
-    goto :goto_3
+    goto :goto_4d
 
     .line 455
-    :cond_6
+    :cond_7b
     invoke-direct {v0, v11}, Lcom/google/common/util/concurrent/AbstractFuture;->removeWaiter(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)V
 
     .line 456
@@ -2373,25 +2373,25 @@
     throw v10
 
     .line 475
-    :cond_7
+    :cond_84
     iget-object v9, v0, Lcom/google/common/util/concurrent/AbstractFuture;->waiters:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
     .line 476
     sget-object v12, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->TOMBSTONE:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
-    if-ne v9, v12, :cond_8
+    if-ne v9, v12, :cond_8b
 
-    goto :goto_5
+    goto :goto_8e
 
-    :cond_8
+    :cond_8b
     const-wide/16 v15, 0x3e8
 
-    goto :goto_2
+    goto :goto_42
 
     .line 481
     .end local v11    # "node":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
-    :cond_9
-    :goto_5
+    :cond_8e
+    :goto_8e
     iget-object v10, v0, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
 
     invoke-static {v10}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2406,35 +2406,35 @@
 
     .line 485
     .end local v9    # "oldHead":Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
-    :cond_a
-    :goto_6
+    :cond_99
+    :goto_99
     const-wide/16 v11, 0x0
 
     cmp-long v9, v6, v11
 
-    if-lez v9, :cond_e
+    if-lez v9, :cond_c4
 
     .line 486
     iget-object v8, v0, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
 
     .line 487
-    if-eqz v8, :cond_b
+    if-eqz v8, :cond_a5
 
     const/4 v9, 0x1
 
-    goto :goto_7
+    goto :goto_a6
 
-    :cond_b
+    :cond_a5
     const/4 v9, 0x0
 
-    :goto_7
+    :goto_a6
     instance-of v11, v8, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
     xor-int/2addr v11, v10
 
     and-int/2addr v9, v11
 
-    if-eqz v9, :cond_c
+    if-eqz v9, :cond_b1
 
     .line 488
     invoke-direct {v0, v8}, Lcom/google/common/util/concurrent/AbstractFuture;->getDoneValue(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2444,12 +2444,12 @@
     return-object v9
 
     .line 490
-    :cond_c
+    :cond_b1
     invoke-static {}, Ljava/lang/Thread;->interrupted()Z
 
     move-result v9
 
-    if-nez v9, :cond_d
+    if-nez v9, :cond_be
 
     .line 493
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -2458,10 +2458,10 @@
 
     sub-long v6, v13, v11
 
-    goto :goto_6
+    goto :goto_99
 
     .line 491
-    :cond_d
+    :cond_be
     new-instance v9, Ljava/lang/InterruptedException;
 
     invoke-direct {v9}, Ljava/lang/InterruptedException;-><init>()V
@@ -2469,7 +2469,7 @@
     throw v9
 
     .line 496
-    :cond_e
+    :cond_c4
     invoke-virtual/range {p0 .. p0}, Lcom/google/common/util/concurrent/AbstractFuture;->toString()Ljava/lang/String;
 
     move-result-object v9
@@ -2546,7 +2546,7 @@
 
     cmp-long v12, v22, v18
 
-    if-gez v12, :cond_14
+    if-gez v12, :cond_1c3
 
     .line 502
     invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -2594,26 +2594,26 @@
 
     cmp-long v10, v4, v18
 
-    if-eqz v10, :cond_10
+    if-eqz v10, :cond_138
 
     const-wide/16 v20, 0x3e8
 
     cmp-long v10, v6, v20
 
-    if-lez v10, :cond_f
+    if-lez v10, :cond_135
 
-    goto :goto_8
+    goto :goto_138
 
-    :cond_f
+    :cond_135
     const/16 v16, 0x0
 
-    goto :goto_9
+    goto :goto_13a
 
-    :cond_10
-    :goto_8
+    :cond_138
+    :goto_138
     const/16 v16, 0x1
 
-    :goto_9
+    :goto_13a
     move/from16 v10, v16
 
     .line 508
@@ -2622,7 +2622,7 @@
 
     cmp-long v12, v4, v16
 
-    if-lez v12, :cond_12
+    if-lez v12, :cond_18c
 
     .line 509
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -2684,7 +2684,7 @@
     .line 510
     .end local v18    # "message":Ljava/lang/String;
     .restart local v0    # "message":Ljava/lang/String;
-    if-eqz v10, :cond_11
+    if-eqz v10, :cond_183
 
     .line 511
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -2698,7 +2698,7 @@
     move-result-object v0
 
     .line 513
-    :cond_11
+    :cond_183
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -2707,12 +2707,12 @@
 
     move-result-object v0
 
-    goto :goto_a
+    goto :goto_190
 
     .line 508
     .end local v16    # "overWaitNanos":J
     .restart local v1    # "overWaitNanos":J
-    :cond_12
+    :cond_18c
     move-object/from16 v18, v0
 
     move-wide/from16 v16, v1
@@ -2720,8 +2720,8 @@
     .line 515
     .end local v1    # "overWaitNanos":J
     .restart local v16    # "overWaitNanos":J
-    :goto_a
-    if-eqz v10, :cond_13
+    :goto_190
+    if-eqz v10, :cond_1b7
 
     .line 516
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -2761,7 +2761,7 @@
     move-result-object v0
 
     .line 519
-    :cond_13
+    :cond_1b7
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -2774,7 +2774,7 @@
 
     move-object v10, v0
 
-    goto :goto_b
+    goto :goto_1c7
 
     .line 500
     .end local v0    # "message":Ljava/lang/String;
@@ -2784,7 +2784,7 @@
     .local v4, "timeoutNanos":J
     .local v6, "remainingNanos":J
     .local v10, "message":Ljava/lang/String;
-    :cond_14
+    :cond_1c3
     move-wide/from16 v22, v4
 
     move-wide/from16 v26, v6
@@ -2794,12 +2794,12 @@
     .end local v6    # "remainingNanos":J
     .restart local v22    # "timeoutNanos":J
     .restart local v26    # "remainingNanos":J
-    :goto_b
+    :goto_1c7
     invoke-virtual/range {p0 .. p0}, Lcom/google/common/util/concurrent/AbstractFuture;->isDone()Z
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1dd
 
     .line 525
     new-instance v0, Ljava/util/concurrent/TimeoutException;
@@ -2819,7 +2819,7 @@
     throw v0
 
     .line 527
-    :cond_15
+    :cond_1dd
     new-instance v0, Ljava/util/concurrent/TimeoutException;
 
     invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -2878,7 +2878,7 @@
     .end local v26    # "remainingNanos":J
     .restart local v4    # "timeoutNanos":J
     .restart local v6    # "remainingNanos":J
-    :cond_16
+    :cond_20d
     new-instance v0, Ljava/lang/InterruptedException;
 
     invoke-direct {v0}, Ljava/lang/InterruptedException;-><init>()V
@@ -2887,7 +2887,7 @@
 .end method
 
 .method protected interruptTask()V
-    .locals 0
+    .registers 1
 
     .line 715
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
@@ -2895,7 +2895,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 2
+    .registers 3
 
     .line 610
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
@@ -2909,7 +2909,7 @@
 .end method
 
 .method public isDone()Z
-    .locals 4
+    .registers 5
 
     .line 604
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
@@ -2919,16 +2919,16 @@
     .local v0, "localValue":Ljava/lang/Object;
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_8
     instance-of v3, v0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
     xor-int/2addr v1, v3
@@ -2939,7 +2939,7 @@
 .end method
 
 .method final maybePropagateCancellationTo(Ljava/util/concurrent/Future;)V
-    .locals 2
+    .registers 4
     .param p1    # Ljava/util/concurrent/Future;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -2955,23 +2955,23 @@
     .line 1104
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
     .local p1, "related":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractFuture;->isCancelled()Z
 
     move-result v1
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 1105
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractFuture;->wasInterrupted()Z
@@ -2981,12 +2981,12 @@
     invoke-interface {p1, v0}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
     .line 1107
-    :cond_1
+    :cond_13
     return-void
 .end method
 
 .method protected pendingToString()Ljava/lang/String;
-    .locals 4
+    .registers 5
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -2994,7 +2994,7 @@
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
     instance-of v0, p0, Ljava/util/concurrent/ScheduledFuture;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 1177
     move-object v0, p0
@@ -3038,14 +3038,14 @@
     return-object v0
 
     .line 1181
-    :cond_0
+    :cond_29
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method protected set(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
         .end annotation
@@ -3059,18 +3059,18 @@
     .line 781
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
     .local p1, "value":Ljava/lang/Object;, "TV;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     sget-object v0, Lcom/google/common/util/concurrent/AbstractFuture;->NULL:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     move-object v0, p1
 
     .line 782
     .local v0, "valueToSet":Ljava/lang/Object;
-    :goto_0
+    :goto_6
     sget-object v1, Lcom/google/common/util/concurrent/AbstractFuture;->ATOMIC_HELPER:Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
 
     const/4 v2, 0x0
@@ -3079,7 +3079,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     .line 783
     invoke-static {p0}, Lcom/google/common/util/concurrent/AbstractFuture;->complete(Lcom/google/common/util/concurrent/AbstractFuture;)V
@@ -3090,14 +3090,14 @@
     return v1
 
     .line 786
-    :cond_1
+    :cond_14
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method protected setException(Ljava/lang/Throwable;)Z
-    .locals 3
+    .registers 5
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
     .line 806
@@ -3122,7 +3122,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 808
     invoke-static {p0}, Lcom/google/common/util/concurrent/AbstractFuture;->complete(Lcom/google/common/util/concurrent/AbstractFuture;)V
@@ -3133,14 +3133,14 @@
     return v1
 
     .line 811
-    :cond_0
+    :cond_19
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method protected setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3161,7 +3161,7 @@
     .local v0, "localValue":Ljava/lang/Object;
     const/4 v1, 0x0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_47
 
     .line 848
     invoke-interface {p1}, Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z
@@ -3172,7 +3172,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     .line 849
     invoke-static {p1}, Lcom/google/common/util/concurrent/AbstractFuture;->getFutureValue(Lcom/google/common/util/concurrent/ListenableFuture;)Ljava/lang/Object;
@@ -3187,7 +3187,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_20
 
     .line 851
     invoke-static {p0}, Lcom/google/common/util/concurrent/AbstractFuture;->complete(Lcom/google/common/util/concurrent/AbstractFuture;)V
@@ -3196,12 +3196,12 @@
     return v3
 
     .line 854
-    :cond_0
+    :cond_20
     return v1
 
     .line 856
     .end local v2    # "value":Ljava/lang/Object;
-    :cond_1
+    :cond_21
     new-instance v2, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;
 
     invoke-direct {v2, p0, p1}, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;-><init>(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/ListenableFuture;)V
@@ -3214,39 +3214,39 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_45
 
     .line 861
-    :try_start_0
+    :try_start_2e
     sget-object v1, Lcom/google/common/util/concurrent/DirectExecutor;->INSTANCE:Lcom/google/common/util/concurrent/DirectExecutor;
 
     invoke-interface {p1, v2, v1}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catchall {:try_start_2e .. :try_end_33} :catchall_34
 
     .line 874
-    goto :goto_1
+    goto :goto_44
 
     .line 862
-    :catchall_0
+    :catchall_34
     move-exception v1
 
     .line 868
     .local v1, "t":Ljava/lang/Throwable;
-    :try_start_1
+    :try_start_35
     new-instance v4, Lcom/google/common/util/concurrent/AbstractFuture$Failure;
 
     invoke-direct {v4, v1}, Lcom/google/common/util/concurrent/AbstractFuture$Failure;-><init>(Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_3a
+    .catchall {:try_start_35 .. :try_end_3a} :catchall_3b
 
     .line 871
     .local v4, "failure":Lcom/google/common/util/concurrent/AbstractFuture$Failure;
-    goto :goto_0
+    goto :goto_3f
 
     .line 869
     .end local v4    # "failure":Lcom/google/common/util/concurrent/AbstractFuture$Failure;
-    :catchall_1
+    :catchall_3b
     move-exception v4
 
     .line 870
@@ -3257,7 +3257,7 @@
 
     .line 873
     .local v4, "failure":Lcom/google/common/util/concurrent/AbstractFuture$Failure;
-    :goto_0
+    :goto_3f
     sget-object v5, Lcom/google/common/util/concurrent/AbstractFuture;->ATOMIC_HELPER:Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
 
     invoke-virtual {v5, p0, v2, v4}, Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;->casValue(Lcom/google/common/util/concurrent/AbstractFuture;Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -3265,19 +3265,19 @@
     .line 875
     .end local v1    # "t":Ljava/lang/Throwable;
     .end local v4    # "failure":Lcom/google/common/util/concurrent/AbstractFuture$Failure;
-    :goto_1
+    :goto_44
     return v3
 
     .line 877
-    :cond_2
+    :cond_45
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
 
     .line 881
     .end local v2    # "valueToSet":Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;, "Lcom/google/common/util/concurrent/AbstractFuture$SetFuture<TV;>;"
-    :cond_3
+    :cond_47
     instance-of v2, v0, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_53
 
     .line 883
     move-object v2, v0
@@ -3289,12 +3289,12 @@
     invoke-interface {p1, v2}, Lcom/google/common/util/concurrent/ListenableFuture;->cancel(Z)Z
 
     .line 885
-    :cond_4
+    :cond_53
     return v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 1150
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
@@ -3318,7 +3318,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 1152
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -3331,10 +3331,10 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 1154
-    :cond_0
+    :cond_21
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -3346,7 +3346,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1156
-    :goto_0
+    :goto_2c
     const/16 v1, 0x40
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -3374,34 +3374,34 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4f
 
     .line 1158
     const-string v1, "CANCELLED"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 1159
-    :cond_1
+    :cond_4f
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractFuture;->isDone()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_59
 
     .line 1160
     invoke-direct {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->addDoneString(Ljava/lang/StringBuilder;)V
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 1162
-    :cond_2
+    :cond_59
     invoke-direct {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->addPendingString(Ljava/lang/StringBuilder;)V
 
     .line 1164
-    :goto_1
+    :goto_5c
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3416,7 +3416,7 @@
 .end method
 
 .method protected final tryInternalFastPathGetFailure()Ljava/lang/Throwable;
-    .locals 2
+    .registers 3
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -3424,7 +3424,7 @@
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
     instance-of v0, p0, Lcom/google/common/util/concurrent/AbstractFuture$Trusted;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 1091
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
@@ -3433,7 +3433,7 @@
     .local v0, "obj":Ljava/lang/Object;
     instance-of v1, v0, Lcom/google/common/util/concurrent/AbstractFuture$Failure;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 1093
     move-object v1, v0
@@ -3446,14 +3446,14 @@
 
     .line 1096
     .end local v0    # "obj":Ljava/lang/Object;
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method protected final wasInterrupted()Z
-    .locals 2
+    .registers 3
 
     .line 724
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>;"
@@ -3463,7 +3463,7 @@
     .local v0, "localValue":Ljava/lang/Object;
     instance-of v1, v0, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     move-object v1, v0
 
@@ -3471,15 +3471,15 @@
 
     iget-boolean v1, v1, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->wasInterrupted:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_10
     return v1
 .end method

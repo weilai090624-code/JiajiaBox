@@ -129,7 +129,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/functions/Function1;Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,7 +160,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -176,7 +176,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -213,7 +213,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 18
+    .registers 20
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -230,7 +230,7 @@
 
     const/4 v7, 0x0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_14e
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -240,7 +240,7 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_17
     move-object/from16 v2, p0
 
     .local v2, "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$debounceInternal$1;
@@ -270,7 +270,7 @@
     .local v13, "downstream":Lkotlinx/coroutines/flow/FlowCollector;
     invoke-static {v8}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_142
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$debounceInternal$1;
     .end local v8    # "$result":Ljava/lang/Object;
@@ -279,7 +279,7 @@
     .end local v11    # "lastValue":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v12    # "values":Lkotlinx/coroutines/channels/ReceiveChannel;
     .end local v13    # "downstream":Lkotlinx/coroutines/flow/FlowCollector;
-    :pswitch_1
+    :pswitch_2e
     move-object/from16 v2, p0
 
     .restart local v2    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$debounceInternal$1;
@@ -308,7 +308,7 @@
     .local v12, "downstream":Lkotlinx/coroutines/flow/FlowCollector;
     invoke-static {v8}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_c8
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$debounceInternal$1;
     .end local v8    # "$result":Ljava/lang/Object;
@@ -316,7 +316,7 @@
     .end local v10    # "lastValue":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v11    # "values":Lkotlinx/coroutines/channels/ReceiveChannel;
     .end local v12    # "downstream":Lkotlinx/coroutines/flow/FlowCollector;
-    :pswitch_2
+    :pswitch_47
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p0
@@ -378,12 +378,12 @@
     .restart local v10    # "lastValue":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v11    # "values":Lkotlinx/coroutines/channels/ReceiveChannel;
     .restart local v12    # "downstream":Lkotlinx/coroutines/flow/FlowCollector;
-    :goto_0
+    :goto_73
     iget-object v9, v10, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     sget-object v13, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->DONE:Lkotlinx/coroutines/internal/Symbol;
 
-    if-eq v9, v13, :cond_c
+    if-eq v9, v13, :cond_14b
 
     .line 215
     new-instance v9, Lkotlin/jvm/internal/Ref$LongRef;
@@ -394,7 +394,7 @@
     .local v9, "timeoutMillis":Lkotlin/jvm/internal/Ref$LongRef;
     iget-object v13, v10, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    if-eqz v13, :cond_5
+    if-eqz v13, :cond_dc
 
     .line 218
     iget-object v13, v2, Lkotlinx/coroutines/flow/FlowKt__DelayKt$debounceInternal$1;->$timeoutMillisSelector:Lkotlin/jvm/functions/Function1;
@@ -409,7 +409,7 @@
 
     .line 416
     .local v16, "$i$f$unbox":I
-    if-ne v15, v14, :cond_0
+    if-ne v15, v14, :cond_8e
 
     move-object v15, v7
 
@@ -419,7 +419,7 @@
     .end local v14    # "this_$iv":Lkotlinx/coroutines/internal/Symbol;
     .end local v15    # "value$iv":Ljava/lang/Object;
     .end local v16    # "$i$f$unbox":I
-    :cond_0
+    :cond_8e
     invoke-interface {v13, v15}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v13
@@ -437,24 +437,24 @@
 
     cmp-long v15, v13, v4
 
-    if-ltz v15, :cond_1
+    if-ltz v15, :cond_a2
 
     const/4 v13, 0x1
 
-    goto :goto_1
+    goto :goto_a3
 
-    :cond_1
+    :cond_a2
     const/4 v13, 0x0
 
-    :goto_1
-    if-eqz v13, :cond_4
+    :goto_a3
+    if-eqz v13, :cond_ce
 
     .line 220
     iget-wide v13, v9, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
     cmp-long v15, v13, v4
 
-    if-nez v15, :cond_5
+    if-nez v15, :cond_dc
 
     .line 221
     sget-object v13, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
@@ -467,7 +467,7 @@
 
     .line 418
     .local v15, "$i$f$unbox":I
-    if-ne v14, v13, :cond_2
+    if-ne v14, v13, :cond_b4
 
     move-object v14, v7
 
@@ -476,7 +476,7 @@
     .end local v13    # "this_$iv":Lkotlinx/coroutines/internal/Symbol;
     .end local v14    # "value$iv":Ljava/lang/Object;
     .end local v15    # "$i$f$unbox":I
-    :cond_2
+    :cond_b4
     move-object v13, v2
 
     check-cast v13, Lkotlin/coroutines/Continuation;
@@ -496,14 +496,14 @@
 
     move-result-object v13
 
-    if-ne v13, v0, :cond_3
+    if-ne v13, v0, :cond_c8
 
     .line 207
     return-object v0
 
     .line 222
-    :cond_3
-    :goto_2
+    :cond_c8
+    :goto_c8
     iput-object v7, v10, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     move-object v13, v12
@@ -512,14 +512,14 @@
 
     move-object v11, v10
 
-    goto :goto_3
+    goto :goto_df
 
     .line 417
     .end local v9    # "timeoutMillis":Lkotlin/jvm/internal/Ref$LongRef;
     .end local v10    # "lastValue":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v11    # "values":Lkotlinx/coroutines/channels/ReceiveChannel;
     .end local v12    # "downstream":Lkotlinx/coroutines/flow/FlowCollector;
-    :cond_4
+    :cond_ce
     const/4 v0, 0x0
 
     .line 219
@@ -544,7 +544,7 @@
     .restart local v10    # "lastValue":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v11    # "values":Lkotlinx/coroutines/channels/ReceiveChannel;
     .restart local v12    # "downstream":Lkotlinx/coroutines/flow/FlowCollector;
-    :cond_5
+    :cond_dc
     move-object v13, v12
 
     move-object v12, v11
@@ -555,12 +555,12 @@
     .local v11, "lastValue":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local v12, "values":Lkotlinx/coroutines/channels/ReceiveChannel;
     .local v13, "downstream":Lkotlinx/coroutines/flow/FlowCollector;
-    :goto_3
+    :goto_df
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getASSERTIONS_ENABLED()Z
 
     move-result v10
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_fd
 
     .line 417
     const/4 v10, 0x0
@@ -569,32 +569,32 @@
     .local v10, "$i$a$-assert-FlowKt__DelayKt$debounceInternal$1$2":I
     iget-object v14, v11, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    if-eqz v14, :cond_7
+    if-eqz v14, :cond_f3
 
     iget-wide v14, v9, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
     cmp-long v16, v14, v4
 
-    if-lez v16, :cond_6
+    if-lez v16, :cond_f1
 
-    goto :goto_4
+    goto :goto_f3
 
-    :cond_6
+    :cond_f1
     const/4 v10, 0x0
 
-    goto :goto_5
+    goto :goto_f4
 
-    :cond_7
-    :goto_4
+    :cond_f3
+    :goto_f3
     const/4 v10, 0x1
 
     .end local v10    # "$i$a$-assert-FlowKt__DelayKt$debounceInternal$1$2":I
-    :goto_5
-    if-eqz v10, :cond_8
+    :goto_f4
+    if-eqz v10, :cond_f7
 
-    goto :goto_6
+    goto :goto_fd
 
-    :cond_8
+    :cond_f7
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -602,8 +602,8 @@
     throw v0
 
     .line 228
-    :cond_9
-    :goto_6
+    :cond_fd
+    :goto_fd
     const/4 v10, 0x0
 
     .line 419
@@ -635,7 +635,7 @@
     .local v17, "$i$a$-select-FlowKt__DelayKt$debounceInternal$1$3":I
     iget-object v4, v11, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_11e
 
     .line 231
     iget-wide v4, v9, Lkotlin/jvm/internal/Ref$LongRef;->element:J
@@ -650,7 +650,7 @@
 
     .line 236
     .end local v9    # "timeoutMillis":Lkotlin/jvm/internal/Ref$LongRef;
-    :cond_a
+    :cond_11e
     invoke-interface {v12}, Lkotlinx/coroutines/channels/ReceiveChannel;->getOnReceiveCatching()Lkotlinx/coroutines/selects/SelectClause1;
 
     move-result-object v4
@@ -689,13 +689,13 @@
     move-result-object v3
 
     .end local v14    # "$this$select_u24lambda_u241$iv":Lkotlinx/coroutines/selects/SelectImplementation;
-    if-ne v3, v0, :cond_b
+    if-ne v3, v0, :cond_140
 
     .line 207
     return-object v0
 
     .line 426
-    :cond_b
+    :cond_140
     move v9, v10
 
     move v10, v15
@@ -703,7 +703,7 @@
     .end local v15    # "$i$a$-run-SelectKt$select$3$iv":I
     .local v9, "$i$f$select":I
     .local v10, "$i$a$-run-SelectKt$select$3$iv":I
-    :goto_7
+    :goto_142
     nop
 
     .line 422
@@ -719,22 +719,22 @@
     const/4 v6, 0x1
 
     .end local v9    # "$i$f$select":I
-    goto/16 :goto_0
+    goto/16 :goto_73
 
     .line 248
     .end local v13    # "downstream":Lkotlinx/coroutines/flow/FlowCollector;
     .local v10, "lastValue":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local v11, "values":Lkotlinx/coroutines/channels/ReceiveChannel;
     .local v12, "downstream":Lkotlinx/coroutines/flow/FlowCollector;
-    :cond_c
+    :cond_14b
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_14e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_47
+        :pswitch_2e
+        :pswitch_17
     .end packed-switch
 .end method

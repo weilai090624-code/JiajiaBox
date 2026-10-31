@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/window/embedding/ExtensionEmbeddingBackend;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/window/embedding/ExtensionEmbeddingBackend;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public final getLastInfo()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -102,7 +102,7 @@
 .end method
 
 .method public onSplitInfoChanged(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .param p1, "splitInfo"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -131,12 +131,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_12
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -149,15 +149,15 @@
     invoke-virtual {v1, p1}, Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;->accept(Ljava/util/List;)V
 
     .end local v1    # "callbackWrapper":Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;
-    goto :goto_0
+    goto :goto_12
 
     .line 205
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 .method public final setLastInfo(Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {

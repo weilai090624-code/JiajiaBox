@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/BufferedSource;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 4
     .param p1, "source"    # Lokio/BufferedSource;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
 
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -107,19 +107,19 @@
     .line 217
     iget-object v0, p0, Lokhttp3/ResponseBody$BomAwareReader;->delegate:Ljava/io/Reader;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_9
     invoke-virtual {v0}, Ljava/io/Reader;->close()V
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_e
+    if-nez v0, :cond_19
 
     move-object v0, p0
 
@@ -138,12 +138,12 @@
     .line 218
     .end local v0    # "$this$close_u24lambda_u2d1":Lokhttp3/ResponseBody$BomAwareReader;
     .end local v1    # "$i$a$-run-ResponseBody$BomAwareReader$close$1":I
-    :cond_1
+    :cond_19
     return-void
 .end method
 
 .method public read([CII)I
-    .locals 4
+    .registers 8
     .param p1, "cbuf"    # [C
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -160,12 +160,12 @@
     .line 204
     iget-boolean v0, p0, Lokhttp3/ResponseBody$BomAwareReader;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     .line 206
     iget-object v0, p0, Lokhttp3/ResponseBody$BomAwareReader;->delegate:Ljava/io/Reader;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2a
 
     new-instance v0, Ljava/io/InputStreamReader;
 
@@ -211,7 +211,7 @@
     check-cast v0, Ljava/io/Reader;
 
     .line 206
-    :cond_0
+    :cond_2a
     nop
 
     .line 211
@@ -224,7 +224,7 @@
 
     .line 204
     .end local v0    # "finalDelegate":Ljava/io/Reader;
-    :cond_1
+    :cond_30
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "Stream closed"

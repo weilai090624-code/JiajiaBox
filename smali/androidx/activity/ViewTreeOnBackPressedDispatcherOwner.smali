@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final get(Landroid/view/View;)Landroidx/activity/OnBackPressedDispatcherOwner;
-    .locals 5
+    .registers 6
     .param p0, "$this$findViewTreeOnBackPressedDispatcherOwner"    # Landroid/view/View;
 
     const-string v0, "<this>"
@@ -43,10 +43,10 @@
 
     .line 52
     .local v0, "currentView":Landroid/view/View;
-    :goto_0
+    :goto_6
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_28
 
     .line 54
     sget v2, Landroidx/activity/R$id;->view_tree_on_back_pressed_dispatcher_owner:I
@@ -57,53 +57,53 @@
 
     instance-of v3, v2, Landroidx/activity/OnBackPressedDispatcherOwner;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_16
 
     check-cast v2, Landroidx/activity/OnBackPressedDispatcherOwner;
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     move-object v2, v1
 
     .line 53
-    :goto_1
+    :goto_17
     nop
 
     .line 56
     .local v2, "dispatchOwner":Landroidx/activity/OnBackPressedDispatcherOwner;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1b
 
     .line 57
     return-object v2
 
     .line 59
-    :cond_1
+    :cond_1b
     invoke-static {v0}, Landroidx/core/viewtree/ViewTree;->getParentOrViewTreeDisjointParent(Landroid/view/View;)Landroid/view/ViewParent;
 
     move-result-object v3
 
     instance-of v4, v3, Landroid/view/View;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_26
 
     move-object v1, v3
 
     check-cast v1, Landroid/view/View;
 
-    :cond_2
+    :cond_26
     move-object v0, v1
 
     .end local v2    # "dispatchOwner":Landroidx/activity/OnBackPressedDispatcherOwner;
-    goto :goto_0
+    goto :goto_6
 
     .line 61
-    :cond_3
+    :cond_28
     return-object v1
 .end method
 
 .method public static final set(Landroid/view/View;Landroidx/activity/OnBackPressedDispatcherOwner;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$setViewTreeOnBackPressedDispatcherOwner"    # Landroid/view/View;
     .param p1, "onBackPressedDispatcherOwner"    # Landroidx/activity/OnBackPressedDispatcherOwner;
 

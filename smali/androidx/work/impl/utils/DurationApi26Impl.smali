@@ -27,7 +27,7 @@
 
 # direct methods
 .method public static final toMillisCompat(Lj$/time/Duration;)J
-    .locals 2
+    .registers 3
     .param p0, "$this$toMillisCompat"    # Lj$/time/Duration;
 
     const-string v0, "<this>"

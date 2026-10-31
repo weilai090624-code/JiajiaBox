@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 28
     new-instance v0, Lcom/google/common/base/Absent;
@@ -47,7 +47,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     .local p0, "this":Lcom/google/common/base/Absent;, "Lcom/google/common/base/Absent<TT;>;"
@@ -57,7 +57,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/base/Absent;, "Lcom/google/common/base/Absent<TT;>;"
@@ -67,7 +67,7 @@
 .end method
 
 .method static withType()Lcom/google/common/base/Optional;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public asSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -106,7 +106,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -114,21 +114,21 @@
 
     .line 83
     .local p0, "this":Lcom/google/common/base/Absent;, "Lcom/google/common/base/Absent<TT;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -147,7 +147,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 88
     .local p0, "this":Lcom/google/common/base/Absent;, "Lcom/google/common/base/Absent<TT;>;"
@@ -157,7 +157,7 @@
 .end method
 
 .method public isPresent()Z
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/base/Absent;, "Lcom/google/common/base/Absent<TT;>;"
@@ -167,7 +167,7 @@
 .end method
 
 .method public or(Lcom/google/common/base/Optional;)Lcom/google/common/base/Optional;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -191,7 +191,7 @@
 .end method
 
 .method public or(Lcom/google/common/base/Supplier;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -221,7 +221,7 @@
 .end method
 
 .method public or(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
@@ -241,7 +241,7 @@
 .end method
 
 .method public orNull()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -259,7 +259,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 93
     .local p0, "this":Lcom/google/common/base/Absent;, "Lcom/google/common/base/Absent<TT;>;"
@@ -269,7 +269,7 @@
 .end method
 
 .method public transform(Lcom/google/common/base/Function;)Lcom/google/common/base/Optional;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",

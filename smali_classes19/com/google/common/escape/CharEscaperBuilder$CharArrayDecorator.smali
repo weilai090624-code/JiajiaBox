@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>([[C)V
-    .locals 1
+    .registers 3
     .param p1, "replacements"    # [[C
 
     .line 49
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public escape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "s"    # Ljava/lang/String;
 
     .line 60
@@ -56,8 +56,8 @@
     const/4 v1, 0x0
 
     .local v1, "index":I
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_5
+    if-ge v1, v0, :cond_1e
 
     .line 62
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
@@ -70,13 +70,13 @@
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1b
 
     iget-object v3, p0, Lcom/google/common/escape/CharEscaperBuilder$CharArrayDecorator;->replacements:[[C
 
     aget-object v3, v3, v2
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     .line 64
     invoke-virtual {p0, p1, v1}, Lcom/google/common/escape/CharEscaperBuilder$CharArrayDecorator;->escapeSlow(Ljava/lang/String;I)Ljava/lang/String;
@@ -87,19 +87,19 @@
 
     .line 61
     .end local v2    # "c":C
-    :cond_0
+    :cond_1b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 67
     .end local v1    # "index":I
-    :cond_1
+    :cond_1e
     return-object p1
 .end method
 
 .method protected escape(C)[C
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -107,17 +107,17 @@
     .line 73
     iget v0, p0, Lcom/google/common/escape/CharEscaperBuilder$CharArrayDecorator;->replaceLength:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_9
 
     iget-object v0, p0, Lcom/google/common/escape/CharEscaperBuilder$CharArrayDecorator;->replacements:[[C
 
     aget-object v0, v0, p1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return-object v0
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/core/widgets/analyzer/WidgetRun;)V
-    .locals 0
+    .registers 2
     .param p1, "run"    # Landroidx/constraintlayout/core/widgets/analyzer/WidgetRun;
 
     .line 22
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public update(Landroidx/constraintlayout/core/widgets/analyzer/DependencyNode;)V
-    .locals 3
+    .registers 5
     .param p1, "node"    # Landroidx/constraintlayout/core/widgets/analyzer/DependencyNode;
 
     .line 26

@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>(FF)V
-    .locals 0
+    .registers 3
     .param p1, "maxZoomRatio"    # F
     .param p2, "minZoomRatio"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -46,7 +46,7 @@
 .end method
 
 .method private getPercentageByRatio(F)F
-    .locals 5
+    .registers 7
     .param p1, "ratio"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -66,37 +66,37 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 100
     return v2
 
     .line 105
-    :cond_0
+    :cond_a
     iget v0, p0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mMaxZoomRatio:F
 
     const/high16 v1, 0x3f800000    # 1.0f
 
     cmpl-float v0, p1, v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 106
     return v1
 
     .line 107
-    :cond_1
+    :cond_13
     iget v0, p0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mMinZoomRatio:F
 
     cmpl-float v0, p1, v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1a
 
     .line 108
     return v2
 
     .line 111
-    :cond_2
+    :cond_1a
     div-float v0, v1, p1
 
     .line 112
@@ -123,7 +123,7 @@
 .end method
 
 .method private getRatioByPercentage(F)F
-    .locals 17
+    .registers 19
     .param p1, "percentage"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -143,7 +143,7 @@
 
     cmpl-float v3, v1, v2
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_d
 
     .line 79
     iget v2, v0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mMaxZoomRatio:F
@@ -151,12 +151,12 @@
     return v2
 
     .line 80
-    :cond_0
+    :cond_d
     const/4 v3, 0x0
 
     cmpl-float v3, v1, v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_15
 
     .line 81
     iget v2, v0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mMinZoomRatio:F
@@ -164,7 +164,7 @@
     return v2
 
     .line 86
-    :cond_1
+    :cond_15
     iget v3, v0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mMaxZoomRatio:F
 
     div-float v3, v2, v3
@@ -221,7 +221,7 @@
 
 # virtual methods
 .method public getLinearZoom()F
-    .locals 1
+    .registers 2
 
     .line 73
     iget v0, p0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mLinearZoom:F
@@ -230,7 +230,7 @@
 .end method
 
 .method public getMaxZoomRatio()F
-    .locals 1
+    .registers 2
 
     .line 63
     iget v0, p0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mMaxZoomRatio:F
@@ -239,7 +239,7 @@
 .end method
 
 .method public getMinZoomRatio()F
-    .locals 1
+    .registers 2
 
     .line 68
     iget v0, p0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mMinZoomRatio:F
@@ -248,7 +248,7 @@
 .end method
 
 .method public getZoomRatio()F
-    .locals 1
+    .registers 2
 
     .line 58
     iget v0, p0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mZoomRatio:F
@@ -257,7 +257,7 @@
 .end method
 
 .method setLinearZoom(F)V
-    .locals 2
+    .registers 4
     .param p1, "linearZoom"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -279,13 +279,13 @@
 
     cmpl-float v0, p1, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_16
 
     const/4 v0, 0x0
 
     cmpg-float v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_16
 
     .line 52
     iput p1, p0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mLinearZoom:F
@@ -303,7 +303,7 @@
     return-void
 
     .line 48
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -338,7 +338,7 @@
 .end method
 
 .method setZoomRatio(F)V
-    .locals 2
+    .registers 4
     .param p1, "zoomRatio"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -360,13 +360,13 @@
 
     cmpl-float v0, p1, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_17
 
     iget v0, p0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mMinZoomRatio:F
 
     cmpg-float v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_17
 
     .line 42
     iput p1, p0, Landroidx/camera/camera2/internal/ZoomStateImpl;->mZoomRatio:F
@@ -384,7 +384,7 @@
     return-void
 
     .line 36
-    :cond_0
+    :cond_17
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

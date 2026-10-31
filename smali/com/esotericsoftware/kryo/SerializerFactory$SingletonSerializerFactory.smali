@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/Serializer;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public newSerializer(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
-    .locals 1
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "type"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;

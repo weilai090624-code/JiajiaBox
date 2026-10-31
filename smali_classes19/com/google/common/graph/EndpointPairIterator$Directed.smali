@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/graph/BaseGraph;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,7 +47,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/graph/BaseGraph;Lcom/google/common/graph/EndpointPairIterator$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/graph/BaseGraph;
     .param p2, "x1"    # Lcom/google/common/graph/EndpointPairIterator$1;
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method protected computeNext()Lcom/google/common/graph/EndpointPair;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -77,14 +77,14 @@
     .local p0, "this":Lcom/google/common/graph/EndpointPairIterator$Directed;, "Lcom/google/common/graph/EndpointPairIterator$Directed<TN;>;"
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/google/common/graph/EndpointPairIterator$Directed;->successorIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 83
     iget-object v0, p0, Lcom/google/common/graph/EndpointPairIterator$Directed;->node:Ljava/lang/Object;
@@ -106,12 +106,12 @@
     return-object v0
 
     .line 85
-    :cond_1
+    :cond_1a
     invoke-virtual {p0}, Lcom/google/common/graph/EndpointPairIterator$Directed;->advance()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     .line 86
     invoke-virtual {p0}, Lcom/google/common/graph/EndpointPairIterator$Directed;->endOfData()Ljava/lang/Object;
@@ -124,7 +124,7 @@
 .end method
 
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 

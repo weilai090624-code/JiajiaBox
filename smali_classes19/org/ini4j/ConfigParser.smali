@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 49
     sget-object v0, Ljava/util/Collections;->EMPTY_MAP:Ljava/util/Map;
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,7 +70,7 @@
 .end method
 
 .method private requireOption(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 7
     .param p1, "sectionName"    # Ljava/lang/String;
     .param p2, "optionName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -95,13 +95,13 @@
 
     .line 316
     .local v1, "option":Ljava/lang/String;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     .line 321
     return-object v1
 
     .line 318
-    :cond_0
+    :cond_d
     new-instance v2, Lorg/ini4j/ConfigParser$NoOptionException;
 
     const/4 v3, 0x0
@@ -112,7 +112,7 @@
 .end method
 
 .method private requireSection(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 3
+    .registers 5
     .param p1, "sectionName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -131,13 +131,13 @@
 
     .line 328
     .local v0, "section":Lorg/ini4j/Profile$Section;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 333
     return-object v0
 
     .line 330
-    :cond_0
+    :cond_b
     new-instance v1, Lorg/ini4j/ConfigParser$NoSectionException;
 
     const/4 v2, 0x0
@@ -150,7 +150,7 @@
 
 # virtual methods
 .method public addSection(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "section"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -165,7 +165,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     .line 105
     const-string v0, "DEFAULT"
@@ -174,7 +174,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 110
     iget-object v0, p0, Lorg/ini4j/ConfigParser;->_ini:Lorg/ini4j/ConfigParser$PyIni;
@@ -185,7 +185,7 @@
     return-void
 
     .line 107
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -193,7 +193,7 @@
     throw v0
 
     .line 103
-    :cond_1
+    :cond_1c
     new-instance v0, Lorg/ini4j/ConfigParser$DuplicateSectionException;
 
     const/4 v1, 0x0
@@ -204,7 +204,7 @@
 .end method
 
 .method public defaults()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -226,7 +226,7 @@
 .end method
 
 .method public get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "section"    # Ljava/lang/String;
     .param p2, "option"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -250,7 +250,7 @@
 .end method
 
 .method public get(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
-    .locals 1
+    .registers 5
     .param p1, "section"    # Ljava/lang/String;
     .param p2, "option"    # Ljava/lang/String;
     .param p3, "raw"    # Z
@@ -273,7 +273,7 @@
 .end method
 
 .method public get(Ljava/lang/String;Ljava/lang/String;ZLjava/util/Map;)Ljava/lang/String;
-    .locals 2
+    .registers 7
     .param p1, "sectionName"    # Ljava/lang/String;
     .param p2, "optionName"    # Ljava/lang/String;
     .param p3, "raw"    # Z
@@ -307,9 +307,9 @@
 
     .line 135
     .local v0, "value":Ljava/lang/String;
-    if-nez p3, :cond_0
+    if-nez p3, :cond_16
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const/16 v1, 0x25
 
@@ -317,7 +317,7 @@
 
     move-result v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_16
 
     .line 137
     iget-object v1, p0, Lorg/ini4j/ConfigParser;->_ini:Lorg/ini4j/ConfigParser$PyIni;
@@ -327,12 +327,12 @@
     move-result-object v0
 
     .line 140
-    :cond_0
+    :cond_16
     return-object v0
 .end method
 
 .method public getBoolean(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 2
+    .registers 5
     .param p1, "section"    # Ljava/lang/String;
     .param p2, "option"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -356,7 +356,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4e
 
     const-string v1, "yes"
 
@@ -364,7 +364,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4e
 
     const-string v1, "true"
 
@@ -372,7 +372,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4e
 
     const-string v1, "on"
 
@@ -380,19 +380,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
-    goto :goto_1
+    goto :goto_4e
 
     .line 66
-    :cond_0
+    :cond_25
     const-string v1, "0"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4c
 
     const-string v1, "no"
 
@@ -400,7 +400,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4c
 
     const-string v1, "false"
 
@@ -408,7 +408,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4c
 
     const-string v1, "off"
 
@@ -416,12 +416,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_46
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 73
-    :cond_1
+    :cond_46
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -429,27 +429,27 @@
     throw v1
 
     .line 69
-    :cond_2
-    :goto_0
+    :cond_4c
+    :goto_4c
     const/4 v1, 0x0
 
     .local v1, "ret":Z
-    goto :goto_2
+    goto :goto_4f
 
     .line 64
     .end local v1    # "ret":Z
-    :cond_3
-    :goto_1
+    :cond_4e
+    :goto_4e
     const/4 v1, 0x1
 
     .line 76
     .restart local v1    # "ret":Z
-    :goto_2
+    :goto_4f
     return v1
 .end method
 
 .method public getDouble(Ljava/lang/String;Ljava/lang/String;)D
-    .locals 2
+    .registers 5
     .param p1, "section"    # Ljava/lang/String;
     .param p2, "option"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -473,7 +473,7 @@
 .end method
 
 .method public getFloat(Ljava/lang/String;Ljava/lang/String;)F
-    .locals 1
+    .registers 4
     .param p1, "section"    # Ljava/lang/String;
     .param p2, "option"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -497,7 +497,7 @@
 .end method
 
 .method protected getIni()Lorg/ini4j/Ini;
-    .locals 1
+    .registers 2
 
     .line 308
     iget-object v0, p0, Lorg/ini4j/ConfigParser;->_ini:Lorg/ini4j/ConfigParser$PyIni;
@@ -506,7 +506,7 @@
 .end method
 
 .method public getInt(Ljava/lang/String;Ljava/lang/String;)I
-    .locals 1
+    .registers 4
     .param p1, "section"    # Ljava/lang/String;
     .param p2, "option"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -530,7 +530,7 @@
 .end method
 
 .method public getLong(Ljava/lang/String;Ljava/lang/String;)J
-    .locals 2
+    .registers 5
     .param p1, "section"    # Ljava/lang/String;
     .param p2, "option"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -554,7 +554,7 @@
 .end method
 
 .method public hasOption(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 2
+    .registers 5
     .param p1, "sectionName"    # Ljava/lang/String;
     .param p2, "optionName"    # Ljava/lang/String;
 
@@ -569,27 +569,27 @@
 
     .line 147
     .local v0, "section":Lorg/ini4j/Profile$Section;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-interface {v0, p2}, Lorg/ini4j/Profile$Section;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_13
     return v1
 .end method
 
 .method public hasSection(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "sectionName"    # Ljava/lang/String;
 
     .line 152
@@ -603,7 +603,7 @@
 .end method
 
 .method public items(Ljava/lang/String;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p1, "sectionName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -638,7 +638,7 @@
 .end method
 
 .method public items(Ljava/lang/String;Z)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p1, "sectionName"    # Ljava/lang/String;
     .param p2, "raw"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -672,7 +672,7 @@
 .end method
 
 .method public items(Ljava/lang/String;ZLjava/util/Map;)Ljava/util/List;
-    .locals 5
+    .registers 9
     .param p1, "sectionName"    # Ljava/lang/String;
     .param p2, "raw"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -707,7 +707,7 @@
 
     .line 174
     .local v0, "section":Lorg/ini4j/Profile$Section;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_c
 
     .line 176
     new-instance v1, Ljava/util/HashMap;
@@ -715,11 +715,11 @@
     invoke-direct {v1, v0}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
 
     .local v1, "ret":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    goto :goto_1
+    goto :goto_2f
 
     .line 180
     .end local v1    # "ret":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    :cond_0
+    :cond_c
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
@@ -735,12 +735,12 @@
     move-result-object v2
 
     .local v2, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_19
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2f
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -760,12 +760,12 @@
 
     .line 184
     .end local v3    # "key":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_19
 
     .line 187
     .end local v2    # "i$":Ljava/util/Iterator;
-    :cond_1
-    :goto_1
+    :cond_2f
+    :goto_2f
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -778,7 +778,7 @@
 .end method
 
 .method public options(Ljava/lang/String;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p1, "sectionName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -821,7 +821,7 @@
 .end method
 
 .method public read(Ljava/io/File;)V
-    .locals 3
+    .registers 5
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -839,8 +839,8 @@
     invoke-direct {v1, p1}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
 
     invoke-virtual {v0, v1}, Lorg/ini4j/ConfigParser$PyIni;->load(Ljava/io/Reader;)V
-    :try_end_0
-    .catch Lorg/ini4j/InvalidFileFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Lorg/ini4j/InvalidFileFormatException; {:try_start_0 .. :try_end_a} :catch_c
 
     .line 238
     nop
@@ -849,7 +849,7 @@
     return-void
 
     .line 235
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 237
@@ -864,7 +864,7 @@
 .end method
 
 .method public read(Ljava/io/InputStream;)V
-    .locals 3
+    .registers 5
     .param p1, "stream"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -878,8 +878,8 @@
     iget-object v0, p0, Lorg/ini4j/ConfigParser;->_ini:Lorg/ini4j/ConfigParser$PyIni;
 
     invoke-virtual {v0, p1}, Lorg/ini4j/ConfigParser$PyIni;->load(Ljava/io/InputStream;)V
-    :try_end_0
-    .catch Lorg/ini4j/InvalidFileFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Lorg/ini4j/InvalidFileFormatException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 250
     nop
@@ -888,7 +888,7 @@
     return-void
 
     .line 247
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 249
@@ -903,7 +903,7 @@
 .end method
 
 .method public read(Ljava/io/Reader;)V
-    .locals 3
+    .registers 5
     .param p1, "reader"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -917,8 +917,8 @@
     iget-object v0, p0, Lorg/ini4j/ConfigParser;->_ini:Lorg/ini4j/ConfigParser$PyIni;
 
     invoke-virtual {v0, p1}, Lorg/ini4j/ConfigParser$PyIni;->load(Ljava/io/Reader;)V
-    :try_end_0
-    .catch Lorg/ini4j/InvalidFileFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Lorg/ini4j/InvalidFileFormatException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 214
     nop
@@ -927,7 +927,7 @@
     return-void
 
     .line 211
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 213
@@ -942,7 +942,7 @@
 .end method
 
 .method public read(Ljava/net/URL;)V
-    .locals 3
+    .registers 5
     .param p1, "url"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -956,8 +956,8 @@
     iget-object v0, p0, Lorg/ini4j/ConfigParser;->_ini:Lorg/ini4j/ConfigParser$PyIni;
 
     invoke-virtual {v0, p1}, Lorg/ini4j/ConfigParser$PyIni;->load(Ljava/net/URL;)V
-    :try_end_0
-    .catch Lorg/ini4j/InvalidFileFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Lorg/ini4j/InvalidFileFormatException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 226
     nop
@@ -966,7 +966,7 @@
     return-void
 
     .line 223
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 225
@@ -981,7 +981,7 @@
 .end method
 
 .method public varargs read([Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "filenames"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1000,8 +1000,8 @@
     const/4 v2, 0x0
 
     .local v2, "i$":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_3
+    if-ge v2, v1, :cond_12
 
     aget-object v3, v0, v2
 
@@ -1017,18 +1017,18 @@
     .end local v3    # "filename":Ljava/lang/String;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 203
     .end local v0    # "arr$":[Ljava/lang/String;
     .end local v1    # "len$":I
     .end local v2    # "i$":I
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public removeOption(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 2
+    .registers 5
     .param p1, "sectionName"    # Ljava/lang/String;
     .param p2, "optionName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -1057,7 +1057,7 @@
 .end method
 
 .method public removeSection(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "sectionName"    # Ljava/lang/String;
 
     .line 265
@@ -1078,7 +1078,7 @@
 .end method
 
 .method public sections()Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1103,7 +1103,7 @@
 .end method
 
 .method public set(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "sectionName"    # Ljava/lang/String;
     .param p2, "optionName"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
@@ -1120,15 +1120,15 @@
 
     .line 281
     .local v0, "section":Lorg/ini4j/Profile$Section;
-    if-nez p3, :cond_0
+    if-nez p3, :cond_a
 
     .line 283
     invoke-interface {v0, p2}, Lorg/ini4j/Profile$Section;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_11
 
     .line 287
-    :cond_0
+    :cond_a
     invoke-virtual {p3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1136,12 +1136,12 @@
     invoke-interface {v0, p2, v1}, Lorg/ini4j/Profile$Section;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 289
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public write(Ljava/io/File;)V
-    .locals 2
+    .registers 4
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1163,7 +1163,7 @@
 .end method
 
 .method public write(Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1181,7 +1181,7 @@
 .end method
 
 .method public write(Ljava/io/Writer;)V
-    .locals 1
+    .registers 3
     .param p1, "writer"    # Ljava/io/Writer;
     .annotation system Ldalvik/annotation/Throws;
         value = {

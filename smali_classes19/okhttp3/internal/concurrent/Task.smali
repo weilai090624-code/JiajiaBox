@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Z)V
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "cancelable"    # Z
 
@@ -92,18 +92,18 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 49
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 51
     const/4 p2, 0x1
 
     .line 49
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Lokhttp3/internal/concurrent/Task;-><init>(Ljava/lang/String;Z)V
 
     .line 70
@@ -113,7 +113,7 @@
 
 # virtual methods
 .method public final getCancelable()Z
-    .locals 1
+    .registers 2
 
     .line 51
     iget-boolean v0, p0, Lokhttp3/internal/concurrent/Task;->cancelable:Z
@@ -122,7 +122,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Lokhttp3/internal/concurrent/Task;->name:Ljava/lang/String;
@@ -131,7 +131,7 @@
 .end method
 
 .method public final getNextExecuteNanoTime$okhttp()J
-    .locals 2
+    .registers 3
 
     .line 57
     iget-wide v0, p0, Lokhttp3/internal/concurrent/Task;->nextExecuteNanoTime:J
@@ -140,7 +140,7 @@
 .end method
 
 .method public final getQueue$okhttp()Lokhttp3/internal/concurrent/TaskQueue;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lokhttp3/internal/concurrent/Task;->queue:Lokhttp3/internal/concurrent/TaskQueue;
@@ -149,7 +149,7 @@
 .end method
 
 .method public final initQueue$okhttp(Lokhttp3/internal/concurrent/TaskQueue;)V
-    .locals 2
+    .registers 4
     .param p1, "queue"    # Lokhttp3/internal/concurrent/TaskQueue;
 
     const-string v0, "queue"
@@ -159,25 +159,25 @@
     .line 63
     iget-object v0, p0, Lokhttp3/internal/concurrent/Task;->queue:Lokhttp3/internal/concurrent/TaskQueue;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_a
 
     return-void
 
     .line 65
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lokhttp3/internal/concurrent/Task;->queue:Lokhttp3/internal/concurrent/TaskQueue;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_11
+    if-eqz v0, :cond_16
 
     .line 66
     iput-object p1, p0, Lokhttp3/internal/concurrent/Task;->queue:Lokhttp3/internal/concurrent/TaskQueue;
@@ -186,7 +186,7 @@
     return-void
 
     .line 72
-    :cond_2
+    :cond_16
     const/4 v0, 0x0
 
     .line 65
@@ -213,7 +213,7 @@
 .end method
 
 .method public final setNextExecuteNanoTime$okhttp(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 57
@@ -223,7 +223,7 @@
 .end method
 
 .method public final setQueue$okhttp(Lokhttp3/internal/concurrent/TaskQueue;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/internal/concurrent/TaskQueue;
 
     .line 54
@@ -233,7 +233,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 69
     iget-object v0, p0, Lokhttp3/internal/concurrent/Task;->name:Ljava/lang/String;

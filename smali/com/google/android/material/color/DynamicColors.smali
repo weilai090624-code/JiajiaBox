@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 45
     sget v0, Lcom/google/android/material/R$attr;->dynamicColorThemeOverlay:I
@@ -288,7 +288,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 118
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -297,7 +297,7 @@
 .end method
 
 .method public static applyIfAvailable(Landroid/app/Activity;)V
-    .locals 0
+    .registers 1
     .param p0, "activity"    # Landroid/app/Activity;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -310,7 +310,7 @@
 .end method
 
 .method public static applyIfAvailable(Landroid/app/Activity;I)V
-    .locals 1
+    .registers 3
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "theme"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -338,7 +338,7 @@
 .end method
 
 .method public static applyIfAvailable(Landroid/app/Activity;Lcom/google/android/material/color/DynamicColors$Precondition;)V
-    .locals 1
+    .registers 3
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "precondition"    # Lcom/google/android/material/color/DynamicColors$Precondition;
     .annotation runtime Ljava/lang/Deprecated;
@@ -366,7 +366,7 @@
 .end method
 
 .method public static applyToActivitiesIfAvailable(Landroid/app/Application;)V
-    .locals 1
+    .registers 2
     .param p0, "application"    # Landroid/app/Application;
 
     .line 130
@@ -385,7 +385,7 @@
 .end method
 
 .method public static applyToActivitiesIfAvailable(Landroid/app/Application;I)V
-    .locals 1
+    .registers 3
     .param p0, "application"    # Landroid/app/Application;
     .param p1, "theme"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -413,7 +413,7 @@
 .end method
 
 .method public static applyToActivitiesIfAvailable(Landroid/app/Application;ILcom/google/android/material/color/DynamicColors$Precondition;)V
-    .locals 1
+    .registers 4
     .param p0, "application"    # Landroid/app/Application;
     .param p1, "theme"    # I
     .param p2, "precondition"    # Lcom/google/android/material/color/DynamicColors$Precondition;
@@ -448,7 +448,7 @@
 .end method
 
 .method public static applyToActivitiesIfAvailable(Landroid/app/Application;Lcom/google/android/material/color/DynamicColors$Precondition;)V
-    .locals 1
+    .registers 3
     .param p0, "application"    # Landroid/app/Application;
     .param p1, "precondition"    # Lcom/google/android/material/color/DynamicColors$Precondition;
     .annotation runtime Ljava/lang/Deprecated;
@@ -476,7 +476,7 @@
 .end method
 
 .method public static applyToActivitiesIfAvailable(Landroid/app/Application;Lcom/google/android/material/color/DynamicColorsOptions;)V
-    .locals 1
+    .registers 3
     .param p0, "application"    # Landroid/app/Application;
     .param p1, "dynamicColorsOptions"    # Lcom/google/android/material/color/DynamicColorsOptions;
 
@@ -492,7 +492,7 @@
 .end method
 
 .method public static applyToActivityIfAvailable(Landroid/app/Activity;)V
-    .locals 1
+    .registers 2
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 267
@@ -511,7 +511,7 @@
 .end method
 
 .method public static applyToActivityIfAvailable(Landroid/app/Activity;Lcom/google/android/material/color/DynamicColorsOptions;)V
-    .locals 4
+    .registers 6
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "dynamicColorsOptions"    # Lcom/google/android/material/color/DynamicColorsOptions;
 
@@ -520,13 +520,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 281
     return-void
 
     .line 284
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     .line 286
@@ -535,33 +535,33 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1e
 
     .line 288
     invoke-virtual {p1}, Lcom/google/android/material/color/DynamicColorsOptions;->getThemeOverlay()I
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_19
 
     .line 289
     invoke-static {p0}, Lcom/google/android/material/color/DynamicColors;->getDefaultThemeOverlay(Landroid/content/Context;)I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 290
-    :cond_1
+    :cond_19
     invoke-virtual {p1}, Lcom/google/android/material/color/DynamicColorsOptions;->getThemeOverlay()I
 
     move-result v1
 
-    :goto_0
+    :goto_1d
     move v0, v1
 
     .line 293
-    :cond_2
+    :cond_1e
     invoke-virtual {p1}, Lcom/google/android/material/color/DynamicColorsOptions;->getPrecondition()Lcom/google/android/material/color/DynamicColors$Precondition;
 
     move-result-object v1
@@ -570,14 +570,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6f
 
     .line 295
     invoke-virtual {p1}, Lcom/google/android/material/color/DynamicColorsOptions;->getContentBasedSeedColor()Ljava/lang/Integer;
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_65
 
     .line 297
     sget v1, Lcom/google/android/material/R$attr;->isLightTheme:I
@@ -588,7 +588,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_44
 
     .line 299
     invoke-virtual {p1}, Lcom/google/android/material/color/DynamicColorsOptions;->getContentBasedSeedColor()Ljava/lang/Integer;
@@ -603,10 +603,10 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_50
 
     .line 300
-    :cond_3
+    :cond_44
     invoke-virtual {p1}, Lcom/google/android/material/color/DynamicColorsOptions;->getContentBasedSeedColor()Ljava/lang/Integer;
 
     move-result-object v1
@@ -619,7 +619,7 @@
 
     move-result-object v1
 
-    :goto_1
+    :goto_50
     nop
 
     .line 301
@@ -630,13 +630,13 @@
 
     .line 302
     .local v2, "resourcesOverride":Lcom/google/android/material/color/ColorResourcesOverride;
-    if-nez v2, :cond_4
+    if-nez v2, :cond_58
 
     .line 303
     return-void
 
     .line 305
-    :cond_4
+    :cond_58
     nop
 
     .line 307
@@ -649,7 +649,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_64
 
     .line 308
     return-void
@@ -657,15 +657,15 @@
     .line 311
     .end local v1    # "colorScheme":Lcom/google/android/material/color/utilities/Scheme;
     .end local v2    # "resourcesOverride":Lcom/google/android/material/color/ColorResourcesOverride;
-    :cond_5
-    goto :goto_2
+    :cond_64
+    goto :goto_68
 
     .line 312
-    :cond_6
+    :cond_65
     invoke-static {p0, v0}, Lcom/google/android/material/color/ThemeUtils;->applyThemeOverlay(Landroid/content/Context;I)V
 
     .line 316
-    :goto_2
+    :goto_68
     invoke-virtual {p1}, Lcom/google/android/material/color/DynamicColorsOptions;->getOnAppliedCallback()Lcom/google/android/material/color/DynamicColors$OnAppliedCallback;
 
     move-result-object v1
@@ -673,12 +673,12 @@
     invoke-interface {v1, p0}, Lcom/google/android/material/color/DynamicColors$OnAppliedCallback;->onApplied(Landroid/app/Activity;)V
 
     .line 318
-    :cond_7
+    :cond_6f
     return-void
 .end method
 
 .method private static getDefaultThemeOverlay(Landroid/content/Context;)I
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 375
@@ -706,7 +706,7 @@
 .end method
 
 .method public static isDynamicColorAvailable()Z
-    .locals 5
+    .registers 5
 
     .line 360
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -715,26 +715,26 @@
 
     const/4 v2, 0x0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_8
 
     .line 361
     return v2
 
     .line 363
-    :cond_0
+    :cond_8
     invoke-static {}, Landroidx/core/os/BuildCompat;->isAtLeastT()Z
 
     move-result v0
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 364
     return v1
 
     .line 366
-    :cond_1
+    :cond_10
     sget-object v0, Lcom/google/android/material/color/DynamicColors;->DYNAMIC_COLOR_SUPPORTED_MANUFACTURERS:Ljava/util/Map;
 
     sget-object v3, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
@@ -752,7 +752,7 @@
 
     .line 368
     .local v0, "deviceSupportCondition":Lcom/google/android/material/color/DynamicColors$DeviceSupportCondition;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2f
 
     .line 369
     sget-object v3, Lcom/google/android/material/color/DynamicColors;->DYNAMIC_COLOR_SUPPORTED_BRANDS:Ljava/util/Map;
@@ -772,23 +772,23 @@
     check-cast v0, Lcom/google/android/material/color/DynamicColors$DeviceSupportCondition;
 
     .line 371
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_2f
+    if-eqz v0, :cond_38
 
     invoke-interface {v0}, Lcom/google/android/material/color/DynamicColors$DeviceSupportCondition;->isSupported()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_38
 
     const/4 v2, 0x1
 
-    :cond_3
+    :cond_38
     return v2
 .end method
 
 .method public static wrapContextIfAvailable(Landroid/content/Context;)Landroid/content/Context;
-    .locals 1
+    .registers 2
     .param p0, "originalContext"    # Landroid/content/Context;
 
     .line 332
@@ -802,7 +802,7 @@
 .end method
 
 .method public static wrapContextIfAvailable(Landroid/content/Context;I)Landroid/content/Context;
-    .locals 1
+    .registers 3
     .param p0, "originalContext"    # Landroid/content/Context;
     .param p1, "theme"    # I
 
@@ -811,14 +811,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 348
     return-object p0
 
     .line 350
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_7
+    if-nez p1, :cond_d
 
     .line 351
     invoke-static {p0}, Lcom/google/android/material/color/DynamicColors;->getDefaultThemeOverlay(Landroid/content/Context;)I
@@ -826,18 +826,18 @@
     move-result p1
 
     .line 353
-    :cond_1
-    if-nez p1, :cond_2
+    :cond_d
+    if-nez p1, :cond_11
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_2
+    :cond_11
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
     invoke-direct {v0, p0, p1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    :goto_0
+    :goto_16
     return-object v0
 .end method

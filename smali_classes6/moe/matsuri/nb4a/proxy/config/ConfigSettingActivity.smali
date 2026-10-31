@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 14
     const/4 v0, 0x1
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/proxy/config/ConfigSettingActivity;->createEntity()Lmoe/matsuri/nb4a/proxy/config/ConfigBean;
@@ -101,7 +101,7 @@
 .end method
 
 .method public createEntity()Lmoe/matsuri/nb4a/proxy/config/ConfigBean;
-    .locals 1
+    .registers 2
 
     .line 19
     new-instance v0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;
@@ -112,7 +112,7 @@
 .end method
 
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -146,7 +146,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 13
@@ -160,7 +160,7 @@
 .end method
 
 .method public init(Lmoe/matsuri/nb4a/proxy/config/ConfigBean;)V
-    .locals 4
+    .registers 6
     .param p1, "$this$init"    # Lmoe/matsuri/nb4a/proxy/config/ConfigBean;
 
     const-string v0, "<this>"
@@ -178,26 +178,26 @@
 
     iget-object v2, p1, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->type:Ljava/lang/Integer;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_12
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_1a
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_1b
     invoke-virtual {v0, v1, v3}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->putBoolean(Ljava/lang/String;Z)V
 
     .line 24
@@ -219,7 +219,7 @@
 .end method
 
 .method public onPreferenceDataStoreChanged(Landroidx/preference/PreferenceDataStore;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "store"    # Landroidx/preference/PreferenceDataStore;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -238,7 +238,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 37
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -248,12 +248,12 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setDirty(Z)V
 
     .line 39
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method protected onResume()V
-    .locals 1
+    .registers 2
 
     .line 53
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;->onResume()V
@@ -261,12 +261,12 @@
     .line 55
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigSettingActivity;->editConfigPreference:Lmoe/matsuri/nb4a/ui/EditConfigPreference;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 56
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigSettingActivity;->editConfigPreference:Lmoe/matsuri/nb4a/ui/EditConfigPreference;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     const-string v0, "editConfigPreference"
 
@@ -274,16 +274,16 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_11
     invoke-virtual {v0}, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->notifyChanged()V
 
     .line 58
-    :cond_1
+    :cond_14
     return-void
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 13
@@ -297,7 +297,7 @@
 .end method
 
 .method public serialize(Lmoe/matsuri/nb4a/proxy/config/ConfigBean;)V
-    .locals 3
+    .registers 5
     .param p1, "$this$serialize"    # Lmoe/matsuri/nb4a/proxy/config/ConfigBean;
 
     const-string v0, "<this>"
@@ -319,7 +319,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     const/4 v0, 0x1
 
@@ -327,14 +327,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1a
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    :goto_0
+    :goto_1e
     iput-object v0, p1, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->type:Ljava/lang/Integer;
 
     .line 31

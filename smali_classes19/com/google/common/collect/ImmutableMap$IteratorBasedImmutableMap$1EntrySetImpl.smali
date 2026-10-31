@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;
 
     .line 622
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -64,7 +64,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 622
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;"
@@ -76,7 +76,7 @@
 .end method
 
 .method map()Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

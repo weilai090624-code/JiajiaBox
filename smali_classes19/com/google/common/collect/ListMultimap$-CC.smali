@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$get(Lcom/google/common/collect/ListMultimap;Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/collect/ListMultimap;
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -22,7 +22,7 @@
 .end method
 
 .method public static bridge synthetic $default$removeAll(Lcom/google/common/collect/ListMultimap;Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/collect/ListMultimap;
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -39,7 +39,7 @@
 .end method
 
 .method public static bridge synthetic $default$replaceValues(Lcom/google/common/collect/ListMultimap;Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
     .param p0, "_this"    # Lcom/google/common/collect/ListMultimap;
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;

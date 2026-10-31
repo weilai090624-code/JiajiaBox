@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$add(Lj$/util/stream/IntStream$Builder;I)Lj$/util/stream/IntStream$Builder;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/IntStream$Builder;
     .param p1, "t"    # I
 

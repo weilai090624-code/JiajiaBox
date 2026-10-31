@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 2
+    .registers 5
     .param p1, "width"    # I
     .param p2, "height"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -111,7 +111,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 8
     .param p1, "c"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -191,8 +191,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_c
+    :goto_2c
+    if-ge v2, v1, :cond_da
 
     .line 94
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -203,7 +203,7 @@
     .local v3, "attr":I
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_alpha:I
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_40
 
     .line 96
     iget v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->alpha:F
@@ -214,13 +214,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->alpha:F
 
-    goto/16 :goto_1
+    goto/16 :goto_d6
 
     .line 97
-    :cond_0
+    :cond_40
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_elevation:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_52
 
     .line 98
     nop
@@ -239,13 +239,13 @@
 
     iput-boolean v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->applyElevation:Z
 
-    goto/16 :goto_1
+    goto/16 :goto_d6
 
     .line 102
-    :cond_1
+    :cond_52
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_rotationX:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_60
 
     .line 103
     iget v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->rotationX:F
@@ -256,13 +256,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->rotationX:F
 
-    goto/16 :goto_1
+    goto/16 :goto_d6
 
     .line 104
-    :cond_2
+    :cond_60
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_rotationY:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_6e
 
     .line 105
     iget v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->rotationY:F
@@ -273,13 +273,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->rotationY:F
 
-    goto/16 :goto_1
+    goto/16 :goto_d6
 
     .line 106
-    :cond_3
+    :cond_6e
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_rotation:I
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_7b
 
     .line 107
     iget v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->rotation:F
@@ -290,13 +290,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->rotation:F
 
-    goto :goto_1
+    goto :goto_d6
 
     .line 108
-    :cond_4
+    :cond_7b
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_scaleX:I
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v4, :cond_88
 
     .line 109
     iget v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->scaleX:F
@@ -307,13 +307,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->scaleX:F
 
-    goto :goto_1
+    goto :goto_d6
 
     .line 110
-    :cond_5
+    :cond_88
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_scaleY:I
 
-    if-ne v3, v4, :cond_6
+    if-ne v3, v4, :cond_95
 
     .line 111
     iget v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->scaleY:F
@@ -324,13 +324,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->scaleY:F
 
-    goto :goto_1
+    goto :goto_d6
 
     .line 112
-    :cond_6
+    :cond_95
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_transformPivotX:I
 
-    if-ne v3, v4, :cond_7
+    if-ne v3, v4, :cond_a2
 
     .line 113
     iget v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->transformPivotX:F
@@ -341,13 +341,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->transformPivotX:F
 
-    goto :goto_1
+    goto :goto_d6
 
     .line 114
-    :cond_7
+    :cond_a2
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_transformPivotY:I
 
-    if-ne v3, v4, :cond_8
+    if-ne v3, v4, :cond_af
 
     .line 115
     iget v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->transformPivotY:F
@@ -358,13 +358,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->transformPivotY:F
 
-    goto :goto_1
+    goto :goto_d6
 
     .line 116
-    :cond_8
+    :cond_af
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_translationX:I
 
-    if-ne v3, v4, :cond_9
+    if-ne v3, v4, :cond_bc
 
     .line 117
     iget v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->translationX:F
@@ -375,13 +375,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->translationX:F
 
-    goto :goto_1
+    goto :goto_d6
 
     .line 118
-    :cond_9
+    :cond_bc
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_translationY:I
 
-    if-ne v3, v4, :cond_a
+    if-ne v3, v4, :cond_c9
 
     .line 119
     iget v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->translationY:F
@@ -392,13 +392,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;->translationY:F
 
-    goto :goto_1
+    goto :goto_d6
 
     .line 120
-    :cond_a
+    :cond_c9
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintSet_android_translationZ:I
 
-    if-ne v3, v4, :cond_b
+    if-ne v3, v4, :cond_d6
 
     .line 121
     nop
@@ -414,15 +414,15 @@
 
     .line 93
     .end local v3    # "attr":I
-    :cond_b
-    :goto_1
+    :cond_d6
+    :goto_d6
     add-int/lit8 v2, v2, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_2c
 
     .line 126
     .end local v2    # "i":I
-    :cond_c
+    :cond_da
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 127
@@ -430,7 +430,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/constraintlayout/widget/Constraints$LayoutParams;)V
-    .locals 2
+    .registers 4
     .param p1, "source"    # Landroidx/constraintlayout/widget/Constraints$LayoutParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

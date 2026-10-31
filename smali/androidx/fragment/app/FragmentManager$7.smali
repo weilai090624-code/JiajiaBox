@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentManager;Landroidx/fragment/app/Fragment;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentManager;
 
     .line 2617
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onAttachFragment(Landroidx/fragment/app/FragmentManager;Landroidx/fragment/app/Fragment;)V
-    .locals 1
+    .registers 4
     .param p1, "fragmentManager"    # Landroidx/fragment/app/FragmentManager;
     .param p2, "fragment"    # Landroidx/fragment/app/Fragment;
 

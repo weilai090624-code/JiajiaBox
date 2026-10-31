@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 325
     invoke-direct {p0}, Lcom/google/common/collect/Ordering;-><init>()V
@@ -74,7 +74,7 @@
 .end method
 
 .method private getUid(Ljava/lang/Object;)Ljava/lang/Integer;
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 332
@@ -88,7 +88,7 @@
 
     .line 333
     .local v0, "uid":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 337
     iget-object v1, p0, Lcom/google/common/collect/Ordering$ArbitraryOrdering;->counter:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -112,21 +112,21 @@
 
     .line 339
     .local v1, "alreadySet":Ljava/lang/Integer;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     .line 340
     move-object v0, v1
 
     .line 343
     .end local v1    # "alreadySet":Ljava/lang/Integer;
-    :cond_0
+    :cond_1f
     return-object v0
 .end method
 
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 4
+    .registers 7
     .param p1, "left"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -137,7 +137,7 @@
     .end param
 
     .line 348
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_4
 
     .line 349
     const/4 v0, 0x0
@@ -145,25 +145,25 @@
     return v0
 
     .line 350
-    :cond_0
+    :cond_4
     const/4 v0, -0x1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 351
     return v0
 
     .line 352
-    :cond_1
+    :cond_8
     const/4 v1, 0x1
 
-    if-nez p2, :cond_2
+    if-nez p2, :cond_c
 
     .line 353
     return v1
 
     .line 355
-    :cond_2
+    :cond_c
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Ordering$ArbitraryOrdering;->identityHashCode(Ljava/lang/Object;)I
 
     move-result v2
@@ -176,21 +176,21 @@
 
     .line 357
     .local v3, "rightCode":I
-    if-eq v2, v3, :cond_4
+    if-eq v2, v3, :cond_1b
 
     .line 358
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_19
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_3
+    :cond_19
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_1a
     return v0
 
     .line 362
-    :cond_4
+    :cond_1b
     invoke-direct {p0, p1}, Lcom/google/common/collect/Ordering$ArbitraryOrdering;->getUid(Ljava/lang/Object;)Ljava/lang/Integer;
 
     move-result-object v0
@@ -205,13 +205,13 @@
 
     .line 363
     .local v0, "result":I
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_2a
 
     .line 366
     return v0
 
     .line 364
-    :cond_5
+    :cond_2a
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
@@ -220,7 +220,7 @@
 .end method
 
 .method identityHashCode(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 383
@@ -232,7 +232,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 371
     const-string v0, "Ordering.arbitrary()"

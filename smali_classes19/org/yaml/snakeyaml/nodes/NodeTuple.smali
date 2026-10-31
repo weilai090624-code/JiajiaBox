@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Node;Lorg/yaml/snakeyaml/nodes/Node;)V
-    .locals 2
+    .registers 5
     .param p1, "keyNode"    # Lorg/yaml/snakeyaml/nodes/Node;
     .param p2, "valueNode"    # Lorg/yaml/snakeyaml/nodes/Node;
 
@@ -19,9 +19,9 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 27
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_c
 
     .line 30
     iput-object p1, p0, Lorg/yaml/snakeyaml/nodes/NodeTuple;->keyNode:Lorg/yaml/snakeyaml/nodes/Node;
@@ -33,7 +33,7 @@
     return-void
 
     .line 28
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Nodes must be provided."
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getKeyNode()Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 1
+    .registers 2
 
     .line 40
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/NodeTuple;->keyNode:Lorg/yaml/snakeyaml/nodes/Node;
@@ -55,7 +55,7 @@
 .end method
 
 .method public getValueNode()Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 1
+    .registers 2
 
     .line 49
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/NodeTuple;->valueNode:Lorg/yaml/snakeyaml/nodes/Node;
@@ -64,7 +64,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 54
     new-instance v0, Ljava/lang/StringBuilder;

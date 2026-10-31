@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 27
     sget-object v0, Lokio/ByteString;->Companion:Lokio/ByteString$Companion;
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final decodeBase64ToArray(Ljava/lang/String;)[B
-    .locals 17
+    .registers 18
     .param p0, "$this$decodeBase64ToArray"    # Ljava/lang/String;
 
     move-object/from16 v0, p0
@@ -94,7 +94,7 @@
 
     .line 35
     .local v1, "limit":I
-    :goto_0
+    :goto_b
     const/16 v2, 0x9
 
     const/16 v3, 0x20
@@ -103,7 +103,7 @@
 
     const/16 v5, 0xa
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_2b
 
     .line 36
     add-int/lit8 v6, v1, -0x1
@@ -116,29 +116,29 @@
     .local v6, "c":C
     const/16 v7, 0x3d
 
-    if-eq v6, v7, :cond_0
+    if-eq v6, v7, :cond_28
 
-    if-eq v6, v5, :cond_0
+    if-eq v6, v5, :cond_28
 
-    if-eq v6, v4, :cond_0
+    if-eq v6, v4, :cond_28
 
-    if-eq v6, v3, :cond_0
+    if-eq v6, v3, :cond_28
 
-    if-eq v6, v2, :cond_0
+    if-eq v6, v2, :cond_28
 
     .line 38
-    goto :goto_1
+    goto :goto_2b
 
     .line 40
-    :cond_0
+    :cond_28
     add-int/lit8 v1, v1, -0x1
 
     .end local v6    # "c":C
-    goto :goto_0
+    goto :goto_b
 
     .line 44
-    :cond_1
-    :goto_1
+    :cond_2b
+    :goto_2b
     int-to-long v6, v1
 
     const-wide/16 v8, 0x6
@@ -169,11 +169,11 @@
     .local v9, "word":I
     const/4 v10, 0x0
 
-    if-lez v1, :cond_10
+    if-lez v1, :cond_ba
 
     const/4 v12, 0x0
 
-    :goto_2
+    :goto_3d
     move v13, v12
 
     .local v13, "pos":I
@@ -193,152 +193,152 @@
     .local v16, "bits":I
     const/16 v11, 0x41
 
-    if-gt v11, v15, :cond_2
+    if-gt v11, v15, :cond_50
 
     const/16 v11, 0x5a
 
-    if-gt v15, v11, :cond_2
+    if-gt v15, v11, :cond_50
 
     const/4 v11, 0x1
 
-    goto :goto_3
+    goto :goto_51
 
-    :cond_2
+    :cond_50
     const/4 v11, 0x0
 
-    :goto_3
-    if-eqz v11, :cond_3
+    :goto_51
+    if-eqz v11, :cond_56
 
     .line 57
     add-int/lit8 v11, v15, -0x41
 
     .end local v16    # "bits":I
     .local v11, "bits":I
-    goto :goto_9
+    goto :goto_97
 
     .line 58
     .end local v11    # "bits":I
     .restart local v16    # "bits":I
-    :cond_3
+    :cond_56
     const/16 v11, 0x61
 
-    if-gt v11, v15, :cond_4
+    if-gt v11, v15, :cond_60
 
     const/16 v11, 0x7a
 
-    if-gt v15, v11, :cond_4
+    if-gt v15, v11, :cond_60
 
     const/4 v11, 0x1
 
-    goto :goto_4
+    goto :goto_61
 
-    :cond_4
+    :cond_60
     const/4 v11, 0x0
 
-    :goto_4
-    if-eqz v11, :cond_5
+    :goto_61
+    if-eqz v11, :cond_66
 
     .line 62
     add-int/lit8 v11, v15, -0x47
 
     .end local v16    # "bits":I
     .restart local v11    # "bits":I
-    goto :goto_9
+    goto :goto_97
 
     .line 63
     .end local v11    # "bits":I
     .restart local v16    # "bits":I
-    :cond_5
+    :cond_66
     const/16 v11, 0x30
 
-    if-gt v11, v15, :cond_6
+    if-gt v11, v15, :cond_6f
 
     const/16 v11, 0x39
 
-    if-gt v15, v11, :cond_6
+    if-gt v15, v11, :cond_6f
 
-    goto :goto_5
+    goto :goto_70
 
-    :cond_6
+    :cond_6f
     const/4 v14, 0x0
 
-    :goto_5
-    if-eqz v14, :cond_7
+    :goto_70
+    if-eqz v14, :cond_75
 
     .line 67
     add-int/lit8 v11, v15, 0x4
 
     .end local v16    # "bits":I
     .restart local v11    # "bits":I
-    goto :goto_9
+    goto :goto_97
 
     .line 68
     .end local v11    # "bits":I
     .restart local v16    # "bits":I
-    :cond_7
+    :cond_75
     const/16 v11, 0x2b
 
-    if-eq v15, v11, :cond_d
+    if-eq v15, v11, :cond_95
 
     const/16 v11, 0x2d
 
-    if-ne v15, v11, :cond_8
+    if-ne v15, v11, :cond_7e
 
-    goto :goto_8
+    goto :goto_95
 
     .line 70
-    :cond_8
+    :cond_7e
     const/16 v11, 0x2f
 
-    if-eq v15, v11, :cond_c
+    if-eq v15, v11, :cond_92
 
     const/16 v11, 0x5f
 
-    if-ne v15, v11, :cond_9
+    if-ne v15, v11, :cond_87
 
-    goto :goto_7
+    goto :goto_92
 
     .line 72
-    :cond_9
-    if-eq v15, v5, :cond_b
+    :cond_87
+    if-eq v15, v5, :cond_91
 
-    if-eq v15, v4, :cond_b
+    if-eq v15, v4, :cond_91
 
-    if-eq v15, v3, :cond_b
+    if-eq v15, v3, :cond_91
 
-    if-ne v15, v2, :cond_a
+    if-ne v15, v2, :cond_90
 
-    goto :goto_6
+    goto :goto_91
 
     .line 75
-    :cond_a
+    :cond_90
     return-object v10
 
     .line 73
-    :cond_b
-    :goto_6
-    goto :goto_a
+    :cond_91
+    :goto_91
+    goto :goto_b4
 
     .line 71
-    :cond_c
-    :goto_7
+    :cond_92
+    :goto_92
     const/16 v11, 0x3f
 
     .end local v16    # "bits":I
     .restart local v11    # "bits":I
-    goto :goto_9
+    goto :goto_97
 
     .line 69
     .end local v11    # "bits":I
     .restart local v16    # "bits":I
-    :cond_d
-    :goto_8
+    :cond_95
+    :goto_95
     const/16 v11, 0x3e
 
     .line 79
     .end local v16    # "bits":I
     .restart local v11    # "bits":I
-    :goto_9
+    :goto_97
     shl-int/lit8 v14, v9, 0x6
 
     or-int v9, v14, v11
@@ -349,7 +349,7 @@
     .line 83
     rem-int/lit8 v14, v8, 0x4
 
-    if-nez v14, :cond_e
+    if-nez v14, :cond_b4
 
     .line 84
     add-int/lit8 v14, v7, 0x1
@@ -385,31 +385,31 @@
     .line 49
     .end local v11    # "bits":I
     .end local v15    # "c":C
-    :cond_e
-    :goto_a
-    if-lt v12, v1, :cond_f
+    :cond_b4
+    :goto_b4
+    if-lt v12, v1, :cond_b7
 
-    goto :goto_b
+    goto :goto_ba
 
-    :cond_f
+    :cond_b7
     const/16 v2, 0x9
 
-    goto :goto_2
+    goto :goto_3d
 
     .line 90
     .end local v13    # "pos":I
-    :cond_10
-    :goto_b
+    :cond_ba
+    :goto_ba
     rem-int/lit8 v2, v8, 0x4
 
     .line 91
     .local v2, "lastWordChars":I
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_ec
 
-    goto :goto_c
+    goto :goto_dd
 
     .line 103
-    :pswitch_0
+    :pswitch_c0
     shl-int/lit8 v9, v9, 0x6
 
     .line 104
@@ -434,10 +434,10 @@
 
     aput-byte v4, v6, v3
 
-    goto :goto_c
+    goto :goto_dd
 
     .line 98
-    :pswitch_1
+    :pswitch_d1
     shl-int/lit8 v9, v9, 0xc
 
     .line 99
@@ -453,24 +453,24 @@
 
     move v7, v3
 
-    goto :goto_c
+    goto :goto_dd
 
     .line 94
     .end local v3    # "outCount":I
     .restart local v7    # "outCount":I
-    :pswitch_2
+    :pswitch_dc
     return-object v10
 
     .line 110
-    :goto_c
+    :goto_dd
     array-length v3, v6
 
-    if-ne v7, v3, :cond_11
+    if-ne v7, v3, :cond_e1
 
     return-object v6
 
     .line 113
-    :cond_11
+    :cond_e1
     invoke-static {v6, v7}, Ljava/util/Arrays;->copyOf([BI)[B
 
     move-result-object v3
@@ -483,16 +483,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_ec
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_dc
+        :pswitch_d1
+        :pswitch_c0
     .end packed-switch
 .end method
 
 .method public static final encodeBase64([B[B)Ljava/lang/String;
-    .locals 11
+    .registers 13
     .param p0, "$this$encodeBase64"    # [B
     .param p1, "map"    # [B
 
@@ -537,8 +537,8 @@
 
     .line 122
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v3, :cond_0
+    :goto_1a
+    if-ge v4, v3, :cond_5a
 
     .line 123
     add-int/lit8 v5, v4, 0x1
@@ -631,24 +631,24 @@
     .end local v4    # "b0":I
     .end local v5    # "b1":I
     .end local v6    # "b2":I
-    goto :goto_0
+    goto :goto_1a
 
     .line 131
     .end local v7    # "i":I
     .local v4, "i":I
-    :cond_0
+    :cond_5a
     array-length v5, p0
 
     sub-int/2addr v5, v3
 
     const/16 v6, 0x3d
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_b4
 
-    goto :goto_1
+    goto :goto_af
 
     .line 140
-    :pswitch_0
+    :pswitch_62
     add-int/lit8 v5, v4, 0x1
 
     .end local v4    # "i":I
@@ -714,7 +714,7 @@
 
     move v2, v8
 
-    goto :goto_1
+    goto :goto_af
 
     .line 133
     .end local v5    # "i":I
@@ -722,7 +722,7 @@
     .end local v8    # "index":I
     .restart local v2    # "index":I
     .local v4, "i":I
-    :pswitch_1
+    :pswitch_91
     aget-byte v5, p0, v4
 
     .line 134
@@ -770,31 +770,31 @@
     .end local v5    # "b0":I
     .end local v7    # "index":I
     .restart local v2    # "index":I
-    :goto_1
+    :goto_af
     invoke-static {v1}, Lokio/_JvmPlatformKt;->toUtf8String([B)Ljava/lang/String;
 
     move-result-object v5
 
     return-object v5
 
-    :pswitch_data_0
+    :pswitch_data_b4
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_91
+        :pswitch_62
     .end packed-switch
 .end method
 
 .method public static synthetic encodeBase64$default([B[BILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
 
     .line 116
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Lokio/_Base64Kt;->BASE64:[B
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1}, Lokio/_Base64Kt;->encodeBase64([B[B)Ljava/lang/String;
 
     move-result-object p0
@@ -803,7 +803,7 @@
 .end method
 
 .method public static final getBASE64()[B
-    .locals 1
+    .registers 1
 
     .line 26
     sget-object v0, Lokio/_Base64Kt;->BASE64:[B
@@ -812,13 +812,13 @@
 .end method
 
 .method public static synthetic getBASE64$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final getBASE64_URL_SAFE()[B
-    .locals 1
+    .registers 1
 
     .line 29
     sget-object v0, Lokio/_Base64Kt;->BASE64_URL_SAFE:[B
@@ -827,7 +827,7 @@
 .end method
 
 .method public static synthetic getBASE64_URL_SAFE$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

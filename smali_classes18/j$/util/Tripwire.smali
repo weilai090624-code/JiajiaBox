@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 50
     new-instance v0, Lj$/util/Tripwire$$ExternalSyntheticLambda0;
@@ -34,7 +34,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 .end method
 
 .method static synthetic lambda$static$0()Ljava/lang/Boolean;
-    .locals 1
+    .registers 1
 
     .line 51
     const-string v0, "org.openjdk.java.util.stream.tripwire"
@@ -60,7 +60,7 @@
 .end method
 
 .method static trip(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "msg"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {

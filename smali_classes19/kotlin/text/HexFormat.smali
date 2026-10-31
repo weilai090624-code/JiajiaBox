@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     new-instance v0, Lkotlin/text/HexFormat$Companion;
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public constructor <init>(ZLkotlin/text/HexFormat$BytesHexFormat;Lkotlin/text/HexFormat$NumberHexFormat;)V
-    .locals 1
+    .registers 5
     .param p1, "upperCase"    # Z
     .param p2, "bytes"    # Lkotlin/text/HexFormat$BytesHexFormat;
     .param p3, "number"    # Lkotlin/text/HexFormat$NumberHexFormat;
@@ -167,7 +167,7 @@
 .end method
 
 .method public static final synthetic access$getDefault$cp()Lkotlin/text/HexFormat;
-    .locals 1
+    .registers 1
 
     .line 35
     sget-object v0, Lkotlin/text/HexFormat;->Default:Lkotlin/text/HexFormat;
@@ -176,7 +176,7 @@
 .end method
 
 .method public static final synthetic access$getUpperCase$cp()Lkotlin/text/HexFormat;
-    .locals 1
+    .registers 1
 
     .line 35
     sget-object v0, Lkotlin/text/HexFormat;->UpperCase:Lkotlin/text/HexFormat;
@@ -187,7 +187,7 @@
 
 # virtual methods
 .method public final getBytes()Lkotlin/text/HexFormat$BytesHexFormat;
-    .locals 1
+    .registers 2
 
     .line 65
     iget-object v0, p0, Lkotlin/text/HexFormat;->bytes:Lkotlin/text/HexFormat$BytesHexFormat;
@@ -196,7 +196,7 @@
 .end method
 
 .method public final getNumber()Lkotlin/text/HexFormat$NumberHexFormat;
-    .locals 1
+    .registers 2
 
     .line 77
     iget-object v0, p0, Lkotlin/text/HexFormat;->number:Lkotlin/text/HexFormat$NumberHexFormat;
@@ -205,7 +205,7 @@
 .end method
 
 .method public final getUpperCase()Z
-    .locals 1
+    .registers 2
 
     .line 53
     iget-boolean v0, p0, Lkotlin/text/HexFormat;->upperCase:Z
@@ -214,7 +214,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 80
     new-instance v0, Ljava/lang/StringBuilder;

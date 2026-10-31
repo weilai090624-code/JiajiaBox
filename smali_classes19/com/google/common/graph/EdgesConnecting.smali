@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p2, "targetNode"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -71,7 +71,7 @@
 .end method
 
 .method private getConnectingEdge()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "edge"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -111,27 +111,27 @@
 
     .line 64
     .local v0, "connectingEdge":Ljava/lang/Object;, "TE;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_f
     return v1
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -148,7 +148,7 @@
 
     .line 51
     .local v0, "connectingEdge":Ljava/lang/Object;, "TE;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 52
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
@@ -159,21 +159,21 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 53
-    :cond_0
+    :cond_f
     invoke-static {v0}, Lcom/google/common/collect/Iterators;->singletonIterator(Ljava/lang/Object;)Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v1
 
     .line 51
-    :goto_0
+    :goto_13
     return-object v1
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 37
     .local p0, "this":Lcom/google/common/graph/EdgesConnecting;, "Lcom/google/common/graph/EdgesConnecting<TE;>;"
@@ -185,7 +185,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 58
     .local p0, "this":Lcom/google/common/graph/EdgesConnecting;, "Lcom/google/common/graph/EdgesConnecting<TE;>;"
@@ -193,15 +193,15 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_9
     return v0
 .end method

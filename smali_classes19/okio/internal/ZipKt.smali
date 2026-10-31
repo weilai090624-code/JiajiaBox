@@ -105,7 +105,7 @@
 
 # direct methods
 .method private static final buildIndex(Ljava/util/List;)Ljava/util/Map;
-    .locals 24
+    .registers 25
     .param p0, "entries"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -155,12 +155,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_87
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -182,17 +182,17 @@
 
     .line 170
     .local v3, "replaced":Lokio/internal/ZipEntry;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_34
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 173
-    :cond_0
+    :cond_34
     move-object v4, v2
 
     .line 174
     .local v4, "child":Lokio/internal/ZipEntry;
-    :goto_1
+    :goto_35
     nop
 
     .line 175
@@ -204,13 +204,13 @@
 
     move-result-object v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_41
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 176
     .local v5, "parentPath":Lokio/Path;
-    :cond_1
+    :cond_41
     invoke-interface {v0, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
@@ -221,7 +221,7 @@
 
     .line 179
     .local v22, "parentEntry":Lokio/internal/ZipEntry;
-    if-eqz v22, :cond_2
+    if-eqz v22, :cond_59
 
     .line 180
     invoke-virtual/range {v22 .. v22}, Lokio/internal/ZipEntry;->getChildren()Ljava/util/List;
@@ -237,10 +237,10 @@
     invoke-interface {v6, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 181
-    goto :goto_0
+    goto :goto_1b
 
     .line 185
-    :cond_2
+    :cond_59
     new-instance v23, Lokio/internal/ZipEntry;
 
     .line 186
@@ -299,25 +299,25 @@
 
     .end local v5    # "parentPath":Lokio/Path;
     .end local v6    # "parentEntry":Lokio/internal/ZipEntry;
-    goto :goto_1
+    goto :goto_35
 
     .line 195
     .end local v2    # "entry":Lokio/internal/ZipEntry;
     .end local v3    # "replaced":Lokio/internal/ZipEntry;
     .end local v4    # "child":Lokio/internal/ZipEntry;
-    :cond_3
+    :cond_87
     return-object v0
 .end method
 
 .method private static final dosDateTimeToEpochMillis(II)Ljava/lang/Long;
-    .locals 14
+    .registers 16
     .param p0, "date"    # I
     .param p1, "time"    # I
 
     .line 444
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     .line 445
     const/4 v0, 0x0
@@ -325,7 +325,7 @@
     return-object v0
 
     .line 449
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/util/GregorianCalendar;
 
     invoke-direct {v0}, Ljava/util/GregorianCalendar;-><init>()V
@@ -408,7 +408,7 @@
 .end method
 
 .method private static final getHex(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "$this$hex"    # I
 
     .line 468
@@ -436,7 +436,7 @@
 .end method
 
 .method public static final openZip(Lokio/Path;Lokio/FileSystem;Lkotlin/jvm/functions/Function1;)Lokio/ZipFileSystem;
-    .locals 34
+    .registers 37
     .param p0, "zipPath"    # Lokio/Path;
     .param p1, "fileSystem"    # Lokio/FileSystem;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function1;
@@ -493,7 +493,7 @@
 
     check-cast v5, Ljava/lang/Throwable;
 
-    :try_start_0
+    :try_start_20
     move-object v5, v4
 
     check-cast v5, Lokio/FileHandle;
@@ -520,10 +520,10 @@
     move-object v11, v0
 
     check-cast v11, Ljava/lang/Throwable;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_14
+    :try_end_34
+    .catchall {:try_start_20 .. :try_end_34} :catchall_2d4
 
-    :try_start_1
+    :try_start_34
     move-object v11, v10
 
     check-cast v11, Lokio/BufferedSource;
@@ -536,8 +536,8 @@
     invoke-interface {v11}, Lokio/BufferedSource;->readIntLe()I
 
     move-result v13
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_12
+    :try_end_3c
+    .catchall {:try_start_34 .. :try_end_3c} :catchall_2c9
 
     .line 71
     .local v13, "firstFileSignature":I
@@ -547,13 +547,13 @@
 
     const v7, 0x4034b50
 
-    if-eq v13, v7, :cond_1
+    if-eq v13, v7, :cond_7f
 
     .line 72
-    if-ne v13, v15, :cond_0
+    if-ne v13, v15, :cond_50
 
     .line 73
-    :try_start_2
+    :try_start_48
     new-instance v0, Ljava/io/IOException;
 
     const-string v7, "unsupported zip: empty"
@@ -573,7 +573,7 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :cond_0
+    :cond_50
     new-instance v0, Ljava/io/IOException;
 
     .line 76
@@ -620,8 +620,8 @@
     .end local p1    # "fileSystem":Lokio/FileSystem;
     .end local p2    # "predicate":Lkotlin/jvm/functions/Function1;
     throw v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_79
+    .catchall {:try_start_48 .. :try_end_79} :catchall_79
 
     .line 69
     .end local v11    # "source":Lokio/BufferedSource;
@@ -632,32 +632,32 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_0
+    :catchall_79
     move-exception v0
 
     move-object v3, v0
 
     move/from16 v21, v6
 
-    goto/16 :goto_8
+    goto/16 :goto_2cd
 
     .line 79
     .restart local v11    # "source":Lokio/BufferedSource;
     .restart local v12    # "$i$a$-use-ZipKt$openZip$2$1":I
     .restart local v13    # "firstFileSignature":I
-    :cond_1
+    :cond_7f
     nop
 
     .end local v11    # "source":Lokio/BufferedSource;
     .end local v12    # "$i$a$-use-ZipKt$openZip$2$1":I
     .end local v13    # "firstFileSignature":I
-    :try_start_3
+    :try_start_80
     sget-object v7, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_12
+    :try_end_82
+    .catchall {:try_start_80 .. :try_end_82} :catchall_2c9
 
     .line 69
-    :try_start_4
+    :try_start_82
     invoke-static {v10, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .line 85
@@ -675,7 +675,7 @@
     .local v10, "scanOffset":J
     cmp-long v7, v10, v8
 
-    if-ltz v7, :cond_c
+    if-ltz v7, :cond_2b3
 
     .line 89
     const-wide/32 v12, 0x10000
@@ -698,7 +698,7 @@
 
     .line 93
     .local v19, "comment":Ljava/lang/String;
-    :goto_0
+    :goto_9f
     nop
 
     .line 94
@@ -709,8 +709,8 @@
     invoke-static/range {v20 .. v20}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object v20
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_14
+    :try_end_a8
+    .catchall {:try_start_82 .. :try_end_a8} :catchall_2d4
 
     move-object/from16 v21, v20
 
@@ -719,35 +719,35 @@
     nop
 
     .line 96
-    :try_start_5
+    :try_start_ab
     invoke-interface/range {v21 .. v21}, Lokio/BufferedSource;->readIntLe()I
 
     move-result v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_11
+    :try_end_af
+    .catchall {:try_start_ab .. :try_end_af} :catchall_2a8
 
-    if-ne v0, v15, :cond_a
+    if-ne v0, v15, :cond_280
 
     .line 97
     move-wide/from16 v17, v10
 
     .line 98
-    :try_start_6
+    :try_start_b3
     invoke-static/range {v21 .. v21}, Lokio/internal/ZipKt;->readEocdRecord(Lokio/BufferedSource;)Lokio/internal/EocdRecord;
 
     move-result-object v0
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_10
+    :try_end_b7
+    .catchall {:try_start_b3 .. :try_end_b7} :catchall_277
 
     move-object v7, v0
 
     .line 99
-    :try_start_7
+    :try_start_b8
     invoke-virtual {v7}, Lokio/internal/EocdRecord;->getCommentByteCount()I
 
     move-result v0
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_f
+    :try_end_bc
+    .catchall {:try_start_b8 .. :try_end_bc} :catchall_26c
 
     int-to-long v8, v0
 
@@ -755,12 +755,12 @@
 
     .end local v21    # "source":Lokio/BufferedSource;
     .local v15, "source":Lokio/BufferedSource;
-    :try_start_8
+    :try_start_bf
     invoke-interface {v15, v8, v9}, Lokio/BufferedSource;->readUtf8(J)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_e
+    :try_end_c3
+    .catchall {:try_start_bf .. :try_end_c3} :catchall_263
 
     move-object v8, v0
 
@@ -770,7 +770,7 @@
     nop
 
     .line 103
-    :try_start_9
+    :try_start_c5
     invoke-interface {v15}, Lokio/BufferedSource;->close()V
 
     .line 113
@@ -791,7 +791,7 @@
 
     cmp-long v0, v12, v21
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_1d0
 
     .line 115
     invoke-virtual {v5, v12, v13}, Lokio/FileHandle;->source(J)Lokio/Source;
@@ -811,10 +811,10 @@
     move-object v15, v0
 
     check-cast v15, Ljava/lang/Throwable;
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_14
+    :try_end_e4
+    .catchall {:try_start_c5 .. :try_end_e4} :catchall_2d4
 
-    :try_start_a
+    :try_start_e4
     move-object v0, v9
 
     check-cast v0, Lokio/BufferedSource;
@@ -829,8 +829,8 @@
     invoke-interface {v15}, Lokio/BufferedSource;->readIntLe()I
 
     move-result v0
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_a
+    :try_end_ee
+    .catchall {:try_start_e4 .. :try_end_ee} :catchall_1c1
 
     move/from16 v21, v6
 
@@ -838,10 +838,10 @@
     .local v21, "$i$a$-use-ZipKt$openZip$2":I
     const v6, 0x7064b50
 
-    if-ne v0, v6, :cond_4
+    if-ne v0, v6, :cond_1b2
 
     .line 117
-    :try_start_b
+    :try_start_f5
     invoke-interface {v15}, Lokio/BufferedSource;->readIntLe()I
 
     move-result v0
@@ -861,8 +861,8 @@
     invoke-interface {v15}, Lokio/BufferedSource;->readIntLe()I
 
     move-result v0
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_8
+    :try_end_104
+    .catchall {:try_start_f5 .. :try_end_104} :catchall_1ab
 
     move/from16 v26, v0
 
@@ -877,9 +877,9 @@
     .end local v26    # "numDisks":I
     .local v12, "numDisks":I
     .local v30, "zip64LocatorOffset":J
-    if-ne v12, v0, :cond_3
+    if-ne v12, v0, :cond_196
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_196
 
     .line 123
     move/from16 v16, v12
@@ -889,7 +889,7 @@
     .end local v28    # "zip64EocdRecordOffset":J
     .local v12, "zip64EocdRecordOffset":J
     .local v16, "numDisks":I
-    :try_start_c
+    :try_start_113
     invoke-virtual {v5, v12, v13}, Lokio/FileHandle;->source(J)Lokio/Source;
 
     move-result-object v0
@@ -911,10 +911,10 @@
     move-object/from16 v20, v0
 
     check-cast v20, Ljava/lang/Throwable;
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_6
+    :try_end_125
+    .catchall {:try_start_113 .. :try_end_125} :catchall_191
 
-    :try_start_d
+    :try_start_125
     move-object v0, v6
 
     check-cast v0, Lokio/BufferedSource;
@@ -927,8 +927,8 @@
     invoke-interface {v0}, Lokio/BufferedSource;->readIntLe()I
 
     move-result v28
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_4
+    :try_end_12e
+    .catchall {:try_start_125 .. :try_end_12e} :catchall_184
 
     move/from16 v29, v28
 
@@ -944,10 +944,10 @@
 
     .end local v29    # "zip64EocdSignature":I
     .local v13, "zip64EocdSignature":I
-    if-ne v13, v12, :cond_2
+    if-ne v13, v12, :cond_14a
 
     .line 131
-    :try_start_e
+    :try_start_139
     invoke-static {v0, v7}, Lokio/internal/ZipKt;->readZip64EocdRecord(Lokio/BufferedSource;Lokio/internal/EocdRecord;)Lokio/internal/EocdRecord;
 
     move-result-object v12
@@ -961,32 +961,32 @@
     .end local v13    # "zip64EocdSignature":I
     .end local v27    # "$i$a$-use-ZipKt$openZip$2$2$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_e
-    .catchall {:try_start_e .. :try_end_e} :catchall_1
+    :try_end_141
+    .catchall {:try_start_139 .. :try_end_141} :catchall_147
 
     .line 123
     const/4 v0, 0x0
 
-    :try_start_f
+    :try_start_142
     invoke-static {v6, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-    :try_end_f
-    .catchall {:try_start_f .. :try_end_f} :catchall_9
+    :try_end_145
+    .catchall {:try_start_142 .. :try_end_145} :catchall_1be
 
-    goto/16 :goto_2
+    goto/16 :goto_1b6
 
-    :catchall_1
+    :catchall_147
     move-exception v0
 
     move-object v12, v0
 
-    goto :goto_1
+    goto :goto_18a
 
     .line 126
     .restart local v0    # "zip64EocdSource":Lokio/BufferedSource;
     .restart local v13    # "zip64EocdSignature":I
     .restart local v27    # "$i$a$-use-ZipKt$openZip$2$2$1":I
-    :cond_2
-    :try_start_10
+    :cond_14a
+    :try_start_14a
     new-instance v12, Ljava/io/IOException;
 
     .line 127
@@ -997,14 +997,14 @@
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-    :try_end_10
-    .catchall {:try_start_10 .. :try_end_10} :catchall_3
+    :try_end_153
+    .catchall {:try_start_14a .. :try_end_153} :catchall_17f
 
     move-object/from16 v29, v7
 
     .end local v7    # "record":Ljava/lang/Object;
     .local v29, "record":Ljava/lang/Object;
-    :try_start_11
+    :try_start_155
     const-string v7, "bad zip: expected "
 
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1059,8 +1059,8 @@
     .end local p1    # "fileSystem":Lokio/FileSystem;
     .end local p2    # "predicate":Lkotlin/jvm/functions/Function1;
     throw v12
-    :try_end_11
-    .catchall {:try_start_11 .. :try_end_11} :catchall_2
+    :try_end_17a
+    .catchall {:try_start_155 .. :try_end_17a} :catchall_17a
 
     .line 123
     .end local v13    # "zip64EocdSignature":I
@@ -1082,18 +1082,18 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_2
+    :catchall_17a
     move-exception v0
 
     move-object v12, v0
 
     move-object/from16 v7, v29
 
-    goto :goto_1
+    goto :goto_18a
 
     .end local v29    # "record":Ljava/lang/Object;
     .restart local v7    # "record":Ljava/lang/Object;
-    :catchall_3
+    :catchall_17f
     move-exception v0
 
     move-object/from16 v29, v7
@@ -1102,13 +1102,13 @@
 
     .end local v7    # "record":Ljava/lang/Object;
     .restart local v29    # "record":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_18a
 
     .end local v29    # "record":Ljava/lang/Object;
     .end local v32    # "zip64EocdRecordOffset":J
     .restart local v7    # "record":Ljava/lang/Object;
     .restart local v12    # "zip64EocdRecordOffset":J
-    :catchall_4
+    :catchall_184
     move-exception v0
 
     move-object/from16 v29, v7
@@ -1133,11 +1133,11 @@
     .end local p0    # "zipPath":Lokio/Path;
     .end local p1    # "fileSystem":Lokio/FileSystem;
     .end local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :goto_1
-    :try_start_12
+    :goto_18a
+    :try_start_18a
     throw v12
-    :try_end_12
-    .catchall {:try_start_12 .. :try_end_12} :catchall_5
+    :try_end_18b
+    .catchall {:try_start_18a .. :try_end_18b} :catchall_18b
 
     .restart local v5    # "fileHandle":Lokio/FileHandle;
     .restart local v7    # "record":Ljava/lang/Object;
@@ -1155,12 +1155,12 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_5
+    :catchall_18b
     move-exception v0
 
     move-object v13, v0
 
-    :try_start_13
+    :try_start_18d
     invoke-static {v6, v12}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local v5    # "fileHandle":Lokio/FileHandle;
@@ -1175,8 +1175,8 @@
     .end local p1    # "fileSystem":Lokio/FileSystem;
     .end local p2    # "predicate":Lkotlin/jvm/functions/Function1;
     throw v13
-    :try_end_13
-    .catchall {:try_start_13 .. :try_end_13} :catchall_9
+    :try_end_191
+    .catchall {:try_start_18d .. :try_end_191} :catchall_1be
 
     .line 115
     .end local v15    # "zip64LocatorSource":Lokio/BufferedSource;
@@ -1195,7 +1195,7 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_6
+    :catchall_191
     move-exception v0
 
     move-object/from16 v29, v7
@@ -1204,7 +1204,7 @@
 
     .end local v7    # "record":Ljava/lang/Object;
     .restart local v29    # "record":Ljava/lang/Object;
-    goto :goto_3
+    goto :goto_1c9
 
     .line 120
     .end local v29    # "record":Ljava/lang/Object;
@@ -1214,7 +1214,7 @@
     .restart local v15    # "zip64LocatorSource":Lokio/BufferedSource;
     .restart local v19    # "$i$a$-use-ZipKt$openZip$2$2":I
     .local v28, "zip64EocdRecordOffset":J
-    :cond_3
+    :cond_196
     move/from16 v26, v6
 
     move/from16 v16, v12
@@ -1232,7 +1232,7 @@
     .restart local v26    # "diskWithCentralDir":I
     .restart local v29    # "record":Ljava/lang/Object;
     .restart local v32    # "zip64EocdRecordOffset":J
-    :try_start_14
+    :try_start_19e
     new-instance v0, Ljava/io/IOException;
 
     const-string v6, "unsupported zip: spanned"
@@ -1251,8 +1251,8 @@
     .end local p1    # "fileSystem":Lokio/FileSystem;
     .end local p2    # "predicate":Lkotlin/jvm/functions/Function1;
     throw v0
-    :try_end_14
-    .catchall {:try_start_14 .. :try_end_14} :catchall_7
+    :try_end_1a6
+    .catchall {:try_start_19e .. :try_end_1a6} :catchall_1a6
 
     .line 115
     .end local v15    # "zip64LocatorSource":Lokio/BufferedSource;
@@ -1271,20 +1271,20 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_7
+    :catchall_1a6
     move-exception v0
 
     move-object v6, v0
 
     move-object/from16 v7, v29
 
-    goto :goto_3
+    goto :goto_1c9
 
     .end local v29    # "record":Ljava/lang/Object;
     .end local v30    # "zip64LocatorOffset":J
     .restart local v7    # "record":Ljava/lang/Object;
     .local v12, "zip64LocatorOffset":J
-    :catchall_8
+    :catchall_1ab
     move-exception v0
 
     move-object/from16 v29, v7
@@ -1297,7 +1297,7 @@
     .end local v12    # "zip64LocatorOffset":J
     .restart local v29    # "record":Ljava/lang/Object;
     .restart local v30    # "zip64LocatorOffset":J
-    goto :goto_3
+    goto :goto_1c9
 
     .line 116
     .end local v29    # "record":Ljava/lang/Object;
@@ -1306,7 +1306,7 @@
     .restart local v12    # "zip64LocatorOffset":J
     .restart local v15    # "zip64LocatorSource":Lokio/BufferedSource;
     .restart local v19    # "$i$a$-use-ZipKt$openZip$2$2":I
-    :cond_4
+    :cond_1b2
     move-object/from16 v29, v7
 
     move-wide/from16 v30, v12
@@ -1314,38 +1314,38 @@
     .line 134
     .end local v12    # "zip64LocatorOffset":J
     .restart local v30    # "zip64LocatorOffset":J
-    :goto_2
+    :goto_1b6
     nop
 
     .end local v15    # "zip64LocatorSource":Lokio/BufferedSource;
     .end local v19    # "$i$a$-use-ZipKt$openZip$2$2":I
-    :try_start_15
+    :try_start_1b7
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_15
-    .catchall {:try_start_15 .. :try_end_15} :catchall_9
+    :try_end_1b9
+    .catchall {:try_start_1b7 .. :try_end_1b9} :catchall_1be
 
     .line 115
     const/4 v0, 0x0
 
-    :try_start_16
+    :try_start_1ba
     invoke-static {v9, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-    :try_end_16
-    .catchall {:try_start_16 .. :try_end_16} :catchall_14
+    :try_end_1bd
+    .catchall {:try_start_1ba .. :try_end_1bd} :catchall_2d4
 
-    goto :goto_4
+    goto :goto_1d6
 
-    :catchall_9
+    :catchall_1be
     move-exception v0
 
     move-object v6, v0
 
-    goto :goto_3
+    goto :goto_1c9
 
     .end local v21    # "$i$a$-use-ZipKt$openZip$2":I
     .end local v30    # "zip64LocatorOffset":J
     .local v6, "$i$a$-use-ZipKt$openZip$2":I
     .restart local v12    # "zip64LocatorOffset":J
-    :catchall_a
+    :catchall_1c1
     move-exception v0
 
     move/from16 v21, v6
@@ -1367,11 +1367,11 @@
     .end local p0    # "zipPath":Lokio/Path;
     .end local p1    # "fileSystem":Lokio/FileSystem;
     .end local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :goto_3
-    :try_start_17
+    :goto_1c9
+    :try_start_1c9
     throw v6
-    :try_end_17
-    .catchall {:try_start_17 .. :try_end_17} :catchall_b
+    :try_end_1ca
+    .catchall {:try_start_1c9 .. :try_end_1ca} :catchall_1ca
 
     .restart local v5    # "fileHandle":Lokio/FileHandle;
     .restart local v7    # "record":Ljava/lang/Object;
@@ -1384,12 +1384,12 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_b
+    :catchall_1ca
     move-exception v0
 
     move-object v12, v0
 
-    :try_start_18
+    :try_start_1cc
     invoke-static {v9, v6}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local p0    # "zipPath":Lokio/Path;
@@ -1405,7 +1405,7 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :cond_5
+    :cond_1d0
     move/from16 v21, v6
 
     move-object/from16 v29, v7
@@ -1417,7 +1417,7 @@
     .end local v12    # "zip64LocatorOffset":J
     .restart local v21    # "$i$a$-use-ZipKt$openZip$2":I
     .restart local v30    # "zip64LocatorOffset":J
-    :goto_4
+    :goto_1d6
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -1449,10 +1449,10 @@
     move-object v12, v0
 
     check-cast v12, Ljava/lang/Throwable;
-    :try_end_18
-    .catchall {:try_start_18 .. :try_end_18} :catchall_14
+    :try_end_1f1
+    .catchall {:try_start_1cc .. :try_end_1f1} :catchall_2d4
 
-    :try_start_19
+    :try_start_1f1
     move-object v0, v9
 
     check-cast v0, Lokio/BufferedSource;
@@ -1470,9 +1470,9 @@
 
     cmp-long v15, v22, v13
 
-    if-gez v15, :cond_9
+    if-gez v15, :cond_243
 
-    :goto_5
+    :goto_1ff
     move-wide/from16 v15, v22
 
     .local v15, "i":J
@@ -1499,7 +1499,7 @@
 
     cmp-long v19, v27, v32
 
-    if-gez v19, :cond_8
+    if-gez v19, :cond_237
 
     .line 145
     move-object/from16 v19, v0
@@ -1519,7 +1519,7 @@
 
     move-result v26
 
-    if-eqz v26, :cond_6
+    if-eqz v26, :cond_22d
 
     .line 146
     move-object v3, v6
@@ -1530,25 +1530,25 @@
 
     .line 140
     .end local v0    # "entry":Lokio/internal/ZipEntry;
-    :cond_6
+    :cond_22d
     cmp-long v0, v22, v13
 
-    if-ltz v0, :cond_7
+    if-ltz v0, :cond_232
 
-    goto :goto_6
+    goto :goto_245
 
-    :cond_7
+    :cond_232
     move-object/from16 v3, p2
 
     move-object/from16 v0, v19
 
-    goto :goto_5
+    goto :goto_1ff
 
     .line 143
     .end local v19    # "source":Lokio/BufferedSource;
     .local v0, "source":Lokio/BufferedSource;
     .restart local v26    # "entry":Lokio/internal/ZipEntry;
-    :cond_8
+    :cond_237
     move-object/from16 v19, v0
 
     move-object/from16 v0, v26
@@ -1592,25 +1592,25 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :cond_9
+    :cond_243
     move-object/from16 v19, v0
 
     .line 149
     .end local v0    # "source":Lokio/BufferedSource;
     .restart local v19    # "source":Lokio/BufferedSource;
-    :goto_6
+    :goto_245
     nop
 
     .end local v12    # "$i$a$-use-ZipKt$openZip$2$3":I
     .end local v19    # "source":Lokio/BufferedSource;
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_19
-    .catchall {:try_start_19 .. :try_end_19} :catchall_c
+    :try_end_248
+    .catchall {:try_start_1f1 .. :try_end_248} :catchall_25a
 
     .line 139
     const/4 v0, 0x0
 
-    :try_start_1a
+    :try_start_249
     invoke-static {v9, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .line 152
@@ -1623,8 +1623,8 @@
     new-instance v3, Lokio/ZipFileSystem;
 
     invoke-direct {v3, v1, v2, v0, v8}, Lokio/ZipFileSystem;-><init>(Lokio/Path;Lokio/FileSystem;Ljava/util/Map;Ljava/lang/String;)V
-    :try_end_1a
-    .catchall {:try_start_1a .. :try_end_1a} :catchall_14
+    :try_end_255
+    .catchall {:try_start_249 .. :try_end_255} :catchall_2d4
 
     const/4 v6, 0x0
 
@@ -1652,7 +1652,7 @@
     .restart local v21    # "$i$a$-use-ZipKt$openZip$2":I
     .restart local v24    # "stopOffset":J
     .restart local v30    # "zip64LocatorOffset":J
-    :catchall_c
+    :catchall_25a
     move-exception v0
 
     move-object v3, v0
@@ -1669,10 +1669,10 @@
     .end local p0    # "zipPath":Lokio/Path;
     .end local p1    # "fileSystem":Lokio/FileSystem;
     .end local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :try_start_1b
+    :try_start_25c
     throw v3
-    :try_end_1b
-    .catchall {:try_start_1b .. :try_end_1b} :catchall_d
+    :try_end_25d
+    .catchall {:try_start_25c .. :try_end_25d} :catchall_25d
 
     .restart local v5    # "fileHandle":Lokio/FileHandle;
     .restart local v6    # "entries":Ljava/util/List;
@@ -1686,12 +1686,12 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_d
+    :catchall_25d
     move-exception v0
 
     move-object v12, v0
 
-    :try_start_1c
+    :try_start_25f
     invoke-static {v9, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local p0    # "zipPath":Lokio/Path;
@@ -1711,7 +1711,7 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_e
+    :catchall_263
     move-exception v0
 
     move/from16 v21, v6
@@ -1728,7 +1728,7 @@
     .restart local v21    # "$i$a$-use-ZipKt$openZip$2":I
     .restart local v24    # "stopOffset":J
     .restart local v29    # "record":Ljava/lang/Object;
-    goto :goto_7
+    goto :goto_2af
 
     .end local v15    # "source":Lokio/BufferedSource;
     .end local v24    # "stopOffset":J
@@ -1737,7 +1737,7 @@
     .restart local v7    # "record":Ljava/lang/Object;
     .restart local v12    # "stopOffset":J
     .local v21, "source":Lokio/BufferedSource;
-    :catchall_f
+    :catchall_26c
     move-exception v0
 
     move-object/from16 v29, v7
@@ -1757,7 +1757,7 @@
     .local v21, "$i$a$-use-ZipKt$openZip$2":I
     .restart local v24    # "stopOffset":J
     .restart local v29    # "record":Ljava/lang/Object;
-    goto :goto_7
+    goto :goto_2af
 
     .end local v15    # "source":Lokio/BufferedSource;
     .end local v24    # "stopOffset":J
@@ -1766,7 +1766,7 @@
     .restart local v7    # "record":Ljava/lang/Object;
     .restart local v12    # "stopOffset":J
     .local v21, "source":Lokio/BufferedSource;
-    :catchall_10
+    :catchall_277
     move-exception v0
 
     move-wide/from16 v24, v12
@@ -1782,7 +1782,7 @@
     .restart local v15    # "source":Lokio/BufferedSource;
     .local v21, "$i$a$-use-ZipKt$openZip$2":I
     .restart local v24    # "stopOffset":J
-    goto :goto_7
+    goto :goto_2af
 
     .line 103
     .end local v15    # "source":Lokio/BufferedSource;
@@ -1790,7 +1790,7 @@
     .restart local v6    # "$i$a$-use-ZipKt$openZip$2":I
     .restart local v12    # "stopOffset":J
     .local v21, "source":Lokio/BufferedSource;
-    :cond_a
+    :cond_280
     move-wide/from16 v22, v8
 
     move-wide/from16 v24, v12
@@ -1821,7 +1821,7 @@
     .line 107
     cmp-long v8, v10, v24
 
-    if-ltz v8, :cond_b
+    if-ltz v8, :cond_2a0
 
     move-object/from16 v3, p2
 
@@ -1833,10 +1833,10 @@
 
     move-wide/from16 v12, v24
 
-    goto/16 :goto_0
+    goto/16 :goto_9f
 
     .line 108
-    :cond_b
+    :cond_2a0
     new-instance v0, Ljava/io/IOException;
 
     const-string v6, "not a zip: end of central directory signature not found"
@@ -1857,7 +1857,7 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_11
+    :catchall_2a8
     move-exception v0
 
     move-wide/from16 v24, v12
@@ -1872,7 +1872,7 @@
     .restart local v3    # "source":Lokio/BufferedSource;
     .local v21, "$i$a$-use-ZipKt$openZip$2":I
     .restart local v24    # "stopOffset":J
-    :goto_7
+    :goto_2af
     invoke-interface {v3}, Lokio/BufferedSource;->close()V
 
     .end local p0    # "zipPath":Lokio/Path;
@@ -1891,7 +1891,7 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :cond_c
+    :cond_2b3
     move/from16 v21, v6
 
     .end local v6    # "$i$a$-use-ZipKt$openZip$2":I
@@ -1918,8 +1918,8 @@
     .end local p1    # "fileSystem":Lokio/FileSystem;
     .end local p2    # "predicate":Lkotlin/jvm/functions/Function1;
     throw v0
-    :try_end_1c
-    .catchall {:try_start_1c .. :try_end_1c} :catchall_14
+    :try_end_2c9
+    .catchall {:try_start_25f .. :try_end_2c9} :catchall_2d4
 
     .line 69
     .end local v10    # "scanOffset":J
@@ -1928,7 +1928,7 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_12
+    :catchall_2c9
     move-exception v0
 
     move/from16 v21, v6
@@ -1940,31 +1940,31 @@
     .end local p0    # "zipPath":Lokio/Path;
     .end local p1    # "fileSystem":Lokio/FileSystem;
     .end local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :goto_8
-    :try_start_1d
+    :goto_2cd
+    :try_start_2cd
     throw v3
-    :try_end_1d
-    .catchall {:try_start_1d .. :try_end_1d} :catchall_13
+    :try_end_2ce
+    .catchall {:try_start_2cd .. :try_end_2ce} :catchall_2ce
 
     .restart local v5    # "fileHandle":Lokio/FileHandle;
     .restart local v21    # "$i$a$-use-ZipKt$openZip$2":I
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_13
+    :catchall_2ce
     move-exception v0
 
     move-object v6, v0
 
-    :try_start_1e
+    :try_start_2d0
     invoke-static {v10, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local p0    # "zipPath":Lokio/Path;
     .end local p1    # "fileSystem":Lokio/FileSystem;
     .end local p2    # "predicate":Lkotlin/jvm/functions/Function1;
     throw v6
-    :try_end_1e
-    .catchall {:try_start_1e .. :try_end_1e} :catchall_14
+    :try_end_2d4
+    .catchall {:try_start_2d0 .. :try_end_2d4} :catchall_2d4
 
     .line 154
     .end local v5    # "fileHandle":Lokio/FileHandle;
@@ -1972,7 +1972,7 @@
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_14
+    :catchall_2d4
     move-exception v0
 
     move-object v3, v0
@@ -1980,15 +1980,15 @@
     .end local p0    # "zipPath":Lokio/Path;
     .end local p1    # "fileSystem":Lokio/FileSystem;
     .end local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :try_start_1f
+    :try_start_2d6
     throw v3
-    :try_end_1f
-    .catchall {:try_start_1f .. :try_end_1f} :catchall_15
+    :try_end_2d7
+    .catchall {:try_start_2d6 .. :try_end_2d7} :catchall_2d7
 
     .restart local p0    # "zipPath":Lokio/Path;
     .restart local p1    # "fileSystem":Lokio/FileSystem;
     .restart local p2    # "predicate":Lkotlin/jvm/functions/Function1;
-    :catchall_15
+    :catchall_2d7
     move-exception v0
 
     move-object v5, v0
@@ -1999,7 +1999,7 @@
 .end method
 
 .method public static synthetic openZip$default(Lokio/Path;Lokio/FileSystem;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lokio/ZipFileSystem;
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2009,7 +2009,7 @@
     .line 62
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_8
 
     .line 65
     sget-object p2, Lokio/internal/ZipKt$openZip$1;->INSTANCE:Lokio/internal/ZipKt$openZip$1;
@@ -2017,7 +2017,7 @@
     check-cast p2, Lkotlin/jvm/functions/Function1;
 
     .line 62
-    :cond_0
+    :cond_8
     invoke-static {p0, p1, p2}, Lokio/internal/ZipKt;->openZip(Lokio/Path;Lokio/FileSystem;Lkotlin/jvm/functions/Function1;)Lokio/ZipFileSystem;
 
     move-result-object p0
@@ -2026,7 +2026,7 @@
 .end method
 
 .method public static final readEntry(Lokio/BufferedSource;)Lokio/internal/ZipEntry;
-    .locals 42
+    .registers 43
     .param p0, "$this$readEntry"    # Lokio/BufferedSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2049,7 +2049,7 @@
     .local v9, "signature":I
     const v0, 0x2014b50
 
-    if-ne v9, v0, :cond_7
+    if-ne v9, v0, :cond_16b
 
     .line 208
     const-wide/16 v0, 0x4
@@ -2069,7 +2069,7 @@
     .local v10, "bitFlag":I
     and-int/lit8 v0, v10, 0x1
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_159
 
     .line 214
     invoke-interface/range {p0 .. p0}, Lokio/BufferedSource;->readShortLe()S
@@ -2219,7 +2219,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_151
 
     .line 233
     move-object/from16 v0, p0
@@ -2241,38 +2241,38 @@
 
     cmp-long v24, v4, v16
 
-    if-nez v24, :cond_0
+    if-nez v24, :cond_ac
 
     int-to-long v4, v1
 
     add-long v19, v19, v4
 
     .line 236
-    :cond_0
+    :cond_ac
     iget-wide v4, v13, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
     cmp-long v24, v4, v16
 
-    if-nez v24, :cond_1
+    if-nez v24, :cond_b5
 
     int-to-long v4, v1
 
     add-long v19, v19, v4
 
     .line 237
-    :cond_1
+    :cond_b5
     iget-wide v4, v2, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
     cmp-long v24, v4, v16
 
-    if-nez v24, :cond_2
+    if-nez v24, :cond_be
 
     int-to-long v4, v1
 
     add-long v19, v19, v4
 
     .line 238
-    :cond_2
+    :cond_be
     nop
 
     .line 233
@@ -2360,16 +2360,16 @@
 
     cmp-long v2, v29, v0
 
-    if-lez v2, :cond_4
+    if-lez v2, :cond_102
 
     iget-boolean v0, v11, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_fa
 
-    goto :goto_0
+    goto :goto_102
 
     .line 263
-    :cond_3
+    :cond_fa
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "bad zip: zip64 extra required but absent"
@@ -2379,8 +2379,8 @@
     throw v0
 
     .line 266
-    :cond_4
-    :goto_0
+    :cond_102
+    :goto_102
     int-to-long v0, v14
 
     invoke-interface {v8, v0, v1}, Lokio/BufferedSource;->readUtf8(J)Ljava/lang/String;
@@ -2537,7 +2537,7 @@
     .restart local v13    # "compressedSize":Lkotlin/jvm/internal/Ref$LongRef;
     .local v14, "date":I
     .restart local v15    # "time":I
-    :cond_5
+    :cond_151
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "bad zip: filename contains 0x00"
@@ -2559,7 +2559,7 @@
     .end local v25    # "compressionMethod":I
     .end local v26    # "lastModifiedAtMillis":Ljava/lang/Long;
     .end local v27    # "crc":J
-    :cond_6
+    :cond_159
     move/from16 v33, v10
 
     .end local v10    # "bitFlag":I
@@ -2582,7 +2582,7 @@
 
     .line 203
     .end local v33    # "bitFlag":I
-    :cond_7
+    :cond_16b
     move/from16 v32, v9
 
     .end local v9    # "signature":I
@@ -2633,7 +2633,7 @@
 .end method
 
 .method private static final readEocdRecord(Lokio/BufferedSource;)Lokio/internal/EocdRecord;
-    .locals 17
+    .registers 18
     .param p0, "$this$readEocdRecord"    # Lokio/BufferedSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2682,11 +2682,11 @@
     .local v12, "totalEntryCount":J
     cmp-long v3, v10, v12
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_46
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_46
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_46
 
     .line 292
     const-wide/16 v3, 0x4
@@ -2743,7 +2743,7 @@
     .line 289
     .end local v1    # "commentByteCount":I
     .end local v15    # "centralDirectoryOffset":J
-    :cond_0
+    :cond_46
     move-object/from16 v14, p0
 
     .line 290
@@ -2757,7 +2757,7 @@
 .end method
 
 .method private static final readExtra(Lokio/BufferedSource;ILkotlin/jvm/functions/Function2;)V
-    .locals 12
+    .registers 15
     .param p0, "$this$readExtra"    # Lokio/BufferedSource;
     .param p1, "extraSize"    # I
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;
@@ -2781,19 +2781,19 @@
 
     .line 335
     .local v0, "remaining":J
-    :goto_0
+    :goto_1
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_77
 
     .line 336
     const-wide/16 v4, 0x4
 
     cmp-long v6, v0, v4
 
-    if-ltz v6, :cond_3
+    if-ltz v6, :cond_6f
 
     .line 339
     invoke-interface {p0}, Lokio/BufferedSource;->readShortLe()S
@@ -2827,7 +2827,7 @@
     .line 342
     cmp-long v7, v0, v5
 
-    if-ltz v7, :cond_2
+    if-ltz v7, :cond_67
 
     .line 345
     invoke-interface {p0, v5, v6}, Lokio/BufferedSource;->require(J)V
@@ -2873,12 +2873,12 @@
     .line 350
     cmp-long v11, v9, v2
 
-    if-ltz v11, :cond_1
+    if-ltz v11, :cond_57
 
     .line 353
     cmp-long v11, v9, v2
 
-    if-lez v11, :cond_0
+    if-lez v11, :cond_55
 
     .line 354
     invoke-interface {p0}, Lokio/BufferedSource;->getBuffer()Lokio/Buffer;
@@ -2888,21 +2888,21 @@
     invoke-virtual {v2, v9, v10}, Lokio/Buffer;->skip(J)V
 
     .line 357
-    :cond_0
+    :cond_55
     sub-long/2addr v0, v5
 
     .end local v4    # "headerId":I
     .end local v5    # "dataSize":J
     .end local v7    # "sizeBefore":J
     .end local v9    # "fieldRemaining":J
-    goto :goto_0
+    goto :goto_1
 
     .line 351
     .restart local v4    # "headerId":I
     .restart local v5    # "dataSize":J
     .restart local v7    # "sizeBefore":J
     .restart local v9    # "fieldRemaining":J
-    :cond_1
+    :cond_57
     new-instance v2, Ljava/io/IOException;
 
     const-string v3, "unsupported zip: too many bytes processed for "
@@ -2922,7 +2922,7 @@
     .line 343
     .end local v7    # "sizeBefore":J
     .end local v9    # "fieldRemaining":J
-    :cond_2
+    :cond_67
     new-instance v2, Ljava/io/IOException;
 
     const-string v3, "bad zip: truncated value in extra field"
@@ -2934,7 +2934,7 @@
     .line 337
     .end local v4    # "headerId":I
     .end local v5    # "dataSize":J
-    :cond_3
+    :cond_6f
     new-instance v2, Ljava/io/IOException;
 
     const-string v3, "bad zip: truncated header in extra field"
@@ -2944,12 +2944,12 @@
     throw v2
 
     .line 359
-    :cond_4
+    :cond_77
     return-void
 .end method
 
 .method public static final readLocalHeader(Lokio/BufferedSource;Lokio/FileMetadata;)Lokio/FileMetadata;
-    .locals 1
+    .registers 3
     .param p0, "$this$readLocalHeader"    # Lokio/BufferedSource;
     .param p1, "basicMetadata"    # Lokio/FileMetadata;
 
@@ -2972,7 +2972,7 @@
 .end method
 
 .method private static final readOrSkipLocalHeader(Lokio/BufferedSource;Lokio/FileMetadata;)Lokio/FileMetadata;
-    .locals 21
+    .registers 23
     .param p0, "$this$readOrSkipLocalHeader"    # Lokio/BufferedSource;
     .param p1, "basicMetadata"    # Lokio/FileMetadata;
 
@@ -2986,18 +2986,18 @@
     .local v1, "lastModifiedAtMillis":Lkotlin/jvm/internal/Ref$ObjectRef;
     const/4 v2, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_c
 
     move-object v3, v2
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     invoke-virtual/range {p1 .. p1}, Lokio/FileMetadata;->getLastModifiedAtMillis()Ljava/lang/Long;
 
     move-result-object v3
 
-    :goto_0
+    :goto_10
     iput-object v3, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 375
@@ -3021,7 +3021,7 @@
     .local v5, "signature":I
     const v6, 0x4034b50
 
-    if-ne v5, v6, :cond_3
+    if-ne v5, v6, :cond_99
 
     .line 384
     const-wide/16 v6, 0x2
@@ -3041,7 +3041,7 @@
     .local v6, "bitFlag":I
     and-int/lit8 v8, v6, 0x1
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_89
 
     .line 389
     const-wide/16 v8, 0x12
@@ -3072,7 +3072,7 @@
     invoke-interface {v0, v8, v9}, Lokio/BufferedSource;->skip(J)V
 
     .line 394
-    if-nez p1, :cond_1
+    if-nez p1, :cond_53
 
     .line 395
     int-to-long v10, v7
@@ -3083,7 +3083,7 @@
     return-object v2
 
     .line 399
-    :cond_1
+    :cond_53
     new-instance v2, Lokio/internal/ZipKt$readOrSkipLocalHeader$1;
 
     invoke-direct {v2, v0, v1, v3, v4}, Lokio/internal/ZipKt$readOrSkipLocalHeader$1;-><init>(Lokio/BufferedSource;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/jvm/internal/Ref$ObjectRef;)V
@@ -3152,7 +3152,7 @@
     .line 387
     .end local v7    # "extraSize":I
     .end local v8    # "fileNameLength":J
-    :cond_2
+    :cond_89
     new-instance v2, Ljava/io/IOException;
 
     const-string v7, "unsupported zip: general purpose bit flag="
@@ -3171,7 +3171,7 @@
 
     .line 380
     .end local v6    # "bitFlag":I
-    :cond_3
+    :cond_99
     new-instance v2, Ljava/io/IOException;
 
     .line 381
@@ -3218,7 +3218,7 @@
 .end method
 
 .method private static final readZip64EocdRecord(Lokio/BufferedSource;Lokio/internal/EocdRecord;)Lokio/internal/EocdRecord;
-    .locals 16
+    .registers 18
     .param p0, "$this$readZip64EocdRecord"    # Lokio/BufferedSource;
     .param p1, "regularRecord"    # Lokio/internal/EocdRecord;
     .annotation system Ldalvik/annotation/Throws;
@@ -3261,11 +3261,11 @@
     .local v11, "totalEntryCount":J
     cmp-long v3, v9, v11
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_37
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_37
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_37
 
     .line 313
     const-wide/16 v3, 0x8
@@ -3305,7 +3305,7 @@
 
     .line 311
     .end local v13    # "centralDirectoryOffset":J
-    :cond_0
+    :cond_37
     new-instance v3, Ljava/io/IOException;
 
     const-string v4, "unsupported zip: spanned"
@@ -3316,7 +3316,7 @@
 .end method
 
 .method public static final skipLocalHeader(Lokio/BufferedSource;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$skipLocalHeader"    # Lokio/BufferedSource;
 
     const-string v0, "<this>"

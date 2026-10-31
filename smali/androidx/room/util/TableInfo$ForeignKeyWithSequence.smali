@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>(IILjava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 6
     .param p1, "id"    # I
     .param p2, "sequence"    # I
     .param p3, "from"    # Ljava/lang/String;
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public compareTo(Landroidx/room/util/TableInfo$ForeignKeyWithSequence;)I
-    .locals 3
+    .registers 5
     .param p1, "other"    # Landroidx/room/util/TableInfo$ForeignKeyWithSequence;
 
     const-string v0, "other"
@@ -123,7 +123,7 @@
 
     .line 386
     .local v0, "idCmp":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 387
     iget v1, p0, Landroidx/room/util/TableInfo$ForeignKeyWithSequence;->sequence:I
@@ -132,19 +132,19 @@
 
     sub-int/2addr v1, v2
 
-    goto :goto_0
+    goto :goto_13
 
     .line 389
-    :cond_0
+    :cond_12
     move v1, v0
 
     .line 386
-    :goto_0
+    :goto_13
     return v1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 378
@@ -160,7 +160,7 @@
 .end method
 
 .method public final getFrom()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 381
     iget-object v0, p0, Landroidx/room/util/TableInfo$ForeignKeyWithSequence;->from:Ljava/lang/String;
@@ -169,7 +169,7 @@
 .end method
 
 .method public final getId()I
-    .locals 1
+    .registers 2
 
     .line 379
     iget v0, p0, Landroidx/room/util/TableInfo$ForeignKeyWithSequence;->id:I
@@ -178,7 +178,7 @@
 .end method
 
 .method public final getSequence()I
-    .locals 1
+    .registers 2
 
     .line 380
     iget v0, p0, Landroidx/room/util/TableInfo$ForeignKeyWithSequence;->sequence:I
@@ -187,7 +187,7 @@
 .end method
 
 .method public final getTo()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 382
     iget-object v0, p0, Landroidx/room/util/TableInfo$ForeignKeyWithSequence;->to:Ljava/lang/String;

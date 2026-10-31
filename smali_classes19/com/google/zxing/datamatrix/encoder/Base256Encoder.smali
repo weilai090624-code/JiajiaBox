@@ -8,7 +8,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 .end method
 
 .method private static randomize255State(CI)C
-    .locals 4
+    .registers 6
     .param p0, "ch"    # C
     .param p1, "codewordPosition"    # I
 
@@ -40,7 +40,7 @@
     .local v3, "tempVariable":I
     move v3, v2
 
-    if-gt v2, v1, :cond_0
+    if-gt v2, v1, :cond_f
 
     .line 69
     int-to-char v1, v3
@@ -48,7 +48,7 @@
     return v1
 
     .line 71
-    :cond_0
+    :cond_f
     add-int/lit16 v1, v3, -0x100
 
     int-to-char v1, v1
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public encode(Lcom/google/zxing/datamatrix/encoder/EncoderContext;)V
-    .locals 9
+    .registers 11
     .param p1, "context"    # Lcom/google/zxing/datamatrix/encoder/EncoderContext;
 
     .line 28
@@ -78,14 +78,14 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 30
-    :goto_0
+    :goto_b
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->hasMoreCharacters()Z
 
     move-result v0
 
     const/4 v3, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_37
 
     .line 31
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->getCurrentChar()C
@@ -123,22 +123,22 @@
 
     move-result v5
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_36
 
     .line 39
     invoke-virtual {p1, v2}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->signalEncoderChange(I)V
 
     .line 40
-    goto :goto_1
+    goto :goto_37
 
     .line 42
     .end local v0    # "c":C
-    :cond_0
-    goto :goto_0
+    :cond_36
+    goto :goto_b
 
     .line 43
-    :cond_1
-    :goto_1
+    :cond_37
+    :goto_37
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
 
     move-result v0
@@ -170,44 +170,44 @@
 
     sub-int/2addr v5, v4
 
-    if-lez v5, :cond_2
+    if-lez v5, :cond_52
 
     const/4 v5, 0x1
 
-    goto :goto_2
+    goto :goto_53
 
-    :cond_2
+    :cond_52
     const/4 v5, 0x0
 
     .line 48
     .local v5, "mustPad":Z
-    :goto_2
+    :goto_53
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->hasMoreCharacters()Z
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_5b
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_75
 
     .line 49
-    :cond_3
+    :cond_5b
     const/16 v6, 0xf9
 
-    if-gt v0, v6, :cond_4
+    if-gt v0, v6, :cond_64
 
     .line 50
     int-to-char v6, v0
 
     invoke-virtual {v1, v2, v6}, Ljava/lang/StringBuilder;->setCharAt(IC)V
 
-    goto :goto_3
+    goto :goto_75
 
     .line 51
-    :cond_4
+    :cond_64
     const/16 v7, 0x613
 
-    if-gt v0, v7, :cond_7
+    if-gt v0, v7, :cond_91
 
     .line 52
     div-int/lit16 v7, v0, 0xfa
@@ -226,8 +226,8 @@
     invoke-virtual {v1, v3, v2}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
 
     .line 59
-    :cond_5
-    :goto_3
+    :cond_75
+    :goto_75
     const/4 v2, 0x0
 
     .local v2, "i":I
@@ -236,8 +236,8 @@
     move-result v6
 
     .local v6, "c":I
-    :goto_4
-    if-ge v2, v6, :cond_6
+    :goto_7a
+    if-ge v2, v6, :cond_90
 
     .line 60
     nop
@@ -263,16 +263,16 @@
     .line 59
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4
+    goto :goto_7a
 
     .line 63
     .end local v2    # "i":I
     .end local v6    # "c":I
-    :cond_6
+    :cond_90
     return-void
 
     .line 55
-    :cond_7
+    :cond_91
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Message length not in valid ranges: "
@@ -291,7 +291,7 @@
 .end method
 
 .method public getEncodingMode()I
-    .locals 1
+    .registers 2
 
     .line 23
     const/4 v0, 0x5

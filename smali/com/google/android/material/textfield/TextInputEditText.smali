@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 59
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -97,7 +97,7 @@
 .end method
 
 .method private getAccessibilityNodeInfoText(Lcom/google/android/material/textfield/TextInputLayout;)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p1, "layout"    # Lcom/google/android/material/textfield/TextInputLayout;
 
     .line 207
@@ -131,21 +131,21 @@
     .local v3, "hasHint":Z
     const-string v4, ""
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1d
 
     invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     move-object v5, v4
 
     .line 214
     .local v5, "hint":Ljava/lang/String;
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_1e
+    if-eqz v2, :cond_4b
 
     .line 215
     new-instance v6, Ljava/lang/StringBuilder;
@@ -160,7 +160,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_42
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -180,7 +180,7 @@
 
     move-result-object v4
 
-    :cond_1
+    :cond_42
     invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -192,23 +192,23 @@
     return-object v4
 
     .line 216
-    :cond_2
+    :cond_4b
     invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_52
 
     .line 217
     return-object v5
 
     .line 219
-    :cond_3
+    :cond_52
     return-object v4
 .end method
 
 .method private getHintFromLayout()Ljava/lang/CharSequence;
-    .locals 2
+    .registers 3
 
     .line 137
     invoke-direct {p0}, Lcom/google/android/material/textfield/TextInputEditText;->getTextInputLayout()Lcom/google/android/material/textfield/TextInputLayout;
@@ -217,23 +217,23 @@
 
     .line 138
     .local v0, "layout":Lcom/google/android/material/textfield/TextInputLayout;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-virtual {v0}, Lcom/google/android/material/textfield/TextInputLayout;->getHint()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method private getTextInputLayout()Lcom/google/android/material/textfield/TextInputLayout;
-    .locals 2
+    .registers 3
 
     .line 125
     invoke-virtual {p0}, Lcom/google/android/material/textfield/TextInputEditText;->getParent()Landroid/view/ViewParent;
@@ -242,15 +242,15 @@
 
     .line 126
     .local v0, "parent":Landroid/view/ViewParent;
-    :goto_0
+    :goto_4
     instance-of v1, v0, Landroid/view/View;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_15
 
     .line 127
     instance-of v1, v0, Lcom/google/android/material/textfield/TextInputLayout;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 128
     move-object v1, v0
@@ -260,46 +260,46 @@
     return-object v1
 
     .line 130
-    :cond_0
+    :cond_10
     invoke-interface {v0}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_4
 
     .line 132
-    :cond_1
+    :cond_15
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method private shouldUseTextInputLayoutFocusedRect(Lcom/google/android/material/textfield/TextInputLayout;)Z
-    .locals 1
+    .registers 3
     .param p1, "textInputLayout"    # Lcom/google/android/material/textfield/TextInputLayout;
 
     .line 156
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     iget-boolean v0, p0, Lcom/google/android/material/textfield/TextInputEditText;->textInputLayoutFocusedRectEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 
 # virtual methods
 .method public getFocusedRect(Landroid/graphics/Rect;)V
-    .locals 2
+    .registers 4
     .param p1, "r"    # Landroid/graphics/Rect;
 
     .line 161
@@ -316,9 +316,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1a
 
     .line 164
     iget-object v1, p0, Lcom/google/android/material/textfield/TextInputEditText;->parentRect:Landroid/graphics/Rect;
@@ -333,12 +333,12 @@
     iput v1, p1, Landroid/graphics/Rect;->bottom:I
 
     .line 167
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public getGlobalVisibleRect(Landroid/graphics/Rect;Landroid/graphics/Point;)Z
-    .locals 2
+    .registers 5
     .param p1, "r"    # Landroid/graphics/Rect;
     .param p2, "globalOffset"    # Landroid/graphics/Point;
 
@@ -353,28 +353,28 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 173
     invoke-virtual {v0, p1, p2}, Lcom/google/android/material/textfield/TextInputLayout;->getGlobalVisibleRect(Landroid/graphics/Rect;Landroid/graphics/Point;)Z
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 174
-    :cond_0
+    :cond_f
     invoke-super {p0, p1, p2}, Landroidx/appcompat/widget/AppCompatEditText;->getGlobalVisibleRect(Landroid/graphics/Rect;Landroid/graphics/Point;)Z
 
     move-result v1
 
     .line 172
-    :goto_0
+    :goto_13
     return v1
 .end method
 
 .method public getHint()Ljava/lang/CharSequence;
-    .locals 2
+    .registers 3
 
     .line 104
     invoke-direct {p0}, Lcom/google/android/material/textfield/TextInputEditText;->getTextInputLayout()Lcom/google/android/material/textfield/TextInputLayout;
@@ -383,13 +383,13 @@
 
     .line 105
     .local v0, "layout":Lcom/google/android/material/textfield/TextInputLayout;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-virtual {v0}, Lcom/google/android/material/textfield/TextInputLayout;->isProvidingHint()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 106
     invoke-virtual {v0}, Lcom/google/android/material/textfield/TextInputLayout;->getHint()Ljava/lang/CharSequence;
@@ -399,7 +399,7 @@
     return-object v1
 
     .line 108
-    :cond_0
+    :cond_11
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatEditText;->getHint()Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -408,7 +408,7 @@
 .end method
 
 .method public isTextInputLayoutFocusedRectEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 152
     iget-boolean v0, p0, Lcom/google/android/material/textfield/TextInputEditText;->textInputLayoutFocusedRectEnabled:Z
@@ -417,7 +417,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 2
+    .registers 3
 
     .line 85
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatEditText;->onAttachedToWindow()V
@@ -429,28 +429,28 @@
 
     .line 91
     .local v0, "layout":Lcom/google/android/material/textfield/TextInputLayout;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 92
     invoke-virtual {v0}, Lcom/google/android/material/textfield/TextInputLayout;->isProvidingHint()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     .line 93
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatEditText;->getHint()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_20
 
     .line 94
     invoke-static {}, Lcom/google/android/material/internal/ManufacturerUtils;->isMeizuDevice()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     .line 95
     const-string v1, ""
@@ -458,12 +458,12 @@
     invoke-virtual {p0, v1}, Lcom/google/android/material/textfield/TextInputEditText;->setHint(Ljava/lang/CharSequence;)V
 
     .line 97
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public onCreateInputConnection(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
-    .locals 2
+    .registers 4
     .param p1, "outAttrs"    # Landroid/view/inputmethod/EditorInfo;
 
     .line 114
@@ -473,11 +473,11 @@
 
     .line 115
     .local v0, "ic":Landroid/view/inputmethod/InputConnection;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object v1, p1, Landroid/view/inputmethod/EditorInfo;->hintText:Ljava/lang/CharSequence;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 118
     invoke-direct {p0}, Lcom/google/android/material/textfield/TextInputEditText;->getHintFromLayout()Ljava/lang/CharSequence;
@@ -487,12 +487,12 @@
     iput-object v1, p1, Landroid/view/inputmethod/EditorInfo;->hintText:Ljava/lang/CharSequence;
 
     .line 120
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 3
+    .registers 5
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 195
@@ -509,9 +509,9 @@
 
     const/16 v2, 0x17
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_16
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 201
     invoke-direct {p0, v0}, Lcom/google/android/material/textfield/TextInputEditText;->getAccessibilityNodeInfoText(Lcom/google/android/material/textfield/TextInputLayout;)Ljava/lang/String;
@@ -521,12 +521,12 @@
     invoke-virtual {p1, v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setText(Ljava/lang/CharSequence;)V
 
     .line 203
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public requestRectangleOnScreen(Landroid/graphics/Rect;)Z
-    .locals 7
+    .registers 9
     .param p1, "rectangle"    # Landroid/graphics/Rect;
 
     .line 179
@@ -540,9 +540,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2a
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2a
 
     .line 181
     invoke-virtual {v0}, Lcom/google/android/material/textfield/TextInputLayout;->getHeight()I
@@ -582,7 +582,7 @@
 
     .line 189
     .end local v1    # "bottomOffset":I
-    :cond_0
+    :cond_2a
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatEditText;->requestRectangleOnScreen(Landroid/graphics/Rect;)Z
 
     move-result v1
@@ -591,7 +591,7 @@
 .end method
 
 .method public setTextInputLayoutFocusedRectEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "textInputLayoutFocusedRectEnabled"    # Z
 
     .line 145

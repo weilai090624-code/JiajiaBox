@@ -15,7 +15,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/Comparator;Ljava/util/function/Function;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 5
 
     iget-object v0, p0, Lj$/util/Comparator$$ExternalSyntheticLambda5;->f$0:Ljava/util/Comparator;
 

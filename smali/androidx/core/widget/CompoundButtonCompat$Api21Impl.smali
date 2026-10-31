@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 154
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getButtonTintList(Landroid/widget/CompoundButton;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
     .param p0, "compoundButton"    # Landroid/widget/CompoundButton;
 
     .line 165
@@ -38,7 +38,7 @@
 .end method
 
 .method static getButtonTintMode(Landroid/widget/CompoundButton;)Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
     .param p0, "compoundButton"    # Landroid/widget/CompoundButton;
 
     .line 175
@@ -50,7 +50,7 @@
 .end method
 
 .method static setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p0, "compoundButton"    # Landroid/widget/CompoundButton;
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method static setButtonTintMode(Landroid/widget/CompoundButton;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p0, "compoundButton"    # Landroid/widget/CompoundButton;
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -77,7 +77,7 @@
     .local p0, "this":Landroidx/camera/core/impl/utils/Present;, "Landroidx/camera/core/impl/utils/Present<TT;>;"
     instance-of v0, p1, Landroidx/camera/core/impl/utils/Present;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 72
     move-object v0, p1
@@ -98,14 +98,14 @@
 
     .line 75
     .end local v0    # "other":Landroidx/camera/core/impl/utils/Present;, "Landroidx/camera/core/impl/utils/Present<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -120,7 +120,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 80
     .local p0, "this":Landroidx/camera/core/impl/utils/Present;, "Landroidx/camera/core/impl/utils/Present<TT;>;"
@@ -138,7 +138,7 @@
 .end method
 
 .method public isPresent()Z
-    .locals 1
+    .registers 2
 
     .line 37
     .local p0, "this":Landroidx/camera/core/impl/utils/Present;, "Landroidx/camera/core/impl/utils/Present<TT;>;"
@@ -148,7 +148,7 @@
 .end method
 
 .method public or(Landroidx/camera/core/impl/utils/Optional;)Landroidx/camera/core/impl/utils/Optional;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -178,7 +178,7 @@
 .end method
 
 .method public or(Landroidx/core/util/Supplier;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -208,7 +208,7 @@
 .end method
 
 .method public or(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -238,7 +238,7 @@
 .end method
 
 .method public orNull()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -253,7 +253,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 85
     .local p0, "this":Landroidx/camera/core/impl/utils/Present;, "Landroidx/camera/core/impl/utils/Present<TT;>;"

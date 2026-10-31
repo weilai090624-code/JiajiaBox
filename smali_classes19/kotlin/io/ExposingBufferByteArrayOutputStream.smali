@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "size"    # I
 
     .line 104
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public final getBuffer()[B
-    .locals 2
+    .registers 3
 
     .line 105
     iget-object v0, p0, Lkotlin/io/ExposingBufferByteArrayOutputStream;->buf:[B

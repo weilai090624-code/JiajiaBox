@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/StandardTable$Row;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/google/common/collect/StandardTable$Row;
 
     .line 387
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 390
     .local p0, "this":Lcom/google/common/collect/StandardTable$Row$1;, "Lcom/google/common/collect/StandardTable$Row$1;"
@@ -65,7 +65,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 387
     .local p0, "this":Lcom/google/common/collect/StandardTable$Row$1;, "Lcom/google/common/collect/StandardTable$Row$1;"
@@ -77,7 +77,7 @@
 .end method
 
 .method public next()Ljava/util/Map$Entry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -106,7 +106,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 400
     .local p0, "this":Lcom/google/common/collect/StandardTable$Row$1;, "Lcom/google/common/collect/StandardTable$Row$1;"

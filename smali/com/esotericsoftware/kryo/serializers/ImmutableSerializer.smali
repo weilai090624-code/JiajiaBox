@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/ImmutableSerializer;, "Lcom/esotericsoftware/kryo/serializers/ImmutableSerializer<TT;>;"

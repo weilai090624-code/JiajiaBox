@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 .end method
 
 .method public lock()V
-    .locals 1
+    .registers 2
 
     .line 28
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingLock;->delegate()Ljava/util/concurrent/locks/Lock;
@@ -41,7 +41,7 @@
 .end method
 
 .method public lockInterruptibly()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -60,7 +60,7 @@
 .end method
 
 .method public newCondition()Ljava/util/concurrent/locks/Condition;
-    .locals 1
+    .registers 2
 
     .line 53
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingLock;->delegate()Ljava/util/concurrent/locks/Lock;
@@ -75,7 +75,7 @@
 .end method
 
 .method public tryLock()Z
-    .locals 1
+    .registers 2
 
     .line 38
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingLock;->delegate()Ljava/util/concurrent/locks/Lock;
@@ -90,7 +90,7 @@
 .end method
 
 .method public tryLock(JLjava/util/concurrent/TimeUnit;)Z
-    .locals 1
+    .registers 5
     .param p1, "time"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Throws;
@@ -112,7 +112,7 @@
 .end method
 
 .method public unlock()V
-    .locals 1
+    .registers 2
 
     .line 48
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingLock;->delegate()Ljava/util/concurrent/locks/Lock;

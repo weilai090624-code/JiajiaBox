@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 288
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/cache/CacheStrategy$Companion;-><init>()V
 
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public final isCacheable(Lokhttp3/Response;Lokhttp3/Request;)Z
-    .locals 4
+    .registers 7
     .param p1, "response"    # Lokhttp3/Response;
     .param p2, "request"    # Lokhttp3/Request;
 
@@ -79,13 +79,13 @@
 
     const/4 v1, 0x0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_54
 
     .line 323
     return v1
 
     .line 313
-    :sswitch_0
+    :sswitch_13
     const-string v0, "Expires"
 
     const/4 v2, 0x2
@@ -96,7 +96,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3d
 
     .line 314
     invoke-virtual {p1}, Lokhttp3/Response;->cacheControl()Lokhttp3/CacheControl;
@@ -109,7 +109,7 @@
 
     const/4 v2, -0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_3d
 
     .line 315
     invoke-virtual {p1}, Lokhttp3/Response;->cacheControl()Lokhttp3/CacheControl;
@@ -120,7 +120,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3d
 
     .line 316
     invoke-virtual {p1}, Lokhttp3/Response;->cacheControl()Lokhttp3/CacheControl;
@@ -131,14 +131,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3d
 
     .line 317
     return v1
 
     .line 328
-    :cond_0
-    :sswitch_1
+    :cond_3d
+    :sswitch_3d
     invoke-virtual {p1}, Lokhttp3/Response;->cacheControl()Lokhttp3/CacheControl;
 
     move-result-object v0
@@ -147,7 +147,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_52
 
     invoke-virtual {p2}, Lokhttp3/Request;->cacheControl()Lokhttp3/CacheControl;
 
@@ -157,29 +157,29 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_52
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_52
     return v1
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_54
     .sparse-switch
-        0xc8 -> :sswitch_1
-        0xcb -> :sswitch_1
-        0xcc -> :sswitch_1
-        0x12c -> :sswitch_1
-        0x12d -> :sswitch_1
-        0x12e -> :sswitch_0
-        0x133 -> :sswitch_0
-        0x134 -> :sswitch_1
-        0x194 -> :sswitch_1
-        0x195 -> :sswitch_1
-        0x19a -> :sswitch_1
-        0x19e -> :sswitch_1
-        0x1f5 -> :sswitch_1
+        0xc8 -> :sswitch_3d
+        0xcb -> :sswitch_3d
+        0xcc -> :sswitch_3d
+        0x12c -> :sswitch_3d
+        0x12d -> :sswitch_3d
+        0x12e -> :sswitch_13
+        0x133 -> :sswitch_13
+        0x134 -> :sswitch_3d
+        0x194 -> :sswitch_3d
+        0x195 -> :sswitch_3d
+        0x19a -> :sswitch_3d
+        0x19e -> :sswitch_3d
+        0x1f5 -> :sswitch_3d
     .end sparse-switch
 .end method

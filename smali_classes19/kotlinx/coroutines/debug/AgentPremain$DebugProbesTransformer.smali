@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/debug/AgentPremain$DebugProbesTransformer;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public transform(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;Ljava/security/ProtectionDomain;[B)[B
-    .locals 2
+    .registers 8
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .param p3, "classBeingRedefined"    # Ljava/lang/Class;
@@ -95,7 +95,7 @@
     .end annotation
 
     .line 46
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1c
 
     const-string v0, "kotlin/coroutines/jvm/internal/DebugProbesKt"
 
@@ -103,12 +103,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 56
-    :cond_0
+    :cond_b
     sget-object v0, Lkotlinx/coroutines/debug/internal/AgentInstallationType;->INSTANCE:Lkotlinx/coroutines/debug/internal/AgentInstallationType;
 
     const/4 v1, 0x1
@@ -129,8 +129,8 @@
     return-object v0
 
     .line 47
-    :cond_1
-    :goto_0
+    :cond_1c
+    :goto_1c
     const/4 v0, 0x0
 
     return-object v0

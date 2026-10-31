@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 807
     invoke-direct {p0}, Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method private setAppBarLayoutTransparent(Lcom/google/android/material/appbar/AppBarLayout;)V
-    .locals 2
+    .registers 4
     .param p1, "appBarLayout"    # Lcom/google/android/material/appbar/AppBarLayout;
 
     .line 826
@@ -65,30 +65,30 @@
 
     const/16 v1, 0x15
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     .line 832
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Lcom/google/android/material/appbar/AppBarLayout;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 834
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Lcom/google/android/material/appbar/AppBarLayout;->setTargetElevation(F)V
 
     .line 836
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 
 # virtual methods
 .method public onDependentViewChanged(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
-    .locals 2
+    .registers 6
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "dependency"    # Landroid/view/View;
@@ -102,11 +102,11 @@
     .local v0, "changed":Z
     iget-boolean v1, p0, Lcom/google/android/material/search/SearchBar$ScrollingViewBehavior;->initialized:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     instance-of v1, p3, Lcom/google/android/material/appbar/AppBarLayout;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 818
     const/4 v1, 0x1
@@ -124,12 +124,12 @@
 
     .line 822
     .end local v1    # "appBarLayout":Lcom/google/android/material/appbar/AppBarLayout;
-    :cond_0
+    :cond_15
     return v0
 .end method
 
 .method protected shouldHeaderOverlapScrollingChild()Z
-    .locals 1
+    .registers 2
 
     .line 840
     const/4 v0, 0x1

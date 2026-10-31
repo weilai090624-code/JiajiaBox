@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 169
     new-instance v0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean$1;
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;-><init>()V
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public canMapping()Z
-    .locals 2
+    .registers 3
 
     .line 51
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocol:Ljava/lang/Integer;
@@ -98,19 +98,19 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_b
     return v1
 .end method
 
 .method public canTCPing()Z
-    .locals 1
+    .registers 2
 
     .line 160
     const/4 v0, 0x0
@@ -119,7 +119,7 @@
 .end method
 
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->clone()Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
@@ -130,7 +130,7 @@
 .end method
 
 .method public clone()Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
-    .locals 2
+    .registers 3
 
     .line 166
     new-instance v0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
@@ -151,7 +151,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -167,7 +167,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 4
+    .registers 6
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -192,7 +192,7 @@
 
     const/4 v2, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_16
 
     .line 114
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
@@ -205,10 +205,10 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocolVersion:Ljava/lang/Integer;
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 116
-    :cond_0
+    :cond_16
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -216,7 +216,7 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocolVersion:Ljava/lang/Integer;
 
     .line 118
-    :goto_0
+    :goto_1c
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
 
     move-result v1
@@ -237,7 +237,7 @@
     .line 120
     const/4 v1, 0x3
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_39
 
     .line 121
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
@@ -251,7 +251,7 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocol:Ljava/lang/Integer;
 
     .line 123
-    :cond_1
+    :cond_39
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -268,7 +268,7 @@
     .line 125
     const/4 v1, 0x2
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_4e
 
     .line 126
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
@@ -278,7 +278,7 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->alpn:Ljava/lang/String;
 
     .line 128
-    :cond_2
+    :cond_4e
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
 
     move-result v1
@@ -312,7 +312,7 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->allowInsecure:Ljava/lang/Boolean;
 
     .line 131
-    if-lt v0, v2, :cond_3
+    if-lt v0, v2, :cond_95
 
     .line 132
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
@@ -346,7 +346,7 @@
     .line 135
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_95
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readBoolean()Z
 
@@ -359,10 +359,10 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->disableMtuDiscovery:Ljava/lang/Boolean;
 
     .line 137
-    :cond_3
+    :cond_95
     const/4 v1, 0x5
 
-    if-lt v0, v1, :cond_4
+    if-lt v0, v1, :cond_a2
 
     .line 138
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
@@ -376,10 +376,10 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->hopInterval:Ljava/lang/Integer;
 
     .line 140
-    :cond_4
+    :cond_a2
     const/4 v1, 0x6
 
-    if-lt v0, v1, :cond_5
+    if-lt v0, v1, :cond_ac
 
     .line 141
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
@@ -388,17 +388,17 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverPorts:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_d3
 
     .line 144
-    :cond_5
+    :cond_ac
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverAddress:Ljava/lang/String;
 
     invoke-static {v1}, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaFmtKt;->isMultiPort(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_cb
 
     .line 145
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverAddress:Ljava/lang/String;
@@ -424,10 +424,10 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverAddress:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_d3
 
     .line 148
-    :cond_6
+    :cond_cb
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverPort:Ljava/lang/Integer;
 
     invoke-virtual {v1}, Ljava/lang/Integer;->toString()Ljava/lang/String;
@@ -437,12 +437,12 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverPorts:Ljava/lang/String;
 
     .line 151
-    :goto_1
+    :goto_d3
     return-void
 .end method
 
 .method public displayAddress()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 155
     new-instance v0, Ljava/lang/StringBuilder;
@@ -479,7 +479,7 @@
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 4
+    .registers 5
 
     .line 56
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->initializeDefaultValues()V
@@ -487,7 +487,7 @@
     .line 57
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocolVersion:Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x2
 
@@ -498,12 +498,12 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocolVersion:Ljava/lang/Integer;
 
     .line 59
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayloadType:Ljava/lang/Integer;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_19
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -512,20 +512,20 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayloadType:Ljava/lang/Integer;
 
     .line 60
-    :cond_1
+    :cond_19
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayload:Ljava/lang/String;
 
     const-string v2, ""
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_21
 
     iput-object v2, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayload:Ljava/lang/String;
 
     .line 61
-    :cond_2
+    :cond_21
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocol:Ljava/lang/Integer;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2b
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -534,42 +534,42 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocol:Ljava/lang/Integer;
 
     .line 62
-    :cond_3
+    :cond_2b
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->obfuscation:Ljava/lang/String;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_31
 
     iput-object v2, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->obfuscation:Ljava/lang/String;
 
     .line 63
-    :cond_4
+    :cond_31
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_37
 
     iput-object v2, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
 
     .line 64
-    :cond_5
+    :cond_37
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->alpn:Ljava/lang/String;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_3d
 
     iput-object v2, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->alpn:Ljava/lang/String;
 
     .line 65
-    :cond_6
+    :cond_3d
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->caText:Ljava/lang/String;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_43
 
     iput-object v2, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->caText:Ljava/lang/String;
 
     .line 66
-    :cond_7
+    :cond_43
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->allowInsecure:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_4d
 
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -578,7 +578,7 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->allowInsecure:Ljava/lang/Boolean;
 
     .line 68
-    :cond_8
+    :cond_4d
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocolVersion:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -589,12 +589,12 @@
 
     const/16 v3, 0xa
 
-    if-ne v0, v2, :cond_a
+    if-ne v0, v2, :cond_6f
 
     .line 69
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->uploadMbps:Ljava/lang/Integer;
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_62
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -603,10 +603,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->uploadMbps:Ljava/lang/Integer;
 
     .line 70
-    :cond_9
+    :cond_62
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->downloadMbps:Ljava/lang/Integer;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_83
 
     const/16 v0, 0x32
 
@@ -616,13 +616,13 @@
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->downloadMbps:Ljava/lang/Integer;
 
-    goto :goto_0
+    goto :goto_83
 
     .line 72
-    :cond_a
+    :cond_6f
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->uploadMbps:Ljava/lang/Integer;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_79
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -631,10 +631,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->uploadMbps:Ljava/lang/Integer;
 
     .line 73
-    :cond_b
+    :cond_79
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->downloadMbps:Ljava/lang/Integer;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_83
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -643,11 +643,11 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->downloadMbps:Ljava/lang/Integer;
 
     .line 76
-    :cond_c
-    :goto_0
+    :cond_83
+    :goto_83
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->streamReceiveWindow:Ljava/lang/Integer;
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_8d
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -656,10 +656,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->streamReceiveWindow:Ljava/lang/Integer;
 
     .line 77
-    :cond_d
+    :cond_8d
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->connectionReceiveWindow:Ljava/lang/Integer;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_97
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -668,10 +668,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->connectionReceiveWindow:Ljava/lang/Integer;
 
     .line 78
-    :cond_e
+    :cond_97
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->disableMtuDiscovery:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_a1
 
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -680,10 +680,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->disableMtuDiscovery:Ljava/lang/Boolean;
 
     .line 79
-    :cond_f
+    :cond_a1
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->hopInterval:Ljava/lang/Integer;
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_ab
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -692,22 +692,22 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->hopInterval:Ljava/lang/Integer;
 
     .line 80
-    :cond_10
+    :cond_ab
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverPorts:Ljava/lang/String;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_b3
 
     const-string v0, "443"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverPorts:Ljava/lang/String;
 
     .line 81
-    :cond_11
+    :cond_b3
     return-void
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

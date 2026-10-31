@@ -77,7 +77,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lkotlin/ranges/IntRange$Companion;
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 1
+    .registers 4
     .param p1, "start"    # I
     .param p2, "endInclusive"    # I
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public static final synthetic access$getEMPTY$cp()Lkotlin/ranges/IntRange;
-    .locals 1
+    .registers 1
 
     .line 53
     sget-object v0, Lkotlin/ranges/IntRange;->EMPTY:Lkotlin/ranges/IntRange;
@@ -124,7 +124,7 @@
 .end method
 
 .method public static synthetic getEndExclusive$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Can throw an exception when it\'s impossible to represent the value with Int type, for example, when the range includes MAX_VALUE. It\'s recommended to use \'endInclusive\' property that doesn\'t throw."
     .end annotation
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public contains(I)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # I
 
     .line 65
@@ -143,27 +143,27 @@
 
     move-result v0
 
-    if-gt v0, p1, :cond_0
+    if-gt v0, p1, :cond_e
 
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getLast()I
 
     move-result v0
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public bridge synthetic contains(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Comparable;
 
     .line 53
@@ -183,19 +183,19 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 75
     instance-of v0, p1, Lkotlin/ranges/IntRange;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     move-object v0, p1
 
@@ -205,10 +205,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2d
 
     .line 76
-    :cond_0
+    :cond_13
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getFirst()I
 
     move-result v0
@@ -221,7 +221,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_2f
 
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getLast()I
 
@@ -235,22 +235,22 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_2f
 
-    :cond_1
+    :cond_2d
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_2
+    :cond_2f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_30
     return v0
 .end method
 
 .method public bridge synthetic getEndExclusive()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 53
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getEndExclusive()Ljava/lang/Integer;
@@ -263,7 +263,7 @@
 .end method
 
 .method public getEndExclusive()Ljava/lang/Integer;
-    .locals 2
+    .registers 3
 
     .line 61
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getLast()I
@@ -272,7 +272,7 @@
 
     const v1, 0x7fffffff
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_14
 
     .line 62
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getLast()I
@@ -288,7 +288,7 @@
     return-object v0
 
     .line 61
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot return the exclusive upper bound of a range that includes MAX_VALUE."
@@ -303,7 +303,7 @@
 .end method
 
 .method public bridge synthetic getEndInclusive()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 53
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getEndInclusive()Ljava/lang/Integer;
@@ -316,7 +316,7 @@
 .end method
 
 .method public getEndInclusive()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 55
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getLast()I
@@ -331,7 +331,7 @@
 .end method
 
 .method public bridge synthetic getStart()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 53
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getStart()Ljava/lang/Integer;
@@ -344,7 +344,7 @@
 .end method
 
 .method public getStart()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 54
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getFirst()I
@@ -359,20 +359,20 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 79
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getFirst()I
 
     move-result v0
@@ -385,12 +385,12 @@
 
     add-int/2addr v0, v1
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 2
+    .registers 3
 
     .line 72
     invoke-virtual {p0}, Lkotlin/ranges/IntRange;->getFirst()I
@@ -401,21 +401,21 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 81
     new-instance v0, Ljava/lang/StringBuilder;

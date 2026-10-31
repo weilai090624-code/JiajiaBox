@@ -64,7 +64,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/material/datepicker/DateSelector;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -117,7 +117,7 @@
 .end method
 
 .method private createDefaultOpenAt()Lcom/google/android/material/datepicker/Month;
-    .locals 2
+    .registers 3
 
     .line 848
     .local p0, "this":Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;, "Lcom/google/android/material/datepicker/MaterialDatePicker$Builder<TS;>;"
@@ -131,7 +131,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2d
 
     .line 850
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;->dateSelector:Lcom/google/android/material/datepicker/DateSelector;
@@ -166,14 +166,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2d
 
     .line 853
     return-object v0
 
     .line 857
     .end local v0    # "firstSelectedMonth":Lcom/google/android/material/datepicker/Month;
-    :cond_0
+    :cond_2d
     invoke-static {}, Lcom/google/android/material/datepicker/Month;->current()Lcom/google/android/material/datepicker/Month;
 
     move-result-object v0
@@ -186,14 +186,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3b
 
     .line 859
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_41
 
-    :cond_1
+    :cond_3b
     iget-object v1, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;->calendarConstraints:Lcom/google/android/material/datepicker/CalendarConstraints;
 
     invoke-virtual {v1}, Lcom/google/android/material/datepicker/CalendarConstraints;->getStart()Lcom/google/android/material/datepicker/Month;
@@ -201,12 +201,12 @@
     move-result-object v1
 
     .line 858
-    :goto_0
+    :goto_41
     return-object v1
 .end method
 
 .method public static customDatePicker(Lcom/google/android/material/datepicker/DateSelector;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -229,7 +229,7 @@
 .end method
 
 .method public static datePicker()Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -252,7 +252,7 @@
 .end method
 
 .method public static dateRangePicker()Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -277,7 +277,7 @@
 .end method
 
 .method private static monthInValidRange(Lcom/google/android/material/datepicker/Month;Lcom/google/android/material/datepicker/CalendarConstraints;)Z
-    .locals 1
+    .registers 3
     .param p0, "month"    # Lcom/google/android/material/datepicker/Month;
     .param p1, "constraints"    # Lcom/google/android/material/datepicker/CalendarConstraints;
 
@@ -290,7 +290,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_16
 
     .line 864
     invoke-virtual {p1}, Lcom/google/android/material/datepicker/CalendarConstraints;->getEnd()Lcom/google/android/material/datepicker/Month;
@@ -301,24 +301,24 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     .line 863
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 
 # virtual methods
 .method public build()Lcom/google/android/material/datepicker/MaterialDatePicker;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -331,7 +331,7 @@
     .local p0, "this":Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;, "Lcom/google/android/material/datepicker/MaterialDatePicker$Builder<TS;>;"
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;->calendarConstraints:Lcom/google/android/material/datepicker/CalendarConstraints;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 830
     new-instance v0, Lcom/google/android/material/datepicker/CalendarConstraints$Builder;
@@ -345,10 +345,10 @@
     iput-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;->calendarConstraints:Lcom/google/android/material/datepicker/CalendarConstraints;
 
     .line 832
-    :cond_0
+    :cond_f
     iget v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;->titleTextResId:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     .line 833
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;->dateSelector:Lcom/google/android/material/datepicker/DateSelector;
@@ -360,10 +360,10 @@
     iput v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;->titleTextResId:I
 
     .line 836
-    :cond_1
+    :cond_1b
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;->selection:Ljava/lang/Object;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
     .line 837
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;->dateSelector:Lcom/google/android/material/datepicker/DateSelector;
@@ -373,14 +373,14 @@
     invoke-interface {v0, v1}, Lcom/google/android/material/datepicker/DateSelector;->setSelection(Ljava/lang/Object;)V
 
     .line 840
-    :cond_2
+    :cond_26
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;->calendarConstraints:Lcom/google/android/material/datepicker/CalendarConstraints;
 
     invoke-virtual {v0}, Lcom/google/android/material/datepicker/CalendarConstraints;->getOpenAt()Lcom/google/android/material/datepicker/Month;
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_37
 
     .line 841
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;->calendarConstraints:Lcom/google/android/material/datepicker/CalendarConstraints;
@@ -392,7 +392,7 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/datepicker/CalendarConstraints;->setOpenAt(Lcom/google/android/material/datepicker/Month;)V
 
     .line 844
-    :cond_3
+    :cond_37
     invoke-static {p0}, Lcom/google/android/material/datepicker/MaterialDatePicker;->newInstance(Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;)Lcom/google/android/material/datepicker/MaterialDatePicker;
 
     move-result-object v0
@@ -401,7 +401,7 @@
 .end method
 
 .method public setCalendarConstraints(Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 0
+    .registers 2
     .param p1, "bounds"    # Lcom/google/android/material/datepicker/CalendarConstraints;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -422,7 +422,7 @@
 .end method
 
 .method public setDayViewDecorator(Lcom/google/android/material/datepicker/DayViewDecorator;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 0
+    .registers 2
     .param p1, "dayViewDecorator"    # Lcom/google/android/material/datepicker/DayViewDecorator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -443,7 +443,7 @@
 .end method
 
 .method public setInputMode(I)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 0
+    .registers 2
     .param p1, "inputMode"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -462,7 +462,7 @@
 .end method
 
 .method public setNegativeButtonText(I)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 1
+    .registers 3
     .param p1, "textId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -486,7 +486,7 @@
 .end method
 
 .method public setNegativeButtonText(Ljava/lang/CharSequence;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -512,7 +512,7 @@
 .end method
 
 .method public setPositiveButtonText(I)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 1
+    .registers 3
     .param p1, "textId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -536,7 +536,7 @@
 .end method
 
 .method public setPositiveButtonText(Ljava/lang/CharSequence;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -562,7 +562,7 @@
 .end method
 
 .method public setSelection(Ljava/lang/Object;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TS;)",
@@ -581,7 +581,7 @@
 .end method
 
 .method public setTextInputFormat(Ljava/text/SimpleDateFormat;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 1
+    .registers 3
     .param p1, "format"    # Ljava/text/SimpleDateFormat;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -604,7 +604,7 @@
 .end method
 
 .method public setTheme(I)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 0
+    .registers 2
     .param p1, "themeResId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -623,7 +623,7 @@
 .end method
 
 .method public setTitleText(I)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 1
+    .registers 3
     .param p1, "titleTextResId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -647,7 +647,7 @@
 .end method
 
 .method public setTitleText(Ljava/lang/CharSequence;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;
-    .locals 1
+    .registers 3
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {

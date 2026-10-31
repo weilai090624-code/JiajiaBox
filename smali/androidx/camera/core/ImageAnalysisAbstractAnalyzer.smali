@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method analyzeImage(Landroidx/camera/core/ImageProxy;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 4
+    .registers 6
     .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -86,7 +86,7 @@
     monitor-enter v0
 
     .line 104
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;->mUserExecutor:Ljava/util/concurrent/Executor;
 
     .line 105
@@ -96,13 +96,13 @@
     .line 106
     .local v2, "analyzer":Landroidx/camera/core/ImageAnalysis$Analyzer;
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_3 .. :try_end_8} :catchall_22
 
     .line 110
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     .line 112
     new-instance v0, Landroidx/camera/core/ImageAnalysisAbstractAnalyzer$$ExternalSyntheticLambda1;
@@ -114,11 +114,11 @@
     move-result-object v0
 
     .local v0, "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Void;>;"
-    goto :goto_0
+    goto :goto_21
 
     .line 131
     .end local v0    # "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Void;>;"
-    :cond_0
+    :cond_16
     new-instance v0, Landroidx/core/os/OperationCanceledException;
 
     const-string v3, "No analyzer or executor currently set."
@@ -131,26 +131,26 @@
 
     .line 135
     .restart local v0    # "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Void;>;"
-    :goto_0
+    :goto_21
     return-object v0
 
     .line 106
     .end local v0    # "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Void;>;"
     .end local v1    # "executor":Ljava/util/concurrent/Executor;
     .end local v2    # "analyzer":Landroidx/camera/core/ImageAnalysis$Analyzer;
-    :catchall_0
+    :catchall_22
     move-exception v1
 
-    :try_start_1
+    :try_start_23
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_24
+    .catchall {:try_start_23 .. :try_end_24} :catchall_22
 
     throw v1
 .end method
 
 .method attach()V
-    .locals 1
+    .registers 2
 
     .line 157
     const/4 v0, 0x1
@@ -165,7 +165,7 @@
 .end method
 
 .method detach()V
-    .locals 1
+    .registers 2
 
     .line 164
     const/4 v0, 0x0
@@ -180,7 +180,7 @@
 .end method
 
 .method synthetic lambda$analyzeImage$0$androidx-camera-core-ImageAnalysisAbstractAnalyzer(Landroidx/camera/core/ImageProxy;Landroidx/camera/core/ImageAnalysis$Analyzer;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
-    .locals 4
+    .registers 8
     .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
     .param p2, "analyzer"    # Landroidx/camera/core/ImageAnalysis$Analyzer;
     .param p3, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -188,7 +188,7 @@
     .line 115
     iget-boolean v0, p0, Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;->mIsAttached:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 116
     nop
@@ -233,10 +233,10 @@
 
     .line 123
     .end local v0    # "imageInfo":Landroidx/camera/core/ImageInfo;
-    goto :goto_0
+    goto :goto_32
 
     .line 124
-    :cond_0
+    :cond_28
     new-instance v0, Landroidx/core/os/OperationCanceledException;
 
     const-string v1, "ImageAnalysis is detached"
@@ -246,12 +246,12 @@
     invoke-virtual {p3, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
     .line 127
-    :goto_0
+    :goto_32
     return-void
 .end method
 
 .method synthetic lambda$analyzeImage$1$androidx-camera-core-ImageAnalysisAbstractAnalyzer(Ljava/util/concurrent/Executor;Landroidx/camera/core/ImageProxy;Landroidx/camera/core/ImageAnalysis$Analyzer;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 1
+    .registers 6
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "imageProxy"    # Landroidx/camera/core/ImageProxy;
     .param p3, "analyzer"    # Landroidx/camera/core/ImageAnalysis$Analyzer;
@@ -276,7 +276,7 @@
 .end method
 
 .method public onImageAvailable(Landroidx/camera/core/impl/ImageReaderProxy;)V
-    .locals 3
+    .registers 5
     .param p1, "imageReaderProxy"    # Landroidx/camera/core/impl/ImageReaderProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -295,20 +295,20 @@
 
     .line 59
     .local v0, "imageProxy":Landroidx/camera/core/ImageProxy;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 60
     invoke-virtual {p0, v0}, Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;->onValidImageAvailable(Landroidx/camera/core/ImageProxy;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_9} :catch_a
 
     .line 69
     .end local v0    # "imageProxy":Landroidx/camera/core/ImageProxy;
-    :cond_0
-    goto :goto_0
+    :cond_9
+    goto :goto_12
 
     .line 62
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 68
@@ -321,7 +321,7 @@
 
     .line 70
     .end local v0    # "e":Ljava/lang/IllegalStateException;
-    :goto_0
+    :goto_12
     return-void
 .end method
 
@@ -337,7 +337,7 @@
 .end method
 
 .method setAnalyzer(Ljava/util/concurrent/Executor;Landroidx/camera/core/ImageAnalysis$Analyzer;)V
-    .locals 2
+    .registers 5
     .param p1, "userExecutor"    # Ljava/util/concurrent/Executor;
     .param p2, "subscribedAnalyzer"    # Landroidx/camera/core/ImageAnalysis$Analyzer;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -357,14 +357,14 @@
     monitor-enter v0
 
     .line 145
-    if-nez p2, :cond_0
+    if-nez p2, :cond_8
 
     .line 146
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;->clearCache()V
 
     .line 148
-    :cond_0
+    :cond_8
     iput-object p2, p0, Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;->mSubscribedAnalyzer:Landroidx/camera/core/ImageAnalysis$Analyzer;
 
     .line 149
@@ -377,18 +377,18 @@
     return-void
 
     .line 150
-    :catchall_0
+    :catchall_e
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_5 .. :try_end_10} :catchall_e
 
     throw v1
 .end method
 
 .method setRelativeRotation(I)V
-    .locals 0
+    .registers 2
     .param p1, "relativeRotation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

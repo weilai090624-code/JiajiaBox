@@ -5,11 +5,11 @@
 
 # direct methods
 .method public static synthetic spliterator(Ljava/util/SortedSet;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     instance-of v0, p0, Lj$/util/SortedSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/util/SortedSet;
 
@@ -19,7 +19,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     invoke-static {p0}, Lj$/util/SortedSet$-CC;->$default$spliterator(Ljava/util/SortedSet;)Lj$/util/Spliterator;
 
     move-result-object p0

@@ -55,7 +55,7 @@
 
 # direct methods
 .method public static final collectRecursively(Lkotlin/sequences/SequenceScope;Lokio/FileSystem;Lkotlin/collections/ArrayDeque;Lokio/Path;ZZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 15
+    .registers 22
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,7 +81,7 @@
 
     instance-of v1, v0, Lokio/internal/_FileSystemKt$collectRecursively$1;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     move-object v1, v0
 
@@ -93,7 +93,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     iget v0, v1, Lokio/internal/_FileSystemKt$collectRecursively$1;->label:I
 
@@ -101,14 +101,14 @@
 
     iput v0, v1, Lokio/internal/_FileSystemKt$collectRecursively$1;->label:I
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_16
     new-instance v1, Lokio/internal/_FileSystemKt$collectRecursively$1;
 
     invoke-direct {v1, v0}, Lokio/internal/_FileSystemKt$collectRecursively$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_1b
     move-object v0, v1
 
     .local v1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -124,7 +124,7 @@
 
     const/4 v4, 0x1
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_142
 
     .line 144
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -140,12 +140,12 @@
     .line 104
     .restart local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v2    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_30
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_b
+    goto/16 :goto_13d
 
-    :pswitch_1
+    :pswitch_35
     iget-boolean v3, v1, Lokio/internal/_FileSystemKt$collectRecursively$1;->Z$1:Z
 
     .local v3, "postorder":Z
@@ -176,27 +176,27 @@
     check-cast v10, Lkotlin/sequences/SequenceScope;
 
     .local v10, "$this$collectRecursively":Lkotlin/sequences/SequenceScope;
-    :try_start_0
+    :try_start_4d
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_50
+    .catchall {:try_start_4d .. :try_end_50} :catchall_52
 
-    goto/16 :goto_8
+    goto/16 :goto_116
 
     .line 136
     .end local v5    # "followSymlinks":Z
     .end local v9    # "fileSystem":Lokio/FileSystem;
-    :catchall_0
+    :catchall_52
     move-exception v0
 
-    goto/16 :goto_9
+    goto/16 :goto_11d
 
     .line 104
     .end local v3    # "postorder":Z
     .end local v7    # "path":Lokio/Path;
     .end local v8    # "stack":Lkotlin/collections/ArrayDeque;
     .end local v10    # "$this$collectRecursively":Lkotlin/sequences/SequenceScope;
-    :pswitch_2
+    :pswitch_55
     iget-boolean v3, v1, Lokio/internal/_FileSystemKt$collectRecursively$1;->Z$1:Z
 
     .restart local v3    # "postorder":Z
@@ -225,7 +225,7 @@
     .local v9, "$this$collectRecursively":Lkotlin/sequences/SequenceScope;
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_92
 
     .end local v3    # "postorder":Z
     .end local v5    # "followSymlinks":Z
@@ -233,7 +233,7 @@
     .end local v7    # "stack":Lkotlin/collections/ArrayDeque;
     .end local v8    # "fileSystem":Lokio/FileSystem;
     .end local v9    # "$this$collectRecursively":Lkotlin/sequences/SequenceScope;
-    :pswitch_3
+    :pswitch_6d
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v9, p0
@@ -255,7 +255,7 @@
 
     .line 112
     .restart local v3    # "postorder":Z
-    if-nez v3, :cond_2
+    if-nez v3, :cond_97
 
     .line 113
     iput-object v9, v1, Lokio/internal/_FileSystemKt$collectRecursively$1;->L$0:Ljava/lang/Object;
@@ -276,7 +276,7 @@
 
     move-result-object v10
 
-    if-ne v10, v0, :cond_1
+    if-ne v10, v0, :cond_92
 
     .line 104
     .end local v3    # "postorder":Z
@@ -285,7 +285,7 @@
     .end local v7    # "stack":Lkotlin/collections/ArrayDeque;
     .end local v8    # "fileSystem":Lokio/FileSystem;
     .end local v9    # "$this$collectRecursively":Lkotlin/sequences/SequenceScope;
-    :goto_1
+    :goto_91
     return-object v0
 
     .line 116
@@ -295,8 +295,8 @@
     .restart local v7    # "stack":Lkotlin/collections/ArrayDeque;
     .restart local v8    # "fileSystem":Lokio/FileSystem;
     .restart local v9    # "$this$collectRecursively":Lkotlin/sequences/SequenceScope;
-    :cond_1
-    :goto_2
+    :cond_92
+    :goto_92
     move-object v10, v9
 
     move-object v14, v7
@@ -305,10 +305,10 @@
 
     move-object v6, v14
 
-    goto :goto_3
+    goto :goto_9b
 
     .line 112
-    :cond_2
+    :cond_97
     move-object v10, v9
 
     move-object v14, v7
@@ -322,12 +322,12 @@
     .local v6, "stack":Lkotlin/collections/ArrayDeque;
     .local v7, "path":Lokio/Path;
     .restart local v10    # "$this$collectRecursively":Lkotlin/sequences/SequenceScope;
-    :goto_3
+    :goto_9b
     invoke-virtual {v8, v7}, Lokio/FileSystem;->listOrNull(Lokio/Path;)Ljava/util/List;
 
     move-result-object v9
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_a5
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -335,7 +335,7 @@
 
     .line 117
     .local v9, "children":Ljava/util/List;
-    :cond_3
+    :cond_a5
     move-object v11, v9
 
     check-cast v11, Ljava/util/Collection;
@@ -344,7 +344,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_c
+    if-nez v11, :cond_126
 
     .line 119
     move-object v11, v7
@@ -355,21 +355,21 @@
 
     .line 121
     .local v12, "symlinkCount":I
-    :goto_4
+    :goto_b0
     nop
 
     .line 122
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_c6
 
     invoke-virtual {v6, v11}, Lkotlin/collections/ArrayDeque;->contains(Ljava/lang/Object;)Z
 
     move-result v13
 
-    if-nez v13, :cond_4
+    if-nez v13, :cond_ba
 
-    goto :goto_5
+    goto :goto_c6
 
-    :cond_4
+    :cond_ba
     new-instance v0, Ljava/io/IOException;
 
     const-string v4, "symlink cycle at "
@@ -383,22 +383,22 @@
     throw v0
 
     .line 123
-    :cond_5
-    :goto_5
+    :cond_c6
+    :goto_c6
     invoke-static {v8, v11}, Lokio/internal/_FileSystemKt;->symlinkTarget(Lokio/FileSystem;Lokio/Path;)Lokio/Path;
 
     move-result-object v13
 
-    if-nez v13, :cond_b
+    if-nez v13, :cond_121
 
     .line 128
-    if-nez v5, :cond_6
+    if-nez v5, :cond_d0
 
-    if-nez v12, :cond_c
+    if-nez v12, :cond_126
 
     .line 129
     .end local v12    # "symlinkCount":I
-    :cond_6
+    :cond_d0
     invoke-virtual {v6, v11}, Lkotlin/collections/ArrayDeque;->addLast(Ljava/lang/Object;)V
 
     .line 130
@@ -406,12 +406,12 @@
     nop
 
     .line 131
-    :try_start_1
+    :try_start_d4
     invoke-interface {v9}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v11
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_d8
+    .catchall {:try_start_d4 .. :try_end_d8} :catchall_11b
 
     move-object v9, v8
 
@@ -422,13 +422,13 @@
     .end local v6    # "stack":Lkotlin/collections/ArrayDeque;
     .local v8, "stack":Lkotlin/collections/ArrayDeque;
     .local v9, "fileSystem":Lokio/FileSystem;
-    :goto_6
-    :try_start_2
+    :goto_db
+    :try_start_db
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_a
+    if-eqz v11, :cond_117
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -442,22 +442,22 @@
     .local p3, "child":Lokio/Path;
     const/4 v11, 0x0
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_ee
 
     const/4 v12, 0x1
 
-    goto :goto_7
+    goto :goto_ef
 
-    :cond_7
+    :cond_ee
     const/4 v12, 0x0
 
     .end local p3    # "child":Lokio/Path;
-    :goto_7
-    if-eqz v3, :cond_8
+    :goto_ef
+    if-eqz v3, :cond_f2
 
     const/4 v11, 0x1
 
-    :cond_8
+    :cond_f2
     iput-object v10, v1, Lokio/internal/_FileSystemKt$collectRecursively$1;->L$0:Ljava/lang/Object;
 
     iput-object v9, v1, Lokio/internal/_FileSystemKt$collectRecursively$1;->L$1:Ljava/lang/Object;
@@ -491,10 +491,10 @@
     invoke-static/range {p0 .. p6}, Lokio/internal/_FileSystemKt;->collectRecursively(Lkotlin/sequences/SequenceScope;Lokio/FileSystem;Lkotlin/collections/ArrayDeque;Lokio/Path;ZZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v11
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_112
+    .catchall {:try_start_db .. :try_end_112} :catchall_52
 
-    if-ne v11, v0, :cond_9
+    if-ne v11, v0, :cond_116
 
     .end local v3    # "postorder":Z
     .end local v5    # "followSymlinks":Z
@@ -502,7 +502,7 @@
     .end local v8    # "stack":Lkotlin/collections/ArrayDeque;
     .end local v9    # "fileSystem":Lokio/FileSystem;
     .end local v10    # "$this$collectRecursively":Lkotlin/sequences/SequenceScope;
-    goto/16 :goto_1
+    goto/16 :goto_91
 
     .restart local v3    # "postorder":Z
     .restart local v5    # "followSymlinks":Z
@@ -510,22 +510,22 @@
     .restart local v8    # "stack":Lkotlin/collections/ArrayDeque;
     .restart local v9    # "fileSystem":Lokio/FileSystem;
     .restart local v10    # "$this$collectRecursively":Lkotlin/sequences/SequenceScope;
-    :cond_9
-    :goto_8
-    goto :goto_6
+    :cond_116
+    :goto_116
+    goto :goto_db
 
     .line 135
     .end local v5    # "followSymlinks":Z
     .end local v9    # "fileSystem":Lokio/FileSystem;
-    :cond_a
+    :cond_117
     invoke-virtual {v8}, Lkotlin/collections/ArrayDeque;->removeLast()Ljava/lang/Object;
 
     .line 136
-    goto :goto_a
+    goto :goto_126
 
     .end local v8    # "stack":Lkotlin/collections/ArrayDeque;
     .restart local v6    # "stack":Lkotlin/collections/ArrayDeque;
-    :catchall_1
+    :catchall_11b
     move-exception v0
 
     move-object v8, v6
@@ -533,7 +533,7 @@
     .line 135
     .end local v6    # "stack":Lkotlin/collections/ArrayDeque;
     .restart local v8    # "stack":Lkotlin/collections/ArrayDeque;
-    :goto_9
+    :goto_11d
     invoke-virtual {v8}, Lkotlin/collections/ArrayDeque;->removeLast()Ljava/lang/Object;
 
     .end local v8    # "stack":Lkotlin/collections/ArrayDeque;
@@ -545,7 +545,7 @@
     .local v8, "fileSystem":Lokio/FileSystem;
     .local v9, "children":Ljava/util/List;
     .restart local v12    # "symlinkCount":I
-    :cond_b
+    :cond_121
     move-object v11, v13
 
     .line 124
@@ -556,7 +556,7 @@
     add-int/lit8 v12, v12, 0x1
 
     .restart local v12    # "symlinkCount":I
-    goto :goto_4
+    goto :goto_b0
 
     .line 141
     .end local v5    # "followSymlinks":Z
@@ -565,9 +565,9 @@
     .end local v9    # "children":Ljava/util/List;
     .end local v11    # "symlinkPath":Lokio/Path;
     .end local v12    # "symlinkCount":I
-    :cond_c
-    :goto_a
-    if-eqz v3, :cond_e
+    :cond_126
+    :goto_126
+    if-eqz v3, :cond_140
 
     .line 142
     .end local v3    # "postorder":Z
@@ -593,35 +593,35 @@
 
     .end local v7    # "path":Lokio/Path;
     .end local v10    # "$this$collectRecursively":Lkotlin/sequences/SequenceScope;
-    if-ne v3, v0, :cond_d
+    if-ne v3, v0, :cond_13d
 
     .line 104
     return-object v0
 
     .line 144
-    :cond_d
-    :goto_b
+    :cond_13d
+    :goto_13d
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 141
-    :cond_e
-    goto :goto_b
+    :cond_140
+    goto :goto_13d
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_142
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6d
+        :pswitch_55
+        :pswitch_35
+        :pswitch_30
     .end packed-switch
 .end method
 
 .method public static final commonCopy(Lokio/FileSystem;Lokio/Path;Lokio/Path;)V
-    .locals 17
+    .registers 20
     .param p0, "$this$commonCopy"    # Lokio/FileSystem;
     .param p1, "source"    # Lokio/Path;
     .param p2, "target"    # Lokio/Path;
@@ -674,7 +674,7 @@
     nop
 
     .line 157
-    :try_start_0
+    :try_start_20
     move-object v0, v4
 
     check-cast v0, Lokio/Source;
@@ -695,8 +695,8 @@
     move-result-object v0
 
     check-cast v0, Ljava/io/Closeable;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_2f
+    .catchall {:try_start_20 .. :try_end_2f} :catchall_6a
 
     move-object v10, v0
 
@@ -716,7 +716,7 @@
     nop
 
     .line 162
-    :try_start_1
+    :try_start_34
     move-object v0, v10
 
     check-cast v0, Lokio/BufferedSink;
@@ -735,15 +735,15 @@
     invoke-static/range {v15 .. v16}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_40
+    .catchall {:try_start_34 .. :try_end_40} :catchall_42
 
     move-object v12, v0
 
-    goto :goto_0
+    goto :goto_44
 
     .line 163
-    :catchall_0
+    :catchall_42
     move-exception v0
 
     .line 164
@@ -752,25 +752,25 @@
 
     .line 167
     .end local v0    # "t$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_44
     nop
 
     .line 168
-    if-nez v10, :cond_0
+    if-nez v10, :cond_48
 
-    :goto_1
-    goto :goto_2
+    :goto_47
+    goto :goto_56
 
-    :cond_0
-    :try_start_2
+    :cond_48
+    :try_start_48
     invoke-interface {v10}, Ljava/io/Closeable;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_4b
+    .catchall {:try_start_48 .. :try_end_4b} :catchall_4c
 
-    goto :goto_1
+    goto :goto_47
 
     .line 169
-    :catchall_1
+    :catchall_4c
     move-exception v0
 
     move-object v14, v0
@@ -779,21 +779,21 @@
 
     .line 170
     .restart local v0    # "t$iv":Ljava/lang/Throwable;
-    if-nez v13, :cond_1
+    if-nez v13, :cond_53
 
     move-object v13, v0
 
-    goto :goto_2
+    goto :goto_56
 
     .line 171
-    :cond_1
-    :try_start_3
+    :cond_53
+    :try_start_53
     invoke-static {v13, v0}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
     .line 174
     .end local v0    # "t$iv":Ljava/lang/Throwable;
-    :goto_2
-    if-nez v13, :cond_2
+    :goto_56
+    if-nez v13, :cond_69
 
     .line 175
     invoke-static {v12}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -821,7 +821,7 @@
 
     move-object v6, v0
 
-    goto :goto_3
+    goto :goto_6c
 
     .line 174
     .end local v4    # "$this$use$iv":Ljava/io/Closeable;
@@ -837,10 +837,10 @@
     .restart local v11    # "$i$f$use":I
     .restart local v12    # "result$iv":Ljava/lang/Object;
     .restart local v13    # "thrown$iv":Ljava/lang/Throwable;
-    :cond_2
+    :cond_69
     throw v13
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_6a
+    .catchall {:try_start_53 .. :try_end_6a} :catchall_6a
 
     .line 176
     .end local v8    # "bytesIn":Lokio/Source;
@@ -856,7 +856,7 @@
     .restart local p0    # "$this$commonCopy":Lokio/FileSystem;
     .restart local p1    # "source":Lokio/Path;
     .restart local p2    # "target":Lokio/Path;
-    :catchall_2
+    :catchall_6a
     move-exception v0
 
     .line 177
@@ -865,25 +865,25 @@
 
     .line 180
     .end local v0    # "t$iv":Ljava/lang/Throwable;
-    :goto_3
+    :goto_6c
     nop
 
     .line 181
-    if-nez v4, :cond_3
+    if-nez v4, :cond_70
 
-    :goto_4
-    goto :goto_5
+    :goto_6f
+    goto :goto_7e
 
-    :cond_3
-    :try_start_4
+    :cond_70
+    :try_start_70
     invoke-interface {v4}, Ljava/io/Closeable;->close()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_3
+    :try_end_73
+    .catchall {:try_start_70 .. :try_end_73} :catchall_74
 
-    goto :goto_4
+    goto :goto_6f
 
     .line 182
-    :catchall_3
+    :catchall_74
     move-exception v0
 
     move-object v8, v0
@@ -892,20 +892,20 @@
 
     .line 183
     .restart local v0    # "t$iv":Ljava/lang/Throwable;
-    if-nez v7, :cond_4
+    if-nez v7, :cond_7b
 
     move-object v7, v0
 
-    goto :goto_5
+    goto :goto_7e
 
     .line 184
-    :cond_4
+    :cond_7b
     invoke-static {v7, v0}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
     .line 187
     .end local v0    # "t$iv":Ljava/lang/Throwable;
-    :goto_5
-    if-nez v7, :cond_5
+    :goto_7e
+    if-nez v7, :cond_84
 
     .line 188
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -922,12 +922,12 @@
     .restart local v5    # "$i$f$use":I
     .restart local v6    # "result$iv":Ljava/lang/Object;
     .restart local v7    # "thrown$iv":Ljava/lang/Throwable;
-    :cond_5
+    :cond_84
     throw v7
 .end method
 
 .method public static final commonCreateDirectories(Lokio/FileSystem;Lokio/Path;Z)V
-    .locals 5
+    .registers 8
     .param p0, "$this$commonCreateDirectories"    # Lokio/FileSystem;
     .param p1, "dir"    # Lokio/Path;
     .param p2, "mustCreate"    # Z
@@ -956,14 +956,14 @@
 
     .line 46
     .local v1, "path":Lokio/Path;
-    :goto_0
-    if-eqz v1, :cond_0
+    :goto_10
+    if-eqz v1, :cond_20
 
     invoke-virtual {p0, v1}, Lokio/FileSystem;->exists(Lokio/Path;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_20
 
     .line 47
     invoke-virtual {v0, v1}, Lkotlin/collections/ArrayDeque;->addFirst(Ljava/lang/Object;)V
@@ -973,21 +973,21 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 51
-    :cond_0
-    if-eqz p2, :cond_2
+    :cond_20
+    if-eqz p2, :cond_42
 
     invoke-virtual {v0}, Lkotlin/collections/ArrayDeque;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_29
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_1
+    :cond_29
     new-instance v2, Ljava/io/IOException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1013,18 +1013,18 @@
     throw v2
 
     .line 54
-    :cond_2
-    :goto_1
+    :cond_42
+    :goto_42
     invoke-virtual {v0}, Lkotlin/collections/ArrayDeque;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_2
+    :goto_46
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_56
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1037,15 +1037,15 @@
     invoke-virtual {p0, v3}, Lokio/FileSystem;->createDirectory(Lokio/Path;)V
 
     .end local v3    # "toCreate":Lokio/Path;
-    goto :goto_2
+    goto :goto_46
 
     .line 58
-    :cond_3
+    :cond_56
     return-void
 .end method
 
 .method public static final commonDeleteRecursively(Lokio/FileSystem;Lokio/Path;Z)V
-    .locals 4
+    .registers 7
     .param p0, "$this$commonDeleteRecursively"    # Lokio/FileSystem;
     .param p1, "fileOrDirectory"    # Lokio/Path;
     .param p2, "mustExist"    # Z
@@ -1084,12 +1084,12 @@
 
     .line 81
     .local v1, "iterator":Ljava/util/Iterator;
-    :goto_0
+    :goto_1a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     .line 82
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1100,34 +1100,34 @@
 
     .line 83
     .local v2, "toDelete":Lokio/Path;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_30
 
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_30
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_31
 
-    :cond_0
+    :cond_30
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_31
     invoke-virtual {p0, v2, v3}, Lokio/FileSystem;->delete(Lokio/Path;Z)V
 
     .end local v2    # "toDelete":Lokio/Path;
-    goto :goto_0
+    goto :goto_1a
 
     .line 85
-    :cond_1
+    :cond_35
     return-void
 .end method
 
 .method public static final commonExists(Lokio/FileSystem;Lokio/Path;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$commonExists"    # Lokio/FileSystem;
     .param p1, "path"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
@@ -1149,21 +1149,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public static final commonListRecursively(Lokio/FileSystem;Lokio/Path;Z)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 5
     .param p0, "$this$commonListRecursively"    # Lokio/FileSystem;
     .param p1, "dir"    # Lokio/Path;
     .param p2, "followSymlinks"    # Z
@@ -1210,7 +1210,7 @@
 .end method
 
 .method public static final commonMetadata(Lokio/FileSystem;Lokio/Path;)Lokio/FileMetadata;
-    .locals 2
+    .registers 4
     .param p0, "$this$commonMetadata"    # Lokio/FileSystem;
     .param p1, "path"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
@@ -1232,11 +1232,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     return-object v0
 
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/io/FileNotFoundException;
 
     const-string v1, "no such file: "
@@ -1251,7 +1251,7 @@
 .end method
 
 .method public static final symlinkTarget(Lokio/FileSystem;Lokio/Path;)Lokio/Path;
-    .locals 2
+    .registers 4
     .param p0, "$this$symlinkTarget"    # Lokio/FileSystem;
     .param p1, "path"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
@@ -1277,7 +1277,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     const/4 v0, 0x0
 
@@ -1285,7 +1285,7 @@
 
     .line 150
     .local v0, "target":Lokio/Path;
-    :cond_0
+    :cond_16
     invoke-virtual {p1}, Lokio/Path;->parent()Lokio/Path;
 
     move-result-object v1

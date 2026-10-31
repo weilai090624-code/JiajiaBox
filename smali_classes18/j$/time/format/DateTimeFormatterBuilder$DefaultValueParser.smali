@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/temporal/TemporalField;J)V
-    .locals 0
+    .registers 4
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "value"    # J
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 7
+    .registers 11
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -68,7 +68,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 2544
     iget-object v2, p0, Lj$/time/format/DateTimeFormatterBuilder$DefaultValueParser;->field:Lj$/time/temporal/TemporalField;
@@ -84,6 +84,6 @@
     invoke-virtual/range {v1 .. v6}, Lj$/time/format/DateTimeParseContext;->setParsedField(Lj$/time/temporal/TemporalField;JII)I
 
     .line 2546
-    :cond_0
+    :cond_12
     return p3
 .end method

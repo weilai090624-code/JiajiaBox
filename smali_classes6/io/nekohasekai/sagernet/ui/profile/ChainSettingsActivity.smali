@@ -135,7 +135,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$nsxB4mYXln2Zy6mqk6E4adaGx3k(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Landroidx/activity/result/ActivityResult;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->selectProfileForAdd$lambda$3(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Landroidx/activity/result/ActivityResult;)V
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 32
     const v0, 0x7f0d003e
@@ -179,7 +179,7 @@
 .end method
 
 .method private static final selectProfileForAdd$lambda$3(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Landroidx/activity/result/ActivityResult;)V
-    .locals 3
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
 
     const-string v0, "<destruct>"
@@ -200,7 +200,7 @@
     .local p1, "data":Landroid/content/Intent;
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$selectProfileForAdd$1$1;
 
@@ -213,14 +213,14 @@
     invoke-static {v1}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 237
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->createEntity()Lio/nekohasekai/sagernet/fmt/internal/ChainBean;
@@ -233,7 +233,7 @@
 .end method
 
 .method public createEntity()Lio/nekohasekai/sagernet/fmt/internal/ChainBean;
-    .locals 1
+    .registers 2
 
     .line 34
     new-instance v0, Lio/nekohasekai/sagernet/fmt/internal/ChainBean;
@@ -244,7 +244,7 @@
 .end method
 
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -263,16 +263,16 @@
 .end method
 
 .method public final getConfigurationAdapter()Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter;
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->configurationAdapter:Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "configurationAdapter"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -283,16 +283,16 @@
 .end method
 
 .method public final getConfigurationList()Landroidx/recyclerview/widget/RecyclerView;
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->configurationList:Landroidx/recyclerview/widget/RecyclerView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "configurationList"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -303,16 +303,16 @@
 .end method
 
 .method public final getLayoutManager()Landroidx/recyclerview/widget/LinearLayoutManager;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->layoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "layoutManager"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -323,7 +323,7 @@
 .end method
 
 .method public final getProxyList()Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -340,7 +340,7 @@
 .end method
 
 .method public final getReplacing()I
-    .locals 1
+    .registers 2
 
     .line 206
     iget v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->replacing:I
@@ -349,7 +349,7 @@
 .end method
 
 .method public final getSelectProfileForAdd()Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -366,7 +366,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 32
@@ -380,7 +380,7 @@
 .end method
 
 .method public init(Lio/nekohasekai/sagernet/fmt/internal/ChainBean;)V
-    .locals 12
+    .registers 14
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/internal/ChainBean;
 
     const-string v0, "<this>"
@@ -438,7 +438,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 62
@@ -535,7 +535,7 @@
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 32
@@ -549,7 +549,7 @@
 .end method
 
 .method public serialize(Lio/nekohasekai/sagernet/fmt/internal/ChainBean;)V
-    .locals 9
+    .registers 11
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/internal/ChainBean;
 
     const-string v0, "<this>"
@@ -599,12 +599,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_25
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_3f
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -634,11 +634,11 @@
     .line 298
     invoke-interface {v2, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_25
 
     .line 299
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_3f
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -662,7 +662,7 @@
 .end method
 
 .method public final setConfigurationAdapter(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter;
 
     const-string v0, "<set-?>"
@@ -676,7 +676,7 @@
 .end method
 
 .method public final setConfigurationList(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/recyclerview/widget/RecyclerView;
 
     const-string v0, "<set-?>"
@@ -690,7 +690,7 @@
 .end method
 
 .method public final setLayoutManager(Landroidx/recyclerview/widget/LinearLayoutManager;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/recyclerview/widget/LinearLayoutManager;
 
     const-string v0, "<set-?>"
@@ -704,7 +704,7 @@
 .end method
 
 .method public final setReplacing(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 206
@@ -714,7 +714,7 @@
 .end method
 
 .method public final testProfileAllowed(Lio/nekohasekai/sagernet/database/ProxyEntity;)Z
-    .locals 6
+    .registers 8
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     const-string v0, "profile"
@@ -736,12 +736,12 @@
 
     cmp-long v5, v0, v2
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_15
 
     return v4
 
     .line 184
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->proxyList:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -752,12 +752,12 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_20
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_33
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -771,20 +771,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_20
 
     return v4
 
     .line 188
     .end local v1    # "entity":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :cond_2
+    :cond_33
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public final testProfileContains(Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/database/ProxyEntity;)Z
-    .locals 7
+    .registers 10
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "anotherProfile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
 
@@ -805,18 +805,18 @@
 
     const/16 v2, 0x8
 
-    if-ne v0, v2, :cond_5
+    if-ne v0, v2, :cond_6a
 
     invoke-virtual {p2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getType()I
 
     move-result v0
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_1a
 
-    goto :goto_0
+    goto :goto_6a
 
     .line 193
-    :cond_0
+    :cond_1a
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getId()J
 
     move-result-wide v2
@@ -829,12 +829,12 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_28
 
     return v0
 
     .line 194
-    :cond_1
+    :cond_28
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getChainBean()Lio/nekohasekai/sagernet/fmt/internal/ChainBean;
 
     move-result-object v2
@@ -857,12 +857,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_40
 
     return v0
 
     .line 196
-    :cond_2
+    :cond_40
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     move-object v3, v2
@@ -873,7 +873,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_69
 
     .line 197
     sget-object v3, Lio/nekohasekai/sagernet/database/ProfileManager;->INSTANCE:Lio/nekohasekai/sagernet/database/ProfileManager;
@@ -886,12 +886,12 @@
 
     move-result-object v3
 
-    :cond_3
+    :cond_56
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_69
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -905,25 +905,25 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_56
 
     .line 199
     return v0
 
     .line 203
     .end local v4    # "entity":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :cond_4
+    :cond_69
     return v1
 
     .line 192
     .end local v2    # "proxies":Ljava/util/List;
-    :cond_5
-    :goto_0
+    :cond_6a
+    :goto_6a
     return v1
 .end method
 
 .method public viewCreated(Landroidx/preference/PreferenceFragmentCompat;Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 5
+    .registers 9
     .param p1, "$this$viewCreated"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -960,7 +960,7 @@
 
     const/4 v3, -0x2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_27
 
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -971,7 +971,7 @@
     check-cast v2, Landroid/view/ViewGroup$LayoutParams;
 
     .local v2, "$this$viewCreated_u24lambda_u242_u24lambda_u241":Landroid/view/ViewGroup$LayoutParams;
-    :cond_0
+    :cond_27
     const/4 v4, 0x0
 
     .line 111

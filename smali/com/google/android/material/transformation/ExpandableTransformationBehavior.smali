@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 46
     invoke-direct {p0}, Lcom/google/android/material/transformation/ExpandableBehavior;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -35,7 +35,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/android/material/transformation/ExpandableTransformationBehavior;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/transformation/ExpandableTransformationBehavior;
     .param p1, "x1"    # Landroid/animation/AnimatorSet;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method protected onExpandedStateChange(Landroid/view/View;Landroid/view/View;ZZ)Z
-    .locals 4
+    .registers 9
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "expanded"    # Z
@@ -62,19 +62,19 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     .line 76
     .local v0, "currentlyAnimating":Z
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_8
+    if-eqz v0, :cond_f
 
     .line 77
     iget-object v2, p0, Lcom/google/android/material/transformation/ExpandableTransformationBehavior;->currentAnimation:Landroid/animation/AnimatorSet;
@@ -82,7 +82,7 @@
     invoke-virtual {v2}, Landroid/animation/AnimatorSet;->cancel()V
 
     .line 80
-    :cond_1
+    :cond_f
     nop
 
     .line 81
@@ -105,10 +105,11 @@
     iget-object v2, p0, Lcom/google/android/material/transformation/ExpandableTransformationBehavior;->currentAnimation:Landroid/animation/AnimatorSet;
 
     invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v2}, Landroid/animation/AnimatorSet;->start()V
 
     .line 91
-    if-nez p4, :cond_2
+    if-nez p4, :cond_2f
 
     .line 94
     iget-object v2, p0, Lcom/google/android/material/transformation/ExpandableTransformationBehavior;->currentAnimation:Landroid/animation/AnimatorSet;
@@ -116,6 +117,6 @@
     invoke-virtual {v2}, Landroid/animation/AnimatorSet;->end()V
 
     .line 97
-    :cond_2
+    :cond_2f
     return v1
 .end method

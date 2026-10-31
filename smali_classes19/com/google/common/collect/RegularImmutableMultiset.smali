@@ -67,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 36
     new-instance v0, Lcom/google/common/collect/RegularImmutableMultiset;
@@ -86,7 +86,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/ObjectCountHashMap;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -111,12 +111,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_8
     invoke-virtual {p1}, Lcom/google/common/collect/ObjectCountHashMap;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_17
 
     .line 48
     invoke-virtual {p1, v2}, Lcom/google/common/collect/ObjectCountHashMap;->getValue(I)I
@@ -130,11 +130,11 @@
     .line 47
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 50
     .end local v2    # "i":I
-    :cond_0
+    :cond_17
     invoke-static {v0, v1}, Lcom/google/common/primitives/Ints;->saturatedCast(J)I
 
     move-result v2
@@ -148,7 +148,7 @@
 
 # virtual methods
 .method public count(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -166,7 +166,7 @@
 .end method
 
 .method public elementSet()Lcom/google/common/collect/ImmutableSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -181,7 +181,7 @@
 
     .line 71
     .local v0, "result":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<TE;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     new-instance v1, Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;
 
@@ -191,17 +191,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/RegularImmutableMultiset;->elementSet:Lcom/google/common/collect/ImmutableSet;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v1, v0
 
-    :goto_0
+    :goto_e
     return-object v1
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 32
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>;"
@@ -213,7 +213,7 @@
 .end method
 
 .method getEntry(I)Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -235,7 +235,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 55
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>;"
@@ -245,7 +245,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 65
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>;"
@@ -255,7 +255,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 136
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>;"

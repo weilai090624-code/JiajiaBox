@@ -34,7 +34,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Collection;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -59,7 +59,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/Collection;Ljava/lang/Object;Lcom/google/common/collect/Synchronized$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/util/Collection;
     .param p2, "x1"    # Ljava/lang/Object;
     .param p3, "x2"    # Lcom/google/common/collect/Synchronized$1;
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -89,7 +89,7 @@
     monitor-enter v0
 
     .line 130
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -103,18 +103,18 @@
     return v1
 
     .line 131
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -131,7 +131,7 @@
     monitor-enter v0
 
     .line 137
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -145,18 +145,18 @@
     return v1
 
     .line 138
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 143
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedCollection;, "Lcom/google/common/collect/Synchronized$SynchronizedCollection<TE;>;"
@@ -165,7 +165,7 @@
     monitor-enter v0
 
     .line 144
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -179,18 +179,18 @@
     return-void
 
     .line 145
-    :catchall_0
+    :catchall_c
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_3 .. :try_end_e} :catchall_c
 
     throw v1
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -203,7 +203,7 @@
     monitor-enter v0
 
     .line 151
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -217,18 +217,18 @@
     return v1
 
     .line 152
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -245,7 +245,7 @@
     monitor-enter v0
 
     .line 158
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -259,18 +259,18 @@
     return v1
 
     .line 159
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 114
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedCollection;, "Lcom/google/common/collect/Synchronized$SynchronizedCollection<TE;>;"
@@ -282,7 +282,7 @@
 .end method
 
 .method delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -303,7 +303,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 2
+    .registers 3
 
     .line 164
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedCollection;, "Lcom/google/common/collect/Synchronized$SynchronizedCollection<TE;>;"
@@ -312,7 +312,7 @@
     monitor-enter v0
 
     .line 165
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -326,18 +326,18 @@
     return v1
 
     .line 166
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -360,7 +360,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -373,7 +373,7 @@
     monitor-enter v0
 
     .line 177
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -387,18 +387,18 @@
     return v1
 
     .line 178
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -415,7 +415,7 @@
     monitor-enter v0
 
     .line 184
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -429,18 +429,18 @@
     return v1
 
     .line 185
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -457,7 +457,7 @@
     monitor-enter v0
 
     .line 191
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -471,18 +471,18 @@
     return v1
 
     .line 192
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 197
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedCollection;, "Lcom/google/common/collect/Synchronized$SynchronizedCollection<TE;>;"
@@ -491,7 +491,7 @@
     monitor-enter v0
 
     .line 198
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -505,18 +505,18 @@
     return v1
 
     .line 199
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 204
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedCollection;, "Lcom/google/common/collect/Synchronized$SynchronizedCollection<TE;>;"
@@ -525,7 +525,7 @@
     monitor-enter v0
 
     .line 205
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -539,18 +539,18 @@
     return-object v1
 
     .line 206
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -567,7 +567,7 @@
     monitor-enter v0
 
     .line 213
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedCollection;->delegate()Ljava/util/Collection;
 
     move-result-object v1
@@ -581,12 +581,12 @@
     return-object v1
 
     .line 214
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method

@@ -30,7 +30,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingFuture;, "Lcom/google/common/util/concurrent/ForwardingFuture<TV;>;"
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public cancel(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "mayInterruptIfRunning"    # Z
 
     .line 50
@@ -59,7 +59,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 37
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingFuture;, "Lcom/google/common/util/concurrent/ForwardingFuture<TV;>;"
@@ -81,7 +81,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -148,7 +148,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 55
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingFuture;, "Lcom/google/common/util/concurrent/ForwardingFuture<TV;>;"
@@ -164,7 +164,7 @@
 .end method
 
 .method public isDone()Z
-    .locals 1
+    .registers 2
 
     .line 60
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingFuture;, "Lcom/google/common/util/concurrent/ForwardingFuture<TV;>;"

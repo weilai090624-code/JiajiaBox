@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Iterable;Ljava/util/Comparator;)V
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,12 +77,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_30
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -96,7 +96,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2f
 
     .line 1334
     iget-object v3, p0, Lcom/google/common/collect/Iterators$MergingIterator;->queue:Ljava/util/Queue;
@@ -109,18 +109,18 @@
 
     .line 1336
     .end local v2    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TT;>;"
-    :cond_0
-    goto :goto_0
+    :cond_2f
+    goto :goto_14
 
     .line 1337
-    :cond_1
+    :cond_30
     return-void
 .end method
 
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 1341
     .local p0, "this":Lcom/google/common/collect/Iterators$MergingIterator;, "Lcom/google/common/collect/Iterators$MergingIterator<TT;>;"
@@ -136,7 +136,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -168,7 +168,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     .line 1350
     iget-object v2, p0, Lcom/google/common/collect/Iterators$MergingIterator;->queue:Ljava/util/Queue;
@@ -176,6 +176,6 @@
     invoke-interface {v2, v0}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
 
     .line 1352
-    :cond_0
+    :cond_17
     return-object v1
 .end method

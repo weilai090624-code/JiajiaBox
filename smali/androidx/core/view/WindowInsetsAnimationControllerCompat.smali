@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/WindowInsetsAnimationController;)V
-    .locals 1
+    .registers 3
     .param p1, "controller"    # Landroid/view/WindowInsetsAnimationController;
 
     .line 47
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public finish(Z)V
-    .locals 1
+    .registers 3
     .param p1, "shown"    # Z
 
     .line 189
@@ -51,7 +51,7 @@
 .end method
 
 .method public getCurrentAlpha()F
-    .locals 1
+    .registers 2
 
     .line 124
     iget-object v0, p0, Landroidx/core/view/WindowInsetsAnimationControllerCompat;->mImpl:Landroidx/core/view/WindowInsetsAnimationControllerCompat$Impl;
@@ -64,7 +64,7 @@
 .end method
 
 .method public getCurrentFraction()F
-    .locals 1
+    .registers 2
 
     .line 115
     iget-object v0, p0, Landroidx/core/view/WindowInsetsAnimationControllerCompat;->mImpl:Landroidx/core/view/WindowInsetsAnimationControllerCompat$Impl;
@@ -77,7 +77,7 @@
 .end method
 
 .method public getCurrentInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 100
     iget-object v0, p0, Landroidx/core/view/WindowInsetsAnimationControllerCompat;->mImpl:Landroidx/core/view/WindowInsetsAnimationControllerCompat$Impl;
@@ -90,7 +90,7 @@
 .end method
 
 .method public getHiddenStateInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Landroidx/core/view/WindowInsetsAnimationControllerCompat;->mImpl:Landroidx/core/view/WindowInsetsAnimationControllerCompat$Impl;
@@ -103,7 +103,7 @@
 .end method
 
 .method public getShownStateInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 85
     iget-object v0, p0, Landroidx/core/view/WindowInsetsAnimationControllerCompat;->mImpl:Landroidx/core/view/WindowInsetsAnimationControllerCompat$Impl;
@@ -116,7 +116,7 @@
 .end method
 
 .method public getTypes()I
-    .locals 1
+    .registers 2
 
     .line 132
     iget-object v0, p0, Landroidx/core/view/WindowInsetsAnimationControllerCompat;->mImpl:Landroidx/core/view/WindowInsetsAnimationControllerCompat$Impl;
@@ -129,7 +129,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 225
     iget-object v0, p0, Landroidx/core/view/WindowInsetsAnimationControllerCompat;->mImpl:Landroidx/core/view/WindowInsetsAnimationControllerCompat$Impl;
@@ -142,7 +142,7 @@
 .end method
 
 .method public isFinished()Z
-    .locals 1
+    .registers 2
 
     .line 213
     iget-object v0, p0, Landroidx/core/view/WindowInsetsAnimationControllerCompat;->mImpl:Landroidx/core/view/WindowInsetsAnimationControllerCompat$Impl;
@@ -155,34 +155,34 @@
 .end method
 
 .method public isReady()Z
-    .locals 1
+    .registers 2
 
     .line 203
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsAnimationControllerCompat;->isFinished()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsAnimationControllerCompat;->isCancelled()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public setInsetsAndAlpha(Landroidx/core/graphics/Insets;FF)V
-    .locals 1
+    .registers 5
     .param p1, "insets"    # Landroidx/core/graphics/Insets;
     .param p2, "alpha"    # F
     .param p3, "fraction"    # F

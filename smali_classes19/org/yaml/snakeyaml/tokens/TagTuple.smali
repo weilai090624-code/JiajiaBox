@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "handle"    # Ljava/lang/String;
     .param p2, "suffix"    # Ljava/lang/String;
 
@@ -19,7 +19,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 23
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     .line 26
     iput-object p1, p0, Lorg/yaml/snakeyaml/tokens/TagTuple;->handle:Ljava/lang/String;
@@ -31,7 +31,7 @@
     return-void
 
     .line 24
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Suffix must be provided."
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getHandle()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lorg/yaml/snakeyaml/tokens/TagTuple;->handle:Ljava/lang/String;
@@ -53,7 +53,7 @@
 .end method
 
 .method public getSuffix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 35
     iget-object v0, p0, Lorg/yaml/snakeyaml/tokens/TagTuple;->suffix:Ljava/lang/String;

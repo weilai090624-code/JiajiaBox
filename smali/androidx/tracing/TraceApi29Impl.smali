@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static beginAsyncSection(Ljava/lang/String;I)V
-    .locals 0
+    .registers 2
     .param p0, "methodName"    # Ljava/lang/String;
     .param p1, "cookie"    # I
 
@@ -27,7 +27,7 @@
 .end method
 
 .method public static endAsyncSection(Ljava/lang/String;I)V
-    .locals 0
+    .registers 2
     .param p0, "methodName"    # Ljava/lang/String;
     .param p1, "cookie"    # I
 
@@ -39,7 +39,7 @@
 .end method
 
 .method public static setCounter(Ljava/lang/String;I)V
-    .locals 2
+    .registers 4
     .param p0, "counterName"    # Ljava/lang/String;
     .param p1, "counterValue"    # I
 

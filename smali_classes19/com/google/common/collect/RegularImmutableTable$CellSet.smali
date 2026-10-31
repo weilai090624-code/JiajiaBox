@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/RegularImmutableTable;)V
-    .locals 0
+    .registers 2
 
     .line 47
     .local p0, "this":Lcom/google/common/collect/RegularImmutableTable$CellSet;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>.CellSet;"
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/RegularImmutableTable;
     .param p2, "x1"    # Lcom/google/common/collect/RegularImmutableTable$1;
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -66,7 +66,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 61
     move-object v0, p1
@@ -91,7 +91,7 @@
 
     .line 63
     .local v2, "value":Ljava/lang/Object;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     invoke-interface {v0}, Lcom/google/common/collect/Table$Cell;->getValue()Ljava/lang/Object;
 
@@ -101,22 +101,22 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_23
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_23
     return v1
 
     .line 65
     .end local v0    # "cell":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<***>;"
     .end local v2    # "value":Ljava/lang/Object;
-    :cond_1
+    :cond_24
     return v1
 .end method
 
 .method get(I)Lcom/google/common/collect/Table$Cell;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -138,7 +138,7 @@
 .end method
 
 .method bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 46
     .local p0, "this":Lcom/google/common/collect/RegularImmutableTable$CellSet;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>.CellSet;"
@@ -150,7 +150,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/RegularImmutableTable$CellSet;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>.CellSet;"
@@ -160,7 +160,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 50
     .local p0, "this":Lcom/google/common/collect/RegularImmutableTable$CellSet;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>.CellSet;"

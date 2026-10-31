@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 410
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static readParcelableCreator(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/os/Parcelable$Creator;
-    .locals 1
+    .registers 3
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;

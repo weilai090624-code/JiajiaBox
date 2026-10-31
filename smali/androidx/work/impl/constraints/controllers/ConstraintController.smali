@@ -126,7 +126,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
-    .locals 1
+    .registers 3
     .param p1, "tracker"    # Landroidx/work/impl/constraints/trackers/ConstraintTracker;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -169,7 +169,7 @@
 .end method
 
 .method private final updateCallback(Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "callback"    # Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;
     .param p2, "currentValue"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -187,53 +187,53 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_20
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_b
 
-    goto :goto_2
+    goto :goto_20
 
     .line 118
-    :cond_0
-    if-eqz p2, :cond_2
+    :cond_b
+    if-eqz p2, :cond_1a
 
     invoke-virtual {p0, p2}, Landroidx/work/impl/constraints/controllers/ConstraintController;->isConstrained(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 121
-    :cond_1
+    :cond_14
     iget-object v0, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->matchingWorkSpecs:Ljava/util/List;
 
     invoke-interface {p1, v0}, Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;->onConstraintMet(Ljava/util/List;)V
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 119
-    :cond_2
-    :goto_0
+    :cond_1a
+    :goto_1a
     iget-object v0, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->matchingWorkSpecs:Ljava/util/List;
 
     invoke-interface {p1, v0}, Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;->onConstraintNotMet(Ljava/util/List;)V
 
     .line 123
-    :goto_1
+    :goto_1f
     return-void
 
     .line 116
-    :cond_3
-    :goto_2
+    :cond_20
+    :goto_20
     return-void
 .end method
 
 
 # virtual methods
 .method public final getCallback()Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->callback:Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;
@@ -253,7 +253,7 @@
 .end method
 
 .method public final isWorkSpecConstrained(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "workSpecId"    # Ljava/lang/String;
 
     const-string/jumbo v0, "workSpecId"
@@ -265,13 +265,13 @@
 
     .line 108
     .local v0, "value":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     invoke-virtual {p0, v0}, Landroidx/work/impl/constraints/controllers/ConstraintController;->isConstrained(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     iget-object v1, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->matchingWorkSpecIds:Ljava/util/List;
 
@@ -279,21 +279,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1b
     return v1
 .end method
 
 .method public onConstraintChanged(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "newValue"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -316,7 +316,7 @@
 .end method
 
 .method public final replace(Ljava/lang/Iterable;)V
-    .locals 7
+    .registers 9
     .param p1, "workSpecs"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -358,13 +358,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_1a
+    :goto_1a
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_32
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -387,15 +387,15 @@
     .line 130
     .end local v5    # "it":Landroidx/work/impl/model/WorkSpec;
     .end local v6    # "$i$a$-filterTo-ConstraintController$replace$1":I
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1a
 
     invoke-interface {v0, v4}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 131
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_32
     nop
 
     .line 77
@@ -420,12 +420,12 @@
 
     move-result-object v3
 
-    :goto_1
+    :goto_40
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_54
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -449,11 +449,11 @@
     .end local v6    # "$i$a$-mapTo-ConstraintController$replace$2":I
     invoke-interface {v1, v5}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_40
 
     .line 134
     .end local v4    # "item$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_54
     nop
 
     .line 79
@@ -466,7 +466,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_66
 
     .line 80
     iget-object v0, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->tracker:Landroidx/work/impl/constraints/trackers/ConstraintTracker;
@@ -477,10 +477,10 @@
 
     invoke-virtual {v0, v1}, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->removeListener(Landroidx/work/impl/constraints/ConstraintListener;)V
 
-    goto :goto_2
+    goto :goto_6e
 
     .line 82
-    :cond_3
+    :cond_66
     iget-object v0, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->tracker:Landroidx/work/impl/constraints/trackers/ConstraintTracker;
 
     move-object v1, p0
@@ -490,7 +490,7 @@
     invoke-virtual {v0, v1}, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->addListener(Landroidx/work/impl/constraints/ConstraintListener;)V
 
     .line 84
-    :goto_2
+    :goto_6e
     iget-object v0, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->callback:Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;
 
     iget-object v1, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->currentValue:Ljava/lang/Object;
@@ -502,7 +502,7 @@
 .end method
 
 .method public final reset()V
-    .locals 2
+    .registers 3
 
     .line 91
     iget-object v0, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->matchingWorkSpecs:Ljava/util/List;
@@ -513,7 +513,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 92
     iget-object v0, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->matchingWorkSpecs:Ljava/util/List;
@@ -530,18 +530,18 @@
     invoke-virtual {v0, v1}, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->removeListener(Landroidx/work/impl/constraints/ConstraintListener;)V
 
     .line 95
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public final setCallback(Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;
 
     .line 59
     iget-object v0, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->callback:Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_b
 
     .line 60
     iput-object p1, p0, Landroidx/work/impl/constraints/controllers/ConstraintController;->callback:Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;
@@ -552,6 +552,6 @@
     invoke-direct {p0, p1, v0}, Landroidx/work/impl/constraints/controllers/ConstraintController;->updateCallback(Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;Ljava/lang/Object;)V
 
     .line 63
-    :cond_0
+    :cond_b
     return-void
 .end method

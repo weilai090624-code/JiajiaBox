@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/activity/contextaware/ContextAware;Landroidx/activity/contextaware/ContextAwareKt$withContextAvailable$2$listener$1;)V
-    .locals 1
+    .registers 4
 
     iput-object p1, p0, Landroidx/activity/contextaware/ContextAwareKt$withContextAvailable$2$1;->$this_withContextAvailable:Landroidx/activity/contextaware/ContextAware;
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 84
@@ -88,7 +88,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "it"    # Ljava/lang/Throwable;
 
     .line 84

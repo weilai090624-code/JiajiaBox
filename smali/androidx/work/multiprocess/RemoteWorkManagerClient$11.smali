@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/multiprocess/RemoteWorkManagerClient;Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/work/multiprocess/RemoteCallback;Landroidx/work/multiprocess/RemoteDispatcher;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/work/multiprocess/RemoteWorkManagerClient;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 402
     :try_start_0
@@ -86,26 +86,26 @@
     invoke-direct {v2, p0, v0}, Landroidx/work/multiprocess/RemoteWorkManagerClient$11$1;-><init>(Landroidx/work/multiprocess/RemoteWorkManagerClient$11;Landroidx/work/multiprocess/IWorkManagerImpl;)V
 
     invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_1d} :catch_20
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_1d} :catch_1e
 
     .line 420
     .end local v0    # "iWorkManager":Landroidx/work/multiprocess/IWorkManagerImpl;
-    goto :goto_1
+    goto :goto_3b
 
     .line 416
-    :catch_0
+    :catch_1e
     move-exception v0
 
-    goto :goto_0
+    goto :goto_21
 
-    :catch_1
+    :catch_20
     move-exception v0
 
     .line 417
     .local v0, "exception":Ljava/lang/Exception;
-    :goto_0
+    :goto_21
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
@@ -132,6 +132,6 @@
 
     .line 421
     .end local v0    # "exception":Ljava/lang/Exception;
-    :goto_1
+    :goto_3b
     return-void
 .end method

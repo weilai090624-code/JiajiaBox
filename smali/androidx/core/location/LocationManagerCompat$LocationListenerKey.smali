@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Landroidx/core/location/LocationListenerCompat;)V
-    .locals 1
+    .registers 4
     .param p1, "provider"    # Ljava/lang/String;
     .param p2, "listener"    # Landroidx/core/location/LocationListenerCompat;
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 709
@@ -66,13 +66,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 710
     return v1
 
     .line 713
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Landroidx/core/location/LocationManagerCompat$LocationListenerKey;
@@ -87,7 +87,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1e
 
     iget-object v2, p0, Landroidx/core/location/LocationManagerCompat$LocationListenerKey;->mListener:Landroidx/core/location/LocationListenerCompat;
 
@@ -97,16 +97,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1e
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_1e
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 719
     iget-object v0, p0, Landroidx/core/location/LocationManagerCompat$LocationListenerKey;->mProvider:Ljava/lang/String;

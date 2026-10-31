@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 57
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method static emptyList()Ljava/util/List;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -82,7 +82,7 @@
 .end method
 
 .method static emptyMap()Ljava/util/Map;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -102,7 +102,7 @@
 .end method
 
 .method static emptySet()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -120,7 +120,7 @@
 .end method
 
 .method static listCopy(Ljava/util/Collection;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -137,7 +137,7 @@
     .local p0, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     instance-of v0, p0, Lj$/util/ImmutableCollections$AbstractImmutableList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -145,7 +145,7 @@
 
     const-class v1, Lj$/util/ImmutableCollections$SubList;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_10
 
     .line 89
     move-object v0, p0
@@ -155,7 +155,7 @@
     return-object v0
 
     .line 91
-    :cond_0
+    :cond_10
     invoke-interface {p0}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
 
     move-result-object v0
@@ -168,7 +168,7 @@
 .end method
 
 .method static uoe()Ljava/lang/UnsupportedOperationException;
-    .locals 1
+    .registers 1
 
     .line 70
     new-instance v0, Ljava/lang/UnsupportedOperationException;

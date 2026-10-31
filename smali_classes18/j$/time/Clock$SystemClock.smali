@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 483
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -61,7 +61,7 @@
 .end method
 
 .method constructor <init>(Lj$/time/ZoneId;)V
-    .locals 0
+    .registers 2
     .param p1, "zone"    # Lj$/time/ZoneId;
 
     .line 497
@@ -75,7 +75,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "is"    # Ljava/io/ObjectInputStream;
 
     .line 579
@@ -88,13 +88,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 563
     instance-of v0, p1, Lj$/time/Clock$SystemClock;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 564
     iget-object v0, p0, Lj$/time/Clock$SystemClock;->zone:Lj$/time/ZoneId;
@@ -112,14 +112,14 @@
     return v0
 
     .line 566
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public getZone()Lj$/time/ZoneId;
-    .locals 1
+    .registers 2
 
     .line 503
     iget-object v0, p0, Lj$/time/Clock$SystemClock;->zone:Lj$/time/ZoneId;
@@ -128,7 +128,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 570
     iget-object v0, p0, Lj$/time/Clock$SystemClock;->zone:Lj$/time/ZoneId;
@@ -143,7 +143,7 @@
 .end method
 
 .method public instant()Lj$/time/Instant;
-    .locals 2
+    .registers 3
 
     .line 525
     invoke-virtual {p0}, Lj$/time/Clock$SystemClock;->millis()J
@@ -158,7 +158,7 @@
 .end method
 
 .method public millis()J
-    .locals 2
+    .registers 3
 
     .line 520
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -169,7 +169,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 574
     iget-object v0, p0, Lj$/time/Clock$SystemClock;->zone:Lj$/time/ZoneId;
@@ -202,7 +202,7 @@
 .end method
 
 .method public withZone(Lj$/time/ZoneId;)Lj$/time/Clock;
-    .locals 1
+    .registers 3
     .param p1, "zone"    # Lj$/time/ZoneId;
 
     .line 507
@@ -212,13 +212,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 508
     return-object p0
 
     .line 510
-    :cond_0
+    :cond_9
     new-instance v0, Lj$/time/Clock$SystemClock;
 
     invoke-direct {v0, p1}, Lj$/time/Clock$SystemClock;-><init>(Lj$/time/ZoneId;)V

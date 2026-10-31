@@ -34,7 +34,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Lkotlinx/coroutines/MainCoroutineDispatcher;-><init>()V
@@ -43,7 +43,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlinx/coroutines/android/HandlerDispatcher;-><init>()V
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public delay(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "time"    # J
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -84,7 +84,7 @@
 .end method
 
 .method public invokeOnTimeout(JLjava/lang/Runnable;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/DisposableHandle;
-    .locals 1
+    .registers 6
     .param p1, "timeMillis"    # J
     .param p3, "block"    # Ljava/lang/Runnable;
     .param p4, "context"    # Lkotlin/coroutines/CoroutineContext;

@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>([Landroidx/lifecycle/GeneratedAdapter;)V
-    .locals 1
+    .registers 3
     .param p1, "generatedAdapters"    # [Landroidx/lifecycle/GeneratedAdapter;
 
     const-string v0, "generatedAdapters"
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 6
+    .registers 9
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -90,8 +90,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_15
+    if-ge v4, v2, :cond_1f
 
     aget-object v5, v1, v4
 
@@ -103,16 +103,16 @@
     .end local v5    # "adapter":Landroidx/lifecycle/GeneratedAdapter;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 27
-    :cond_0
+    :cond_1f
     iget-object v1, p0, Landroidx/lifecycle/CompositeGeneratedAdaptersObserver;->generatedAdapters:[Landroidx/lifecycle/GeneratedAdapter;
 
     array-length v2, v1
 
-    :goto_1
-    if-ge v3, v2, :cond_1
+    :goto_22
+    if-ge v3, v2, :cond_2d
 
     aget-object v4, v1, v3
 
@@ -126,9 +126,9 @@
     .end local v4    # "adapter":Landroidx/lifecycle/GeneratedAdapter;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 30
-    :cond_1
+    :cond_2d
     return-void
 .end method

@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;ILcom/google/common/collect/MapMakerInternalMap$InternalEntry;)V
-    .locals 0
+    .registers 5
     .param p3, "hash"    # I
     .param p4    # Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public getHash()I
-    .locals 1
+    .registers 2
 
     .line 668
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$AbstractWeakKeyEntry;, "Lcom/google/common/collect/MapMakerInternalMap$AbstractWeakKeyEntry<TK;TV;TE;>;"
@@ -94,7 +94,7 @@
 .end method
 
 .method public getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -111,7 +111,7 @@
 .end method
 
 .method public getNext()Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"

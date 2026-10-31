@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 46
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_CompoundButton_Switch:I
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 62
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 7
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -171,12 +171,12 @@
 .end method
 
 .method private getMaterialThemeColorsThumbTintList()Landroid/content/res/ColorStateList;
-    .locals 7
+    .registers 8
 
     .line 121
     iget-object v0, p0, Lcom/google/android/material/switchmaterial/SwitchMaterial;->materialThemeColorsThumbTintList:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_56
 
     .line 122
     sget v0, Lcom/google/android/material/R$attr;->colorSurface:I
@@ -213,7 +213,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_27
 
     .line 126
     invoke-static {p0}, Lcom/google/android/material/internal/ViewUtils;->getParentAbsoluteElevation(Landroid/view/View;)F
@@ -223,7 +223,7 @@
     add-float/2addr v2, v3
 
     .line 128
-    :cond_0
+    :cond_27
     iget-object v3, p0, Lcom/google/android/material/switchmaterial/SwitchMaterial;->elevationOverlayProvider:Lcom/google/android/material/elevation/ElevationOverlayProvider;
 
     .line 129
@@ -293,19 +293,19 @@
     .end local v2    # "thumbElevation":F
     .end local v3    # "colorThumbOff":I
     .end local v4    # "switchThumbColorsList":[I
-    :cond_1
+    :cond_56
     iget-object v0, p0, Lcom/google/android/material/switchmaterial/SwitchMaterial;->materialThemeColorsThumbTintList:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
 
 .method private getMaterialThemeColorsTrackTintList()Landroid/content/res/ColorStateList;
-    .locals 7
+    .registers 8
 
     .line 145
     iget-object v0, p0, Lcom/google/android/material/switchmaterial/SwitchMaterial;->materialThemeColorsTrackTintList:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4d
 
     .line 146
     sget-object v0, Lcom/google/android/material/switchmaterial/SwitchMaterial;->ENABLED_CHECKED_STATES:[[I
@@ -407,7 +407,7 @@
     .end local v1    # "colorSurface":I
     .end local v2    # "colorControlActivated":I
     .end local v3    # "colorOnSurface":I
-    :cond_0
+    :cond_4d
     iget-object v0, p0, Lcom/google/android/material/switchmaterial/SwitchMaterial;->materialThemeColorsTrackTintList:Landroid/content/res/ColorStateList;
 
     return-object v0
@@ -416,7 +416,7 @@
 
 # virtual methods
 .method public isUseMaterialThemeColors()Z
-    .locals 1
+    .registers 2
 
     .line 117
     iget-boolean v0, p0, Lcom/google/android/material/switchmaterial/SwitchMaterial;->useMaterialThemeColors:Z
@@ -425,7 +425,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 1
+    .registers 2
 
     .line 88
     invoke-super {p0}, Landroidx/appcompat/widget/SwitchCompat;->onAttachedToWindow()V
@@ -433,13 +433,13 @@
     .line 90
     iget-boolean v0, p0, Lcom/google/android/material/switchmaterial/SwitchMaterial;->useMaterialThemeColors:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {p0}, Lcom/google/android/material/switchmaterial/SwitchMaterial;->getThumbTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 91
     invoke-direct {p0}, Lcom/google/android/material/switchmaterial/SwitchMaterial;->getMaterialThemeColorsThumbTintList()Landroid/content/res/ColorStateList;
@@ -449,16 +449,16 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/switchmaterial/SwitchMaterial;->setThumbTintList(Landroid/content/res/ColorStateList;)V
 
     .line 93
-    :cond_0
+    :cond_14
     iget-boolean v0, p0, Lcom/google/android/material/switchmaterial/SwitchMaterial;->useMaterialThemeColors:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     invoke-virtual {p0}, Lcom/google/android/material/switchmaterial/SwitchMaterial;->getTrackTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_25
 
     .line 94
     invoke-direct {p0}, Lcom/google/android/material/switchmaterial/SwitchMaterial;->getMaterialThemeColorsTrackTintList()Landroid/content/res/ColorStateList;
@@ -468,19 +468,19 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/switchmaterial/SwitchMaterial;->setTrackTintList(Landroid/content/res/ColorStateList;)V
 
     .line 96
-    :cond_1
+    :cond_25
     return-void
 .end method
 
 .method public setUseMaterialThemeColors(Z)V
-    .locals 1
+    .registers 3
     .param p1, "useMaterialThemeColors"    # Z
 
     .line 105
     iput-boolean p1, p0, Lcom/google/android/material/switchmaterial/SwitchMaterial;->useMaterialThemeColors:Z
 
     .line 106
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     .line 107
     invoke-direct {p0}, Lcom/google/android/material/switchmaterial/SwitchMaterial;->getMaterialThemeColorsThumbTintList()Landroid/content/res/ColorStateList;
@@ -496,10 +496,10 @@
 
     invoke-virtual {p0, v0}, Lcom/google/android/material/switchmaterial/SwitchMaterial;->setTrackTintList(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 110
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/google/android/material/switchmaterial/SwitchMaterial;->setThumbTintList(Landroid/content/res/ColorStateList;)V
@@ -508,6 +508,6 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/switchmaterial/SwitchMaterial;->setTrackTintList(Landroid/content/res/ColorStateList;)V
 
     .line 113
-    :goto_0
+    :goto_1a
     return-void
 .end method

@@ -59,7 +59,7 @@
 
 # direct methods
 .method private static final foldCopies(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext;Z)Lkotlin/coroutines/CoroutineContext;
-    .locals 7
+    .registers 10
     .param p0, "originalContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "appendContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "isNewCoroutine"    # Z
@@ -77,9 +77,9 @@
 
     .line 58
     .local v1, "hasElementsRight":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     .line 59
     invoke-interface {p0, p1}, Lkotlin/coroutines/CoroutineContext;->plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
@@ -89,7 +89,7 @@
     return-object v2
 
     .line 62
-    :cond_0
+    :cond_11
     new-instance v2, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     invoke-direct {v2}, Lkotlin/jvm/internal/Ref$ObjectRef;-><init>()V
@@ -114,7 +114,7 @@
 
     .line 79
     .local v3, "folded":Lkotlin/coroutines/CoroutineContext;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_39
 
     .line 80
     iget-object v4, v2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
@@ -134,7 +134,7 @@
     iput-object v4, v2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 88
-    :cond_1
+    :cond_39
     iget-object v4, v2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     check-cast v4, Lkotlin/coroutines/CoroutineContext;
@@ -147,7 +147,7 @@
 .end method
 
 .method public static final getCoroutineName(Lkotlin/coroutines/CoroutineContext;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "$this$coroutineName"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 276
@@ -157,12 +157,12 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     return-object v1
 
     .line 277
-    :cond_0
+    :cond_8
     sget-object v0, Lkotlinx/coroutines/CoroutineId;->Key:Lkotlinx/coroutines/CoroutineId$Key;
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext$Key;
@@ -173,13 +173,13 @@
 
     check-cast v0, Lkotlinx/coroutines/CoroutineId;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     return-object v1
 
     .line 278
     .local v0, "coroutineId":Lkotlinx/coroutines/CoroutineId;
-    :cond_1
+    :cond_15
     sget-object v1, Lkotlinx/coroutines/CoroutineName;->Key:Lkotlinx/coroutines/CoroutineName$Key;
 
     check-cast v1, Lkotlin/coroutines/CoroutineContext$Key;
@@ -190,20 +190,20 @@
 
     check-cast v1, Lkotlinx/coroutines/CoroutineName;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_27
 
     invoke-virtual {v1}, Lkotlinx/coroutines/CoroutineName;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_29
 
-    :cond_2
+    :cond_27
     const-string v1, "coroutine"
 
     .line 279
     .local v1, "coroutineName":Ljava/lang/String;
-    :cond_3
+    :cond_29
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -234,7 +234,7 @@
 .end method
 
 .method private static final hasCopyableElements(Lkotlin/coroutines/CoroutineContext;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$hasCopyableElements"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 40
@@ -262,7 +262,7 @@
 .end method
 
 .method public static final newCoroutineContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p0, "$this$newCoroutineContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "addedContext"    # Lkotlin/coroutines/CoroutineContext;
 
@@ -271,7 +271,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-interface {p0, p1}, Lkotlin/coroutines/CoroutineContext;->plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
 
@@ -280,7 +280,7 @@
     return-object v0
 
     .line 36
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     invoke-static {p0, p1, v0}, Lkotlinx/coroutines/CoroutineContextKt;->foldCopies(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext;Z)Lkotlin/coroutines/CoroutineContext;
@@ -291,7 +291,7 @@
 .end method
 
 .method public static final newCoroutineContext(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
-    .locals 4
+    .registers 6
     .param p0, "$this$newCoroutineContext"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
@@ -312,7 +312,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     new-instance v1, Lkotlinx/coroutines/CoroutineId;
 
@@ -332,19 +332,19 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     move-object v1, v0
 
     .line 21
     .local v1, "debug":Lkotlin/coroutines/CoroutineContext;
-    :goto_0
+    :goto_24
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getDefault()Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v2
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_3f
 
     sget-object v2, Lkotlin/coroutines/ContinuationInterceptor;->Key:Lkotlin/coroutines/ContinuationInterceptor$Key;
 
@@ -354,7 +354,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_3f
 
     .line 22
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getDefault()Lkotlinx/coroutines/CoroutineDispatcher;
@@ -367,18 +367,18 @@
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_40
 
-    :cond_1
+    :cond_3f
     move-object v2, v1
 
     .line 21
-    :goto_1
+    :goto_40
     return-object v2
 .end method
 
 .method public static final undispatchedCompletion(Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Lkotlinx/coroutines/UndispatchedCoroutine;
-    .locals 2
+    .registers 3
     .param p0, "$this$undispatchedCompletion"    # Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -393,7 +393,7 @@
     .line 147
     nop
 
-    :goto_0
+    :goto_1
     nop
 
     .line 148
@@ -401,29 +401,29 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     return-object v1
 
     .line 149
-    :cond_0
+    :cond_8
     invoke-interface {p0}, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;->getCallerFrame()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     return-object v1
 
     .line 147
-    :cond_1
+    :cond_f
     nop
 
     .line 151
     .local v0, "completion":Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
     instance-of v1, v0, Lkotlinx/coroutines/UndispatchedCoroutine;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
@@ -432,15 +432,15 @@
     return-object v1
 
     .line 152
-    :cond_2
+    :cond_18
     move-object p0, v0
 
     .end local v0    # "completion":Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public static final updateUndispatchedCompletion(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)Lkotlinx/coroutines/UndispatchedCoroutine;
-    .locals 2
+    .registers 5
     .param p0, "$this$updateUndispatchedCompletion"    # Lkotlin/coroutines/Continuation;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "oldValue"    # Ljava/lang/Object;
@@ -462,12 +462,12 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return-object v1
 
     .line 138
-    :cond_0
+    :cond_6
     sget-object v0, Lkotlinx/coroutines/UndispatchedMarker;->INSTANCE:Lkotlinx/coroutines/UndispatchedMarker;
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext$Key;
@@ -476,24 +476,24 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x0
 
     .line 139
     .local v0, "potentiallyHasUndispatchedCoroutine":Z
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_13
+    if-nez v0, :cond_16
 
     return-object v1
 
     .line 140
-    :cond_2
+    :cond_16
     move-object v1, p0
 
     check-cast v1, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
@@ -504,17 +504,17 @@
 
     .line 141
     .local v1, "completion":Lkotlinx/coroutines/UndispatchedCoroutine;
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_22
 
     invoke-virtual {v1, p1, p2}, Lkotlinx/coroutines/UndispatchedCoroutine;->saveThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
 
     .line 142
-    :cond_3
+    :cond_22
     return-object v1
 .end method
 
 .method public static final withContinuationContext(Lkotlin/coroutines/Continuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p0, "continuation"    # Lkotlin/coroutines/Continuation;
     .param p1, "countOrElement"    # Ljava/lang/Object;
     .param p2, "block"    # Lkotlin/jvm/functions/Function0;
@@ -549,21 +549,21 @@
     .local v2, "oldValue":Ljava/lang/Object;
     sget-object v3, Lkotlinx/coroutines/internal/ThreadContextKt;->NO_THREAD_ELEMENTS:Lkotlinx/coroutines/internal/Symbol;
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_12
 
     .line 111
     invoke-static {p0, v1, v2}, Lkotlinx/coroutines/CoroutineContextKt;->updateUndispatchedCompletion(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)Lkotlinx/coroutines/UndispatchedCoroutine;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_13
 
     .line 113
-    :cond_0
+    :cond_12
     const/4 v3, 0x0
 
     .line 109
-    :goto_0
+    :goto_13
     nop
 
     .line 115
@@ -571,54 +571,54 @@
     nop
 
     .line 116
-    :try_start_0
+    :try_start_15
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_15 .. :try_end_19} :catchall_26
 
     .line 118
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_21
 
     invoke-virtual {v3}, Lkotlinx/coroutines/UndispatchedCoroutine;->clearThreadContext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_24
 
     .line 119
-    :cond_1
+    :cond_21
     invoke-static {v1, v2}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
 
-    :cond_2
+    :cond_24
     nop
 
     .line 116
     return-object v4
 
     .line 118
-    :catchall_0
+    :catchall_26
     move-exception v4
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2f
 
     invoke-virtual {v3}, Lkotlinx/coroutines/UndispatchedCoroutine;->clearThreadContext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_32
 
     .line 119
-    :cond_3
+    :cond_2f
     invoke-static {v1, v2}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
 
-    :cond_4
+    :cond_32
     throw v4
 .end method
 
 .method public static final withCoroutineContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "countOrElement"    # Ljava/lang/Object;
     .param p2, "block"    # Lkotlin/jvm/functions/Function0;
@@ -647,12 +647,12 @@
     nop
 
     .line 97
-    :try_start_0
+    :try_start_6
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_6 .. :try_end_a} :catchall_e
 
     .line 99
     invoke-static {p0, v1}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
@@ -661,7 +661,7 @@
     return-object v2
 
     .line 99
-    :catchall_0
+    :catchall_e
     move-exception v2
 
     invoke-static {p0, v1}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V

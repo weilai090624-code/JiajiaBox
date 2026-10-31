@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -126,7 +126,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -226,7 +226,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 2
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -329,7 +329,7 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -344,7 +344,7 @@
     .end annotation
 
     .line 67
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_64
 
     .line 68
     sget-object v0, Landroidx/constraintlayout/widget/R$styleable;->MockView:[I
@@ -364,8 +364,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_6
+    :goto_d
+    if-ge v2, v1, :cond_61
 
     .line 71
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -376,7 +376,7 @@
     .local v3, "attr":I
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_label:I
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_1e
 
     .line 73
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -385,13 +385,13 @@
 
     iput-object v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mText:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_5e
 
     .line 74
-    :cond_0
+    :cond_1e
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_showDiagonals:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_2b
 
     .line 75
     iget-boolean v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawDiagonals:Z
@@ -402,13 +402,13 @@
 
     iput-boolean v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawDiagonals:Z
 
-    goto :goto_1
+    goto :goto_5e
 
     .line 76
-    :cond_1
+    :cond_2b
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_diagonalsColor:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_38
 
     .line 77
     iget v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDiagonalsColor:I
@@ -419,13 +419,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDiagonalsColor:I
 
-    goto :goto_1
+    goto :goto_5e
 
     .line 78
-    :cond_2
+    :cond_38
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_labelBackgroundColor:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_45
 
     .line 79
     iget v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextBackgroundColor:I
@@ -436,13 +436,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextBackgroundColor:I
 
-    goto :goto_1
+    goto :goto_5e
 
     .line 80
-    :cond_3
+    :cond_45
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_labelColor:I
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_52
 
     .line 81
     iget v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextColor:I
@@ -453,13 +453,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextColor:I
 
-    goto :goto_1
+    goto :goto_5e
 
     .line 82
-    :cond_4
+    :cond_52
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_showLabel:I
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v4, :cond_5e
 
     .line 83
     iget-boolean v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawLabel:Z
@@ -472,27 +472,27 @@
 
     .line 70
     .end local v3    # "attr":I
-    :cond_5
-    :goto_1
+    :cond_5e
+    :goto_5e
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 86
     .end local v2    # "i":I
-    :cond_6
+    :cond_61
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 88
     .end local v0    # "a":Landroid/content/res/TypedArray;
     .end local v1    # "N":I
-    :cond_7
+    :cond_64
     iget-object v0, p0, Landroidx/constraintlayout/utils/widget/MockView;->mText:Ljava/lang/String;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_78
 
     .line 90
-    :try_start_0
+    :try_start_68
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -506,19 +506,19 @@
     move-result-object v0
 
     iput-object v0, p0, Landroidx/constraintlayout/utils/widget/MockView;->mText:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_76
+    .catch Ljava/lang/Exception; {:try_start_68 .. :try_end_76} :catch_77
 
     .line 92
-    goto :goto_2
+    goto :goto_78
 
     .line 91
-    :catch_0
+    :catch_77
     move-exception v0
 
     .line 94
-    :cond_8
-    :goto_2
+    :cond_78
+    :goto_78
     iget-object v0, p0, Landroidx/constraintlayout/utils/widget/MockView;->mPaintDiagonals:Landroid/graphics/Paint;
 
     iget v1, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDiagonalsColor:I
@@ -585,7 +585,7 @@
 
 # virtual methods
 .method public onDraw(Landroid/graphics/Canvas;)V
-    .locals 14
+    .registers 16
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -614,7 +614,7 @@
     .local v1, "h":I
     iget-boolean v2, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawDiagonals:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_49
 
     .line 108
     add-int/lit8 v0, v0, -0x1
@@ -701,14 +701,14 @@
     invoke-virtual/range {v8 .. v13}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
     .line 117
-    :cond_0
+    :cond_49
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/MockView;->mText:Ljava/lang/String;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_b5
 
     iget-boolean v2, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawLabel:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_b5
 
     .line 118
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/MockView;->mPaintText:Landroid/graphics/Paint;
@@ -830,6 +830,6 @@
     .line 127
     .end local v2    # "tx":F
     .end local v4    # "ty":F
-    :cond_1
+    :cond_b5
     return-void
 .end method

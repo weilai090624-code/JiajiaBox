@@ -83,7 +83,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/internal/OnDemandAllocatingPool;
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public constructor <init>(ILkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 5
     .param p1, "maxCapacity"    # I
     .param p2, "create"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -135,7 +135,7 @@
 .end method
 
 .method private final isClosed(I)Z
-    .locals 2
+    .registers 4
     .param p1, "$this$isClosed"    # I
 
     const/4 v0, 0x0
@@ -146,21 +146,21 @@
 
     and-int/2addr v1, p1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_8
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     return v1
 .end method
 
 .method private final loop$atomicfu(Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -177,7 +177,7 @@
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     invoke-virtual {p1, p3}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
 
     move-result v1
@@ -188,11 +188,11 @@
 
     invoke-interface {p2, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private final tryForbidNewElements()I
-    .locals 12
+    .registers 13
 
     const/4 v0, 0x0
 
@@ -206,7 +206,7 @@
     const/4 v3, 0x0
 
     .local v3, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_5
     invoke-virtual {v1, p0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
 
     move-result v4
@@ -232,26 +232,26 @@
 
     const/4 v11, 0x0
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_16
 
     const/4 v10, 0x1
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v10, 0x0
 
     .line 35
     .end local v6    # "$this$isClosed$iv":I
     .end local v7    # "this_$iv":Lkotlinx/coroutines/internal/OnDemandAllocatingPool;
     .end local v8    # "$i$f$isClosed":I
-    :goto_1
-    if-eqz v10, :cond_1
+    :goto_17
+    if-eqz v10, :cond_1a
 
     return v11
 
     .line 36
-    :cond_1
+    :cond_1a
     sget-object v6, Lkotlinx/coroutines/internal/OnDemandAllocatingPool;->controlState$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     or-int v7, v4, v9
@@ -260,23 +260,23 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_25
 
     return v4
 
     .line 37
-    :cond_2
+    :cond_25
     nop
 
     .end local v4    # "it":I
     .end local v5    # "$i$a$-loop$atomicfu-OnDemandAllocatingPool$tryForbidNewElements$1":I
-    goto :goto_0
+    goto :goto_5
 .end method
 
 
 # virtual methods
 .method public final allocate()Z
-    .locals 11
+    .registers 12
 
     sget-object v0, Lkotlinx/coroutines/internal/OnDemandAllocatingPool;->controlState$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -287,7 +287,7 @@
     const/4 v2, 0x0
 
     .local v2, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_4
     invoke-virtual {v0, p0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
 
     move-result v3
@@ -315,34 +315,34 @@
 
     const/4 v10, 0x1
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_15
 
     const/4 v5, 0x1
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v5, 0x0
 
     .line 54
     .end local v5    # "$this$isClosed$iv":I
     .end local v6    # "this_$iv":Lkotlinx/coroutines/internal/OnDemandAllocatingPool;
     .end local v7    # "$i$f$isClosed":I
-    :goto_1
-    if-eqz v5, :cond_1
+    :goto_16
+    if-eqz v5, :cond_19
 
     return v9
 
     .line 55
-    :cond_1
+    :cond_19
     iget v5, p0, Lkotlinx/coroutines/internal/OnDemandAllocatingPool;->maxCapacity:I
 
-    if-lt v3, v5, :cond_2
+    if-lt v3, v5, :cond_1e
 
     return v10
 
     .line 56
-    :cond_2
+    :cond_1e
     sget-object v5, Lkotlinx/coroutines/internal/OnDemandAllocatingPool;->controlState$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     add-int/lit8 v6, v3, 0x1
@@ -351,7 +351,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_38
 
     .line 57
     iget-object v5, p0, Lkotlinx/coroutines/internal/OnDemandAllocatingPool;->elements:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -372,16 +372,16 @@
     return v10
 
     .line 60
-    :cond_3
+    :cond_38
     nop
 
     .end local v3    # "ctl":I
     .end local v4    # "$i$a$-loop$atomicfu-OnDemandAllocatingPool$allocate$1":I
-    goto :goto_0
+    goto :goto_4
 .end method
 
 .method public final close()Ljava/util/List;
-    .locals 14
+    .registers 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -406,7 +406,7 @@
     const/4 v4, 0x0
 
     .local v4, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_6
     invoke-virtual {v2, v0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
 
     move-result v5
@@ -432,28 +432,28 @@
 
     const/4 v12, 0x0
 
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_17
 
     const/4 v11, 0x1
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v11, 0x0
 
     .line 110
     .end local v7    # "$this$isClosed$iv$iv":I
     .end local v8    # "this_$iv$iv":Lkotlinx/coroutines/internal/OnDemandAllocatingPool;
     .end local v9    # "$i$f$isClosed":I
-    :goto_1
-    if-eqz v11, :cond_1
+    :goto_18
+    if-eqz v11, :cond_1c
 
     const/4 v5, 0x0
 
-    goto :goto_2
+    goto :goto_26
 
     .line 111
-    :cond_1
+    :cond_1c
     sget-object v7, Lkotlinx/coroutines/internal/OnDemandAllocatingPool;->controlState$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     or-int v8, v5, v10
@@ -462,7 +462,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_68
 
     .line 76
     .end local v0    # "this_$iv":Lkotlinx/coroutines/internal/OnDemandAllocatingPool;
@@ -472,7 +472,7 @@
     .end local v4    # "$i$f$loop$atomicfu":I
     .end local v5    # "it$iv":I
     .end local v6    # "$i$a$-loop$atomicfu-OnDemandAllocatingPool$tryForbidNewElements$1$iv":I
-    :goto_2
+    :goto_26
     move v0, v5
 
     .line 77
@@ -512,12 +512,12 @@
 
     move-result-object v6
 
-    :goto_3
+    :goto_41
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_63
 
     move-object v7, v6
 
@@ -540,7 +540,7 @@
 
     .line 120
     .local v10, "$i$f$loop":I
-    :goto_4
+    :goto_51
     nop
 
     .line 121
@@ -558,7 +558,7 @@
 
     .line 81
     .local v12, "element":Ljava/lang/Object;
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_61
 
     .line 82
     nop
@@ -571,7 +571,7 @@
     .end local v12    # "element":Ljava/lang/Object;
     invoke-interface {v3, v12}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_41
 
     .line 84
     .restart local v8    # "i":I
@@ -579,20 +579,20 @@
     .restart local v10    # "$i$f$loop":I
     .restart local v11    # "$i$a$-loop-OnDemandAllocatingPool$close$1$1":I
     .restart local v12    # "element":Ljava/lang/Object;
-    :cond_2
+    :cond_61
     nop
 
     .line 121
     .end local v11    # "$i$a$-loop-OnDemandAllocatingPool$close$1$1":I
     .end local v12    # "element":Ljava/lang/Object;
-    goto :goto_4
+    goto :goto_51
 
     .line 122
     .end local v7    # "item$iv$iv":I
     .end local v8    # "i":I
     .end local v9    # "$i$a$-map-OnDemandAllocatingPool$close$1":I
     .end local v10    # "$i$f$loop":I
-    :cond_3
+    :cond_63
     nop
 
     .end local v3    # "destination$iv$iv":Ljava/util/Collection;
@@ -616,16 +616,16 @@
     .local v4, "$i$f$loop$atomicfu":I
     .local v5, "it$iv":I
     .restart local v6    # "$i$a$-loop$atomicfu-OnDemandAllocatingPool$tryForbidNewElements$1$iv":I
-    :cond_4
+    :cond_68
     nop
 
     .end local v5    # "it$iv":I
     .end local v6    # "$i$a$-loop$atomicfu-OnDemandAllocatingPool$tryForbidNewElements$1$iv":I
-    goto :goto_0
+    goto :goto_6
 .end method
 
 .method public final stateRepresentation$kotlinx_coroutines_core()Ljava/lang/String;
-    .locals 12
+    .registers 13
 
     sget-object v0, Lkotlinx/coroutines/internal/OnDemandAllocatingPool;->controlState$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -677,12 +677,12 @@
 
     move-result-object v7
 
-    :goto_0
+    :goto_25
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_3e
 
     move-object v8, v7
 
@@ -712,11 +712,11 @@
     .end local v10    # "$i$a$-map-OnDemandAllocatingPool$stateRepresentation$elementsStr$1":I
     invoke-interface {v4, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_25
 
     .line 126
     .end local v8    # "item$iv$iv":I
-    :cond_0
+    :cond_3e
     nop
 
     .end local v4    # "destination$iv$iv":Ljava/util/Collection;
@@ -750,7 +750,7 @@
 
     and-int/2addr v6, v3
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_4f
 
     const/4 v2, 0x1
 
@@ -758,19 +758,19 @@
     .end local v3    # "$this$isClosed$iv":I
     .end local v4    # "this_$iv":Lkotlinx/coroutines/internal/OnDemandAllocatingPool;
     .end local v5    # "$i$f$isClosed":I
-    :cond_1
-    if-eqz v2, :cond_2
+    :cond_4f
+    if-eqz v2, :cond_54
 
     const-string v2, "[closed]"
 
-    goto :goto_1
+    goto :goto_56
 
-    :cond_2
+    :cond_54
     const-string v2, ""
 
     .line 93
     .local v2, "closedStr":Ljava/lang/String;
-    :goto_1
+    :goto_56
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -791,7 +791,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 96
     new-instance v0, Ljava/lang/StringBuilder;

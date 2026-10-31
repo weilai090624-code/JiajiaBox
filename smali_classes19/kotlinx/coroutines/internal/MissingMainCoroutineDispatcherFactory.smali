@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/internal/MissingMainCoroutineDispatcherFactory;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 125
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public createDispatcher(Ljava/util/List;)Lkotlinx/coroutines/MainCoroutineDispatcher;
-    .locals 3
+    .registers 5
     .param p1, "allFactories"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -92,7 +92,7 @@
 .end method
 
 .method public getLoadPriority()I
-    .locals 1
+    .registers 2
 
     .line 128
     const/4 v0, -0x1
@@ -101,7 +101,7 @@
 .end method
 
 .method public hintOnError()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 125
     invoke-static {p0}, Lkotlinx/coroutines/internal/MainDispatcherFactory$DefaultImpls;->hintOnError(Lkotlinx/coroutines/internal/MainDispatcherFactory;)Ljava/lang/String;

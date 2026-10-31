@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/ViewGroup;)V
-    .locals 0
+    .registers 2
     .param p1, "viewGroup"    # Landroid/view/ViewGroup;
 
     .line 50
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public getNestedScrollAxes()I
-    .locals 2
+    .registers 3
 
     .line 92
     iget v0, p0, Landroidx/core/view/NestedScrollingParentHelper;->mNestedScrollAxesTouch:I
@@ -37,7 +37,7 @@
 .end method
 
 .method public onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;I)V
-    .locals 1
+    .registers 5
     .param p1, "child"    # Landroid/view/View;
     .param p2, "target"    # Landroid/view/View;
     .param p3, "axes"    # I
@@ -52,7 +52,7 @@
 .end method
 
 .method public onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;II)V
-    .locals 1
+    .registers 6
     .param p1, "child"    # Landroid/view/View;
     .param p2, "target"    # Landroid/view/View;
     .param p3, "axes"    # I
@@ -61,24 +61,24 @@
     .line 76
     const/4 v0, 0x1
 
-    if-ne p4, v0, :cond_0
+    if-ne p4, v0, :cond_6
 
     .line 77
     iput p3, p0, Landroidx/core/view/NestedScrollingParentHelper;->mNestedScrollAxesNonTouch:I
 
-    goto :goto_0
+    goto :goto_8
 
     .line 79
-    :cond_0
+    :cond_6
     iput p3, p0, Landroidx/core/view/NestedScrollingParentHelper;->mNestedScrollAxesTouch:I
 
     .line 81
-    :goto_0
+    :goto_8
     return-void
 .end method
 
 .method public onStopNestedScroll(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "target"    # Landroid/view/View;
 
     .line 103
@@ -91,7 +91,7 @@
 .end method
 
 .method public onStopNestedScroll(Landroid/view/View;I)V
-    .locals 2
+    .registers 5
     .param p1, "target"    # Landroid/view/View;
     .param p2, "type"    # I
 
@@ -100,18 +100,18 @@
 
     const/4 v1, 0x0
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_7
 
     .line 115
     iput v1, p0, Landroidx/core/view/NestedScrollingParentHelper;->mNestedScrollAxesNonTouch:I
 
-    goto :goto_0
+    goto :goto_9
 
     .line 117
-    :cond_0
+    :cond_7
     iput v1, p0, Landroidx/core/view/NestedScrollingParentHelper;->mNestedScrollAxesTouch:I
 
     .line 119
-    :goto_0
+    :goto_9
     return-void
 .end method

@@ -84,7 +84,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/NonCancellable;
 
@@ -96,7 +96,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 28
     sget-object v0, Lkotlinx/coroutines/Job;->Key:Lkotlinx/coroutines/Job$Key;
@@ -110,7 +110,7 @@
 .end method
 
 .method public static synthetic getChildren$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "NonCancellable can be used only as an argument for \'withContext\', direct usages of its API are prohibited"
@@ -120,7 +120,7 @@
 .end method
 
 .method public static synthetic getOnJoin$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "NonCancellable can be used only as an argument for \'withContext\', direct usages of its API are prohibited"
@@ -130,7 +130,7 @@
 .end method
 
 .method public static synthetic getParent$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "NonCancellable can be used only as an argument for \'withContext\', direct usages of its API are prohibited"
@@ -140,7 +140,7 @@
 .end method
 
 .method public static synthetic isActive$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "NonCancellable can be used only as an argument for \'withContext\', direct usages of its API are prohibited"
@@ -150,7 +150,7 @@
 .end method
 
 .method public static synthetic isCancelled$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "NonCancellable can be used only as an argument for \'withContext\', direct usages of its API are prohibited"
@@ -160,7 +160,7 @@
 .end method
 
 .method public static synthetic isCompleted$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "NonCancellable can be used only as an argument for \'withContext\', direct usages of its API are prohibited"
@@ -172,7 +172,7 @@
 
 # virtual methods
 .method public attachChild(Lkotlinx/coroutines/ChildJob;)Lkotlinx/coroutines/ChildHandle;
-    .locals 1
+    .registers 3
     .param p1, "child"    # Lkotlinx/coroutines/ChildJob;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
@@ -188,7 +188,7 @@
 .end method
 
 .method public synthetic cancel()V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
         message = "Since 1.2.0, binary compatibility with versions <= 1.1.x"
@@ -201,7 +201,7 @@
 .end method
 
 .method public cancel(Ljava/util/concurrent/CancellationException;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/util/concurrent/CancellationException;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
@@ -213,7 +213,7 @@
 .end method
 
 .method public synthetic cancel(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
@@ -227,7 +227,7 @@
 .end method
 
 .method public getCancellationException()Ljava/util/concurrent/CancellationException;
-    .locals 2
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "NonCancellable can be used only as an argument for \'withContext\', direct usages of its API are prohibited"
@@ -244,7 +244,7 @@
 .end method
 
 .method public getChildren()Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -263,7 +263,7 @@
 .end method
 
 .method public getOnJoin()Lkotlinx/coroutines/selects/SelectClause0;
-    .locals 2
+    .registers 3
 
     .line 84
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -276,7 +276,7 @@
 .end method
 
 .method public getParent()Lkotlinx/coroutines/Job;
-    .locals 1
+    .registers 2
 
     .line 38
     const/4 v0, 0x0
@@ -285,7 +285,7 @@
 .end method
 
 .method public invokeOnCompletion(Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/DisposableHandle;
-    .locals 1
+    .registers 3
     .param p1, "handler"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -313,7 +313,7 @@
 .end method
 
 .method public invokeOnCompletion(ZZLkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/DisposableHandle;
-    .locals 1
+    .registers 5
     .param p1, "onCancelling"    # Z
     .param p2, "invokeImmediately"    # Z
     .param p3, "handler"    # Lkotlin/jvm/functions/Function1;
@@ -343,7 +343,7 @@
 .end method
 
 .method public isActive()Z
-    .locals 1
+    .registers 2
 
     .line 46
     const/4 v0, 0x1
@@ -352,7 +352,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 60
     const/4 v0, 0x0
@@ -361,7 +361,7 @@
 .end method
 
 .method public isCompleted()Z
-    .locals 1
+    .registers 2
 
     .line 53
     const/4 v0, 0x0
@@ -370,7 +370,7 @@
 .end method
 
 .method public join(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -399,7 +399,7 @@
 .end method
 
 .method public plus(Lkotlinx/coroutines/Job;)Lkotlinx/coroutines/Job;
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lkotlinx/coroutines/Job;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -415,7 +415,7 @@
 .end method
 
 .method public start()Z
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "NonCancellable can be used only as an argument for \'withContext\', direct usages of its API are prohibited"
@@ -428,7 +428,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 139
     const-string v0, "NonCancellable"

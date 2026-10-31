@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/collect/ForwardingMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/ForwardingMap;
 
     .line 261
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method map()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

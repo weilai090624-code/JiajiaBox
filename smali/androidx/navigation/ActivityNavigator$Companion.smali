@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 481
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/navigation/ActivityNavigator$Companion;-><init>()V
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final applyPopAnimationsToPendingTransition(Landroid/app/Activity;)V
-    .locals 6
+    .registers 8
     .param p1, "activity"    # Landroid/app/Activity;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -78,13 +78,13 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     return-void
 
     .line 501
     .local v0, "intent":Landroid/content/Intent;
-    :cond_0
+    :cond_c
     const-string v1, "android-support-navigation:ActivityNavigator:popEnterAnim"
 
     const/4 v2, -0x1
@@ -103,38 +103,38 @@
 
     .line 503
     .local v3, "popExitAnim":I
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1d
 
-    if-eq v3, v2, :cond_4
+    if-eq v3, v2, :cond_2b
 
     .line 504
-    :cond_1
+    :cond_1d
     const/4 v4, 0x0
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_22
 
     move v5, v1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_2
+    :cond_22
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_23
     move v1, v5
 
     .line 505
-    if-eq v3, v2, :cond_3
+    if-eq v3, v2, :cond_27
 
     move v4, v3
 
-    :cond_3
+    :cond_27
     move v3, v4
 
     .line 506
     invoke-virtual {p1, v1, v3}, Landroid/app/Activity;->overridePendingTransition(II)V
 
     .line 508
-    :cond_4
+    :cond_2b
     return-void
 .end method

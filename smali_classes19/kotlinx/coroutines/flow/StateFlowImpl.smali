@@ -117,7 +117,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const-class v0, Ljava/lang/Object;
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "initialState"    # Ljava/lang/Object;
 
     .line 309
@@ -149,13 +149,13 @@
 .end method
 
 .method public static synthetic getValue$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private final updateState(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 11
+    .registers 14
     .param p1, "expectedState"    # Ljava/lang/Object;
     .param p2, "newState"    # Ljava/lang/Object;
 
@@ -184,7 +184,7 @@
     const/4 v4, 0x0
 
     .local v4, "$i$a$-synchronized-StateFlowImpl$updateState$1":I
-    :try_start_0
+    :try_start_7
     sget-object v5, Lkotlinx/coroutines/flow/StateFlowImpl;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     .line 325
@@ -196,15 +196,15 @@
     .local v5, "oldState":Ljava/lang/Object;
     const/4 v6, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     invoke-static {v5, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_14
+    .catchall {:try_start_7 .. :try_end_14} :catchall_7d
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_18
 
     .end local v2    # "$i$f$synchronized":I
     .end local v3    # "$i$f$synchronizedImpl":I
@@ -219,17 +219,17 @@
     .restart local v3    # "$i$f$synchronizedImpl":I
     .restart local v4    # "$i$a$-synchronized-StateFlowImpl$updateState$1":I
     .restart local v5    # "oldState":Ljava/lang/Object;
-    :cond_0
-    :try_start_1
+    :cond_18
+    :try_start_18
     invoke-static {v5, p2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_1c
+    .catchall {:try_start_18 .. :try_end_1c} :catchall_7d
 
     const/4 v8, 0x1
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_21
 
     .end local v2    # "$i$f$synchronized":I
     .end local v3    # "$i$f$synchronizedImpl":I
@@ -243,8 +243,8 @@
     .restart local v3    # "$i$f$synchronizedImpl":I
     .restart local v4    # "$i$a$-synchronized-StateFlowImpl$updateState$1":I
     .restart local v5    # "oldState":Ljava/lang/Object;
-    :cond_1
-    :try_start_2
+    :cond_21
+    :try_start_21
     sget-object v7, Lkotlinx/coroutines/flow/StateFlowImpl;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     .line 328
@@ -258,7 +258,7 @@
     .line 330
     and-int/lit8 v7, v0, 0x1
 
-    if-nez v7, :cond_6
+    if-nez v7, :cond_76
 
     .line 331
     add-int/lit8 v0, v0, 0x1
@@ -279,8 +279,8 @@
     .end local v4    # "$i$a$-synchronized-StateFlowImpl$updateState$1":I
     .end local v5    # "oldState":Ljava/lang/Object;
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_39
+    .catchall {:try_start_21 .. :try_end_39} :catchall_7d
 
     .line 434
     monitor-exit p0
@@ -291,7 +291,7 @@
 
     .line 346
     .end local v2    # "$i$f$synchronized":I
-    :goto_0
+    :goto_3b
     nop
 
     .line 348
@@ -299,7 +299,7 @@
 
     check-cast v2, [Lkotlinx/coroutines/flow/StateFlowSlot;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_55
 
     .local v2, "$this$forEach$iv":[Ljava/lang/Object;
     const/4 v3, 0x0
@@ -310,8 +310,8 @@
 
     const/4 v5, 0x0
 
-    :goto_1
-    if-ge v5, v4, :cond_3
+    :goto_44
+    if-ge v5, v4, :cond_54
 
     aget-object v7, v2, v5
 
@@ -323,12 +323,12 @@
 
     .line 349
     .local v10, "$i$a$-forEach-StateFlowImpl$updateState$2":I
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_4f
 
     invoke-virtual {v9}, Lkotlinx/coroutines/flow/StateFlowSlot;->makePending()V
 
     .line 350
-    :cond_2
+    :cond_4f
     nop
 
     .line 435
@@ -339,16 +339,16 @@
     .end local v7    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_44
 
     .line 436
-    :cond_3
+    :cond_54
     nop
 
     .line 352
     .end local v2    # "$this$forEach$iv":[Ljava/lang/Object;
     .end local v3    # "$i$f$forEach":I
-    :cond_4
+    :cond_55
     const/4 v2, 0x0
 
     .line 437
@@ -366,17 +366,17 @@
 
     .line 353
     .local v4, "$i$a$-synchronized-StateFlowImpl$updateState$3":I
-    :try_start_3
+    :try_start_5a
     iget v5, p0, Lkotlinx/coroutines/flow/StateFlowImpl;->sequence:I
 
-    if-ne v5, v0, :cond_5
+    if-ne v5, v0, :cond_65
 
     .line 354
     add-int/lit8 v5, v0, 0x1
 
     iput v5, p0, Lkotlinx/coroutines/flow/StateFlowImpl;->sequence:I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_62
+    .catchall {:try_start_5a .. :try_end_62} :catchall_73
 
     .line 355
     nop
@@ -392,8 +392,8 @@
     .restart local v2    # "$i$f$synchronized":I
     .restart local v3    # "$i$f$synchronizedImpl":I
     .restart local v4    # "$i$a$-synchronized-StateFlowImpl$updateState$3":I
-    :cond_5
-    :try_start_4
+    :cond_65
+    :try_start_65
     iget v5, p0, Lkotlinx/coroutines/flow/StateFlowImpl;->sequence:I
 
     move v0, v5
@@ -410,8 +410,8 @@
 
     .end local v4    # "$i$a$-synchronized-StateFlowImpl$updateState$3":I
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_70
+    .catchall {:try_start_65 .. :try_end_70} :catchall_73
 
     .line 441
     monitor-exit p0
@@ -421,12 +421,12 @@
     nop
 
     .end local v2    # "$i$f$synchronized":I
-    goto :goto_0
+    goto :goto_3b
 
     .line 441
     .restart local v2    # "$i$f$synchronized":I
     .restart local v3    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_73
     move-exception v4
 
     monitor-exit p0
@@ -436,13 +436,13 @@
     .line 335
     .local v4, "$i$a$-synchronized-StateFlowImpl$updateState$1":I
     .restart local v5    # "oldState":Ljava/lang/Object;
-    :cond_6
+    :cond_76
     add-int/lit8 v6, v0, 0x2
 
-    :try_start_5
+    :try_start_78
     iput v6, p0, Lkotlinx/coroutines/flow/StateFlowImpl;->sequence:I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_7a
+    .catchall {:try_start_78 .. :try_end_7a} :catchall_7d
 
     .line 336
     nop
@@ -458,7 +458,7 @@
     .line 434
     .restart local v2    # "$i$f$synchronized":I
     .restart local v3    # "$i$f$synchronizedImpl":I
-    :catchall_1
+    :catchall_7d
     move-exception v4
 
     monitor-exit p0
@@ -469,7 +469,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -483,7 +483,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -495,7 +495,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;->label:I
 
@@ -503,14 +503,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;-><init>(Lkotlinx/coroutines/flow/StateFlowImpl;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -524,7 +524,7 @@
     .line 381
     iget v2, p2, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_fe
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -538,7 +538,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p1, p2, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;->L$4:Ljava/lang/Object;
 
     .local p1, "oldState":Ljava/lang/Object;
@@ -562,10 +562,10 @@
     check-cast v5, Lkotlinx/coroutines/flow/StateFlowImpl;
 
     .local v5, "this":Lkotlinx/coroutines/flow/StateFlowImpl;
-    :try_start_0
+    :try_start_3f
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_42
+    .catchall {:try_start_3f .. :try_end_42} :catchall_f5
 
     move-object v9, v4
 
@@ -573,14 +573,14 @@
 
     move-object p1, v9
 
-    goto/16 :goto_5
+    goto/16 :goto_f4
 
     .end local v2    # "collectorJob":Lkotlinx/coroutines/Job;
     .end local v3    # "slot":Lkotlinx/coroutines/flow/StateFlowSlot;
     .end local v4    # "collector":Lkotlinx/coroutines/flow/FlowCollector;
     .end local v5    # "this":Lkotlinx/coroutines/flow/StateFlowImpl;
     .end local p1    # "oldState":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_47
     iget-object p1, p2, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;->L$4:Ljava/lang/Object;
 
     .local p1, "newState":Ljava/lang/Object;
@@ -604,19 +604,19 @@
     check-cast v5, Lkotlinx/coroutines/flow/StateFlowImpl;
 
     .restart local v5    # "this":Lkotlinx/coroutines/flow/StateFlowImpl;
-    :try_start_1
+    :try_start_59
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5c
+    .catchall {:try_start_59 .. :try_end_5c} :catchall_f5
 
-    goto/16 :goto_4
+    goto/16 :goto_d5
 
     .end local v2    # "collectorJob":Lkotlinx/coroutines/Job;
     .end local v3    # "slot":Lkotlinx/coroutines/flow/StateFlowSlot;
     .end local v4    # "collector":Lkotlinx/coroutines/flow/FlowCollector;
     .end local v5    # "this":Lkotlinx/coroutines/flow/StateFlowImpl;
     .end local p1    # "newState":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_5e
     iget-object p1, p2, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;->L$2:Ljava/lang/Object;
 
     move-object v3, p1
@@ -636,17 +636,17 @@
     check-cast v5, Lkotlinx/coroutines/flow/StateFlowImpl;
 
     .restart local v5    # "this":Lkotlinx/coroutines/flow/StateFlowImpl;
-    :try_start_2
+    :try_start_6c
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_6f
+    .catchall {:try_start_6c .. :try_end_6f} :catchall_f5
 
-    goto :goto_1
+    goto :goto_93
 
     .end local v3    # "slot":Lkotlinx/coroutines/flow/StateFlowSlot;
     .end local v5    # "this":Lkotlinx/coroutines/flow/StateFlowImpl;
     .end local p1    # "collector":Lkotlinx/coroutines/flow/FlowCollector;
-    :pswitch_3
+    :pswitch_70
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v5, p0
@@ -667,10 +667,10 @@
     nop
 
     .line 384
-    :try_start_3
+    :try_start_7c
     instance-of v2, p1, Lkotlinx/coroutines/flow/SubscribedFlowCollector;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_94
 
     move-object v2, p1
 
@@ -690,17 +690,17 @@
 
     move-result-object v2
 
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_93
 
     .line 381
     return-object v1
 
     .line 385
-    :cond_1
-    :goto_1
+    :cond_93
+    :goto_93
     nop
 
-    :cond_2
+    :cond_94
     const/4 v2, 0x0
 
     .line 442
@@ -727,8 +727,8 @@
 
     .line 388
     .local v4, "oldState":Ljava/lang/Object;
-    :cond_3
-    :goto_2
+    :cond_a4
+    :goto_a4
     sget-object v6, Lkotlinx/coroutines/flow/StateFlowImpl;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     .line 391
@@ -738,23 +738,23 @@
 
     .line 393
     .local v6, "newState":Ljava/lang/Object;
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_af
 
     invoke-static {v2}, Lkotlinx/coroutines/JobKt;->ensureActive(Lkotlinx/coroutines/Job;)V
 
     .line 395
-    :cond_4
-    if-eqz v4, :cond_5
+    :cond_af
+    if-eqz v4, :cond_b7
 
     invoke-static {v4, v6}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_8
+    if-nez v7, :cond_da
 
     .line 396
     .end local v4    # "oldState":Ljava/lang/Object;
-    :cond_5
+    :cond_b7
     sget-object v4, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
     .local v4, "this_$iv":Lkotlinx/coroutines/internal/Symbol;
@@ -762,19 +762,19 @@
 
     .line 443
     .local v7, "$i$f$unbox":I
-    if-ne v6, v4, :cond_6
+    if-ne v6, v4, :cond_be
 
     const/4 v8, 0x0
 
-    goto :goto_3
+    goto :goto_bf
 
     .end local v4    # "this_$iv":Lkotlinx/coroutines/internal/Symbol;
-    :cond_6
+    :cond_be
     move-object v8, v6
 
     .line 396
     .end local v7    # "$i$f$unbox":I
-    :goto_3
+    :goto_bf
     iput-object v5, p2, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;->L$0:Ljava/lang/Object;
 
     iput-object p1, p2, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;->L$1:Ljava/lang/Object;
@@ -793,13 +793,13 @@
 
     move-result-object v4
 
-    if-ne v4, v1, :cond_7
+    if-ne v4, v1, :cond_d3
 
     .line 381
     return-object v1
 
     .line 396
-    :cond_7
+    :cond_d3
     move-object v4, p1
 
     move-object p1, v6
@@ -808,7 +808,7 @@
     .end local v6    # "newState":Ljava/lang/Object;
     .local v4, "collector":Lkotlinx/coroutines/flow/FlowCollector;
     .local p1, "newState":Ljava/lang/Object;
-    :goto_4
+    :goto_d5
     move-object v6, p1
 
     move-object p1, v6
@@ -822,12 +822,12 @@
     .line 400
     .local v4, "oldState":Ljava/lang/Object;
     .local p1, "collector":Lkotlinx/coroutines/flow/FlowCollector;
-    :cond_8
+    :cond_da
     invoke-virtual {v3}, Lkotlinx/coroutines/flow/StateFlowSlot;->takePending()Z
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_a4
 
     .line 401
     iput-object v5, p2, Lkotlinx/coroutines/flow/StateFlowImpl$collect$1;->L$0:Ljava/lang/Object;
@@ -847,24 +847,24 @@
     invoke-virtual {v3, p2}, Lkotlinx/coroutines/flow/StateFlowSlot;->awaitPending(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v6
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_f1
+    .catchall {:try_start_7c .. :try_end_f1} :catchall_f5
 
-    if-ne v6, v1, :cond_9
+    if-ne v6, v1, :cond_f4
 
     .line 381
     return-object v1
 
     .line 401
-    :cond_9
-    :goto_5
-    goto :goto_2
+    :cond_f4
+    :goto_f4
+    goto :goto_a4
 
     .line 405
     .end local v2    # "collectorJob":Lkotlinx/coroutines/Job;
     .end local v4    # "oldState":Ljava/lang/Object;
     .end local p1    # "collector":Lkotlinx/coroutines/flow/FlowCollector;
-    :catchall_0
+    :catchall_f5
     move-exception p1
 
     move-object v1, v3
@@ -877,17 +877,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_fe
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_70
+        :pswitch_5e
+        :pswitch_47
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p1, "expect"    # Ljava/lang/Object;
     .param p2, "update"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -897,26 +897,26 @@
     .end annotation
 
     .line 319
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     sget-object v0, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     move-object v0, p1
 
-    :goto_0
-    if-nez p2, :cond_1
+    :goto_6
+    if-nez p2, :cond_b
 
     sget-object v1, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
+    :cond_b
     move-object v1, p2
 
-    :goto_1
+    :goto_c
     invoke-direct {p0, v0, v1}, Lkotlinx/coroutines/flow/StateFlowImpl;->updateState(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
@@ -925,7 +925,7 @@
 .end method
 
 .method protected createSlot()Lkotlinx/coroutines/flow/StateFlowSlot;
-    .locals 1
+    .registers 2
 
     .line 409
     new-instance v0, Lkotlinx/coroutines/flow/StateFlowSlot;
@@ -936,7 +936,7 @@
 .end method
 
 .method public bridge synthetic createSlot()Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
-    .locals 1
+    .registers 2
 
     .line 307
     invoke-virtual {p0}, Lkotlinx/coroutines/flow/StateFlowImpl;->createSlot()Lkotlinx/coroutines/flow/StateFlowSlot;
@@ -949,7 +949,7 @@
 .end method
 
 .method protected createSlotArray(I)[Lkotlinx/coroutines/flow/StateFlowSlot;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 410
@@ -959,7 +959,7 @@
 .end method
 
 .method public bridge synthetic createSlotArray(I)[Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 307
@@ -973,7 +973,7 @@
 .end method
 
 .method public emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -997,7 +997,7 @@
 .end method
 
 .method public fuse(Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 5
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
     .param p3, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;
@@ -1026,7 +1026,7 @@
 .end method
 
 .method public getReplayCache()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1048,7 +1048,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -1070,7 +1070,7 @@
 
     .line 429
     .local v2, "$i$f$unbox":I
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_d
 
     const/4 v3, 0x0
 
@@ -1080,12 +1080,12 @@
     .end local v0    # "this_$iv":Lkotlinx/coroutines/internal/Symbol;
     .end local v1    # "value$iv":Ljava/lang/Object;
     .end local v2    # "$i$f$unbox":I
-    :cond_0
+    :cond_d
     return-object v1
 .end method
 
 .method public resetReplayCache()V
-    .locals 2
+    .registers 3
 
     .line 378
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -1098,7 +1098,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1107,16 +1107,16 @@
     .end annotation
 
     .line 316
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     sget-object v0, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     move-object v0, p1
 
-    :goto_0
+    :goto_6
     const/4 v1, 0x0
 
     invoke-direct {p0, v1, v0}, Lkotlinx/coroutines/flow/StateFlowImpl;->updateState(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -1125,7 +1125,7 @@
 .end method
 
 .method public tryEmit(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

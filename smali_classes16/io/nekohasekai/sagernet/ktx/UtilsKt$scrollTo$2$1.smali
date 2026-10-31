@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/content/Context;)V
-    .locals 0
+    .registers 3
     .param p1, "$index"    # I
     .param p2, "$super_call_param$1"    # Landroid/content/Context;
 
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method protected getVerticalSnapPreference()I
-    .locals 1
+    .registers 2
 
     .line 189
     const/4 v0, -0x1

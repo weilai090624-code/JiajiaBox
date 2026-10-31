@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     .line 39
     new-instance v0, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -153,7 +153,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/Character;)V
-    .locals 0
+    .registers 4
     .param p3, "style"    # Ljava/lang/Character;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -174,11 +174,11 @@
 .end method
 
 .method public static createStyle(Ljava/lang/Character;)Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
-    .locals 3
+    .registers 4
     .param p0, "style"    # Ljava/lang/Character;
 
     .line 57
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 58
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->PLAIN:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -186,12 +186,12 @@
     return-object v0
 
     .line 60
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Ljava/lang/Character;->charValue()C
 
     move-result v0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_32
 
     .line 70
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
@@ -219,42 +219,42 @@
     throw v0
 
     .line 66
-    :sswitch_0
+    :sswitch_25
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->LITERAL:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     return-object v0
 
     .line 68
-    :sswitch_1
+    :sswitch_28
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->FOLDED:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     return-object v0
 
     .line 64
-    :sswitch_2
+    :sswitch_2b
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->SINGLE_QUOTED:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     return-object v0
 
     .line 62
-    :sswitch_3
+    :sswitch_2e
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->DOUBLE_QUOTED:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     return-object v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_32
     .sparse-switch
-        0x22 -> :sswitch_3
-        0x27 -> :sswitch_2
-        0x3e -> :sswitch_1
-        0x7c -> :sswitch_0
+        0x22 -> :sswitch_2e
+        0x27 -> :sswitch_2b
+        0x3e -> :sswitch_28
+        0x7c -> :sswitch_25
     .end sparse-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 38
@@ -270,7 +270,7 @@
 .end method
 
 .method public static values()[Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
-    .locals 1
+    .registers 1
 
     .line 38
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->$VALUES:[Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -287,7 +287,7 @@
 
 # virtual methods
 .method public getChar()Ljava/lang/Character;
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->styleChar:Ljava/lang/Character;
@@ -296,7 +296,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 53
     new-instance v0, Ljava/lang/StringBuilder;

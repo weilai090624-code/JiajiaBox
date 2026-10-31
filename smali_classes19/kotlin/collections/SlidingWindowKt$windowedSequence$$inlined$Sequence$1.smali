@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/sequences/Sequence;IIZZ)V
-    .locals 0
+    .registers 6
 
     iput-object p1, p0, Lkotlin/collections/SlidingWindowKt$windowedSequence$$inlined$Sequence$1;->$this_windowedSequence$inlined:Lkotlin/sequences/Sequence;
 
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

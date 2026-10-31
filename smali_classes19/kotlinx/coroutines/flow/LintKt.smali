@@ -81,7 +81,7 @@
 
 # direct methods
 .method public static final cancel(Lkotlinx/coroutines/flow/FlowCollector;Ljava/util/concurrent/CancellationException;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$cancel"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p1, "cause"    # Ljava/util/concurrent/CancellationException;
     .annotation system Ldalvik/annotation/Signature;
@@ -114,23 +114,23 @@
 .end method
 
 .method public static synthetic cancel$default(Lkotlinx/coroutines/flow/FlowCollector;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 84
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Lkotlinx/coroutines/flow/LintKt;->cancel(Lkotlinx/coroutines/flow/FlowCollector;Ljava/util/concurrent/CancellationException;)V
 
     return-void
 .end method
 
 .method public static final cancellable(Lkotlinx/coroutines/flow/SharedFlow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "$this$cancellable"    # Lkotlinx/coroutines/flow/SharedFlow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -164,7 +164,7 @@
 .end method
 
 .method private static final catch(Lkotlinx/coroutines/flow/SharedFlow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$catch"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -217,7 +217,7 @@
 .end method
 
 .method public static final conflate(Lkotlinx/coroutines/flow/StateFlow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "$this$conflate"    # Lkotlinx/coroutines/flow/StateFlow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -251,7 +251,7 @@
 .end method
 
 .method private static final count(Lkotlinx/coroutines/flow/SharedFlow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$count"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -291,7 +291,7 @@
 .end method
 
 .method public static final distinctUntilChanged(Lkotlinx/coroutines/flow/StateFlow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "$this$distinctUntilChanged"    # Lkotlinx/coroutines/flow/StateFlow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -325,7 +325,7 @@
 .end method
 
 .method public static final flowOn(Lkotlinx/coroutines/flow/SharedFlow;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$flowOn"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
@@ -362,7 +362,7 @@
 .end method
 
 .method public static final getCoroutineContext(Lkotlinx/coroutines/flow/FlowCollector;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
     .param p0, "$this$coroutineContext"    # Lkotlinx/coroutines/flow/FlowCollector;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -384,7 +384,7 @@
 .end method
 
 .method public static synthetic getCoroutineContext$annotations(Lkotlinx/coroutines/flow/FlowCollector;)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "coroutineContext is resolved into the property of outer CoroutineScope which is likely to be an error.Use currentCoroutineContext() instead or specify the receiver of coroutineContext explicitly"
@@ -398,7 +398,7 @@
 .end method
 
 .method public static final isActive(Lkotlinx/coroutines/flow/FlowCollector;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isActive"    # Lkotlinx/coroutines/flow/FlowCollector;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -419,7 +419,7 @@
 .end method
 
 .method public static synthetic isActive$annotations(Lkotlinx/coroutines/flow/FlowCollector;)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "isActive is resolved into the extension of outer CoroutineScope which is likely to be an error.Use currentCoroutineContext().isActive or cancellable() operator instead or specify the receiver of isActive explicitly. Additionally, flow {} builder emissions are cancellable by default."
@@ -433,7 +433,7 @@
 .end method
 
 .method private static final retry(Lkotlinx/coroutines/flow/SharedFlow;JLkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 5
     .param p0, "$this$retry"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "retries"    # J
     .param p3, "predicate"    # Lkotlin/jvm/functions/Function2;
@@ -485,7 +485,7 @@
 .end method
 
 .method static synthetic retry$default(Lkotlinx/coroutines/flow/SharedFlow;JLkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 0
+    .registers 6
     .param p0, "$this$retry_u24default"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "retries"    # J
     .param p3, "predicate"    # Lkotlin/jvm/functions/Function2;
@@ -493,16 +493,16 @@
     .line 120
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_9
 
     .line 121
     const-wide p1, 0x7fffffffffffffffL
 
     .line 120
-    :cond_0
+    :cond_9
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_16
 
     .line 122
     new-instance p4, Lkotlinx/coroutines/flow/LintKt$retry$1;
@@ -516,7 +516,7 @@
     check-cast p3, Lkotlin/jvm/functions/Function2;
 
     .line 120
-    :cond_1
+    :cond_16
     nop
 
     .line 124
@@ -536,7 +536,7 @@
 .end method
 
 .method private static final retryWhen(Lkotlinx/coroutines/flow/SharedFlow;Lkotlin/jvm/functions/Function4;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$retryWhen"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function4;
     .annotation system Ldalvik/annotation/Signature;
@@ -591,7 +591,7 @@
 .end method
 
 .method private static final toList(Lkotlinx/coroutines/flow/SharedFlow;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$toList"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "destination"    # Ljava/util/List;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -632,7 +632,7 @@
 .end method
 
 .method private static final toList(Lkotlinx/coroutines/flow/SharedFlow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "$this$toList"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -676,7 +676,7 @@
 .end method
 
 .method private static final toSet(Lkotlinx/coroutines/flow/SharedFlow;Ljava/util/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$toSet"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "destination"    # Ljava/util/Set;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -717,7 +717,7 @@
 .end method
 
 .method private static final toSet(Lkotlinx/coroutines/flow/SharedFlow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "$this$toSet"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;

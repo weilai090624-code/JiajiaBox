@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,7 +21,7 @@
 .end method
 
 .method private getCropRect(Landroidx/camera/core/ImageProxy;)Landroid/graphics/RectF;
-    .locals 4
+    .registers 6
     .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -35,7 +35,7 @@
     .line 124
     iget-boolean v0, p0, Landroidx/camera/view/transform/ImageProxyTransformFactory;->mUsingCropRect:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 125
     new-instance v0, Landroid/graphics/RectF;
@@ -49,7 +49,7 @@
     return-object v0
 
     .line 128
-    :cond_0
+    :cond_e
     new-instance v0, Landroid/graphics/RectF;
 
     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->getWidth()I
@@ -72,7 +72,7 @@
 .end method
 
 .method static getRotatedCropRect(Landroid/graphics/RectF;I)Landroid/graphics/RectF;
-    .locals 4
+    .registers 6
     .param p0, "rect"    # Landroid/graphics/RectF;
     .param p1, "rotationDegrees"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -93,7 +93,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 147
     new-instance v0, Landroid/graphics/RectF;
@@ -111,7 +111,7 @@
     return-object v0
 
     .line 149
-    :cond_0
+    :cond_15
     new-instance v0, Landroid/graphics/RectF;
 
     invoke-virtual {p0}, Landroid/graphics/RectF;->width()F
@@ -128,7 +128,7 @@
 .end method
 
 .method private getRotationDegrees(Landroidx/camera/core/ImageProxy;)I
-    .locals 1
+    .registers 3
     .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -142,7 +142,7 @@
     .line 135
     iget-boolean v0, p0, Landroidx/camera/view/transform/ImageProxyTransformFactory;->mUsingRotationDegrees:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 136
     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->getImageInfo()Landroidx/camera/core/ImageInfo;
@@ -156,7 +156,7 @@
     return v0
 
     .line 139
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     return v0
@@ -165,7 +165,7 @@
 
 # virtual methods
 .method public getOutputTransform(Landroidx/camera/core/ImageProxy;)Landroidx/camera/view/transform/OutputTransform;
-    .locals 6
+    .registers 8
     .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -228,7 +228,7 @@
 .end method
 
 .method public isUsingCropRect()Z
-    .locals 1
+    .registers 2
 
     .line 72
     iget-boolean v0, p0, Landroidx/camera/view/transform/ImageProxyTransformFactory;->mUsingCropRect:Z
@@ -237,7 +237,7 @@
 .end method
 
 .method public isUsingRotationDegrees()Z
-    .locals 1
+    .registers 2
 
     .line 95
     iget-boolean v0, p0, Landroidx/camera/view/transform/ImageProxyTransformFactory;->mUsingRotationDegrees:Z
@@ -246,7 +246,7 @@
 .end method
 
 .method public setUsingCropRect(Z)V
-    .locals 0
+    .registers 2
     .param p1, "usingCropRect"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -265,7 +265,7 @@
 .end method
 
 .method public setUsingRotationDegrees(Z)V
-    .locals 0
+    .registers 2
     .param p1, "usingRotationDegrees"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>(IZ)V
-    .locals 13
+    .registers 16
     .param p1, "argb"    # I
     .param p2, "isContent"    # Z
 
@@ -51,7 +51,7 @@
 
     const-wide/high16 v9, 0x404e000000000000L    # 60.0
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_4f
 
     .line 64
     invoke-static {v1, v2, v3, v4}, Lcom/google/android/material/color/utilities/TonalPalette;->fromHueAndChroma(DD)Lcom/google/android/material/color/utilities/TonalPalette;
@@ -114,10 +114,10 @@
 
     iput-object v5, p0, Lcom/google/android/material/color/utilities/CorePalette;->n2:Lcom/google/android/material/color/utilities/TonalPalette;
 
-    goto :goto_0
+    goto :goto_78
 
     .line 70
-    :cond_0
+    :cond_4f
     const-wide/high16 v11, 0x4048000000000000L    # 48.0
 
     invoke-static {v11, v12, v3, v4}, Ljava/lang/Math;->max(DD)D
@@ -165,7 +165,7 @@
     iput-object v5, p0, Lcom/google/android/material/color/utilities/CorePalette;->n2:Lcom/google/android/material/color/utilities/TonalPalette;
 
     .line 76
-    :goto_0
+    :goto_78
     const-wide/high16 v5, 0x4039000000000000L    # 25.0
 
     const-wide/high16 v7, 0x4055000000000000L    # 84.0
@@ -181,7 +181,7 @@
 .end method
 
 .method public static contentOf(I)Lcom/google/android/material/color/utilities/CorePalette;
-    .locals 2
+    .registers 3
     .param p0, "argb"    # I
 
     .line 56
@@ -195,7 +195,7 @@
 .end method
 
 .method public static of(I)Lcom/google/android/material/color/utilities/CorePalette;
-    .locals 2
+    .registers 3
     .param p0, "argb"    # I
 
     .line 47

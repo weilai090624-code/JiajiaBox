@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;Lj$/util/stream/StreamShape;I)V
-    .locals 0
+    .registers 4
     .param p2, "inputShape"    # Lj$/util/stream/StreamShape;
     .param p3, "opFlags"    # I
 
@@ -35,36 +35,36 @@
 .end method
 
 .method static synthetic lambda$opEvaluateParallel$0(Ljava/util/concurrent/atomic/AtomicBoolean;Lj$/util/concurrent/ConcurrentHashMap;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p0, "seenNull"    # Ljava/util/concurrent/atomic/AtomicBoolean;
     .param p1, "map"    # Lj$/util/concurrent/ConcurrentHashMap;
     .param p2, "t"    # Ljava/lang/Object;
 
     .line 84
-    if-nez p2, :cond_0
+    if-nez p2, :cond_7
 
     .line 85
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    goto :goto_0
+    goto :goto_c
 
     .line 87
-    :cond_0
+    :cond_7
     sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     invoke-virtual {p1, p2, v0}, Lj$/util/concurrent/ConcurrentHashMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 88
-    :goto_0
+    :goto_c
     return-void
 .end method
 
 
 # virtual methods
 .method opEvaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Ljava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 5
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -97,7 +97,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 74
     invoke-virtual {p1, p2, v1, p3}, Lj$/util/stream/PipelineHelper;->evaluate(Lj$/util/Spliterator;ZLjava/util/function/IntFunction;)Lj$/util/stream/Node;
@@ -107,7 +107,7 @@
     return-object v0
 
     .line 76
-    :cond_0
+    :cond_12
     sget-object v0, Lj$/util/stream/StreamOpFlag;->ORDERED:Lj$/util/stream/StreamOpFlag;
 
     invoke-virtual {p1}, Lj$/util/stream/PipelineHelper;->getStreamAndOpFlags()I
@@ -118,7 +118,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 77
     invoke-virtual {p0, p1, p2}, Lj$/util/stream/DistinctOps$1;->reduce(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Lj$/util/stream/Node;
@@ -128,7 +128,7 @@
     return-object v0
 
     .line 81
-    :cond_1
+    :cond_23
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
@@ -164,7 +164,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4d
 
     .line 97
     new-instance v4, Ljava/util/HashSet;
@@ -179,7 +179,7 @@
     invoke-interface {v3, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 100
-    :cond_2
+    :cond_4d
     invoke-static {v3}, Lj$/util/stream/Nodes;->node(Ljava/util/Collection;)Lj$/util/stream/Node;
 
     move-result-object v4
@@ -188,7 +188,7 @@
 .end method
 
 .method opEvaluateParallelLazy(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -216,7 +216,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 108
     invoke-virtual {p1, p2}, Lj$/util/stream/PipelineHelper;->wrapSpliterator(Lj$/util/Spliterator;)Lj$/util/Spliterator;
@@ -226,7 +226,7 @@
     return-object v0
 
     .line 110
-    :cond_0
+    :cond_11
     sget-object v0, Lj$/util/stream/StreamOpFlag;->ORDERED:Lj$/util/stream/StreamOpFlag;
 
     invoke-virtual {p1}, Lj$/util/stream/PipelineHelper;->getStreamAndOpFlags()I
@@ -237,7 +237,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 112
     invoke-virtual {p0, p1, p2}, Lj$/util/stream/DistinctOps$1;->reduce(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Lj$/util/stream/Node;
@@ -251,7 +251,7 @@
     return-object v0
 
     .line 116
-    :cond_1
+    :cond_26
     new-instance v0, Lj$/util/stream/StreamSpliterators$DistinctSpliterator;
 
     invoke-virtual {p1, p2}, Lj$/util/stream/PipelineHelper;->wrapSpliterator(Lj$/util/Spliterator;)Lj$/util/Spliterator;
@@ -264,7 +264,7 @@
 .end method
 
 .method opWrapSink(ILj$/util/stream/Sink;)Lj$/util/stream/Sink;
-    .locals 1
+    .registers 4
     .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -287,20 +287,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 125
     return-object p2
 
     .line 126
-    :cond_0
+    :cond_c
     sget-object v0, Lj$/util/stream/StreamOpFlag;->SORTED:Lj$/util/stream/StreamOpFlag;
 
     invoke-virtual {v0, p1}, Lj$/util/stream/StreamOpFlag;->isKnown(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 127
     new-instance v0, Lj$/util/stream/DistinctOps$1$1;
@@ -310,7 +310,7 @@
     return-object v0
 
     .line 158
-    :cond_1
+    :cond_1a
     new-instance v0, Lj$/util/stream/DistinctOps$1$2;
 
     invoke-direct {v0, p0, p2}, Lj$/util/stream/DistinctOps$1$2;-><init>(Lj$/util/stream/DistinctOps$1;Lj$/util/stream/Sink;)V
@@ -319,7 +319,7 @@
 .end method
 
 .method reduce(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Lj$/util/stream/Node;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",

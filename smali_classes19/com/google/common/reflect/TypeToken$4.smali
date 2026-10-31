@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/reflect/TypeToken;Lcom/google/common/collect/ImmutableSet$Builder;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/reflect/TypeToken;
 
     .line 1107
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method visitClass(Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +56,7 @@
 .end method
 
 .method visitGenericArrayType(Ljava/lang/reflect/GenericArrayType;)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # Ljava/lang/reflect/GenericArrayType;
 
     .line 1130
@@ -86,7 +86,7 @@
 .end method
 
 .method visitParameterizedType(Ljava/lang/reflect/ParameterizedType;)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # Ljava/lang/reflect/ParameterizedType;
 
     .line 1120
@@ -106,7 +106,7 @@
 .end method
 
 .method visitTypeVariable(Ljava/lang/reflect/TypeVariable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -129,7 +129,7 @@
 .end method
 
 .method visitWildcardType(Ljava/lang/reflect/WildcardType;)V
-    .locals 1
+    .registers 3
     .param p1, "t"    # Ljava/lang/reflect/WildcardType;
 
     .line 1115

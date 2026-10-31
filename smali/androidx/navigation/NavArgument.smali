@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/navigation/NavType;ZLjava/lang/Object;Z)V
-    .locals 3
+    .registers 8
     .param p1, "type"    # Landroidx/navigation/NavType;
     .param p2, "isNullable"    # Z
     .param p3, "defaultValue"    # Ljava/lang/Object;
@@ -110,36 +110,36 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_15
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     const/4 v0, 0x1
 
-    :goto_1
-    if-eqz v0, :cond_5
+    :goto_18
+    if-eqz v0, :cond_55
 
     .line 177
-    if-nez p2, :cond_2
+    if-nez p2, :cond_20
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_20
 
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_21
 
-    :cond_2
+    :cond_20
     const/4 v1, 0x1
 
-    :cond_3
-    if-eqz v1, :cond_4
+    :cond_21
+    if-eqz v1, :cond_2d
 
     .line 180
     iput-object p1, p0, Landroidx/navigation/NavArgument;->type:Landroidx/navigation/NavType;
@@ -160,7 +160,7 @@
     return-void
 
     .line 177
-    :cond_4
+    :cond_2d
     const/4 v0, 0x0
 
     .line 178
@@ -206,7 +206,7 @@
     throw v1
 
     .line 174
-    :cond_5
+    :cond_55
     const/4 v0, 0x0
 
     .line 175
@@ -249,21 +249,21 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 95
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 96
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_46
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -277,12 +277,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_16
 
-    goto :goto_1
+    goto :goto_46
 
     .line 97
-    :cond_1
+    :cond_16
     move-object v2, p1
 
     check-cast v2, Landroidx/navigation/NavArgument;
@@ -293,22 +293,22 @@
 
     iget-boolean v4, v2, Landroidx/navigation/NavArgument;->isNullable:Z
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_20
 
     return v1
 
     .line 99
-    :cond_2
+    :cond_20
     iget-boolean v3, p0, Landroidx/navigation/NavArgument;->isDefaultValuePresent:Z
 
     iget-boolean v4, v2, Landroidx/navigation/NavArgument;->isDefaultValuePresent:Z
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_27
 
     return v1
 
     .line 100
-    :cond_3
+    :cond_27
     iget-object v3, p0, Landroidx/navigation/NavArgument;->type:Landroidx/navigation/NavType;
 
     iget-object v4, v2, Landroidx/navigation/NavArgument;->type:Landroidx/navigation/NavType;
@@ -317,15 +317,15 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_32
 
     return v1
 
     .line 101
-    :cond_4
+    :cond_32
     iget-object v3, p0, Landroidx/navigation/NavArgument;->defaultValue:Ljava/lang/Object;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_3f
 
     .line 102
     iget-object v0, p0, Landroidx/navigation/NavArgument;->defaultValue:Ljava/lang/Object;
@@ -336,32 +336,32 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_45
 
     .line 104
-    :cond_5
+    :cond_3f
     iget-object v3, v2, Landroidx/navigation/NavArgument;->defaultValue:Ljava/lang/Object;
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_44
 
-    goto :goto_0
+    goto :goto_45
 
-    :cond_6
+    :cond_44
     const/4 v0, 0x0
 
     .line 101
-    :goto_0
+    :goto_45
     return v0
 
     .line 96
     .end local v2    # "that":Landroidx/navigation/NavArgument;
-    :cond_7
-    :goto_1
+    :cond_46
+    :goto_46
     return v1
 .end method
 
 .method public final getDefaultValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Landroidx/navigation/NavArgument;->defaultValue:Ljava/lang/Object;
@@ -370,7 +370,7 @@
 .end method
 
 .method public final getType()Landroidx/navigation/NavType;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -387,7 +387,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 109
     iget-object v0, p0, Landroidx/navigation/NavArgument;->type:Landroidx/navigation/NavType;
@@ -420,18 +420,18 @@
 
     iget-object v2, p0, Landroidx/navigation/NavArgument;->defaultValue:Ljava/lang/Object;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1c
     add-int/2addr v1, v2
 
     .line 113
@@ -441,7 +441,7 @@
 .end method
 
 .method public final isDefaultValuePresent()Z
-    .locals 1
+    .registers 2
 
     .line 51
     iget-boolean v0, p0, Landroidx/navigation/NavArgument;->isDefaultValuePresent:Z
@@ -450,7 +450,7 @@
 .end method
 
 .method public final isNullable()Z
-    .locals 1
+    .registers 2
 
     .line 43
     iget-boolean v0, p0, Landroidx/navigation/NavArgument;->isNullable:Z
@@ -459,7 +459,7 @@
 .end method
 
 .method public final putDefaultValue(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "bundle"    # Landroid/os/Bundle;
 
@@ -474,7 +474,7 @@
     .line 63
     iget-boolean v0, p0, Landroidx/navigation/NavArgument;->isDefaultValuePresent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 64
     iget-object v0, p0, Landroidx/navigation/NavArgument;->type:Landroidx/navigation/NavType;
@@ -484,12 +484,12 @@
     invoke-virtual {v0, p2, p1, v1}, Landroidx/navigation/NavType;->put(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 66
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 84
     new-instance v0, Ljava/lang/StringBuilder;
@@ -557,7 +557,7 @@
     .line 88
     iget-boolean v1, p0, Landroidx/navigation/NavArgument;->isDefaultValuePresent:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_5c
 
     .line 89
     new-instance v1, Ljava/lang/StringBuilder;
@@ -583,7 +583,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 91
-    :cond_0
+    :cond_5c
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -596,7 +596,7 @@
 .end method
 
 .method public final verify(Ljava/lang/String;Landroid/os/Bundle;)Z
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "bundle"    # Landroid/os/Bundle;
 
@@ -613,34 +613,34 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     invoke-virtual {p2, p1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     invoke-virtual {p2, p1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     .line 73
     return v1
 
     .line 75
-    :cond_0
+    :cond_1c
     nop
 
     .line 76
-    :try_start_0
+    :try_start_1d
     iget-object v0, p0, Landroidx/navigation/NavArgument;->type:Landroidx/navigation/NavType;
 
     invoke-virtual {v0, p2, p1}, Landroidx/navigation/NavType;->get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_22
+    .catch Ljava/lang/ClassCastException; {:try_start_1d .. :try_end_22} :catch_24
 
     .line 80
     const/4 v0, 0x1
@@ -648,7 +648,7 @@
     return v0
 
     .line 77
-    :catch_0
+    :catch_24
     move-exception v0
 
     .line 78

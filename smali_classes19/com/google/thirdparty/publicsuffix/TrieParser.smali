@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 26
     const-string v0, ""
@@ -24,7 +24,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method private static doParseTrieToBuilder(Ljava/util/Deque;Ljava/lang/CharSequence;ILcom/google/common/collect/ImmutableMap$Builder;)I
-    .locals 8
+    .registers 12
     .param p1, "encoded"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -68,7 +68,7 @@
 
     .line 63
     .local v2, "c":C
-    :goto_0
+    :goto_6
     const/16 v3, 0x3a
 
     const/16 v4, 0x21
@@ -77,7 +77,7 @@
 
     const/16 v6, 0x3f
 
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_24
 
     .line 64
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -87,28 +87,28 @@
     .line 65
     const/16 v7, 0x26
 
-    if-eq v2, v7, :cond_1
+    if-eq v2, v7, :cond_24
 
-    if-eq v2, v6, :cond_1
+    if-eq v2, v6, :cond_24
 
-    if-eq v2, v4, :cond_1
+    if-eq v2, v4, :cond_24
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_24
 
-    if-ne v2, v5, :cond_0
+    if-ne v2, v5, :cond_21
 
     .line 66
-    goto :goto_1
+    goto :goto_24
 
     .line 63
-    :cond_0
+    :cond_21
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 70
-    :cond_1
-    :goto_1
+    :cond_24
+    :goto_24
     invoke-interface {p1, p2, v1}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 
     move-result-object v7
@@ -120,16 +120,16 @@
     invoke-interface {p0, v7}, Ljava/util/Deque;->push(Ljava/lang/Object;)V
 
     .line 72
-    if-eq v2, v4, :cond_2
+    if-eq v2, v4, :cond_37
 
-    if-eq v2, v6, :cond_2
+    if-eq v2, v6, :cond_37
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_37
 
-    if-ne v2, v5, :cond_3
+    if-ne v2, v5, :cond_4a
 
     .line 77
-    :cond_2
+    :cond_37
     sget-object v3, Lcom/google/thirdparty/publicsuffix/TrieParser;->PREFIX_JOINER:Lcom/google/common/base/Joiner;
 
     invoke-virtual {v3, p0}, Lcom/google/common/base/Joiner;->join(Ljava/lang/Iterable;)Ljava/lang/String;
@@ -142,7 +142,7 @@
 
     move-result v4
 
-    if-lez v4, :cond_3
+    if-lez v4, :cond_4a
 
     .line 79
     invoke-static {v2}, Lcom/google/thirdparty/publicsuffix/PublicSuffixType;->fromCode(C)Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
@@ -153,17 +153,17 @@
 
     .line 82
     .end local v3    # "domain":Ljava/lang/String;
-    :cond_3
+    :cond_4a
     add-int/lit8 v1, v1, 0x1
 
     .line 84
-    if-eq v2, v6, :cond_6
+    if-eq v2, v6, :cond_66
 
-    if-eq v2, v5, :cond_6
+    if-eq v2, v5, :cond_66
 
     .line 85
-    :cond_4
-    if-ge v1, v0, :cond_6
+    :cond_50
+    if-ge v1, v0, :cond_66
 
     .line 87
     invoke-static {p0, p1, v1, p3}, Lcom/google/thirdparty/publicsuffix/TrieParser;->doParseTrieToBuilder(Ljava/util/Deque;Ljava/lang/CharSequence;ILcom/google/common/collect/ImmutableMap$Builder;)I
@@ -177,23 +177,23 @@
 
     move-result v3
 
-    if-eq v3, v6, :cond_5
+    if-eq v3, v6, :cond_63
 
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
 
-    if-ne v3, v5, :cond_4
+    if-ne v3, v5, :cond_50
 
     .line 90
-    :cond_5
+    :cond_63
     add-int/lit8 v1, v1, 0x1
 
     .line 91
     nop
 
     .line 95
-    :cond_6
+    :cond_66
     invoke-interface {p0}, Ljava/util/Deque;->pop()Ljava/lang/Object;
 
     .line 96
@@ -203,7 +203,7 @@
 .end method
 
 .method static parseTrie(Ljava/lang/CharSequence;)Lcom/google/common/collect/ImmutableMap;
-    .locals 4
+    .registers 5
     .param p0, "encoded"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -234,8 +234,8 @@
 
     .line 36
     .local v2, "idx":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_9
+    if-ge v2, v1, :cond_15
 
     .line 37
     invoke-static {}, Lcom/google/common/collect/Queues;->newArrayDeque()Ljava/util/ArrayDeque;
@@ -248,10 +248,10 @@
 
     add-int/2addr v2, v3
 
-    goto :goto_0
+    goto :goto_9
 
     .line 39
-    :cond_0
+    :cond_15
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap$Builder;->build()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v3
@@ -260,7 +260,7 @@
 .end method
 
 .method private static reverse(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "s"    # Ljava/lang/CharSequence;
 
     .line 100

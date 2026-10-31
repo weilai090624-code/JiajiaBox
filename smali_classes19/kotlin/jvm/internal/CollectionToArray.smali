@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 14
     const/4 v0, 0x0
@@ -67,7 +67,7 @@
 .end method
 
 .method public static final toArray(Ljava/util/Collection;)[Ljava/lang/Object;
-    .locals 10
+    .registers 11
     .param p0, "collection"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,7 +101,7 @@
 
     .line 90
     .local v1, "size$iv":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     const/4 v2, 0x0
 
@@ -111,10 +111,10 @@
 
     .line 90
     .end local v2    # "$i$a$-toArrayImpl-CollectionToArray$collectionToArray$1":I
-    goto :goto_2
+    goto :goto_6d
 
     .line 91
-    :cond_0
+    :cond_10
     invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -125,7 +125,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_1f
 
     const/4 v3, 0x0
 
@@ -137,10 +137,10 @@
     .end local v3    # "$i$a$-toArrayImpl-CollectionToArray$collectionToArray$1":I
     move-object v2, v3
 
-    goto :goto_2
+    goto :goto_6d
 
     .line 93
-    :cond_1
+    :cond_1f
     move v3, v1
 
     .local v3, "size":I
@@ -161,7 +161,7 @@
 
     .line 96
     .local v4, "i$iv":I
-    :goto_0
+    :goto_25
     nop
 
     .line 97
@@ -180,21 +180,21 @@
 
     const-string v6, "copyOf(...)"
 
-    if-lt v5, v4, :cond_5
+    if-lt v5, v4, :cond_5c
 
     .line 99
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_3b
 
     move-object v2, v3
 
-    goto :goto_2
+    goto :goto_6d
 
     .line 103
-    :cond_2
+    :cond_3b
     mul-int/lit8 v4, v5, 0x3
 
     add-int/lit8 v4, v4, 0x1
@@ -203,20 +203,20 @@
 
     .line 104
     .local v4, "newSize$iv":I
-    if-gt v4, v5, :cond_4
+    if-gt v4, v5, :cond_52
 
     .line 105
     const v7, 0x7ffffffd
 
-    if-ge v5, v7, :cond_3
+    if-ge v5, v7, :cond_4c
 
     .line 106
     const v4, 0x7ffffffd
 
-    goto :goto_1
+    goto :goto_52
 
     .line 105
-    :cond_3
+    :cond_4c
     new-instance v6, Ljava/lang/OutOfMemoryError;
 
     invoke-direct {v6}, Ljava/lang/OutOfMemoryError;-><init>()V
@@ -224,8 +224,8 @@
     throw v6
 
     .line 108
-    :cond_4
-    :goto_1
+    :cond_52
+    :goto_52
     invoke-static {v3, v4}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     move-result-object v7
@@ -237,15 +237,15 @@
     move v4, v5
 
     .end local v4    # "newSize$iv":I
-    goto :goto_0
+    goto :goto_25
 
     .line 110
-    :cond_5
+    :cond_5c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_6e
 
     move-object v4, v3
 
@@ -275,7 +275,7 @@
     .end local v2    # "iter$iv":Ljava/util/Iterator;
     .end local v3    # "result$iv":[Ljava/lang/Object;
     .end local v5    # "i$iv":I
-    :goto_2
+    :goto_6d
     return-object v2
 
     .line 110
@@ -284,14 +284,14 @@
     .restart local v2    # "iter$iv":Ljava/util/Iterator;
     .restart local v3    # "result$iv":[Ljava/lang/Object;
     .restart local v5    # "i$iv":I
-    :cond_6
+    :cond_6e
     move v4, v5
 
-    goto :goto_0
+    goto :goto_25
 .end method
 
 .method public static final toArray(Ljava/util/Collection;[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 10
+    .registers 12
     .param p0, "collection"    # Ljava/util/Collection;
     .param p1, "a"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -318,7 +318,7 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 36
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_99
 
     .line 37
     const/4 v0, 0x0
@@ -335,7 +335,7 @@
 
     const/4 v3, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_18
 
     const/4 v4, 0x0
 
@@ -343,20 +343,20 @@
     .local v4, "$i$a$-toArrayImpl-CollectionToArray$collectionToArray$4":I
     array-length v5, p1
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_16
 
     aput-object v3, p1, v2
 
     .line 41
-    :cond_0
+    :cond_16
     nop
 
     .line 112
     .end local v4    # "$i$a$-toArrayImpl-CollectionToArray$collectionToArray$4":I
-    goto :goto_0
+    goto :goto_2a
 
     .line 113
-    :cond_1
+    :cond_18
     invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
@@ -367,7 +367,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_2d
 
     const/4 v5, 0x0
 
@@ -375,12 +375,12 @@
     .local v5, "$i$a$-toArrayImpl-CollectionToArray$collectionToArray$4":I
     array-length v6, p1
 
-    if-lez v6, :cond_2
+    if-lez v6, :cond_28
 
     aput-object v3, p1, v2
 
     .line 41
-    :cond_2
+    :cond_28
     nop
 
     .line 114
@@ -391,16 +391,16 @@
     .end local v0    # "$i$f$toArrayImpl":I
     .end local v1    # "size$iv":I
     .end local v4    # "iter$iv":Ljava/util/Iterator;
-    :goto_0
+    :goto_2a
     move-object v2, p1
 
-    goto/16 :goto_5
+    goto/16 :goto_96
 
     .line 115
     .restart local v0    # "$i$f$toArrayImpl":I
     .restart local v1    # "size$iv":I
     .restart local v4    # "iter$iv":Ljava/util/Iterator;
-    :cond_3
+    :cond_2d
     move v2, v1
 
     .local v2, "size":I
@@ -410,13 +410,13 @@
     .local v5, "$i$a$-toArrayImpl-CollectionToArray$collectionToArray$5":I
     array-length v6, p1
 
-    if-gt v2, v6, :cond_4
+    if-gt v2, v6, :cond_34
 
     move-object v6, p1
 
-    goto :goto_1
+    goto :goto_47
 
-    :cond_4
+    :cond_34
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v6
@@ -438,7 +438,7 @@
     .line 115
     .end local v2    # "size":I
     .end local v5    # "$i$a$-toArrayImpl-CollectionToArray$collectionToArray$5":I
-    :goto_1
+    :goto_47
     move-object v2, v6
 
     .line 116
@@ -447,7 +447,7 @@
 
     .line 118
     .local v5, "i$iv":I
-    :goto_2
+    :goto_49
     nop
 
     .line 119
@@ -466,19 +466,19 @@
 
     const-string v7, "copyOf(...)"
 
-    if-lt v6, v5, :cond_8
+    if-lt v6, v5, :cond_7f
 
     .line 121
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_5e
 
-    goto :goto_5
+    goto :goto_96
 
     .line 125
-    :cond_5
+    :cond_5e
     mul-int/lit8 v5, v6, 0x3
 
     add-int/lit8 v5, v5, 0x1
@@ -487,20 +487,20 @@
 
     .line 126
     .local v5, "newSize$iv":I
-    if-gt v5, v6, :cond_7
+    if-gt v5, v6, :cond_75
 
     .line 127
     const v8, 0x7ffffffd
 
-    if-ge v6, v8, :cond_6
+    if-ge v6, v8, :cond_6f
 
     .line 128
     const v5, 0x7ffffffd
 
-    goto :goto_3
+    goto :goto_75
 
     .line 127
-    :cond_6
+    :cond_6f
     new-instance v3, Ljava/lang/OutOfMemoryError;
 
     invoke-direct {v3}, Ljava/lang/OutOfMemoryError;-><init>()V
@@ -508,8 +508,8 @@
     throw v3
 
     .line 130
-    :cond_7
-    :goto_3
+    :cond_75
+    :goto_75
     invoke-static {v2, v5}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     move-result-object v8
@@ -521,15 +521,15 @@
     move v5, v6
 
     .end local v5    # "newSize$iv":I
-    goto :goto_2
+    goto :goto_49
 
     .line 132
-    :cond_8
+    :cond_7f
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-nez v5, :cond_a
+    if-nez v5, :cond_97
 
     move-object v5, v2
 
@@ -541,7 +541,7 @@
 
     .line 48
     .local v9, "$i$a$-toArrayImpl-CollectionToArray$collectionToArray$6":I
-    if-ne v5, p1, :cond_9
+    if-ne v5, p1, :cond_8e
 
     .line 49
     aput-object v3, p1, v8
@@ -549,10 +549,10 @@
     .line 50
     move-object v3, p1
 
-    goto :goto_4
+    goto :goto_95
 
     .line 52
-    :cond_9
+    :cond_8e
     invoke-static {v5, v8}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     move-result-object v3
@@ -563,7 +563,7 @@
     .end local v5    # "result":[Ljava/lang/Object;
     .end local v8    # "size":I
     .end local v9    # "$i$a$-toArrayImpl-CollectionToArray$collectionToArray$6":I
-    :goto_4
+    :goto_95
     move-object v2, v3
 
     .line 37
@@ -572,7 +572,7 @@
     .end local v2    # "result$iv":[Ljava/lang/Object;
     .end local v4    # "iter$iv":Ljava/util/Iterator;
     .end local v6    # "i$iv":I
-    :goto_5
+    :goto_96
     return-object v2
 
     .line 132
@@ -581,10 +581,10 @@
     .restart local v2    # "result$iv":[Ljava/lang/Object;
     .restart local v4    # "iter$iv":Ljava/util/Iterator;
     .restart local v6    # "i$iv":I
-    :cond_a
+    :cond_97
     move v5, v6
 
-    goto :goto_2
+    goto :goto_49
 
     .line 36
     .end local v0    # "$i$f$toArrayImpl":I
@@ -592,7 +592,7 @@
     .end local v2    # "result$iv":[Ljava/lang/Object;
     .end local v4    # "iter$iv":Ljava/util/Iterator;
     .end local v6    # "i$iv":I
-    :cond_b
+    :cond_99
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -601,7 +601,7 @@
 .end method
 
 .method private static final toArrayImpl(Ljava/util/Collection;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;)[Ljava/lang/Object;
-    .locals 8
+    .registers 12
     .param p0, "collection"    # Ljava/util/Collection;
     .param p1, "empty"    # Lkotlin/jvm/functions/Function0;
     .param p2, "alloc"    # Lkotlin/jvm/functions/Function1;
@@ -643,7 +643,7 @@
 
     .line 64
     .local v1, "size":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
@@ -654,7 +654,7 @@
     return-object v2
 
     .line 65
-    :cond_0
+    :cond_e
     invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -665,7 +665,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_1f
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
@@ -676,7 +676,7 @@
     return-object v3
 
     .line 67
-    :cond_1
+    :cond_1f
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
@@ -693,7 +693,7 @@
 
     .line 70
     .local v4, "i":I
-    :goto_0
+    :goto_2a
     nop
 
     .line 71
@@ -710,19 +710,19 @@
     .line 72
     array-length v4, v3
 
-    if-lt v5, v4, :cond_5
+    if-lt v5, v4, :cond_60
 
     .line 73
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_3d
 
     return-object v3
 
     .line 77
-    :cond_2
+    :cond_3d
     mul-int/lit8 v4, v5, 0x3
 
     add-int/lit8 v4, v4, 0x1
@@ -731,20 +731,20 @@
 
     .line 78
     .local v4, "newSize":I
-    if-gt v4, v5, :cond_4
+    if-gt v4, v5, :cond_54
 
     .line 79
     const v6, 0x7ffffffd
 
-    if-ge v5, v6, :cond_3
+    if-ge v5, v6, :cond_4e
 
     .line 80
     const v4, 0x7ffffffd
 
-    goto :goto_1
+    goto :goto_54
 
     .line 79
-    :cond_3
+    :cond_4e
     new-instance v6, Ljava/lang/OutOfMemoryError;
 
     invoke-direct {v6}, Ljava/lang/OutOfMemoryError;-><init>()V
@@ -752,8 +752,8 @@
     throw v6
 
     .line 82
-    :cond_4
-    :goto_1
+    :cond_54
+    :goto_54
     invoke-static {v3, v4}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     move-result-object v6
@@ -767,15 +767,15 @@
     move v4, v5
 
     .end local v4    # "newSize":I
-    goto :goto_0
+    goto :goto_2a
 
     .line 84
-    :cond_5
+    :cond_60
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_71
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -789,8 +789,8 @@
 
     return-object v4
 
-    :cond_6
+    :cond_71
     move v4, v5
 
-    goto :goto_0
+    goto :goto_2a
 .end method

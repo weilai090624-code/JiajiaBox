@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Sets$4;Ljava/util/Iterator;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/collect/Sets$4;
 
     .line 901
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public computeNext()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -62,14 +62,14 @@
     .line 905
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/Sets$4$1;->val$itr1:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 906
     iget-object v0, p0, Lcom/google/common/collect/Sets$4$1;->val$itr1:Ljava/util/Iterator;
@@ -88,26 +88,26 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
     .line 908
     return-object v0
 
     .line 910
     .end local v0    # "elem1":Ljava/lang/Object;, "TE;"
-    :cond_0
-    goto :goto_0
+    :cond_1a
+    goto :goto_1
 
     .line 911
-    :cond_1
-    :goto_1
+    :cond_1b
+    :goto_1b
     iget-object v0, p0, Lcom/google/common/collect/Sets$4$1;->val$itr2:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_35
 
     .line 912
     iget-object v0, p0, Lcom/google/common/collect/Sets$4$1;->val$itr2:Ljava/util/Iterator;
@@ -126,18 +126,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_34
 
     .line 914
     return-object v0
 
     .line 916
     .end local v0    # "elem2":Ljava/lang/Object;, "TE;"
-    :cond_2
-    goto :goto_1
+    :cond_34
+    goto :goto_1b
 
     .line 917
-    :cond_3
+    :cond_35
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$4$1;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

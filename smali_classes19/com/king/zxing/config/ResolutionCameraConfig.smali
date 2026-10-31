@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 13
+    .registers 15
     .param p1, "context"    # Landroid/content/Context;
 
     .line 24
@@ -73,7 +73,7 @@
 
     const/16 v8, 0x438
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_60
 
     .line 33
     invoke-static {v1, v8}, Ljava/lang/Math;->min(II)I
@@ -94,7 +94,7 @@
 
     cmpl-double v12, v10, v6
 
-    if-lez v12, :cond_0
+    if-lez v12, :cond_51
 
     .line 36
     new-instance v5, Landroid/util/Size;
@@ -111,10 +111,10 @@
 
     iput-object v5, p0, Lcom/king/zxing/config/ResolutionCameraConfig;->mTargetSize:Landroid/util/Size;
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 38
-    :cond_0
+    :cond_51
     new-instance v3, Landroid/util/Size;
 
     int-to-float v4, v8
@@ -134,11 +134,11 @@
     .line 40
     .end local v8    # "size":I
     .end local v9    # "ratio":F
-    :goto_0
-    goto :goto_1
+    :goto_5f
+    goto :goto_88
 
     .line 41
-    :cond_1
+    :cond_60
     invoke-static {v2, v8}, Ljava/lang/Math;->min(II)I
 
     move-result v8
@@ -157,7 +157,7 @@
 
     cmpl-double v12, v10, v6
 
-    if-lez v12, :cond_2
+    if-lez v12, :cond_79
 
     .line 44
     new-instance v5, Landroid/util/Size;
@@ -174,10 +174,10 @@
 
     iput-object v5, p0, Lcom/king/zxing/config/ResolutionCameraConfig;->mTargetSize:Landroid/util/Size;
 
-    goto :goto_1
+    goto :goto_88
 
     .line 46
-    :cond_2
+    :cond_79
     new-instance v3, Landroid/util/Size;
 
     int-to-float v4, v8
@@ -199,7 +199,7 @@
     .line 49
     .end local v8    # "size":I
     .end local v9    # "ratio":F
-    :goto_1
+    :goto_88
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -229,7 +229,7 @@
 
 # virtual methods
 .method public options(Landroidx/camera/core/CameraSelector$Builder;)Landroidx/camera/core/CameraSelector;
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/camera/core/CameraSelector$Builder;
 
     .line 63
@@ -241,7 +241,7 @@
 .end method
 
 .method public options(Landroidx/camera/core/ImageAnalysis$Builder;)Landroidx/camera/core/ImageAnalysis;
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/camera/core/ImageAnalysis$Builder;
 
     .line 69
@@ -258,7 +258,7 @@
 .end method
 
 .method public options(Landroidx/camera/core/Preview$Builder;)Landroidx/camera/core/Preview;
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/camera/core/Preview$Builder;
 
     .line 57

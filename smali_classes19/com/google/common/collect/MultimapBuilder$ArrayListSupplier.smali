@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "expectedValuesPerKey"    # I
 
     .line 190
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 186
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier;, "Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier<TV;>;"
@@ -72,7 +72,7 @@
 .end method
 
 .method public get()Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/view/ViewStructure;)V
-    .locals 0
+    .registers 2
     .param p1, "viewStructure"    # Landroid/view/ViewStructure;
 
     .line 69
@@ -31,7 +31,7 @@
 .end method
 
 .method public static toViewStructureCompat(Landroid/view/ViewStructure;)Landroidx/core/view/ViewStructureCompat;
-    .locals 1
+    .registers 2
     .param p0, "contentCaptureSession"    # Landroid/view/ViewStructure;
 
     .line 51
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public setClassName(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "string"    # Ljava/lang/String;
 
     .line 101
@@ -53,7 +53,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 102
     iget-object v0, p0, Landroidx/core/view/ViewStructureCompat;->mWrappedObj:Ljava/lang/Object;
@@ -63,12 +63,12 @@
     invoke-static {v0, p1}, Landroidx/core/view/ViewStructureCompat$Api23Impl;->setClassName(Landroid/view/ViewStructure;Ljava/lang/String;)V
 
     .line 104
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public setContentDescription(Ljava/lang/CharSequence;)V
-    .locals 2
+    .registers 4
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
 
     .line 117
@@ -76,7 +76,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 118
     iget-object v0, p0, Landroidx/core/view/ViewStructureCompat;->mWrappedObj:Ljava/lang/Object;
@@ -86,12 +86,12 @@
     invoke-static {v0, p1}, Landroidx/core/view/ViewStructureCompat$Api23Impl;->setContentDescription(Landroid/view/ViewStructure;Ljava/lang/CharSequence;)V
 
     .line 120
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public setDimens(IIIIII)V
-    .locals 8
+    .registers 15
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "scrollX"    # I
@@ -104,7 +104,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_14
 
     .line 142
     iget-object v0, p0, Landroidx/core/view/ViewStructureCompat;->mWrappedObj:Ljava/lang/Object;
@@ -128,12 +128,12 @@
     invoke-static/range {v1 .. v7}, Landroidx/core/view/ViewStructureCompat$Api23Impl;->setDimens(Landroid/view/ViewStructure;IIIIII)V
 
     .line 145
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public setText(Ljava/lang/CharSequence;)V
-    .locals 2
+    .registers 4
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
 
     .line 85
@@ -141,7 +141,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 86
     iget-object v0, p0, Landroidx/core/view/ViewStructureCompat;->mWrappedObj:Ljava/lang/Object;
@@ -151,12 +151,12 @@
     invoke-static {v0, p1}, Landroidx/core/view/ViewStructureCompat$Api23Impl;->setText(Landroid/view/ViewStructure;Ljava/lang/CharSequence;)V
 
     .line 88
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public toViewStructure()Landroid/view/ViewStructure;
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Landroidx/core/view/ViewStructureCompat;->mWrappedObj:Ljava/lang/Object;

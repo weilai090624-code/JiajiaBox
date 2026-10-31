@@ -87,7 +87,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/FormBody$Companion;
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/List;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p1, "encodedNames"    # Ljava/util/List;
     .param p2, "encodedValues"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -157,7 +157,7 @@
 .end method
 
 .method private final writeOrCountBytes(Lokio/BufferedSink;Z)J
-    .locals 7
+    .registers 10
     .param p1, "sink"    # Lokio/BufferedSink;
     .param p2, "countBytes"    # Z
 
@@ -166,15 +166,15 @@
 
     .line 71
     .local v0, "byteCount":J
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     new-instance v2, Lokio/Buffer;
 
     invoke-direct {v2}, Lokio/Buffer;-><init>()V
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_a
     invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     invoke-interface {p1}, Lokio/BufferedSink;->getBuffer()Lokio/Buffer;
@@ -183,32 +183,32 @@
 
     .line 73
     .local v2, "buffer":Lokio/Buffer;
-    :goto_0
+    :goto_11
     iget-object v3, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-lez v3, :cond_3
+    if-lez v3, :cond_41
 
     const/4 v4, 0x0
 
-    :cond_1
+    :cond_1a
     move v5, v4
 
     .local v5, "i":I
     add-int/lit8 v4, v4, 0x1
 
     .line 74
-    if-lez v5, :cond_2
+    if-lez v5, :cond_24
 
     const/16 v6, 0x26
 
     invoke-virtual {v2, v6}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 75
-    :cond_2
+    :cond_24
     iget-object v6, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
 
     invoke-interface {v6, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -236,12 +236,12 @@
     invoke-virtual {v2, v6}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
 
     .line 73
-    if-lt v4, v3, :cond_1
+    if-lt v4, v3, :cond_1a
 
     .line 80
     .end local v5    # "i":I
-    :cond_3
-    if-eqz p2, :cond_4
+    :cond_41
+    if-eqz p2, :cond_4a
 
     .line 81
     invoke-virtual {v2}, Lokio/Buffer;->size()J
@@ -252,14 +252,14 @@
     invoke-virtual {v2}, Lokio/Buffer;->clear()V
 
     .line 85
-    :cond_4
+    :cond_4a
     return-wide v0
 .end method
 
 
 # virtual methods
 .method public final -deprecated_size()I
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -278,7 +278,7 @@
 .end method
 
 .method public contentLength()J
-    .locals 2
+    .registers 3
 
     .line 56
     const/4 v0, 0x0
@@ -293,7 +293,7 @@
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 1
+    .registers 2
 
     .line 54
     sget-object v0, Lokhttp3/FormBody;->CONTENT_TYPE:Lokhttp3/MediaType;
@@ -302,7 +302,7 @@
 .end method
 
 .method public final encodedName(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 46
@@ -318,7 +318,7 @@
 .end method
 
 .method public final encodedValue(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 50
@@ -334,7 +334,7 @@
 .end method
 
 .method public final name(I)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p1, "index"    # I
 
     .line 48
@@ -362,7 +362,7 @@
 .end method
 
 .method public final size()I
-    .locals 1
+    .registers 2
 
     .line 37
     iget-object v0, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
@@ -375,7 +375,7 @@
 .end method
 
 .method public final value(I)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p1, "index"    # I
 
     .line 52
@@ -403,7 +403,7 @@
 .end method
 
 .method public writeTo(Lokio/BufferedSink;)V
-    .locals 1
+    .registers 3
     .param p1, "sink"    # Lokio/BufferedSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {

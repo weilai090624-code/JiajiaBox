@@ -95,7 +95,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -110,12 +110,12 @@
 .end method
 
 .method private buildLegacyExtrasBundle()Landroid/os/PersistableBundle;
-    .locals 4
+    .registers 5
 
     .line 177
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mExtras:Landroid/os/PersistableBundle;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 178
     new-instance v0, Landroid/os/PersistableBundle;
@@ -125,16 +125,16 @@
     iput-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mExtras:Landroid/os/PersistableBundle;
 
     .line 180
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mPersons:[Landroidx/core/app/Person;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mPersons:[Landroidx/core/app/Person;
 
     array-length v0, v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_49
 
     .line 181
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mExtras:Landroid/os/PersistableBundle;
@@ -151,12 +151,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1f
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mPersons:[Landroidx/core/app/Person;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_49
 
     .line 183
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mExtras:Landroid/os/PersistableBundle;
@@ -196,14 +196,14 @@
     .line 182
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 187
     .end local v0    # "i":I
-    :cond_1
+    :cond_49
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mLocusId:Landroidx/core/content/LocusIdCompat;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5a
 
     .line 188
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mExtras:Landroid/os/PersistableBundle;
@@ -219,7 +219,7 @@
     invoke-virtual {v0, v2, v1}, Landroid/os/PersistableBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 190
-    :cond_2
+    :cond_5a
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mExtras:Landroid/os/PersistableBundle;
 
     const-string v1, "extraLongLived"
@@ -235,7 +235,7 @@
 .end method
 
 .method static fromShortcuts(Landroid/content/Context;Ljava/util/List;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -266,12 +266,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -293,15 +293,15 @@
 
     .line 389
     .end local v2    # "s":Landroid/content/pm/ShortcutInfo;
-    goto :goto_0
+    goto :goto_d
 
     .line 390
-    :cond_0
+    :cond_26
     return-object v0
 .end method
 
 .method static getLocusId(Landroid/content/pm/ShortcutInfo;)Landroidx/core/content/LocusIdCompat;
-    .locals 2
+    .registers 3
     .param p0, "shortcutInfo"    # Landroid/content/pm/ShortcutInfo;
 
     .line 499
@@ -309,21 +309,21 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_17
 
     .line 500
     invoke-virtual {p0}, Landroid/content/pm/ShortcutInfo;->getLocusId()Landroid/content/LocusId;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 501
-    :cond_0
+    :cond_e
     invoke-virtual {p0}, Landroid/content/pm/ShortcutInfo;->getLocusId()Landroid/content/LocusId;
 
     move-result-object v0
@@ -335,7 +335,7 @@
     return-object v0
 
     .line 503
-    :cond_1
+    :cond_17
     invoke-virtual {p0}, Landroid/content/pm/ShortcutInfo;->getExtras()Landroid/os/PersistableBundle;
 
     move-result-object v0
@@ -348,18 +348,18 @@
 .end method
 
 .method private static getLocusIdFromExtra(Landroid/os/PersistableBundle;)Landroidx/core/content/LocusIdCompat;
-    .locals 2
+    .registers 3
     .param p0, "bundle"    # Landroid/os/PersistableBundle;
 
     .line 530
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     return-object v0
 
     .line 531
-    :cond_0
+    :cond_4
     const-string v1, "extraLocusId"
 
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -368,25 +368,25 @@
 
     .line 532
     .local v1, "locusId":Ljava/lang/String;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_d
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_1
+    :cond_d
     new-instance v0, Landroidx/core/content/LocusIdCompat;
 
     invoke-direct {v0, v1}, Landroidx/core/content/LocusIdCompat;-><init>(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method static getLongLivedFromExtra(Landroid/os/PersistableBundle;)Z
-    .locals 2
+    .registers 3
     .param p0, "bundle"    # Landroid/os/PersistableBundle;
 
     .line 374
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_10
 
     const-string v0, "extraLongLived"
 
@@ -394,12 +394,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
-    goto :goto_0
+    goto :goto_10
 
     .line 377
-    :cond_0
+    :cond_b
     invoke-virtual {p0, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
@@ -407,19 +407,19 @@
     return v0
 
     .line 375
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method static getPersonsFromExtra(Landroid/os/PersistableBundle;)[Landroidx/core/app/Person;
-    .locals 5
+    .registers 6
     .param p0, "bundle"    # Landroid/os/PersistableBundle;
 
     .line 355
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_37
 
     const-string v0, "extraPersonCount"
 
@@ -427,12 +427,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
-    goto :goto_1
+    goto :goto_37
 
     .line 359
-    :cond_0
+    :cond_b
     invoke-virtual {p0, v0}, Landroid/os/PersistableBundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
@@ -446,8 +446,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_12
+    if-ge v2, v0, :cond_36
 
     .line 362
     new-instance v3, Ljava/lang/StringBuilder;
@@ -485,18 +485,18 @@
     .line 361
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 365
     .end local v2    # "i":I
-    :cond_1
+    :cond_36
     return-object v1
 
     .line 356
     .end local v0    # "personsLength":I
     .end local v1    # "persons":[Landroidx/core/app/Person;
-    :cond_2
-    :goto_1
+    :cond_37
+    :goto_37
     const/4 v0, 0x0
 
     return-object v0
@@ -505,7 +505,7 @@
 
 # virtual methods
 .method addToIntent(Landroid/content/Intent;)Landroid/content/Intent;
-    .locals 3
+    .registers 5
     .param p1, "outIntent"    # Landroid/content/Intent;
 
     .line 195
@@ -539,7 +539,7 @@
     .line 197
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_49
 
     .line 198
     const/4 v0, 0x0
@@ -548,7 +548,7 @@
     .local v0, "badge":Landroid/graphics/drawable/Drawable;
     iget-boolean v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIsAlwaysBadged:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_42
 
     .line 200
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mContext:Landroid/content/Context;
@@ -561,31 +561,31 @@
     .local v1, "pm":Landroid/content/pm/PackageManager;
     iget-object v2, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_36
 
     .line 203
-    :try_start_0
+    :try_start_2d
     iget-object v2, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
 
     invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->getActivityIcon(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_33
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2d .. :try_end_33} :catch_35
 
     move-object v0, v2
 
     .line 206
-    goto :goto_0
+    goto :goto_36
 
     .line 204
-    :catch_0
+    :catch_35
     move-exception v2
 
     .line 208
-    :cond_0
-    :goto_0
-    if-nez v0, :cond_1
+    :cond_36
+    :goto_36
+    if-nez v0, :cond_42
 
     .line 209
     iget-object v2, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mContext:Landroid/content/Context;
@@ -600,7 +600,7 @@
 
     .line 212
     .end local v1    # "pm":Landroid/content/pm/PackageManager;
-    :cond_1
+    :cond_42
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     iget-object v2, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mContext:Landroid/content/Context;
@@ -609,12 +609,12 @@
 
     .line 214
     .end local v0    # "badge":Landroid/graphics/drawable/Drawable;
-    :cond_2
+    :cond_49
     return-object p1
 .end method
 
 .method public getActivity()Landroid/content/ComponentName;
-    .locals 1
+    .registers 2
 
     .line 248
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
@@ -623,7 +623,7 @@
 .end method
 
 .method public getCategories()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -640,7 +640,7 @@
 .end method
 
 .method public getDisabledMessage()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 279
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mDisabledMessage:Ljava/lang/CharSequence;
@@ -649,7 +649,7 @@
 .end method
 
 .method public getDisabledReason()I
-    .locals 1
+    .registers 2
 
     .line 286
     iget v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mDisabledReason:I
@@ -658,7 +658,7 @@
 .end method
 
 .method public getExcludedFromSurfaces()I
-    .locals 1
+    .registers 2
 
     .line 521
     iget v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mExcludedSurfaces:I
@@ -667,7 +667,7 @@
 .end method
 
 .method public getExtras()Landroid/os/PersistableBundle;
-    .locals 1
+    .registers 2
 
     .line 395
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mExtras:Landroid/os/PersistableBundle;
@@ -676,7 +676,7 @@
 .end method
 
 .method public getIcon()Landroidx/core/graphics/drawable/IconCompat;
-    .locals 1
+    .registers 2
 
     .line 345
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
@@ -685,7 +685,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 226
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mId:Ljava/lang/String;
@@ -694,7 +694,7 @@
 .end method
 
 .method public getIntent()Landroid/content/Intent;
-    .locals 2
+    .registers 3
 
     .line 297
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
@@ -711,7 +711,7 @@
 .end method
 
 .method public getIntents()[Landroid/content/Intent;
-    .locals 2
+    .registers 3
 
     .line 307
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
@@ -730,7 +730,7 @@
 .end method
 
 .method public getLastChangedTimestamp()J
-    .locals 2
+    .registers 3
 
     .line 420
     iget-wide v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mLastChangedTimestamp:J
@@ -739,7 +739,7 @@
 .end method
 
 .method public getLocusId()Landroidx/core/content/LocusIdCompat;
-    .locals 1
+    .registers 2
 
     .line 329
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mLocusId:Landroidx/core/content/LocusIdCompat;
@@ -748,7 +748,7 @@
 .end method
 
 .method public getLongLabel()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 268
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mLongLabel:Ljava/lang/CharSequence;
@@ -757,7 +757,7 @@
 .end method
 
 .method public getPackage()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 234
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mPackageName:Ljava/lang/String;
@@ -766,7 +766,7 @@
 .end method
 
 .method public getRank()I
-    .locals 1
+    .registers 2
 
     .line 338
     iget v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mRank:I
@@ -775,7 +775,7 @@
 .end method
 
 .method public getShortLabel()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 258
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mLabel:Ljava/lang/CharSequence;
@@ -784,7 +784,7 @@
 .end method
 
 .method public getTransientExtras()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 405
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mTransientExtras:Landroid/os/Bundle;
@@ -793,7 +793,7 @@
 .end method
 
 .method public getUserHandle()Landroid/os/UserHandle;
-    .locals 1
+    .registers 2
 
     .line 413
     iget-object v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mUser:Landroid/os/UserHandle;
@@ -802,7 +802,7 @@
 .end method
 
 .method public hasKeyFieldsOnly()Z
-    .locals 1
+    .registers 2
 
     .line 493
     iget-boolean v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mHasKeyFieldsOnly:Z
@@ -811,7 +811,7 @@
 .end method
 
 .method public isCached()Z
-    .locals 1
+    .registers 2
 
     .line 425
     iget-boolean v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIsCached:Z
@@ -820,7 +820,7 @@
 .end method
 
 .method public isDeclaredInManifest()Z
-    .locals 1
+    .registers 2
 
     .line 449
     iget-boolean v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIsDeclaredInManifest:Z
@@ -829,7 +829,7 @@
 .end method
 
 .method public isDynamic()Z
-    .locals 1
+    .registers 2
 
     .line 430
     iget-boolean v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIsDynamic:Z
@@ -838,7 +838,7 @@
 .end method
 
 .method public isEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 473
     iget-boolean v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIsEnabled:Z
@@ -847,7 +847,7 @@
 .end method
 
 .method public isExcludedFromSurfaces(I)Z
-    .locals 1
+    .registers 3
     .param p1, "surface"    # I
 
     .line 511
@@ -855,21 +855,21 @@
 
     and-int/2addr v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public isImmutable()Z
-    .locals 1
+    .registers 2
 
     .line 465
     iget-boolean v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIsImmutable:Z
@@ -878,7 +878,7 @@
 .end method
 
 .method public isPinned()Z
-    .locals 1
+    .registers 2
 
     .line 435
     iget-boolean v0, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIsPinned:Z
@@ -887,7 +887,7 @@
 .end method
 
 .method public toShortcutInfo()Landroid/content/pm/ShortcutInfo;
-    .locals 4
+    .registers 5
 
     .line 126
     new-instance v0, Landroid/content/pm/ShortcutInfo$Builder;
@@ -916,7 +916,7 @@
     .local v0, "builder":Landroid/content/pm/ShortcutInfo$Builder;
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     .line 130
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
@@ -930,14 +930,14 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setIcon(Landroid/graphics/drawable/Icon;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 132
-    :cond_0
+    :cond_24
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mLongLabel:Ljava/lang/CharSequence;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_31
 
     .line 133
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mLongLabel:Ljava/lang/CharSequence;
@@ -945,14 +945,14 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setLongLabel(Ljava/lang/CharSequence;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 135
-    :cond_1
+    :cond_31
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mDisabledMessage:Ljava/lang/CharSequence;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3e
 
     .line 136
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mDisabledMessage:Ljava/lang/CharSequence;
@@ -960,10 +960,10 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setDisabledMessage(Ljava/lang/CharSequence;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 138
-    :cond_2
+    :cond_3e
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_47
 
     .line 139
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
@@ -971,10 +971,10 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setActivity(Landroid/content/ComponentName;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 141
-    :cond_3
+    :cond_47
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mCategories:Ljava/util/Set;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_50
 
     .line 142
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mCategories:Ljava/util/Set;
@@ -982,7 +982,7 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setCategories(Ljava/util/Set;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 144
-    :cond_4
+    :cond_50
     iget v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mRank:I
 
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setRank(I)Landroid/content/pm/ShortcutInfo$Builder;
@@ -990,7 +990,7 @@
     .line 145
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mExtras:Landroid/os/PersistableBundle;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_5e
 
     .line 146
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mExtras:Landroid/os/PersistableBundle;
@@ -998,23 +998,23 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setExtras(Landroid/os/PersistableBundle;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 148
-    :cond_5
+    :cond_5e
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1d
 
-    if-lt v1, v2, :cond_9
+    if-lt v1, v2, :cond_99
 
     .line 149
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mPersons:[Landroidx/core/app/Person;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_86
 
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mPersons:[Landroidx/core/app/Person;
 
     array-length v1, v1
 
-    if-lez v1, :cond_7
+    if-lez v1, :cond_86
 
     .line 150
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mPersons:[Landroidx/core/app/Person;
@@ -1028,10 +1028,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_73
     array-length v3, v1
 
-    if-ge v2, v3, :cond_6
+    if-ge v2, v3, :cond_83
 
     .line 152
     iget-object v3, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mPersons:[Landroidx/core/app/Person;
@@ -1047,19 +1047,19 @@
     .line 151
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_73
 
     .line 154
     .end local v2    # "i":I
-    :cond_6
+    :cond_83
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setPersons([Landroid/app/Person;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 156
     .end local v1    # "persons":[Landroid/app/Person;
-    :cond_7
+    :cond_86
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mLocusId:Landroidx/core/content/LocusIdCompat;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_93
 
     .line 157
     iget-object v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mLocusId:Landroidx/core/content/LocusIdCompat;
@@ -1071,15 +1071,15 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setLocusId(Landroid/content/LocusId;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 159
-    :cond_8
+    :cond_93
     iget-boolean v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mIsLongLived:Z
 
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setLongLived(Z)Landroid/content/pm/ShortcutInfo$Builder;
 
-    goto :goto_1
+    goto :goto_a0
 
     .line 164
-    :cond_9
+    :cond_99
     invoke-direct {p0}, Landroidx/core/content/pm/ShortcutInfoCompat;->buildLegacyExtrasBundle()Landroid/os/PersistableBundle;
 
     move-result-object v1
@@ -1087,12 +1087,12 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setExtras(Landroid/os/PersistableBundle;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 166
-    :goto_1
+    :goto_a0
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x21
 
-    if-lt v1, v2, :cond_a
+    if-lt v1, v2, :cond_ab
 
     .line 167
     iget v1, p0, Landroidx/core/content/pm/ShortcutInfoCompat;->mExcludedSurfaces:I
@@ -1100,7 +1100,7 @@
     invoke-static {v0, v1}, Landroidx/core/content/pm/ShortcutInfoCompat$Api33Impl;->setExcludedFromSurfaces(Landroid/content/pm/ShortcutInfo$Builder;I)V
 
     .line 169
-    :cond_a
+    :cond_ab
     invoke-virtual {v0}, Landroid/content/pm/ShortcutInfo$Builder;->build()Landroid/content/pm/ShortcutInfo;
 
     move-result-object v1

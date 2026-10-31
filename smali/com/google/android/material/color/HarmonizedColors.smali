@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 52
     const-class v0, Lcom/google/android/material/color/HarmonizedColors;
@@ -24,7 +24,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method private static addHarmonizedColorAttributesToReplacementMap(Ljava/util/Map;Landroid/content/res/TypedArray;Landroid/content/res/TypedArray;I)V
-    .locals 6
+    .registers 10
     .param p1, "themeAttributesTypedArray"    # Landroid/content/res/TypedArray;
     .param p2, "themeOverlayAttributesTypedArray"    # Landroid/content/res/TypedArray;
     .param p3, "colorToHarmonizeWith"    # I
@@ -52,18 +52,18 @@
 
     .line 180
     .local p0, "colorReplacementMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_4
 
     .line 181
     move-object v0, p2
 
-    goto :goto_0
+    goto :goto_5
 
     .line 182
-    :cond_0
+    :cond_4
     move-object v0, p1
 
-    :goto_0
+    :goto_5
     nop
 
     .line 184
@@ -71,12 +71,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
+    :goto_7
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->getIndexCount()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_3b
 
     .line 185
     const/4 v2, 0x0
@@ -87,14 +87,14 @@
 
     .line 186
     .local v3, "resourceId":I
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_38
 
     .line 187
     invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_38
 
     .line 188
     invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getType(I)I
@@ -105,7 +105,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_38
 
     .line 189
     invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getColor(II)I
@@ -135,19 +135,19 @@
     .line 184
     .end local v2    # "colorToHarmonize":I
     .end local v3    # "resourceId":I
-    :cond_1
+    :cond_38
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_7
 
     .line 194
     .end local v1    # "i":I
-    :cond_2
+    :cond_3b
     return-void
 .end method
 
 .method public static applyToContextIfAvailable(Landroid/content/Context;Lcom/google/android/material/color/HarmonizedColorsOptions;)V
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "options"    # Lcom/google/android/material/color/HarmonizedColorsOptions;
 
@@ -156,13 +156,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 69
     return-void
 
     .line 71
-    :cond_0
+    :cond_7
     nop
 
     .line 72
@@ -184,20 +184,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     .line 77
     invoke-static {p0, v1}, Lcom/google/android/material/color/ThemeUtils;->applyThemeOverlay(Landroid/content/Context;I)V
 
     .line 79
-    :cond_1
+    :cond_1c
     return-void
 .end method
 
 .method private static createHarmonizedColorReplacementMap(Landroid/content/Context;Lcom/google/android/material/color/HarmonizedColorsOptions;)Ljava/util/Map;
-    .locals 9
+    .registers 11
     .param p0, "originalContext"    # Landroid/content/Context;
     .param p1, "options"    # Lcom/google/android/material/color/HarmonizedColorsOptions;
     .annotation system Ldalvik/annotation/Signature;
@@ -243,8 +243,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_0
+    :goto_16
+    if-ge v4, v3, :cond_31
 
     aget v5, v2, v4
 
@@ -279,17 +279,17 @@
     .end local v6    # "harmonizedColor":I
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 144
-    :cond_0
+    :cond_31
     invoke-virtual {p1}, Lcom/google/android/material/color/HarmonizedColorsOptions;->getColorAttributes()Lcom/google/android/material/color/HarmonizedColorAttributes;
 
     move-result-object v2
 
     .line 145
     .local v2, "colorAttributes":Lcom/google/android/material/color/HarmonizedColorAttributes;
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_5f
 
     .line 146
     invoke-virtual {v2}, Lcom/google/android/material/color/HarmonizedColorAttributes;->getAttributes()[I
@@ -300,7 +300,7 @@
     .local v3, "attributes":[I
     array-length v4, v3
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_5f
 
     .line 151
     invoke-virtual {v2}, Lcom/google/android/material/color/HarmonizedColorAttributes;->getThemeOverlay()I
@@ -315,7 +315,7 @@
 
     .line 154
     .local v5, "themeAttributesTypedArray":Landroid/content/res/TypedArray;
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_52
 
     .line 156
     new-instance v6, Landroid/view/ContextThemeWrapper;
@@ -326,13 +326,13 @@
 
     move-result-object v6
 
-    goto :goto_1
+    goto :goto_53
 
     .line 157
-    :cond_1
+    :cond_52
     const/4 v6, 0x0
 
-    :goto_1
+    :goto_53
     nop
 
     .line 158
@@ -343,7 +343,7 @@
     invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 165
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_5f
 
     .line 166
     invoke-virtual {v6}, Landroid/content/res/TypedArray;->recycle()V
@@ -353,33 +353,33 @@
     .end local v4    # "themeOverlay":I
     .end local v5    # "themeAttributesTypedArray":Landroid/content/res/TypedArray;
     .end local v6    # "themeOverlayAttributesTypedArray":Landroid/content/res/TypedArray;
-    :cond_2
+    :cond_5f
     return-object v0
 .end method
 
 .method public static isHarmonizedColorAvailable()Z
-    .locals 2
+    .registers 2
 
     .line 126
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public static wrapContextIfAvailable(Landroid/content/Context;Lcom/google/android/material/color/HarmonizedColorsOptions;)Landroid/content/Context;
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "options"    # Lcom/google/android/material/color/HarmonizedColorsOptions;
 
@@ -388,13 +388,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 97
     return-object p0
 
     .line 100
-    :cond_0
+    :cond_7
     nop
 
     .line 101
@@ -430,18 +430,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_27
 
     .line 112
     move-object v3, v2
 
-    goto :goto_0
+    goto :goto_28
 
     .line 113
-    :cond_1
+    :cond_27
     move-object v3, p0
 
     .line 111
-    :goto_0
+    :goto_28
     return-object v3
 .end method

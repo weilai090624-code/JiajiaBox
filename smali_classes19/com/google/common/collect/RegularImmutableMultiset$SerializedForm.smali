@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multiset;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,12 +77,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3c
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -116,17 +116,17 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 118
-    goto :goto_0
+    goto :goto_1c
 
     .line 119
-    :cond_0
+    :cond_3c
     return-void
 .end method
 
 
 # virtual methods
 .method readResolve()Ljava/lang/Object;
-    .locals 4
+    .registers 5
 
     .line 122
     new-instance v0, Lcom/google/common/collect/ImmutableMultiset$Builder;
@@ -142,12 +142,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_9
     iget-object v2, p0, Lcom/google/common/collect/RegularImmutableMultiset$SerializedForm;->elements:[Ljava/lang/Object;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1c
 
     .line 125
     iget-object v2, p0, Lcom/google/common/collect/RegularImmutableMultiset$SerializedForm;->elements:[Ljava/lang/Object;
@@ -163,11 +163,11 @@
     .line 124
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 127
     .end local v1    # "i":I
-    :cond_0
+    :cond_1c
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMultiset$Builder;->build()Lcom/google/common/collect/ImmutableMultiset;
 
     move-result-object v1

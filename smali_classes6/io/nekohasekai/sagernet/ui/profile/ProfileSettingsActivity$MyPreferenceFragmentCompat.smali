@@ -134,7 +134,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$3Lh60p3JenhYACHP7oJjjccpRdU(Lio/nekohasekai/sagernet/fmt/AbstractBean;Ljava/lang/String;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->onOptionsItemSelected$lambda$9$lambda$7(Lio/nekohasekai/sagernet/fmt/AbstractBean;Ljava/lang/String;)Lkotlin/Unit;
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$3kj4_5F4eccCf4yNAJ8f4BB8h7E(Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->onOptionsItemSelected$lambda$18$lambda$17$lambda$16$lambda$15(Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;Landroid/view/View;)V
 
@@ -152,7 +152,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$67kaOra7mg2kJLKi9dDNPW8eTa4(Lio/nekohasekai/sagernet/fmt/AbstractBean;Ljava/lang/String;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->onOptionsItemSelected$lambda$12$lambda$10(Lio/nekohasekai/sagernet/fmt/AbstractBean;Ljava/lang/String;)Lkotlin/Unit;
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$YBPsn7wFME_KcK4U7xUhaxUh0Xs(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;Landroidx/activity/result/ActivityResult;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->resultCallbackCustom$lambda$3(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;Landroidx/activity/result/ActivityResult;)V
 
@@ -170,7 +170,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$dyRlIhP5YFT7TGBgoIkbYi0JLXg(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;Landroidx/activity/result/ActivityResult;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->resultCallbackCustomOutbound$lambda$5(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;Landroidx/activity/result/ActivityResult;)V
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 210
     invoke-direct {p0}, Landroidx/preference/PreferenceFragmentCompat;-><init>()V
@@ -242,7 +242,7 @@
 .end method
 
 .method private static final onOptionsItemSelected$lambda$12$lambda$10(Lio/nekohasekai/sagernet/fmt/AbstractBean;Ljava/lang/String;)Lkotlin/Unit;
-    .locals 1
+    .registers 3
     .param p0, "$bean"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .param p1, "it"    # Ljava/lang/String;
 
@@ -259,7 +259,7 @@
 .end method
 
 .method private static final onOptionsItemSelected$lambda$18$lambda$17$lambda$16$lambda$15(Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;Landroid/view/View;)V
-    .locals 2
+    .registers 6
     .param p0, "$ent"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p1, "$group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "$activity"    # Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
@@ -281,7 +281,7 @@
 .end method
 
 .method private static final onOptionsItemSelected$lambda$9$lambda$7(Lio/nekohasekai/sagernet/fmt/AbstractBean;Ljava/lang/String;)Lkotlin/Unit;
-    .locals 1
+    .registers 3
     .param p0, "$bean"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .param p1, "it"    # Ljava/lang/String;
 
@@ -298,7 +298,7 @@
 .end method
 
 .method private static final resultCallbackCustom$lambda$3(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;Landroidx/activity/result/ActivityResult;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;
 
     const-string v0, "<destruct>"
@@ -308,7 +308,7 @@
     .line 248
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->callbackCustom:Lkotlin/jvm/functions/Function1;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     .line 406
     .local p1, "it":Lkotlin/jvm/functions/Function1;
@@ -327,12 +327,12 @@
     .line 249
     .end local v0    # "$i$a$-let-ProfileSettingsActivity$MyPreferenceFragmentCompat$resultCallbackCustom$1$1":I
     .end local p1    # "it":Lkotlin/jvm/functions/Function1;
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method private static final resultCallbackCustomOutbound$lambda$5(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;Landroidx/activity/result/ActivityResult;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;
 
     const-string v0, "<destruct>"
@@ -342,7 +342,7 @@
     .line 254
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->callbackCustomOutbound:Lkotlin/jvm/functions/Function1;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     .line 406
     .local p1, "it":Lkotlin/jvm/functions/Function1;
@@ -361,14 +361,14 @@
     .line 255
     .end local v0    # "$i$a$-let-ProfileSettingsActivity$MyPreferenceFragmentCompat$resultCallbackCustomOutbound$1$1":I
     .end local p1    # "it":Lkotlin/jvm/functions/Function1;
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 
 # virtual methods
 .method public final getActivity()Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -384,7 +384,7 @@
 .end method
 
 .method public final getCallbackCustom()Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -402,7 +402,7 @@
 .end method
 
 .method public final getCallbackCustomOutbound()Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -420,7 +420,7 @@
 .end method
 
 .method public final getResultCallbackCustom()Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -437,7 +437,7 @@
 .end method
 
 .method public final getResultCallbackCustomOutbound()Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -454,7 +454,7 @@
 .end method
 
 .method public onCreatePreferences(Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 4
+    .registers 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
     .param p2, "rootKey"    # Ljava/lang/String;
 
@@ -477,7 +477,7 @@
     nop
 
     .line 217
-    :try_start_0
+    :try_start_10
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->requireActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v0
@@ -508,13 +508,13 @@
     .end local v1    # "$this$onCreatePreferences_u24lambda_u240":Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
     .end local v2    # "$i$a$-apply-ProfileSettingsActivity$MyPreferenceFragmentCompat$onCreatePreferences$1":I
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->activity:Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_26} :catch_27
 
-    goto :goto_0
+    goto :goto_45
 
     .line 220
-    :catch_0
+    :catch_27
     move-exception v0
 
     .line 222
@@ -556,12 +556,12 @@
 
     .line 228
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_45
     return-void
 .end method
 
 .method public onDisplayPreferenceDialog(Landroidx/preference/Preference;)V
-    .locals 3
+    .registers 5
     .param p1, "preference"    # Landroidx/preference/Preference;
 
     const-string v0, "preference"
@@ -571,7 +571,7 @@
     .line 375
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->activity:Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .local v0, "$this$onDisplayPreferenceDialog_u24lambda_u2420":Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
     const/4 v1, 0x0
@@ -586,12 +586,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
     return-void
 
     .line 377
-    :cond_0
+    :cond_14
     nop
 
     .line 375
@@ -600,7 +600,7 @@
     nop
 
     .line 378
-    :cond_1
+    :cond_16
     invoke-super {p0, p1}, Landroidx/preference/PreferenceFragmentCompat;->onDisplayPreferenceDialog(Landroidx/preference/Preference;)V
 
     .line 379
@@ -608,7 +608,7 @@
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 23
+    .registers 25
     .param p1, "item"    # Landroid/view/MenuItem;
 
     move-object/from16 v0, p0
@@ -634,13 +634,13 @@
 
     const/4 v7, 0x1
 
-    sparse-switch v1, :sswitch_data_0
+    sparse-switch v1, :sswitch_data_272
 
     .line 371
-    goto/16 :goto_4
+    goto/16 :goto_271
 
     .line 334
-    :sswitch_0
+    :sswitch_19
     invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->requireActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v1
@@ -715,13 +715,13 @@
 
     move-result-object v14
 
-    :cond_0
-    :goto_0
+    :cond_52
+    :goto_52
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v15
 
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_7f
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -741,7 +741,7 @@
 
     move-result v18
 
-    if-nez v18, :cond_1
+    if-nez v18, :cond_77
 
     invoke-virtual/range {v16 .. v16}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getId()J
 
@@ -753,28 +753,28 @@
 
     cmp-long v22, v18, v20
 
-    if-eqz v22, :cond_1
+    if-eqz v22, :cond_77
 
     const/16 v16, 0x1
 
-    goto :goto_1
+    goto :goto_79
 
-    :cond_1
+    :cond_77
     const/16 v16, 0x0
 
     .line 398
     .end local v16    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v17    # "$i$a$-filter-ProfileSettingsActivity$MyPreferenceFragmentCompat$onOptionsItemSelected$view$1$1":I
-    :goto_1
-    if-eqz v16, :cond_0
+    :goto_79
+    if-eqz v16, :cond_52
 
     invoke-interface {v11, v15}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_52
 
     .line 399
     .end local v15    # "element$iv$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_7f
     nop
 
     .end local v11    # "destination$iv$iv":Ljava/util/Collection;
@@ -803,12 +803,12 @@
 
     move-result-object v10
 
-    :goto_2
+    :goto_8c
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_f7
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -952,12 +952,12 @@
     const/4 v7, 0x1
 
     .end local v11    # "element$iv":Ljava/lang/Object;
-    goto :goto_2
+    goto :goto_8c
 
     .line 405
     .end local v18    # "$this$forEach$iv":Ljava/lang/Iterable;
     .restart local v4    # "$this$forEach$iv":Ljava/lang/Iterable;
-    :cond_3
+    :cond_f7
     move-object/from16 v18, v4
 
     .line 363
@@ -1028,10 +1028,10 @@
     .end local v1    # "activity":Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
     .end local v2    # "view":Landroid/widget/LinearLayout;
     .end local v3    # "scrollView":Landroid/widget/ScrollView;
-    goto/16 :goto_4
+    goto/16 :goto_271
 
     .line 260
-    :sswitch_1
+    :sswitch_123
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/DataStore;->getEditingId()J
@@ -1042,7 +1042,7 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_138
 
     .line 261
     invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -1053,10 +1053,10 @@
 
     const/4 v5, 0x1
 
-    goto :goto_3
+    goto :goto_166
 
     .line 263
-    :cond_4
+    :cond_138
     new-instance v1, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$DeleteConfirmationDialogFragment;
 
     invoke-direct {v1}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$DeleteConfirmationDialogFragment;-><init>()V
@@ -1119,24 +1119,24 @@
     invoke-virtual {v1, v2, v6}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$DeleteConfirmationDialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
     .line 272
-    :goto_3
+    :goto_166
     const/4 v4, 0x1
 
-    goto/16 :goto_4
+    goto/16 :goto_271
 
     .line 283
-    :sswitch_2
+    :sswitch_169
     const/4 v5, 0x1
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->activity:Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_1a1
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;->getProxyEntity()Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     move-result-object v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_1a1
 
     .local v1, "$this$onOptionsItemSelected_u24lambda_u249":Lio/nekohasekai/sagernet/database/ProxyEntity;
     const/4 v2, 0x0
@@ -1209,27 +1209,27 @@
     .end local v1    # "$this$onOptionsItemSelected_u24lambda_u249":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v2    # "$i$a$-apply-ProfileSettingsActivity$MyPreferenceFragmentCompat$onOptionsItemSelected$3":I
     .end local v4    # "bean":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    :cond_5
+    :cond_1a1
     nop
 
     .line 295
     const/4 v4, 0x1
 
-    goto/16 :goto_4
+    goto/16 :goto_271
 
     .line 299
-    :sswitch_3
+    :sswitch_1a5
     const/4 v5, 0x1
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->activity:Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_1dd
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;->getProxyEntity()Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_1dd
 
     .local v1, "$this$onOptionsItemSelected_u24lambda_u2412":Lio/nekohasekai/sagernet/database/ProxyEntity;
     const/4 v2, 0x0
@@ -1302,16 +1302,16 @@
     .end local v1    # "$this$onOptionsItemSelected_u24lambda_u2412":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v2    # "$i$a$-apply-ProfileSettingsActivity$MyPreferenceFragmentCompat$onOptionsItemSelected$4":I
     .end local v4    # "bean":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    :cond_6
+    :cond_1dd
     nop
 
     .line 311
     const/4 v4, 0x1
 
-    goto/16 :goto_4
+    goto/16 :goto_271
 
     .line 315
-    :sswitch_4
+    :sswitch_1e1
     invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->requireActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v1
@@ -1471,10 +1471,10 @@
     .end local v1    # "activity":Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
     .end local v2    # "ent":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v3    # "shortcut":Landroidx/core/content/pm/ShortcutInfoCompat;
-    goto :goto_4
+    goto :goto_271
 
     .line 276
-    :sswitch_5
+    :sswitch_265
     const/4 v5, 0x1
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat$onOptionsItemSelected$2;
@@ -1489,22 +1489,22 @@
     const/4 v4, 0x1
 
     .line 372
-    :goto_4
+    :goto_271
     return v4
 
-    :sswitch_data_0
+    :sswitch_data_272
     .sparse-switch
-        0x7f0a0036 -> :sswitch_5
-        0x7f0a004a -> :sswitch_4
-        0x7f0a004b -> :sswitch_3
-        0x7f0a004c -> :sswitch_2
-        0x7f0a004d -> :sswitch_1
-        0x7f0a0061 -> :sswitch_0
+        0x7f0a0036 -> :sswitch_265
+        0x7f0a004a -> :sswitch_1e1
+        0x7f0a004b -> :sswitch_1a5
+        0x7f0a004c -> :sswitch_169
+        0x7f0a004d -> :sswitch_123
+        0x7f0a0061 -> :sswitch_19
     .end sparse-switch
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -1531,7 +1531,7 @@
     .line 235
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat;->activity:Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     .local v0, "$this$onViewCreated_u24lambda_u241":Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
     const/4 v1, 0x0
@@ -1573,12 +1573,12 @@
     nop
 
     .line 240
-    :cond_0
+    :cond_34
     return-void
 .end method
 
 .method public final setActivity(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1595,7 +1595,7 @@
 .end method
 
 .method public final setCallbackCustom(Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1615,7 +1615,7 @@
 .end method
 
 .method public final setCallbackCustomOutbound(Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {

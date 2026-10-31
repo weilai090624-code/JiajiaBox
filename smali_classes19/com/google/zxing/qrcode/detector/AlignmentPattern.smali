@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(FFF)V
-    .locals 0
+    .registers 4
     .param p1, "posX"    # F
     .param p2, "posY"    # F
     .param p3, "estimatedModuleSize"    # F
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method aboutEquals(FFF)Z
-    .locals 4
+    .registers 8
     .param p1, "moduleSize"    # F
     .param p2, "i"    # F
     .param p3, "j"    # F
@@ -47,7 +47,7 @@
 
     cmpg-float v0, v0, p1
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_37
 
     invoke-virtual {p0}, Lcom/google/zxing/qrcode/detector/AlignmentPattern;->getX()F
 
@@ -61,7 +61,7 @@
 
     cmpg-float v0, v0, p1
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_37
 
     .line 42
     iget v0, p0, Lcom/google/zxing/qrcode/detector/AlignmentPattern;->estimatedModuleSize:F
@@ -82,33 +82,33 @@
 
     cmpg-float v0, v0, v3
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_35
 
     iget v0, p0, Lcom/google/zxing/qrcode/detector/AlignmentPattern;->estimatedModuleSize:F
 
     cmpg-float v0, v2, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_34
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_0
+    :cond_34
     return v1
 
-    :cond_1
-    :goto_0
+    :cond_35
+    :goto_35
     const/4 v0, 0x1
 
     return v0
 
     .line 45
     .end local v2    # "moduleSizeDiff":F
-    :cond_2
+    :cond_37
     return v1
 .end method
 
 .method combineEstimate(FFF)Lcom/google/zxing/qrcode/detector/AlignmentPattern;
-    .locals 4
+    .registers 8
     .param p1, "i"    # F
     .param p2, "j"    # F
     .param p3, "newModuleSize"    # F

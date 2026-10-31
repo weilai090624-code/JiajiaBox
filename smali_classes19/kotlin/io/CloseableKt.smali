@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$closeFinally"    # Ljava/io/Closeable;
     .param p1, "cause"    # Ljava/lang/Throwable;
 
@@ -42,29 +42,29 @@
     nop
 
     .line 55
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_12
 
     .line 56
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 58
-    :cond_0
+    :cond_9
     nop
 
     .line 59
-    :try_start_0
+    :try_start_a
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_a .. :try_end_d} :catchall_e
 
-    goto :goto_0
+    goto :goto_12
 
     .line 60
-    :catchall_0
+    :catchall_e
     move-exception v0
 
     .line 61
@@ -73,13 +73,13 @@
 
     .line 63
     .end local v0    # "closeException":Ljava/lang/Throwable;
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     return-void
 .end method
 
 .method private static final use(Ljava/io/Closeable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$use"    # Ljava/io/Closeable;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -113,12 +113,12 @@
 
     const/4 v2, 0x1
 
-    :try_start_0
+    :try_start_a
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_a .. :try_end_e} :catchall_20
 
     .line 32
     nop
@@ -128,28 +128,28 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-static {p0, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 34
-    :cond_0
-    if-eqz p0, :cond_1
+    :cond_19
+    if-eqz p0, :cond_1e
 
     .line 35
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
 
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     nop
 
     .line 27
     return-object v3
 
     .line 28
-    :catchall_0
+    :catchall_20
     move-exception v3
 
     .line 29
@@ -162,17 +162,17 @@
     .end local v0    # "exception":Ljava/lang/Throwable;
     .end local p0    # "$this$use":Ljava/io/Closeable;
     .end local p1    # "block":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_23
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_24
+    .catchall {:try_start_23 .. :try_end_24} :catchall_24
 
     .line 32
     .end local v3    # "e":Ljava/lang/Throwable;
     .restart local v0    # "exception":Ljava/lang/Throwable;
     .restart local p0    # "$this$use":Ljava/io/Closeable;
     .restart local p1    # "block":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_24
     move-exception v3
 
     .line 33
@@ -180,10 +180,10 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_35
 
     .line 34
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_38
 
     .line 35
     nop
@@ -192,25 +192,25 @@
     nop
 
     .line 38
-    :try_start_2
+    :try_start_2f
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_32
+    .catchall {:try_start_2f .. :try_end_32} :catchall_33
 
-    goto :goto_1
+    goto :goto_38
 
     .line 39
-    :catchall_2
+    :catchall_33
     move-exception v1
 
-    goto :goto_1
+    goto :goto_38
 
     .line 33
-    :cond_2
+    :cond_35
     invoke-static {p0, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .line 39
-    :cond_3
-    :goto_1
+    :cond_38
+    :goto_38
     throw v3
 .end method

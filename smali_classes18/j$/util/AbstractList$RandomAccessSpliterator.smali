@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 650
     const-class v0, Lj$/util/AbstractList;
@@ -69,7 +69,7 @@
 .end method
 
 .method private constructor <init>(Lj$/util/AbstractList$RandomAccessSpliterator;II)V
-    .locals 1
+    .registers 5
     .param p2, "origin"    # I
     .param p3, "fence"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -111,7 +111,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -144,30 +144,30 @@
     .line 667
     instance-of v1, p1, Lj$/util/AbstractList;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     move-object v1, p1
 
     check-cast v1, Lj$/util/AbstractList;
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_15
     iput-object v1, p0, Lj$/util/AbstractList$RandomAccessSpliterator;->alist:Lj$/util/AbstractList;
 
     .line 668
     iget-object v1, p0, Lj$/util/AbstractList$RandomAccessSpliterator;->alist:Lj$/util/AbstractList;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     iget-object v0, p0, Lj$/util/AbstractList$RandomAccessSpliterator;->alist:Lj$/util/AbstractList;
 
     iget v0, v0, Lj$/util/AbstractList;->modCount:I
 
-    :cond_1
+    :cond_1f
     iput v0, p0, Lj$/util/AbstractList$RandomAccessSpliterator;->expectedModCount:I
 
     .line 669
@@ -175,7 +175,7 @@
 .end method
 
 .method static checkAbstractListModCount(Lj$/util/AbstractList;I)V
-    .locals 1
+    .registers 3
     .param p1, "expectedModCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -187,16 +187,16 @@
 
     .line 742
     .local p0, "alist":Lj$/util/AbstractList;, "Ljava/util/AbstractList<*>;"
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_d
 
     iget v0, p0, Lj$/util/AbstractList;->modCount:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_7
 
-    goto :goto_0
+    goto :goto_d
 
     .line 743
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
@@ -204,13 +204,13 @@
     throw v0
 
     .line 745
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     return-void
 .end method
 
 .method private static get(Ljava/util/List;I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -228,13 +228,13 @@
     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 736
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 737
@@ -247,7 +247,7 @@
 .end method
 
 .method private getFence()I
-    .locals 3
+    .registers 4
 
     .line 684
     .local p0, "this":Lj$/util/AbstractList$RandomAccessSpliterator;, "Ljava/util/AbstractList$RandomAccessSpliterator<TE;>;"
@@ -260,12 +260,12 @@
     move v2, v1
 
     .local v2, "hi":I
-    if-gez v1, :cond_1
+    if-gez v1, :cond_18
 
     .line 686
     iget-object v1, p0, Lj$/util/AbstractList$RandomAccessSpliterator;->alist:Lj$/util/AbstractList;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 687
     iget-object v1, p0, Lj$/util/AbstractList$RandomAccessSpliterator;->alist:Lj$/util/AbstractList;
@@ -275,7 +275,7 @@
     iput v1, p0, Lj$/util/AbstractList$RandomAccessSpliterator;->expectedModCount:I
 
     .line 689
-    :cond_0
+    :cond_11
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -285,14 +285,14 @@
     move v2, v1
 
     .line 691
-    :cond_1
+    :cond_18
     return v2
 .end method
 
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 730
     .local p0, "this":Lj$/util/AbstractList$RandomAccessSpliterator;, "Ljava/util/AbstractList$RandomAccessSpliterator<TE;>;"
@@ -302,7 +302,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 2
+    .registers 3
 
     .line 726
     .local p0, "this":Lj$/util/AbstractList$RandomAccessSpliterator;, "Ljava/util/AbstractList$RandomAccessSpliterator<TE;>;"
@@ -320,7 +320,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -352,8 +352,8 @@
     iput v1, p0, Lj$/util/AbstractList$RandomAccessSpliterator;->index:I
 
     .line 719
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_d
+    if-ge v2, v1, :cond_19
 
     .line 720
     invoke-static {v0, v2}, Lj$/util/AbstractList$RandomAccessSpliterator;->get(Ljava/util/List;I)Ljava/lang/Object;
@@ -365,10 +365,10 @@
     .line 719
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 722
-    :cond_0
+    :cond_19
     iget-object v3, p0, Lj$/util/AbstractList$RandomAccessSpliterator;->alist:Lj$/util/AbstractList;
 
     iget v4, p0, Lj$/util/AbstractList$RandomAccessSpliterator;->expectedModCount:I
@@ -380,7 +380,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -390,7 +390,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -400,7 +400,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -410,7 +410,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -422,7 +422,7 @@
     .line 701
     .local p0, "this":Lj$/util/AbstractList$RandomAccessSpliterator;, "Ljava/util/AbstractList$RandomAccessSpliterator<TE;>;"
     .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_22
 
     .line 703
     invoke-direct {p0}, Lj$/util/AbstractList$RandomAccessSpliterator;->getFence()I
@@ -434,7 +434,7 @@
 
     .line 704
     .local v1, "i":I
-    if-ge v1, v0, :cond_0
+    if-ge v1, v0, :cond_20
 
     .line 705
     add-int/lit8 v2, v1, 0x1
@@ -463,7 +463,7 @@
     return v2
 
     .line 710
-    :cond_0
+    :cond_20
     const/4 v2, 0x0
 
     return v2
@@ -471,7 +471,7 @@
     .line 702
     .end local v0    # "hi":I
     .end local v1    # "i":I
-    :cond_1
+    :cond_22
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -480,7 +480,7 @@
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -505,14 +505,14 @@
 
     .line 696
     .local v2, "mid":I
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_e
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
     .line 697
-    :cond_0
+    :cond_e
     new-instance v3, Lj$/util/AbstractList$RandomAccessSpliterator;
 
     iput v2, p0, Lj$/util/AbstractList$RandomAccessSpliterator;->index:I
@@ -520,6 +520,6 @@
     invoke-direct {v3, p0, v1, v2}, Lj$/util/AbstractList$RandomAccessSpliterator;-><init>(Lj$/util/AbstractList$RandomAccessSpliterator;II)V
 
     .line 696
-    :goto_0
+    :goto_15
     return-object v3
 .end method

@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/IOException;)V
-    .locals 1
+    .registers 3
     .param p1, "firstConnectException"    # Ljava/io/IOException;
 
     const-string v0, "firstConnectException"
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public final addConnectException(Ljava/io/IOException;)V
-    .locals 2
+    .registers 4
     .param p1, "e"    # Ljava/io/IOException;
 
     const-string v0, "e"
@@ -98,7 +98,7 @@
 .end method
 
 .method public final getFirstConnectException()Ljava/io/IOException;
-    .locals 1
+    .registers 2
 
     .line 24
     iget-object v0, p0, Lokhttp3/internal/connection/RouteException;->firstConnectException:Ljava/io/IOException;
@@ -107,7 +107,7 @@
 .end method
 
 .method public final getLastConnectException()Ljava/io/IOException;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lokhttp3/internal/connection/RouteException;->lastConnectException:Ljava/io/IOException;

@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/sequences/SequencesKt__SequencesKt;-><init>()V
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public static final filterIsInstance(Lkotlin/sequences/Sequence;Ljava/lang/Class;)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 4
     .param p0, "$this$filterIsInstance"    # Lkotlin/sequences/Sequence;
     .param p1, "klass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
@@ -117,7 +117,7 @@
 .end method
 
 .method public static final filterIsInstanceTo(Lkotlin/sequences/Sequence;Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/Collection;
-    .locals 3
+    .registers 6
     .param p0, "$this$filterIsInstanceTo"    # Lkotlin/sequences/Sequence;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "klass"    # Ljava/lang/Class;
@@ -152,13 +152,13 @@
 
     move-result-object v0
 
-    :cond_0
-    :goto_0
+    :cond_13
+    :goto_13
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -169,20 +169,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     invoke-interface {p1, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_13
 
     .line 39
     .end local v1    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_27
     return-object p1
 .end method
 
 .method public static final synthetic max(Lkotlin/sequences/Sequence;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .param p0, "$this$max"    # Lkotlin/sequences/Sequence;
     .annotation runtime Lkotlin/Deprecated;
         message = "Use maxOrNull instead."
@@ -211,7 +211,7 @@
 .end method
 
 .method public static final synthetic max(Lkotlin/sequences/Sequence;)Ljava/lang/Double;
-    .locals 1
+    .registers 2
     .param p0, "$this$max"    # Lkotlin/sequences/Sequence;
     .annotation runtime Lkotlin/Deprecated;
         message = "Use maxOrNull instead."
@@ -240,7 +240,7 @@
 .end method
 
 .method public static final synthetic max(Lkotlin/sequences/Sequence;)Ljava/lang/Float;
-    .locals 1
+    .registers 2
     .param p0, "$this$max"    # Lkotlin/sequences/Sequence;
     .annotation runtime Lkotlin/Deprecated;
         message = "Use maxOrNull instead."
@@ -269,7 +269,7 @@
 .end method
 
 .method public static final synthetic maxBy(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
     .param p0, "$this$maxBy"    # Lkotlin/sequences/Sequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -329,14 +329,14 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_19
 
     const/4 v4, 0x0
 
-    goto :goto_0
+    goto :goto_43
 
     .line 175
-    :cond_0
+    :cond_19
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
@@ -347,12 +347,12 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_24
 
-    goto :goto_0
+    goto :goto_43
 
     .line 177
-    :cond_1
+    :cond_24
     invoke-interface {p1, v4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
@@ -361,7 +361,7 @@
 
     .line 179
     .local v5, "maxValue$iv":Ljava/lang/Comparable;
-    :cond_2
+    :cond_2a
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v6
@@ -380,7 +380,7 @@
 
     move-result v8
 
-    if-gez v8, :cond_3
+    if-gez v8, :cond_3c
 
     .line 182
     move-object v4, v6
@@ -391,12 +391,12 @@
     .line 185
     .end local v6    # "e$iv":Ljava/lang/Object;
     .end local v7    # "v$iv":Ljava/lang/Comparable;
-    :cond_3
+    :cond_3c
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_2a
 
     .line 186
     nop
@@ -407,12 +407,12 @@
     .end local v3    # "iterator$iv":Ljava/util/Iterator;
     .end local v4    # "maxElem$iv":Ljava/lang/Object;
     .end local v5    # "maxValue$iv":Ljava/lang/Comparable;
-    :goto_0
+    :goto_43
     return-object v4
 .end method
 
 .method public static final synthetic maxWith(Lkotlin/sequences/Sequence;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$maxWith"    # Lkotlin/sequences/Sequence;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation runtime Lkotlin/Deprecated;
@@ -446,7 +446,7 @@
 .end method
 
 .method public static final synthetic min(Lkotlin/sequences/Sequence;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .param p0, "$this$min"    # Lkotlin/sequences/Sequence;
     .annotation runtime Lkotlin/Deprecated;
         message = "Use minOrNull instead."
@@ -475,7 +475,7 @@
 .end method
 
 .method public static final synthetic min(Lkotlin/sequences/Sequence;)Ljava/lang/Double;
-    .locals 1
+    .registers 2
     .param p0, "$this$min"    # Lkotlin/sequences/Sequence;
     .annotation runtime Lkotlin/Deprecated;
         message = "Use minOrNull instead."
@@ -504,7 +504,7 @@
 .end method
 
 .method public static final synthetic min(Lkotlin/sequences/Sequence;)Ljava/lang/Float;
-    .locals 1
+    .registers 2
     .param p0, "$this$min"    # Lkotlin/sequences/Sequence;
     .annotation runtime Lkotlin/Deprecated;
         message = "Use minOrNull instead."
@@ -533,7 +533,7 @@
 .end method
 
 .method public static final synthetic minBy(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
     .param p0, "$this$minBy"    # Lkotlin/sequences/Sequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -593,14 +593,14 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_19
 
     const/4 v4, 0x0
 
-    goto :goto_0
+    goto :goto_43
 
     .line 189
-    :cond_0
+    :cond_19
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
@@ -611,12 +611,12 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_24
 
-    goto :goto_0
+    goto :goto_43
 
     .line 191
-    :cond_1
+    :cond_24
     invoke-interface {p1, v4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
@@ -625,7 +625,7 @@
 
     .line 193
     .local v5, "minValue$iv":Ljava/lang/Comparable;
-    :cond_2
+    :cond_2a
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v6
@@ -644,7 +644,7 @@
 
     move-result v8
 
-    if-lez v8, :cond_3
+    if-lez v8, :cond_3c
 
     .line 196
     move-object v4, v6
@@ -655,12 +655,12 @@
     .line 199
     .end local v6    # "e$iv":Ljava/lang/Object;
     .end local v7    # "v$iv":Ljava/lang/Comparable;
-    :cond_3
+    :cond_3c
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_2a
 
     .line 200
     nop
@@ -671,12 +671,12 @@
     .end local v3    # "iterator$iv":Ljava/util/Iterator;
     .end local v4    # "minElem$iv":Ljava/lang/Object;
     .end local v5    # "minValue$iv":Ljava/lang/Comparable;
-    :goto_0
+    :goto_43
     return-object v4
 .end method
 
 .method public static final synthetic minWith(Lkotlin/sequences/Sequence;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$minWith"    # Lkotlin/sequences/Sequence;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation runtime Lkotlin/Deprecated;
@@ -710,7 +710,7 @@
 .end method
 
 .method private static final sumOfBigDecimal(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;
-    .locals 5
+    .registers 7
     .param p0, "$this$sumOf"    # Lkotlin/sequences/Sequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -753,12 +753,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_19
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_34
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -783,15 +783,15 @@
     move-object v0, v3
 
     .end local v2    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_19
 
     .line 151
-    :cond_0
+    :cond_34
     return-object v0
 .end method
 
 .method private static final sumOfBigInteger(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;
-    .locals 5
+    .registers 7
     .param p0, "$this$sumOf"    # Lkotlin/sequences/Sequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -834,12 +834,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_19
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_34
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -864,15 +864,15 @@
     move-object v0, v3
 
     .end local v2    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_19
 
     .line 169
-    :cond_0
+    :cond_34
     return-object v0
 .end method
 
 .method public static final toSortedSet(Lkotlin/sequences/Sequence;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
     .param p0, "$this$toSortedSet"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -907,7 +907,7 @@
 .end method
 
 .method public static final toSortedSet(Lkotlin/sequences/Sequence;Ljava/util/Comparator;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .param p0, "$this$toSortedSet"    # Lkotlin/sequences/Sequence;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;

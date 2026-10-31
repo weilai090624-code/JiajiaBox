@@ -41,7 +41,7 @@
 
 # direct methods
 .method private static final getValue(Lkotlin/reflect/KProperty0;Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$getValue"    # Lkotlin/reflect/KProperty0;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -75,7 +75,7 @@
 .end method
 
 .method private static final getValue(Lkotlin/reflect/KProperty1;Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$getValue"    # Lkotlin/reflect/KProperty1;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -110,7 +110,7 @@
 .end method
 
 .method private static final setValue(Lkotlin/reflect/KMutableProperty0;Ljava/lang/Object;Lkotlin/reflect/KProperty;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "$this$setValue"    # Lkotlin/reflect/KMutableProperty0;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -144,7 +144,7 @@
 .end method
 
 .method private static final setValue(Lkotlin/reflect/KMutableProperty1;Ljava/lang/Object;Lkotlin/reflect/KProperty;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "$this$setValue"    # Lkotlin/reflect/KMutableProperty1;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;

@@ -9,7 +9,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 6
+    .registers 11
     .param p1, "context"    # Ljava/lang/String;
     .param p2, "contextMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "problem"    # Ljava/lang/String;
@@ -35,7 +35,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 6
     .param p1, "context"    # Ljava/lang/String;
     .param p2, "contextMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "problem"    # Ljava/lang/String;

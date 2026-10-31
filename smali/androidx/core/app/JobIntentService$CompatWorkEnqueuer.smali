@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;)V
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cn"    # Landroid/content/ComponentName;
 
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method enqueueWork(Landroid/content/Intent;)V
-    .locals 4
+    .registers 6
     .param p1, "work"    # Landroid/content/Intent;
 
     .line 183
@@ -156,16 +156,16 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2b
 
     .line 187
     monitor-enter p0
 
     .line 188
-    :try_start_0
+    :try_start_13
     iget-boolean v1, p0, Landroidx/core/app/JobIntentService$CompatWorkEnqueuer;->mLaunchingService:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_26
 
     .line 189
     const/4 v1, 0x1
@@ -175,7 +175,7 @@
     .line 190
     iget-boolean v1, p0, Landroidx/core/app/JobIntentService$CompatWorkEnqueuer;->mServiceProcessing:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_26
 
     .line 196
     iget-object v1, p0, Landroidx/core/app/JobIntentService$CompatWorkEnqueuer;->mLaunchWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -185,42 +185,42 @@
     invoke-virtual {v1, v2, v3}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     .line 199
-    :cond_0
+    :cond_26
     monitor-exit p0
 
-    goto :goto_0
+    goto :goto_2b
 
-    :catchall_0
+    :catchall_28
     move-exception v1
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_13 .. :try_end_2a} :catchall_28
 
     throw v1
 
     .line 201
-    :cond_1
-    :goto_0
+    :cond_2b
+    :goto_2b
     return-void
 .end method
 
 .method public serviceProcessingFinished()V
-    .locals 3
+    .registers 4
 
     .line 228
     monitor-enter p0
 
     .line 229
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Landroidx/core/app/JobIntentService$CompatWorkEnqueuer;->mServiceProcessing:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 232
     iget-boolean v0, p0, Landroidx/core/app/JobIntentService$CompatWorkEnqueuer;->mLaunchingService:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 233
     iget-object v0, p0, Landroidx/core/app/JobIntentService$CompatWorkEnqueuer;->mLaunchWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -230,7 +230,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     .line 235
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroidx/core/app/JobIntentService$CompatWorkEnqueuer;->mServiceProcessing:Z
@@ -241,34 +241,34 @@
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
     .line 238
-    :cond_1
+    :cond_19
     monitor-exit p0
 
     .line 239
     return-void
 
     .line 238
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_1 .. :try_end_1d} :catchall_1b
 
     throw v0
 .end method
 
 .method public serviceProcessingStarted()V
-    .locals 3
+    .registers 4
 
     .line 214
     monitor-enter p0
 
     .line 216
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Landroidx/core/app/JobIntentService$CompatWorkEnqueuer;->mServiceProcessing:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 217
     const/4 v0, 0x1
@@ -288,25 +288,25 @@
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
     .line 223
-    :cond_0
+    :cond_15
     monitor-exit p0
 
     .line 224
     return-void
 
     .line 223
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_1 .. :try_end_19} :catchall_17
 
     throw v0
 .end method
 
 .method public serviceStartReceived()V
-    .locals 1
+    .registers 2
 
     .line 205
     monitor-enter p0
@@ -314,7 +314,7 @@
     .line 208
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_2
     iput-boolean v0, p0, Landroidx/core/app/JobIntentService$CompatWorkEnqueuer;->mLaunchingService:Z
 
     .line 209
@@ -324,12 +324,12 @@
     return-void
 
     .line 209
-    :catchall_0
+    :catchall_6
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_2 .. :try_end_8} :catchall_6
 
     throw v0
 .end method

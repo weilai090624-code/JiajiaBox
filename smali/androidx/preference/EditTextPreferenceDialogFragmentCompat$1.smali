@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/EditTextPreferenceDialogFragmentCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/preference/EditTextPreferenceDialogFragmentCompat;
 
     .line 40
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat$1;->this$0:Landroidx/preference/EditTextPreferenceDialogFragmentCompat;

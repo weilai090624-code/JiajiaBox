@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/color/DynamicColorsOptions;)V
-    .locals 0
+    .registers 2
     .param p1, "options"    # Lcom/google/android/material/color/DynamicColorsOptions;
 
     .line 403
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onActivityCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public onActivityDestroyed(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 433
@@ -56,7 +56,7 @@
 .end method
 
 .method public onActivityPaused(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 424
@@ -64,7 +64,7 @@
 .end method
 
 .method public onActivityPreCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public onActivityResumed(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 421
@@ -86,7 +86,7 @@
 .end method
 
 .method public onActivitySaveInstanceState(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "outState"    # Landroid/os/Bundle;
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public onActivityStarted(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 418
@@ -103,7 +103,7 @@
 .end method
 
 .method public onActivityStopped(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 427

@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;)V
-    .locals 1
+    .registers 3
     .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 252
@@ -73,7 +73,7 @@
 .end method
 
 .method public getCanBeNull()Z
-    .locals 1
+    .registers 2
 
     .line 296
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->canBeNull:Z
@@ -82,7 +82,7 @@
 .end method
 
 .method public getField()Ljava/lang/reflect/Field;
-    .locals 1
+    .registers 2
 
     .line 337
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->field:Ljava/lang/reflect/Field;
@@ -91,7 +91,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 333
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->name:Ljava/lang/String;
@@ -100,7 +100,7 @@
 .end method
 
 .method public getOptimizePositive()Z
-    .locals 1
+    .registers 2
 
     .line 318
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->optimizePositive:Z
@@ -109,7 +109,7 @@
 .end method
 
 .method getReuseSerializer()Z
-    .locals 1
+    .registers 2
 
     .line 329
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->reuseSerializer:Z
@@ -118,7 +118,7 @@
 .end method
 
 .method public getSerializer()Lcom/esotericsoftware/kryo/Serializer;
-    .locals 1
+    .registers 2
 
     .line 283
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->serializer:Lcom/esotericsoftware/kryo/Serializer;
@@ -127,7 +127,7 @@
 .end method
 
 .method public getValueClass()Ljava/lang/Class;
-    .locals 1
+    .registers 2
 
     .line 266
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->valueClass:Ljava/lang/Class;
@@ -136,7 +136,7 @@
 .end method
 
 .method public getVariableLengthEncoding()Z
-    .locals 1
+    .registers 2
 
     .line 308
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->varEncoding:Z
@@ -148,7 +148,7 @@
 .end method
 
 .method public setCanBeNull(Z)V
-    .locals 0
+    .registers 2
     .param p1, "canBeNull"    # Z
 
     .line 292
@@ -159,7 +159,7 @@
 .end method
 
 .method public setOptimizePositive(Z)V
-    .locals 0
+    .registers 2
     .param p1, "optimizePositive"    # Z
 
     .line 314
@@ -170,7 +170,7 @@
 .end method
 
 .method setReuseSerializer(Z)V
-    .locals 0
+    .registers 2
     .param p1, "reuseSerializer"    # Z
 
     .line 325
@@ -181,7 +181,7 @@
 .end method
 
 .method public setSerializer(Lcom/esotericsoftware/kryo/Serializer;)V
-    .locals 0
+    .registers 2
     .param p1, "serializer"    # Lcom/esotericsoftware/kryo/Serializer;
 
     .line 278
@@ -192,7 +192,7 @@
 .end method
 
 .method public setValueClass(Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
     .param p1, "valueClass"    # Ljava/lang/Class;
 
     .line 261
@@ -203,7 +203,7 @@
 .end method
 
 .method public setValueClass(Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;)V
-    .locals 0
+    .registers 3
     .param p1, "valueClass"    # Ljava/lang/Class;
     .param p2, "serializer"    # Lcom/esotericsoftware/kryo/Serializer;
 
@@ -218,7 +218,7 @@
 .end method
 
 .method public setVariableLengthEncoding(Z)V
-    .locals 0
+    .registers 2
     .param p1, "varEncoding"    # Z
 
     .line 304
@@ -229,7 +229,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 341
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->name:Ljava/lang/String;

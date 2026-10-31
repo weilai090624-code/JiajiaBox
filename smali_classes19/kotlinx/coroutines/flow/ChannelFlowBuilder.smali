@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)V
-    .locals 0
+    .registers 5
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p3, "capacity"    # I
@@ -111,12 +111,12 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 7
 
     .line 310
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_8
 
     .line 312
     sget-object p2, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -124,25 +124,25 @@
     check-cast p2, Lkotlin/coroutines/CoroutineContext;
 
     .line 310
-    :cond_0
+    :cond_8
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_d
 
     .line 313
     const/4 p3, -0x2
 
     .line 310
-    :cond_1
+    :cond_d
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_13
 
     .line 314
     sget-object p4, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
     .line 310
-    :cond_2
+    :cond_13
     invoke-direct {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/flow/ChannelFlowBuilder;-><init>(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)V
 
     .line 324
@@ -150,7 +150,7 @@
 .end method
 
 .method static synthetic collectTo$suspendImpl(Lkotlinx/coroutines/flow/ChannelFlowBuilder;Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this"    # Lkotlinx/coroutines/flow/ChannelFlowBuilder;
     .param p1, "scope"    # Lkotlinx/coroutines/channels/ProducerScope;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -182,11 +182,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     return-object v0
 
-    :cond_0
+    :cond_d
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
@@ -195,7 +195,7 @@
 
 # virtual methods
 .method protected collectTo(Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -217,7 +217,7 @@
 .end method
 
 .method protected create(Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/internal/ChannelFlow;
-    .locals 2
+    .registers 6
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
     .param p3, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;
@@ -246,7 +246,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 323
     new-instance v0, Ljava/lang/StringBuilder;

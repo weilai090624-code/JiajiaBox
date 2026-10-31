@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final inflate(Lokio/Source;Ljava/util/zip/Inflater;)Lokio/InflaterSource;
-    .locals 2
+    .registers 4
     .param p0, "$this$inflate"    # Lokio/Source;
     .param p1, "inflater"    # Ljava/util/zip/Inflater;
 
@@ -52,14 +52,14 @@
 .end method
 
 .method public static synthetic inflate$default(Lokio/Source;Ljava/util/zip/Inflater;ILjava/lang/Object;)Lokio/InflaterSource;
-    .locals 0
+    .registers 4
     .param p0, "$this$inflate_u24default"    # Lokio/Source;
     .param p1, "inflater"    # Ljava/util/zip/Inflater;
 
     .line 145
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     new-instance p2, Ljava/util/zip/Inflater;
 
@@ -67,7 +67,7 @@
 
     move-object p1, p2
 
-    :cond_0
+    :cond_a
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

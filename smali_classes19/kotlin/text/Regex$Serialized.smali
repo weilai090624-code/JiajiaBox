@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/text/Regex$Serialized$Companion;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p1, "pattern"    # Ljava/lang/String;
     .param p2, "flags"    # I
 
@@ -101,7 +101,7 @@
 .end method
 
 .method private final readResolve()Ljava/lang/Object;
-    .locals 3
+    .registers 4
 
     .line 313
     new-instance v0, Lkotlin/text/Regex;
@@ -126,7 +126,7 @@
 
 # virtual methods
 .method public final getFlags()I
-    .locals 1
+    .registers 2
 
     .line 308
     iget v0, p0, Lkotlin/text/Regex$Serialized;->flags:I
@@ -135,7 +135,7 @@
 .end method
 
 .method public final getPattern()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 308
     iget-object v0, p0, Lkotlin/text/Regex$Serialized;->pattern:Ljava/lang/String;

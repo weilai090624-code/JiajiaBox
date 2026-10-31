@@ -10,7 +10,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 5
     .param p1, "identifier"    # Ljava/lang/String;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/concurrent/Executor;)V
-    .locals 3
+    .registers 5
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 61
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/eventbus/SubscriberExceptionHandler;)V
-    .locals 2
+    .registers 5
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "subscriberExceptionHandler"    # Lcom/google/common/eventbus/SubscriberExceptionHandler;
 

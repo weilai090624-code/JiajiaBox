@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 46
     const/4 v0, 0x0
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 .end method
 
 .method private static isProxyOfSameInterfaces(Ljava/lang/Object;Ljava/lang/Class;)Z
-    .locals 2
+    .registers 4
     .param p0, "arg"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -56,7 +56,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_25
 
     .line 146
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -67,7 +67,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 147
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -86,28 +86,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_23
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_1
-    :goto_0
+    :cond_25
+    :goto_25
     const/4 v0, 0x1
 
     .line 140
-    :goto_1
+    :goto_26
     return v0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -133,7 +133,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 126
     invoke-super {p0}, Ljava/lang/Object;->hashCode()I
@@ -144,7 +144,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 8
     .param p1, "proxy"    # Ljava/lang/Object;
     .param p2, "method"    # Ljava/lang/reflect/Method;
     .param p3, "args"    # [Ljava/lang/Object;
@@ -161,16 +161,16 @@
     .end annotation
 
     .line 67
-    if-nez p3, :cond_0
+    if-nez p3, :cond_4
 
     .line 68
     sget-object p3, Lcom/google/common/reflect/AbstractInvocationHandler;->NO_ARGS:[Ljava/lang/Object;
 
     .line 70
-    :cond_0
+    :cond_4
     array-length v0, p3
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
@@ -182,7 +182,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 71
     invoke-virtual {p0}, Lcom/google/common/reflect/AbstractInvocationHandler;->hashCode()I
@@ -196,12 +196,12 @@
     return-object v0
 
     .line 73
-    :cond_1
+    :cond_1c
     array-length v0, p3
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_62
 
     .line 74
     invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
@@ -214,7 +214,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_62
 
     .line 75
     invoke-virtual {p2}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
@@ -227,14 +227,14 @@
 
     const-class v3, Ljava/lang/Object;
 
-    if-ne v0, v3, :cond_5
+    if-ne v0, v3, :cond_62
 
     .line 76
     aget-object v0, p3, v2
 
     .line 77
     .local v0, "arg":Ljava/lang/Object;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_40
 
     .line 78
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -244,8 +244,8 @@
     return-object v1
 
     .line 80
-    :cond_2
-    if-ne p1, v0, :cond_3
+    :cond_40
+    if-ne p1, v0, :cond_47
 
     .line 81
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -255,7 +255,7 @@
     return-object v1
 
     .line 83
-    :cond_3
+    :cond_47
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -264,7 +264,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5c
 
     .line 84
     invoke-static {v0}, Ljava/lang/reflect/Proxy;->getInvocationHandler(Ljava/lang/Object;)Ljava/lang/reflect/InvocationHandler;
@@ -275,15 +275,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5c
 
-    goto :goto_0
+    goto :goto_5d
 
-    :cond_4
+    :cond_5c
     const/4 v1, 0x0
 
     .line 83
-    :goto_0
+    :goto_5d
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -292,10 +292,10 @@
 
     .line 86
     .end local v0    # "arg":Ljava/lang/Object;
-    :cond_5
+    :cond_62
     array-length v0, p3
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_76
 
     invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
@@ -307,7 +307,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_76
 
     .line 87
     invoke-virtual {p0}, Lcom/google/common/reflect/AbstractInvocationHandler;->toString()Ljava/lang/String;
@@ -317,7 +317,7 @@
     return-object v0
 
     .line 89
-    :cond_6
+    :cond_76
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/common/reflect/AbstractInvocationHandler;->handleInvocation(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -326,7 +326,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 136
     invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;

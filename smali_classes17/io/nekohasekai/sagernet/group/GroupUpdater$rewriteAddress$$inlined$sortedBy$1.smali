@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Z)V
-    .locals 0
+    .registers 2
 
     iput-boolean p1, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$rewriteAddress$$inlined$sortedBy$1;->$ipv6First$inlined:Z
 
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 5
+    .registers 8
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

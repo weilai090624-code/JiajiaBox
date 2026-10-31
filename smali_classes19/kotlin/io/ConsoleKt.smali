@@ -41,7 +41,7 @@
 
 # direct methods
 .method private static final print(B)V
-    .locals 2
+    .registers 3
     .param p0, "message"    # B
 
     .line 38
@@ -58,7 +58,7 @@
 .end method
 
 .method private static final print(C)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # C
 
     .line 50
@@ -71,7 +71,7 @@
 .end method
 
 .method private static final print(D)V
-    .locals 1
+    .registers 3
     .param p0, "message"    # D
 
     .line 68
@@ -84,7 +84,7 @@
 .end method
 
 .method private static final print(F)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # F
 
     .line 62
@@ -97,7 +97,7 @@
 .end method
 
 .method private static final print(I)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # I
 
     .line 26
@@ -110,7 +110,7 @@
 .end method
 
 .method private static final print(J)V
-    .locals 1
+    .registers 3
     .param p0, "message"    # J
 
     .line 32
@@ -123,7 +123,7 @@
 .end method
 
 .method private static final print(Ljava/lang/Object;)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # Ljava/lang/Object;
 
     .line 20
@@ -136,7 +136,7 @@
 .end method
 
 .method private static final print(S)V
-    .locals 2
+    .registers 3
     .param p0, "message"    # S
 
     .line 44
@@ -153,7 +153,7 @@
 .end method
 
 .method private static final print(Z)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # Z
 
     .line 56
@@ -166,7 +166,7 @@
 .end method
 
 .method private static final print([C)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # [C
 
     const-string v0, "message"
@@ -183,7 +183,7 @@
 .end method
 
 .method private static final println()V
-    .locals 1
+    .registers 1
 
     .line 140
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -195,7 +195,7 @@
 .end method
 
 .method private static final println(B)V
-    .locals 2
+    .registers 3
     .param p0, "message"    # B
 
     .line 98
@@ -212,7 +212,7 @@
 .end method
 
 .method private static final println(C)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # C
 
     .line 110
@@ -225,7 +225,7 @@
 .end method
 
 .method private static final println(D)V
-    .locals 1
+    .registers 3
     .param p0, "message"    # D
 
     .line 128
@@ -238,7 +238,7 @@
 .end method
 
 .method private static final println(F)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # F
 
     .line 122
@@ -251,7 +251,7 @@
 .end method
 
 .method private static final println(I)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # I
 
     .line 86
@@ -264,7 +264,7 @@
 .end method
 
 .method private static final println(J)V
-    .locals 1
+    .registers 3
     .param p0, "message"    # J
 
     .line 92
@@ -277,7 +277,7 @@
 .end method
 
 .method private static final println(Ljava/lang/Object;)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # Ljava/lang/Object;
 
     .line 80
@@ -290,7 +290,7 @@
 .end method
 
 .method private static final println(S)V
-    .locals 2
+    .registers 3
     .param p0, "message"    # S
 
     .line 104
@@ -307,7 +307,7 @@
 .end method
 
 .method private static final println(Z)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # Z
 
     .line 116
@@ -320,7 +320,7 @@
 .end method
 
 .method private static final println([C)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # [C
 
     const-string v0, "message"
@@ -337,7 +337,7 @@
 .end method
 
 .method public static final readLine()Ljava/lang/String;
-    .locals 4
+    .registers 4
 
     .line 170
     sget-object v0, Lkotlin/io/LineReader;->INSTANCE:Lkotlin/io/LineReader;
@@ -364,18 +364,18 @@
 .end method
 
 .method public static final readln()Ljava/lang/String;
-    .locals 2
+    .registers 2
 
     .line 152
     invoke-static {}, Lkotlin/io/ConsoleKt;->readlnOrNull()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-object v0
 
-    :cond_0
+    :cond_7
     new-instance v0, Lkotlin/io/ReadAfterEOFException;
 
     const-string v1, "EOF has already been reached"
@@ -386,7 +386,7 @@
 .end method
 
 .method public static final readlnOrNull()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 163
     invoke-static {}, Lkotlin/io/ConsoleKt;->readLine()Ljava/lang/String;

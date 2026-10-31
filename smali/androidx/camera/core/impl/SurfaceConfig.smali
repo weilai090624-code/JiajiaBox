@@ -14,7 +14,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public static create(Landroidx/camera/core/impl/SurfaceConfig$ConfigType;Landroidx/camera/core/impl/SurfaceConfig$ConfigSize;)Landroidx/camera/core/impl/SurfaceConfig;
-    .locals 1
+    .registers 3
     .param p0, "type"    # Landroidx/camera/core/impl/SurfaceConfig$ConfigType;
     .param p1, "size"    # Landroidx/camera/core/impl/SurfaceConfig$ConfigSize;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -55,7 +55,7 @@
 .end method
 
 .method public final isSupported(Landroidx/camera/core/impl/SurfaceConfig;)Z
-    .locals 5
+    .registers 7
     .param p1, "surfaceConfig"    # Landroidx/camera/core/impl/SurfaceConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -95,18 +95,18 @@
 
     move-result v4
 
-    if-gt v3, v4, :cond_0
+    if-gt v3, v4, :cond_1e
 
     invoke-virtual {p0}, Landroidx/camera/core/impl/SurfaceConfig;->getConfigType()Landroidx/camera/core/impl/SurfaceConfig$ConfigType;
 
     move-result-object v3
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_1e
 
     .line 72
     const/4 v0, 0x1
 
     .line 74
-    :cond_0
+    :cond_1e
     return v0
 .end method

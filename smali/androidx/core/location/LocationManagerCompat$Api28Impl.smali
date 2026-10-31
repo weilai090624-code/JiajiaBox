@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1299
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getGnssHardwareModelName(Landroid/location/LocationManager;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "locationManager"    # Landroid/location/LocationManager;
 
     .line 1310
@@ -38,7 +38,7 @@
 .end method
 
 .method static getGnssYearOfHardware(Landroid/location/LocationManager;)I
-    .locals 1
+    .registers 2
     .param p0, "locationManager"    # Landroid/location/LocationManager;
 
     .line 1315
@@ -50,7 +50,7 @@
 .end method
 
 .method static isLocationEnabled(Landroid/location/LocationManager;)Z
-    .locals 1
+    .registers 2
     .param p0, "locationManager"    # Landroid/location/LocationManager;
 
     .line 1305

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 752
     invoke-direct {p0}, Lj$/util/stream/SpinedBuffer$OfPrimitive;-><init>()V
@@ -39,7 +39,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "initialCapacity"    # I
 
     .line 755
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 3
+    .registers 5
     .param p1, "i"    # I
 
     .line 795
@@ -76,7 +76,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method protected bridge synthetic arrayForEach(Ljava/lang/Object;IILjava/lang/Object;)V
-    .locals 0
+    .registers 5
 
     .line 750
     check-cast p1, [I
@@ -99,7 +99,7 @@
 .end method
 
 .method protected arrayForEach([IIILjava/util/function/IntConsumer;)V
-    .locals 2
+    .registers 7
     .param p1, "array"    # [I
     .param p2, "from"    # I
     .param p3, "to"    # I
@@ -109,8 +109,8 @@
     move v0, p2
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p3, :cond_0
+    :goto_1
+    if-ge v0, p3, :cond_b
 
     .line 790
     aget v1, p1, v0
@@ -120,16 +120,16 @@
     .line 789
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 791
     .end local v0    # "i":I
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method protected bridge synthetic arrayLength(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 750
     check-cast p1, [I
@@ -142,7 +142,7 @@
 .end method
 
 .method protected arrayLength([I)I
-    .locals 1
+    .registers 3
     .param p1, "array"    # [I
 
     .line 782
@@ -152,7 +152,7 @@
 .end method
 
 .method public forEach(Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -167,7 +167,7 @@
     .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Integer;>;"
     instance-of v0, p1, Ljava/util/function/IntConsumer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 761
     move-object v0, p1
@@ -176,13 +176,13 @@
 
     invoke-virtual {p0, v0}, Lj$/util/stream/SpinedBuffer$OfInt;->forEach(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 764
-    :cond_0
+    :cond_b
     sget-boolean v0, Lj$/util/stream/Tripwire;->ENABLED:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 765
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -194,7 +194,7 @@
     invoke-static {v0, v1}, Lj$/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 766
-    :cond_1
+    :cond_18
     invoke-virtual {p0}, Lj$/util/stream/SpinedBuffer$OfInt;->spliterator()Lj$/util/Spliterator$OfInt;
 
     move-result-object v0
@@ -202,12 +202,12 @@
     invoke-interface {v0, p1}, Lj$/util/Spliterator$OfInt;->forEachRemaining(Ljava/util/function/Consumer;)V
 
     .line 768
-    :goto_0
+    :goto_1f
     return-void
 .end method
 
 .method public get(J)I
-    .locals 5
+    .registers 8
     .param p1, "index"    # J
 
     .line 802
@@ -219,9 +219,9 @@
     .local v0, "ch":I
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfInt;->spineIndex:I
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 804
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer$OfInt;->curChunk:Ljava/lang/Object;
@@ -235,7 +235,7 @@
     return v1
 
     .line 806
-    :cond_0
+    :cond_12
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer$OfInt;->spine:[Ljava/lang/Object;
 
     check-cast v1, [[I
@@ -256,7 +256,7 @@
 .end method
 
 .method public iterator()Lj$/util/PrimitiveIterator$OfInt;
-    .locals 1
+    .registers 2
 
     .line 811
     invoke-virtual {p0}, Lj$/util/stream/SpinedBuffer$OfInt;->spliterator()Lj$/util/Spliterator$OfInt;
@@ -271,7 +271,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 750
     invoke-virtual {p0}, Lj$/util/stream/SpinedBuffer$OfInt;->iterator()Lj$/util/PrimitiveIterator$OfInt;
@@ -282,7 +282,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 750
     invoke-virtual {p0, p1}, Lj$/util/stream/SpinedBuffer$OfInt;->newArray(I)[I
@@ -293,7 +293,7 @@
 .end method
 
 .method public newArray(I)[I
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 777
@@ -303,7 +303,7 @@
 .end method
 
 .method protected bridge synthetic newArrayArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 750
     invoke-virtual {p0, p1}, Lj$/util/stream/SpinedBuffer$OfInt;->newArrayArray(I)[[I
@@ -314,7 +314,7 @@
 .end method
 
 .method protected newArrayArray(I)[[I
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 772
@@ -324,7 +324,7 @@
 .end method
 
 .method public spliterator()Lj$/util/Spliterator$OfInt;
-    .locals 7
+    .registers 8
 
     .line 840
     new-instance v6, Lj$/util/stream/SpinedBuffer$OfInt$1Splitr;
@@ -347,7 +347,7 @@
 .end method
 
 .method public bridge synthetic spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 750
     invoke-virtual {p0}, Lj$/util/stream/SpinedBuffer$OfInt;->spliterator()Lj$/util/Spliterator$OfInt;
@@ -358,7 +358,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 11
+    .registers 12
 
     .line 845
     invoke-virtual {p0}, Lj$/util/stream/SpinedBuffer$OfInt;->asPrimitiveArray()Ljava/lang/Object;
@@ -383,7 +383,7 @@
 
     const/16 v7, 0xc8
 
-    if-ge v1, v7, :cond_0
+    if-ge v1, v7, :cond_39
 
     .line 847
     nop
@@ -434,7 +434,7 @@
     return-object v1
 
     .line 852
-    :cond_0
+    :cond_39
     invoke-static {v0, v7}, Ljava/util/Arrays;->copyOf([II)[I
 
     move-result-object v1

@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 611
     const/4 v0, 0x0
@@ -48,7 +48,7 @@
 .end method
 
 .method constructor <init>(D)V
-    .locals 1
+    .registers 4
     .param p1, "t"    # D
 
     .line 618
@@ -71,13 +71,13 @@
 
 # virtual methods
 .method public accept(D)V
-    .locals 3
+    .registers 6
     .param p1, "t"    # D
 
     .line 627
     iget v0, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->count:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 628
     iput-wide p1, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->first:D
@@ -89,18 +89,18 @@
 
     iput v0, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->count:I
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 631
-    :cond_0
+    :cond_d
     iget v0, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->count:I
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_2f
 
     .line 632
     iget-object v0, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->buffer:Lj$/util/stream/SpinedBuffer$OfDouble;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 633
     new-instance v0, Lj$/util/stream/SpinedBuffer$OfDouble;
@@ -124,17 +124,17 @@
     iput v0, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->count:I
 
     .line 638
-    :cond_1
+    :cond_29
     iget-object v0, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->buffer:Lj$/util/stream/SpinedBuffer$OfDouble;
 
     invoke-virtual {v0, p1, p2}, Lj$/util/stream/SpinedBuffer$OfDouble;->accept(D)V
 
     .line 643
-    :goto_0
+    :goto_2e
     return-void
 
     .line 641
-    :cond_2
+    :cond_2f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -143,7 +143,7 @@
 .end method
 
 .method public synthetic add(D)Lj$/util/stream/DoubleStream$Builder;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/DoubleStream$Builder$-CC;->$default$add(Lj$/util/stream/DoubleStream$Builder;D)Lj$/util/stream/DoubleStream$Builder;
 
@@ -153,7 +153,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/DoubleConsumer$-CC;->$default$andThen(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
 
@@ -163,14 +163,14 @@
 .end method
 
 .method public build()Lj$/util/stream/DoubleStream;
-    .locals 3
+    .registers 4
 
     .line 647
     iget v0, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->count:I
 
     .line 648
     .local v0, "c":I
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_1f
 
     .line 650
     iget v1, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->count:I
@@ -186,15 +186,15 @@
 
     const/4 v2, 0x0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_14
 
     invoke-static {p0, v2}, Lj$/util/stream/StreamSupport;->doubleStream(Lj$/util/Spliterator$OfDouble;Z)Lj$/util/stream/DoubleStream;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_14
     iget-object v1, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->buffer:Lj$/util/stream/SpinedBuffer$OfDouble;
 
     invoke-virtual {v1}, Lj$/util/stream/SpinedBuffer$OfDouble;->spliterator()Lj$/util/Spliterator$OfDouble;
@@ -205,11 +205,11 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1e
     return-object v1
 
     .line 656
-    :cond_1
+    :cond_1f
     new-instance v1, Ljava/lang/IllegalStateException;
 
     invoke-direct {v1}, Ljava/lang/IllegalStateException;-><init>()V
@@ -218,7 +218,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 597
     check-cast p1, Ljava/util/function/DoubleConsumer;
@@ -229,7 +229,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfDouble$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfDouble;Ljava/util/function/Consumer;)V
 
@@ -237,7 +237,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/DoubleConsumer;)V
-    .locals 2
+    .registers 4
     .param p1, "action"    # Ljava/util/function/DoubleConsumer;
 
     .line 679
@@ -248,7 +248,7 @@
 
     const/4 v1, -0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 682
     iget-wide v0, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->first:D
@@ -261,12 +261,12 @@
     iput v0, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->count:I
 
     .line 685
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 597
     check-cast p1, Ljava/util/function/DoubleConsumer;
@@ -279,7 +279,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfDouble$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfDouble;Ljava/util/function/Consumer;)Z
 
@@ -289,7 +289,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/DoubleConsumer;)Z
-    .locals 2
+    .registers 4
     .param p1, "action"    # Ljava/util/function/DoubleConsumer;
 
     .line 665
@@ -300,7 +300,7 @@
 
     const/4 v1, -0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     .line 668
     iget-wide v0, p0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;->first:D
@@ -318,14 +318,14 @@
     return v0
 
     .line 673
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfDouble;
-    .locals 1
+    .registers 2
 
     .line 597
     invoke-super {p0}, Lj$/util/stream/Streams$AbstractStreamBuilderImpl;->trySplit()Lj$/util/Spliterator;
@@ -338,7 +338,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 597
     invoke-super {p0}, Lj$/util/stream/Streams$AbstractStreamBuilderImpl;->trySplit()Lj$/util/Spliterator;

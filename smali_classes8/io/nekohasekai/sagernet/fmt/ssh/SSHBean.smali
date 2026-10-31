@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 86
     new-instance v0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean$1;
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;-><init>()V
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->clone()Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;
@@ -72,7 +72,7 @@
 .end method
 
 .method public clone()Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;
-    .locals 2
+    .registers 3
 
     .line 83
     new-instance v0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;
@@ -93,7 +93,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -109,7 +109,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -154,12 +154,12 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_3e
 
-    goto :goto_0
+    goto :goto_36
 
     .line 73
-    :pswitch_0
+    :pswitch_21
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -173,10 +173,10 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->privateKeyPassphrase:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_36
 
     .line 70
-    :pswitch_1
+    :pswitch_2e
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -184,14 +184,14 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->password:Ljava/lang/String;
 
     .line 71
-    goto :goto_0
+    goto :goto_36
 
     .line 68
-    :pswitch_2
+    :pswitch_35
     nop
 
     .line 77
-    :goto_0
+    :goto_36
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -203,21 +203,21 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_2e
+        :pswitch_21
     .end packed-switch
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 2
+    .registers 3
 
     .line 28
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->serverPort:Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/16 v0, 0x16
 
@@ -228,23 +228,23 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->serverPort:Ljava/lang/Integer;
 
     .line 30
-    :cond_0
+    :cond_c
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->initializeDefaultValues()V
 
     .line 32
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->username:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     const-string v0, "root"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->username:Ljava/lang/String;
 
     .line 33
-    :cond_1
+    :cond_17
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->authType:Ljava/lang/Integer;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_22
 
     const/4 v0, 0x1
 
@@ -255,46 +255,46 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->authType:Ljava/lang/Integer;
 
     .line 34
-    :cond_2
+    :cond_22
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->password:Ljava/lang/String;
 
     const-string v1, ""
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2a
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->password:Ljava/lang/String;
 
     .line 35
-    :cond_3
+    :cond_2a
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->privateKey:Ljava/lang/String;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_30
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->privateKey:Ljava/lang/String;
 
     .line 36
-    :cond_4
+    :cond_30
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->privateKeyPassphrase:Ljava/lang/String;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_36
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->privateKeyPassphrase:Ljava/lang/String;
 
     .line 37
-    :cond_5
+    :cond_36
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->publicKey:Ljava/lang/String;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_3c
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->publicKey:Ljava/lang/String;
 
     .line 38
-    :cond_6
+    :cond_3c
     return-void
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -334,12 +334,12 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_38
 
-    goto :goto_0
+    goto :goto_31
 
     .line 53
-    :pswitch_0
+    :pswitch_1f
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->privateKey:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
@@ -349,23 +349,23 @@
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_31
 
     .line 50
-    :pswitch_1
+    :pswitch_2a
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->password:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
 
     .line 51
-    goto :goto_0
+    goto :goto_31
 
     .line 48
-    :pswitch_2
+    :pswitch_30
     nop
 
     .line 57
-    :goto_0
+    :goto_31
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->publicKey:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
@@ -375,10 +375,10 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_38
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_30
+        :pswitch_2a
+        :pswitch_1f
     .end packed-switch
 .end method

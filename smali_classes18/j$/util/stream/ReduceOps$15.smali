@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/StreamShape;Ljava/util/function/DoubleBinaryOperator;)V
-    .locals 0
+    .registers 3
     .param p1, "shape"    # Lj$/util/stream/StreamShape;
 
     .line 708
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public makeSink()Lj$/util/stream/ReduceOps$12ReducingSink;
-    .locals 2
+    .registers 3
 
     .line 711
     new-instance v0, Lj$/util/stream/ReduceOps$12ReducingSink;
@@ -57,7 +57,7 @@
 .end method
 
 .method public bridge synthetic makeSink()Lj$/util/stream/ReduceOps$AccumulatingSink;
-    .locals 1
+    .registers 2
 
     .line 708
     invoke-virtual {p0}, Lj$/util/stream/ReduceOps$15;->makeSink()Lj$/util/stream/ReduceOps$12ReducingSink;

@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 69
     new-instance v0, Lcom/google/common/collect/ComparisonChain$1;
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ComparisonChain$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/collect/ComparisonChain$1;
 
     .line 61
@@ -74,7 +74,7 @@
 .end method
 
 .method static synthetic access$100()Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 1
 
     .line 61
     sget-object v0, Lcom/google/common/collect/ComparisonChain;->LESS:Lcom/google/common/collect/ComparisonChain;
@@ -83,7 +83,7 @@
 .end method
 
 .method static synthetic access$200()Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 1
 
     .line 61
     sget-object v0, Lcom/google/common/collect/ComparisonChain;->GREATER:Lcom/google/common/collect/ComparisonChain;
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$300()Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 1
 
     .line 61
     sget-object v0, Lcom/google/common/collect/ComparisonChain;->ACTIVE:Lcom/google/common/collect/ComparisonChain;
@@ -101,7 +101,7 @@
 .end method
 
 .method public static start()Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 1
 
     .line 66
     sget-object v0, Lcom/google/common/collect/ComparisonChain;->ACTIVE:Lcom/google/common/collect/ComparisonChain;
@@ -124,7 +124,7 @@
 .end method
 
 .method public final compare(Ljava/lang/Boolean;Ljava/lang/Boolean;)Lcom/google/common/collect/ComparisonChain;
-    .locals 2
+    .registers 5
     .param p1, "left"    # Ljava/lang/Boolean;
     .param p2, "right"    # Ljava/lang/Boolean;
     .annotation runtime Ljava/lang/Deprecated;

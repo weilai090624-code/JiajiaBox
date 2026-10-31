@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 51
     new-instance v0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$1;
@@ -45,7 +45,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Handler;)V
-    .locals 0
+    .registers 2
     .param p1, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -67,7 +67,7 @@
 .end method
 
 .method private createPostFailedException()Ljava/util/concurrent/RejectedExecutionException;
-    .locals 3
+    .registers 4
 
     .line 182
     new-instance v0, Ljava/util/concurrent/RejectedExecutionException;
@@ -98,7 +98,7 @@
 .end method
 
 .method static currentThreadExecutor()Ljava/util/concurrent/ScheduledExecutorService;
-    .locals 4
+    .registers 4
 
     .line 76
     sget-object v0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;->sThreadLocalInstance:Ljava/lang/ThreadLocal;
@@ -111,7 +111,7 @@
 
     .line 77
     .local v0, "executor":Ljava/util/concurrent/ScheduledExecutorService;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 78
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -120,7 +120,7 @@
 
     .line 79
     .local v1, "looper":Landroid/os/Looper;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 83
     new-instance v2, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;
@@ -138,10 +138,10 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_29
 
     .line 80
-    :cond_0
+    :cond_21
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Current thread has no looper!"
@@ -152,15 +152,15 @@
 
     .line 87
     .end local v1    # "looper":Landroid/os/Looper;
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     return-object v0
 .end method
 
 
 # virtual methods
 .method public awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
-    .locals 3
+    .registers 7
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -208,7 +208,7 @@
 .end method
 
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "command"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -226,13 +226,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 179
     return-void
 
     .line 177
-    :cond_0
+    :cond_9
     invoke-direct {p0}, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;->createPostFailedException()Ljava/util/concurrent/RejectedExecutionException;
 
     move-result-object v0
@@ -241,7 +241,7 @@
 .end method
 
 .method public isShutdown()Z
-    .locals 1
+    .registers 2
 
     .line 159
     const/4 v0, 0x0
@@ -250,7 +250,7 @@
 .end method
 
 .method public isTerminated()Z
-    .locals 1
+    .registers 2
 
     .line 164
     const/4 v0, 0x0
@@ -259,7 +259,7 @@
 .end method
 
 .method public schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 2
+    .registers 7
     .param p1, "command"    # Ljava/lang/Runnable;
     .param p2, "delay"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
@@ -303,7 +303,7 @@
 .end method
 
 .method public schedule(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 4
+    .registers 9
     .param p2, "delay"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -363,13 +363,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     .line 115
     return-object v2
 
     .line 118
-    :cond_0
+    :cond_1b
     invoke-direct {p0}, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;->createPostFailedException()Ljava/util/concurrent/RejectedExecutionException;
 
     move-result-object v3
@@ -382,7 +382,7 @@
 .end method
 
 .method public scheduleAtFixedRate(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 3
+    .registers 10
     .param p1, "command"    # Ljava/lang/Runnable;
     .param p2, "initialDelay"    # J
     .param p4, "period"    # J
@@ -448,7 +448,7 @@
 .end method
 
 .method public scheduleWithFixedDelay(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 3
+    .registers 10
     .param p1, "command"    # Ljava/lang/Runnable;
     .param p2, "initialDelay"    # J
     .param p4, "delay"    # J
@@ -514,7 +514,7 @@
 .end method
 
 .method public shutdown()V
-    .locals 3
+    .registers 4
 
     .line 144
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -550,7 +550,7 @@
 .end method
 
 .method public shutdownNow()Ljava/util/List;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

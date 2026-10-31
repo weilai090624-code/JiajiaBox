@@ -67,7 +67,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 140
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public final build()Landroidx/activity/result/PickVisualMediaRequest;
-    .locals 5
+    .registers 6
 
     .line 225
     new-instance v0, Landroidx/activity/result/PickVisualMediaRequest;
@@ -158,7 +158,7 @@
 .end method
 
 .method public final setAccentColor(J)Landroidx/activity/result/PickVisualMediaRequest$Builder;
-    .locals 1
+    .registers 4
     .param p1, "accentColor"    # J
 
     .line 214
@@ -174,7 +174,7 @@
 .end method
 
 .method public final setDefaultTab(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;)Landroidx/activity/result/PickVisualMediaRequest$Builder;
-    .locals 1
+    .registers 3
     .param p1, "defaultTab"    # Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;
 
     const-string v0, "defaultTab"
@@ -189,7 +189,7 @@
 .end method
 
 .method public final setMaxItems(I)Landroidx/activity/result/PickVisualMediaRequest$Builder;
-    .locals 0
+    .registers 2
     .param p1, "maxItems"    # I
 
     .line 171
@@ -200,7 +200,7 @@
 .end method
 
 .method public final setMediaType(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;)Landroidx/activity/result/PickVisualMediaRequest$Builder;
-    .locals 1
+    .registers 3
     .param p1, "mediaType"    # Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
 
     const-string v0, "mediaType"
@@ -215,7 +215,7 @@
 .end method
 
 .method public final setOrderedSelection(Z)Landroidx/activity/result/PickVisualMediaRequest$Builder;
-    .locals 0
+    .registers 2
     .param p1, "isOrderedSelection"    # Z
 
     .line 185

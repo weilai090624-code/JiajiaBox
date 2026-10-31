@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 137
     sget-object v0, Lokhttp3/internal/Util;->okHttpName:Ljava/lang/String;
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final getLatch()Ljava/util/concurrent/CountDownLatch;
-    .locals 1
+    .registers 2
 
     .line 138
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskQueue$AwaitIdleTask;->latch:Ljava/util/concurrent/CountDownLatch;
@@ -85,7 +85,7 @@
 .end method
 
 .method public runOnce()J
-    .locals 2
+    .registers 3
 
     .line 141
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskQueue$AwaitIdleTask;->latch:Ljava/util/concurrent/CountDownLatch;

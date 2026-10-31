@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 13
+    .registers 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,25 +50,25 @@
 
     .line 50
     .local v0, "unserializableType":Ljava/lang/Class;, "Ljava/lang/Class<-TT;>;"
-    :goto_0
+    :goto_4
     const-class v1, Ljava/io/Serializable;
 
     invoke-virtual {v1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 51
     invoke-virtual {v0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_4
 
     .line 56
-    :cond_0
-    :try_start_0
+    :cond_11
+    :try_start_11
     const-string v1, "COM.newmonics.PercClassLoader.Method"
 
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -186,11 +186,11 @@
     aput-object v10, v4, v6
 
     iput-object v4, p0, Lorg/objenesis/instantiator/perc/PercSerializationInstantiator;->typeArgs:[Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_75
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_11 .. :try_end_75} :catch_7d
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_11 .. :try_end_75} :catch_7b
+    .catch Ljava/lang/IllegalAccessException; {:try_start_11 .. :try_end_75} :catch_79
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_11 .. :try_end_75} :catch_77
 
     .line 75
     .end local v1    # "percMethodClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
@@ -205,27 +205,27 @@
     return-void
 
     .line 73
-    :catch_0
+    :catch_77
     move-exception v1
 
-    goto :goto_1
+    goto :goto_7e
 
-    :catch_1
+    :catch_79
     move-exception v1
 
-    goto :goto_1
+    goto :goto_7e
 
-    :catch_2
+    :catch_7b
     move-exception v1
 
-    goto :goto_1
+    goto :goto_7e
 
-    :catch_3
+    :catch_7d
     move-exception v1
 
     .line 74
     .local v1, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_1
+    :goto_7e
     new-instance v2, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v2, v1}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
@@ -236,7 +236,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -255,24 +255,24 @@
     invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_9} :catch_c
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_9} :catch_a
 
     return-object v0
 
     .line 83
-    :catch_0
+    :catch_a
     move-exception v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :catch_1
+    :catch_c
     move-exception v0
 
     .line 84
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_d
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V

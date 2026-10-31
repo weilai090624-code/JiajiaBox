@@ -94,7 +94,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "first"    # Ljava/lang/Object;
     .param p2, "second"    # Ljava/lang/Object;
     .param p3, "third"    # Ljava/lang/Object;
@@ -121,29 +121,29 @@
 .end method
 
 .method public static synthetic copy$default(Lkotlin/Triple;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;ILjava/lang/Object;)Lkotlin/Triple;
-    .locals 0
+    .registers 6
 
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     iget-object p1, p0, Lkotlin/Triple;->first:Ljava/lang/Object;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_c
 
     iget-object p2, p0, Lkotlin/Triple;->second:Ljava/lang/Object;
 
-    :cond_1
+    :cond_c
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_12
 
     iget-object p3, p0, Lkotlin/Triple;->third:Ljava/lang/Object;
 
-    :cond_2
+    :cond_12
     invoke-virtual {p0, p1, p2, p3}, Lkotlin/Triple;->copy(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Triple;
 
     move-result-object p0
@@ -154,7 +154,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TA;"
@@ -167,7 +167,7 @@
 .end method
 
 .method public final component2()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TB;"
@@ -180,7 +180,7 @@
 .end method
 
 .method public final component3()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -193,7 +193,7 @@
 .end method
 
 .method public final copy(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Triple;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;TB;TC;)",
@@ -210,24 +210,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlin/Triple;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lkotlin/Triple;
@@ -240,11 +240,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-object v3, p0, Lkotlin/Triple;->second:Ljava/lang/Object;
 
     iget-object v4, v1, Lkotlin/Triple;->second:Ljava/lang/Object;
@@ -253,11 +253,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_23
 
     return v2
 
-    :cond_3
+    :cond_23
     iget-object v3, p0, Lkotlin/Triple;->third:Ljava/lang/Object;
 
     iget-object v1, v1, Lkotlin/Triple;->third:Ljava/lang/Object;
@@ -266,16 +266,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_2e
 
     return v2
 
-    :cond_4
+    :cond_2e
     return v0
 .end method
 
 .method public final getFirst()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TA;"
@@ -289,7 +289,7 @@
 .end method
 
 .method public final getSecond()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TB;"
@@ -303,7 +303,7 @@
 .end method
 
 .method public final getThird()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -317,69 +317,69 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-object v0, p0, Lkotlin/Triple;->first:Ljava/lang/Object;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lkotlin/Triple;->first:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_d
     mul-int/lit8 v2, v0, 0x1f
 
     iget-object v3, p0, Lkotlin/Triple;->second:Ljava/lang/Object;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_15
 
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_15
     iget-object v3, p0, Lkotlin/Triple;->second:Ljava/lang/Object;
 
     invoke-virtual {v3}, Ljava/lang/Object;->hashCode()I
 
     move-result v3
 
-    :goto_1
+    :goto_1b
     add-int/2addr v2, v3
 
     mul-int/lit8 v0, v2, 0x1f
 
     iget-object v3, p0, Lkotlin/Triple;->third:Ljava/lang/Object;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_23
 
-    goto :goto_2
+    goto :goto_29
 
-    :cond_2
+    :cond_23
     iget-object v1, p0, Lkotlin/Triple;->third:Ljava/lang/Object;
 
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    :goto_2
+    :goto_29
     add-int/2addr v0, v1
 
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 75
     new-instance v0, Ljava/lang/StringBuilder;

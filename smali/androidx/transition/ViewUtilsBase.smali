@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,17 +32,17 @@
 .end method
 
 .method private fetchSetFrame()V
-    .locals 6
+    .registers 7
 
     .line 179
     sget-boolean v0, Landroidx/transition/ViewUtilsBase;->sSetFrameFetched:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_30
 
     .line 181
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_5
     const-class v1, Landroid/view/View;
 
     const-string/jumbo v2, "setFrame"
@@ -77,14 +77,14 @@
     sget-object v1, Landroidx/transition/ViewUtilsBase;->sSetFrameMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_25} :catch_26
 
     .line 186
-    goto :goto_0
+    goto :goto_2e
 
     .line 184
-    :catch_0
+    :catch_26
     move-exception v1
 
     .line 185
@@ -97,18 +97,18 @@
 
     .line 187
     .end local v1    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
+    :goto_2e
     sput-boolean v0, Landroidx/transition/ViewUtilsBase;->sSetFrameFetched:Z
 
     .line 189
-    :cond_0
+    :cond_30
     return-void
 .end method
 
 
 # virtual methods
 .method public clearNonTransitionAlpha(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 72
@@ -116,7 +116,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 73
     sget v0, Landroidx/transition/R$id;->save_non_transition_alpha:I
@@ -126,12 +126,12 @@
     invoke-virtual {p1, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     .line 75
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public getTransitionAlpha(Landroid/view/View;)F
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 55
@@ -145,7 +145,7 @@
 
     .line 56
     .local v0, "savedAlpha":Ljava/lang/Float;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 57
     invoke-virtual {p1}, Landroid/view/View;->getAlpha()F
@@ -161,7 +161,7 @@
     return v1
 
     .line 59
-    :cond_0
+    :cond_14
     invoke-virtual {p1}, Landroid/view/View;->getAlpha()F
 
     move-result v1
@@ -170,7 +170,7 @@
 .end method
 
 .method public saveNonTransitionAlpha(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 64
@@ -180,7 +180,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 65
     sget v0, Landroidx/transition/R$id;->save_non_transition_alpha:I
@@ -196,12 +196,12 @@
     invoke-virtual {p1, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     .line 67
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public setAnimationMatrix(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 10
+    .registers 13
     .param p1, "view"    # Landroid/view/View;
     .param p2, "matrix"    # Landroid/graphics/Matrix;
 
@@ -212,23 +212,23 @@
 
     const/4 v2, 0x0
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_61
 
     invoke-virtual {p2}, Landroid/graphics/Matrix;->isIdentity()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
-    goto :goto_1
+    goto :goto_61
 
     .line 118
-    :cond_0
+    :cond_d
     iget-object v3, p0, Landroidx/transition/ViewUtilsBase;->mMatrixValues:[F
 
     .line 119
     .local v3, "values":[F
-    if-nez v3, :cond_1
+    if-nez v3, :cond_18
 
     .line 120
     const/16 v4, 0x9
@@ -240,7 +240,7 @@
     iput-object v4, p0, Landroidx/transition/ViewUtilsBase;->mMatrixValues:[F
 
     .line 122
-    :cond_1
+    :cond_18
     invoke-virtual {p2, v3}, Landroid/graphics/Matrix;->getValues([F)V
 
     .line 123
@@ -269,16 +269,16 @@
 
     cmpg-float v6, v6, v2
 
-    if-gez v6, :cond_2
+    if-gez v6, :cond_30
 
     const/4 v6, -0x1
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_2
+    :cond_30
     const/4 v6, 0x1
 
-    :goto_0
+    :goto_31
     int-to-float v6, v6
 
     mul-float v0, v0, v6
@@ -345,7 +345,7 @@
     .line 137
     invoke-virtual {p1, v7}, Landroid/view/View;->setScaleY(F)V
 
-    goto :goto_2
+    goto :goto_82
 
     .line 110
     .end local v0    # "cos":F
@@ -356,8 +356,8 @@
     .end local v6    # "rotation":F
     .end local v7    # "scaleY":F
     .end local v8    # "dy":F
-    :cond_3
-    :goto_1
+    :cond_61
+    :goto_61
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
     move-result v3
@@ -395,12 +395,12 @@
     invoke-virtual {p1, v2}, Landroid/view/View;->setRotation(F)V
 
     .line 139
-    :goto_2
+    :goto_82
     return-void
 .end method
 
 .method public setLeftTopRightBottom(Landroid/view/View;IIII)V
-    .locals 7
+    .registers 13
     .param p1, "v"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -413,10 +413,10 @@
     .line 143
     sget-object v0, Landroidx/transition/ViewUtilsBase;->sSetFrameMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_39
 
     .line 145
-    :try_start_0
+    :try_start_7
     sget-object v0, Landroidx/transition/ViewUtilsBase;->sSetFrameMethod:Ljava/lang/reflect/Method;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -456,14 +456,14 @@
     aput-object v4, v5, v1
 
     invoke-virtual {v0, p1, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2b
+    .catch Ljava/lang/IllegalAccessException; {:try_start_7 .. :try_end_2b} :catch_37
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_7 .. :try_end_2b} :catch_2c
 
-    goto :goto_0
+    goto :goto_38
 
     .line 148
-    :catch_0
+    :catch_2c
     move-exception v0
 
     .line 149
@@ -480,20 +480,20 @@
 
     .line 146
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_37
     move-exception v0
 
     .line 150
-    :goto_0
+    :goto_38
     nop
 
     .line 152
-    :cond_0
+    :cond_39
     return-void
 .end method
 
 .method public setTransitionAlpha(Landroid/view/View;F)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "alpha"    # F
 
@@ -508,7 +508,7 @@
 
     .line 47
     .local v0, "savedAlpha":Ljava/lang/Float;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 48
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
@@ -519,31 +519,31 @@
 
     invoke-virtual {p1, v1}, Landroid/view/View;->setAlpha(F)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 50
-    :cond_0
+    :cond_14
     invoke-virtual {p1, p2}, Landroid/view/View;->setAlpha(F)V
 
     .line 52
-    :goto_0
+    :goto_17
     return-void
 .end method
 
 .method public setTransitionVisibility(Landroid/view/View;I)V
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "visibility"    # I
 
     .line 155
     sget-boolean v0, Landroidx/transition/ViewUtilsBase;->sViewFlagsFieldFetched:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 157
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_5
     const-class v1, Landroid/view/View;
 
     const-string v2, "mViewFlags"
@@ -558,14 +558,14 @@
     sget-object v1, Landroidx/transition/ViewUtilsBase;->sViewFlagsField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_5 .. :try_end_14} :catch_15
 
     .line 161
-    goto :goto_0
+    goto :goto_1d
 
     .line 159
-    :catch_0
+    :catch_15
     move-exception v1
 
     .line 160
@@ -578,17 +578,17 @@
 
     .line 162
     .end local v1    # "e":Ljava/lang/NoSuchFieldException;
-    :goto_0
+    :goto_1d
     sput-boolean v0, Landroidx/transition/ViewUtilsBase;->sViewFlagsFieldFetched:Z
 
     .line 164
-    :cond_0
+    :cond_1f
     sget-object v0, Landroidx/transition/ViewUtilsBase;->sViewFlagsField:Ljava/lang/reflect/Field;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_33
 
     .line 166
-    :try_start_1
+    :try_start_23
     sget-object v0, Landroidx/transition/ViewUtilsBase;->sViewFlagsField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p1}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
@@ -604,25 +604,25 @@
     or-int/2addr v2, p2
 
     invoke-virtual {v1, p1, v2}, Ljava/lang/reflect/Field;->setInt(Ljava/lang/Object;I)V
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_31
+    .catch Ljava/lang/IllegalAccessException; {:try_start_23 .. :try_end_31} :catch_32
 
     .line 170
     .end local v0    # "viewFlags":I
-    goto :goto_1
+    goto :goto_33
 
     .line 168
-    :catch_1
+    :catch_32
     move-exception v0
 
     .line 172
-    :cond_1
-    :goto_1
+    :cond_33
+    :goto_33
     return-void
 .end method
 
 .method public transformMatrixToGlobal(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "matrix"    # Landroid/graphics/Matrix;
 
@@ -635,7 +635,7 @@
     .local v0, "parent":Landroid/view/ViewParent;
     instance-of v1, v0, Landroid/view/View;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 80
     move-object v1, v0
@@ -667,7 +667,7 @@
 
     .line 84
     .end local v1    # "vp":Landroid/view/View;
-    :cond_0
+    :cond_1d
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
     move-result v1
@@ -693,18 +693,18 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_37
 
     .line 87
     invoke-virtual {p2, v1}, Landroid/graphics/Matrix;->preConcat(Landroid/graphics/Matrix;)Z
 
     .line 89
-    :cond_1
+    :cond_37
     return-void
 .end method
 
 .method public transformMatrixToLocal(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "matrix"    # Landroid/graphics/Matrix;
 
@@ -717,7 +717,7 @@
     .local v0, "parent":Landroid/view/ViewParent;
     instance-of v1, v0, Landroid/view/View;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 94
     move-object v1, v0
@@ -745,7 +745,7 @@
 
     .line 98
     .end local v1    # "vp":Landroid/view/View;
-    :cond_0
+    :cond_1b
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
     move-result v1
@@ -775,7 +775,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_42
 
     .line 101
     new-instance v2, Landroid/graphics/Matrix;
@@ -788,13 +788,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_42
 
     .line 103
     invoke-virtual {p2, v2}, Landroid/graphics/Matrix;->postConcat(Landroid/graphics/Matrix;)Z
 
     .line 106
     .end local v2    # "inverted":Landroid/graphics/Matrix;
-    :cond_1
+    :cond_42
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/chrono/Chronology;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lj$/time/chrono/Chronology;
 
     .line 646
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public synthetic get(Lj$/time/temporal/TemporalField;)I
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$get(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)I
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public getLong(Lj$/time/temporal/TemporalField;)J
-    .locals 3
+    .registers 5
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 653
@@ -77,7 +77,7 @@
 .end method
 
 .method public isSupported(Lj$/time/temporal/TemporalField;)Z
-    .locals 1
+    .registers 3
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 649
@@ -87,7 +87,7 @@
 .end method
 
 .method public query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -104,7 +104,7 @@
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
     .line 659
     iget-object v0, p0, Lj$/time/chrono/Chronology$1;->this$0:Lj$/time/chrono/Chronology;
@@ -112,7 +112,7 @@
     return-object v0
 
     .line 661
-    :cond_0
+    :cond_9
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$query(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
 
     move-result-object v0
@@ -121,7 +121,7 @@
 .end method
 
 .method public synthetic range(Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$range(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
 

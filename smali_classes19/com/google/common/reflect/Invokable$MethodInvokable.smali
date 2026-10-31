@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Method;)V
-    .locals 0
+    .registers 2
     .param p1, "method"    # Ljava/lang/reflect/Method;
 
     .line 352
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method getGenericExceptionTypes()[Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 375
     .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
@@ -63,7 +63,7 @@
 .end method
 
 .method getGenericParameterTypes()[Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 370
     .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
@@ -77,7 +77,7 @@
 .end method
 
 .method getGenericReturnType()Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 365
     .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
@@ -91,7 +91,7 @@
 .end method
 
 .method final getParameterAnnotations()[[Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 2
 
     .line 380
     .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
@@ -105,7 +105,7 @@
 .end method
 
 .method public final getTypeParameters()[Ljava/lang/reflect/TypeVariable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()[",
@@ -126,7 +126,7 @@
 .end method
 
 .method final invokeInternal(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "receiver"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -154,7 +154,7 @@
 .end method
 
 .method public final isOverridable()Z
-    .locals 1
+    .registers 2
 
     .line 390
     .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
@@ -162,21 +162,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 391
     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable$MethodInvokable;->isPrivate()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 392
     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable$MethodInvokable;->isStatic()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 393
     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable$MethodInvokable;->getDeclaringClass()Ljava/lang/Class;
@@ -191,22 +191,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v0, 0x0
 
     .line 390
-    :goto_0
+    :goto_23
     return v0
 .end method
 
 .method public final isVarArgs()Z
-    .locals 1
+    .registers 2
 
     .line 398
     .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"

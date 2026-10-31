@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/Service$State;)V
-    .locals 2
+    .registers 4
     .param p1, "internalState"    # Lcom/google/common/util/concurrent/Service$State;
 
     .line 583
@@ -42,7 +42,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/util/concurrent/Service$State;ZLjava/lang/Throwable;)V
-    .locals 4
+    .registers 8
     .param p1, "internalState"    # Lcom/google/common/util/concurrent/Service$State;
     .param p2, "shutdownWhenStartupFinishes"    # Z
     .param p3, "failure"    # Ljava/lang/Throwable;
@@ -58,56 +58,56 @@
 
     const/4 v1, 0x1
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_e
 
     sget-object v2, Lcom/google/common/util/concurrent/Service$State;->STARTING:Lcom/google/common/util/concurrent/Service$State;
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_c
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_f
 
-    :cond_1
-    :goto_0
+    :cond_e
+    :goto_e
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_f
     const-string v3, "shutdownWhenStartupFinishes can only be set if state is STARTING. Got %s instead."
 
     invoke-static {v2, v3, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
 
     .line 592
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_18
 
     const/4 v2, 0x1
 
-    goto :goto_2
+    goto :goto_19
 
-    :cond_2
+    :cond_18
     const/4 v2, 0x0
 
-    :goto_2
+    :goto_19
     sget-object v3, Lcom/google/common/util/concurrent/Service$State;->FAILED:Lcom/google/common/util/concurrent/Service$State;
 
-    if-ne p1, v3, :cond_3
+    if-ne p1, v3, :cond_1f
 
     const/4 v3, 0x1
 
-    goto :goto_3
+    goto :goto_20
 
-    :cond_3
+    :cond_1f
     const/4 v3, 0x0
 
-    :goto_3
-    if-ne v2, v3, :cond_4
+    :goto_20
+    if-ne v2, v3, :cond_23
 
     const/4 v0, 0x1
 
-    :cond_4
+    :cond_23
     const-string v1, "A failure cause should be set if and only if the state is failed.  Got %s and %s instead."
 
     invoke-static {v0, v1, p1, p3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
@@ -128,18 +128,18 @@
 
 # virtual methods
 .method externalState()Lcom/google/common/util/concurrent/Service$State;
-    .locals 2
+    .registers 3
 
     .line 605
     iget-boolean v0, p0, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;->shutdownWhenStartupFinishes:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;->state:Lcom/google/common/util/concurrent/Service$State;
 
     sget-object v1, Lcom/google/common/util/concurrent/Service$State;->STARTING:Lcom/google/common/util/concurrent/Service$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 606
     sget-object v0, Lcom/google/common/util/concurrent/Service$State;->STOPPING:Lcom/google/common/util/concurrent/Service$State;
@@ -147,30 +147,30 @@
     return-object v0
 
     .line 608
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;->state:Lcom/google/common/util/concurrent/Service$State;
 
     return-object v0
 .end method
 
 .method failureCause()Ljava/lang/Throwable;
-    .locals 3
+    .registers 4
 
     .line 614
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;->state:Lcom/google/common/util/concurrent/Service$State;
 
     sget-object v1, Lcom/google/common/util/concurrent/Service$State;->FAILED:Lcom/google/common/util/concurrent/Service$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     const-string v1, "failureCause() is only valid if the service has failed, service is %s"
 
     iget-object v2, p0, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;->state:Lcom/google/common/util/concurrent/Service$State;

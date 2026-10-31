@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 282
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method onActive(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 0
+    .registers 2
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -43,7 +43,7 @@
 .end method
 
 .method onCaptureQueueEmpty(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 0
+    .registers 2
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -59,7 +59,7 @@
 .end method
 
 .method onClosed(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 0
+    .registers 2
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -75,7 +75,7 @@
 .end method
 
 .method onConfigureFailed(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 0
+    .registers 2
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -91,7 +91,7 @@
 .end method
 
 .method onConfigured(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 0
+    .registers 2
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -107,7 +107,7 @@
 .end method
 
 .method onReady(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 0
+    .registers 2
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -123,7 +123,7 @@
 .end method
 
 .method onSessionFinished(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 0
+    .registers 2
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -139,7 +139,7 @@
 .end method
 
 .method onSurfacePrepared(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;Landroid/view/Surface;)V
-    .locals 0
+    .registers 3
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .param p2, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;

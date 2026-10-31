@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/RemovalListeners$1;Lcom/google/common/cache/RemovalNotification;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/cache/RemovalListeners$1;
 
     .line 49
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 52
     iget-object v0, p0, Lcom/google/common/cache/RemovalListeners$1$1;->this$0:Lcom/google/common/cache/RemovalListeners$1;

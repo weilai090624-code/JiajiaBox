@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Indgående opkald</string>
     <string name="call_notification_ongoing_text">Igangværende opkald</string>
     <string name="call_notification_screening_text">Et indgående opkald screenes</string>
-    <string name="character_counter_content_description" formatted="false">Du har brugt %1$d ud af %2$d tegn</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Du har brugt %1$d tegn og dermed overskredet tegnbegrænsningen på %2$d.</string>
+    <string name="character_counter_content_description">Du har brugt %1$d ud af %2$d tegn</string>
+    <string name="character_counter_overflowed_content_description">Du har brugt %1$d tegn og dermed overskredet tegnbegrænsningen på %2$d.</string>
     <string name="clear_text_end_icon_content_description">Ryd tekst</string>
     <string name="copy">Kopiér</string>
     <string name="copy_toast_msg">Linket er kopieret til udklipsholderen</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Uden for interval: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Startdato – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – slutdato</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Vælg interval</string>
     <string name="mtrl_picker_range_header_unselected">Startdato – slutdato</string>
     <string name="mtrl_picker_save">Gem</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" blev kopieret til udklipsholderen.</string>
     <string name="search_menu_title">Søg</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">FRA</string>
     <string name="v7_preference_on">TIL</string>
 </resources>

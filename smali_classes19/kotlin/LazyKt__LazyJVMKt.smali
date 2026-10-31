@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public static final lazy(Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 1
+    .registers 3
     .param p0, "lock"    # Ljava/lang/Object;
     .param p1, "initializer"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 3
+    .registers 5
     .param p0, "mode"    # Lkotlin/LazyThreadSafetyMode;
     .param p1, "initializer"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -111,7 +111,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_36
 
     .line 37
     new-instance v0, Lkotlin/NoWhenBranchMatchedException;
@@ -120,27 +120,27 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_1b
     new-instance v0, Lkotlin/UnsafeLazyImpl;
 
     invoke-direct {v0, p1}, Lkotlin/UnsafeLazyImpl;-><init>(Lkotlin/jvm/functions/Function0;)V
 
     check-cast v0, Lkotlin/Lazy;
 
-    goto :goto_0
+    goto :goto_34
 
     .line 36
-    :pswitch_1
+    :pswitch_23
     new-instance v0, Lkotlin/SafePublicationLazyImpl;
 
     invoke-direct {v0, p1}, Lkotlin/SafePublicationLazyImpl;-><init>(Lkotlin/jvm/functions/Function0;)V
 
     check-cast v0, Lkotlin/Lazy;
 
-    goto :goto_0
+    goto :goto_34
 
     .line 35
-    :pswitch_2
+    :pswitch_2b
     new-instance v0, Lkotlin/SynchronizedLazyImpl;
 
     const/4 v1, 0x2
@@ -152,21 +152,21 @@
     check-cast v0, Lkotlin/Lazy;
 
     .line 38
-    :goto_0
+    :goto_34
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_36
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2b
+        :pswitch_23
+        :pswitch_1b
     .end packed-switch
 .end method
 
 .method public static final lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 3
+    .registers 4
     .param p0, "initializer"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {

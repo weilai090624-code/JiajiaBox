@@ -18,7 +18,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/TextView;)V
-    .locals 0
+    .registers 5
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "icon"    # Landroid/widget/ImageView;
     .param p3, "text1"    # Landroid/widget/TextView;
@@ -58,7 +58,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutIconListItem2Binding;
-    .locals 6
+    .registers 7
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -82,7 +82,7 @@
 
     .line 69
     .local v1, "icon":Landroid/widget/ImageView;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2c
 
     .line 73
     const v0, 0x1020014
@@ -96,7 +96,7 @@
 
     .line 75
     .local v2, "text1":Landroid/widget/TextView;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2b
 
     .line 79
     const v0, 0x1020015
@@ -110,7 +110,7 @@
 
     .line 81
     .local v3, "text2":Landroid/widget/TextView;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2a
 
     .line 85
     new-instance v4, Lio/nekohasekai/sagernet/databinding/LayoutIconListItem2Binding;
@@ -124,22 +124,22 @@
     return-object v4
 
     .line 82
-    :cond_0
-    goto :goto_0
+    :cond_2a
+    goto :goto_2d
 
     .line 76
     .end local v3    # "text2":Landroid/widget/TextView;
-    :cond_1
-    goto :goto_0
+    :cond_2b
+    goto :goto_2d
 
     .line 70
     .end local v2    # "text1":Landroid/widget/TextView;
-    :cond_2
+    :cond_2c
     nop
 
     .line 87
     .end local v1    # "icon":Landroid/widget/ImageView;
-    :goto_0
+    :goto_2d
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -164,7 +164,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutIconListItem2Binding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -188,7 +188,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutIconListItem2Binding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -216,13 +216,13 @@
 
     .line 55
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 56
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 58
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutIconListItem2Binding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutIconListItem2Binding;
 
     move-result-object v1
@@ -233,7 +233,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutIconListItem2Binding;->getRoot()Landroid/widget/LinearLayout;
@@ -244,7 +244,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutIconListItem2Binding;->rootView:Landroid/widget/LinearLayout;

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method protected applyLayoutFeaturesInConstraintSet(Landroidx/constraintlayout/widget/ConstraintLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "container"    # Landroidx/constraintlayout/widget/ConstraintLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -92,7 +92,7 @@
 .end method
 
 .method protected init(Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 3
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -116,7 +116,7 @@
 .end method
 
 .method public onAttachedToWindow()V
-    .locals 0
+    .registers 1
 
     .line 77
     invoke-super {p0}, Landroidx/constraintlayout/widget/ConstraintHelper;->onAttachedToWindow()V
@@ -129,7 +129,7 @@
 .end method
 
 .method public setElevation(F)V
-    .locals 0
+    .registers 2
     .param p1, "elevation"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -151,7 +151,7 @@
 .end method
 
 .method public setVisibility(I)V
-    .locals 0
+    .registers 2
     .param p1, "visibility"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -173,7 +173,7 @@
 .end method
 
 .method public updatePostLayout(Landroidx/constraintlayout/widget/ConstraintLayout;)V
-    .locals 3
+    .registers 5
     .param p1, "container"    # Landroidx/constraintlayout/widget/ConstraintLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

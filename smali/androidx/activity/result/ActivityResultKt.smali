@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final component1(Landroidx/activity/result/ActivityResult;)I
-    .locals 1
+    .registers 2
     .param p0, "$this$component1"    # Landroidx/activity/result/ActivityResult;
 
     const-string v0, "<this>"
@@ -44,7 +44,7 @@
 .end method
 
 .method public static final component2(Landroidx/activity/result/ActivityResult;)Landroid/content/Intent;
-    .locals 1
+    .registers 2
     .param p0, "$this$component2"    # Landroidx/activity/result/ActivityResult;
 
     const-string v0, "<this>"

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4048
     .local p0, "this":Lcom/google/common/collect/Maps$EntrySet;, "Lcom/google/common/collect/Maps$EntrySet<TK;TV;>;"
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 4059
     .local p0, "this":Lcom/google/common/collect/Maps$EntrySet;, "Lcom/google/common/collect/Maps$EntrySet<TK;TV;>;"
@@ -56,7 +56,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -68,7 +68,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     .line 4065
     move-object v0, p1
@@ -101,9 +101,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2b
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2a
 
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$EntrySet;->map()Ljava/util/Map;
 
@@ -113,24 +113,24 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2b
 
-    :cond_0
+    :cond_2a
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_2b
     return v1
 
     .line 4070
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     .end local v2    # "key":Ljava/lang/Object;
     .end local v3    # "value":Ljava/lang/Object;, "TV;"
-    :cond_2
+    :cond_2c
     return v1
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 4075
     .local p0, "this":Lcom/google/common/collect/Maps$EntrySet;, "Lcom/google/common/collect/Maps$EntrySet<TK;TV;>;"
@@ -156,7 +156,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -168,11 +168,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 4085
     move-object v0, p1
@@ -201,14 +201,14 @@
 
     .line 4088
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_0
+    :cond_1e
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -230,13 +230,13 @@
     invoke-super {p0, v0}, Lcom/google/common/collect/Sets$ImprovedAbstractSet;->removeAll(Ljava/util/Collection;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_a} :catch_b
 
     return v0
 
     .line 4095
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 4097
@@ -253,7 +253,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -275,13 +275,13 @@
     invoke-super {p0, v0}, Lcom/google/common/collect/Sets$ImprovedAbstractSet;->retainAll(Ljava/util/Collection;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_a} :catch_b
 
     return v0
 
     .line 4105
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 4107
@@ -300,12 +300,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_37
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -317,11 +317,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_36
 
     instance-of v4, v3, Ljava/util/Map$Entry;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_36
 
     .line 4114
     move-object v4, v3
@@ -339,11 +339,11 @@
     .line 4117
     .end local v3    # "o":Ljava/lang/Object;
     .end local v4    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_0
-    goto :goto_0
+    :cond_36
+    goto :goto_18
 
     .line 4118
-    :cond_1
+    :cond_37
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$EntrySet;->map()Ljava/util/Map;
 
     move-result-object v2
@@ -360,7 +360,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 4054
     .local p0, "this":Lcom/google/common/collect/Maps$EntrySet;, "Lcom/google/common/collect/Maps$EntrySet<TK;TV;>;"

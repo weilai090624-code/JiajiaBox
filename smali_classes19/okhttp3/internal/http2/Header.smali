@@ -83,7 +83,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/http2/Header$Companion;
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -194,7 +194,7 @@
 .end method
 
 .method public constructor <init>(Lokio/ByteString;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Lokio/ByteString;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -219,7 +219,7 @@
 .end method
 
 .method public constructor <init>(Lokio/ByteString;Lokio/ByteString;)V
-    .locals 2
+    .registers 5
     .param p1, "name"    # Lokio/ByteString;
     .param p2, "value"    # Lokio/ByteString;
 
@@ -264,22 +264,22 @@
 .end method
 
 .method public static synthetic copy$default(Lokhttp3/internal/http2/Header;Lokio/ByteString;Lokio/ByteString;ILjava/lang/Object;)Lokhttp3/internal/http2/Header;
-    .locals 0
+    .registers 5
 
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     iget-object p1, p0, Lokhttp3/internal/http2/Header;->name:Lokio/ByteString;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_c
 
     iget-object p2, p0, Lokhttp3/internal/http2/Header;->value:Lokio/ByteString;
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2}, Lokhttp3/internal/http2/Header;->copy(Lokio/ByteString;Lokio/ByteString;)Lokhttp3/internal/http2/Header;
 
     move-result-object p0
@@ -290,7 +290,7 @@
 
 # virtual methods
 .method public final component1()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lokhttp3/internal/http2/Header;->name:Lokio/ByteString;
 
@@ -298,7 +298,7 @@
 .end method
 
 .method public final component2()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lokhttp3/internal/http2/Header;->value:Lokio/ByteString;
 
@@ -306,7 +306,7 @@
 .end method
 
 .method public final copy(Lokio/ByteString;Lokio/ByteString;)Lokhttp3/internal/http2/Header;
-    .locals 1
+    .registers 4
 
     const-string v0, "name"
 
@@ -324,24 +324,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lokhttp3/internal/http2/Header;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lokhttp3/internal/http2/Header;
@@ -354,11 +354,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-object v3, p0, Lokhttp3/internal/http2/Header;->value:Lokio/ByteString;
 
     iget-object v1, v1, Lokhttp3/internal/http2/Header;->value:Lokio/ByteString;
@@ -367,16 +367,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_23
 
     return v2
 
-    :cond_3
+    :cond_23
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Lokhttp3/internal/http2/Header;->name:Lokio/ByteString;
 
@@ -398,7 +398,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 35
     new-instance v0, Ljava/lang/StringBuilder;

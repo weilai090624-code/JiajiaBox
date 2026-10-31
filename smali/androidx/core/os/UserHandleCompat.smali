@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method private static getGetUserIdMethod()Ljava/lang/reflect/Method;
-    .locals 5
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NoSuchMethodException;
@@ -47,7 +47,7 @@
     .line 86
     sget-object v0, Landroidx/core/os/UserHandleCompat;->sGetUserIdMethod:Ljava/lang/reflect/Method;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 87
     const-class v0, Landroid/os/UserHandle;
@@ -76,14 +76,14 @@
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     .line 91
-    :cond_0
+    :cond_1b
     sget-object v0, Landroidx/core/os/UserHandleCompat;->sGetUserIdMethod:Ljava/lang/reflect/Method;
 
     return-object v0
 .end method
 
 .method private static getUserHandleConstructor()Ljava/lang/reflect/Constructor;
-    .locals 5
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -102,7 +102,7 @@
     .line 95
     sget-object v0, Landroidx/core/os/UserHandleCompat;->sUserHandleConstructor:Ljava/lang/reflect/Constructor;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 96
     const-class v0, Landroid/os/UserHandle;
@@ -129,14 +129,14 @@
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
 
     .line 100
-    :cond_0
+    :cond_19
     sget-object v0, Landroidx/core/os/UserHandleCompat;->sUserHandleConstructor:Ljava/lang/reflect/Constructor;
 
     return-object v0
 .end method
 
 .method public static getUserHandleForUid(I)Landroid/os/UserHandle;
-    .locals 5
+    .registers 6
     .param p0, "uid"    # I
 
     .line 49
@@ -144,7 +144,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 50
     invoke-static {p0}, Landroidx/core/os/UserHandleCompat$Api24Impl;->getUserHandleForUid(I)Landroid/os/UserHandle;
@@ -154,8 +154,8 @@
     return-object v0
 
     .line 53
-    :cond_0
-    :try_start_0
+    :cond_b
+    :try_start_b
     invoke-static {}, Landroidx/core/os/UserHandleCompat;->getGetUserIdMethod()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -195,17 +195,17 @@
     move-result-object v1
 
     check-cast v1, Landroid/os/UserHandle;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2e
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_b .. :try_end_2e} :catch_4a
+    .catch Ljava/lang/IllegalAccessException; {:try_start_b .. :try_end_2e} :catch_40
+    .catch Ljava/lang/InstantiationException; {:try_start_b .. :try_end_2e} :catch_36
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_b .. :try_end_2e} :catch_2f
 
     return-object v1
 
     .line 67
     .end local v0    # "userId":Ljava/lang/Integer;
-    :catch_0
+    :catch_2f
     move-exception v0
 
     .line 68
@@ -218,7 +218,7 @@
 
     .line 63
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_36
     move-exception v0
 
     .line 64
@@ -237,7 +237,7 @@
     .line 59
     .end local v0    # "e":Ljava/lang/InstantiationException;
     .end local v1    # "error":Ljava/lang/Error;
-    :catch_2
+    :catch_40
     move-exception v0
 
     .line 60
@@ -256,7 +256,7 @@
     .line 55
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
     .end local v1    # "error":Ljava/lang/Error;
-    :catch_3
+    :catch_4a
     move-exception v0
 
     .line 56

@@ -39,7 +39,7 @@
 
 # direct methods
 .method protected constructor <init>(JI)V
-    .locals 1
+    .registers 5
     .param p1, "est"    # J
     .param p3, "additionalCharacteristics"    # I
 
@@ -52,18 +52,18 @@
     .line 1398
     and-int/lit8 v0, p3, 0x40
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 1399
     or-int/lit16 v0, p3, 0x4000
 
-    goto :goto_0
+    goto :goto_d
 
     .line 1400
-    :cond_0
+    :cond_c
     move v0, p3
 
-    :goto_0
+    :goto_d
     iput v0, p0, Lj$/util/Spliterators$AbstractIntSpliterator;->characteristics:I
 
     .line 1401
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 1460
     iget v0, p0, Lj$/util/Spliterators$AbstractIntSpliterator;->characteristics:I
@@ -82,7 +82,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 2
+    .registers 3
 
     .line 1448
     iget-wide v0, p0, Lj$/util/Spliterators$AbstractIntSpliterator;->est:J
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfInt;Ljava/lang/Object;)V
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)V
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/IntConsumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfInt;Ljava/util/function/IntConsumer;)V
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -145,7 +145,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfInt;Ljava/lang/Object;)Z
 
@@ -155,7 +155,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)Z
 
@@ -165,7 +165,7 @@
 .end method
 
 .method public trySplit()Lj$/util/Spliterator$OfInt;
-    .locals 11
+    .registers 12
 
     .line 1419
     new-instance v0, Lj$/util/Spliterators$AbstractIntSpliterator$HoldingIntConsumer;
@@ -182,13 +182,13 @@
 
     cmp-long v5, v1, v3
 
-    if-lez v5, :cond_5
+    if-lez v5, :cond_52
 
     invoke-virtual {p0, v0}, Lj$/util/Spliterators$AbstractIntSpliterator;->tryAdvance(Ljava/util/function/IntConsumer;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_52
 
     .line 1422
     iget v3, p0, Lj$/util/Spliterators$AbstractIntSpliterator;->batch:I
@@ -201,22 +201,22 @@
 
     cmp-long v6, v4, v1
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_1d
 
     .line 1424
     long-to-int v3, v1
 
     .line 1425
-    :cond_0
+    :cond_1d
     const/high16 v4, 0x2000000
 
-    if-le v3, v4, :cond_1
+    if-le v3, v4, :cond_23
 
     .line 1426
     const/high16 v3, 0x2000000
 
     .line 1427
-    :cond_1
+    :cond_23
     new-array v4, v3, [I
 
     .line 1428
@@ -225,23 +225,23 @@
 
     .line 1429
     .local v5, "j":I
-    :cond_2
+    :cond_26
     iget v6, v0, Lj$/util/Spliterators$AbstractIntSpliterator$HoldingIntConsumer;->value:I
 
     aput v6, v4, v5
 
     add-int/lit8 v5, v5, 0x1
 
-    if-ge v5, v3, :cond_3
+    if-ge v5, v3, :cond_34
 
     invoke-virtual {p0, v0}, Lj$/util/Spliterators$AbstractIntSpliterator;->tryAdvance(Ljava/util/function/IntConsumer;)Z
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_26
 
     .line 1430
-    :cond_3
+    :cond_34
     iput v5, p0, Lj$/util/Spliterators$AbstractIntSpliterator;->batch:I
 
     .line 1431
@@ -251,7 +251,7 @@
 
     cmp-long v10, v6, v8
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_47
 
     .line 1432
     iget-wide v6, p0, Lj$/util/Spliterators$AbstractIntSpliterator;->est:J
@@ -263,7 +263,7 @@
     iput-wide v6, p0, Lj$/util/Spliterators$AbstractIntSpliterator;->est:J
 
     .line 1433
-    :cond_4
+    :cond_47
     new-instance v6, Lj$/util/Spliterators$IntArraySpliterator;
 
     const/4 v7, 0x0
@@ -280,14 +280,14 @@
     .end local v3    # "n":I
     .end local v4    # "a":[I
     .end local v5    # "j":I
-    :cond_5
+    :cond_52
     const/4 v3, 0x0
 
     return-object v3
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 1379
     invoke-virtual {p0}, Lj$/util/Spliterators$AbstractIntSpliterator;->trySplit()Lj$/util/Spliterator$OfInt;
@@ -298,7 +298,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 1379
     invoke-virtual {p0}, Lj$/util/Spliterators$AbstractIntSpliterator;->trySplit()Lj$/util/Spliterator$OfInt;

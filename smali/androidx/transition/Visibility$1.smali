@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/Visibility;Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/transition/Visibility;
 
     .line 441
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
-    .locals 3
+    .registers 5
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 459
@@ -77,7 +77,7 @@
 .end method
 
 .method public onTransitionPause(Landroidx/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 445
@@ -96,7 +96,7 @@
 .end method
 
 .method public onTransitionResume(Landroidx/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 450
@@ -106,7 +106,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 451
     iget-object v0, p0, Landroidx/transition/Visibility$1;->val$overlayHost:Landroid/view/ViewGroup;
@@ -119,15 +119,15 @@
 
     invoke-interface {v0, v1}, Landroidx/transition/ViewGroupOverlayImpl;->add(Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 453
-    :cond_0
+    :cond_14
     iget-object v0, p0, Landroidx/transition/Visibility$1;->this$0:Landroidx/transition/Visibility;
 
     invoke-virtual {v0}, Landroidx/transition/Visibility;->cancel()V
 
     .line 455
-    :goto_0
+    :goto_19
     return-void
 .end method

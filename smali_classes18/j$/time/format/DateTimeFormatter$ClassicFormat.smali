@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Lj$/time/format/DateTimeFormatter;Lj$/time/temporal/TemporalQuery;)V
-    .locals 0
+    .registers 3
     .param p1, "formatter"    # Lj$/time/format/DateTimeFormatter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public format(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;
-    .locals 3
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
     .param p2, "toAppendTo"    # Ljava/lang/StringBuffer;
     .param p3, "pos"    # Ljava/text/FieldPosition;
@@ -80,7 +80,7 @@
     .line 2158
     instance-of v0, p1, Lj$/time/temporal/TemporalAccessor;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2f
 
     .line 2161
     const/4 v0, 0x0
@@ -91,7 +91,7 @@
     invoke-virtual {p3, v0}, Ljava/text/FieldPosition;->setEndIndex(I)V
 
     .line 2164
-    :try_start_0
+    :try_start_1a
     iget-object v0, p0, Lj$/time/format/DateTimeFormatter$ClassicFormat;->formatter:Lj$/time/format/DateTimeFormatter;
 
     move-object v1, p1
@@ -99,8 +99,8 @@
     check-cast v1, Lj$/time/temporal/TemporalAccessor;
 
     invoke-virtual {v0, v1, p2}, Lj$/time/format/DateTimeFormatter;->formatTo(Lj$/time/temporal/TemporalAccessor;Ljava/lang/Appendable;)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_22
+    .catch Ljava/lang/RuntimeException; {:try_start_1a .. :try_end_22} :catch_24
 
     .line 2167
     nop
@@ -109,7 +109,7 @@
     return-object p2
 
     .line 2165
-    :catch_0
+    :catch_24
     move-exception v0
 
     .line 2166
@@ -126,7 +126,7 @@
 
     .line 2159
     .end local v0    # "ex":Ljava/lang/RuntimeException;
-    :cond_0
+    :cond_2f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Format target must implement TemporalAccessor"
@@ -137,7 +137,7 @@
 .end method
 
 .method public parseObject(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "text"    # Ljava/lang/String;
 
     .line 2172
@@ -146,10 +146,10 @@
     invoke-static {p1, v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 2174
-    :try_start_0
+    :try_start_5
     iget-object v0, p0, Lj$/time/format/DateTimeFormatter$ClassicFormat;->parseType:Lj$/time/temporal/TemporalQuery;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 2175
     iget-object v0, p0, Lj$/time/format/DateTimeFormatter$ClassicFormat;->formatter:Lj$/time/format/DateTimeFormatter;
@@ -163,7 +163,7 @@
     return-object v0
 
     .line 2177
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lj$/time/format/DateTimeFormatter$ClassicFormat;->formatter:Lj$/time/format/DateTimeFormatter;
 
     iget-object v1, p0, Lj$/time/format/DateTimeFormatter$ClassicFormat;->parseType:Lj$/time/temporal/TemporalQuery;
@@ -171,14 +171,14 @@
     invoke-virtual {v0, p1, v1}, Lj$/time/format/DateTimeFormatter;->parse(Ljava/lang/CharSequence;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Lj$/time/format/DateTimeParseException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Lj$/time/format/DateTimeParseException; {:try_start_5 .. :try_end_19} :catch_2c
+    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_19} :catch_1a
 
     return-object v0
 
     .line 2180
-    :catch_0
+    :catch_1a
     move-exception v0
 
     .line 2181
@@ -203,7 +203,7 @@
 
     .line 2178
     .end local v0    # "ex":Ljava/lang/RuntimeException;
-    :catch_1
+    :catch_2c
     move-exception v0
 
     .line 2179
@@ -224,7 +224,7 @@
 .end method
 
 .method public parseObject(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "pos"    # Ljava/text/ParsePosition;
 
@@ -238,39 +238,39 @@
 
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_7
     iget-object v2, p0, Lj$/time/format/DateTimeFormatter$ClassicFormat;->formatter:Lj$/time/format/DateTimeFormatter;
 
     invoke-static {v2, p1, p2}, Lj$/time/format/DateTimeFormatter;->-$$Nest$mparseUnresolved0(Lj$/time/format/DateTimeFormatter;Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/format/DateTimeParseContext;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_d
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_7 .. :try_end_d} :catch_3b
 
     .line 2195
     .local v2, "context":Lj$/time/format/DateTimeParseContext;
     nop
 
     .line 2196
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1a
 
     .line 2197
     invoke-virtual {p2}, Ljava/text/ParsePosition;->getErrorIndex()I
 
     move-result v3
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_19
 
     .line 2198
     invoke-virtual {p2, v0}, Ljava/text/ParsePosition;->setErrorIndex(I)V
 
     .line 2200
-    :cond_0
+    :cond_19
     return-object v1
 
     .line 2203
-    :cond_1
-    :try_start_1
+    :cond_1a
+    :try_start_1a
     iget-object v3, p0, Lj$/time/format/DateTimeFormatter$ClassicFormat;->formatter:Lj$/time/format/DateTimeFormatter;
 
     invoke-static {v3}, Lj$/time/format/DateTimeFormatter;->-$$Nest$fgetresolverStyle(Lj$/time/format/DateTimeFormatter;)Lj$/time/format/ResolverStyle;
@@ -291,26 +291,26 @@
     .local v3, "resolved":Lj$/time/temporal/TemporalAccessor;
     iget-object v4, p0, Lj$/time/format/DateTimeFormatter$ClassicFormat;->parseType:Lj$/time/temporal/TemporalQuery;
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_2f
 
     .line 2205
     return-object v3
 
     .line 2207
-    :cond_2
+    :cond_2f
     iget-object v4, p0, Lj$/time/format/DateTimeFormatter$ClassicFormat;->parseType:Lj$/time/temporal/TemporalQuery;
 
     invoke-interface {v3, v4}, Lj$/time/temporal/TemporalAccessor;->query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_35
+    .catch Ljava/lang/RuntimeException; {:try_start_1a .. :try_end_35} :catch_36
 
     return-object v0
 
     .line 2208
     .end local v3    # "resolved":Lj$/time/temporal/TemporalAccessor;
-    :catch_0
+    :catch_36
     move-exception v3
 
     .line 2209
@@ -323,7 +323,7 @@
     .line 2190
     .end local v2    # "context":Lj$/time/format/DateTimeParseContext;
     .end local v3    # "ex":Ljava/lang/RuntimeException;
-    :catch_1
+    :catch_3b
     move-exception v2
 
     .line 2191
@@ -332,12 +332,12 @@
 
     move-result v3
 
-    if-gez v3, :cond_3
+    if-gez v3, :cond_45
 
     .line 2192
     invoke-virtual {p2, v0}, Ljava/text/ParsePosition;->setErrorIndex(I)V
 
     .line 2194
-    :cond_3
+    :cond_45
     return-object v1
 .end method

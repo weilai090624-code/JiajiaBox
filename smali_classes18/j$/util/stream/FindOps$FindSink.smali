@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 175
     .local p0, "this":Lj$/util/stream/FindOps$FindSink;, "Ljava/util/stream/FindOps$FindSink<TT;TO;>;"
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public synthetic accept(D)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;D)V
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public synthetic accept(I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;I)V
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public synthetic accept(J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;J)V
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public accept(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -101,7 +101,7 @@
     .local p1, "value":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lj$/util/stream/FindOps$FindSink;->hasValue:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 180
     const/4 v0, 0x1
@@ -112,12 +112,12 @@
     iput-object p1, p0, Lj$/util/stream/FindOps$FindSink;->value:Ljava/lang/Object;
 
     .line 183
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public synthetic begin(J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$begin(Lj$/util/stream/Sink;J)V
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     .line 187
     .local p0, "this":Lj$/util/stream/FindOps$FindSink;, "Ljava/util/stream/FindOps$FindSink<TT;TO;>;"
@@ -145,7 +145,7 @@
 .end method
 
 .method public synthetic end()V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$end(Lj$/util/stream/Sink;)V
 

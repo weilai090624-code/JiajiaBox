@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;IZ)V
-    .locals 0
+    .registers 4
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -48,7 +48,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/function/Supplier;IZ)V
-    .locals 0
+    .registers 4
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public forEach(Ljava/util/function/IntConsumer;)V
-    .locals 1
+    .registers 3
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 592
@@ -83,7 +83,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 593
     invoke-virtual {p0}, Lj$/util/stream/IntPipeline$Head;->sourceStageSpliterator()Lj$/util/Spliterator;
@@ -96,19 +96,19 @@
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator$OfInt;->forEachRemaining(Ljava/util/function/IntConsumer;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 596
-    :cond_0
+    :cond_12
     invoke-super {p0, p1}, Lj$/util/stream/IntPipeline;->forEach(Ljava/util/function/IntConsumer;)V
 
     .line 598
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public forEachOrdered(Ljava/util/function/IntConsumer;)V
-    .locals 1
+    .registers 3
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 602
@@ -117,7 +117,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 603
     invoke-virtual {p0}, Lj$/util/stream/IntPipeline$Head;->sourceStageSpliterator()Lj$/util/Spliterator;
@@ -130,19 +130,19 @@
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator$OfInt;->forEachRemaining(Ljava/util/function/IntConsumer;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 606
-    :cond_0
+    :cond_12
     invoke-super {p0, p1}, Lj$/util/stream/IntPipeline;->forEachOrdered(Ljava/util/function/IntConsumer;)V
 
     .line 608
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 550
     .local p0, "this":Lj$/util/stream/IntPipeline$Head;, "Ljava/util/stream/IntPipeline$Head<TE_IN;>;"
@@ -154,7 +154,7 @@
 .end method
 
 .method bridge synthetic lazySpliterator(Ljava/util/function/Supplier;)Lj$/util/Spliterator;
-    .locals 0
+    .registers 2
 
     .line 550
     .local p0, "this":Lj$/util/stream/IntPipeline$Head;, "Ljava/util/stream/IntPipeline$Head<TE_IN;>;"
@@ -166,7 +166,7 @@
 .end method
 
 .method final opIsStateful()Z
-    .locals 1
+    .registers 2
 
     .line 580
     .local p0, "this":Lj$/util/stream/IntPipeline$Head;, "Ljava/util/stream/IntPipeline$Head<TE_IN;>;"
@@ -178,7 +178,7 @@
 .end method
 
 .method final opWrapSink(ILj$/util/stream/Sink;)Lj$/util/stream/Sink;
-    .locals 1
+    .registers 4
     .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -202,7 +202,7 @@
 .end method
 
 .method public bridge synthetic parallel()Lj$/util/stream/IntStream;
-    .locals 1
+    .registers 2
 
     .line 550
     .local p0, "this":Lj$/util/stream/IntPipeline$Head;, "Ljava/util/stream/IntPipeline$Head<TE_IN;>;"
@@ -216,7 +216,7 @@
 .end method
 
 .method public bridge synthetic sequential()Lj$/util/stream/IntStream;
-    .locals 1
+    .registers 2
 
     .line 550
     .local p0, "this":Lj$/util/stream/IntPipeline$Head;, "Ljava/util/stream/IntPipeline$Head<TE_IN;>;"
@@ -230,7 +230,7 @@
 .end method
 
 .method public bridge synthetic spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 550
     .local p0, "this":Lj$/util/stream/IntPipeline$Head;, "Ljava/util/stream/IntPipeline$Head<TE_IN;>;"
@@ -242,7 +242,7 @@
 .end method
 
 .method public bridge synthetic unordered()Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
 
     .line 550
     .local p0, "this":Lj$/util/stream/IntPipeline$Head;, "Ljava/util/stream/IntPipeline$Head<TE_IN;>;"

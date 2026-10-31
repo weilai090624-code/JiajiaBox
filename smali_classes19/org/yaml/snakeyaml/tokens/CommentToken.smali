@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/comments/CommentType;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 0
+    .registers 5
     .param p1, "type"    # Lorg/yaml/snakeyaml/comments/CommentType;
     .param p2, "value"    # Ljava/lang/String;
     .param p3, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public getCommentType()Lorg/yaml/snakeyaml/comments/CommentType;
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Lorg/yaml/snakeyaml/tokens/CommentToken;->type:Lorg/yaml/snakeyaml/comments/CommentType;
@@ -48,7 +48,7 @@
 .end method
 
 .method public getTokenId()Lorg/yaml/snakeyaml/tokens/Token$ID;
-    .locals 1
+    .registers 2
 
     .line 45
     sget-object v0, Lorg/yaml/snakeyaml/tokens/Token$ID;->Comment:Lorg/yaml/snakeyaml/tokens/Token$ID;
@@ -57,7 +57,7 @@
 .end method
 
 .method public getValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 40
     iget-object v0, p0, Lorg/yaml/snakeyaml/tokens/CommentToken;->value:Ljava/lang/String;

@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 254
     iput p1, p0, Lcom/google/common/util/concurrent/Striped$3;->val$permits:I
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 254
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/Striped$3;->get()Ljava/util/concurrent/Semaphore;
@@ -56,7 +56,7 @@
 .end method
 
 .method public get()Ljava/util/concurrent/Semaphore;
-    .locals 2
+    .registers 3
 
     .line 257
     new-instance v0, Lcom/google/common/util/concurrent/Striped$PaddedSemaphore;

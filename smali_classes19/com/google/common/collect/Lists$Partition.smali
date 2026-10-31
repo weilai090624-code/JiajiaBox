@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;I)V
-    .locals 0
+    .registers 3
     .param p2, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 667
     .local p0, "this":Lcom/google/common/collect/Lists$Partition;, "Lcom/google/common/collect/Lists$Partition<TT;>;"
@@ -80,7 +80,7 @@
 .end method
 
 .method public get(I)Ljava/util/List;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -131,7 +131,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 691
     .local p0, "this":Lcom/google/common/collect/Lists$Partition;, "Lcom/google/common/collect/Lists$Partition<TT;>;"
@@ -145,7 +145,7 @@
 .end method
 
 .method public size()I
-    .locals 3
+    .registers 4
 
     .line 686
     .local p0, "this":Lcom/google/common/collect/Lists$Partition;, "Lcom/google/common/collect/Lists$Partition<TT;>;"

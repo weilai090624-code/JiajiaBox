@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/Uri;Landroid/content/ClipDescription;Landroid/net/Uri;)V
-    .locals 1
+    .registers 5
     .param p1, "contentUri"    # Landroid/net/Uri;
     .param p2, "description"    # Landroid/content/ClipDescription;
     .param p3, "linkUri"    # Landroid/net/Uri;
@@ -43,7 +43,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "inputContentInfo"    # Ljava/lang/Object;
 
     .line 107
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public getContentUri()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 119
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
@@ -76,7 +76,7 @@
 .end method
 
 .method public getDescription()Landroid/content/ClipDescription;
-    .locals 1
+    .registers 2
 
     .line 125
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
@@ -89,7 +89,7 @@
 .end method
 
 .method public getInputContentInfo()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 137
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
@@ -98,7 +98,7 @@
 .end method
 
 .method public getLinkUri()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 131
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
@@ -111,7 +111,7 @@
 .end method
 
 .method public releasePermission()V
-    .locals 1
+    .registers 2
 
     .line 147
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
@@ -123,7 +123,7 @@
 .end method
 
 .method public requestPermission()V
-    .locals 1
+    .registers 2
 
     .line 142
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;

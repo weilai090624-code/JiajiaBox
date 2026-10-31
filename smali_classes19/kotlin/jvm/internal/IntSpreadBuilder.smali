@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 96
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final add(I)V
-    .locals 3
+    .registers 5
     .param p1, "value"    # I
 
     .line 101
@@ -85,7 +85,7 @@
 .end method
 
 .method public bridge synthetic getSize(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "$this$getSize"    # Ljava/lang/Object;
 
     .line 96
@@ -101,7 +101,7 @@
 .end method
 
 .method protected getSize([I)I
-    .locals 1
+    .registers 3
     .param p1, "$this$getSize"    # [I
 
     const-string v0, "<this>"
@@ -115,7 +115,7 @@
 .end method
 
 .method public final toArray()[I
-    .locals 2
+    .registers 3
 
     .line 104
     iget-object v0, p0, Lkotlin/jvm/internal/IntSpreadBuilder;->values:[I

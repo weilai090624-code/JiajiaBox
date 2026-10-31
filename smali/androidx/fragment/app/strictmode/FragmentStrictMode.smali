@@ -88,7 +88,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$E62gJnU4P90oRCiSrlB5WGv5ZAk(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation$lambda-0(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$G9JQrv8NJ8N34hODd8MWqMS1RXo(Ljava/lang/String;Landroidx/fragment/app/strictmode/Violation;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation$lambda-1(Ljava/lang/String;Landroidx/fragment/app/strictmode/Violation;)V
 
@@ -104,7 +104,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/fragment/app/strictmode/FragmentStrictMode;
 
@@ -121,7 +121,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -130,7 +130,7 @@
 .end method
 
 .method private final getNearestPolicy(Landroidx/fragment/app/Fragment;)Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;
-    .locals 3
+    .registers 5
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
 
     .line 45
@@ -138,15 +138,15 @@
 
     .line 46
     .local v0, "declaringFragment":Landroidx/fragment/app/Fragment;
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_1
+    if-eqz v0, :cond_25
 
     .line 47
     invoke-virtual {v0}, Landroidx/fragment/app/Fragment;->isAdded()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     .line 48
     invoke-virtual {v0}, Landroidx/fragment/app/Fragment;->getParentFragmentManager()Landroidx/fragment/app/FragmentManager;
@@ -163,7 +163,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     .line 50
     invoke-virtual {v1}, Landroidx/fragment/app/FragmentManager;->getStrictModePolicy()Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;
@@ -176,22 +176,22 @@
 
     .line 53
     .end local v1    # "fragmentManager":Landroidx/fragment/app/FragmentManager;
-    :cond_0
+    :cond_20
     invoke-virtual {v0}, Landroidx/fragment/app/Fragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1
 
     .line 55
-    :cond_1
+    :cond_25
     sget-object v1, Landroidx/fragment/app/strictmode/FragmentStrictMode;->defaultPolicy:Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;
 
     return-object v1
 .end method
 
 .method private final handlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
-    .locals 5
+    .registers 8
     .param p1, "policy"    # Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;
     .param p2, "violation"    # Landroidx/fragment/app/strictmode/Violation;
 
@@ -222,7 +222,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_33
 
     .line 256
     new-instance v2, Ljava/lang/StringBuilder;
@@ -252,12 +252,12 @@
     invoke-static {v4, v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 258
-    :cond_0
+    :cond_33
     invoke-virtual {p1}, Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;->getListener$fragment_release()Landroidx/fragment/app/strictmode/FragmentStrictMode$OnViolationListener;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_41
 
     .line 259
     new-instance v2, Landroidx/fragment/app/strictmode/FragmentStrictMode$$ExternalSyntheticLambda0;
@@ -267,7 +267,7 @@
     invoke-direct {p0, v0, v2}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->runOnHostThread(Landroidx/fragment/app/Fragment;Ljava/lang/Runnable;)V
 
     .line 261
-    :cond_1
+    :cond_41
     invoke-virtual {p1}, Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;->getFlags$fragment_release()Ljava/util/Set;
 
     move-result-object v2
@@ -278,7 +278,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_55
 
     .line 262
     new-instance v2, Landroidx/fragment/app/strictmode/FragmentStrictMode$$ExternalSyntheticLambda1;
@@ -288,12 +288,12 @@
     invoke-direct {p0, v0, v2}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->runOnHostThread(Landroidx/fragment/app/Fragment;Ljava/lang/Runnable;)V
 
     .line 267
-    :cond_2
+    :cond_55
     return-void
 .end method
 
 .method private static final handlePolicyViolation$lambda-0(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
-    .locals 1
+    .registers 3
     .param p0, "$policy"    # Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;
     .param p1, "$violation"    # Landroidx/fragment/app/strictmode/Violation;
 
@@ -316,7 +316,7 @@
 .end method
 
 .method private static final handlePolicyViolation$lambda-1(Ljava/lang/String;Landroidx/fragment/app/strictmode/Violation;)V
-    .locals 3
+    .registers 5
     .param p0, "$fragmentName"    # Ljava/lang/String;
     .param p1, "$violation"    # Landroidx/fragment/app/strictmode/Violation;
 
@@ -356,7 +356,7 @@
 .end method
 
 .method private final logIfDebuggingEnabled(Landroidx/fragment/app/strictmode/Violation;)V
-    .locals 3
+    .registers 5
     .param p1, "violation"    # Landroidx/fragment/app/strictmode/Violation;
 
     .line 225
@@ -366,7 +366,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2f
 
     .line 227
     nop
@@ -413,12 +413,12 @@
     invoke-static {v2, v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 232
-    :cond_0
+    :cond_2f
     return-void
 .end method
 
 .method public static final onFragmentReuse(Landroidx/fragment/app/Fragment;Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p0, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p1, "previousFragmentId"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -464,7 +464,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3d
 
     .line 68
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -481,7 +481,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3d
 
     .line 70
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -489,12 +489,12 @@
     invoke-direct {v2, v1, v0}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
 
     .line 72
-    :cond_0
+    :cond_3d
     return-void
 .end method
 
 .method public static final onFragmentTagUsage(Landroidx/fragment/app/Fragment;Landroid/view/ViewGroup;)V
-    .locals 5
+    .registers 7
     .param p0, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p1, "container"    # Landroid/view/ViewGroup;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -536,7 +536,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 87
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -553,7 +553,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 89
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -561,12 +561,12 @@
     invoke-direct {v2, v1, v0}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
 
     .line 91
-    :cond_0
+    :cond_38
     return-void
 .end method
 
 .method public static final onGetRetainInstanceUsage(Landroidx/fragment/app/Fragment;)V
-    .locals 5
+    .registers 6
     .param p0, "fragment"    # Landroidx/fragment/app/Fragment;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -607,7 +607,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 119
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -624,7 +624,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 121
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -632,12 +632,12 @@
     invoke-direct {v2, v1, v0}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
 
     .line 123
-    :cond_0
+    :cond_38
     return-void
 .end method
 
 .method public static final onGetTargetFragmentRequestCodeUsage(Landroidx/fragment/app/Fragment;)V
-    .locals 5
+    .registers 6
     .param p0, "fragment"    # Landroidx/fragment/app/Fragment;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -678,7 +678,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 189
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -695,7 +695,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 191
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -703,12 +703,12 @@
     invoke-direct {v2, v1, v0}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
 
     .line 193
-    :cond_0
+    :cond_38
     return-void
 .end method
 
 .method public static final onGetTargetFragmentUsage(Landroidx/fragment/app/Fragment;)V
-    .locals 5
+    .registers 6
     .param p0, "fragment"    # Landroidx/fragment/app/Fragment;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -749,7 +749,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 173
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -766,7 +766,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 175
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -774,12 +774,12 @@
     invoke-direct {v2, v1, v0}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
 
     .line 177
-    :cond_0
+    :cond_38
     return-void
 .end method
 
 .method public static final onSetRetainInstanceUsage(Landroidx/fragment/app/Fragment;)V
-    .locals 5
+    .registers 6
     .param p0, "fragment"    # Landroidx/fragment/app/Fragment;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -820,7 +820,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 103
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -837,7 +837,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 105
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -845,12 +845,12 @@
     invoke-direct {v2, v1, v0}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
 
     .line 107
-    :cond_0
+    :cond_38
     return-void
 .end method
 
 .method public static final onSetTargetFragmentUsage(Landroidx/fragment/app/Fragment;Landroidx/fragment/app/Fragment;I)V
-    .locals 5
+    .registers 8
     .param p0, "violatingFragment"    # Landroidx/fragment/app/Fragment;
     .param p1, "targetFragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "requestCode"    # I
@@ -901,7 +901,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_40
 
     .line 157
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -918,7 +918,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_40
 
     .line 159
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -926,12 +926,12 @@
     invoke-direct {v2, v1, v0}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
 
     .line 161
-    :cond_0
+    :cond_40
     return-void
 .end method
 
 .method public static final onSetUserVisibleHint(Landroidx/fragment/app/Fragment;Z)V
-    .locals 5
+    .registers 7
     .param p0, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p1, "isVisibleToUser"    # Z
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -973,7 +973,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 135
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -990,7 +990,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     .line 137
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -998,12 +998,12 @@
     invoke-direct {v2, v1, v0}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
 
     .line 139
-    :cond_0
+    :cond_38
     return-void
 .end method
 
 .method public static final onWrongFragmentContainer(Landroidx/fragment/app/Fragment;Landroid/view/ViewGroup;)V
-    .locals 5
+    .registers 7
     .param p0, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p1, "container"    # Landroid/view/ViewGroup;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -1049,7 +1049,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3d
 
     .line 208
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -1066,7 +1066,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3d
 
     .line 210
     sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode;->INSTANCE:Landroidx/fragment/app/strictmode/FragmentStrictMode;
@@ -1074,12 +1074,12 @@
     invoke-direct {v2, v1, v0}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
 
     .line 212
-    :cond_0
+    :cond_3d
     return-void
 .end method
 
 .method private final runOnHostThread(Landroidx/fragment/app/Fragment;Ljava/lang/Runnable;)V
-    .locals 3
+    .registers 6
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "runnable"    # Ljava/lang/Runnable;
 
@@ -1088,7 +1088,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 271
     invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getParentFragmentManager()Landroidx/fragment/app/FragmentManager;
@@ -1121,31 +1121,31 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     .line 273
     invoke-interface {p2}, Ljava/lang/Runnable;->run()V
 
-    goto :goto_0
+    goto :goto_30
 
     .line 275
-    :cond_0
+    :cond_29
     invoke-virtual {v0, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_0
+    goto :goto_30
 
     .line 278
     .end local v0    # "handler":Landroid/os/Handler;
-    :cond_1
+    :cond_2d
     invoke-interface {p2}, Ljava/lang/Runnable;->run()V
 
     .line 280
-    :goto_0
+    :goto_30
     return-void
 .end method
 
 .method private final shouldHandlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Ljava/lang/Class;Ljava/lang/Class;)Z
-    .locals 5
+    .registers 9
     .param p1, "policy"    # Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;
     .param p2, "fragmentClass"    # Ljava/lang/Class;
     .param p3, "violationClass"    # Ljava/lang/Class;
@@ -1183,13 +1183,13 @@
 
     const/4 v2, 0x1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     return v2
 
     .line 241
     .local v1, "violationsToBypass":Ljava/util/Set;
-    :cond_0
+    :cond_12
     invoke-virtual {p3}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v3
@@ -1200,7 +1200,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2d
 
     .line 242
     move-object v3, v1
@@ -1215,7 +1215,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2d
 
     .line 243
     const/4 v2, 0x0
@@ -1223,7 +1223,7 @@
     return v2
 
     .line 246
-    :cond_1
+    :cond_2d
     invoke-interface {v1, p3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v3
@@ -1236,7 +1236,7 @@
 
 # virtual methods
 .method public final getDefaultPolicy()Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;
-    .locals 1
+    .registers 2
 
     .line 43
     sget-object v0, Landroidx/fragment/app/strictmode/FragmentStrictMode;->defaultPolicy:Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;
@@ -1245,7 +1245,7 @@
 .end method
 
 .method public final onPolicyViolation(Landroidx/fragment/app/strictmode/Violation;)V
-    .locals 4
+    .registers 6
     .param p1, "violation"    # Landroidx/fragment/app/strictmode/Violation;
 
     const-string/jumbo v0, "violation"
@@ -1280,18 +1280,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     .line 220
     invoke-direct {p0, v1, p1}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->handlePolicyViolation(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;Landroidx/fragment/app/strictmode/Violation;)V
 
     .line 222
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 .method public final setDefaultPolicy(Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;
 
     const-string v0, "<set-?>"

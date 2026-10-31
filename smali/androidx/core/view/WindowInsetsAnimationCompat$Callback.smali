@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "dispatchMode"    # I
 
     .line 372
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public final getDispatchMode()I
-    .locals 1
+    .registers 2
 
     .line 397
     iget v0, p0, Landroidx/core/view/WindowInsetsAnimationCompat$Callback;->mDispatchMode:I
@@ -59,7 +59,7 @@
 .end method
 
 .method public onEnd(Landroidx/core/view/WindowInsetsAnimationCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroidx/core/view/WindowInsetsAnimationCompat;
 
     .line 521
@@ -67,7 +67,7 @@
 .end method
 
 .method public onPrepare(Landroidx/core/view/WindowInsetsAnimationCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroidx/core/view/WindowInsetsAnimationCompat;
 
     .line 442
@@ -88,7 +88,7 @@
 .end method
 
 .method public onStart(Landroidx/core/view/WindowInsetsAnimationCompat;Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;)Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;
-    .locals 0
+    .registers 3
     .param p1, "animation"    # Landroidx/core/view/WindowInsetsAnimationCompat;
     .param p2, "bounds"    # Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;
 

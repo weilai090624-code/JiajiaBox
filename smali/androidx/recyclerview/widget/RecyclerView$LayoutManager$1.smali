@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     .line 8325
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public getChildAt(I)Landroid/view/View;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 8328
@@ -51,7 +51,7 @@
 .end method
 
 .method public getChildEnd(Landroid/view/View;)I
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 8350
@@ -80,7 +80,7 @@
 .end method
 
 .method public getChildStart(Landroid/view/View;)I
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 8343
@@ -109,7 +109,7 @@
 .end method
 
 .method public getParentEnd()I
-    .locals 2
+    .registers 3
 
     .line 8338
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$LayoutManager$1;->this$0:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -130,7 +130,7 @@
 .end method
 
 .method public getParentStart()I
-    .locals 1
+    .registers 2
 
     .line 8333
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$LayoutManager$1;->this$0:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;

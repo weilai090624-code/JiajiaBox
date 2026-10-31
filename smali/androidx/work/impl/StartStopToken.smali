@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/impl/model/WorkGenerationalId;)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
 
     const-string v0, "id"
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public final getId()Landroidx/work/impl/model/WorkGenerationalId;
-    .locals 1
+    .registers 2
 
     .line 32
     iget-object v0, p0, Landroidx/work/impl/StartStopToken;->id:Landroidx/work/impl/model/WorkGenerationalId;

@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/net/MediaType;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/net/MediaType;
 
     .line 797
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public apply(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMultiset;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 797
     check-cast p1, Ljava/util/Collection;

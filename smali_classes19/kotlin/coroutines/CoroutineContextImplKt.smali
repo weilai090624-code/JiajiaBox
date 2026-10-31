@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final getPolymorphicElement(Lkotlin/coroutines/CoroutineContext$Element;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
-    .locals 3
+    .registers 5
     .param p0, "$this$getPolymorphicElement"    # Lkotlin/coroutines/CoroutineContext$Element;
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
@@ -58,7 +58,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 69
     move-object v0, p1
@@ -73,7 +73,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     move-object v0, p1
 
@@ -85,29 +85,29 @@
 
     instance-of v2, v0, Lkotlin/coroutines/CoroutineContext$Element;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     move-object v1, v0
 
-    :cond_0
+    :cond_28
     return-object v1
 
     .line 72
-    :cond_1
+    :cond_29
     invoke-interface {p0}, Lkotlin/coroutines/CoroutineContext$Element;->getKey()Lkotlin/coroutines/CoroutineContext$Key;
 
     move-result-object v0
 
-    if-ne v0, p1, :cond_2
+    if-ne v0, p1, :cond_30
 
     move-object v1, p0
 
-    :cond_2
+    :cond_30
     return-object v1
 .end method
 
 .method public static final minusPolymorphicKey(Lkotlin/coroutines/CoroutineContext$Element;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
-    .locals 2
+    .registers 4
     .param p0, "$this$minusPolymorphicKey"    # Lkotlin/coroutines/CoroutineContext$Element;
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
@@ -131,7 +131,7 @@
     .line 85
     instance-of v0, p1, Lkotlin/coroutines/AbstractCoroutineContextKey;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 86
     move-object v0, p1
@@ -146,7 +146,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     move-object v0, p1
 
@@ -156,41 +156,41 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_0
+    :cond_29
     move-object v0, p0
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    :goto_0
+    :goto_2c
     return-object v0
 
     .line 88
-    :cond_1
+    :cond_2d
     invoke-interface {p0}, Lkotlin/coroutines/CoroutineContext$Element;->getKey()Lkotlin/coroutines/CoroutineContext$Key;
 
     move-result-object v0
 
-    if-ne v0, p1, :cond_2
+    if-ne v0, p1, :cond_38
 
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    goto :goto_1
+    goto :goto_3b
 
-    :cond_2
+    :cond_38
     move-object v0, p0
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    :goto_1
+    :goto_3b
     return-object v0
 .end method

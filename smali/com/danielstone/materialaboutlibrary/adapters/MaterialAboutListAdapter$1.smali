@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 181
     invoke-direct {p0}, Landroidx/recyclerview/widget/DiffUtil$ItemCallback;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public areContentsTheSame(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;)Z
-    .locals 5
+    .registers 8
     .param p1, "oldItem"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
     .param p2, "newItem"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
 
@@ -72,16 +72,16 @@
 
     const/4 v3, 0x0
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_20
 
     return v3
 
     .line 192
-    :cond_0
+    :cond_20
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_21
     invoke-virtual {p1}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->getItems()Ljava/util/ArrayList;
 
     move-result-object v2
@@ -90,7 +90,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_51
 
     .line 193
     invoke-virtual {p1}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->getItems()Ljava/util/ArrayList;
@@ -125,24 +125,24 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4e
 
     return v3
 
     .line 192
-    :cond_1
+    :cond_4e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
     .line 195
     .end local v1    # "i":I
-    :cond_2
+    :cond_51
     return v0
 .end method
 
 .method public bridge synthetic areContentsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     .line 181
     check-cast p1, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
@@ -157,7 +157,7 @@
 .end method
 
 .method public areItemsTheSame(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;)Z
-    .locals 2
+    .registers 5
     .param p1, "oldItem"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
     .param p2, "newItem"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public bridge synthetic areItemsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     .line 181
     check-cast p1, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;

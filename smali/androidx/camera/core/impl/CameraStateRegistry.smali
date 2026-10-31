@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "maxAllowedOpenedCameras"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -83,7 +83,7 @@
     monitor-enter v0
 
     .line 64
-    :try_start_0
+    :try_start_1d
     iget v1, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mMaxAllowedOpenedCameras:I
 
     iput v1, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mAvailableCameras:I
@@ -95,18 +95,18 @@
     return-void
 
     .line 65
-    :catchall_0
+    :catchall_23
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catchall {:try_start_1d .. :try_end_25} :catchall_23
 
     throw v1
 .end method
 
 .method private static isOpen(Landroidx/camera/core/impl/CameraInternal$State;)Z
-    .locals 1
+    .registers 2
     .param p0, "state"    # Landroidx/camera/core/impl/CameraInternal$State;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -118,27 +118,27 @@
     .end annotation
 
     .line 225
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     invoke-virtual {p0}, Landroidx/camera/core/impl/CameraInternal$State;->holdsCameraSlot()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method private recalculateAvailableCameras()V
-    .locals 14
+    .registers 15
 
     .line 231
     const-string v0, "CameraStateRegistry"
@@ -157,7 +157,7 @@
 
     const/4 v6, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_35
 
     .line 232
     iget-object v1, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mDebugString:Ljava/lang/StringBuilder;
@@ -198,7 +198,7 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 242
-    :cond_0
+    :cond_35
     const/4 v1, 0x0
 
     .line 243
@@ -213,12 +213,12 @@
 
     move-result-object v7
 
-    :goto_0
+    :goto_40
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_9e
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -232,7 +232,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_8b
 
     .line 246
     invoke-interface {v8}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -245,7 +245,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_6d
 
     invoke-interface {v8}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -261,13 +261,13 @@
 
     move-result-object v9
 
-    goto :goto_1
+    goto :goto_6f
 
     .line 247
-    :cond_1
+    :cond_6d
     const-string v9, "UNKNOWN"
 
-    :goto_1
+    :goto_6f
     nop
 
     .line 248
@@ -302,7 +302,7 @@
 
     .line 252
     .end local v9    # "stateString":Ljava/lang/String;
-    :cond_2
+    :cond_8b
     invoke-interface {v8}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v9
@@ -317,23 +317,23 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_9d
 
     .line 253
     add-int/lit8 v1, v1, 0x1
 
     .line 255
     .end local v8    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroidx/camera/core/Camera;Landroidx/camera/core/impl/CameraStateRegistry$CameraRegistration;>;"
-    :cond_3
-    goto :goto_0
+    :cond_9d
+    goto :goto_40
 
     .line 256
-    :cond_4
+    :cond_9e
     invoke-static {v0}, Landroidx/camera/core/Logger;->isDebugEnabled(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_cf
 
     .line 257
     iget-object v3, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mDebugString:Ljava/lang/StringBuilder;
@@ -382,7 +382,7 @@
     invoke-static {v0, v2}, Landroidx/camera/core/Logger;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 266
-    :cond_5
+    :cond_cf
     iget v0, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mMaxAllowedOpenedCameras:I
 
     sub-int/2addr v0, v1
@@ -398,7 +398,7 @@
 .end method
 
 .method private unregisterCamera(Landroidx/camera/core/Camera;)Landroidx/camera/core/impl/CameraInternal$State;
-    .locals 2
+    .registers 4
     .param p1, "camera"    # Landroidx/camera/core/Camera;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -420,7 +420,7 @@
 
     .line 191
     .local v0, "registration":Landroidx/camera/core/impl/CameraStateRegistry$CameraRegistration;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 192
     invoke-direct {p0}, Landroidx/camera/core/impl/CameraStateRegistry;->recalculateAvailableCameras()V
@@ -433,14 +433,14 @@
     return-object v1
 
     .line 196
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method private updateAndVerifyState(Landroidx/camera/core/Camera;Landroidx/camera/core/impl/CameraInternal$State;)Landroidx/camera/core/impl/CameraInternal$State;
-    .locals 3
+    .registers 6
     .param p1, "camera"    # Landroidx/camera/core/Camera;
     .param p2, "state"    # Landroidx/camera/core/impl/CameraInternal$State;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -480,51 +480,51 @@
     .local v0, "previousState":Landroidx/camera/core/impl/CameraInternal$State;
     sget-object v1, Landroidx/camera/core/impl/CameraInternal$State;->OPENING:Landroidx/camera/core/impl/CameraInternal$State;
 
-    if-ne p2, v1, :cond_2
+    if-ne p2, v1, :cond_2b
 
     .line 211
     invoke-static {p2}, Landroidx/camera/core/impl/CameraStateRegistry;->isOpen(Landroidx/camera/core/impl/CameraInternal$State;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_25
 
     sget-object v1, Landroidx/camera/core/impl/CameraInternal$State;->OPENING:Landroidx/camera/core/impl/CameraInternal$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_23
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_23
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_1
-    :goto_0
+    :cond_25
+    :goto_25
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_26
     const-string v2, "Cannot mark camera as opening until camera was successful at calling CameraAvailabilityRegistry.tryOpen()"
 
     invoke-static {v1, v2}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
 
     .line 217
-    :cond_2
-    if-eq v0, p2, :cond_3
+    :cond_2b
+    if-eq v0, p2, :cond_30
 
     .line 218
     invoke-direct {p0}, Landroidx/camera/core/impl/CameraStateRegistry;->recalculateAvailableCameras()V
 
     .line 221
-    :cond_3
+    :cond_30
     return-object v0
 .end method
 
 
 # virtual methods
 .method public markCameraState(Landroidx/camera/core/Camera;Landroidx/camera/core/impl/CameraInternal$State;)V
-    .locals 8
+    .registers 11
     .param p1, "camera"    # Landroidx/camera/core/Camera;
     .param p2, "state"    # Landroidx/camera/core/impl/CameraInternal$State;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -552,14 +552,14 @@
 
     .line 151
     .local v2, "previousState":Landroidx/camera/core/impl/CameraInternal$State;
-    :try_start_0
+    :try_start_5
     iget v3, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mAvailableCameras:I
 
     .line 152
     .local v3, "previousAvailableCameras":I
     sget-object v4, Landroidx/camera/core/impl/CameraInternal$State;->RELEASED:Landroidx/camera/core/impl/CameraInternal$State;
 
-    if-ne p2, v4, :cond_0
+    if-ne p2, v4, :cond_11
 
     .line 153
     invoke-direct {p0, p1}, Landroidx/camera/core/impl/CameraStateRegistry;->unregisterCamera(Landroidx/camera/core/Camera;)Landroidx/camera/core/impl/CameraInternal$State;
@@ -568,10 +568,10 @@
 
     move-object v2, v4
 
-    goto :goto_0
+    goto :goto_16
 
     .line 155
-    :cond_0
+    :cond_11
     invoke-direct {p0, p1, p2}, Landroidx/camera/core/impl/CameraStateRegistry;->updateAndVerifyState(Landroidx/camera/core/Camera;Landroidx/camera/core/impl/CameraInternal$State;)Landroidx/camera/core/impl/CameraInternal$State;
 
     move-result-object v4
@@ -579,8 +579,8 @@
     move-object v2, v4
 
     .line 158
-    :goto_0
-    if-ne v2, p2, :cond_1
+    :goto_16
+    if-ne v2, p2, :cond_1a
 
     .line 160
     monitor-exit v1
@@ -588,14 +588,14 @@
     return-void
 
     .line 163
-    :cond_1
+    :cond_1a
     const/4 v4, 0x1
 
-    if-ge v3, v4, :cond_4
+    if-ge v3, v4, :cond_56
 
     iget v4, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mAvailableCameras:I
 
-    if-lez v4, :cond_4
+    if-lez v4, :cond_56
 
     .line 165
     new-instance v4, Ljava/util/ArrayList;
@@ -615,12 +615,12 @@
 
     move-result-object v4
 
-    :goto_1
+    :goto_31
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_55
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -642,7 +642,7 @@
 
     sget-object v7, Landroidx/camera/core/impl/CameraInternal$State;->PENDING_OPEN:Landroidx/camera/core/impl/CameraInternal$State;
 
-    if-ne v6, v7, :cond_2
+    if-ne v6, v7, :cond_54
 
     .line 168
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -655,21 +655,21 @@
 
     .line 170
     .end local v5    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroidx/camera/core/Camera;Landroidx/camera/core/impl/CameraStateRegistry$CameraRegistration;>;"
-    :cond_2
-    goto :goto_1
+    :cond_54
+    goto :goto_31
 
-    :cond_3
-    goto :goto_2
+    :cond_55
+    goto :goto_6b
 
     .line 171
-    :cond_4
+    :cond_56
     sget-object v4, Landroidx/camera/core/impl/CameraInternal$State;->PENDING_OPEN:Landroidx/camera/core/impl/CameraInternal$State;
 
-    if-ne p2, v4, :cond_5
+    if-ne p2, v4, :cond_6b
 
     iget v4, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mAvailableCameras:I
 
-    if-lez v4, :cond_5
+    if-lez v4, :cond_6b
 
     .line 174
     iget-object v4, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mCameraStates:Ljava/util/Map;
@@ -689,26 +689,26 @@
     .line 176
     .end local v2    # "previousState":Landroidx/camera/core/impl/CameraInternal$State;
     .end local v3    # "previousAvailableCameras":I
-    :cond_5
-    :goto_2
+    :cond_6b
+    :goto_6b
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6c
+    .catchall {:try_start_5 .. :try_end_6c} :catchall_83
 
     .line 179
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_82
 
     .line 180
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_3
+    :goto_72
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_82
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -722,26 +722,26 @@
 
     .line 182
     .end local v2    # "registration":Landroidx/camera/core/impl/CameraStateRegistry$CameraRegistration;
-    goto :goto_3
+    goto :goto_72
 
     .line 184
-    :cond_6
+    :cond_82
     return-void
 
     .line 176
-    :catchall_0
+    :catchall_83
     move-exception v2
 
-    :try_start_1
+    :try_start_84
     monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_85
+    .catchall {:try_start_84 .. :try_end_85} :catchall_83
 
     throw v2
 .end method
 
 .method public registerCamera(Landroidx/camera/core/Camera;Ljava/util/concurrent/Executor;Landroidx/camera/core/impl/CameraStateRegistry$OnOpenAvailableListener;)V
-    .locals 4
+    .registers 8
     .param p1, "camera"    # Landroidx/camera/core/Camera;
     .param p2, "notifyExecutor"    # Ljava/util/concurrent/Executor;
     .param p3, "cameraAvailableListener"    # Landroidx/camera/core/impl/CameraStateRegistry$OnOpenAvailableListener;
@@ -764,23 +764,23 @@
     monitor-enter v0
 
     .line 85
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mCameraStates:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_e
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -819,18 +819,18 @@
     return-void
 
     .line 89
-    :catchall_0
+    :catchall_31
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catchall {:try_start_3 .. :try_end_33} :catchall_31
 
     throw v1
 .end method
 
 .method public tryOpenCamera(Landroidx/camera/core/Camera;)Z
-    .locals 12
+    .registers 14
     .param p1, "camera"    # Landroidx/camera/core/Camera;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -847,7 +847,7 @@
     monitor-enter v0
 
     .line 109
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mCameraStates:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -880,7 +880,7 @@
 
     const/4 v5, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_54
 
     .line 113
     iget-object v3, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mDebugString:Ljava/lang/StringBuilder;
@@ -942,10 +942,10 @@
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 119
-    :cond_0
+    :cond_54
     iget v3, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mAvailableCameras:I
 
-    if-gtz v3, :cond_1
+    if-gtz v3, :cond_62
 
     invoke-virtual {v1}, Landroidx/camera/core/impl/CameraStateRegistry$CameraRegistration;->getState()Landroidx/camera/core/impl/CameraInternal$State;
 
@@ -955,10 +955,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_68
 
     .line 121
-    :cond_1
+    :cond_62
     sget-object v3, Landroidx/camera/core/impl/CameraInternal$State;->OPENING:Landroidx/camera/core/impl/CameraInternal$State;
 
     invoke-virtual {v1, v3}, Landroidx/camera/core/impl/CameraStateRegistry$CameraRegistration;->setState(Landroidx/camera/core/impl/CameraInternal$State;)Landroidx/camera/core/impl/CameraInternal$State;
@@ -967,14 +967,14 @@
     const/4 v2, 0x1
 
     .line 125
-    :cond_2
+    :cond_68
     const-string v3, "CameraStateRegistry"
 
     invoke-static {v3}, Landroidx/camera/core/Logger;->isDebugEnabled(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_93
 
     .line 126
     iget-object v3, p0, Landroidx/camera/core/impl/CameraStateRegistry;->mDebugString:Ljava/lang/StringBuilder;
@@ -984,16 +984,16 @@
     const-string v7, " --> %s"
 
     .line 127
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_7b
 
     const-string v8, "SUCCESS"
 
-    goto :goto_0
+    goto :goto_7d
 
-    :cond_3
+    :cond_7b
     const-string v8, "FAIL"
 
-    :goto_0
+    :goto_7d
     new-array v4, v4, [Ljava/lang/Object;
 
     aput-object v8, v4, v5
@@ -1017,14 +1017,14 @@
     invoke-static {v3, v4}, Landroidx/camera/core/Logger;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 131
-    :cond_4
-    if-eqz v2, :cond_5
+    :cond_93
+    if-eqz v2, :cond_98
 
     .line 134
     invoke-direct {p0}, Landroidx/camera/core/impl/CameraStateRegistry;->recalculateAvailableCameras()V
 
     .line 137
-    :cond_5
+    :cond_98
     monitor-exit v0
 
     return v2
@@ -1032,12 +1032,12 @@
     .line 138
     .end local v1    # "registration":Landroidx/camera/core/impl/CameraStateRegistry$CameraRegistration;
     .end local v2    # "success":Z
-    :catchall_0
+    :catchall_9a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9c
+    .catchall {:try_start_3 .. :try_end_9c} :catchall_9a
 
     throw v1
 .end method

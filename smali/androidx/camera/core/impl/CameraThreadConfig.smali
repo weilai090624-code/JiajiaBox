@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static create(Ljava/util/concurrent/Executor;Landroid/os/Handler;)Landroidx/camera/core/impl/CameraThreadConfig;
-    .locals 1
+    .registers 3
     .param p0, "cameraExecutor"    # Ljava/util/concurrent/Executor;
     .param p1, "schedulerHandler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/MethodParameters;

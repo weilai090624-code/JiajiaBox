@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final launchCustomTab(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 8
+    .registers 10
     .param p0, "$this$launchCustomTab"    # Landroid/content/Context;
     .param p1, "link"    # Ljava/lang/String;
 
@@ -174,7 +174,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_6a
 
     .line 26
     invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -184,7 +184,7 @@
     invoke-virtual {v0, p0, v2}, Landroidx/browser/customtabs/CustomTabsIntent;->launchUrl(Landroid/content/Context;Landroid/net/Uri;)V
 
     .line 28
-    :cond_0
+    :cond_6a
     nop
 
     .line 24

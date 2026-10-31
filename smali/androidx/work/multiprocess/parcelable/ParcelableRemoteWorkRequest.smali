@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 57
     new-instance v0, Landroidx/work/multiprocess/parcelable/ParcelableRemoteWorkRequest$1;
@@ -39,7 +39,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 50
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroidx/work/WorkerParameters;)V
-    .locals 1
+    .registers 4
     .param p1, "workerClassName"    # Ljava/lang/String;
     .param p2, "workerParameters"    # Landroidx/work/WorkerParameters;
 
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 72
     const/4 v0, 0x0
@@ -97,7 +97,7 @@
 .end method
 
 .method public getParcelableWorkerParameters()Landroidx/work/multiprocess/parcelable/ParcelableWorkerParameters;
-    .locals 1
+    .registers 2
 
     .line 90
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableRemoteWorkRequest;->mParcelableWorkerParameters:Landroidx/work/multiprocess/parcelable/ParcelableWorkerParameters;
@@ -106,7 +106,7 @@
 .end method
 
 .method public getWorkerClassName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 85
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableRemoteWorkRequest;->mWorkerClassName:Ljava/lang/String;
@@ -115,7 +115,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

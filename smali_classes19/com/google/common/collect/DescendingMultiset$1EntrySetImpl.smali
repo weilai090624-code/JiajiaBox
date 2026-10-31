@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/DescendingMultiset;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/DescendingMultiset;
 
     .line 129
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -64,7 +64,7 @@
 .end method
 
 .method multiset()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -81,7 +81,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 142
     .local p0, "this":Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;, "Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;"

@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public static final decodingWith(Ljava/io/InputStream;Lkotlin/io/encoding/Base64;)Ljava/io/InputStream;
-    .locals 1
+    .registers 3
     .param p0, "$this$decodingWith"    # Ljava/io/InputStream;
     .param p1, "base64"    # Lkotlin/io/encoding/Base64;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public static final encodingWith(Ljava/io/OutputStream;Lkotlin/io/encoding/Base64;)Ljava/io/OutputStream;
-    .locals 1
+    .registers 3
     .param p0, "$this$encodingWith"    # Ljava/io/OutputStream;
     .param p1, "base64"    # Lkotlin/io/encoding/Base64;
 

@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/CoroutineContextKt$hasCopyableElements$1;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x2
 
@@ -80,29 +80,29 @@
 
 # virtual methods
 .method public final invoke(ZLkotlin/coroutines/CoroutineContext$Element;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 4
     .param p1, "result"    # Z
     .param p2, "it"    # Lkotlin/coroutines/CoroutineContext$Element;
 
     .line 40
-    if-nez p1, :cond_1
+    if-nez p1, :cond_9
 
     instance-of v0, p2, Lkotlinx/coroutines/CopyableThreadContextElement;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_a
 
-    :cond_1
-    :goto_0
+    :cond_9
+    :goto_9
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_a
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -111,7 +111,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 

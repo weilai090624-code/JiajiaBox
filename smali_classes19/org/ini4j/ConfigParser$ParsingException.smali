@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 409
@@ -38,7 +38,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Throwable;Lorg/ini4j/ConfigParser$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/lang/Throwable;
     .param p2, "x1"    # Lorg/ini4j/ConfigParser$1;
 

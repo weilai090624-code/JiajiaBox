@@ -62,7 +62,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1294
     const-class v0, Lj$/util/stream/WhileOps;
@@ -71,7 +71,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Ljava/util/function/IntFunction;)V
-    .locals 2
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,7 +121,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/WhileOps$DropWhileTask;Lj$/util/Spliterator;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -158,7 +158,7 @@
 .end method
 
 .method private doTruncate(Lj$/util/stream/Node;)Lj$/util/stream/Node;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -174,7 +174,7 @@
     .local p1, "input":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$DropWhileTask;->isOrdered:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 1390
     iget-wide v2, p0, Lj$/util/stream/WhileOps$DropWhileTask;->index:J
@@ -191,19 +191,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
     .line 1391
-    :cond_0
+    :cond_12
     move-object v0, p1
 
     .line 1389
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method private merge()Lj$/util/stream/Node;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -224,7 +224,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_17
 
     .line 1374
     iget-object v0, p0, Lj$/util/stream/WhileOps$DropWhileTask;->rightChild:Lj$/util/stream/AbstractTask;
@@ -240,7 +240,7 @@
     return-object v0
 
     .line 1376
-    :cond_0
+    :cond_17
     iget-object v0, p0, Lj$/util/stream/WhileOps$DropWhileTask;->rightChild:Lj$/util/stream/AbstractTask;
 
     check-cast v0, Lj$/util/stream/WhileOps$DropWhileTask;
@@ -249,7 +249,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2c
 
     .line 1379
     iget-object v0, p0, Lj$/util/stream/WhileOps$DropWhileTask;->leftChild:Lj$/util/stream/AbstractTask;
@@ -265,7 +265,7 @@
     return-object v0
 
     .line 1383
-    :cond_1
+    :cond_2c
     iget-object v0, p0, Lj$/util/stream/WhileOps$DropWhileTask;->op:Lj$/util/stream/AbstractPipeline;
 
     invoke-virtual {v0}, Lj$/util/stream/AbstractPipeline;->getOutputShape()Lj$/util/stream/StreamShape;
@@ -304,7 +304,7 @@
 
 # virtual methods
 .method protected final doLeaf()Lj$/util/stream/Node;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -325,11 +325,11 @@
 
     .line 1334
     .local v0, "isChild":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     iget-boolean v2, p0, Lj$/util/stream/WhileOps$DropWhileTask;->isOrdered:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     sget-object v2, Lj$/util/stream/StreamOpFlag;->SIZED:Lj$/util/stream/StreamOpFlag;
 
@@ -341,7 +341,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     .line 1335
     iget-object v2, p0, Lj$/util/stream/WhileOps$DropWhileTask;->op:Lj$/util/stream/AbstractPipeline;
@@ -352,13 +352,13 @@
 
     move-result-wide v2
 
-    goto :goto_0
+    goto :goto_23
 
     .line 1336
-    :cond_0
+    :cond_21
     const-wide/16 v2, -0x1
 
-    :goto_0
+    :goto_23
     nop
 
     .line 1337
@@ -381,16 +381,16 @@
     .local v5, "dropOp":Lj$/util/stream/WhileOps$DropWhileOp;, "Ljava/util/stream/WhileOps$DropWhileOp<TP_OUT;>;"
     iget-boolean v6, p0, Lj$/util/stream/WhileOps$DropWhileTask;->isOrdered:Z
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_37
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_37
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_1
+    :cond_37
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_38
     invoke-interface {v5, v4, v1}, Lj$/util/stream/WhileOps$DropWhileOp;->opWrapSink(Lj$/util/stream/Sink;Z)Lj$/util/stream/WhileOps$DropWhileSink;
 
     move-result-object v1
@@ -428,7 +428,7 @@
 .end method
 
 .method protected bridge synthetic doLeaf()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1294
     .local p0, "this":Lj$/util/stream/WhileOps$DropWhileTask;, "Ljava/util/stream/WhileOps$DropWhileTask<TP_IN;TP_OUT;>;"
@@ -440,7 +440,7 @@
 .end method
 
 .method protected bridge synthetic makeChild(Lj$/util/Spliterator;)Lj$/util/stream/AbstractTask;
-    .locals 0
+    .registers 2
 
     .line 1294
     .local p0, "this":Lj$/util/stream/WhileOps$DropWhileTask;, "Ljava/util/stream/WhileOps$DropWhileTask<TP_IN;TP_OUT;>;"
@@ -452,7 +452,7 @@
 .end method
 
 .method protected makeChild(Lj$/util/Spliterator;)Lj$/util/stream/WhileOps$DropWhileTask;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -474,7 +474,7 @@
 .end method
 
 .method public final onCompletion(Ljava/util/concurrent/CountedCompleter;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -490,12 +490,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4b
 
     .line 1354
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$DropWhileTask;->isOrdered:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 1355
     iget-object v0, p0, Lj$/util/stream/WhileOps$DropWhileTask;->leftChild:Lj$/util/stream/AbstractTask;
@@ -517,7 +517,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_29
 
     .line 1359
     iget-wide v0, p0, Lj$/util/stream/WhileOps$DropWhileTask;->index:J
@@ -533,7 +533,7 @@
     iput-wide v0, p0, Lj$/util/stream/WhileOps$DropWhileTask;->index:J
 
     .line 1362
-    :cond_0
+    :cond_29
     iget-object v0, p0, Lj$/util/stream/WhileOps$DropWhileTask;->leftChild:Lj$/util/stream/AbstractTask;
 
     check-cast v0, Lj$/util/stream/WhileOps$DropWhileTask;
@@ -561,23 +561,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_47
 
     invoke-direct {p0, v0}, Lj$/util/stream/WhileOps$DropWhileTask;->doTruncate(Lj$/util/stream/Node;)Lj$/util/stream/Node;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_48
 
-    :cond_1
+    :cond_47
     move-object v1, v0
 
-    :goto_0
+    :goto_48
     invoke-virtual {p0, v1}, Lj$/util/stream/WhileOps$DropWhileTask;->setLocalResult(Ljava/lang/Object;)V
 
     .line 1367
     .end local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    :cond_2
+    :cond_4b
     invoke-super {p0, p1}, Lj$/util/stream/AbstractTask;->onCompletion(Ljava/util/concurrent/CountedCompleter;)V
 
     .line 1368

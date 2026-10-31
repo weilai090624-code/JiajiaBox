@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 542
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getBoundsInScreen(Landroid/view/accessibility/AccessibilityWindowInfo;Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
     .param p1, "outBounds"    # Landroid/graphics/Rect;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static getChild(Landroid/view/accessibility/AccessibilityWindowInfo;I)Landroid/view/accessibility/AccessibilityWindowInfo;
-    .locals 1
+    .registers 3
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
     .param p1, "index"    # I
 
@@ -51,7 +51,7 @@
 .end method
 
 .method static getChildCount(Landroid/view/accessibility/AccessibilityWindowInfo;)I
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 558
@@ -63,7 +63,7 @@
 .end method
 
 .method static getId(Landroid/view/accessibility/AccessibilityWindowInfo;)I
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 563
@@ -75,7 +75,7 @@
 .end method
 
 .method static getLayer(Landroid/view/accessibility/AccessibilityWindowInfo;)I
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 568
@@ -87,7 +87,7 @@
 .end method
 
 .method static getParent(Landroid/view/accessibility/AccessibilityWindowInfo;)Landroid/view/accessibility/AccessibilityWindowInfo;
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 573
@@ -99,7 +99,7 @@
 .end method
 
 .method static getRoot(Landroid/view/accessibility/AccessibilityWindowInfo;)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 578
@@ -111,7 +111,7 @@
 .end method
 
 .method static getType(Landroid/view/accessibility/AccessibilityWindowInfo;)I
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 583
@@ -123,7 +123,7 @@
 .end method
 
 .method static isAccessibilityFocused(Landroid/view/accessibility/AccessibilityWindowInfo;)Z
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 588
@@ -135,7 +135,7 @@
 .end method
 
 .method static isActive(Landroid/view/accessibility/AccessibilityWindowInfo;)Z
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 593
@@ -147,7 +147,7 @@
 .end method
 
 .method static isFocused(Landroid/view/accessibility/AccessibilityWindowInfo;)Z
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 598
@@ -159,7 +159,7 @@
 .end method
 
 .method static obtain()Landroid/view/accessibility/AccessibilityWindowInfo;
-    .locals 1
+    .registers 1
 
     .line 603
     invoke-static {}, Landroid/view/accessibility/AccessibilityWindowInfo;->obtain()Landroid/view/accessibility/AccessibilityWindowInfo;
@@ -170,7 +170,7 @@
 .end method
 
 .method static obtain(Landroid/view/accessibility/AccessibilityWindowInfo;)Landroid/view/accessibility/AccessibilityWindowInfo;
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 608

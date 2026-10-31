@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$forEach(Ljava/util/Collection;Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Ljava/util/Collection;
 
     .line 667
@@ -17,12 +17,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_7
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -34,15 +34,15 @@
 
     .line 670
     .end local v1    # "t":Ljava/lang/Object;, "TE;"
-    goto :goto_0
+    goto :goto_7
 
     .line 671
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public static $default$parallelStream(Ljava/util/Collection;)Lj$/util/stream/Stream;
-    .locals 2
+    .registers 3
     .param p0, "_this"    # Ljava/util/Collection;
 
     .line 765
@@ -60,7 +60,7 @@
 .end method
 
 .method public static $default$removeIf(Ljava/util/Collection;Ljava/util/function/Predicate;)Z
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Ljava/util/Collection;
 
     .line 542
@@ -71,7 +71,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 543
     invoke-static {p0, p1}, Lj$/util/DesugarCollections;->removeIf(Ljava/util/Collection;Ljava/util/function/Predicate;)Z
@@ -81,7 +81,7 @@
     return v0
 
     .line 545
-    :cond_0
+    :cond_d
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 546
@@ -95,13 +95,13 @@
 
     .line 548
     .local v1, "each":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2a
 
     .line 549
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -112,7 +112,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_15
 
     .line 550
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
@@ -120,15 +120,15 @@
     .line 551
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 554
-    :cond_2
+    :cond_2a
     return v0
 .end method
 
 .method public static $default$spliterator(Ljava/util/Collection;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Ljava/util/Collection;
 
     .line 725
@@ -142,7 +142,7 @@
 .end method
 
 .method public static $default$stream(Ljava/util/Collection;)Lj$/util/stream/Stream;
-    .locals 2
+    .registers 3
     .param p0, "_this"    # Ljava/util/Collection;
 
     .line 744
@@ -160,7 +160,7 @@
 .end method
 
 .method public static $default$toArray(Ljava/util/Collection;Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/Collection;
 
     .line 382

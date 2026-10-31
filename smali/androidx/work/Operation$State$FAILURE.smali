@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "exception"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getThrowable()Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
 
     .line 139
     iget-object v0, p0, Landroidx/work/Operation$State$FAILURE;->mThrowable:Ljava/lang/Throwable;
@@ -53,7 +53,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 145
     new-instance v0, Ljava/lang/StringBuilder;

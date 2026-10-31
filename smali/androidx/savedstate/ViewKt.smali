@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static final synthetic findViewTreeSavedStateRegistryOwner(Landroid/view/View;)Landroidx/savedstate/SavedStateRegistryOwner;
-    .locals 1
+    .registers 2
     .param p0, "$this$findViewTreeSavedStateRegistryOwner"    # Landroid/view/View;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;

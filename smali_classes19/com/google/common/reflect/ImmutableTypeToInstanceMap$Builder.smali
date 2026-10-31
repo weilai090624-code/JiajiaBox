@@ -37,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 66
     .local p0, "this":Lcom/google/common/reflect/ImmutableTypeToInstanceMap$Builder;, "Lcom/google/common/reflect/ImmutableTypeToInstanceMap$Builder<TB;>;"
@@ -58,7 +58,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/reflect/ImmutableTypeToInstanceMap$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/reflect/ImmutableTypeToInstanceMap$1;
 
     .line 62
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public build()Lcom/google/common/reflect/ImmutableTypeToInstanceMap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -98,7 +98,7 @@
 .end method
 
 .method public put(Lcom/google/common/reflect/TypeToken;Ljava/lang/Object;)Lcom/google/common/reflect/ImmutableTypeToInstanceMap$Builder;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -126,7 +126,7 @@
 .end method
 
 .method public put(Ljava/lang/Class;Ljava/lang/Object;)Lcom/google/common/reflect/ImmutableTypeToInstanceMap$Builder;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",

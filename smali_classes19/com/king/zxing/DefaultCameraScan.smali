@@ -77,7 +77,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;Landroidx/camera/view/PreviewView;)V
-    .locals 1
+    .registers 4
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "previewView"    # Landroidx/camera/view/PreviewView;
 
@@ -124,7 +124,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/fragment/app/FragmentActivity;Landroidx/camera/view/PreviewView;)V
-    .locals 1
+    .registers 4
     .param p1, "activity"    # Landroidx/fragment/app/FragmentActivity;
     .param p2, "previewView"    # Landroidx/camera/view/PreviewView;
 
@@ -163,7 +163,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/king/zxing/DefaultCameraScan;)Landroidx/camera/core/Camera;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/king/zxing/DefaultCameraScan;
 
     .line 47
@@ -173,25 +173,25 @@
 .end method
 
 .method private declared-synchronized handleAnalyzeResult(Lcom/google/zxing/Result;)V
-    .locals 8
+    .registers 10
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     monitor-enter p0
 
     .line 270
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lcom/king/zxing/DefaultCameraScan;->isAnalyzeResult:Z
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_70
 
     iget-boolean v0, p0, Lcom/king/zxing/DefaultCameraScan;->isAnalyze:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    goto :goto_0
+    goto :goto_70
 
     .line 273
-    :cond_0
+    :cond_a
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/king/zxing/DefaultCameraScan;->isAnalyzeResult:Z
@@ -199,7 +199,7 @@
     .line 274
     iget-object v1, p0, Lcom/king/zxing/DefaultCameraScan;->mBeepManager:Lcom/king/zxing/manager/BeepManager;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
     .line 275
     iget-object v1, p0, Lcom/king/zxing/DefaultCameraScan;->mBeepManager:Lcom/king/zxing/manager/BeepManager;
@@ -208,20 +208,20 @@
 
     .line 278
     .end local p0    # "this":Lcom/king/zxing/DefaultCameraScan;
-    :cond_1
+    :cond_16
     invoke-virtual {p1}, Lcom/google/zxing/Result;->getBarcodeFormat()Lcom/google/zxing/BarcodeFormat;
 
     move-result-object v1
 
     sget-object v2, Lcom/google/zxing/BarcodeFormat;->QR_CODE:Lcom/google/zxing/BarcodeFormat;
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_6b
 
     invoke-virtual {p0}, Lcom/king/zxing/DefaultCameraScan;->isNeedAutoZoom()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6b
 
     iget-wide v1, p0, Lcom/king/zxing/DefaultCameraScan;->mLastAutoZoomTime:J
 
@@ -235,7 +235,7 @@
 
     cmp-long v5, v1, v3
 
-    if-gez v5, :cond_3
+    if-gez v5, :cond_6b
 
     .line 279
     invoke-virtual {p1}, Lcom/google/zxing/Result;->getResultPoints()[Lcom/google/zxing/ResultPoint;
@@ -244,13 +244,13 @@
 
     .line 280
     .local v1, "points":[Lcom/google/zxing/ResultPoint;
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6b
 
     array-length v2, v1
 
     const/4 v3, 0x2
 
-    if-lt v2, v3, :cond_3
+    if-lt v2, v3, :cond_6b
 
     .line 281
     const/4 v2, 0x0
@@ -273,7 +273,7 @@
 
     const/4 v7, 0x3
 
-    if-lt v6, v7, :cond_2
+    if-lt v6, v7, :cond_62
 
     .line 284
     aget-object v0, v1, v0
@@ -309,16 +309,16 @@
     .line 288
     .end local v0    # "distance2":F
     .end local v2    # "distance3":F
-    :cond_2
+    :cond_62
     float-to-int v0, v5
 
     invoke-direct {p0, v0, p1}, Lcom/king/zxing/DefaultCameraScan;->handleAutoZoom(ILcom/google/zxing/Result;)Z
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_67
+    .catchall {:try_start_1 .. :try_end_67} :catchall_72
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_6b
 
     .line 289
     monitor-exit p0
@@ -329,11 +329,11 @@
     .end local v1    # "points":[Lcom/google/zxing/ResultPoint;
     .end local v4    # "distance1":F
     .end local v5    # "maxDistance":F
-    :cond_3
-    :try_start_1
+    :cond_6b
+    :try_start_6b
     invoke-direct {p0, p1}, Lcom/king/zxing/DefaultCameraScan;->scanResultCallback(Lcom/google/zxing/Result;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_6e
+    .catchall {:try_start_6b .. :try_end_6e} :catchall_72
 
     .line 295
     monitor-exit p0
@@ -341,27 +341,27 @@
     return-void
 
     .line 271
-    :cond_4
-    :goto_0
+    :cond_70
+    :goto_70
     monitor-exit p0
 
     return-void
 
     .line 269
     .end local p1    # "result":Lcom/google/zxing/Result;
-    :catchall_0
+    :catchall_72
     move-exception p1
 
-    :try_start_2
+    :try_start_73
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_74
+    .catchall {:try_start_73 .. :try_end_74} :catchall_72
 
     throw p1
 .end method
 
 .method private handleAutoZoom(ILcom/google/zxing/Result;)Z
-    .locals 3
+    .registers 6
     .param p1, "distance"    # I
     .param p2, "result"    # Lcom/google/zxing/Result;
 
@@ -378,7 +378,7 @@
     .local v0, "size":I
     mul-int/lit8 v1, p1, 0x4
 
-    if-ge v1, v0, :cond_0
+    if-ge v1, v0, :cond_1a
 
     .line 300
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -399,14 +399,14 @@
     return v1
 
     .line 305
-    :cond_0
+    :cond_1a
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method private handlePreviewViewClickTap(Landroid/view/MotionEvent;)V
-    .locals 5
+    .registers 7
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 180
@@ -416,19 +416,19 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_5c
 
     .line 181
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_5e
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 189
-    :pswitch_0
+    :pswitch_f
     iget v0, p0, Lcom/king/zxing/DefaultCameraScan;->mDownX:F
 
     iget v2, p0, Lcom/king/zxing/DefaultCameraScan;->mDownY:F
@@ -449,24 +449,24 @@
 
     cmpg-float v0, v0, v2
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_26
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_26
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_27
     iput-boolean v1, p0, Lcom/king/zxing/DefaultCameraScan;->isClickTap:Z
 
     .line 190
-    goto :goto_1
+    goto :goto_5c
 
     .line 192
-    :pswitch_1
+    :pswitch_2a
     iget-boolean v0, p0, Lcom/king/zxing/DefaultCameraScan;->isClickTap:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5c
 
     iget-wide v0, p0, Lcom/king/zxing/DefaultCameraScan;->mLastHoveTapTime:J
 
@@ -480,7 +480,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_5c
 
     .line 193
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -493,10 +493,10 @@
 
     invoke-direct {p0, v0, v1}, Lcom/king/zxing/DefaultCameraScan;->startFocusAndMetering(FF)V
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 183
-    :pswitch_2
+    :pswitch_47
     iput-boolean v1, p0, Lcom/king/zxing/DefaultCameraScan;->isClickTap:Z
 
     .line 184
@@ -524,27 +524,27 @@
     nop
 
     .line 198
-    :cond_1
-    :goto_1
+    :cond_5c
+    :goto_5c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_47
+        :pswitch_2a
+        :pswitch_f
     .end packed-switch
 .end method
 
 .method private initConfig()V
-    .locals 1
+    .registers 2
 
     .line 211
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCameraConfig:Lcom/king/zxing/config/CameraConfig;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 212
     new-instance v0, Lcom/king/zxing/config/CameraConfig;
@@ -554,10 +554,10 @@
     iput-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCameraConfig:Lcom/king/zxing/config/CameraConfig;
 
     .line 214
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAnalyzer:Lcom/king/zxing/analyze/Analyzer;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
     .line 215
     new-instance v0, Lcom/king/zxing/analyze/MultiFormatAnalyzer;
@@ -567,12 +567,12 @@
     iput-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAnalyzer:Lcom/king/zxing/analyze/Analyzer;
 
     .line 217
-    :cond_1
+    :cond_16
     return-void
 .end method
 
 .method private initData()V
-    .locals 6
+    .registers 7
 
     .line 132
     new-instance v0, Landroidx/lifecycle/MutableLiveData;
@@ -702,7 +702,7 @@
     .line 160
     iget-object v2, p0, Lcom/king/zxing/DefaultCameraScan;->mAmbientLightManager:Lcom/king/zxing/manager/AmbientLightManager;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_89
 
     .line 161
     iget-object v2, p0, Lcom/king/zxing/DefaultCameraScan;->mAmbientLightManager:Lcom/king/zxing/manager/AmbientLightManager;
@@ -719,18 +719,18 @@
     invoke-virtual {v2, v3}, Lcom/king/zxing/manager/AmbientLightManager;->setOnLightSensorEventListener(Lcom/king/zxing/manager/AmbientLightManager$OnLightSensorEventListener;)V
 
     .line 177
-    :cond_0
+    :cond_89
     return-void
 .end method
 
 .method private scanResultCallback(Lcom/google/zxing/Result;)V
-    .locals 3
+    .registers 5
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 309
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mOnScanResultCallback:Lcom/king/zxing/CameraScan$OnScanResultCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mOnScanResultCallback:Lcom/king/zxing/CameraScan$OnScanResultCallback;
 
@@ -738,7 +738,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 315
     const/4 v0, 0x0
@@ -749,10 +749,10 @@
     return-void
 
     .line 319
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mFragmentActivity:Landroidx/fragment/app/FragmentActivity;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 320
     new-instance v0, Landroid/content/Intent;
@@ -783,19 +783,19 @@
 
     .line 325
     .end local v0    # "intent":Landroid/content/Intent;
-    :cond_1
+    :cond_2d
     return-void
 .end method
 
 .method private startFocusAndMetering(FF)V
-    .locals 3
+    .registers 6
     .param p1, "x"    # F
     .param p2, "y"    # F
 
     .line 201
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_40
 
     .line 202
     new-instance v0, Ljava/lang/StringBuilder;
@@ -859,14 +859,14 @@
 
     .line 206
     .end local v0    # "point":Landroidx/camera/core/MeteringPoint;
-    :cond_0
+    :cond_40
     return-void
 .end method
 
 
 # virtual methods
 .method public bindFlashlightView(Landroid/view/View;)Lcom/king/zxing/CameraScan;
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     .line 483
@@ -875,42 +875,42 @@
     .line 484
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAmbientLightManager:Lcom/king/zxing/manager/AmbientLightManager;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 485
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAmbientLightManager:Lcom/king/zxing/manager/AmbientLightManager;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_d
     invoke-virtual {v0, v1}, Lcom/king/zxing/manager/AmbientLightManager;->setLightSensorEnabled(Z)V
 
     .line 487
-    :cond_1
+    :cond_10
     return-object p0
 .end method
 
 .method public enableTorch(Z)V
-    .locals 1
+    .registers 3
     .param p1, "torch"    # Z
 
     .line 414
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     invoke-virtual {p0}, Lcom/king/zxing/DefaultCameraScan;->hasFlashUnit()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 415
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -922,12 +922,12 @@
     invoke-interface {v0, p1}, Landroidx/camera/core/CameraControl;->enableTorch(Z)Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 417
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public getCamera()Landroidx/camera/core/Camera;
-    .locals 1
+    .registers 2
 
     .line 464
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -936,12 +936,12 @@
 .end method
 
 .method public hasFlashUnit()Z
-    .locals 1
+    .registers 2
 
     .line 433
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 434
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -957,21 +957,21 @@
     return v0
 
     .line 436
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public isTorchEnabled()Z
-    .locals 3
+    .registers 4
 
     .line 421
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 422
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -996,35 +996,35 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_1d
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_1d
     return v1
 
     .line 424
-    :cond_1
+    :cond_1e
     return v1
 .end method
 
 .method synthetic lambda$initData$0$com-king-zxing-DefaultCameraScan(Lcom/google/zxing/Result;)V
-    .locals 1
+    .registers 3
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 134
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     .line 135
     invoke-direct {p0, p1}, Lcom/king/zxing/DefaultCameraScan;->handleAnalyzeResult(Lcom/google/zxing/Result;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 136
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mOnScanResultCallback:Lcom/king/zxing/CameraScan$OnScanResultCallback;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     .line 137
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mOnScanResultCallback:Lcom/king/zxing/CameraScan$OnScanResultCallback;
@@ -1032,13 +1032,13 @@
     invoke-interface {v0}, Lcom/king/zxing/CameraScan$OnScanResultCallback;->onScanResultFailure()V
 
     .line 139
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     return-void
 .end method
 
 .method synthetic lambda$initData$1$com-king-zxing-DefaultCameraScan(Landroid/view/ScaleGestureDetector;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 5
     .param p1, "scaleGestureDetector"    # Landroid/view/ScaleGestureDetector;
     .param p2, "v"    # Landroid/view/View;
     .param p3, "event"    # Landroid/view/MotionEvent;
@@ -1051,7 +1051,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 147
     invoke-virtual {p1, p3}, Landroid/view/ScaleGestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
@@ -1061,26 +1061,26 @@
     return v0
 
     .line 149
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method synthetic lambda$initData$2$com-king-zxing-DefaultCameraScan(ZF)V
-    .locals 3
+    .registers 6
     .param p1, "dark"    # Z
     .param p2, "lightLux"    # F
 
     .line 163
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->flashlightView:Landroid/view/View;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_37
 
     .line 164
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1e
 
     .line 165
     iget-object v1, p0, Lcom/king/zxing/DefaultCameraScan;->flashlightView:Landroid/view/View;
@@ -1089,7 +1089,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_37
 
     .line 166
     iget-object v1, p0, Lcom/king/zxing/DefaultCameraScan;->flashlightView:Landroid/view/View;
@@ -1105,23 +1105,23 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setSelected(Z)V
 
-    goto :goto_0
+    goto :goto_37
 
     .line 169
-    :cond_0
+    :cond_1e
     iget-object v1, p0, Lcom/king/zxing/DefaultCameraScan;->flashlightView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getVisibility()I
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_37
 
     invoke-virtual {p0}, Lcom/king/zxing/DefaultCameraScan;->isTorchEnabled()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_37
 
     .line 170
     iget-object v1, p0, Lcom/king/zxing/DefaultCameraScan;->flashlightView:Landroid/view/View;
@@ -1136,27 +1136,27 @@
     invoke-virtual {v1, v0}, Landroid/view/View;->setSelected(Z)V
 
     .line 175
-    :cond_1
-    :goto_0
+    :cond_37
+    :goto_37
     return-void
 .end method
 
 .method synthetic lambda$null$3$com-king-zxing-DefaultCameraScan(Landroidx/camera/core/ImageProxy;)V
-    .locals 2
+    .registers 4
     .param p1, "image"    # Landroidx/camera/core/ImageProxy;
 
     .line 246
     iget-boolean v0, p0, Lcom/king/zxing/DefaultCameraScan;->isAnalyze:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     iget-boolean v0, p0, Lcom/king/zxing/DefaultCameraScan;->isAnalyzeResult:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAnalyzer:Lcom/king/zxing/analyze/Analyzer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 247
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAnalyzer:Lcom/king/zxing/analyze/Analyzer;
@@ -1175,7 +1175,7 @@
 
     .line 250
     .end local v0    # "result":Lcom/google/zxing/Result;
-    :cond_0
+    :cond_19
     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->close()V
 
     .line 251
@@ -1183,7 +1183,7 @@
 .end method
 
 .method synthetic lambda$startCamera$4$com-king-zxing-DefaultCameraScan()V
-    .locals 7
+    .registers 8
 
     .line 235
     :try_start_0
@@ -1253,7 +1253,7 @@
     .line 252
     iget-object v3, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_4a
 
     .line 253
     iget-object v3, p0, Lcom/king/zxing/DefaultCameraScan;->mCameraProviderFuture:Lcom/google/common/util/concurrent/ListenableFuture;
@@ -1267,7 +1267,7 @@
     invoke-virtual {v3}, Landroidx/camera/lifecycle/ProcessCameraProvider;->unbindAll()V
 
     .line 256
-    :cond_0
+    :cond_4a
     iget-object v3, p0, Lcom/king/zxing/DefaultCameraScan;->mCameraProviderFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-interface {v3}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
@@ -1293,17 +1293,17 @@
     move-result-object v3
 
     iput-object v3, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_62
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_62} :catch_63
 
     .line 259
     .end local v0    # "preview":Landroidx/camera/core/Preview;
     .end local v1    # "cameraSelector":Landroidx/camera/core/CameraSelector;
     .end local v2    # "imageAnalysis":Landroidx/camera/core/ImageAnalysis;
-    goto :goto_0
+    goto :goto_67
 
     .line 257
-    :catch_0
+    :catch_63
     move-exception v0
 
     .line 258
@@ -1312,17 +1312,17 @@
 
     .line 261
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_67
     return-void
 .end method
 
 .method public lineZoomIn()V
-    .locals 2
+    .registers 3
 
     .line 387
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 388
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -1355,7 +1355,7 @@
 
     cmpg-float v1, v0, v1
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_2b
 
     .line 390
     iget-object v1, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -1368,17 +1368,17 @@
 
     .line 393
     .end local v0    # "zoom":F
-    :cond_0
+    :cond_2b
     return-void
 .end method
 
 .method public lineZoomOut()V
-    .locals 2
+    .registers 3
 
     .line 397
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     .line 398
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -1411,7 +1411,7 @@
 
     cmpl-float v1, v0, v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_2a
 
     .line 400
     iget-object v1, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -1424,18 +1424,18 @@
 
     .line 403
     .end local v0    # "zoom":F
-    :cond_0
+    :cond_2a
     return-void
 .end method
 
 .method public lineZoomTo(F)V
-    .locals 1
+    .registers 3
     .param p1, "linearZoom"    # F
 
     .line 407
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 408
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -1447,12 +1447,12 @@
     invoke-interface {v0, p1}, Landroidx/camera/core/CameraControl;->setLinearZoom(F)Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 410
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public release()V
-    .locals 1
+    .registers 2
 
     .line 470
     const/4 v0, 0x0
@@ -1467,7 +1467,7 @@
     .line 472
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAmbientLightManager:Lcom/king/zxing/manager/AmbientLightManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 473
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAmbientLightManager:Lcom/king/zxing/manager/AmbientLightManager;
@@ -1475,10 +1475,10 @@
     invoke-virtual {v0}, Lcom/king/zxing/manager/AmbientLightManager;->unregister()V
 
     .line 475
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mBeepManager:Lcom/king/zxing/manager/BeepManager;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 476
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mBeepManager:Lcom/king/zxing/manager/BeepManager;
@@ -1486,7 +1486,7 @@
     invoke-virtual {v0}, Lcom/king/zxing/manager/BeepManager;->close()V
 
     .line 478
-    :cond_1
+    :cond_18
     invoke-virtual {p0}, Lcom/king/zxing/DefaultCameraScan;->stopCamera()V
 
     .line 479
@@ -1494,7 +1494,7 @@
 .end method
 
 .method public setAnalyzeImage(Z)Lcom/king/zxing/CameraScan;
-    .locals 0
+    .registers 2
     .param p1, "analyze"    # Z
 
     .line 341
@@ -1505,7 +1505,7 @@
 .end method
 
 .method public setAnalyzer(Lcom/king/zxing/analyze/Analyzer;)Lcom/king/zxing/CameraScan;
-    .locals 0
+    .registers 2
     .param p1, "analyzer"    # Lcom/king/zxing/analyze/Analyzer;
 
     .line 347
@@ -1516,13 +1516,13 @@
 .end method
 
 .method public setBrightLightLux(F)Lcom/king/zxing/CameraScan;
-    .locals 1
+    .registers 3
     .param p1, "lightLux"    # F
 
     .line 498
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAmbientLightManager:Lcom/king/zxing/manager/AmbientLightManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 499
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAmbientLightManager:Lcom/king/zxing/manager/AmbientLightManager;
@@ -1530,33 +1530,33 @@
     invoke-virtual {v0, p1}, Lcom/king/zxing/manager/AmbientLightManager;->setBrightLightLux(F)V
 
     .line 501
-    :cond_0
+    :cond_9
     return-object p0
 .end method
 
 .method public setCameraConfig(Lcom/king/zxing/config/CameraConfig;)Lcom/king/zxing/CameraScan;
-    .locals 0
+    .registers 2
     .param p1, "cameraConfig"    # Lcom/king/zxing/config/CameraConfig;
 
     .line 222
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4
 
     .line 223
     iput-object p1, p0, Lcom/king/zxing/DefaultCameraScan;->mCameraConfig:Lcom/king/zxing/config/CameraConfig;
 
     .line 225
-    :cond_0
+    :cond_4
     return-object p0
 .end method
 
 .method public setDarkLightLux(F)Lcom/king/zxing/CameraScan;
-    .locals 1
+    .registers 3
     .param p1, "lightLux"    # F
 
     .line 491
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAmbientLightManager:Lcom/king/zxing/manager/AmbientLightManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 492
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mAmbientLightManager:Lcom/king/zxing/manager/AmbientLightManager;
@@ -1564,12 +1564,12 @@
     invoke-virtual {v0, p1}, Lcom/king/zxing/manager/AmbientLightManager;->setDarkLightLux(F)V
 
     .line 494
-    :cond_0
+    :cond_9
     return-object p0
 .end method
 
 .method public setOnScanResultCallback(Lcom/king/zxing/CameraScan$OnScanResultCallback;)Lcom/king/zxing/CameraScan;
-    .locals 0
+    .registers 2
     .param p1, "callback"    # Lcom/king/zxing/CameraScan$OnScanResultCallback;
 
     .line 457
@@ -1580,13 +1580,13 @@
 .end method
 
 .method public setPlayBeep(Z)Lcom/king/zxing/CameraScan;
-    .locals 1
+    .registers 3
     .param p1, "playBeep"    # Z
 
     .line 449
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mBeepManager:Lcom/king/zxing/manager/BeepManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 450
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mBeepManager:Lcom/king/zxing/manager/BeepManager;
@@ -1594,18 +1594,18 @@
     invoke-virtual {v0, p1}, Lcom/king/zxing/manager/BeepManager;->setPlayBeep(Z)V
 
     .line 452
-    :cond_0
+    :cond_9
     return-object p0
 .end method
 
 .method public setVibrate(Z)Lcom/king/zxing/CameraScan;
-    .locals 1
+    .registers 3
     .param p1, "vibrate"    # Z
 
     .line 441
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mBeepManager:Lcom/king/zxing/manager/BeepManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 442
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mBeepManager:Lcom/king/zxing/manager/BeepManager;
@@ -1613,12 +1613,12 @@
     invoke-virtual {v0, p1}, Lcom/king/zxing/manager/BeepManager;->setVibrate(Z)V
 
     .line 444
-    :cond_0
+    :cond_9
     return-object p0
 .end method
 
 .method public startCamera()V
-    .locals 3
+    .registers 4
 
     .line 230
     invoke-direct {p0}, Lcom/king/zxing/DefaultCameraScan;->initConfig()V
@@ -1654,15 +1654,15 @@
 .end method
 
 .method public stopCamera()V
-    .locals 1
+    .registers 2
 
     .line 330
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCameraProviderFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 332
-    :try_start_0
+    :try_start_4
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCameraProviderFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-interface {v0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
@@ -1672,14 +1672,14 @@
     check-cast v0, Landroidx/camera/lifecycle/ProcessCameraProvider;
 
     invoke-virtual {v0}, Landroidx/camera/lifecycle/ProcessCameraProvider;->unbindAll()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_f} :catch_10
 
     .line 335
-    goto :goto_0
+    goto :goto_14
 
     .line 333
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 334
@@ -1688,18 +1688,18 @@
 
     .line 337
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_14
+    :goto_14
     return-void
 .end method
 
 .method public zoomIn()V
-    .locals 3
+    .registers 4
 
     .line 353
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3d
 
     .line 354
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -1752,7 +1752,7 @@
     .local v1, "maxRatio":F
     cmpg-float v2, v0, v1
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_3d
 
     .line 357
     iget-object v2, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -1766,17 +1766,17 @@
     .line 360
     .end local v0    # "ratio":F
     .end local v1    # "maxRatio":F
-    :cond_0
+    :cond_3d
     return-void
 .end method
 
 .method public zoomOut()V
-    .locals 3
+    .registers 4
 
     .line 364
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3d
 
     .line 365
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -1829,7 +1829,7 @@
     .local v1, "minRatio":F
     cmpl-float v2, v0, v1
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_3d
 
     .line 368
     iget-object v2, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -1843,18 +1843,18 @@
     .line 371
     .end local v0    # "ratio":F
     .end local v1    # "minRatio":F
-    :cond_0
+    :cond_3d
     return-void
 .end method
 
 .method public zoomTo(F)V
-    .locals 5
+    .registers 7
     .param p1, "ratio"    # F
 
     .line 376
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 377
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
@@ -1910,6 +1910,6 @@
     .end local v1    # "maxRatio":F
     .end local v2    # "minRatio":F
     .end local v3    # "zoom":F
-    :cond_0
+    :cond_2d
     return-void
 .end method

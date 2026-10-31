@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/security/Signature;)V
-    .locals 1
+    .registers 3
     .param p1, "signature"    # Ljava/security/Signature;
 
     .line 202
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Ljavax/crypto/Cipher;)V
-    .locals 1
+    .registers 3
     .param p1, "cipher"    # Ljavax/crypto/Cipher;
 
     .line 209
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Ljavax/crypto/Mac;)V
-    .locals 1
+    .registers 3
     .param p1, "mac"    # Ljavax/crypto/Mac;
 
     .line 215
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public getCipher()Ljavax/crypto/Cipher;
-    .locals 1
+    .registers 2
 
     .line 233
     iget-object v0, p0, Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;->mCipher:Ljavax/crypto/Cipher;
@@ -101,7 +101,7 @@
 .end method
 
 .method public getMac()Ljavax/crypto/Mac;
-    .locals 1
+    .registers 2
 
     .line 240
     iget-object v0, p0, Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;->mMac:Ljavax/crypto/Mac;
@@ -110,7 +110,7 @@
 .end method
 
 .method public getSignature()Ljava/security/Signature;
-    .locals 1
+    .registers 2
 
     .line 226
     iget-object v0, p0, Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;->mSignature:Ljava/security/Signature;

@@ -68,7 +68,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 2252
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -98,7 +98,7 @@
 .end method
 
 .method private nextViewFromScrapList()Landroid/view/View;
-    .locals 6
+    .registers 7
 
     .line 2375
     iget-object v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->mScrapList:Ljava/util/List;
@@ -112,8 +112,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_7
+    if-ge v1, v0, :cond_30
 
     .line 2377
     iget-object v2, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->mScrapList:Ljava/util/List;
@@ -143,20 +143,20 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_21
 
     .line 2381
-    goto :goto_1
+    goto :goto_2d
 
     .line 2383
-    :cond_0
+    :cond_21
     iget v4, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->mCurrentPosition:I
 
     invoke-virtual {v3}, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
 
     move-result v5
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_2d
 
     .line 2384
     invoke-virtual {p0, v2}, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->assignPositionFromScrapList(Landroid/view/View;)V
@@ -167,15 +167,15 @@
     .line 2376
     .end local v2    # "view":Landroid/view/View;
     .end local v3    # "lp":Landroidx/recyclerview/widget/RecyclerView$LayoutParams;
-    :cond_1
-    :goto_1
+    :cond_2d
+    :goto_2d
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 2388
     .end local v1    # "i":I
-    :cond_2
+    :cond_30
     const/4 v1, 0x0
 
     return-object v1
@@ -184,7 +184,7 @@
 
 # virtual methods
 .method public assignPositionFromScrapList()V
-    .locals 1
+    .registers 2
 
     .line 2392
     const/4 v0, 0x0
@@ -196,7 +196,7 @@
 .end method
 
 .method public assignPositionFromScrapList(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "ignore"    # Landroid/view/View;
 
     .line 2396
@@ -206,17 +206,17 @@
 
     .line 2397
     .local v0, "closest":Landroid/view/View;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 2398
     const/4 v1, -0x1
 
     iput v1, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->mCurrentPosition:I
 
-    goto :goto_0
+    goto :goto_16
 
     .line 2400
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
@@ -231,18 +231,18 @@
     iput v1, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->mCurrentPosition:I
 
     .line 2403
-    :goto_0
+    :goto_16
     return-void
 .end method
 
 .method hasMore(Landroidx/recyclerview/widget/RecyclerView$State;)Z
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
 
     .line 2349
     iget v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->mCurrentPosition:I
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_e
 
     iget v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->mCurrentPosition:I
 
@@ -250,21 +250,21 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method log()V
-    .locals 2
+    .registers 3
 
     .line 2436
     new-instance v0, Ljava/lang/StringBuilder;
@@ -344,13 +344,13 @@
 .end method
 
 .method next(Landroidx/recyclerview/widget/RecyclerView$Recycler;)Landroid/view/View;
-    .locals 3
+    .registers 5
     .param p1, "recycler"    # Landroidx/recyclerview/widget/RecyclerView$Recycler;
 
     .line 2359
     iget-object v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->mScrapList:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 2360
     invoke-direct {p0}, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->nextViewFromScrapList()Landroid/view/View;
@@ -360,7 +360,7 @@
     return-object v0
 
     .line 2362
-    :cond_0
+    :cond_9
     iget v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->mCurrentPosition:I
 
     invoke-virtual {p1, v0}, Landroidx/recyclerview/widget/RecyclerView$Recycler;->getViewForPosition(I)Landroid/view/View;
@@ -382,7 +382,7 @@
 .end method
 
 .method public nextViewInLimitedList(Landroid/view/View;)Landroid/view/View;
-    .locals 8
+    .registers 10
     .param p1, "ignore"    # Landroid/view/View;
 
     .line 2406
@@ -405,8 +405,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v0, :cond_3
+    :goto_b
+    if-ge v3, v0, :cond_3f
 
     .line 2413
     iget-object v4, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;->mScrapList:Ljava/util/List;
@@ -432,19 +432,19 @@
 
     .line 2416
     .local v5, "lp":Landroidx/recyclerview/widget/RecyclerView$LayoutParams;
-    if-eq v4, p1, :cond_2
+    if-eq v4, p1, :cond_3c
 
     invoke-virtual {v5}, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;->isItemRemoved()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_27
 
     .line 2417
-    goto :goto_1
+    goto :goto_3c
 
     .line 2419
-    :cond_0
+    :cond_27
     invoke-virtual {v5}, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
 
     move-result v6
@@ -459,14 +459,14 @@
 
     .line 2421
     .local v6, "distance":I
-    if-gez v6, :cond_1
+    if-gez v6, :cond_35
 
     .line 2422
-    goto :goto_1
+    goto :goto_3c
 
     .line 2424
-    :cond_1
-    if-ge v6, v2, :cond_2
+    :cond_35
+    if-ge v6, v2, :cond_3c
 
     .line 2425
     move-object v1, v4
@@ -475,24 +475,24 @@
     move v2, v6
 
     .line 2427
-    if-nez v6, :cond_2
+    if-nez v6, :cond_3c
 
     .line 2428
-    goto :goto_2
+    goto :goto_3f
 
     .line 2412
     .end local v4    # "view":Landroid/view/View;
     .end local v5    # "lp":Landroidx/recyclerview/widget/RecyclerView$LayoutParams;
     .end local v6    # "distance":I
-    :cond_2
-    :goto_1
+    :cond_3c
+    :goto_3c
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 2432
     .end local v3    # "i":I
-    :cond_3
-    :goto_2
+    :cond_3f
+    :goto_3f
     return-object v1
 .end method

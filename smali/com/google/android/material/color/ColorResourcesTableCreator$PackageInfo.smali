@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "id"    # I
     .param p2, "name"    # Ljava/lang/String;
 
@@ -40,7 +40,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
 
     .line 542
@@ -50,7 +50,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
 
     .line 542

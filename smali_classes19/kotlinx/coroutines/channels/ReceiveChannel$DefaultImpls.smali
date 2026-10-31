@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static synthetic cancel(Lkotlinx/coroutines/channels/ReceiveChannel;)V
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
@@ -42,23 +42,23 @@
 .end method
 
 .method public static synthetic cancel$default(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 297
-    if-nez p3, :cond_1
+    if-nez p3, :cond_b
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_7
     invoke-interface {p0, p1}, Lkotlinx/coroutines/channels/ReceiveChannel;->cancel(Ljava/util/concurrent/CancellationException;)V
 
     return-void
 
-    :cond_1
+    :cond_b
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: cancel"
@@ -69,25 +69,25 @@
 .end method
 
 .method public static synthetic cancel$default(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/lang/Throwable;ILjava/lang/Object;)Z
-    .locals 0
+    .registers 4
 
     .line 309
-    if-nez p3, :cond_1
+    if-nez p3, :cond_c
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_7
     invoke-interface {p0, p1}, Lkotlinx/coroutines/channels/ReceiveChannel;->cancel(Ljava/lang/Throwable;)Z
 
     move-result p0
 
     return p0
 
-    :cond_1
+    :cond_c
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: cancel"
@@ -98,7 +98,7 @@
 .end method
 
 .method public static getOnReceiveOrNull(Lkotlinx/coroutines/channels/ReceiveChannel;)Lkotlinx/coroutines/selects/SelectClause1;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -129,7 +129,7 @@
 .end method
 
 .method public static synthetic getOnReceiveOrNull$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "Deprecated in favor of onReceiveCatching extension"
@@ -143,19 +143,19 @@
 .end method
 
 .method public static synthetic isClosedForReceive$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isEmpty$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static poll(Lkotlinx/coroutines/channels/ReceiveChannel;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -187,7 +187,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     invoke-static {v0}, Lkotlinx/coroutines/channels/ChannelResult;->getOrThrow-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -196,18 +196,18 @@
     return-object v1
 
     .line 343
-    :cond_0
+    :cond_f
     invoke-static {v0}, Lkotlinx/coroutines/channels/ChannelResult;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_17
 
     const/4 v1, 0x0
 
     return-object v1
 
-    :cond_1
+    :cond_17
     invoke-static {v1}, Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->recoverStackTrace(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     move-result-object v1
@@ -216,7 +216,7 @@
 .end method
 
 .method public static receiveOrNull(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -241,7 +241,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/channels/ReceiveChannel$receiveOrNull$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -253,7 +253,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/channels/ReceiveChannel$receiveOrNull$1;->label:I
 
@@ -261,14 +261,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/channels/ReceiveChannel$receiveOrNull$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/channels/ReceiveChannel$receiveOrNull$1;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/channels/ReceiveChannel$receiveOrNull$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -282,7 +282,7 @@
     .line 372
     iget v2, p1, Lkotlinx/coroutines/channels/ReceiveChannel$receiveOrNull$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_4a
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -296,7 +296,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object p0, v0
@@ -307,9 +307,9 @@
 
     move-result-object p0
 
-    goto :goto_1
+    goto :goto_45
 
-    :pswitch_1
+    :pswitch_38
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .local p0, "$this":Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -322,21 +322,21 @@
     move-result-object p0
 
     .end local p0    # "$this":Lkotlinx/coroutines/channels/ReceiveChannel;
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_45
 
     return-object v1
 
-    :cond_1
-    :goto_1
+    :cond_45
+    :goto_45
     invoke-static {p0}, Lkotlinx/coroutines/channels/ChannelResult;->getOrNull-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
     return-object p0
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_38
+        :pswitch_2d
     .end packed-switch
 .end method

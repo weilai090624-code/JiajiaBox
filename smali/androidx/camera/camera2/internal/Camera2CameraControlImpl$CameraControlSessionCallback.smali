@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method addListener(Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CaptureResultListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CaptureResultListener;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -82,7 +82,7 @@
 .end method
 
 .method synthetic lambda$onCaptureCompleted$0$androidx-camera-camera2-internal-Camera2CameraControlImpl$CameraControlSessionCallback(Landroid/hardware/camera2/TotalCaptureResult;)V
-    .locals 4
+    .registers 6
     .param p1, "result"    # Landroid/hardware/camera2/TotalCaptureResult;
 
     .line 750
@@ -98,12 +98,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -119,7 +119,7 @@
 
     .line 753
     .local v3, "isFinished":Z
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     .line 754
     invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -127,16 +127,16 @@
     .line 756
     .end local v2    # "listener":Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CaptureResultListener;
     .end local v3    # "isFinished":Z
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_b
 
     .line 758
-    :cond_1
+    :cond_21
     invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_2c
 
     .line 759
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CameraControlSessionCallback;->mResultListeners:Ljava/util/Set;
@@ -144,12 +144,12 @@
     invoke-interface {v1, v0}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
 
     .line 761
-    :cond_2
+    :cond_2c
     return-void
 .end method
 
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
-    .locals 2
+    .registers 6
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "result"    # Landroid/hardware/camera2/TotalCaptureResult;
@@ -180,7 +180,7 @@
 .end method
 
 .method removeListener(Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CaptureResultListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CaptureResultListener;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

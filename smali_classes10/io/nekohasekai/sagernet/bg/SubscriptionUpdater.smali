@@ -49,7 +49,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public final reconfigureUpdater(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 19
+    .registers 21
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,7 +89,7 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$reconfigureUpdater$1;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
@@ -101,7 +101,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v1, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$reconfigureUpdater$1;->label:I
 
@@ -111,9 +111,9 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v1, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$reconfigureUpdater$1;
 
     move-object/from16 v2, p0
@@ -121,7 +121,7 @@
     invoke-direct {v1, v2, v0}, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$reconfigureUpdater$1;-><init>(Lio/nekohasekai/sagernet/bg/SubscriptionUpdater;Lkotlin/coroutines/Continuation;)V
 
     .local v1, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_1f
     iget-object v3, v1, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$reconfigureUpdater$1;->result:Ljava/lang/Object;
 
     .local v3, "$result":Ljava/lang/Object;
@@ -134,7 +134,7 @@
 
     const-string v6, "SubscriptionUpdater"
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_1d6
 
     move-object v12, v1
 
@@ -150,14 +150,14 @@
 
     .restart local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_35
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v5, v3
 
-    goto :goto_1
+    goto :goto_5a
 
-    :pswitch_1
+    :pswitch_3a
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 24
@@ -188,13 +188,13 @@
 
     move-result-object v5
 
-    if-ne v5, v4, :cond_1
+    if-ne v5, v4, :cond_5a
 
     .line 23
     return-object v4
 
-    :cond_1
-    :goto_1
+    :cond_5a
+    :goto_5a
     move-object v4, v5
 
     check-cast v4, Ljava/lang/Iterable;
@@ -222,13 +222,13 @@
     move-result-object v9
 
     .end local v4    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    :cond_2
-    :goto_2
+    :cond_6a
+    :goto_6a
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_90
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -263,15 +263,15 @@
     .line 99
     .end local v10    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v11    # "$i$a$-filter-SubscriptionUpdater$reconfigureUpdater$subscriptions$1":I
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_6a
 
     invoke-interface {v7, v4}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_6a
 
     .line 100
     .end local v4    # "element$iv$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_90
     nop
 
     .end local v7    # "destination$iv$iv":Ljava/util/Collection;
@@ -296,14 +296,14 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_a0
 
     sget-object v5, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v5
 
     .line 31
-    :cond_4
+    :cond_a0
     new-instance v5, Lkotlin/jvm/internal/Ref$LongRef;
 
     invoke-direct {v5}, Lkotlin/jvm/internal/Ref$LongRef;-><init>()V
@@ -329,14 +329,14 @@
 
     move-result v9
 
-    if-nez v9, :cond_5
+    if-nez v9, :cond_b5
 
     const/4 v9, 0x0
 
-    goto :goto_4
+    goto :goto_f1
 
     .line 103
-    :cond_5
+    :cond_b5
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v9
@@ -347,12 +347,12 @@
 
     move-result v10
 
-    if-nez v10, :cond_6
+    if-nez v10, :cond_c0
 
-    goto :goto_4
+    goto :goto_f1
 
     .line 105
-    :cond_6
+    :cond_c0
     move-object v10, v9
 
     check-cast v10, Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -377,7 +377,7 @@
 
     .line 107
     .local v10, "minValue$iv":Ljava/lang/Comparable;
-    :goto_3
+    :goto_cf
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v11
@@ -412,7 +412,7 @@
 
     move-result v13
 
-    if-lez v13, :cond_7
+    if-lez v13, :cond_ea
 
     .line 110
     .end local v9    # "minElem$iv":Ljava/lang/Object;
@@ -427,12 +427,12 @@
     .end local v11    # "e$iv":Ljava/lang/Object;
     .end local v12    # "v$iv":Ljava/lang/Comparable;
     .restart local v10    # "minValue$iv":Ljava/lang/Comparable;
-    :cond_7
+    :cond_ea
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-nez v11, :cond_e
+    if-nez v11, :cond_1cd
 
     .line 114
     nop
@@ -441,7 +441,7 @@
     .end local v8    # "$i$f$minByOrNull":I
     .end local v9    # "minElem$iv":Ljava/lang/Object;
     .end local v10    # "minValue$iv":Ljava/lang/Comparable;
-    :goto_4
+    :goto_f1
     invoke-static {v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     check-cast v9, Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -494,7 +494,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_d
+    if-eqz v10, :cond_1c7
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -548,13 +548,13 @@
 
     .end local v10    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v11    # "$i$a$-minOf-SubscriptionUpdater$reconfigureUpdater$minInitDelay$1":I
-    :cond_8
-    :goto_5
+    :cond_147
+    :goto_147
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_178
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -604,15 +604,15 @@
     .end local v18    # "$i$a$-minOf-SubscriptionUpdater$reconfigureUpdater$minInitDelay$1":I
     cmp-long v10, v14, v0
 
-    if-lez v10, :cond_8
+    if-lez v10, :cond_147
 
     move-wide v14, v0
 
-    goto :goto_5
+    goto :goto_147
 
     .line 34
     .end local v7    # "now":J
-    :cond_9
+    :cond_178
     iput-wide v14, v9, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
     .line 36
@@ -622,24 +622,24 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_a
+    if-gez v4, :cond_184
 
     iput-wide v2, v5, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
     .line 37
-    :cond_a
+    :cond_184
     iget-wide v0, v9, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
     const-wide/16 v2, 0x3c
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_b
+    if-lez v4, :cond_18e
 
     iput-wide v2, v9, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
     .line 40
-    :cond_b
+    :cond_18e
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
     move-result-object v0
@@ -682,7 +682,7 @@
 
     cmp-long v5, v7, v10
 
-    if-lez v5, :cond_c
+    if-lez v5, :cond_1b7
 
     iget-wide v7, v9, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
@@ -693,7 +693,7 @@
     .line 46
     .end local v3    # "$this$reconfigureUpdater_u24lambda_u243":Landroidx/work/PeriodicWorkRequest$Builder;
     .end local v9    # "minInitDelay":Lkotlin/jvm/internal/Ref$LongRef;
-    :cond_c
+    :cond_1b7
     nop
 
     .end local v4    # "$i$a$-apply-SubscriptionUpdater$reconfigureUpdater$2":I
@@ -725,7 +725,7 @@
     .restart local v5    # "minDelay":Lkotlin/jvm/internal/Ref$LongRef;
     .restart local v7    # "now":J
     .restart local v9    # "minInitDelay":Lkotlin/jvm/internal/Ref$LongRef;
-    :cond_d
+    :cond_1c7
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -738,7 +738,7 @@
     .restart local v8    # "$i$f$minByOrNull":I
     .local v9, "minElem$iv":Ljava/lang/Object;
     .local v10, "minValue$iv":Ljava/lang/Comparable;
-    :cond_e
+    :cond_1cd
     move-object v12, v1
 
     move-object/from16 v16, v3
@@ -751,11 +751,11 @@
 
     move-object/from16 v0, p1
 
-    goto/16 :goto_3
+    goto/16 :goto_cf
 
-    :pswitch_data_0
+    :pswitch_data_1d6
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3a
+        :pswitch_35
     .end packed-switch
 .end method

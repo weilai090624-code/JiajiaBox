@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 59
     new-instance v0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean$1;
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;-><init>()V
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 14
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->clone()Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
@@ -62,7 +62,7 @@
 .end method
 
 .method public clone()Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
-    .locals 2
+    .registers 3
 
     .line 56
     new-instance v0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
@@ -83,7 +83,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -99,7 +99,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -156,7 +156,7 @@
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 2
+    .registers 3
 
     .line 24
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->initializeDefaultValues()V
@@ -168,43 +168,43 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     const-string v0, "aes-256-gcm"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->method:Ljava/lang/String;
 
     .line 27
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->method:Ljava/lang/String;
 
     const-string v1, ""
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->method:Ljava/lang/String;
 
     .line 28
-    :cond_1
+    :cond_17
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->password:Ljava/lang/String;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1d
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->password:Ljava/lang/String;
 
     .line 29
-    :cond_2
+    :cond_1d
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->plugin:Ljava/lang/String;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_23
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->plugin:Ljava/lang/String;
 
     .line 30
-    :cond_3
+    :cond_23
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->sUoT:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_2e
 
     const/4 v0, 0x0
 
@@ -215,12 +215,12 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->sUoT:Ljava/lang/Boolean;
 
     .line 31
-    :cond_4
+    :cond_2e
     return-void
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

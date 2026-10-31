@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/JobSupport;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "$node"    # Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
 
     iput-object p2, p0, Lkotlinx/coroutines/JobSupport$addLastAtomic$$inlined$addLastIf$1;->this$0:Lkotlinx/coroutines/JobSupport;
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public bridge synthetic prepare(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "affected"    # Ljava/lang/Object;
 
     .line 73
@@ -81,7 +81,7 @@
 .end method
 
 .method public prepare(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "affected"    # Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
 
     .line 74
@@ -97,29 +97,29 @@
 
     iget-object v2, p0, Lkotlinx/coroutines/JobSupport$addLastAtomic$$inlined$addLastIf$1;->$expect$inlined:Ljava/lang/Object;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
     .line 74
     .end local v0    # "$i$a$-addLastIf-JobSupport$addLastAtomic$1":I
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_e
+    if-eqz v1, :cond_12
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_12
     invoke-static {}, Lkotlinx/coroutines/internal/LockFreeLinkedListKt;->getCONDITION_FALSE()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_1
+    :goto_16
     return-object v0
 .end method

@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     const-class v0, Lorg/ini4j/spi/BeanTool;
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 .end method
 
 .method public static final getInstance()Lorg/ini4j/spi/BeanTool;
-    .locals 1
+    .registers 1
 
     .line 40
     sget-object v0, Lorg/ini4j/spi/BeanTool;->INSTANCE:Lorg/ini4j/spi/BeanTool;
@@ -55,7 +55,7 @@
 .end method
 
 .method private getPropertyDescriptors(Ljava/lang/Class;)[Ljava/beans/PropertyDescriptor;
-    .locals 2
+    .registers 4
     .param p1, "clazz"    # Ljava/lang/Class;
 
     .line 258
@@ -67,13 +67,13 @@
     invoke-interface {v0}, Ljava/beans/BeanInfo;->getPropertyDescriptors()[Ljava/beans/PropertyDescriptor;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/beans/IntrospectionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/beans/IntrospectionException; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 260
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 262
@@ -86,7 +86,7 @@
 .end method
 
 .method private parsePrimitiveValue(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "value"    # Ljava/lang/String;
     .param p2, "clazz"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Throws;
@@ -100,10 +100,10 @@
 
     .line 272
     .local v0, "o":Ljava/lang/Object;
-    :try_start_0
+    :try_start_1
     sget-object v1, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v1, :cond_0
+    if-ne p2, v1, :cond_b
 
     .line 274
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
@@ -112,13 +112,13 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_56
 
     .line 276
-    :cond_0
+    :cond_b
     sget-object v1, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v1, :cond_1
+    if-ne p2, v1, :cond_15
 
     .line 278
     invoke-static {p1}, Ljava/lang/Byte;->valueOf(Ljava/lang/String;)Ljava/lang/Byte;
@@ -127,13 +127,13 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_56
 
     .line 280
-    :cond_1
+    :cond_15
     sget-object v1, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v1, :cond_2
+    if-ne p2, v1, :cond_25
 
     .line 282
     new-instance v1, Ljava/lang/Character;
@@ -148,13 +148,13 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_56
 
     .line 284
-    :cond_2
+    :cond_25
     sget-object v1, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v1, :cond_3
+    if-ne p2, v1, :cond_2f
 
     .line 286
     invoke-static {p1}, Ljava/lang/Double;->valueOf(Ljava/lang/String;)Ljava/lang/Double;
@@ -163,13 +163,13 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_56
 
     .line 288
-    :cond_3
+    :cond_2f
     sget-object v1, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v1, :cond_4
+    if-ne p2, v1, :cond_39
 
     .line 290
     invoke-static {p1}, Ljava/lang/Float;->valueOf(Ljava/lang/String;)Ljava/lang/Float;
@@ -178,13 +178,13 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_56
 
     .line 292
-    :cond_4
+    :cond_39
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v1, :cond_5
+    if-ne p2, v1, :cond_43
 
     .line 294
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
@@ -193,13 +193,13 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_56
 
     .line 296
-    :cond_5
+    :cond_43
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v1, :cond_6
+    if-ne p2, v1, :cond_4d
 
     .line 298
     invoke-static {p1}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
@@ -208,33 +208,33 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_56
 
     .line 300
-    :cond_6
+    :cond_4d
     sget-object v1, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
-    if-ne p2, v1, :cond_7
+    if-ne p2, v1, :cond_56
 
     .line 302
     invoke-static {p1}, Ljava/lang/Short;->valueOf(Ljava/lang/String;)Ljava/lang/Short;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_55
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_55} :catch_58
 
     move-object v0, v1
 
     .line 308
-    :cond_7
-    :goto_0
+    :cond_56
+    :goto_56
     nop
 
     .line 310
     return-object v0
 
     .line 305
-    :catch_0
+    :catch_58
     move-exception v1
 
     .line 307
@@ -255,7 +255,7 @@
 
 # virtual methods
 .method public inject(Ljava/lang/Object;Lorg/ini4j/spi/BeanAccess;)V
-    .locals 10
+    .registers 13
     .param p1, "bean"    # Ljava/lang/Object;
     .param p2, "props"    # Lorg/ini4j/spi/BeanAccess;
 
@@ -275,14 +275,14 @@
     const/4 v2, 0x0
 
     .local v2, "i$":I
-    :goto_0
-    if-ge v2, v1, :cond_3
+    :goto_a
+    if-ge v2, v1, :cond_96
 
     aget-object v3, v0, v2
 
     .line 49
     .local v3, "pd":Ljava/beans/PropertyDescriptor;
-    :try_start_0
+    :try_start_e
     invoke-virtual {v3}, Ljava/beans/PropertyDescriptor;->getWriteMethod()Ljava/lang/reflect/Method;
 
     move-result-object v4
@@ -295,13 +295,13 @@
 
     .line 52
     .local v5, "name":Ljava/lang/String;
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_6b
 
     invoke-interface {p2, v5}, Lorg/ini4j/spi/BeanAccess;->propLength(Ljava/lang/String;)I
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_6b
 
     .line 56
     invoke-virtual {v3}, Ljava/beans/PropertyDescriptor;->getPropertyType()Ljava/lang/Class;
@@ -312,7 +312,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_56
 
     .line 58
     invoke-virtual {v3}, Ljava/beans/PropertyDescriptor;->getPropertyType()Ljava/lang/Class;
@@ -336,12 +336,12 @@
     const/4 v7, 0x0
 
     .local v7, "i":I
-    :goto_1
+    :goto_39
     invoke-interface {p2, v5}, Lorg/ini4j/spi/BeanAccess;->propLength(Ljava/lang/String;)I
 
     move-result v8
 
-    if-ge v7, v8, :cond_0
+    if-ge v7, v8, :cond_55
 
     .line 61
     invoke-interface {p2, v5, v7}, Lorg/ini4j/spi/BeanAccess;->propGet(Ljava/lang/String;I)Ljava/lang/String;
@@ -365,15 +365,15 @@
     .line 59
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_39
 
     .end local v7    # "i":I
-    :cond_0
-    goto :goto_2
+    :cond_55
+    goto :goto_62
 
     .line 66
     .end local v6    # "value":Ljava/lang/Object;
-    :cond_1
+    :cond_56
     invoke-interface {p2, v5}, Lorg/ini4j/spi/BeanAccess;->propGet(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
@@ -388,7 +388,7 @@
 
     .line 69
     .restart local v6    # "value":Ljava/lang/Object;
-    :goto_2
+    :goto_62
     const/4 v7, 0x1
 
     new-array v7, v7, [Ljava/lang/Object;
@@ -398,25 +398,25 @@
     aput-object v6, v7, v8
 
     invoke-virtual {v4, p1, v7}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6b
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_6b} :catch_6f
 
     .line 76
     .end local v4    # "method":Ljava/lang/reflect/Method;
     .end local v5    # "name":Ljava/lang/String;
     .end local v6    # "value":Ljava/lang/Object;
-    :cond_2
+    :cond_6b
     nop
 
     .line 45
     .end local v3    # "pd":Ljava/beans/PropertyDescriptor;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 72
     .restart local v3    # "pd":Ljava/beans/PropertyDescriptor;
-    :catch_0
+    :catch_6f
     move-exception v4
 
     .line 74
@@ -465,12 +465,12 @@
     .end local v2    # "i$":I
     .end local v3    # "pd":Ljava/beans/PropertyDescriptor;
     .end local v4    # "x":Ljava/lang/Exception;
-    :cond_3
+    :cond_96
     return-void
 .end method
 
 .method public inject(Lorg/ini4j/spi/BeanAccess;Ljava/lang/Object;)V
-    .locals 10
+    .registers 13
     .param p1, "props"    # Lorg/ini4j/spi/BeanAccess;
     .param p2, "bean"    # Ljava/lang/Object;
 
@@ -490,21 +490,21 @@
     const/4 v2, 0x0
 
     .local v2, "i$":I
-    :goto_0
-    if-ge v2, v1, :cond_4
+    :goto_a
+    if-ge v2, v1, :cond_8d
 
     aget-object v3, v0, v2
 
     .line 86
     .local v3, "pd":Ljava/beans/PropertyDescriptor;
-    :try_start_0
+    :try_start_e
     invoke-virtual {v3}, Ljava/beans/PropertyDescriptor;->getReadMethod()Ljava/lang/reflect/Method;
 
     move-result-object v4
 
     .line 88
     .local v4, "method":Ljava/lang/reflect/Method;
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_6b
 
     const-string v5, "class"
 
@@ -516,7 +516,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_6b
 
     .line 90
     const/4 v5, 0x0
@@ -531,7 +531,7 @@
 
     .line 92
     .local v5, "value":Ljava/lang/Object;
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_6b
 
     .line 94
     invoke-virtual {v3}, Ljava/beans/PropertyDescriptor;->getPropertyType()Ljava/lang/Class;
@@ -542,18 +542,18 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_60
 
     .line 96
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_1
+    :goto_35
     invoke-static {v5}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
     move-result v7
 
-    if-ge v6, v7, :cond_1
+    if-ge v6, v7, :cond_5f
 
     .line 98
     invoke-static {v5, v6}, Ljava/lang/reflect/Array;->get(Ljava/lang/Object;I)Ljava/lang/Object;
@@ -562,7 +562,7 @@
 
     .line 100
     .local v7, "v":Ljava/lang/Object;
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_52
 
     invoke-virtual {v7}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -574,7 +574,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_52
 
     .line 102
     invoke-virtual {v7}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -584,7 +584,7 @@
     move-object v7, v8
 
     .line 105
-    :cond_0
+    :cond_52
     invoke-virtual {v3}, Ljava/beans/PropertyDescriptor;->getName()Ljava/lang/String;
 
     move-result-object v8
@@ -599,14 +599,14 @@
     .end local v7    # "v":Ljava/lang/Object;
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_35
 
     .end local v6    # "i":I
-    :cond_1
-    goto :goto_2
+    :cond_5f
+    goto :goto_6b
 
     .line 110
-    :cond_2
+    :cond_60
     invoke-virtual {v3}, Ljava/beans/PropertyDescriptor;->getName()Ljava/lang/String;
 
     move-result-object v6
@@ -616,25 +616,25 @@
     move-result-object v7
 
     invoke-interface {p1, v6, v7}, Lorg/ini4j/spi/BeanAccess;->propSet(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6b
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_6b} :catch_6f
 
     .line 118
     .end local v4    # "method":Ljava/lang/reflect/Method;
     .end local v5    # "value":Ljava/lang/Object;
-    :cond_3
-    :goto_2
+    :cond_6b
+    :goto_6b
     nop
 
     .line 82
     .end local v3    # "pd":Ljava/beans/PropertyDescriptor;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 115
     .restart local v3    # "pd":Ljava/beans/PropertyDescriptor;
-    :catch_0
+    :catch_6f
     move-exception v4
 
     .line 117
@@ -673,12 +673,12 @@
     .end local v2    # "i$":I
     .end local v3    # "pd":Ljava/beans/PropertyDescriptor;
     .end local v4    # "x":Ljava/lang/Exception;
-    :cond_4
+    :cond_8d
     return-void
 .end method
 
 .method public parse(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -699,53 +699,53 @@
 
     .line 125
     .local p2, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_30
 
     .line 130
     const/4 v0, 0x0
 
     .line 132
     .local v0, "o":Ljava/lang/Object;
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     .line 134
     invoke-virtual {p0, p2}, Lorg/ini4j/spi/BeanTool;->zero(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 136
-    :cond_0
+    :cond_a
     invoke-virtual {p2}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_15
 
     .line 138
     invoke-direct {p0, p1, p2}, Lorg/ini4j/spi/BeanTool;->parsePrimitiveValue(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 142
-    :cond_1
+    :cond_15
     const-class v1, Ljava/lang/String;
 
-    if-ne p2, v1, :cond_2
+    if-ne p2, v1, :cond_1b
 
     .line 144
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 146
-    :cond_2
+    :cond_1b
     const-class v1, Ljava/lang/Character;
 
-    if-ne p2, v1, :cond_3
+    if-ne p2, v1, :cond_2b
 
     .line 148
     new-instance v1, Ljava/lang/Character;
@@ -760,21 +760,21 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 152
-    :cond_3
+    :cond_2b
     invoke-virtual {p0, p1, p2}, Lorg/ini4j/spi/BeanTool;->parseSpecialValue(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 156
-    :goto_0
+    :goto_2f
     return-object v0
 
     .line 127
     .end local v0    # "o":Ljava/lang/Object;
-    :cond_4
+    :cond_30
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "null argument"
@@ -785,7 +785,7 @@
 .end method
 
 .method protected parseSpecialValue(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p1, "value"    # Ljava/lang/String;
     .param p2, "clazz"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Throws;
@@ -797,10 +797,10 @@
     .line 216
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     const-class v1, Ljava/io/File;
 
-    if-ne p2, v1, :cond_0
+    if-ne p2, v1, :cond_c
 
     .line 218
     new-instance v1, Ljava/io/File;
@@ -810,14 +810,14 @@
     move-object v0, v1
 
     .local v0, "o":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_4b
 
     .line 220
     .end local v0    # "o":Ljava/lang/Object;
-    :cond_0
+    :cond_c
     const-class v1, Ljava/net/URL;
 
-    if-ne p2, v1, :cond_1
+    if-ne p2, v1, :cond_17
 
     .line 222
     new-instance v1, Ljava/net/URL;
@@ -827,14 +827,14 @@
     move-object v0, v1
 
     .restart local v0    # "o":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_4b
 
     .line 224
     .end local v0    # "o":Ljava/lang/Object;
-    :cond_1
+    :cond_17
     const-class v1, Ljava/net/URI;
 
-    if-ne p2, v1, :cond_2
+    if-ne p2, v1, :cond_22
 
     .line 226
     new-instance v1, Ljava/net/URI;
@@ -844,14 +844,14 @@
     move-object v0, v1
 
     .restart local v0    # "o":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_4b
 
     .line 228
     .end local v0    # "o":Ljava/lang/Object;
-    :cond_2
+    :cond_22
     const-class v1, Ljava/lang/Class;
 
-    if-ne p2, v1, :cond_3
+    if-ne p2, v1, :cond_2b
 
     .line 230
     invoke-static {p1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -859,14 +859,14 @@
     move-result-object v0
 
     .restart local v0    # "o":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_4b
 
     .line 232
     .end local v0    # "o":Ljava/lang/Object;
-    :cond_3
+    :cond_2b
     const-class v1, Ljava/util/TimeZone;
 
-    if-ne p2, v1, :cond_4
+    if-ne p2, v1, :cond_34
 
     .line 234
     invoke-static {p1}, Lj$/util/DesugarTimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
@@ -874,11 +874,11 @@
     move-result-object v0
 
     .restart local v0    # "o":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_4b
 
     .line 241
     .end local v0    # "o":Ljava/lang/Object;
-    :cond_4
+    :cond_34
     const-string v1, "valueOf"
 
     const/4 v2, 0x1
@@ -906,13 +906,13 @@
     invoke-virtual {v1, v3, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4b
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_4b} :catch_4d
 
     .line 249
     .end local v1    # "parser":Ljava/lang/reflect/Method;
     .restart local v0    # "o":Ljava/lang/Object;
-    :goto_0
+    :goto_4b
     nop
 
     .line 251
@@ -920,7 +920,7 @@
 
     .line 246
     .end local v0    # "o":Ljava/lang/Object;
-    :catch_0
+    :catch_4d
     move-exception v1
 
     .line 248
@@ -940,7 +940,7 @@
 .end method
 
 .method public proxy(Ljava/lang/Class;Lorg/ini4j/spi/BeanAccess;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p2, "props"    # Lorg/ini4j/spi/BeanAccess;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -988,7 +988,7 @@
 .end method
 
 .method public zero(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1009,38 +1009,38 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_58
 
     .line 172
     sget-object v1, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_e
 
     .line 174
     sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    goto :goto_0
+    goto :goto_58
 
     .line 176
-    :cond_0
+    :cond_e
     sget-object v1, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
     const/4 v2, 0x0
 
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_18
 
     .line 178
     invoke-static {v2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_58
 
     .line 180
-    :cond_1
+    :cond_18
     sget-object v1, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    if-ne p1, v1, :cond_2
+    if-ne p1, v1, :cond_23
 
     .line 182
     new-instance v1, Ljava/lang/Character;
@@ -1049,13 +1049,13 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_58
 
     .line 184
-    :cond_2
+    :cond_23
     sget-object v1, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    if-ne p1, v1, :cond_3
+    if-ne p1, v1, :cond_30
 
     .line 186
     new-instance v1, Ljava/lang/Double;
@@ -1066,13 +1066,13 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_58
 
     .line 188
-    :cond_3
+    :cond_30
     sget-object v1, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    if-ne p1, v1, :cond_4
+    if-ne p1, v1, :cond_3c
 
     .line 190
     new-instance v1, Ljava/lang/Float;
@@ -1083,26 +1083,26 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_58
 
     .line 192
-    :cond_4
+    :cond_3c
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p1, v1, :cond_5
+    if-ne p1, v1, :cond_45
 
     .line 194
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_58
 
     .line 196
-    :cond_5
+    :cond_45
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p1, v1, :cond_6
+    if-ne p1, v1, :cond_50
 
     .line 198
     const-wide/16 v1, 0x0
@@ -1111,13 +1111,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_58
 
     .line 200
-    :cond_6
+    :cond_50
     sget-object v1, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
-    if-ne p1, v1, :cond_7
+    if-ne p1, v1, :cond_58
 
     .line 202
     invoke-static {v2}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
@@ -1125,7 +1125,7 @@
     move-result-object v0
 
     .line 206
-    :cond_7
-    :goto_0
+    :cond_58
+    :goto_58
     return-object v0
 .end method

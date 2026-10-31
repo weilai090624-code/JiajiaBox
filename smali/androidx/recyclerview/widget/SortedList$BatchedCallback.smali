@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/recyclerview/widget/SortedList$Callback;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public areContentsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT2;TT2;)Z"
@@ -93,7 +93,7 @@
 .end method
 
 .method public areItemsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT2;TT2;)Z"
@@ -114,7 +114,7 @@
 .end method
 
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT2;TT2;)I"
@@ -135,7 +135,7 @@
 .end method
 
 .method public dispatchLastEvent()V
-    .locals 1
+    .registers 2
 
     .line 1012
     .local p0, "this":Landroidx/recyclerview/widget/SortedList$BatchedCallback;, "Landroidx/recyclerview/widget/SortedList$BatchedCallback<TT2;>;"
@@ -148,7 +148,7 @@
 .end method
 
 .method public getChangePayload(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT2;TT2;)",
@@ -170,7 +170,7 @@
 .end method
 
 .method public onChanged(II)V
-    .locals 2
+    .registers 5
     .param p1, "position"    # I
     .param p2, "count"    # I
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public onChanged(IILjava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "position"    # I
     .param p2, "count"    # I
     .param p3, "payload"    # Ljava/lang/Object;
@@ -203,7 +203,7 @@
 .end method
 
 .method public onInserted(II)V
-    .locals 1
+    .registers 4
     .param p1, "position"    # I
     .param p2, "count"    # I
 
@@ -218,7 +218,7 @@
 .end method
 
 .method public onMoved(II)V
-    .locals 1
+    .registers 4
     .param p1, "fromPosition"    # I
     .param p2, "toPosition"    # I
 
@@ -233,7 +233,7 @@
 .end method
 
 .method public onRemoved(II)V
-    .locals 1
+    .registers 4
     .param p1, "position"    # I
     .param p2, "count"    # I
 

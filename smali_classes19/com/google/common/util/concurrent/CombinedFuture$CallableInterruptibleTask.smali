@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/CombinedFuture;Ljava/util/concurrent/Callable;Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 4
     .param p3, "listenerExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method runInterruptibly()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -100,7 +100,7 @@
 .end method
 
 .method setValue(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
         .end annotation
@@ -123,7 +123,7 @@
 .end method
 
 .method toPendingString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 206
     .local p0, "this":Lcom/google/common/util/concurrent/CombinedFuture$CallableInterruptibleTask;, "Lcom/google/common/util/concurrent/CombinedFuture<TV;>.CallableInterruptibleTask;"

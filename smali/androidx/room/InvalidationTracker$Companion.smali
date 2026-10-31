@@ -56,7 +56,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 806
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,7 +65,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/room/InvalidationTracker$Companion;-><init>()V
 
@@ -73,13 +73,13 @@
 .end method
 
 .method public static synthetic getRESET_UPDATED_TABLES_SQL$room_runtime_release$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getSELECT_UPDATED_TABLES_SQL$room_runtime_release$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public final beginTransactionInternal$room_runtime_release(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "database"
@@ -102,24 +102,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 833
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->beginTransactionNonExclusive()V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 835
-    :cond_0
+    :cond_10
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->beginTransaction()V
 
     .line 837
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method public final getTriggerName$room_runtime_release(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "tableName"    # Ljava/lang/String;
     .param p2, "triggerType"    # Ljava/lang/String;
 

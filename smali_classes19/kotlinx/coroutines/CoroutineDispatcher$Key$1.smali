@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/CoroutineDispatcher$Key$1;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 38
@@ -93,23 +93,23 @@
 .end method
 
 .method public final invoke(Lkotlin/coroutines/CoroutineContext$Element;)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 1
+    .registers 3
     .param p1, "it"    # Lkotlin/coroutines/CoroutineContext$Element;
 
     .line 38
     instance-of v0, p1, Lkotlinx/coroutines/CoroutineDispatcher;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     move-object v0, p1
 
     check-cast v0, Lkotlinx/coroutines/CoroutineDispatcher;
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return-object v0
 .end method

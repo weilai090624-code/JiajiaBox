@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/swiperefreshlayout/widget/CircleImageView;I)V
-    .locals 1
+    .registers 4
     .param p1, "circleImageView"    # Landroidx/swiperefreshlayout/widget/CircleImageView;
     .param p2, "shadowRadius"    # I
 
@@ -62,7 +62,7 @@
 .end method
 
 .method private updateRadialGradient(I)V
-    .locals 9
+    .registers 11
     .param p1, "diameter"    # I
 
     .line 165
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
-    .locals 6
+    .registers 9
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "paint"    # Landroid/graphics/Paint;
 
@@ -160,7 +160,7 @@
 .end method
 
 .method protected onResize(FF)V
-    .locals 1
+    .registers 4
     .param p1, "width"    # F
     .param p2, "height"    # F
 

@@ -59,7 +59,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 360
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +68,7 @@
 .end method
 
 .method static synthetic access$100(C)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # C
 
     .line 65
@@ -80,7 +80,7 @@
 .end method
 
 .method public static any()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
 
     .line 119
     sget-object v0, Lcom/google/common/base/CharMatcher$Any;->INSTANCE:Lcom/google/common/base/CharMatcher$Any;
@@ -89,7 +89,7 @@
 .end method
 
 .method public static anyOf(Ljava/lang/CharSequence;)Lcom/google/common/base/CharMatcher;
-    .locals 2
+    .registers 3
     .param p0, "sequence"    # Ljava/lang/CharSequence;
 
     .line 313
@@ -99,7 +99,7 @@
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2a
 
     .line 323
     new-instance v0, Lcom/google/common/base/CharMatcher$AnyOf;
@@ -109,7 +109,7 @@
     return-object v0
 
     .line 319
-    :pswitch_0
+    :pswitch_e
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -127,7 +127,7 @@
     return-object v0
 
     .line 317
-    :pswitch_1
+    :pswitch_1c
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -139,23 +139,23 @@
     return-object v0
 
     .line 315
-    :pswitch_2
+    :pswitch_25
     invoke-static {}, Lcom/google/common/base/CharMatcher;->none()Lcom/google/common/base/CharMatcher;
 
     move-result-object v0
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_2a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_25
+        :pswitch_1c
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method public static ascii()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
 
     .line 166
     sget-object v0, Lcom/google/common/base/CharMatcher$Ascii;->INSTANCE:Lcom/google/common/base/CharMatcher$Ascii;
@@ -164,7 +164,7 @@
 .end method
 
 .method public static breakingWhitespace()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
 
     .line 157
     sget-object v0, Lcom/google/common/base/CharMatcher$BreakingWhitespace;->INSTANCE:Lcom/google/common/base/CharMatcher;
@@ -173,7 +173,7 @@
 .end method
 
 .method public static digit()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -184,7 +184,7 @@
 .end method
 
 .method private finishCollapseFrom(Ljava/lang/CharSequence;IICLjava/lang/StringBuilder;Z)Ljava/lang/String;
-    .locals 3
+    .registers 10
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -196,8 +196,8 @@
     move v0, p2
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p3, :cond_2
+    :goto_1
+    if-ge v0, p3, :cond_1b
 
     .line 889
     invoke-interface {p1, v0}, Ljava/lang/CharSequence;->charAt(I)C
@@ -210,10 +210,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
     .line 891
-    if-nez p6, :cond_1
+    if-nez p6, :cond_18
 
     .line 892
     invoke-virtual {p5, p4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -221,10 +221,10 @@
     .line 893
     const/4 p6, 0x1
 
-    goto :goto_1
+    goto :goto_18
 
     .line 896
-    :cond_0
+    :cond_14
     invoke-virtual {p5, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 897
@@ -232,15 +232,15 @@
 
     .line 888
     .end local v1    # "c":C
-    :cond_1
-    :goto_1
+    :cond_18
+    :goto_18
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 900
     .end local v0    # "i":I
-    :cond_2
+    :cond_1b
     invoke-virtual {p5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -249,7 +249,7 @@
 .end method
 
 .method public static forPredicate(Lcom/google/common/base/Predicate;)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -265,25 +265,25 @@
     .local p0, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-Ljava/lang/Character;>;"
     instance-of v0, p0, Lcom/google/common/base/CharMatcher;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     move-object v0, p0
 
     check-cast v0, Lcom/google/common/base/CharMatcher;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/common/base/CharMatcher$ForPredicate;
 
     invoke-direct {v0, p0}, Lcom/google/common/base/CharMatcher$ForPredicate;-><init>(Lcom/google/common/base/Predicate;)V
 
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 .method public static inRange(CC)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 3
     .param p0, "startInclusive"    # C
     .param p1, "endInclusive"    # C
 
@@ -296,7 +296,7 @@
 .end method
 
 .method public static invisible()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -307,7 +307,7 @@
 .end method
 
 .method public static is(C)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 2
     .param p0, "match"    # C
 
     .line 296
@@ -319,7 +319,7 @@
 .end method
 
 .method private static isEither(CC)Lcom/google/common/base/CharMatcher$IsEither;
-    .locals 1
+    .registers 3
     .param p0, "c1"    # C
     .param p1, "c2"    # C
 
@@ -332,7 +332,7 @@
 .end method
 
 .method public static isNot(C)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 2
     .param p0, "match"    # C
 
     .line 305
@@ -344,34 +344,34 @@
 .end method
 
 .method private static isSmall(II)Z
-    .locals 1
+    .registers 3
     .param p0, "totalCharacters"    # I
     .param p1, "tableLength"    # I
 
     .line 465
     const/16 v0, 0x3ff
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_c
 
     mul-int/lit8 v0, p0, 0x4
 
     mul-int/lit8 v0, v0, 0x10
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public static javaDigit()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -382,7 +382,7 @@
 .end method
 
 .method public static javaIsoControl()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
 
     .line 255
     sget-object v0, Lcom/google/common/base/CharMatcher$JavaIsoControl;->INSTANCE:Lcom/google/common/base/CharMatcher$JavaIsoControl;
@@ -391,7 +391,7 @@
 .end method
 
 .method public static javaLetter()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -402,7 +402,7 @@
 .end method
 
 .method public static javaLetterOrDigit()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -413,7 +413,7 @@
 .end method
 
 .method public static javaLowerCase()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -424,7 +424,7 @@
 .end method
 
 .method public static javaUpperCase()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -435,7 +435,7 @@
 .end method
 
 .method public static none()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
 
     .line 128
     sget-object v0, Lcom/google/common/base/CharMatcher$None;->INSTANCE:Lcom/google/common/base/CharMatcher$None;
@@ -444,7 +444,7 @@
 .end method
 
 .method public static noneOf(Ljava/lang/CharSequence;)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 2
     .param p0, "sequence"    # Ljava/lang/CharSequence;
 
     .line 332
@@ -460,7 +460,7 @@
 .end method
 
 .method private static precomputedPositive(ILjava/util/BitSet;Ljava/lang/String;)Lcom/google/common/base/CharMatcher;
-    .locals 3
+    .registers 6
     .param p0, "totalCharacters"    # I
     .param p1, "table"    # Ljava/util/BitSet;
     .param p2, "description"    # Ljava/lang/String;
@@ -468,7 +468,7 @@
     .line 447
     const/4 v0, 0x0
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_3a
 
     .line 457
     invoke-virtual {p1}, Ljava/util/BitSet;->length()I
@@ -479,17 +479,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
     .line 458
     invoke-static {p1, p2}, Lcom/google/common/base/SmallCharMatcher;->from(Ljava/util/BitSet;Ljava/lang/String;)Lcom/google/common/base/CharMatcher;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_39
 
     .line 453
-    :pswitch_0
+    :pswitch_13
     invoke-virtual {p1, v0}, Ljava/util/BitSet;->nextSetBit(I)I
 
     move-result v0
@@ -517,7 +517,7 @@
     .line 451
     .end local v0    # "c1":C
     .end local v1    # "c2":C
-    :pswitch_1
+    :pswitch_24
     invoke-virtual {p1, v0}, Ljava/util/BitSet;->nextSetBit(I)I
 
     move-result v0
@@ -531,7 +531,7 @@
     return-object v0
 
     .line 449
-    :pswitch_2
+    :pswitch_2e
     invoke-static {}, Lcom/google/common/base/CharMatcher;->none()Lcom/google/common/base/CharMatcher;
 
     move-result-object v0
@@ -539,7 +539,7 @@
     return-object v0
 
     .line 459
-    :cond_0
+    :cond_33
     new-instance v0, Lcom/google/common/base/CharMatcher$BitSetMatcher;
 
     const/4 v1, 0x0
@@ -547,19 +547,19 @@
     invoke-direct {v0, p1, p2, v1}, Lcom/google/common/base/CharMatcher$BitSetMatcher;-><init>(Ljava/util/BitSet;Ljava/lang/String;Lcom/google/common/base/CharMatcher$1;)V
 
     .line 457
-    :goto_0
+    :goto_39
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_3a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2e
+        :pswitch_24
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method private static showCharacter(C)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "c"    # C
 
     .line 927
@@ -571,17 +571,17 @@
 
     new-array v1, v1, [C
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_22
 
     .line 929
     .local v1, "tmp":[C
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_9
     const/4 v3, 0x4
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1c
 
     .line 930
     rsub-int/lit8 v3, v2, 0x5
@@ -602,11 +602,11 @@
     .line 929
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 933
     .end local v2    # "i":I
-    :cond_0
+    :cond_1c
     invoke-static {v1}, Ljava/lang/String;->copyValueOf([C)Ljava/lang/String;
 
     move-result-object v2
@@ -615,7 +615,7 @@
 
     nop
 
-    :array_0
+    :array_22
     .array-data 2
         0x5cs
         0x75s
@@ -627,7 +627,7 @@
 .end method
 
 .method public static singleWidth()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -638,7 +638,7 @@
 .end method
 
 .method public static whitespace()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
 
     .line 146
     sget-object v0, Lcom/google/common/base/CharMatcher$Whitespace;->INSTANCE:Lcom/google/common/base/CharMatcher$Whitespace;
@@ -649,7 +649,7 @@
 
 # virtual methods
 .method public and(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lcom/google/common/base/CharMatcher;
 
     .line 379
@@ -661,7 +661,7 @@
 .end method
 
 .method public apply(Ljava/lang/Character;)Z
-    .locals 1
+    .registers 3
     .param p1, "character"    # Ljava/lang/Character;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -679,7 +679,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -694,7 +694,7 @@
 .end method
 
 .method public collapseFrom(Ljava/lang/CharSequence;C)Ljava/lang/String;
-    .locals 11
+    .registers 14
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "replacement"    # C
 
@@ -710,8 +710,8 @@
     move v8, v0
 
     .local v8, "i":I
-    :goto_0
-    if-ge v8, v7, :cond_3
+    :goto_6
+    if-ge v8, v7, :cond_45
 
     .line 841
     invoke-interface {p1, v8}, Ljava/lang/CharSequence;->charAt(I)C
@@ -724,14 +724,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
     .line 843
-    if-ne v9, p2, :cond_1
+    if-ne v9, p2, :cond_27
 
     add-int/lit8 v0, v7, -0x1
 
-    if-eq v8, v0, :cond_0
+    if-eq v8, v0, :cond_24
 
     add-int/lit8 v0, v8, 0x1
 
@@ -743,16 +743,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_27
 
     .line 845
-    :cond_0
+    :cond_24
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_42
 
     .line 847
-    :cond_1
+    :cond_27
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0, v7}, Ljava/lang/StringBuilder;-><init>(I)V
@@ -792,15 +792,15 @@
     .line 840
     .end local v9    # "c":C
     .end local v10    # "builder":Ljava/lang/StringBuilder;
-    :cond_2
-    :goto_1
+    :cond_42
+    :goto_42
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 853
     .end local v8    # "i":I
-    :cond_3
+    :cond_45
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -809,7 +809,7 @@
 .end method
 
 .method public countIn(Ljava/lang/CharSequence;)I
-    .locals 3
+    .registers 5
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 596
@@ -820,12 +820,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_17
 
     .line 598
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -836,25 +836,25 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
     .line 599
     add-int/lit8 v0, v0, 0x1
 
     .line 597
-    :cond_0
+    :cond_14
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 602
     .end local v1    # "i":I
-    :cond_1
+    :cond_17
     return v0
 .end method
 
 .method public indexIn(Ljava/lang/CharSequence;)I
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 542
@@ -868,7 +868,7 @@
 .end method
 
 .method public indexIn(Ljava/lang/CharSequence;I)I
-    .locals 3
+    .registers 6
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
 
@@ -885,8 +885,8 @@
     move v1, p2
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_8
+    if-ge v1, v0, :cond_18
 
     .line 564
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -897,27 +897,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     .line 565
     return v1
 
     .line 563
-    :cond_0
+    :cond_15
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 568
     .end local v1    # "i":I
-    :cond_1
+    :cond_18
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method public lastIndexIn(Ljava/lang/CharSequence;)I
-    .locals 2
+    .registers 4
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 582
@@ -928,8 +928,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_6
+    if-ltz v0, :cond_16
 
     .line 583
     invoke-interface {p1, v0}, Ljava/lang/CharSequence;->charAt(I)C
@@ -940,20 +940,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 584
     return v0
 
     .line 582
-    :cond_0
+    :cond_13
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 587
     .end local v0    # "i":I
-    :cond_1
+    :cond_16
     const/4 v0, -0x1
 
     return v0
@@ -963,7 +963,7 @@
 .end method
 
 .method public matchesAllOf(Ljava/lang/CharSequence;)Z
-    .locals 3
+    .registers 5
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 508
@@ -976,8 +976,8 @@
     sub-int/2addr v0, v1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_6
+    if-ltz v0, :cond_17
 
     .line 509
     invoke-interface {p1, v0}, Ljava/lang/CharSequence;->charAt(I)C
@@ -988,7 +988,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     .line 510
     const/4 v1, 0x0
@@ -996,19 +996,19 @@
     return v1
 
     .line 508
-    :cond_0
+    :cond_14
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 513
     .end local v0    # "i":I
-    :cond_1
+    :cond_17
     return v1
 .end method
 
 .method public matchesAnyOf(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 494
@@ -1022,7 +1022,7 @@
 .end method
 
 .method public matchesNoneOf(Ljava/lang/CharSequence;)Z
-    .locals 2
+    .registers 4
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 528
@@ -1032,21 +1032,21 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public negate()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 2
 
     .line 372
     new-instance v0, Lcom/google/common/base/CharMatcher$Negated;
@@ -1057,7 +1057,7 @@
 .end method
 
 .method public or(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lcom/google/common/base/CharMatcher;
 
     .line 386
@@ -1069,7 +1069,7 @@
 .end method
 
 .method public precomputed()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 2
 
     .line 399
     invoke-static {p0}, Lcom/google/common/base/Platform;->precomputeCharMatcher(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
@@ -1080,7 +1080,7 @@
 .end method
 
 .method precomputedInternal()Lcom/google/common/base/CharMatcher;
-    .locals 8
+    .registers 9
 
     .line 416
     new-instance v0, Ljava/util/BitSet;
@@ -1102,7 +1102,7 @@
 
     const/high16 v3, 0x10000
 
-    if-gt v2, v3, :cond_0
+    if-gt v2, v3, :cond_1b
 
     .line 420
     invoke-virtual {p0}, Lcom/google/common/base/CharMatcher;->toString()Ljava/lang/String;
@@ -1116,7 +1116,7 @@
     return-object v2
 
     .line 423
-    :cond_0
+    :cond_1b
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2, v3}, Ljava/util/BitSet;->flip(II)V
@@ -1140,7 +1140,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_3a
 
     .line 429
     invoke-virtual {v5}, Ljava/lang/String;->length()I
@@ -1157,10 +1157,10 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_53
 
     .line 430
-    :cond_1
+    :cond_3a
     invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
@@ -1173,22 +1173,22 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_4d
 
     invoke-virtual {v2, v6}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_53
 
-    :cond_2
+    :cond_4d
     new-instance v6, Ljava/lang/String;
 
     invoke-direct {v6, v2}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
     move-object v2, v6
 
-    :goto_0
+    :goto_53
     nop
 
     .line 431
@@ -1207,7 +1207,7 @@
 .end method
 
 .method public removeFrom(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 616
@@ -1225,13 +1225,13 @@
     .local v1, "pos":I
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_c
 
     .line 619
     return-object v0
 
     .line 622
-    :cond_0
+    :cond_c
     invoke-virtual {v0}, Ljava/lang/String;->toCharArray()[C
 
     move-result-object v2
@@ -1242,14 +1242,14 @@
 
     .line 628
     .local v3, "spread":I
-    :goto_0
+    :goto_11
     add-int/lit8 v1, v1, 0x1
 
     .line 630
-    :goto_1
+    :goto_13
     array-length v4, v2
 
-    if-ne v1, v4, :cond_1
+    if-ne v1, v4, :cond_20
 
     .line 631
     nop
@@ -1266,14 +1266,14 @@
     return-object v4
 
     .line 633
-    :cond_1
+    :cond_20
     aget-char v4, v2, v1
 
     invoke-virtual {p0, v4}, Lcom/google/common/base/CharMatcher;->matches(C)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2c
 
     .line 634
     nop
@@ -1281,10 +1281,10 @@
     .line 639
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 636
-    :cond_2
+    :cond_2c
     sub-int v4, v1, v3
 
     aget-char v5, v2, v1
@@ -1294,11 +1294,11 @@
     .line 637
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_13
 .end method
 
 .method public replaceFrom(Ljava/lang/CharSequence;C)Ljava/lang/String;
-    .locals 5
+    .registers 8
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "replacement"    # C
 
@@ -1317,13 +1317,13 @@
     .local v1, "pos":I
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_c
 
     .line 681
     return-object v0
 
     .line 683
-    :cond_0
+    :cond_c
     invoke-virtual {v0}, Ljava/lang/String;->toCharArray()[C
 
     move-result-object v2
@@ -1336,10 +1336,10 @@
     add-int/lit8 v3, v1, 0x1
 
     .local v3, "i":I
-    :goto_0
+    :goto_14
     array-length v4, v2
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_24
 
     .line 686
     aget-char v4, v2, v3
@@ -1348,20 +1348,20 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_21
 
     .line 687
     aput-char p2, v2, v3
 
     .line 685
-    :cond_1
+    :cond_21
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 690
     .end local v3    # "i":I
-    :cond_2
+    :cond_24
     new-instance v3, Ljava/lang/String;
 
     invoke-direct {v3, v2}, Ljava/lang/String;-><init>([C)V
@@ -1370,7 +1370,7 @@
 .end method
 
 .method public replaceFrom(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 7
+    .registers 10
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "replacement"    # Ljava/lang/CharSequence;
 
@@ -1381,7 +1381,7 @@
 
     .line 713
     .local v0, "replacementLen":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 714
     invoke-virtual {p0, p1}, Lcom/google/common/base/CharMatcher;->removeFrom(Ljava/lang/CharSequence;)Ljava/lang/String;
@@ -1391,10 +1391,10 @@
     return-object v1
 
     .line 716
-    :cond_0
+    :cond_b
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_18
 
     .line 717
     const/4 v1, 0x0
@@ -1410,7 +1410,7 @@
     return-object v1
 
     .line 720
-    :cond_1
+    :cond_18
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1425,13 +1425,13 @@
     .local v2, "pos":I
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_24
 
     .line 723
     return-object v1
 
     .line 726
-    :cond_2
+    :cond_24
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -1454,7 +1454,7 @@
 
     .line 731
     .local v6, "oldpos":I
-    :cond_3
+    :cond_34
     invoke-virtual {v5, v1, v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
 
     .line 732
@@ -1469,7 +1469,7 @@
     move-result v2
 
     .line 735
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_34
 
     .line 737
     invoke-virtual {v5, v1, v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
@@ -1483,7 +1483,7 @@
 .end method
 
 .method public retainFrom(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 655
@@ -1499,15 +1499,15 @@
 .end method
 
 .method setBits(Ljava/util/BitSet;)V
-    .locals 2
+    .registers 4
     .param p1, "table"    # Ljava/util/BitSet;
 
     .line 473
     const v0, 0xffff
 
     .local v0, "c":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_3
+    if-ltz v0, :cond_12
 
     .line 474
     int-to-char v1, v0
@@ -1516,25 +1516,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 475
     invoke-virtual {p1, v0}, Ljava/util/BitSet;->set(I)V
 
     .line 473
-    :cond_0
+    :cond_f
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 478
     .end local v0    # "c":I
-    :cond_1
+    :cond_12
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 919
     invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1545,7 +1545,7 @@
 .end method
 
 .method public trimAndCollapseFrom(Ljava/lang/CharSequence;C)Ljava/lang/String;
-    .locals 10
+    .registers 13
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "replacement"    # C
 
@@ -1564,8 +1564,8 @@
 
     .line 867
     .local v2, "last":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_7
+    if-ge v1, v0, :cond_16
 
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -1575,17 +1575,17 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_16
 
     .line 868
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 871
-    :cond_0
-    :goto_1
-    if-le v2, v1, :cond_1
+    :cond_16
+    :goto_16
+    if-le v2, v1, :cond_25
 
     invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -1595,30 +1595,30 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_25
 
     .line 872
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_1
+    goto :goto_16
 
     .line 875
-    :cond_1
-    if-nez v1, :cond_2
+    :cond_25
+    if-nez v1, :cond_30
 
     add-int/lit8 v3, v0, -0x1
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_30
 
     .line 876
     invoke-virtual {p0, p1, p2}, Lcom/google/common/base/CharMatcher;->collapseFrom(Ljava/lang/CharSequence;C)Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_43
 
     .line 877
-    :cond_2
+    :cond_30
     add-int/lit8 v6, v2, 0x1
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1644,12 +1644,12 @@
     move-result-object v3
 
     .line 875
-    :goto_2
+    :goto_43
     return-object v3
 .end method
 
 .method public trimFrom(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 760
@@ -1662,8 +1662,8 @@
     const/4 v1, 0x0
 
     .local v1, "first":I
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_5
+    if-ge v1, v0, :cond_15
 
     .line 765
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1674,25 +1674,25 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
     .line 766
-    goto :goto_1
+    goto :goto_15
 
     .line 764
-    :cond_0
+    :cond_12
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 769
-    :cond_1
-    :goto_1
+    :cond_15
+    :goto_15
     add-int/lit8 v2, v0, -0x1
 
     .local v2, "last":I
-    :goto_2
-    if-le v2, v1, :cond_3
+    :goto_17
+    if-le v2, v1, :cond_27
 
     .line 770
     invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1703,20 +1703,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_24
 
     .line 771
-    goto :goto_3
+    goto :goto_27
 
     .line 769
-    :cond_2
+    :cond_24
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_2
+    goto :goto_17
 
     .line 775
-    :cond_3
-    :goto_3
+    :cond_27
+    :goto_27
     add-int/lit8 v3, v2, 0x1
 
     invoke-interface {p1, v1, v3}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -1731,7 +1731,7 @@
 .end method
 
 .method public trimLeadingFrom(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 789
@@ -1744,8 +1744,8 @@
     const/4 v1, 0x0
 
     .local v1, "first":I
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_5
+    if-ge v1, v0, :cond_1d
 
     .line 791
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1756,7 +1756,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     .line 792
     invoke-interface {p1, v1, v0}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -1770,21 +1770,21 @@
     return-object v2
 
     .line 790
-    :cond_0
+    :cond_1a
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 795
     .end local v1    # "first":I
-    :cond_1
+    :cond_1d
     const-string v1, ""
 
     return-object v1
 .end method
 
 .method public trimTrailingFrom(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 809
@@ -1797,8 +1797,8 @@
     add-int/lit8 v1, v0, -0x1
 
     .local v1, "last":I
-    :goto_0
-    if-ltz v1, :cond_1
+    :goto_6
+    if-ltz v1, :cond_21
 
     .line 811
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1809,7 +1809,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1e
 
     .line 812
     const/4 v2, 0x0
@@ -1827,14 +1827,14 @@
     return-object v2
 
     .line 810
-    :cond_0
+    :cond_1e
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 815
     .end local v1    # "last":I
-    :cond_1
+    :cond_21
     const-string v1, ""
 
     return-object v1

@@ -50,7 +50,7 @@
 
 # direct methods
 .method protected constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "ordered"    # Z
 
     .line 136
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public synthetic accept(D)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;D)V
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public synthetic accept(I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;I)V
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public synthetic accept(J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;J)V
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public synthetic begin(J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$begin(Lj$/util/stream/Sink;J)V
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public synthetic cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$cancellationRequested(Lj$/util/stream/Sink;)Z
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public synthetic end()V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$end(Lj$/util/stream/Sink;)V
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public bridge synthetic evaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 132
     .local p0, "this":Lj$/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
@@ -139,7 +139,7 @@
 .end method
 
 .method public evaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Void;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -159,7 +159,7 @@
     .local p2, "spliterator":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TS;>;"
     iget-boolean v0, p0, Lj$/util/stream/ForEachOps$ForEachOp;->ordered:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 157
     new-instance v0, Lj$/util/stream/ForEachOps$ForEachOrderedTask;
@@ -168,10 +168,10 @@
 
     invoke-virtual {v0}, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->invoke()Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_19
 
     .line 159
-    :cond_0
+    :cond_d
     new-instance v0, Lj$/util/stream/ForEachOps$ForEachTask;
 
     invoke-virtual {p1, p0}, Lj$/util/stream/PipelineHelper;->wrapSink(Lj$/util/stream/Sink;)Lj$/util/stream/Sink;
@@ -183,14 +183,14 @@
     invoke-virtual {v0}, Lj$/util/stream/ForEachOps$ForEachTask;->invoke()Ljava/lang/Object;
 
     .line 160
-    :goto_0
+    :goto_19
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public bridge synthetic evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 132
     .local p0, "this":Lj$/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
@@ -202,7 +202,7 @@
 .end method
 
 .method public evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Void;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -234,7 +234,7 @@
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 132
     .local p0, "this":Lj$/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
@@ -246,7 +246,7 @@
 .end method
 
 .method public get()Ljava/lang/Void;
-    .locals 1
+    .registers 2
 
     .line 167
     .local p0, "this":Lj$/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
@@ -256,27 +256,27 @@
 .end method
 
 .method public getOpFlags()I
-    .locals 1
+    .registers 2
 
     .line 144
     .local p0, "this":Lj$/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
     iget-boolean v0, p0, Lj$/util/stream/ForEachOps$ForEachOp;->ordered:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     sget v0, Lj$/util/stream/StreamOpFlag;->NOT_ORDERED:I
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public synthetic inputShape()Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/TerminalOp$-CC;->$default$inputShape(Lj$/util/stream/TerminalOp;)Lj$/util/stream/StreamShape;
 

@@ -12,7 +12,7 @@
 
 # direct methods
 .method private synthetic constructor <init>(Ljava/util/concurrent/Flow$Subscriber;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -22,18 +22,18 @@
 .end method
 
 .method public static synthetic convert(Ljava/util/concurrent/Flow$Subscriber;)Lj$/util/concurrent/Flow$Subscriber;
-    .locals 1
+    .registers 2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
+    :cond_4
     instance-of v0, p0, Lj$/util/concurrent/Flow$Subscriber$Wrapper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     check-cast p0, Lj$/util/concurrent/Flow$Subscriber$Wrapper;
 
@@ -41,7 +41,7 @@
 
     return-object p0
 
-    :cond_1
+    :cond_d
     new-instance v0, Lj$/util/concurrent/Flow$Subscriber$VivifiedWrapper;
 
     invoke-direct {v0, p0}, Lj$/util/concurrent/Flow$Subscriber$VivifiedWrapper;-><init>(Ljava/util/concurrent/Flow$Subscriber;)V
@@ -52,19 +52,19 @@
 
 # virtual methods
 .method public synthetic equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Lj$/util/concurrent/Flow$Subscriber$VivifiedWrapper;->wrappedValue:Ljava/util/concurrent/Flow$Subscriber;
 
     instance-of v1, p1, Lj$/util/concurrent/Flow$Subscriber$VivifiedWrapper;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     check-cast p1, Lj$/util/concurrent/Flow$Subscriber$VivifiedWrapper;
 
     iget-object p1, p1, Lj$/util/concurrent/Flow$Subscriber$VivifiedWrapper;->wrappedValue:Ljava/util/concurrent/Flow$Subscriber;
 
-    :cond_0
+    :cond_a
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p1
@@ -73,7 +73,7 @@
 .end method
 
 .method public synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/concurrent/Flow$Subscriber$VivifiedWrapper;->wrappedValue:Ljava/util/concurrent/Flow$Subscriber;
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public synthetic onComplete()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/concurrent/Flow$Subscriber$VivifiedWrapper;->wrappedValue:Ljava/util/concurrent/Flow$Subscriber;
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public synthetic onError(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lj$/util/concurrent/Flow$Subscriber$VivifiedWrapper;->wrappedValue:Ljava/util/concurrent/Flow$Subscriber;
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public synthetic onNext(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lj$/util/concurrent/Flow$Subscriber$VivifiedWrapper;->wrappedValue:Ljava/util/concurrent/Flow$Subscriber;
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public synthetic onSubscribe(Lj$/util/concurrent/Flow$Subscription;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lj$/util/concurrent/Flow$Subscriber$VivifiedWrapper;->wrappedValue:Ljava/util/concurrent/Flow$Subscriber;
 

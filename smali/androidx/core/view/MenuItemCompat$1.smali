@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/view/MenuItemCompat$OnActionExpandListener;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onMenuItemActionCollapse(Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 3
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 319
@@ -55,7 +55,7 @@
 .end method
 
 .method public onMenuItemActionExpand(Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 3
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 314

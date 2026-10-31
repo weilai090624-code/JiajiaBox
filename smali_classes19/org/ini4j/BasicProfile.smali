@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     const-string v0, "(?<!\\\\)\\$\\{(([^\\[\\}]+)(\\[([0-9]+)\\])?/)?([^\\[^/\\}]+)(\\[(([0-9]+))\\])?\\}"
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 45
     const/4 v0, 0x0
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(ZZ)V
-    .locals 0
+    .registers 3
     .param p1, "treeMode"    # Z
     .param p2, "propertyFirstUpper"    # Z
 
@@ -97,7 +97,7 @@
 .end method
 
 .method private getOrAdd(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 2
+    .registers 4
     .param p1, "sectionName"    # Ljava/lang/String;
 
     .line 249
@@ -109,23 +109,23 @@
 
     .line 251
     .local v0, "section":Lorg/ini4j/Profile$Section;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     invoke-virtual {p0, p1}, Lorg/ini4j/BasicProfile;->add(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v1, v0
 
-    :goto_0
+    :goto_e
     return-object v1
 .end method
 
 .method private parseOptionIndex(Ljava/util/regex/Matcher;)I
-    .locals 2
+    .registers 4
     .param p1, "m"    # Ljava/util/regex/Matcher;
 
     .line 256
@@ -135,13 +135,13 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_9
     invoke-virtual {p1, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v0
@@ -150,12 +150,12 @@
 
     move-result v0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method private parseSection(Ljava/util/regex/Matcher;Lorg/ini4j/Profile$Section;)Lorg/ini4j/Profile$Section;
-    .locals 3
+    .registers 6
     .param p1, "m"    # Ljava/util/regex/Matcher;
     .param p2, "owner"    # Lorg/ini4j/Profile$Section;
 
@@ -174,37 +174,37 @@
 
     .line 264
     .local v1, "sectionIndex":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     move-object v2, p2
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_0
+    :cond_d
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_15
 
     invoke-virtual {p0, v0}, Lorg/ini4j/BasicProfile;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_1
+    :cond_15
     invoke-virtual {p0, v0, v1}, Lorg/ini4j/BasicProfile;->get(Ljava/lang/Object;I)Ljava/lang/Object;
 
     move-result-object v2
 
-    :goto_0
+    :goto_19
     check-cast v2, Lorg/ini4j/Profile$Section;
 
-    :goto_1
+    :goto_1b
     return-object v2
 .end method
 
 .method private parseSectionIndex(Ljava/util/regex/Matcher;)I
-    .locals 2
+    .registers 4
     .param p1, "m"    # Ljava/util/regex/Matcher;
 
     .line 269
@@ -214,13 +214,13 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_9
     invoke-virtual {p1, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v0
@@ -229,14 +229,14 @@
 
     move-result v0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 3
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
 
     .line 66
@@ -244,7 +244,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 68
     invoke-virtual {p0}, Lorg/ini4j/BasicProfile;->getPathSeparator()C
@@ -257,7 +257,7 @@
 
     .line 70
     .local v0, "idx":I
-    if-lez v0, :cond_0
+    if-lez v0, :cond_1e
 
     .line 72
     const/4 v1, 0x0
@@ -272,7 +272,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1e
 
     .line 76
     invoke-virtual {p0, v1}, Lorg/ini4j/BasicProfile;->add(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
@@ -280,7 +280,7 @@
     .line 81
     .end local v0    # "idx":I
     .end local v1    # "parent":Ljava/lang/String;
-    :cond_0
+    :cond_1e
     invoke-virtual {p0, p1}, Lorg/ini4j/BasicProfile;->newSection(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
 
     move-result-object v0
@@ -294,7 +294,7 @@
 .end method
 
 .method public add(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "section"    # Ljava/lang/String;
     .param p2, "option"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
@@ -311,7 +311,7 @@
 .end method
 
 .method public as(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -334,7 +334,7 @@
 .end method
 
 .method public as(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p2, "prefix"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -384,7 +384,7 @@
 .end method
 
 .method public fetch(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "sectionName"    # Ljava/lang/Object;
     .param p2, "optionName"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -409,7 +409,7 @@
 
     .line 115
     .local v0, "sec":Lorg/ini4j/Profile$Section;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     invoke-static {}, Lorg/ini4j/spi/BeanTool;->getInstance()Lorg/ini4j/spi/BeanTool;
 
@@ -419,19 +419,19 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_11
     invoke-interface {v0, p2, p3}, Lorg/ini4j/Profile$Section;->fetch(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
+    :goto_15
     return-object v1
 .end method
 
 .method public fetch(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "sectionName"    # Ljava/lang/Object;
     .param p2, "optionName"    # Ljava/lang/Object;
 
@@ -444,23 +444,23 @@
 
     .line 108
     .local v0, "sec":Lorg/ini4j/Profile$Section;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_a
     invoke-interface {v0, p2}, Lorg/ini4j/Profile$Section;->fetch(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
+    :goto_e
     return-object v1
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "sectionName"    # Ljava/lang/Object;
     .param p2, "optionName"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -485,7 +485,7 @@
 
     .line 129
     .local v0, "sec":Lorg/ini4j/Profile$Section;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     invoke-static {}, Lorg/ini4j/spi/BeanTool;->getInstance()Lorg/ini4j/spi/BeanTool;
 
@@ -495,19 +495,19 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_11
     invoke-interface {v0, p2, p3}, Lorg/ini4j/Profile$Section;->get(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
+    :goto_15
     return-object v1
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "sectionName"    # Ljava/lang/Object;
     .param p2, "optionName"    # Ljava/lang/Object;
 
@@ -520,25 +520,25 @@
 
     .line 122
     .local v0, "sec":Lorg/ini4j/Profile$Section;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_a
     invoke-interface {v0, p2}, Lorg/ini4j/Profile$Section;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public getComment()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Lorg/ini4j/BasicProfile;->_comment:Ljava/lang/String;
@@ -547,7 +547,7 @@
 .end method
 
 .method getPathSeparator()C
-    .locals 1
+    .registers 2
 
     .line 156
     const/16 v0, 0x2f
@@ -556,7 +556,7 @@
 .end method
 
 .method isPropertyFirstUpper()Z
-    .locals 1
+    .registers 2
 
     .line 161
     iget-boolean v0, p0, Lorg/ini4j/BasicProfile;->_propertyFirstUpper:Z
@@ -565,7 +565,7 @@
 .end method
 
 .method isTreeMode()Z
-    .locals 1
+    .registers 2
 
     .line 151
     iget-boolean v0, p0, Lorg/ini4j/BasicProfile;->_treeMode:Z
@@ -574,7 +574,7 @@
 .end method
 
 .method newSection(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 166
@@ -586,7 +586,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 5
     .param p1, "sectionName"    # Ljava/lang/String;
     .param p2, "optionName"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
@@ -604,7 +604,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "sectionName"    # Ljava/lang/Object;
     .param p2, "optionName"    # Ljava/lang/Object;
 
@@ -617,25 +617,25 @@
 
     .line 146
     .local v0, "sec":Lorg/ini4j/Profile$Section;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_a
     invoke-interface {v0, p2}, Lorg/ini4j/Profile$Section;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public remove(Lorg/ini4j/Profile$Section;)Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 3
     .param p1, "section"    # Lorg/ini4j/Profile$Section;
 
     .line 139
@@ -653,7 +653,7 @@
 .end method
 
 .method resolve(Ljava/lang/StringBuilder;Lorg/ini4j/Profile$Section;)V
-    .locals 8
+    .registers 11
     .param p1, "buffer"    # Ljava/lang/StringBuilder;
     .param p2, "owner"    # Lorg/ini4j/Profile$Section;
 
@@ -666,12 +666,12 @@
 
     .line 173
     .local v0, "m":Ljava/util/regex/Matcher;
-    :goto_0
+    :goto_6
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_59
 
     .line 175
     const/4 v1, 0x2
@@ -712,59 +712,59 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2c
 
     .line 183
     invoke-static {v2}, Lorg/ini4j/Config;->getEnvironment(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    goto :goto_2
+    goto :goto_48
 
     .line 185
-    :cond_0
+    :cond_2c
     const-string v6, "@prop"
 
     invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_39
 
     .line 187
     invoke-static {v2}, Lorg/ini4j/Config;->getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    goto :goto_2
+    goto :goto_48
 
     .line 189
-    :cond_1
-    if-eqz v4, :cond_3
+    :cond_39
+    if-eqz v4, :cond_48
 
     .line 191
     const/4 v6, -0x1
 
-    if-ne v3, v6, :cond_2
+    if-ne v3, v6, :cond_43
 
     invoke-interface {v4, v2}, Lorg/ini4j/Profile$Section;->fetch(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
-    goto :goto_1
+    goto :goto_47
 
-    :cond_2
+    :cond_43
     invoke-interface {v4, v2, v3}, Lorg/ini4j/Profile$Section;->fetch(Ljava/lang/Object;I)Ljava/lang/String;
 
     move-result-object v6
 
-    :goto_1
+    :goto_47
     move-object v5, v6
 
     .line 194
-    :cond_3
-    :goto_2
-    if-eqz v5, :cond_4
+    :cond_48
+    :goto_48
+    if-eqz v5, :cond_58
 
     .line 196
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->start()I
@@ -786,16 +786,16 @@
     .end local v3    # "optionIndex":I
     .end local v4    # "section":Lorg/ini4j/Profile$Section;
     .end local v5    # "value":Ljava/lang/String;
-    :cond_4
-    goto :goto_0
+    :cond_58
+    goto :goto_6
 
     .line 200
-    :cond_5
+    :cond_59
     return-void
 .end method
 
 .method public setComment(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/String;
 
     .line 61
@@ -806,7 +806,7 @@
 .end method
 
 .method store(Lorg/ini4j/spi/IniHandler;)V
-    .locals 2
+    .registers 4
     .param p1, "formatter"    # Lorg/ini4j/spi/IniHandler;
 
     .line 204
@@ -829,12 +829,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_12
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -848,11 +848,11 @@
 
     .line 209
     .end local v1    # "s":Lorg/ini4j/Profile$Section;
-    goto :goto_0
+    goto :goto_12
 
     .line 211
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_22
     invoke-interface {p1}, Lorg/ini4j/spi/IniHandler;->endIni()V
 
     .line 212
@@ -860,7 +860,7 @@
 .end method
 
 .method store(Lorg/ini4j/spi/IniHandler;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "formatter"    # Lorg/ini4j/spi/IniHandler;
     .param p2, "comment"    # Ljava/lang/String;
 
@@ -872,7 +872,7 @@
 .end method
 
 .method store(Lorg/ini4j/spi/IniHandler;Lorg/ini4j/Profile$Section;)V
-    .locals 2
+    .registers 5
     .param p1, "formatter"    # Lorg/ini4j/spi/IniHandler;
     .param p2, "s"    # Lorg/ini4j/Profile$Section;
 
@@ -904,12 +904,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_1a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -923,11 +923,11 @@
 
     .line 221
     .end local v1    # "name":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1a
 
     .line 223
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_2a
     invoke-interface {p1}, Lorg/ini4j/spi/IniHandler;->endSection()V
 
     .line 224
@@ -935,7 +935,7 @@
 .end method
 
 .method store(Lorg/ini4j/spi/IniHandler;Lorg/ini4j/Profile$Section;Ljava/lang/String;)V
-    .locals 2
+    .registers 6
     .param p1, "formatter"    # Lorg/ini4j/spi/IniHandler;
     .param p2, "section"    # Lorg/ini4j/Profile$Section;
     .param p3, "option"    # Ljava/lang/String;
@@ -957,8 +957,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_c
+    if-ge v1, v0, :cond_14
 
     .line 238
     invoke-virtual {p0, p1, p2, p3, v1}, Lorg/ini4j/BasicProfile;->store(Lorg/ini4j/spi/IniHandler;Lorg/ini4j/Profile$Section;Ljava/lang/String;I)V
@@ -966,16 +966,16 @@
     .line 236
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 240
     .end local v1    # "i":I
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method store(Lorg/ini4j/spi/IniHandler;Lorg/ini4j/Profile$Section;Ljava/lang/String;I)V
-    .locals 1
+    .registers 6
     .param p1, "formatter"    # Lorg/ini4j/spi/IniHandler;
     .param p2, "section"    # Lorg/ini4j/Profile$Section;
     .param p3, "option"    # Ljava/lang/String;

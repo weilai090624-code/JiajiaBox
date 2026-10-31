@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;)V
-    .locals 1
+    .registers 3
     .param p1, "textView"    # Landroid/widget/TextView;
 
     .line 322
@@ -50,7 +50,7 @@
 .end method
 
 .method private addEmojiInputFilterIfMissing([Landroid/text/InputFilter;)[Landroid/text/InputFilter;
-    .locals 4
+    .registers 6
     .param p1, "filters"    # [Landroid/text/InputFilter;
 
     .line 365
@@ -61,28 +61,28 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_2
+    if-ge v1, v0, :cond_e
 
     .line 367
     aget-object v2, p1, v1
 
     iget-object v3, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->mEmojiInputFilter:Landroidx/emoji2/viewsintegration/EmojiInputFilter;
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_b
 
     .line 368
     return-object p1
 
     .line 366
-    :cond_0
+    :cond_b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 371
     .end local v1    # "i":I
-    :cond_1
+    :cond_e
     array-length v1, p1
 
     add-int/lit8 v1, v1, 0x1
@@ -105,7 +105,7 @@
 .end method
 
 .method private getEmojiInputFilterPositionArray([Landroid/text/InputFilter;)Landroid/util/SparseArray;
-    .locals 3
+    .registers 5
     .param p1, "filters"    # [Landroid/text/InputFilter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -130,17 +130,17 @@
     const/4 v1, 0x0
 
     .local v1, "pos":I
-    :goto_0
+    :goto_7
     array-length v2, p1
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_18
 
     .line 411
     aget-object v2, p1, v1
 
     instance-of v2, v2, Landroidx/emoji2/viewsintegration/EmojiInputFilter;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     .line 412
     aget-object v2, p1, v1
@@ -148,19 +148,19 @@
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 410
-    :cond_0
+    :cond_15
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 415
     .end local v1    # "pos":I
-    :cond_1
+    :cond_18
     return-object v0
 .end method
 
 .method private removeEmojiInputFilterIfPresent([Landroid/text/InputFilter;)[Landroid/text/InputFilter;
-    .locals 7
+    .registers 9
     .param p1, "filters"    # [Landroid/text/InputFilter;
 
     .line 385
@@ -174,13 +174,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
     .line 387
     return-object p1
 
     .line 391
-    :cond_0
+    :cond_b
     array-length v1, p1
 
     .line 392
@@ -206,15 +206,15 @@
     const/4 v5, 0x0
 
     .local v5, "srcPosition":I
-    :goto_0
-    if-ge v5, v1, :cond_2
+    :goto_16
+    if-ge v5, v1, :cond_27
 
     .line 396
     invoke-virtual {v0, v5}, Landroid/util/SparseArray;->indexOfKey(I)I
 
     move-result v6
 
-    if-gez v6, :cond_1
+    if-gez v6, :cond_24
 
     .line 397
     aget-object v6, p1, v5
@@ -225,25 +225,25 @@
     add-int/lit8 v4, v4, 0x1
 
     .line 395
-    :cond_1
+    :cond_24
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 401
     .end local v5    # "srcPosition":I
-    :cond_2
+    :cond_27
     return-object v3
 .end method
 
 .method private unwrapForDisabled(Landroid/text/method/TransformationMethod;)Landroid/text/method/TransformationMethod;
-    .locals 2
+    .registers 4
     .param p1, "transformationMethod"    # Landroid/text/method/TransformationMethod;
 
     .line 435
     instance-of v0, p1, Landroidx/emoji2/viewsintegration/EmojiTransformationMethod;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 436
     move-object v0, p1
@@ -260,12 +260,12 @@
 
     .line 440
     .end local v0    # "etm":Landroidx/emoji2/viewsintegration/EmojiTransformationMethod;
-    :cond_0
+    :cond_c
     return-object p1
 .end method
 
 .method private updateFilters()V
-    .locals 3
+    .registers 4
 
     .line 342
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->mTextView:Landroid/widget/TextView;
@@ -289,28 +289,28 @@
 .end method
 
 .method private wrapForEnabled(Landroid/text/method/TransformationMethod;)Landroid/text/method/TransformationMethod;
-    .locals 1
+    .registers 3
     .param p1, "transformationMethod"    # Landroid/text/method/TransformationMethod;
 
     .line 452
     instance-of v0, p1, Landroidx/emoji2/viewsintegration/EmojiTransformationMethod;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 453
     return-object p1
 
     .line 454
-    :cond_0
+    :cond_5
     instance-of v0, p1, Landroid/text/method/PasswordTransformationMethod;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_a
 
     .line 455
     return-object p1
 
     .line 457
-    :cond_1
+    :cond_a
     new-instance v0, Landroidx/emoji2/viewsintegration/EmojiTransformationMethod;
 
     invoke-direct {v0, p1}, Landroidx/emoji2/viewsintegration/EmojiTransformationMethod;-><init>(Landroid/text/method/TransformationMethod;)V
@@ -321,13 +321,13 @@
 
 # virtual methods
 .method getFilters([Landroid/text/InputFilter;)[Landroid/text/InputFilter;
-    .locals 1
+    .registers 3
     .param p1, "filters"    # [Landroid/text/InputFilter;
 
     .line 349
     iget-boolean v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->mEnabled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 351
     invoke-direct {p0, p1}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->removeEmojiInputFilterIfPresent([Landroid/text/InputFilter;)[Landroid/text/InputFilter;
@@ -337,7 +337,7 @@
     return-object v0
 
     .line 353
-    :cond_0
+    :cond_9
     invoke-direct {p0, p1}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->addEmojiInputFilterIfMissing([Landroid/text/InputFilter;)[Landroid/text/InputFilter;
 
     move-result-object v0
@@ -346,7 +346,7 @@
 .end method
 
 .method public isEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 479
     iget-boolean v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->mEnabled:Z
@@ -355,22 +355,22 @@
 .end method
 
 .method setAllCaps(Z)V
-    .locals 0
+    .registers 2
     .param p1, "allCaps"    # Z
 
     .line 465
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 466
     invoke-virtual {p0}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->updateTransformationMethod()V
 
     .line 468
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method setEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "enabled"    # Z
 
     .line 472
@@ -387,7 +387,7 @@
 .end method
 
 .method setEnabledUnsafe(Z)V
-    .locals 0
+    .registers 2
     .param p1, "processEmoji"    # Z
 
     .line 491
@@ -398,7 +398,7 @@
 .end method
 
 .method updateTransformationMethod()V
-    .locals 2
+    .registers 3
 
     .line 333
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->mTextView:Landroid/widget/TextView;
@@ -423,13 +423,13 @@
 .end method
 
 .method wrapTransformationMethod(Landroid/text/method/TransformationMethod;)Landroid/text/method/TransformationMethod;
-    .locals 1
+    .registers 3
     .param p1, "transformationMethod"    # Landroid/text/method/TransformationMethod;
 
     .line 422
     iget-boolean v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->mEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 423
     invoke-direct {p0, p1}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->wrapForEnabled(Landroid/text/method/TransformationMethod;)Landroid/text/method/TransformationMethod;
@@ -439,7 +439,7 @@
     return-object v0
 
     .line 425
-    :cond_0
+    :cond_9
     invoke-direct {p0, p1}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->unwrapForDisabled(Landroid/text/method/TransformationMethod;)Landroid/text/method/TransformationMethod;
 
     move-result-object v0

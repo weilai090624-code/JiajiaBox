@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 442
     sget-object v0, Landroidx/work/Data;->EMPTY:Landroidx/work/Data;
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/Data;)V
-    .locals 0
+    .registers 2
     .param p1, "outputData"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -68,15 +68,15 @@
     .end annotation
 
     .line 461
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 462
-    :cond_0
-    if-eqz p1, :cond_2
+    :cond_4
+    if-eqz p1, :cond_1d
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -86,12 +86,12 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_11
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 464
-    :cond_1
+    :cond_11
     move-object v0, p1
 
     check-cast v0, Landroidx/work/ListenableWorker$Result$Success;
@@ -110,15 +110,15 @@
 
     .line 462
     .end local v0    # "success":Landroidx/work/ListenableWorker$Result$Success;
-    :cond_2
-    :goto_0
+    :cond_1d
+    :goto_1d
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public getOutputData()Landroidx/work/Data;
-    .locals 1
+    .registers 2
 
     .line 456
     iget-object v0, p0, Landroidx/work/ListenableWorker$Result$Success;->mOutputData:Landroidx/work/Data;
@@ -127,7 +127,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 471
     const-class v0, Landroidx/work/ListenableWorker$Result$Success;
@@ -156,7 +156,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 478
     new-instance v0, Ljava/lang/StringBuilder;

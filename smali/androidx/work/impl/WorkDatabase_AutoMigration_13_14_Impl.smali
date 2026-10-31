@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 12
     const/16 v0, 0xd
@@ -21,7 +21,7 @@
 
 # virtual methods
 .method public migrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

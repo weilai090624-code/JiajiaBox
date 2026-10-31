@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 52
     new-instance v0, Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType$1;
@@ -63,7 +63,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,7 +85,7 @@
 .end method
 
 .method private final createFactory(Lcom/google/gson/internal/bind/DefaultDateTypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public final createAdapterFactory(I)Lcom/google/gson/TypeAdapterFactory;
-    .locals 2
+    .registers 4
     .param p1, "style"    # I
 
     .line 75
@@ -129,7 +129,7 @@
 .end method
 
 .method public final createAdapterFactory(II)Lcom/google/gson/TypeAdapterFactory;
-    .locals 2
+    .registers 5
     .param p1, "dateStyle"    # I
     .param p2, "timeStyle"    # I
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public final createAdapterFactory(Ljava/lang/String;)Lcom/google/gson/TypeAdapterFactory;
-    .locals 2
+    .registers 4
     .param p1, "datePattern"    # Ljava/lang/String;
 
     .line 71
@@ -168,7 +168,7 @@
 .end method
 
 .method public final createDefaultsAdapterFactory()Lcom/google/gson/TypeAdapterFactory;
-    .locals 3
+    .registers 4
 
     .line 83
     .local p0, "this":Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;, "Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType<TT;>;"

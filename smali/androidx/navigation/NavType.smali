@@ -191,7 +191,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/navigation/NavType$Companion;
 
@@ -304,7 +304,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .locals 1
+    .registers 3
     .param p1, "isNullableAllowed"    # Z
 
     .line 34
@@ -323,7 +323,7 @@
 .end method
 
 .method public static fromArgType(Ljava/lang/String;Ljava/lang/String;)Landroidx/navigation/NavType;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -348,7 +348,7 @@
 .end method
 
 .method public static final inferFromValue(Ljava/lang/String;)Landroidx/navigation/NavType;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -373,7 +373,7 @@
 .end method
 
 .method public static final inferFromValueType(Ljava/lang/Object;)Landroidx/navigation/NavType;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -411,7 +411,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 92
     iget-object v0, p0, Landroidx/navigation/NavType;->name:Ljava/lang/String;
@@ -420,7 +420,7 @@
 .end method
 
 .method public isNullableAllowed()Z
-    .locals 1
+    .registers 2
 
     .line 39
     iget-boolean v0, p0, Landroidx/navigation/NavType;->isNullableAllowed:Z
@@ -429,7 +429,7 @@
 .end method
 
 .method public final parseAndPut(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/String;
@@ -490,7 +490,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 95
     invoke-virtual {p0}, Landroidx/navigation/NavType;->getName()Ljava/lang/String;

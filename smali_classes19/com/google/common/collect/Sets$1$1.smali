@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Sets$1;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/Sets$1;
 
     .line 701
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method protected computeNext()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -98,7 +98,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 709
     iget-object v0, p0, Lcom/google/common/collect/Sets$1$1;->itr1:Ljava/util/Iterator;
@@ -110,15 +110,15 @@
     return-object v0
 
     .line 711
-    :cond_0
-    :goto_0
+    :cond_f
+    :goto_f
     iget-object v0, p0, Lcom/google/common/collect/Sets$1$1;->itr2:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
     .line 712
     iget-object v0, p0, Lcom/google/common/collect/Sets$1$1;->itr2:Ljava/util/Iterator;
@@ -137,18 +137,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_28
 
     .line 714
     return-object v0
 
     .line 716
     .end local v0    # "e":Ljava/lang/Object;, "TE;"
-    :cond_1
-    goto :goto_0
+    :cond_28
+    goto :goto_f
 
     .line 717
-    :cond_2
+    :cond_29
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$1$1;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

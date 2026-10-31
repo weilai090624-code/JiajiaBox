@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Lcom/google/zxing/client/result/ResultParser;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/EmailAddressParsedResult;
-    .locals 12
+    .registers 14
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 31
@@ -36,7 +36,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     const-string v0, "SMTP:"
 
@@ -44,7 +44,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 33
     const/4 v0, 0x0
@@ -52,7 +52,7 @@
     return-object v0
 
     .line 35
-    :cond_0
+    :cond_18
     const/4 v0, 0x5
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -81,7 +81,7 @@
     .local v6, "colon":I
     move v6, v5
 
-    if-ltz v5, :cond_2
+    if-ltz v5, :cond_4d
 
     .line 40
     add-int/lit8 v5, v6, 0x1
@@ -105,7 +105,7 @@
     .line 43
     move v6, v4
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_49
 
     .line 44
     add-int/lit8 v4, v6, 0x1
@@ -125,20 +125,20 @@
 
     move v10, v6
 
-    goto :goto_0
+    goto :goto_50
 
     .line 43
-    :cond_1
+    :cond_49
     move-object v8, v2
 
     move-object v9, v3
 
     move v10, v6
 
-    goto :goto_0
+    goto :goto_50
 
     .line 39
-    :cond_2
+    :cond_4d
     move-object v8, v2
 
     move-object v9, v3
@@ -152,7 +152,7 @@
     .local v8, "subject":Ljava/lang/String;
     .local v9, "body":Ljava/lang/String;
     .local v10, "colon":I
-    :goto_0
+    :goto_50
     new-instance v11, Lcom/google/zxing/client/result/EmailAddressParsedResult;
 
     filled-new-array {v0}, [Ljava/lang/String;
@@ -175,7 +175,7 @@
 .end method
 
 .method public bridge synthetic parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/ParsedResult;
-    .locals 0
+    .registers 2
 
     .line 27
     invoke-virtual {p0, p1}, Lcom/google/zxing/client/result/SMTPResultParser;->parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/EmailAddressParsedResult;

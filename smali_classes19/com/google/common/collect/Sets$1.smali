@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Set;Ljava/util/Set;)V
-    .locals 0
+    .registers 3
 
     .line 682
     iput-object p1, p0, Lcom/google/common/collect/Sets$1;->val$set1:Ljava/util/Set;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -59,7 +59,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object v0, p0, Lcom/google/common/collect/Sets$1;->val$set2:Ljava/util/Set;
 
@@ -67,25 +67,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_14
     return v0
 .end method
 
 .method public copyInto(Ljava/util/Set;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S::",
@@ -110,7 +110,7 @@
 .end method
 
 .method public immutableCopy()Lcom/google/common/collect/ImmutableSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -144,7 +144,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 696
     iget-object v0, p0, Lcom/google/common/collect/Sets$1;->val$set1:Ljava/util/Set;
@@ -153,7 +153,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/google/common/collect/Sets$1;->val$set2:Ljava/util/Set;
 
@@ -161,21 +161,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -193,7 +193,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 682
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$1;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
@@ -204,7 +204,7 @@
 .end method
 
 .method public size()I
-    .locals 4
+    .registers 5
 
     .line 685
     iget-object v0, p0, Lcom/google/common/collect/Sets$1;->val$set1:Ljava/util/Set;
@@ -221,12 +221,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -240,17 +240,17 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_20
 
     .line 688
     add-int/lit8 v0, v0, 0x1
 
     .line 690
     .end local v2    # "e":Ljava/lang/Object;, "TE;"
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_c
 
     .line 691
-    :cond_1
+    :cond_21
     return v0
 .end method

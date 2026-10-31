@@ -59,7 +59,7 @@
 
 # direct methods
 .method constructor <init>(IZZZ)V
-    .locals 0
+    .registers 5
     .param p1, "resultCode"    # I
     .param p2, "hasReferenceProfile"    # Z
     .param p3, "hasCurrentProfile"    # Z
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public appApkHasEmbeddedProfile()Z
-    .locals 1
+    .registers 2
 
     .line 611
     iget-boolean v0, p0, Landroidx/profileinstaller/ProfileVerifier$CompilationStatus;->mHasEmbeddedProfile:Z
@@ -96,7 +96,7 @@
 .end method
 
 .method public getProfileInstallResultCode()I
-    .locals 1
+    .registers 2
 
     .line 578
     iget v0, p0, Landroidx/profileinstaller/ProfileVerifier$CompilationStatus;->mResultCode:I
@@ -105,7 +105,7 @@
 .end method
 
 .method public hasProfileEnqueuedForCompilation()Z
-    .locals 1
+    .registers 2
 
     .line 602
     iget-boolean v0, p0, Landroidx/profileinstaller/ProfileVerifier$CompilationStatus;->mHasCurrentProfile:Z
@@ -114,7 +114,7 @@
 .end method
 
 .method public isCompiledWithProfile()Z
-    .locals 1
+    .registers 2
 
     .line 591
     iget-boolean v0, p0, Landroidx/profileinstaller/ProfileVerifier$CompilationStatus;->mHasReferenceProfile:Z

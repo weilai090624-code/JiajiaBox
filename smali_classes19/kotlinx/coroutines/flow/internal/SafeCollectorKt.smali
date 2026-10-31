@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 15
     sget-object v0, Lkotlinx/coroutines/flow/internal/SafeCollectorKt$emitFun$1;->INSTANCE:Lkotlinx/coroutines/flow/internal/SafeCollectorKt$emitFun$1;
@@ -74,7 +74,7 @@
 .end method
 
 .method public static final synthetic access$getEmitFun$p()Lkotlin/jvm/functions/Function3;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/flow/internal/SafeCollectorKt;->emitFun:Lkotlin/jvm/functions/Function3;
@@ -83,7 +83,7 @@
 .end method
 
 .method private static synthetic getEmitFun$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

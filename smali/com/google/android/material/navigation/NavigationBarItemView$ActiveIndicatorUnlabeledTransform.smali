@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1089
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/navigation/NavigationBarItemView$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/android/material/navigation/NavigationBarItemView$1;
 
     .line 1089
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method protected calculateScaleY(FF)F
-    .locals 1
+    .registers 4
     .param p1, "progress"    # F
     .param p2, "targetValue"    # F
 

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Collectors$Partition;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lj$/util/stream/Collectors$Partition;
 
     .line 1903
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -101,7 +101,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1913
     .local p0, "this":Lj$/util/stream/Collectors$Partition$1;, "Ljava/util/stream/Collectors$Partition$1;"

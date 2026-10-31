@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public onRecreated(Landroidx/savedstate/SavedStateRegistryOwner;)V
-    .locals 6
+    .registers 8
     .param p1, "owner"    # Landroidx/savedstate/SavedStateRegistryOwner;
 
     const-string v0, "owner"
@@ -63,7 +63,7 @@
     .line 78
     instance-of v0, p1, Landroidx/lifecycle/ViewModelStoreOwner;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_49
 
     .line 82
     move-object v0, p1
@@ -90,12 +90,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_37
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -121,10 +121,10 @@
 
     .end local v3    # "key":Ljava/lang/String;
     .end local v4    # "viewModel":Landroidx/lifecycle/ViewModel;
-    goto :goto_0
+    goto :goto_1c
 
     .line 88
-    :cond_0
+    :cond_37
     invoke-virtual {v0}, Landroidx/lifecycle/ViewModelStore;->keys()Ljava/util/Set;
 
     move-result-object v2
@@ -135,7 +135,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_48
 
     .line 89
     const-class v2, Landroidx/lifecycle/LegacySavedStateHandleController$OnRecreation;
@@ -143,13 +143,13 @@
     invoke-virtual {v1, v2}, Landroidx/savedstate/SavedStateRegistry;->runOnNextRecreation(Ljava/lang/Class;)V
 
     .line 91
-    :cond_1
+    :cond_48
     return-void
 
     .line 78
     .end local v0    # "viewModelStore":Landroidx/lifecycle/ViewModelStore;
     .end local v1    # "savedStateRegistry":Landroidx/savedstate/SavedStateRegistry;
-    :cond_2
+    :cond_49
     const/4 v0, 0x0
 
     .line 79

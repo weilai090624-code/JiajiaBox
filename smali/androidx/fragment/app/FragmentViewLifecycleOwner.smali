@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/Fragment;Landroidx/lifecycle/ViewModelStore;)V
-    .locals 1
+    .registers 4
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "viewModelStore"    # Landroidx/lifecycle/ViewModelStore;
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getDefaultViewModelCreationExtras()Landroidx/lifecycle/viewmodel/CreationExtras;
-    .locals 5
+    .registers 6
 
     .line 138
     const/4 v0, 0x0
@@ -69,15 +69,15 @@
 
     .line 140
     .local v1, "appContext":Landroid/content/Context;
-    :goto_0
+    :goto_b
     instance-of v2, v1, Landroid/content/ContextWrapper;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     .line 141
     instance-of v2, v1, Landroid/app/Application;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     .line 142
     move-object v0, v1
@@ -85,10 +85,10 @@
     check-cast v0, Landroid/app/Application;
 
     .line 143
-    goto :goto_1
+    goto :goto_1f
 
     .line 145
-    :cond_0
+    :cond_17
     move-object v2, v1
 
     check-cast v2, Landroid/content/ContextWrapper;
@@ -97,18 +97,18 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 147
-    :cond_1
-    :goto_1
+    :cond_1f
+    :goto_1f
     new-instance v2, Landroidx/lifecycle/viewmodel/MutableCreationExtras;
 
     invoke-direct {v2}, Landroidx/lifecycle/viewmodel/MutableCreationExtras;-><init>()V
 
     .line 148
     .local v2, "extras":Landroidx/lifecycle/viewmodel/MutableCreationExtras;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
     .line 149
     sget-object v3, Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;->APPLICATION_KEY:Landroidx/lifecycle/viewmodel/CreationExtras$Key;
@@ -116,7 +116,7 @@
     invoke-virtual {v2, v3, v0}, Landroidx/lifecycle/viewmodel/MutableCreationExtras;->set(Landroidx/lifecycle/viewmodel/CreationExtras$Key;Ljava/lang/Object;)V
 
     .line 151
-    :cond_2
+    :cond_2b
     sget-object v3, Landroidx/lifecycle/SavedStateHandleSupport;->SAVED_STATE_REGISTRY_OWNER_KEY:Landroidx/lifecycle/viewmodel/CreationExtras$Key;
 
     iget-object v4, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mFragment:Landroidx/fragment/app/Fragment;
@@ -135,7 +135,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4a
 
     .line 154
     sget-object v3, Landroidx/lifecycle/SavedStateHandleSupport;->DEFAULT_ARGS_KEY:Landroidx/lifecycle/viewmodel/CreationExtras$Key;
@@ -149,12 +149,12 @@
     invoke-virtual {v2, v3, v4}, Landroidx/lifecycle/viewmodel/MutableCreationExtras;->set(Landroidx/lifecycle/viewmodel/CreationExtras$Key;Ljava/lang/Object;)V
 
     .line 156
-    :cond_3
+    :cond_4a
     return-object v2
 .end method
 
 .method public getDefaultViewModelProviderFactory()Landroidx/lifecycle/ViewModelProvider$Factory;
-    .locals 6
+    .registers 7
 
     .line 106
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mFragment:Landroidx/fragment/app/Fragment;
@@ -174,7 +174,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
     .line 110
     iput-object v0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mDefaultFactory:Landroidx/lifecycle/ViewModelProvider$Factory;
@@ -183,10 +183,10 @@
     return-object v0
 
     .line 114
-    :cond_0
+    :cond_13
     iget-object v1, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mDefaultFactory:Landroidx/lifecycle/ViewModelProvider$Factory;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_45
 
     .line 115
     const/4 v1, 0x0
@@ -205,15 +205,15 @@
 
     .line 117
     .local v2, "appContext":Landroid/content/Context;
-    :goto_0
+    :goto_22
     instance-of v3, v2, Landroid/content/ContextWrapper;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_36
 
     .line 118
     instance-of v3, v2, Landroid/app/Application;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2e
 
     .line 119
     move-object v1, v2
@@ -221,10 +221,10 @@
     check-cast v1, Landroid/app/Application;
 
     .line 120
-    goto :goto_1
+    goto :goto_36
 
     .line 122
-    :cond_1
+    :cond_2e
     move-object v3, v2
 
     check-cast v3, Landroid/content/ContextWrapper;
@@ -233,11 +233,11 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_22
 
     .line 125
-    :cond_2
-    :goto_1
+    :cond_36
+    :goto_36
     new-instance v3, Landroidx/lifecycle/SavedStateViewModelFactory;
 
     iget-object v4, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mFragment:Landroidx/fragment/app/Fragment;
@@ -256,14 +256,14 @@
     .line 131
     .end local v1    # "application":Landroid/app/Application;
     .end local v2    # "appContext":Landroid/content/Context;
-    :cond_3
+    :cond_45
     iget-object v1, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mDefaultFactory:Landroidx/lifecycle/ViewModelProvider$Factory;
 
     return-object v1
 .end method
 
 .method public getLifecycle()Landroidx/lifecycle/Lifecycle;
-    .locals 1
+    .registers 2
 
     .line 84
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentViewLifecycleOwner;->initialize()V
@@ -275,7 +275,7 @@
 .end method
 
 .method public getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
-    .locals 1
+    .registers 2
 
     .line 162
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentViewLifecycleOwner;->initialize()V
@@ -291,7 +291,7 @@
 .end method
 
 .method public getViewModelStore()Landroidx/lifecycle/ViewModelStore;
-    .locals 1
+    .registers 2
 
     .line 59
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentViewLifecycleOwner;->initialize()V
@@ -303,7 +303,7 @@
 .end method
 
 .method handleLifecycleEvent(Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
     .line 93
@@ -316,12 +316,12 @@
 .end method
 
 .method initialize()V
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 68
     new-instance v0, Landroidx/lifecycle/LifecycleRegistry;
@@ -343,31 +343,31 @@
     invoke-virtual {v0}, Landroidx/savedstate/SavedStateRegistryController;->performAttach()V
 
     .line 72
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method isInitialized()Z
-    .locals 1
+    .registers 2
 
     .line 78
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method performRestore(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "savedState"    # Landroid/os/Bundle;
 
     .line 167
@@ -380,7 +380,7 @@
 .end method
 
 .method performSave(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "outBundle"    # Landroid/os/Bundle;
 
     .line 171
@@ -393,7 +393,7 @@
 .end method
 
 .method setCurrentState(Landroidx/lifecycle/Lifecycle$State;)V
-    .locals 1
+    .registers 3
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
 
     .line 89

@@ -66,7 +66,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     new-instance v0, Lokhttp3/internal/http2/Huffman;
 
@@ -1570,7 +1570,7 @@
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_402
 
     .line 38
     sput-object v1, Lokhttp3/internal/http2/Huffman;->CODES:[I
@@ -2991,7 +2991,7 @@
     .line 77
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_606
 
     .line 67
     sput-object v0, Lokhttp3/internal/http2/Huffman;->CODE_BIT_COUNTS:[B
@@ -3013,11 +3013,11 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_401
 
     const/4 v1, 0x0
 
-    :cond_0
+    :cond_3ef
     move v2, v1
 
     .local v2, "i":I
@@ -3037,14 +3037,14 @@
     invoke-direct {v3, v2, v4, v5}, Lokhttp3/internal/http2/Huffman;->addCode(III)V
 
     .line 81
-    if-le v1, v0, :cond_0
+    if-le v1, v0, :cond_3ef
 
     .line 84
     .end local v2    # "i":I
-    :cond_1
+    :cond_401
     return-void
 
-    :array_0
+    :array_402
     .array-data 4
         0x1ff8
         0x7fffd8
@@ -3304,7 +3304,7 @@
         0x3ffffee
     .end array-data
 
-    :array_1
+    :array_606
     .array-data 1
         0xdt
         0x17t
@@ -3566,7 +3566,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -3575,7 +3575,7 @@
 .end method
 
 .method private final addCode(III)V
-    .locals 8
+    .registers 12
     .param p1, "symbol"    # I
     .param p2, "code"    # I
     .param p3, "codeBitCount"    # I
@@ -3595,10 +3595,10 @@
 
     .line 163
     .local v2, "node":Lokhttp3/internal/http2/Huffman$Node;
-    :goto_0
+    :goto_8
     const/16 v3, 0x8
 
-    if-le v1, v3, :cond_1
+    if-le v1, v3, :cond_27
 
     .line 164
     add-int/lit8 v1, v1, -0x8
@@ -3622,7 +3622,7 @@
 
     .line 168
     .local v5, "child":Lokhttp3/internal/http2/Huffman$Node;
-    if-nez v5, :cond_0
+    if-nez v5, :cond_25
 
     .line 169
     new-instance v6, Lokhttp3/internal/http2/Huffman$Node;
@@ -3635,16 +3635,16 @@
     aput-object v5, v4, v3
 
     .line 172
-    :cond_0
+    :cond_25
     move-object v2, v5
 
     .end local v3    # "childIndex":I
     .end local v4    # "children":[Lokhttp3/internal/http2/Huffman$Node;
     .end local v5    # "child":Lokhttp3/internal/http2/Huffman$Node;
-    goto :goto_0
+    goto :goto_8
 
     .line 175
-    :cond_1
+    :cond_27
     rsub-int/lit8 v3, v1, 0x8
 
     .line 176
@@ -3678,7 +3678,7 @@
 
 # virtual methods
 .method public final decode(Lokio/BufferedSource;JLokio/BufferedSink;)V
-    .locals 14
+    .registers 19
     .param p1, "source"    # Lokio/BufferedSource;
     .param p2, "byteCount"    # J
     .param p4, "sink"    # Lokio/BufferedSink;
@@ -3714,9 +3714,9 @@
 
     cmp-long v8, v6, p2
 
-    if-gez v8, :cond_3
+    if-gez v8, :cond_5d
 
-    :cond_0
+    :cond_19
     move-wide v8, v6
 
     .local v8, "i":J
@@ -3745,8 +3745,8 @@
     add-int/2addr v4, v11
 
     .line 131
-    :goto_0
-    if-lt v4, v11, :cond_2
+    :goto_2c
+    if-lt v4, v11, :cond_59
 
     .line 132
     add-int/lit8 v12, v4, -0x8
@@ -3774,7 +3774,7 @@
 
     move-result-object v13
 
-    if-nez v13, :cond_1
+    if-nez v13, :cond_55
 
     .line 136
     invoke-virtual {v1}, Lokhttp3/internal/http2/Huffman$Node;->getSymbol()I
@@ -3793,29 +3793,29 @@
     .line 138
     sget-object v1, Lokhttp3/internal/http2/Huffman;->root:Lokhttp3/internal/http2/Huffman$Node;
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 141
-    :cond_1
+    :cond_55
     nop
 
     .end local v12    # "childIndex":I
     add-int/lit8 v4, v4, -0x8
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 127
     .end local v10    # "byteIn":I
-    :cond_2
+    :cond_59
     cmp-long v10, v6, p2
 
-    if-ltz v10, :cond_0
+    if-ltz v10, :cond_19
 
     .line 146
     .end local v8    # "i":J
-    :cond_3
-    :goto_1
-    if-lez v4, :cond_6
+    :cond_5d
+    :goto_5d
+    if-lez v4, :cond_8e
 
     .line 147
     rsub-int/lit8 v6, v4, 0x8
@@ -3843,18 +3843,18 @@
 
     move-result-object v7
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_8d
 
     invoke-virtual {v1}, Lokhttp3/internal/http2/Huffman$Node;->getTerminalBitCount()I
 
     move-result v7
 
-    if-le v7, v4, :cond_4
+    if-le v7, v4, :cond_7e
 
-    goto :goto_2
+    goto :goto_8d
 
     .line 152
-    :cond_4
+    :cond_7e
     invoke-virtual {v1}, Lokhttp3/internal/http2/Huffman$Node;->getSymbol()I
 
     move-result v7
@@ -3872,22 +3872,22 @@
     sget-object v1, Lokhttp3/internal/http2/Huffman;->root:Lokhttp3/internal/http2/Huffman$Node;
 
     .end local v6    # "childIndex":I
-    goto :goto_1
+    goto :goto_5d
 
     .line 150
     .restart local v6    # "childIndex":I
-    :cond_5
-    :goto_2
+    :cond_8d
+    :goto_8d
     nop
 
     .line 156
     .end local v6    # "childIndex":I
-    :cond_6
+    :cond_8e
     return-void
 .end method
 
 .method public final encode(Lokio/ByteString;Lokio/BufferedSink;)V
-    .locals 13
+    .registers 16
     .param p1, "source"    # Lokio/ByteString;
     .param p2, "sink"    # Lokio/BufferedSink;
     .annotation system Ldalvik/annotation/Throws;
@@ -3917,11 +3917,11 @@
 
     move-result v3
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_3e
 
     const/4 v4, 0x0
 
-    :cond_0
+    :cond_14
     move v5, v4
 
     .local v5, "i":I
@@ -3962,10 +3962,10 @@
     add-int/2addr v2, v8
 
     .line 99
-    :goto_0
+    :goto_2f
     const/16 v9, 0x8
 
-    if-lt v2, v9, :cond_1
+    if-lt v2, v9, :cond_3c
 
     .line 100
     add-int/lit8 v2, v2, -0x8
@@ -3977,19 +3977,19 @@
 
     invoke-interface {p2, v10}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 91
     .end local v6    # "symbol":I
     .end local v7    # "code":I
     .end local v8    # "codeBitCount":I
-    :cond_1
-    if-lt v4, v3, :cond_0
+    :cond_3c
+    if-lt v4, v3, :cond_14
 
     .line 105
     .end local v5    # "i":I
-    :cond_2
-    if-lez v2, :cond_3
+    :cond_3e
+    if-lez v2, :cond_4b
 
     .line 106
     rsub-int/lit8 v3, v2, 0x8
@@ -4009,12 +4009,12 @@
     invoke-interface {p2, v3}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 110
-    :cond_3
+    :cond_4b
     return-void
 .end method
 
 .method public final encodedLength(Lokio/ByteString;)I
-    .locals 8
+    .registers 10
     .param p1, "bytes"    # Lokio/ByteString;
 
     const-string v0, "bytes"
@@ -4030,11 +4030,11 @@
 
     move-result v2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_23
 
     const/4 v3, 0x0
 
-    :cond_0
+    :cond_e
     move v4, v3
 
     .local v4, "i":I
@@ -4063,11 +4063,11 @@
 
     .line 115
     .end local v5    # "byteIn":I
-    if-lt v3, v2, :cond_0
+    if-lt v3, v2, :cond_e
 
     .line 120
     .end local v4    # "i":I
-    :cond_1
+    :cond_23
     const/4 v2, 0x7
 
     int-to-long v2, v2

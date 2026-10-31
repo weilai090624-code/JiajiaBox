@@ -50,7 +50,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 195
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/MultipartBody$Part$Companion;-><init>()V
 
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public final create(Lokhttp3/Headers;Lokhttp3/RequestBody;)Lokhttp3/MultipartBody$Part;
-    .locals 4
+    .registers 7
     .param p1, "headers"    # Lokhttp3/Headers;
     .param p2, "body"    # Lokhttp3/RequestBody;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -82,60 +82,60 @@
     .line 201
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_a
     const-string v1, "Content-Type"
 
     invoke-virtual {p1, v1}, Lokhttp3/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_16
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v1, 0x0
 
-    :goto_1
-    if-eqz v1, :cond_5
+    :goto_17
+    if-eqz v1, :cond_3f
 
     .line 202
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1d
 
     move-object v1, v0
 
-    goto :goto_2
+    goto :goto_23
 
-    :cond_2
+    :cond_1d
     const-string v1, "Content-Length"
 
     invoke-virtual {p1, v1}, Lokhttp3/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_2
-    if-nez v1, :cond_3
+    :goto_23
+    if-nez v1, :cond_26
 
-    goto :goto_3
+    goto :goto_27
 
-    :cond_3
+    :cond_26
     const/4 v2, 0x0
 
-    :goto_3
-    if-eqz v2, :cond_4
+    :goto_27
+    if-eqz v2, :cond_2f
 
     .line 203
     new-instance v1, Lokhttp3/MultipartBody$Part;
@@ -145,7 +145,7 @@
     return-object v1
 
     .line 346
-    :cond_4
+    :cond_2f
     const/4 v0, 0x0
 
     .line 202
@@ -168,7 +168,7 @@
     throw v0
 
     .line 346
-    :cond_5
+    :cond_3f
     const/4 v0, 0x0
 
     .line 201
@@ -192,7 +192,7 @@
 .end method
 
 .method public final create(Lokhttp3/RequestBody;)Lokhttp3/MultipartBody$Part;
-    .locals 1
+    .registers 3
     .param p1, "body"    # Lokhttp3/RequestBody;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -212,7 +212,7 @@
 .end method
 
 .method public final createFormData(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/MultipartBody$Part;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -245,7 +245,7 @@
 .end method
 
 .method public final createFormData(Ljava/lang/String;Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/MultipartBody$Part;
-    .locals 4
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "filename"    # Ljava/lang/String;
     .param p3, "body"    # Lokhttp3/RequestBody;
@@ -282,7 +282,7 @@
     invoke-virtual {v3, v1, p1}, Lokhttp3/MultipartBody$Companion;->appendQuotedString$okhttp(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
     .line 216
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_27
 
     .line 217
     const-string v3, "; filename="
@@ -295,7 +295,7 @@
     invoke-virtual {v3, v1, p2}, Lokhttp3/MultipartBody$Companion;->appendQuotedString$okhttp(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
     .line 220
-    :cond_0
+    :cond_27
     nop
 
     .line 212

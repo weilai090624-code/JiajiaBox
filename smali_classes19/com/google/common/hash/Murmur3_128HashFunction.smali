@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 46
     new-instance v0, Lcom/google/common/hash/Murmur3_128HashFunction;
@@ -58,7 +58,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "seed"    # I
 
     .line 54
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public bits()I
-    .locals 1
+    .registers 2
 
     .line 60
     const/16 v0, 0x80
@@ -83,7 +83,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -94,7 +94,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 76
     move-object v0, p1
@@ -107,21 +107,21 @@
 
     iget v3, v0, Lcom/google/common/hash/Murmur3_128HashFunction;->seed:I
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_f
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_f
     return v1
 
     .line 79
     .end local v0    # "other":Lcom/google/common/hash/Murmur3_128HashFunction;
-    :cond_1
+    :cond_10
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 84
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -140,7 +140,7 @@
 .end method
 
 .method public newHasher()Lcom/google/common/hash/Hasher;
-    .locals 2
+    .registers 3
 
     .line 65
     new-instance v0, Lcom/google/common/hash/Murmur3_128HashFunction$Murmur3_128Hasher;
@@ -153,7 +153,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 70
     iget v0, p0, Lcom/google/common/hash/Murmur3_128HashFunction;->seed:I

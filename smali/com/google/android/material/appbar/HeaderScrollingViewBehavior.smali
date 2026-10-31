@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 47
     invoke-direct {p0}, Lcom/google/android/material/appbar/ViewOffsetBehavior;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -85,20 +85,20 @@
 .end method
 
 .method private static resolveGravity(I)I
-    .locals 1
+    .registers 2
     .param p0, "gravity"    # I
 
     .line 173
-    if-nez p0, :cond_0
+    if-nez p0, :cond_6
 
     const v0, 0x800033
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move v0, p0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
@@ -117,7 +117,7 @@
 .end method
 
 .method final getOverlapPixelsForOffset(Landroid/view/View;)I
-    .locals 3
+    .registers 5
     .param p1, "header"    # Landroid/view/View;
 
     .line 167
@@ -125,13 +125,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 168
-    goto :goto_0
+    goto :goto_16
 
     .line 169
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->getOverlapRatioForOffset(Landroid/view/View;)F
 
     move-result v0
@@ -151,12 +151,12 @@
     move-result v1
 
     .line 167
-    :goto_0
+    :goto_16
     return v1
 .end method
 
 .method getOverlapRatioForOffset(Landroid/view/View;)F
-    .locals 1
+    .registers 3
     .param p1, "header"    # Landroid/view/View;
 
     .line 163
@@ -166,7 +166,7 @@
 .end method
 
 .method public final getOverlayTop()I
-    .locals 1
+    .registers 2
 
     .line 205
     iget v0, p0, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->overlayTop:I
@@ -175,7 +175,7 @@
 .end method
 
 .method getScrollRange(Landroid/view/View;)I
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 180
@@ -187,7 +187,7 @@
 .end method
 
 .method final getVerticalLayoutGap()I
-    .locals 1
+    .registers 2
 
     .line 187
     iget v0, p0, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->verticalLayoutGap:I
@@ -196,7 +196,7 @@
 .end method
 
 .method protected layoutChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)V
-    .locals 12
+    .registers 16
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "layoutDirection"    # I
@@ -214,7 +214,7 @@
 
     .line 117
     .local v1, "header":Landroid/view/View;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_97
 
     .line 118
     nop
@@ -298,21 +298,21 @@
 
     .line 128
     .local v10, "parentInsets":Landroidx/core/view/WindowInsetsCompat;
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_66
 
     .line 129
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_66
 
     .line 130
     invoke-static {p2}, Landroidx/core/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_66
 
     .line 134
     iget v3, v9, Landroid/graphics/Rect;->left:I
@@ -337,7 +337,7 @@
     iput v3, v9, Landroid/graphics/Rect;->right:I
 
     .line 138
-    :cond_0
+    :cond_66
     iget-object v11, p0, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->tempRect2:Landroid/graphics/Rect;
 
     .line 139
@@ -406,10 +406,10 @@
     .end local v9    # "available":Landroid/graphics/Rect;
     .end local v10    # "parentInsets":Landroidx/core/view/WindowInsetsCompat;
     .end local v11    # "out":Landroid/graphics/Rect;
-    goto :goto_0
+    goto :goto_9d
 
     .line 153
-    :cond_1
+    :cond_97
     invoke-super {p0, p1, p2, p3}, Lcom/google/android/material/appbar/ViewOffsetBehavior;->layoutChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)V
 
     .line 154
@@ -418,12 +418,12 @@
     iput v2, p0, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->verticalLayoutGap:I
 
     .line 156
-    :goto_0
+    :goto_9d
     return-void
 .end method
 
 .method public onMeasureChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIII)Z
-    .locals 15
+    .registers 22
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "parentWidthMeasureSpec"    # I
@@ -446,14 +446,14 @@
     .local v8, "childLpHeight":I
     const/4 v1, -0x1
 
-    if-eq v8, v1, :cond_0
+    if-eq v8, v1, :cond_f
 
     const/4 v2, -0x2
 
-    if-ne v8, v2, :cond_6
+    if-ne v8, v2, :cond_76
 
     .line 67
-    :cond_0
+    :cond_f
     invoke-virtual/range {p1 .. p2}, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->getDependencies(Landroid/view/View;)Ljava/util/List;
 
     move-result-object v9
@@ -466,7 +466,7 @@
 
     .line 69
     .local v10, "header":Landroid/view/View;
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_76
 
     .line 70
     invoke-static/range {p5 .. p5}, Landroid/view/View$MeasureSpec;->getSize(I)I
@@ -475,14 +475,14 @@
 
     .line 71
     .local v2, "availableHeight":I
-    if-lez v2, :cond_3
+    if-lez v2, :cond_39
 
     .line 72
     invoke-static {v10}, Landroidx/core/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_37
 
     .line 73
     invoke-virtual/range {p1 .. p1}, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->getLastWindowInsets()Landroidx/core/view/WindowInsetsCompat;
@@ -491,7 +491,7 @@
 
     .line 74
     .local v3, "parentInsets":Landroidx/core/view/WindowInsetsCompat;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_35
 
     .line 75
     invoke-virtual {v3}, Landroidx/core/view/WindowInsetsCompat;->getSystemWindowInsetTop()I
@@ -509,19 +509,19 @@
 
     .line 78
     .end local v3    # "parentInsets":Landroidx/core/view/WindowInsetsCompat;
-    :cond_1
+    :cond_35
     move v11, v2
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 72
-    :cond_2
+    :cond_37
     move v11, v2
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 81
-    :cond_3
+    :cond_39
     invoke-virtual/range {p1 .. p1}, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->getHeight()I
 
     move-result v2
@@ -531,7 +531,7 @@
     .line 84
     .end local v2    # "availableHeight":I
     .local v11, "availableHeight":I
-    :goto_0
+    :goto_3e
     invoke-virtual {p0, v10}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->getScrollRange(Landroid/view/View;)I
 
     move-result v2
@@ -550,7 +550,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_54
 
     .line 87
     neg-int v3, v12
@@ -561,10 +561,10 @@
 
     move v13, v2
 
-    goto :goto_1
+    goto :goto_5a
 
     .line 89
-    :cond_4
+    :cond_54
     const/4 v3, 0x0
 
     invoke-virtual {v7, v3}, Landroid/view/View;->setTranslationY(F)V
@@ -577,23 +577,23 @@
     .line 92
     .end local v2    # "height":I
     .local v13, "height":I
-    :goto_1
+    :goto_5a
     nop
 
     .line 95
-    if-ne v8, v1, :cond_5
+    if-ne v8, v1, :cond_60
 
     .line 96
     const/high16 v1, 0x40000000    # 2.0f
 
-    goto :goto_2
+    goto :goto_62
 
     .line 97
-    :cond_5
+    :cond_60
     const/high16 v1, -0x80000000
 
     .line 93
-    :goto_2
+    :goto_62
     invoke-static {v13, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v14
@@ -626,14 +626,14 @@
     .end local v12    # "headerHeight":I
     .end local v13    # "height":I
     .end local v14    # "heightMeasureSpec":I
-    :cond_6
+    :cond_76
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public final setOverlayTop(I)V
-    .locals 0
+    .registers 2
     .param p1, "overlayTop"    # I
 
     .line 197
@@ -644,7 +644,7 @@
 .end method
 
 .method protected shouldHeaderOverlapScrollingChild()Z
-    .locals 1
+    .registers 2
 
     .line 159
     const/4 v0, 0x0

@@ -94,7 +94,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/navigation/NavInflater$Companion;
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/navigation/NavigatorProvider;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "navigatorProvider"    # Landroidx/navigation/NavigatorProvider;
 
@@ -141,7 +141,7 @@
 .end method
 
 .method private final inflate(Landroid/content/res/Resources;Landroid/content/res/XmlResourceParser;Landroid/util/AttributeSet;I)Landroidx/navigation/NavDestination;
-    .locals 17
+    .registers 22
     .param p1, "res"    # Landroid/content/res/Resources;
     .param p2, "parser"    # Landroid/content/res/XmlResourceParser;
     .param p3, "attrs"    # Landroid/util/AttributeSet;
@@ -205,7 +205,7 @@
 
     .line 92
     .local v1, "depth":I
-    :goto_0
+    :goto_27
     invoke-interface/range {p2 .. p2}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v2
@@ -224,7 +224,7 @@
     .end local v3    # "it":I
     .end local v4    # "$i$a$-also-NavInflater$inflate$3":I
     .local v13, "type":I
-    if-eq v2, v11, :cond_9
+    if-eq v2, v11, :cond_cd
 
     .line 93
     invoke-interface/range {p2 .. p2}, Landroid/content/res/XmlResourceParser;->getDepth()I
@@ -245,38 +245,38 @@
     .end local v2    # "it":I
     .end local v3    # "$i$a$-also-NavInflater$inflate$4":I
     .local v14, "depth":I
-    if-ge v0, v12, :cond_1
+    if-ge v0, v12, :cond_40
 
     const/4 v0, 0x3
 
-    if-eq v13, v0, :cond_0
+    if-eq v13, v0, :cond_3d
 
-    goto :goto_1
+    goto :goto_40
 
-    :cond_0
+    :cond_3d
     move v1, v14
 
-    goto/16 :goto_3
+    goto/16 :goto_cd
 
     .line 95
-    :cond_1
-    :goto_1
+    :cond_40
+    :goto_40
     const/4 v0, 0x2
 
-    if-eq v13, v0, :cond_2
+    if-eq v13, v0, :cond_45
 
     .line 96
-    goto/16 :goto_2
+    goto/16 :goto_c8
 
     .line 98
-    :cond_2
-    if-le v14, v12, :cond_3
+    :cond_45
+    if-le v14, v12, :cond_49
 
     .line 99
-    goto/16 :goto_2
+    goto/16 :goto_c8
 
     .line 101
-    :cond_3
+    :cond_49
     invoke-interface/range {p2 .. p2}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v15
@@ -289,17 +289,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5c
 
     .line 103
     move/from16 v5, p4
 
     invoke-direct {v6, v7, v10, v8, v5}, Landroidx/navigation/NavInflater;->inflateArgumentForDestination(Landroid/content/res/Resources;Landroidx/navigation/NavDestination;Landroid/util/AttributeSet;I)V
 
-    goto/16 :goto_2
+    goto/16 :goto_c8
 
     .line 104
-    :cond_4
+    :cond_5c
     move/from16 v5, p4
 
     const-string v0, "deepLink"
@@ -308,22 +308,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6a
 
     .line 105
     invoke-direct {v6, v7, v10, v8}, Landroidx/navigation/NavInflater;->inflateDeepLink(Landroid/content/res/Resources;Landroidx/navigation/NavDestination;Landroid/util/AttributeSet;)V
 
-    goto :goto_2
+    goto :goto_c8
 
     .line 106
-    :cond_5
+    :cond_6a
     const-string v0, "action"
 
     invoke-static {v0, v15}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_81
 
     .line 107
     move-object/from16 v0, p0
@@ -340,21 +340,21 @@
 
     invoke-direct/range {v0 .. v5}, Landroidx/navigation/NavInflater;->inflateAction(Landroid/content/res/Resources;Landroidx/navigation/NavDestination;Landroid/util/AttributeSet;Landroid/content/res/XmlResourceParser;I)V
 
-    goto :goto_2
+    goto :goto_c8
 
     .line 108
-    :cond_6
+    :cond_81
     const-string v0, "include"
 
     invoke-static {v0, v15}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_ba
 
     instance-of v0, v10, Landroidx/navigation/NavGraph;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_ba
 
     .line 109
     sget-object v0, Landroidx/navigation/R$styleable;->NavInclude:[I
@@ -428,13 +428,13 @@
 
     .end local v0    # "$this$use$iv":Landroid/content/res/TypedArray;
     .end local v1    # "$i$f$use":I
-    goto :goto_2
+    goto :goto_c8
 
     .line 113
-    :cond_7
+    :cond_ba
     instance-of v0, v10, Landroidx/navigation/NavGraph;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_c8
 
     .line 114
     move-object v0, v10
@@ -449,26 +449,26 @@
 
     .line 92
     .end local v15    # "name":Ljava/lang/String;
-    :cond_8
-    :goto_2
+    :cond_c8
+    :goto_c8
     move v0, v13
 
     move v1, v14
 
     const/4 v11, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_27
 
     .line 117
     .end local v14    # "depth":I
     .local v1, "depth":I
-    :cond_9
-    :goto_3
+    :cond_cd
+    :goto_cd
     return-object v10
 .end method
 
 .method private final inflateAction(Landroid/content/res/Resources;Landroidx/navigation/NavDestination;Landroid/util/AttributeSet;Landroid/content/res/XmlResourceParser;I)V
-    .locals 22
+    .registers 28
     .param p1, "res"    # Landroid/content/res/Resources;
     .param p2, "dest"    # Landroidx/navigation/NavDestination;
     .param p3, "attrs"    # Landroid/util/AttributeSet;
@@ -687,7 +687,7 @@
 
     .line 305
     .local v17, "depth":I
-    :goto_0
+    :goto_9f
     invoke-interface/range {p4 .. p4}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v11
@@ -709,7 +709,7 @@
     .end local v4    # "defStyleAttr$iv":I
     .end local v21    # "$i$a$-also-NavInflater$inflateAction$1$1":I
     .local v20, "defStyleAttr$iv":I
-    if-eq v11, v4, :cond_5
+    if-eq v11, v4, :cond_102
 
     .line 306
     invoke-interface/range {p4 .. p4}, Landroid/content/res/XmlResourceParser;->getDepth()I
@@ -728,29 +728,29 @@
 
     .end local v19    # "it":I
     .end local v21    # "$i$a$-also-NavInflater$inflateAction$1$2":I
-    if-ge v11, v3, :cond_1
+    if-ge v11, v3, :cond_c5
 
     const/4 v11, 0x3
 
-    if-eq v15, v11, :cond_0
+    if-eq v15, v11, :cond_be
 
-    goto :goto_1
+    goto :goto_c5
 
-    :cond_0
+    :cond_be
     move/from16 v4, p5
 
     move/from16 v21, v3
 
     move-object/from16 v3, p1
 
-    goto :goto_3
+    goto :goto_108
 
     .line 308
-    :cond_1
-    :goto_1
+    :cond_c5
+    :goto_c5
     const/4 v11, 0x2
 
-    if-eq v15, v11, :cond_2
+    if-eq v15, v11, :cond_d1
 
     .line 309
     move/from16 v4, p5
@@ -761,15 +761,15 @@
 
     move-object/from16 v3, p1
 
-    goto :goto_2
+    goto :goto_fa
 
     .line 311
-    :cond_2
+    :cond_d1
     move/from16 v11, v17
 
     .end local v17    # "depth":I
     .local v11, "depth":I
-    if-le v11, v3, :cond_3
+    if-le v11, v3, :cond_dc
 
     .line 312
     move/from16 v4, p5
@@ -778,10 +778,10 @@
 
     move-object/from16 v3, p1
 
-    goto :goto_2
+    goto :goto_fa
 
     .line 314
-    :cond_3
+    :cond_dc
     invoke-interface/range {p4 .. p4}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v4
@@ -798,7 +798,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_f4
 
     .line 316
     move-object/from16 v3, p1
@@ -812,11 +812,11 @@
     invoke-direct {v0, v3, v2, v1, v4}, Landroidx/navigation/NavInflater;->inflateArgumentForBundle(Landroid/content/res/Resources;Landroid/os/Bundle;Landroid/util/AttributeSet;I)V
 
     .end local v17    # "name":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_fa
 
     .line 315
     .restart local v4    # "name":Ljava/lang/String;
-    :cond_4
+    :cond_f4
     move-object/from16 v3, p1
 
     move-object/from16 v17, v4
@@ -829,7 +829,7 @@
     .end local v21    # "innerDepth":I
     .restart local v3    # "innerDepth":I
     .local v17, "depth":I
-    :goto_2
+    :goto_fa
     move/from16 v17, v11
 
     move/from16 v4, v20
@@ -842,13 +842,13 @@
     .end local v17    # "depth":I
     .restart local v11    # "depth":I
     .restart local v21    # "innerDepth":I
-    goto :goto_0
+    goto :goto_9f
 
     .end local v11    # "depth":I
     .end local v21    # "innerDepth":I
     .restart local v3    # "innerDepth":I
     .restart local v17    # "depth":I
-    :cond_5
+    :cond_102
     move/from16 v4, p5
 
     move/from16 v21, v3
@@ -858,18 +858,18 @@
     .line 319
     .end local v3    # "innerDepth":I
     .restart local v21    # "innerDepth":I
-    :goto_3
+    :goto_108
     invoke-virtual {v2}, Landroid/os/Bundle;->isEmpty()Z
 
     move-result v11
 
-    if-nez v11, :cond_6
+    if-nez v11, :cond_111
 
     .line 320
     invoke-virtual {v13, v2}, Landroidx/navigation/NavAction;->setDefaultArguments(Landroid/os/Bundle;)V
 
     .line 322
-    :cond_6
+    :cond_111
     move-object/from16 v11, p2
 
     invoke-virtual {v11, v10, v13}, Landroidx/navigation/NavDestination;->putAction(ILandroidx/navigation/NavAction;)V
@@ -903,7 +903,7 @@
 .end method
 
 .method private final inflateArgument(Landroid/content/res/TypedArray;Landroid/content/res/Resources;I)Landroidx/navigation/NavArgument;
-    .locals 12
+    .registers 16
     .param p1, "a"    # Landroid/content/res/TypedArray;
     .param p2, "res"    # Landroid/content/res/Resources;
     .param p3, "graphResId"    # I
@@ -941,7 +941,7 @@
 
     .line 157
     .local v1, "value":Landroid/util/TypedValue;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_24
 
     .line 158
     new-instance v3, Landroid/util/TypedValue;
@@ -956,7 +956,7 @@
     invoke-virtual {v3, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
     .line 161
-    :cond_0
+    :cond_24
     const/4 v3, 0x0
 
     .line 162
@@ -973,7 +973,7 @@
 
     .line 164
     .local v10, "argType":Ljava/lang/String;
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_3a
 
     .line 165
     sget-object v5, Landroidx/navigation/NavType;->Companion:Landroidx/navigation/NavType$Companion;
@@ -988,23 +988,23 @@
 
     move-object v11, v4
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 164
-    :cond_1
+    :cond_3a
     move-object v11, v4
 
     .line 167
     .end local v4    # "navType":Landroidx/navigation/NavType;
     .local v11, "navType":Landroidx/navigation/NavType;
-    :goto_0
+    :goto_3b
     sget v4, Landroidx/navigation/common/R$styleable;->NavArgument_android_defaultValue:I
 
     invoke-virtual {p1, v4, v1}, Landroid/content/res/TypedArray;->getValue(ILandroid/util/TypedValue;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_19d
 
     .line 168
     sget-object v4, Landroidx/navigation/NavType;->ReferenceType:Landroidx/navigation/NavType;
@@ -1015,33 +1015,33 @@
 
     const/16 v7, 0x10
 
-    if-ne v11, v4, :cond_4
+    if-ne v11, v4, :cond_90
 
     .line 169
     iget v4, v1, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_55
 
     .line 170
     iget v2, v1, Landroid/util/TypedValue;->resourceId:I
 
-    goto :goto_1
+    goto :goto_5e
 
     .line 171
-    :cond_2
+    :cond_55
     iget v4, v1, Landroid/util/TypedValue;->type:I
 
-    if-ne v4, v7, :cond_3
+    if-ne v4, v7, :cond_65
 
     iget v4, v1, Landroid/util/TypedValue;->data:I
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_65
 
     .line 173
     nop
 
     .line 175
-    :goto_1
+    :goto_5e
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -1049,10 +1049,10 @@
     .line 169
     move-object v3, v2
 
-    goto/16 :goto_2
+    goto/16 :goto_19d
 
     .line 175
-    :cond_3
+    :cond_65
     new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
 
     .line 176
@@ -1098,13 +1098,13 @@
     throw v2
 
     .line 180
-    :cond_4
+    :cond_90
     iget v4, v1, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_dc
 
     .line 181
-    if-nez v11, :cond_5
+    if-nez v11, :cond_a0
 
     .line 182
     sget-object v11, Landroidx/navigation/NavType;->ReferenceType:Landroidx/navigation/NavType;
@@ -1116,10 +1116,10 @@
 
     move-result-object v3
 
-    goto/16 :goto_2
+    goto/16 :goto_19d
 
     .line 185
-    :cond_5
+    :cond_a0
     new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
 
     .line 186
@@ -1187,10 +1187,10 @@
     throw v2
 
     .line 190
-    :cond_6
+    :cond_dc
     sget-object v4, Landroidx/navigation/NavType;->StringType:Landroidx/navigation/NavType;
 
-    if-ne v11, v4, :cond_7
+    if-ne v11, v4, :cond_e8
 
     .line 191
     sget v2, Landroidx/navigation/common/R$styleable;->NavArgument_android_defaultValue:I
@@ -1199,30 +1199,30 @@
 
     move-result-object v3
 
-    goto/16 :goto_2
+    goto/16 :goto_19d
 
     .line 193
-    :cond_7
+    :cond_e8
     iget v4, v1, Landroid/util/TypedValue;->type:I
 
-    sparse-switch v4, :sswitch_data_0
+    sparse-switch v4, :sswitch_data_1ac
 
     .line 216
     iget v2, v1, Landroid/util/TypedValue;->type:I
 
-    if-lt v2, v7, :cond_b
+    if-lt v2, v7, :cond_181
 
     .line 217
     iget v2, v1, Landroid/util/TypedValue;->type:I
 
     const/16 v4, 0x1f
 
-    if-gt v2, v4, :cond_b
+    if-gt v2, v4, :cond_181
 
     .line 219
     sget-object v2, Landroidx/navigation/NavType;->FloatType:Landroidx/navigation/NavType;
 
-    if-ne v11, v2, :cond_a
+    if-ne v11, v2, :cond_16d
 
     .line 220
     sget-object v4, Landroidx/navigation/NavInflater;->Companion:Landroidx/navigation/NavInflater$Companion;
@@ -1252,10 +1252,10 @@
 
     move-result-object v3
 
-    goto/16 :goto_2
+    goto/16 :goto_19d
 
     .line 212
-    :sswitch_0
+    :sswitch_111
     sget-object v4, Landroidx/navigation/NavInflater;->Companion:Landroidx/navigation/NavInflater$Companion;
 
     sget-object v7, Landroidx/navigation/NavType;->BoolType:Landroidx/navigation/NavType;
@@ -1275,19 +1275,19 @@
     .line 213
     iget v4, v1, Landroid/util/TypedValue;->data:I
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_123
 
     const/4 v2, 0x1
 
-    :cond_8
+    :cond_123
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v3
 
-    goto/16 :goto_2
+    goto/16 :goto_19d
 
     .line 202
-    :sswitch_1
+    :sswitch_129
     sget-object v4, Landroidx/navigation/NavInflater;->Companion:Landroidx/navigation/NavInflater$Companion;
 
     .line 203
@@ -1321,10 +1321,10 @@
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_19d
 
     .line 208
-    :sswitch_2
+    :sswitch_144
     sget-object v4, Landroidx/navigation/NavInflater;->Companion:Landroidx/navigation/NavInflater$Companion;
 
     sget-object v7, Landroidx/navigation/NavType;->FloatType:Landroidx/navigation/NavType;
@@ -1350,10 +1350,10 @@
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_19d
 
     .line 195
-    :sswitch_3
+    :sswitch_15a
     iget-object v2, v1, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1362,7 +1362,7 @@
 
     .line 196
     .local v2, "stringValue":Ljava/lang/String;
-    if-nez v11, :cond_9
+    if-nez v11, :cond_168
 
     .line 197
     sget-object v4, Landroidx/navigation/NavType;->Companion:Landroidx/navigation/NavType$Companion;
@@ -1372,16 +1372,16 @@
     move-result-object v11
 
     .line 199
-    :cond_9
+    :cond_168
     invoke-virtual {v11, v2}, Landroidx/navigation/NavType;->parseValue(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
     .end local v2    # "stringValue":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_19d
 
     .line 225
-    :cond_a
+    :cond_16d
     sget-object v4, Landroidx/navigation/NavInflater;->Companion:Landroidx/navigation/NavInflater$Companion;
 
     .line 226
@@ -1407,10 +1407,10 @@
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_19d
 
     .line 231
-    :cond_b
+    :cond_181
     new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1438,39 +1438,39 @@
     throw v2
 
     .line 236
-    :cond_c
-    :goto_2
-    if-eqz v3, :cond_d
+    :cond_19d
+    :goto_19d
+    if-eqz v3, :cond_1a2
 
     .line 237
     invoke-virtual {v0, v3}, Landroidx/navigation/NavArgument$Builder;->setDefaultValue(Ljava/lang/Object;)Landroidx/navigation/NavArgument$Builder;
 
     .line 239
-    :cond_d
-    if-eqz v11, :cond_e
+    :cond_1a2
+    if-eqz v11, :cond_1a7
 
     .line 240
     invoke-virtual {v0, v11}, Landroidx/navigation/NavArgument$Builder;->setType(Landroidx/navigation/NavType;)Landroidx/navigation/NavArgument$Builder;
 
     .line 242
-    :cond_e
+    :cond_1a7
     invoke-virtual {v0}, Landroidx/navigation/NavArgument$Builder;->build()Landroidx/navigation/NavArgument;
 
     move-result-object v2
 
     return-object v2
 
-    :sswitch_data_0
+    :sswitch_data_1ac
     .sparse-switch
-        0x3 -> :sswitch_3
-        0x4 -> :sswitch_2
-        0x5 -> :sswitch_1
-        0x12 -> :sswitch_0
+        0x3 -> :sswitch_15a
+        0x4 -> :sswitch_144
+        0x5 -> :sswitch_129
+        0x12 -> :sswitch_111
     .end sparse-switch
 .end method
 
 .method private final inflateArgumentForBundle(Landroid/content/res/Resources;Landroid/os/Bundle;Landroid/util/AttributeSet;I)V
-    .locals 7
+    .registers 12
     .param p1, "res"    # Landroid/content/res/Resources;
     .param p2, "bundle"    # Landroid/os/Bundle;
     .param p3, "attrs"    # Landroid/util/AttributeSet;
@@ -1510,7 +1510,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_32
 
     const-string v5, "array.getString(R.stylea\u2026uments must have a name\")"
 
@@ -1528,13 +1528,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_28
 
     .line 147
     invoke-virtual {v5, v4, p2}, Landroidx/navigation/NavArgument;->putDefaultValue(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 149
-    :cond_0
+    :cond_28
     nop
 
     .end local v2    # "array":Landroid/content/res/TypedArray;
@@ -1568,7 +1568,7 @@
     .restart local v1    # "$i$f$use":I
     .local v2, "array":Landroid/content/res/TypedArray;
     .local v3, "$i$a$-use-NavInflater$inflateArgumentForBundle$1":I
-    :cond_1
+    :cond_32
     new-instance v4, Lorg/xmlpull/v1/XmlPullParserException;
 
     const-string v5, "Arguments must have a name"
@@ -1579,7 +1579,7 @@
 .end method
 
 .method private final inflateArgumentForDestination(Landroid/content/res/Resources;Landroidx/navigation/NavDestination;Landroid/util/AttributeSet;I)V
-    .locals 6
+    .registers 11
     .param p1, "res"    # Landroid/content/res/Resources;
     .param p2, "dest"    # Landroidx/navigation/NavDestination;
     .param p3, "attrs"    # Landroid/util/AttributeSet;
@@ -1619,7 +1619,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2c
 
     const-string v5, "array.getString(R.stylea\u2026uments must have a name\")"
 
@@ -1669,7 +1669,7 @@
     .restart local v1    # "$i$f$use":I
     .local v2, "array":Landroid/content/res/TypedArray;
     .local v3, "$i$a$-use-NavInflater$inflateArgumentForDestination$1":I
-    :cond_0
+    :cond_2c
     new-instance v4, Lorg/xmlpull/v1/XmlPullParserException;
 
     const-string v5, "Arguments must have a name"
@@ -1680,7 +1680,7 @@
 .end method
 
 .method private final inflateDeepLink(Landroid/content/res/Resources;Landroidx/navigation/NavDestination;Landroid/util/AttributeSet;)V
-    .locals 20
+    .registers 24
     .param p1, "res"    # Landroid/content/res/Resources;
     .param p2, "dest"    # Landroidx/navigation/NavDestination;
     .param p3, "attrs"    # Landroid/util/AttributeSet;
@@ -1749,84 +1749,84 @@
 
     const/16 v17, 0x1
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_36
 
     invoke-interface {v8}, Ljava/lang/CharSequence;->length()I
 
     move-result v8
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_34
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_0
+    :cond_34
     const/4 v8, 0x0
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_1
-    :goto_0
+    :cond_36
+    :goto_36
     const/4 v8, 0x1
 
-    :goto_1
-    if-eqz v8, :cond_7
+    :goto_37
+    if-eqz v8, :cond_66
 
     move-object v8, v15
 
     check-cast v8, Ljava/lang/CharSequence;
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_47
 
     invoke-interface {v8}, Ljava/lang/CharSequence;->length()I
 
     move-result v8
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_45
 
-    goto :goto_2
+    goto :goto_47
 
-    :cond_2
+    :cond_45
     const/4 v8, 0x0
 
-    goto :goto_3
+    goto :goto_48
 
-    :cond_3
-    :goto_2
+    :cond_47
+    :goto_47
     const/4 v8, 0x1
 
-    :goto_3
-    if-eqz v8, :cond_7
+    :goto_48
+    if-eqz v8, :cond_66
 
     move-object/from16 v8, v16
 
     check-cast v8, Ljava/lang/CharSequence;
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_59
 
     invoke-interface {v8}, Ljava/lang/CharSequence;->length()I
 
     move-result v8
 
-    if-nez v8, :cond_4
+    if-nez v8, :cond_57
 
-    goto :goto_4
+    goto :goto_59
 
-    :cond_4
+    :cond_57
     const/4 v8, 0x0
 
-    goto :goto_5
+    goto :goto_5a
 
-    :cond_5
-    :goto_4
+    :cond_59
+    :goto_59
     const/4 v8, 0x1
 
-    :goto_5
-    if-nez v8, :cond_6
+    :goto_5a
+    if-nez v8, :cond_5d
 
-    goto :goto_6
+    goto :goto_66
 
     .line 252
-    :cond_6
+    :cond_5d
     new-instance v8, Lorg/xmlpull/v1/XmlPullParserException;
 
     .line 253
@@ -1840,8 +1840,8 @@
     throw v8
 
     .line 257
-    :cond_7
-    :goto_6
+    :cond_66
+    :goto_66
     new-instance v8, Landroidx/navigation/NavDeepLink$Builder;
 
     invoke-direct {v8}, Landroidx/navigation/NavDeepLink$Builder;-><init>()V
@@ -1852,7 +1852,7 @@
     .local v13, "builder":Landroidx/navigation/NavDeepLink$Builder;
     const-string v12, "context.packageName"
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_8f
 
     .line 259
     iget-object v8, v0, Landroidx/navigation/NavInflater;->context:Landroid/content/Context;
@@ -1889,12 +1889,12 @@
 
     invoke-virtual {v2, v8}, Landroidx/navigation/NavDeepLink$Builder;->setUriPattern(Ljava/lang/String;)Landroidx/navigation/NavDeepLink$Builder;
 
-    goto :goto_7
+    goto :goto_91
 
     .line 258
     .end local v2    # "builder":Landroidx/navigation/NavDeepLink$Builder;
     .restart local v13    # "builder":Landroidx/navigation/NavDeepLink$Builder;
-    :cond_8
+    :cond_8f
     move-object v14, v12
 
     move-object v2, v13
@@ -1902,27 +1902,27 @@
     .line 261
     .end local v13    # "builder":Landroidx/navigation/NavDeepLink$Builder;
     .restart local v2    # "builder":Landroidx/navigation/NavDeepLink$Builder;
-    :goto_7
+    :goto_91
     move-object v8, v15
 
     check-cast v8, Ljava/lang/CharSequence;
 
-    if-eqz v8, :cond_a
+    if-eqz v8, :cond_9f
 
     invoke-interface {v8}, Ljava/lang/CharSequence;->length()I
 
     move-result v8
 
-    if-nez v8, :cond_9
+    if-nez v8, :cond_9d
 
-    goto :goto_8
+    goto :goto_9f
 
-    :cond_9
+    :cond_9d
     const/16 v17, 0x0
 
-    :cond_a
-    :goto_8
-    if-nez v17, :cond_b
+    :cond_9f
+    :goto_9f
+    if-nez v17, :cond_ba
 
     .line 262
     iget-object v8, v0, Landroidx/navigation/NavInflater;->context:Landroid/content/Context;
@@ -1953,15 +1953,15 @@
 
     invoke-virtual {v2, v8}, Landroidx/navigation/NavDeepLink$Builder;->setAction(Ljava/lang/String;)Landroidx/navigation/NavDeepLink$Builder;
 
-    goto :goto_9
+    goto :goto_bb
 
     .line 261
-    :cond_b
+    :cond_ba
     move-object v3, v14
 
     .line 264
-    :goto_9
-    if-eqz v16, :cond_c
+    :goto_bb
+    if-eqz v16, :cond_d7
 
     .line 265
     nop
@@ -2000,7 +2000,7 @@
     invoke-virtual {v2, v3}, Landroidx/navigation/NavDeepLink$Builder;->setMimeType(Ljava/lang/String;)Landroidx/navigation/NavDeepLink$Builder;
 
     .line 272
-    :cond_c
+    :cond_d7
     invoke-virtual {v2}, Landroidx/navigation/NavDeepLink$Builder;->build()Landroidx/navigation/NavDeepLink;
 
     move-result-object v3
@@ -2044,7 +2044,7 @@
 
 # virtual methods
 .method public final inflate(I)Landroidx/navigation/NavGraph;
-    .locals 9
+    .registers 11
     .param p1, "graphResId"    # I
 
     .line 51
@@ -2083,8 +2083,8 @@
 
     .line 56
     .local v3, "type":I
-    :cond_0
-    :try_start_0
+    :cond_18
+    :try_start_18
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v4
@@ -2103,16 +2103,16 @@
     .end local v6    # "$i$a$-also-NavInflater$inflate$1":I
     const/4 v5, 0x2
 
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_25
 
     .line 57
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_18
 
     .line 60
-    :cond_1
-    if-ne v3, v5, :cond_3
+    :cond_25
+    if-ne v3, v5, :cond_6a
 
     .line 63
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
@@ -2137,7 +2137,7 @@
     .local v5, "destination":Landroidx/navigation/NavDestination;
     instance-of v6, v5, Landroidx/navigation/NavGraph;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_46
 
     .line 68
     nop
@@ -2148,9 +2148,9 @@
     move-object v3, v5
 
     check-cast v3, Landroidx/navigation/NavGraph;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_41
+    .catch Ljava/lang/Exception; {:try_start_18 .. :try_end_41} :catch_74
+    .catchall {:try_start_18 .. :try_end_41} :catchall_72
 
     .line 75
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->close()V
@@ -2165,12 +2165,12 @@
     .restart local v3    # "type":I
     .restart local v4    # "rootElement":Ljava/lang/String;
     .restart local v5    # "destination":Landroidx/navigation/NavDestination;
-    :cond_2
+    :cond_46
     const/4 v6, 0x0
 
     .line 66
     .local v6, "$i$a$-require-NavInflater$inflate$2":I
-    :try_start_1
+    :try_start_47
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -2218,7 +2218,7 @@
     .restart local v1    # "parser":Landroid/content/res/XmlResourceParser;
     .restart local v2    # "attrs":Landroid/util/AttributeSet;
     .restart local p1    # "graphResId":I
-    :cond_3
+    :cond_6a
     new-instance v4, Lorg/xmlpull/v1/XmlPullParserException;
 
     const-string v5, "No start tag found"
@@ -2230,9 +2230,9 @@
     .end local v2    # "attrs":Landroid/util/AttributeSet;
     .end local p1    # "graphResId":I
     throw v4
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_72
+    .catch Ljava/lang/Exception; {:try_start_47 .. :try_end_72} :catch_74
+    .catchall {:try_start_47 .. :try_end_72} :catchall_72
 
     .line 74
     .end local v3    # "type":I
@@ -2240,18 +2240,18 @@
     .restart local v1    # "parser":Landroid/content/res/XmlResourceParser;
     .restart local v2    # "attrs":Landroid/util/AttributeSet;
     .restart local p1    # "graphResId":I
-    :catchall_0
+    :catchall_72
     move-exception v3
 
-    goto :goto_0
+    goto :goto_a3
 
     .line 69
-    :catch_0
+    :catch_74
     move-exception v3
 
     .line 70
     .local v3, "e":Ljava/lang/Exception;
-    :try_start_2
+    :try_start_75
     new-instance v4, Ljava/lang/RuntimeException;
 
     .line 71
@@ -2304,8 +2304,8 @@
     .end local v2    # "attrs":Landroid/util/AttributeSet;
     .end local p1    # "graphResId":I
     throw v4
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_a3
+    .catchall {:try_start_75 .. :try_end_a3} :catchall_72
 
     .line 75
     .end local v3    # "e":Ljava/lang/Exception;
@@ -2313,7 +2313,7 @@
     .restart local v1    # "parser":Landroid/content/res/XmlResourceParser;
     .restart local v2    # "attrs":Landroid/util/AttributeSet;
     .restart local p1    # "graphResId":I
-    :goto_0
+    :goto_a3
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->close()V
 
     throw v3

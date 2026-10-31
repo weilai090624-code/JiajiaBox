@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final toDrawable(Landroid/graphics/Bitmap;Landroid/content/res/Resources;)Landroid/graphics/drawable/BitmapDrawable;
-    .locals 2
+    .registers 4
     .param p0, "$this$toDrawable"    # Landroid/graphics/Bitmap;
     .param p1, "resources"    # Landroid/content/res/Resources;
 

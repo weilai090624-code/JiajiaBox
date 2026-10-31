@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MapMakerInternalMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/MapMakerInternalMap;
 
     .line 2679
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 2679
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$EntryIterator;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.EntryIterator;"
@@ -50,7 +50,7 @@
 .end method
 
 .method public next()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

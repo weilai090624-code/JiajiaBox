@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 96
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
@@ -96,7 +96,7 @@
 .end method
 
 .method private postBindPreferences()V
-    .locals 2
+    .registers 3
 
     .line 497
     iget-object v0, p0, Landroidx/preference/PreferenceFragment;->mHandler:Landroid/os/Handler;
@@ -107,12 +107,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     return-void
 
     .line 498
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroidx/preference/PreferenceFragment;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
@@ -126,18 +126,18 @@
 .end method
 
 .method private requirePreferenceManager()V
-    .locals 2
+    .registers 3
 
     .line 491
     iget-object v0, p0, Landroidx/preference/PreferenceFragment;->mPreferenceManager:Landroidx/preference/PreferenceManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 494
     return-void
 
     .line 492
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "This should be called after super.onCreate."
@@ -148,7 +148,7 @@
 .end method
 
 .method private scrollToPreferenceInternal(Landroidx/preference/Preference;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "preference"    # Landroidx/preference/Preference;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -161,24 +161,24 @@
     .local v0, "r":Ljava/lang/Runnable;
     iget-object v1, p0, Landroidx/preference/PreferenceFragment;->mList:Landroidx/recyclerview/widget/RecyclerView;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     .line 706
     iput-object v0, p0, Landroidx/preference/PreferenceFragment;->mSelectPreferenceRunnable:Ljava/lang/Runnable;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 708
-    :cond_0
+    :cond_c
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     .line 710
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method private unbindPreferences()V
-    .locals 1
+    .registers 2
 
     .line 511
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
@@ -187,13 +187,13 @@
 
     .line 512
     .local v0, "preferenceScreen":Landroidx/preference/PreferenceScreen;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 513
     invoke-virtual {v0}, Landroidx/preference/PreferenceScreen;->onDetached()V
 
     .line 515
-    :cond_0
+    :cond_9
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->onUnbindPreferences()V
 
     .line 516
@@ -203,7 +203,7 @@
 
 # virtual methods
 .method public addPreferencesFromResource(I)V
-    .locals 3
+    .registers 5
     .param p1, "preferencesResId"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -233,7 +233,7 @@
 .end method
 
 .method bindPreferences()V
-    .locals 3
+    .registers 4
 
     .line 502
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
@@ -242,7 +242,7 @@
 
     .line 503
     .local v0, "preferenceScreen":Landroidx/preference/PreferenceScreen;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 504
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getListView()Landroidx/recyclerview/widget/RecyclerView;
@@ -259,7 +259,7 @@
     invoke-virtual {v0}, Landroidx/preference/PreferenceScreen;->onAttached()V
 
     .line 507
-    :cond_0
+    :cond_14
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->onBindPreferences()V
 
     .line 508
@@ -267,7 +267,7 @@
 .end method
 
 .method public findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -285,7 +285,7 @@
     .line 484
     iget-object v0, p0, Landroidx/preference/PreferenceFragment;->mPreferenceManager:Landroidx/preference/PreferenceManager;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 485
     const/4 v0, 0x0
@@ -293,7 +293,7 @@
     return-object v0
 
     .line 487
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/preference/PreferenceFragment;->mPreferenceManager:Landroidx/preference/PreferenceManager;
 
     invoke-virtual {v0, p1}, Landroidx/preference/PreferenceManager;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
@@ -304,7 +304,7 @@
 .end method
 
 .method public getCallbackFragment()Landroid/app/Fragment;
-    .locals 1
+    .registers 2
 
     .line 655
     const/4 v0, 0x0
@@ -313,7 +313,7 @@
 .end method
 
 .method public final getListView()Landroidx/recyclerview/widget/RecyclerView;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -324,7 +324,7 @@
 .end method
 
 .method public getPreferenceManager()Landroidx/preference/PreferenceManager;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -335,7 +335,7 @@
 .end method
 
 .method public getPreferenceScreen()Landroidx/preference/PreferenceScreen;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -350,14 +350,14 @@
 .end method
 
 .method protected onBindPreferences()V
-    .locals 0
+    .registers 1
 
     .line 520
     return-void
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 5
+    .registers 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 149
@@ -389,13 +389,13 @@
 
     .line 153
     .local v1, "theme":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     .line 155
     sget v1, Landroidx/preference/R$style;->PreferenceThemeOverlay:I
 
     .line 157
-    :cond_0
+    :cond_1c
     new-instance v2, Landroid/view/ContextThemeWrapper;
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
@@ -427,7 +427,7 @@
 
     .line 163
     .local v2, "args":Landroid/os/Bundle;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_46
 
     .line 164
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getArguments()Landroid/os/Bundle;
@@ -441,16 +441,16 @@
     move-result-object v3
 
     .local v3, "rootKey":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_47
 
     .line 166
     .end local v3    # "rootKey":Ljava/lang/String;
-    :cond_1
+    :cond_46
     const/4 v3, 0x0
 
     .line 168
     .restart local v3    # "rootKey":Ljava/lang/String;
-    :goto_0
+    :goto_47
     invoke-virtual {p0, p1, v3}, Landroidx/preference/PreferenceFragment;->onCreatePreferences(Landroid/os/Bundle;Ljava/lang/String;)V
 
     .line 169
@@ -458,7 +458,7 @@
 .end method
 
 .method protected onCreateAdapter(Landroidx/preference/PreferenceScreen;)Landroidx/recyclerview/widget/RecyclerView$Adapter;
-    .locals 1
+    .registers 3
     .param p1, "preferenceScreen"    # Landroidx/preference/PreferenceScreen;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -472,7 +472,7 @@
 .end method
 
 .method public onCreateLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
-    .locals 2
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -494,7 +494,7 @@
 .end method
 
 .method public onCreateRecyclerView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroidx/recyclerview/widget/RecyclerView;
-    .locals 2
+    .registers 6
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "parent"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -514,7 +514,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 557
     sget v0, Landroidx/preference/R$id;->recycler_view:I
@@ -527,14 +527,14 @@
 
     .line 558
     .local v0, "recyclerView":Landroidx/recyclerview/widget/RecyclerView;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 559
     return-object v0
 
     .line 562
     .end local v0    # "recyclerView":Landroidx/recyclerview/widget/RecyclerView;
-    :cond_0
+    :cond_19
     sget v0, Landroidx/preference/R$layout;->preference_recyclerview:I
 
     const/4 v1, 0x0
@@ -565,7 +565,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 11
+    .registers 15
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -665,7 +665,7 @@
     .local v7, "rawListContainer":Landroid/view/View;
     instance-of v8, v7, Landroid/view/ViewGroup;
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_87
 
     .line 215
     move-object v8, v7
@@ -680,7 +680,7 @@
 
     .line 219
     .local v9, "listView":Landroidx/recyclerview/widget/RecyclerView;
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_7f
 
     .line 223
     iput-object v9, p0, Landroidx/preference/PreferenceFragment;->mList:Landroidx/recyclerview/widget/RecyclerView;
@@ -694,13 +694,13 @@
     invoke-virtual {p0, v1}, Landroidx/preference/PreferenceFragment;->setDivider(Landroid/graphics/drawable/Drawable;)V
 
     .line 227
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_65
 
     .line 228
     invoke-virtual {p0, v2}, Landroidx/preference/PreferenceFragment;->setDividerHeight(I)V
 
     .line 230
-    :cond_0
+    :cond_65
     iget-object v3, p0, Landroidx/preference/PreferenceFragment;->mDividerDecoration:Landroidx/preference/PreferenceFragment$DividerDecoration;
 
     invoke-virtual {v3, v5}, Landroidx/preference/PreferenceFragment$DividerDecoration;->setAllowDividerAfterLastItem(Z)V
@@ -712,7 +712,7 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_77
 
     .line 235
     iget-object v3, p0, Landroidx/preference/PreferenceFragment;->mList:Landroidx/recyclerview/widget/RecyclerView;
@@ -720,7 +720,7 @@
     invoke-virtual {v8, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 237
-    :cond_1
+    :cond_77
     iget-object v3, p0, Landroidx/preference/PreferenceFragment;->mHandler:Landroid/os/Handler;
 
     iget-object v10, p0, Landroidx/preference/PreferenceFragment;->mRequestFocus:Ljava/lang/Runnable;
@@ -731,7 +731,7 @@
     return-object v4
 
     .line 220
-    :cond_2
+    :cond_7f
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string v10, "Could not create RecyclerView"
@@ -743,7 +743,7 @@
     .line 211
     .end local v8    # "listContainer":Landroid/view/ViewGroup;
     .end local v9    # "listView":Landroidx/recyclerview/widget/RecyclerView;
-    :cond_3
+    :cond_87
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string v8, "Content has view with id attribute \'android.R.id.list_container\' that is not a ViewGroup class"
@@ -754,7 +754,7 @@
 .end method
 
 .method public onDestroyView()V
-    .locals 2
+    .registers 3
 
     .line 313
     iget-object v0, p0, Landroidx/preference/PreferenceFragment;->mHandler:Landroid/os/Handler;
@@ -773,13 +773,13 @@
     .line 315
     iget-boolean v0, p0, Landroidx/preference/PreferenceFragment;->mHavePrefs:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 316
     invoke-direct {p0}, Landroidx/preference/PreferenceFragment;->unbindPreferences()V
 
     .line 318
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroidx/preference/PreferenceFragment;->mList:Landroidx/recyclerview/widget/RecyclerView;
@@ -792,7 +792,7 @@
 .end method
 
 .method public onDisplayPreferenceDialog(Landroidx/preference/Preference;)V
-    .locals 4
+    .registers 6
     .param p1, "preference"    # Landroidx/preference/Preference;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -808,7 +808,7 @@
 
     instance-of v1, v1, Landroidx/preference/PreferenceFragment$OnPreferenceDisplayDialogCallback;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 615
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getCallbackFragment()Landroid/app/Fragment;
@@ -823,8 +823,8 @@
     move-result v0
 
     .line 618
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_13
+    if-nez v0, :cond_27
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
 
@@ -832,7 +832,7 @@
 
     instance-of v1, v1, Landroidx/preference/PreferenceFragment$OnPreferenceDisplayDialogCallback;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     .line 619
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
@@ -847,14 +847,14 @@
     move-result v0
 
     .line 623
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_27
+    if-eqz v0, :cond_2a
 
     .line 624
     return-void
 
     .line 628
-    :cond_2
+    :cond_2a
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
@@ -865,16 +865,16 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_37
 
     .line 629
     return-void
 
     .line 633
-    :cond_3
+    :cond_37
     instance-of v1, p1, Landroidx/preference/EditTextPreference;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_44
 
     .line 634
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
@@ -886,14 +886,14 @@
     move-result-object v1
 
     .local v1, "f":Landroid/app/DialogFragment;
-    goto :goto_0
+    goto :goto_5d
 
     .line 635
     .end local v1    # "f":Landroid/app/DialogFragment;
-    :cond_4
+    :cond_44
     instance-of v1, p1, Landroidx/preference/ListPreference;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_51
 
     .line 636
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
@@ -905,14 +905,14 @@
     move-result-object v1
 
     .restart local v1    # "f":Landroid/app/DialogFragment;
-    goto :goto_0
+    goto :goto_5d
 
     .line 637
     .end local v1    # "f":Landroid/app/DialogFragment;
-    :cond_5
+    :cond_51
     instance-of v1, p1, Landroidx/preference/MultiSelectListPreference;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_69
 
     .line 638
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
@@ -925,7 +925,7 @@
 
     .line 643
     .restart local v1    # "f":Landroid/app/DialogFragment;
-    :goto_0
+    :goto_5d
     const/4 v3, 0x0
 
     invoke-virtual {v1, p0, v3}, Landroid/app/DialogFragment;->setTargetFragment(Landroid/app/Fragment;I)V
@@ -942,7 +942,7 @@
 
     .line 640
     .end local v1    # "f":Landroid/app/DialogFragment;
-    :cond_6
+    :cond_69
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Tried to display dialog for unknown preference type. Did you forget to override onDisplayPreferenceDialog()?"
@@ -953,7 +953,7 @@
 .end method
 
 .method public onNavigateToScreen(Landroidx/preference/PreferenceScreen;)V
-    .locals 2
+    .registers 4
     .param p1, "preferenceScreen"    # Landroidx/preference/PreferenceScreen;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -969,7 +969,7 @@
 
     instance-of v1, v1, Landroidx/preference/PreferenceFragment$OnPreferenceStartScreenCallback;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 462
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getCallbackFragment()Landroid/app/Fragment;
@@ -984,8 +984,8 @@
     move-result v0
 
     .line 465
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_13
+    if-nez v0, :cond_26
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
 
@@ -993,7 +993,7 @@
 
     instance-of v1, v1, Landroidx/preference/PreferenceFragment$OnPreferenceStartScreenCallback;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_26
 
     .line 466
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
@@ -1006,12 +1006,12 @@
     invoke-interface {v1, p0, p1}, Landroidx/preference/PreferenceFragment$OnPreferenceStartScreenCallback;->onPreferenceStartScreen(Landroidx/preference/PreferenceFragment;Landroidx/preference/PreferenceScreen;)Z
 
     .line 469
-    :cond_1
+    :cond_26
     return-void
 .end method
 
 .method public onPreferenceTreeClick(Landroidx/preference/Preference;)Z
-    .locals 2
+    .registers 4
     .param p1, "preference"    # Landroidx/preference/Preference;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1021,7 +1021,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2e
 
     .line 432
     const/4 v0, 0x0
@@ -1034,7 +1034,7 @@
 
     instance-of v1, v1, Landroidx/preference/PreferenceFragment$OnPreferenceStartFragmentCallback;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 434
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getCallbackFragment()Landroid/app/Fragment;
@@ -1049,8 +1049,8 @@
     move-result v0
 
     .line 437
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_19
+    if-nez v0, :cond_2d
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
 
@@ -1058,7 +1058,7 @@
 
     instance-of v1, v1, Landroidx/preference/PreferenceFragment$OnPreferenceStartFragmentCallback;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2d
 
     .line 438
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
@@ -1073,19 +1073,19 @@
     move-result v0
 
     .line 441
-    :cond_1
+    :cond_2d
     return v0
 
     .line 443
     .end local v0    # "handled":Z
-    :cond_2
+    :cond_2e
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "outState"    # Landroid/os/Bundle;
 
     .line 324
@@ -1098,7 +1098,7 @@
 
     .line 327
     .local v0, "preferenceScreen":Landroidx/preference/PreferenceScreen;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 328
     new-instance v1, Landroid/os/Bundle;
@@ -1116,12 +1116,12 @@
 
     .line 332
     .end local v1    # "container":Landroid/os/Bundle;
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onStart()V
-    .locals 1
+    .registers 2
 
     .line 299
     invoke-super {p0}, Landroid/app/Fragment;->onStart()V
@@ -1141,7 +1141,7 @@
 .end method
 
 .method public onStop()V
-    .locals 2
+    .registers 3
 
     .line 306
     invoke-super {p0}, Landroid/app/Fragment;->onStop()V
@@ -1163,14 +1163,14 @@
 .end method
 
 .method protected onUnbindPreferences()V
-    .locals 0
+    .registers 1
 
     .line 524
     return-void
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -1178,7 +1178,7 @@
     invoke-super {p0, p1, p2}, Landroid/app/Fragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
     .line 276
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_16
 
     .line 277
     const-string v0, "android:preferences"
@@ -1189,7 +1189,7 @@
 
     .line 278
     .local v0, "container":Landroid/os/Bundle;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 279
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
@@ -1198,7 +1198,7 @@
 
     .line 280
     .local v1, "preferenceScreen":Landroidx/preference/PreferenceScreen;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     .line 281
     invoke-virtual {v1, v0}, Landroidx/preference/PreferenceScreen;->restoreHierarchyState(Landroid/os/Bundle;)V
@@ -1206,10 +1206,10 @@
     .line 286
     .end local v0    # "container":Landroid/os/Bundle;
     .end local v1    # "preferenceScreen":Landroidx/preference/PreferenceScreen;
-    :cond_0
+    :cond_16
     iget-boolean v0, p0, Landroidx/preference/PreferenceFragment;->mHavePrefs:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 287
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->bindPreferences()V
@@ -1217,7 +1217,7 @@
     .line 288
     iget-object v0, p0, Landroidx/preference/PreferenceFragment;->mSelectPreferenceRunnable:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 289
     iget-object v0, p0, Landroidx/preference/PreferenceFragment;->mSelectPreferenceRunnable:Ljava/lang/Runnable;
@@ -1230,7 +1230,7 @@
     iput-object v0, p0, Landroidx/preference/PreferenceFragment;->mSelectPreferenceRunnable:Ljava/lang/Runnable;
 
     .line 294
-    :cond_1
+    :cond_29
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroidx/preference/PreferenceFragment;->mInitDone:Z
@@ -1240,7 +1240,7 @@
 .end method
 
 .method public scrollToPreference(Landroidx/preference/Preference;)V
-    .locals 1
+    .registers 3
     .param p1, "preference"    # Landroidx/preference/Preference;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1255,7 +1255,7 @@
 .end method
 
 .method public scrollToPreference(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1270,7 +1270,7 @@
 .end method
 
 .method public setDivider(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "divider"    # Landroid/graphics/drawable/Drawable;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1285,7 +1285,7 @@
 .end method
 
 .method public setDividerHeight(I)V
-    .locals 1
+    .registers 3
     .param p1, "height"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1300,7 +1300,7 @@
 .end method
 
 .method public setPreferenceScreen(Landroidx/preference/PreferenceScreen;)V
-    .locals 1
+    .registers 3
     .param p1, "preferenceScreen"    # Landroidx/preference/PreferenceScreen;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1312,9 +1312,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_17
 
     .line 356
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragment;->onUnbindPreferences()V
@@ -1327,18 +1327,18 @@
     .line 358
     iget-boolean v0, p0, Landroidx/preference/PreferenceFragment;->mInitDone:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 359
     invoke-direct {p0}, Landroidx/preference/PreferenceFragment;->postBindPreferences()V
 
     .line 362
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public setPreferencesFromResource(ILjava/lang/String;)V
-    .locals 5
+    .registers 8
     .param p1, "preferencesResId"    # I
     .param p2, "key"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
@@ -1360,7 +1360,7 @@
 
     .line 411
     .local v0, "xmlRoot":Landroidx/preference/PreferenceScreen;
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_36
 
     .line 412
     invoke-virtual {v0, p2}, Landroidx/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
@@ -1371,12 +1371,12 @@
     .local v1, "root":Landroidx/preference/Preference;
     instance-of v2, v1, Landroidx/preference/PreferenceScreen;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
-    goto :goto_0
+    goto :goto_37
 
     .line 414
-    :cond_0
+    :cond_17
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1409,12 +1409,12 @@
 
     .line 418
     .end local v1    # "root":Landroidx/preference/Preference;
-    :cond_1
+    :cond_36
     move-object v1, v0
 
     .line 421
     .restart local v1    # "root":Landroidx/preference/Preference;
-    :goto_0
+    :goto_37
     move-object v2, v1
 
     check-cast v2, Landroidx/preference/PreferenceScreen;

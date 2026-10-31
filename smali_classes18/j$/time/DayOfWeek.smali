@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     .line 115
     new-instance v0, Lj$/time/DayOfWeek;
@@ -166,7 +166,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -180,13 +180,13 @@
 .end method
 
 .method public static from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/DayOfWeek;
-    .locals 5
+    .registers 6
     .param p0, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 188
     instance-of v0, p0, Lj$/time/DayOfWeek;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 189
     move-object v0, p0
@@ -196,8 +196,8 @@
     return-object v0
 
     .line 192
-    :cond_0
-    :try_start_0
+    :cond_8
+    :try_start_8
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_WEEK:Lj$/time/temporal/ChronoField;
 
     invoke-interface {p0, v0}, Lj$/time/temporal/TemporalAccessor;->get(Lj$/time/temporal/TemporalField;)I
@@ -207,13 +207,13 @@
     invoke-static {v0}, Lj$/time/DayOfWeek;->of(I)Lj$/time/DayOfWeek;
 
     move-result-object v0
-    :try_end_0
-    .catch Lj$/time/DateTimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Lj$/time/DateTimeException; {:try_start_8 .. :try_end_12} :catch_13
 
     return-object v0
 
     .line 193
-    :catch_0
+    :catch_13
     move-exception v0
 
     .line 194
@@ -263,17 +263,17 @@
 .end method
 
 .method public static of(I)Lj$/time/DayOfWeek;
-    .locals 3
+    .registers 4
     .param p0, "dayOfWeek"    # I
 
     .line 164
     const/4 v0, 0x1
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_d
 
     const/4 v0, 0x7
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_d
 
     .line 167
     sget-object v0, Lj$/time/DayOfWeek;->ENUMS:[Lj$/time/DayOfWeek;
@@ -285,7 +285,7 @@
     return-object v0
 
     .line 165
-    :cond_0
+    :cond_d
     new-instance v0, Lj$/time/DateTimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -312,7 +312,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/DayOfWeek;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 109
@@ -328,7 +328,7 @@
 .end method
 
 .method public static values()[Lj$/time/DayOfWeek;
-    .locals 1
+    .registers 1
 
     .line 109
     sget-object v0, Lj$/time/DayOfWeek;->$VALUES:[Lj$/time/DayOfWeek;
@@ -345,7 +345,7 @@
 
 # virtual methods
 .method public adjustInto(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 3
+    .registers 5
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 454
@@ -365,13 +365,13 @@
 .end method
 
 .method public get(Lj$/time/temporal/TemporalField;)I
-    .locals 1
+    .registers 3
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 315
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_WEEK:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
     .line 316
     invoke-virtual {p0}, Lj$/time/DayOfWeek;->getValue()I
@@ -381,7 +381,7 @@
     return v0
 
     .line 318
-    :cond_0
+    :cond_9
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$get(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)I
 
     move-result v0
@@ -390,7 +390,7 @@
 .end method
 
 .method public getDisplayName(Lj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "style"    # Lj$/time/format/TextStyle;
     .param p2, "locale"    # Ljava/util/Locale;
 
@@ -417,13 +417,13 @@
 .end method
 
 .method public getLong(Lj$/time/temporal/TemporalField;)J
-    .locals 3
+    .registers 5
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 345
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_WEEK:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     .line 346
     invoke-virtual {p0}, Lj$/time/DayOfWeek;->getValue()I
@@ -435,10 +435,10 @@
     return-wide v0
 
     .line 347
-    :cond_0
+    :cond_a
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 350
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->getFrom(Lj$/time/temporal/TemporalAccessor;)J
@@ -448,7 +448,7 @@
     return-wide v0
 
     .line 348
-    :cond_1
+    :cond_13
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -475,7 +475,7 @@
 .end method
 
 .method public getValue()I
-    .locals 1
+    .registers 2
 
     .line 209
     invoke-virtual {p0}, Lj$/time/DayOfWeek;->ordinal()I
@@ -488,7 +488,7 @@
 .end method
 
 .method public isSupported(Lj$/time/temporal/TemporalField;)Z
-    .locals 3
+    .registers 5
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 252
@@ -498,42 +498,42 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     .line 253
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_WEEK:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_b
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_c
     return v1
 
     .line 255
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_d
+    if-eqz p1, :cond_16
 
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->isSupportedBy(Lj$/time/temporal/TemporalAccessor;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_16
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_2
+    :cond_16
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_17
     return v1
 .end method
 
 .method public minus(J)Lj$/time/DayOfWeek;
-    .locals 2
+    .registers 5
     .param p1, "days"    # J
 
     .line 382
@@ -551,7 +551,7 @@
 .end method
 
 .method public plus(J)Lj$/time/DayOfWeek;
-    .locals 4
+    .registers 7
     .param p1, "days"    # J
 
     .line 366
@@ -581,7 +581,7 @@
 .end method
 
 .method public query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -598,7 +598,7 @@
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
     .line 408
     sget-object v0, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
@@ -606,7 +606,7 @@
     return-object v0
 
     .line 410
-    :cond_0
+    :cond_9
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$query(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
 
     move-result-object v0
@@ -615,13 +615,13 @@
 .end method
 
 .method public range(Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 1
+    .registers 3
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 282
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_WEEK:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
     .line 283
     invoke-interface {p1}, Lj$/time/temporal/TemporalField;->range()Lj$/time/temporal/ValueRange;
@@ -631,7 +631,7 @@
     return-object v0
 
     .line 285
-    :cond_0
+    :cond_9
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$range(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
 
     move-result-object v0

@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/net/Uri;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "uri"    # Landroid/net/Uri;
 
@@ -99,7 +99,7 @@
 .end method
 
 .method private getBundleFromItem(Landroidx/browser/browseractions/BrowserActionItem;)Landroid/os/Bundle;
-    .locals 3
+    .registers 5
     .param p1, "item"    # Landroidx/browser/browseractions/BrowserActionItem;
 
     .line 274
@@ -131,7 +131,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     const-string v1, "androidx.browser.browseractions.ICON_ID"
 
@@ -142,12 +142,12 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 278
-    :cond_0
+    :cond_26
     invoke-virtual {p1}, Landroidx/browser/browseractions/BrowserActionItem;->getIconUri()Landroid/net/Uri;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_35
 
     const-string v1, "androidx.browser.browseractions.ICON_URI"
 
@@ -158,14 +158,14 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 279
-    :cond_1
+    :cond_35
     return-object v0
 .end method
 
 
 # virtual methods
 .method public build()Landroidx/browser/browseractions/BrowserActionsIntent;
-    .locals 4
+    .registers 5
 
     .line 288
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -218,7 +218,7 @@
     .line 294
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserActionsIntent$Builder;->mOnItemSelectedPendingIntent:Landroid/app/PendingIntent;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3b
 
     .line 295
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserActionsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -230,7 +230,7 @@
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     .line 298
-    :cond_0
+    :cond_3b
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserActionsIntent$Builder;->mIntent:Landroid/content/Intent;
 
     iget-object v2, p0, Landroidx/browser/browseractions/BrowserActionsIntent$Builder;->mImageUris:Ljava/util/List;
@@ -250,7 +250,7 @@
 .end method
 
 .method public setCustomItems(Ljava/util/ArrayList;)Landroidx/browser/browseractions/BrowserActionsIntent$Builder;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -269,18 +269,18 @@
 
     const/4 v1, 0x5
 
-    if-gt v0, v1, :cond_3
+    if-gt v0, v1, :cond_60
 
     .line 231
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_8
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_5f
 
     .line 232
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -297,7 +297,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_57
 
     .line 233
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -310,7 +310,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_57
 
     .line 237
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserActionsIntent$Builder;->mMenuItems:Ljava/util/ArrayList;
@@ -338,7 +338,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_54
 
     .line 239
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserActionsIntent$Builder;->mImageUris:Ljava/util/List;
@@ -356,13 +356,13 @@
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 231
-    :cond_0
+    :cond_54
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 234
-    :cond_1
+    :cond_57
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Custom item should contain a non-empty title and non-null intent."
@@ -373,11 +373,11 @@
 
     .line 243
     .end local v0    # "i":I
-    :cond_2
+    :cond_5f
     return-object p0
 
     .line 228
-    :cond_3
+    :cond_60
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Exceeded maximum toolbar item count of 5"
@@ -388,7 +388,7 @@
 .end method
 
 .method public varargs setCustomItems([Landroidx/browser/browseractions/BrowserActionItem;)Landroidx/browser/browseractions/BrowserActionsIntent$Builder;
-    .locals 2
+    .registers 4
     .param p1, "items"    # [Landroidx/browser/browseractions/BrowserActionItem;
 
     .line 254
@@ -408,7 +408,7 @@
 .end method
 
 .method public setOnItemSelectedAction(Landroid/app/PendingIntent;)Landroidx/browser/browseractions/BrowserActionsIntent$Builder;
-    .locals 0
+    .registers 2
     .param p1, "onItemSelectedPendingIntent"    # Landroid/app/PendingIntent;
 
     .line 263
@@ -419,7 +419,7 @@
 .end method
 
 .method public setUrlType(I)Landroidx/browser/browseractions/BrowserActionsIntent$Builder;
-    .locals 0
+    .registers 2
     .param p1, "type"    # I
 
     .line 215

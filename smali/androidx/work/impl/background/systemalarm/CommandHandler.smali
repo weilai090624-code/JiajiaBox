@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 50
     const-string v0, "CommandHandler"
@@ -66,7 +66,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroidx/work/impl/StartStopTokens;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "startStopTokens"    # Landroidx/work/impl/StartStopTokens;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -108,7 +108,7 @@
 .end method
 
 .method static createConstraintsChangedIntent(Landroid/content/Context;)Landroid/content/Intent;
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -137,7 +137,7 @@
 .end method
 
 .method static createDelayMetIntent(Landroid/content/Context;Landroidx/work/impl/model/WorkGenerationalId;)Landroid/content/Intent;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -173,7 +173,7 @@
 .end method
 
 .method static createExecutionCompletedIntent(Landroid/content/Context;Landroidx/work/impl/model/WorkGenerationalId;Z)Landroid/content/Intent;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "needsReschedule"    # Z
@@ -217,7 +217,7 @@
 .end method
 
 .method static createRescheduleIntent(Landroid/content/Context;)Landroid/content/Intent;
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -246,7 +246,7 @@
 .end method
 
 .method static createScheduleWorkIntent(Landroid/content/Context;Landroidx/work/impl/model/WorkGenerationalId;)Landroid/content/Intent;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -282,7 +282,7 @@
 .end method
 
 .method static createStopWorkIntent(Landroid/content/Context;Landroidx/work/impl/model/WorkGenerationalId;)Landroid/content/Intent;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -318,7 +318,7 @@
 .end method
 
 .method static createStopWorkIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -355,7 +355,7 @@
 .end method
 
 .method private handleConstraintsChanged(Landroid/content/Intent;ILandroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
-    .locals 4
+    .registers 8
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "startId"    # I
     .param p3, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -415,7 +415,7 @@
 .end method
 
 .method private handleDelayMet(Landroid/content/Intent;ILandroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
-    .locals 6
+    .registers 10
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "startId"    # I
     .param p3, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -438,7 +438,7 @@
     monitor-enter v0
 
     .line 281
-    :try_start_0
+    :try_start_3
     invoke-static {p1}, Landroidx/work/impl/background/systemalarm/CommandHandler;->readWorkGenerationalId(Landroid/content/Intent;)Landroidx/work/impl/model/WorkGenerationalId;
 
     move-result-object v1
@@ -478,7 +478,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_41
 
     .line 287
     new-instance v2, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;
@@ -505,10 +505,10 @@
 
     .line 292
     .end local v2    # "delayMetCommandHandler":Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;
-    goto :goto_0
+    goto :goto_63
 
     .line 293
-    :cond_0
+    :cond_41
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v2
@@ -543,25 +543,25 @@
 
     .line 296
     .end local v1    # "id":Landroidx/work/impl/model/WorkGenerationalId;
-    :goto_0
+    :goto_63
     monitor-exit v0
 
     .line 297
     return-void
 
     .line 296
-    :catchall_0
+    :catchall_65
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_67
+    .catchall {:try_start_3 .. :try_end_67} :catchall_65
 
     throw v1
 .end method
 
 .method private handleExecutionCompleted(Landroid/content/Intent;I)V
-    .locals 6
+    .registers 9
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "startId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -638,7 +638,7 @@
 .end method
 
 .method private handleReschedule(Landroid/content/Intent;ILandroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
-    .locals 4
+    .registers 8
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "startId"    # I
     .param p3, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -704,7 +704,7 @@
 .end method
 
 .method private handleScheduleWorkIntent(Landroid/content/Intent;ILandroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
-    .locals 12
+    .registers 16
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "startId"    # I
     .param p3, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -770,7 +770,7 @@
     invoke-virtual {v2}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 217
-    :try_start_0
+    :try_start_2b
     invoke-virtual {v2}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
     move-result-object v3
@@ -784,17 +784,17 @@
     invoke-interface {v3, v4}, Landroidx/work/impl/model/WorkSpecDao;->getWorkSpec(Ljava/lang/String;)Landroidx/work/impl/model/WorkSpec;
 
     move-result-object v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_37
+    .catchall {:try_start_2b .. :try_end_37} :catchall_108
 
     .line 227
     .local v4, "workSpec":Landroidx/work/impl/model/WorkSpec;
     const-string v5, "Skipping scheduling "
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_5f
 
     .line 228
-    :try_start_1
+    :try_start_3b
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v6
@@ -824,8 +824,8 @@
     move-result-object v5
 
     invoke-virtual {v6, v7, v5}, Landroidx/work/Logger;->warning(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5b
+    .catchall {:try_start_3b .. :try_end_5b} :catchall_108
 
     .line 271
     invoke-virtual {v2}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
@@ -834,15 +834,15 @@
     return-void
 
     .line 232
-    :cond_0
-    :try_start_2
+    :cond_5f
+    :try_start_5f
     iget-object v6, v4, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
     invoke-virtual {v6}, Landroidx/work/WorkInfo$State;->isFinished()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_8b
 
     .line 236
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -874,8 +874,8 @@
     move-result-object v5
 
     invoke-virtual {v6, v7, v5}, Landroidx/work/Logger;->warning(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_87
+    .catchall {:try_start_5f .. :try_end_87} :catchall_108
 
     .line 271
     invoke-virtual {v2}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
@@ -884,8 +884,8 @@
     return-void
 
     .line 243
-    :cond_1
-    :try_start_3
+    :cond_8b
+    :try_start_8b
     invoke-virtual {v4}, Landroidx/work/impl/model/WorkSpec;->calculateNextRunTime()J
 
     move-result-wide v5
@@ -895,15 +895,15 @@
     invoke-virtual {v4}, Landroidx/work/impl/model/WorkSpec;->hasConstraints()Z
 
     move-result v7
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_93
+    .catchall {:try_start_8b .. :try_end_93} :catchall_108
 
     const-string v8, "at "
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_c1
 
     .line 246
-    :try_start_4
+    :try_start_97
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v7
@@ -943,10 +943,10 @@
 
     invoke-static {v7, v2, v0, v5, v6}, Landroidx/work/impl/background/systemalarm/Alarms;->setAlarm(Landroid/content/Context;Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/model/WorkGenerationalId;J)V
 
-    goto :goto_0
+    goto :goto_100
 
     .line 251
-    :cond_2
+    :cond_c1
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v7
@@ -1011,10 +1011,10 @@
 
     .line 269
     .end local v7    # "constraintsUpdate":Landroid/content/Intent;
-    :goto_0
+    :goto_100
     invoke-virtual {v2}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_103
+    .catchall {:try_start_97 .. :try_end_103} :catchall_108
 
     .line 271
     .end local v3    # "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
@@ -1029,7 +1029,7 @@
     return-void
 
     .line 271
-    :catchall_0
+    :catchall_108
     move-exception v3
 
     invoke-virtual {v2}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
@@ -1039,7 +1039,7 @@
 .end method
 
 .method private handleStopWork(Landroid/content/Intent;Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
-    .locals 9
+    .registers 12
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1074,7 +1074,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2d
 
     .line 307
     invoke-virtual {v0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -1103,7 +1103,7 @@
 
     .line 311
     .local v4, "id":Landroidx/work/impl/StartStopToken;
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2c
 
     .line 312
     invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -1111,12 +1111,12 @@
     .line 314
     .end local v2    # "generation":I
     .end local v4    # "id":Landroidx/work/impl/StartStopToken;
-    :cond_0
-    goto :goto_0
+    :cond_2c
+    goto :goto_33
 
     .line 315
     .end local v3    # "tokens":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/StartStopToken;>;"
-    :cond_1
+    :cond_2d
     iget-object v2, p0, Landroidx/work/impl/background/systemalarm/CommandHandler;->mStartStopTokens:Landroidx/work/impl/StartStopTokens;
 
     invoke-virtual {v2, v1}, Landroidx/work/impl/StartStopTokens;->remove(Ljava/lang/String;)Ljava/util/List;
@@ -1125,17 +1125,17 @@
 
     .line 317
     .restart local v3    # "tokens":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/StartStopToken;>;"
-    :goto_0
+    :goto_33
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_1
+    :goto_37
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_80
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1208,15 +1208,15 @@
 
     .line 325
     .end local v4    # "token":Landroidx/work/impl/StartStopToken;
-    goto :goto_1
+    goto :goto_37
 
     .line 326
-    :cond_2
+    :cond_80
     return-void
 .end method
 
 .method private static varargs hasKeys(Landroid/os/Bundle;[Ljava/lang/String;)Z
-    .locals 5
+    .registers 7
     .param p0, "bundle"    # Landroid/os/Bundle;
     .param p1, "keys"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1233,24 +1233,24 @@
     .line 363
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_1c
 
     invoke-virtual {p0}, Landroid/os/Bundle;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 366
-    :cond_0
+    :cond_a
     array-length v1, p1
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_c
+    if-ge v2, v1, :cond_1a
 
     aget-object v3, p1, v2
 
@@ -1260,32 +1260,32 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_17
 
     .line 368
     return v0
 
     .line 366
     .end local v3    # "key":Ljava/lang/String;
-    :cond_1
+    :cond_17
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 371
-    :cond_2
+    :cond_1a
     const/4 v0, 0x1
 
     return v0
 
     .line 364
-    :cond_3
-    :goto_1
+    :cond_1c
+    :goto_1c
     return v0
 .end method
 
 .method static readWorkGenerationalId(Landroid/content/Intent;)Landroidx/work/impl/model/WorkGenerationalId;
-    .locals 4
+    .registers 5
     .param p0, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1321,7 +1321,7 @@
 .end method
 
 .method private static writeWorkGenerationalId(Landroid/content/Intent;Landroidx/work/impl/model/WorkGenerationalId;)Landroid/content/Intent;
-    .locals 2
+    .registers 4
     .param p0, "intent"    # Landroid/content/Intent;
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1360,7 +1360,7 @@
 
 # virtual methods
 .method hasPendingCommands()Z
-    .locals 2
+    .registers 3
 
     .line 161
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/CommandHandler;->mLock:Ljava/lang/Object;
@@ -1368,40 +1368,40 @@
     monitor-enter v0
 
     .line 164
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/CommandHandler;->mPendingDelayMet:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_e
     monitor-exit v0
 
     return v1
 
     .line 165
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_3 .. :try_end_12} :catchall_10
 
     throw v1
 .end method
 
 .method public onExecuted(Landroidx/work/impl/model/WorkGenerationalId;Z)V
-    .locals 3
+    .registers 6
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "needsReschedule"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1421,7 +1421,7 @@
     monitor-enter v0
 
     .line 146
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/CommandHandler;->mPendingDelayMet:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1437,32 +1437,32 @@
     invoke-virtual {v2, p1}, Landroidx/work/impl/StartStopTokens;->remove(Landroidx/work/impl/model/WorkGenerationalId;)Landroidx/work/impl/StartStopToken;
 
     .line 148
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 149
     invoke-virtual {v1, p2}, Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;->onExecuted(Z)V
 
     .line 151
     .end local v1    # "listener":Landroidx/work/impl/background/systemalarm/DelayMetCommandHandler;
-    :cond_0
+    :cond_15
     monitor-exit v0
 
     .line 152
     return-void
 
     .line 151
-    :catchall_0
+    :catchall_17
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_3 .. :try_end_19} :catchall_17
 
     throw v1
 .end method
 
 .method onHandleIntent(Landroid/content/Intent;ILandroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
-    .locals 7
+    .registers 11
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "startId"    # I
     .param p3, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -1492,30 +1492,30 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 180
     invoke-direct {p0, p1, p2, p3}, Landroidx/work/impl/background/systemalarm/CommandHandler;->handleConstraintsChanged(Landroid/content/Intent;ILandroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_a7
 
     .line 181
-    :cond_0
+    :cond_11
     const-string v1, "ACTION_RESCHEDULE"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     .line 182
     invoke-direct {p0, p1, p2, p3}, Landroidx/work/impl/background/systemalarm/CommandHandler;->handleReschedule(Landroid/content/Intent;ILandroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_a7
 
     .line 184
-    :cond_1
+    :cond_1e
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
@@ -1532,7 +1532,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_5b
 
     .line 186
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1577,70 +1577,70 @@
 
     invoke-virtual {v3, v4, v2}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_a7
 
     .line 189
-    :cond_2
+    :cond_5b
     const-string v2, "ACTION_SCHEDULE_WORK"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_67
 
     .line 190
     invoke-direct {p0, p1, p2, p3}, Landroidx/work/impl/background/systemalarm/CommandHandler;->handleScheduleWorkIntent(Landroid/content/Intent;ILandroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
 
-    goto :goto_0
+    goto :goto_a7
 
     .line 191
-    :cond_3
+    :cond_67
     const-string v2, "ACTION_DELAY_MET"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_73
 
     .line 192
     invoke-direct {p0, p1, p2, p3}, Landroidx/work/impl/background/systemalarm/CommandHandler;->handleDelayMet(Landroid/content/Intent;ILandroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
 
-    goto :goto_0
+    goto :goto_a7
 
     .line 193
-    :cond_4
+    :cond_73
     const-string v2, "ACTION_STOP_WORK"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_7f
 
     .line 194
     invoke-direct {p0, p1, p3}, Landroidx/work/impl/background/systemalarm/CommandHandler;->handleStopWork(Landroid/content/Intent;Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
 
-    goto :goto_0
+    goto :goto_a7
 
     .line 195
-    :cond_5
+    :cond_7f
     const-string v2, "ACTION_EXECUTION_COMPLETED"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_8b
 
     .line 196
     invoke-direct {p0, p1, p2}, Landroidx/work/impl/background/systemalarm/CommandHandler;->handleExecutionCompleted(Landroid/content/Intent;I)V
 
-    goto :goto_0
+    goto :goto_a7
 
     .line 198
-    :cond_6
+    :cond_8b
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v2
@@ -1669,6 +1669,6 @@
 
     .line 202
     .end local v1    # "extras":Landroid/os/Bundle;
-    :goto_0
+    :goto_a7
     return-void
 .end method

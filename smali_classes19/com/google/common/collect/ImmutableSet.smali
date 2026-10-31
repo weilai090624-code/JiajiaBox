@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 318
     .local p0, "this":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<TE;>;"
@@ -67,7 +67,7 @@
 .end method
 
 .method static synthetic access$000(II)Z
-    .locals 1
+    .registers 3
     .param p0, "x0"    # I
     .param p1, "x1"    # I
 
@@ -80,7 +80,7 @@
 .end method
 
 .method static synthetic access$100(I[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # I
     .param p1, "x1"    # [Ljava/lang/Object;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public static builder()Lcom/google/common/collect/ImmutableSet$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -113,7 +113,7 @@
 .end method
 
 .method public static builderWithExpectedSize(I)Lcom/google/common/collect/ImmutableSet$Builder;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -139,7 +139,7 @@
 .end method
 
 .method static chooseTableSize(I)I
-    .locals 6
+    .registers 7
     .param p0, "setSize"    # I
 
     .line 218
@@ -154,7 +154,7 @@
 
     const/4 v1, 0x1
 
-    if-ge p0, v0, :cond_1
+    if-ge p0, v0, :cond_23
 
     .line 222
     add-int/lit8 v0, p0, -0x1
@@ -167,7 +167,7 @@
 
     .line 223
     .local v0, "tableSize":I
-    :goto_0
+    :goto_12
     int-to-double v1, v0
 
     const-wide v3, 0x3fe6666666666666L    # 0.7
@@ -178,30 +178,30 @@
 
     cmpg-double v5, v1, v3
 
-    if-gez v5, :cond_0
+    if-gez v5, :cond_22
 
     .line 224
     shl-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 226
-    :cond_0
+    :cond_22
     return v0
 
     .line 230
     .end local v0    # "tableSize":I
-    :cond_1
+    :cond_23
     const/high16 v0, 0x40000000    # 2.0f
 
-    if-ge p0, v0, :cond_2
+    if-ge p0, v0, :cond_28
 
-    goto :goto_1
+    goto :goto_29
 
-    :cond_2
+    :cond_28
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_29
     const-string v2, "collection too large"
 
     invoke-static {v1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -211,7 +211,7 @@
 .end method
 
 .method private static varargs construct(I[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-    .locals 13
+    .registers 15
     .param p0, "n"    # I
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -229,7 +229,7 @@
     .line 147
     const/4 v0, 0x0
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_88
 
     .line 158
     invoke-static {p0}, Lcom/google/common/collect/ImmutableSet;->chooseTableSize(I)I
@@ -261,7 +261,7 @@
     move v11, v3
 
     .local v4, "i":I
-    goto :goto_0
+    goto :goto_22
 
     .line 153
     .end local v1    # "tableSize":I
@@ -270,7 +270,7 @@
     .end local v4    # "i":I
     .end local v8    # "table":[Ljava/lang/Object;
     .end local v9    # "mask":I
-    :pswitch_0
+    :pswitch_12
     aget-object v0, p1, v0
 
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -287,7 +287,7 @@
 
     .line 149
     .end local v0    # "elem":Ljava/lang/Object;, "TE;"
-    :pswitch_1
+    :pswitch_1d
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
@@ -301,8 +301,8 @@
     .restart local v9    # "mask":I
     .local v10, "hashCode":I
     .local v11, "uniques":I
-    :goto_0
-    if-ge v4, p0, :cond_2
+    :goto_22
+    if-ge v4, p0, :cond_4e
 
     .line 164
     aget-object v2, p1, v4
@@ -325,7 +325,7 @@
 
     .line 167
     .local v5, "j":I
-    :goto_1
+    :goto_32
     and-int v6, v5, v9
 
     .line 168
@@ -334,7 +334,7 @@
 
     .line 169
     .local v7, "value":Ljava/lang/Object;
-    if-nez v7, :cond_0
+    if-nez v7, :cond_41
 
     .line 171
     add-int/lit8 v12, v11, 0x1
@@ -352,17 +352,17 @@
     .line 174
     move v11, v12
 
-    goto :goto_2
+    goto :goto_48
 
     .line 175
     .end local v12    # "uniques":I
     .restart local v11    # "uniques":I
-    :cond_0
+    :cond_41
     invoke-virtual {v7, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v12
 
-    if-eqz v12, :cond_1
+    if-eqz v12, :cond_4b
 
     .line 176
     nop
@@ -373,26 +373,26 @@
     .end local v5    # "j":I
     .end local v6    # "index":I
     .end local v7    # "value":Ljava/lang/Object;
-    :goto_2
+    :goto_48
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 166
     .restart local v2    # "element":Ljava/lang/Object;
     .restart local v3    # "hash":I
     .restart local v5    # "j":I
-    :cond_1
+    :cond_4b
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_32
 
     .line 180
     .end local v2    # "element":Ljava/lang/Object;
     .end local v3    # "hash":I
     .end local v4    # "i":I
     .end local v5    # "j":I
-    :cond_2
+    :cond_4e
     const/4 v2, 0x0
 
     invoke-static {p1, v11, p0, v2}, Ljava/util/Arrays;->fill([Ljava/lang/Object;IILjava/lang/Object;)V
@@ -400,7 +400,7 @@
     .line 181
     const/4 v2, 0x1
 
-    if-ne v11, v2, :cond_3
+    if-ne v11, v2, :cond_61
 
     .line 185
     aget-object v0, p1, v0
@@ -419,14 +419,14 @@
 
     .line 187
     .end local v0    # "element":Ljava/lang/Object;, "TE;"
-    :cond_3
+    :cond_61
     invoke-static {v11}, Lcom/google/common/collect/ImmutableSet;->chooseTableSize(I)I
 
     move-result v0
 
     div-int/lit8 v2, v1, 0x2
 
-    if-ge v0, v2, :cond_4
+    if-ge v0, v2, :cond_6e
 
     .line 189
     invoke-static {v11, p1}, Lcom/google/common/collect/ImmutableSet;->construct(I[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
@@ -436,14 +436,14 @@
     return-object v0
 
     .line 193
-    :cond_4
+    :cond_6e
     array-length v0, p1
 
     invoke-static {v11, v0}, Lcom/google/common/collect/ImmutableSet;->shouldTrim(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_7b
 
     invoke-static {p1, v11}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
@@ -451,14 +451,14 @@
 
     move-object v3, v0
 
-    goto :goto_3
+    goto :goto_7c
 
-    :cond_5
+    :cond_7b
     move-object v3, p1
 
     .line 194
     .local v3, "uniqueElements":[Ljava/lang/Object;
-    :goto_3
+    :goto_7c
     new-instance v0, Lcom/google/common/collect/RegularImmutableSet;
 
     move-object v2, v0
@@ -477,15 +477,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_88
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1d
+        :pswitch_12
     .end packed-switch
 .end method
 
 .method public static copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -502,7 +502,7 @@
     .local p0, "elements":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 277
     move-object v0, p0
@@ -513,10 +513,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 278
-    :cond_0
+    :cond_c
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -526,12 +526,12 @@
     move-result-object v0
 
     .line 276
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method public static copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -548,11 +548,11 @@
     .local p0, "elements":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     instance-of v0, p0, Lcom/google/common/collect/ImmutableSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     instance-of v0, p0, Ljava/util/SortedSet;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 254
     move-object v0, p0
@@ -565,14 +565,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 256
     return-object v0
 
     .line 259
     .end local v0    # "set":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<TE;>;"
-    :cond_0
+    :cond_12
     invoke-interface {p0}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
 
     move-result-object v0
@@ -589,7 +589,7 @@
 .end method
 
 .method public static copyOf(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -608,7 +608,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 290
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
@@ -618,7 +618,7 @@
     return-object v0
 
     .line 292
-    :cond_0
+    :cond_b
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -629,7 +629,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1a
 
     .line 294
     invoke-static {v0}, Lcom/google/common/collect/ImmutableSet;->of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
@@ -639,7 +639,7 @@
     return-object v1
 
     .line 296
-    :cond_1
+    :cond_1a
     new-instance v1, Lcom/google/common/collect/ImmutableSet$Builder;
 
     invoke-direct {v1}, Lcom/google/common/collect/ImmutableSet$Builder;-><init>()V
@@ -660,7 +660,7 @@
 .end method
 
 .method public static copyOf([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -675,7 +675,7 @@
     .local p0, "elements":[Ljava/lang/Object;, "[TE;"
     array-length v0, p0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1e
 
     .line 314
     array-length v0, p0
@@ -693,7 +693,7 @@
     return-object v0
 
     .line 312
-    :pswitch_0
+    :pswitch_10
     const/4 v0, 0x0
 
     aget-object v0, p0, v0
@@ -705,7 +705,7 @@
     return-object v0
 
     .line 310
-    :pswitch_1
+    :pswitch_18
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
@@ -714,15 +714,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_18
+        :pswitch_10
     .end packed-switch
 .end method
 
 .method public static of()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -740,7 +740,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -761,7 +761,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -795,7 +795,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -834,7 +834,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -878,7 +878,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -927,7 +927,7 @@
 .end method
 
 .method public static varargs of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-    .locals 5
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -957,16 +957,16 @@
 
     const/4 v3, 0x0
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     const-string v1, "the total number of elements must fit in an int"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -1027,7 +1027,7 @@
 .end method
 
 .method private static shouldTrim(II)Z
-    .locals 2
+    .registers 4
     .param p0, "actualUnique"    # I
     .param p1, "expectedUnique"    # I
 
@@ -1038,23 +1038,23 @@
 
     add-int/2addr v0, v1
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 
 # virtual methods
 .method public asList()Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1069,7 +1069,7 @@
 
     .line 354
     .local v0, "result":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSet;->createAsList()Lcom/google/common/collect/ImmutableList;
 
@@ -1077,17 +1077,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/ImmutableSet;->asList:Lcom/google/common/collect/ImmutableList;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method createAsList()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1110,7 +1110,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1118,7 +1118,7 @@
 
     .line 327
     .local p0, "this":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<TE;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 328
     const/4 v0, 0x1
@@ -1126,17 +1126,17 @@
     return v0
 
     .line 330
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/collect/ImmutableSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 331
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSet;->isHashCodeFast()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     move-object v0, p1
 
@@ -1147,7 +1147,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 333
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSet;->hashCode()I
@@ -1158,7 +1158,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_23
 
     .line 334
     const/4 v0, 0x0
@@ -1166,7 +1166,7 @@
     return v0
 
     .line 336
-    :cond_1
+    :cond_23
     invoke-static {p0, p1}, Lcom/google/common/collect/Sets;->equalsImpl(Ljava/util/Set;Ljava/lang/Object;)Z
 
     move-result v0
@@ -1175,7 +1175,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 341
     .local p0, "this":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<TE;>;"
@@ -1187,7 +1187,7 @@
 .end method
 
 .method isHashCodeFast()Z
-    .locals 1
+    .registers 2
 
     .line 322
     .local p0, "this":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<TE;>;"
@@ -1207,7 +1207,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<TE;>;"
@@ -1219,7 +1219,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 384
     .local p0, "this":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<TE;>;"

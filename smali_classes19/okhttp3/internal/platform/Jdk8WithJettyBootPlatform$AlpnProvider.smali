@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "protocols"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public final getSelected()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 87
     iget-object v0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->selected:Ljava/lang/String;
@@ -113,7 +113,7 @@
 .end method
 
 .method public final getUnsupported()Z
-    .locals 1
+    .registers 2
 
     .line 85
     iget-boolean v0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->unsupported:Z
@@ -122,7 +122,7 @@
 .end method
 
 .method public invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 12
+    .registers 16
     .param p1, "proxy"    # Ljava/lang/Object;
     .param p2, "method"    # Ljava/lang/reflect/Method;
     .param p3, "args"    # [Ljava/lang/Object;
@@ -143,18 +143,18 @@
     .line 91
     const/4 v0, 0x0
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_10
 
     new-array v1, v0, [Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     move-object v1, p3
 
     .line 92
     .local v1, "callArgs":[Ljava/lang/Object;
-    :goto_0
+    :goto_11
     invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
     move-result-object v2
@@ -175,7 +175,7 @@
 
     const/4 v5, 0x1
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2f
 
     sget-object v4, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
@@ -183,7 +183,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2f
 
     .line 95
     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -193,7 +193,7 @@
     return-object v0
 
     .line 96
-    :cond_1
+    :cond_2f
     const-string v4, "unsupported"
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -202,7 +202,7 @@
 
     const/4 v6, 0x0
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_43
 
     sget-object v4, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
 
@@ -210,7 +210,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_43
 
     .line 97
     iput-boolean v5, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->unsupported:Z
@@ -219,28 +219,28 @@
     return-object v6
 
     .line 99
-    :cond_2
+    :cond_43
     const-string v4, "protocols"
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_56
 
     array-length v4, v1
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_50
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_51
 
-    :cond_3
+    :cond_50
     const/4 v4, 0x0
 
-    :goto_1
-    if-eqz v4, :cond_4
+    :goto_51
+    if-eqz v4, :cond_56
 
     .line 100
     iget-object v0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->protocols:Ljava/util/List;
@@ -248,7 +248,7 @@
     return-object v0
 
     .line 101
-    :cond_4
+    :cond_56
     const-string v4, "selectProtocol"
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -257,7 +257,7 @@
 
     const-string v7, "null cannot be cast to non-null type kotlin.String"
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_68
 
     const-string v4, "select"
 
@@ -265,9 +265,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_bb
 
-    :cond_5
+    :cond_68
     const-class v4, Ljava/lang/String;
 
     .line 102
@@ -275,22 +275,22 @@
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_bb
 
     array-length v4, v1
 
-    if-ne v4, v5, :cond_b
+    if-ne v4, v5, :cond_bb
 
     aget-object v4, v1, v0
 
     instance-of v4, v4, Ljava/util/List;
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_bb
 
     .line 103
     aget-object v4, v1, v0
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b3
 
     check-cast v4, Ljava/util/List;
 
@@ -300,11 +300,11 @@
 
     move-result v6
 
-    if-ltz v6, :cond_9
+    if-ltz v6, :cond_a6
 
     const/4 v8, 0x0
 
-    :cond_6
+    :cond_86
     move v9, v8
 
     .local v9, "i":I
@@ -315,7 +315,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_a0
 
     check-cast v10, Ljava/lang/String;
 
@@ -327,7 +327,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_9d
 
     .line 108
     iput-object v10, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->selected:Ljava/lang/String;
@@ -339,13 +339,13 @@
 
     .line 105
     .end local v10    # "protocol":Ljava/lang/String;
-    :cond_7
-    if-ne v9, v6, :cond_6
+    :cond_9d
+    if-ne v9, v6, :cond_86
 
-    goto :goto_2
+    goto :goto_a6
 
     .line 106
-    :cond_8
+    :cond_a0
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0, v7}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
@@ -354,8 +354,8 @@
 
     .line 112
     .end local v9    # "i":I
-    :cond_9
-    :goto_2
+    :cond_a6
+    :goto_a6
     iget-object v5, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->protocols:Ljava/util/List;
 
     invoke-interface {v5, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -373,7 +373,7 @@
 
     .line 103
     .end local v4    # "peerProtocols":Ljava/util/List;
-    :cond_a
+    :cond_b3
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v4, "null cannot be cast to non-null type kotlin.collections.List<*>"
@@ -383,14 +383,14 @@
     throw v0
 
     .line 114
-    :cond_b
+    :cond_bb
     const-string v4, "protocolSelected"
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-nez v4, :cond_c
+    if-nez v4, :cond_cb
 
     const-string v4, "selected"
 
@@ -398,17 +398,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_dd
 
-    :cond_c
+    :cond_cb
     array-length v4, v1
 
-    if-ne v4, v5, :cond_e
+    if-ne v4, v5, :cond_dd
 
     .line 115
     aget-object v0, v1, v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_d7
 
     check-cast v0, Ljava/lang/String;
 
@@ -418,7 +418,7 @@
     return-object v6
 
     .line 115
-    :cond_d
+    :cond_d7
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0, v7}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
@@ -426,7 +426,7 @@
     throw v0
 
     .line 118
-    :cond_e
+    :cond_dd
     array-length v0, v1
 
     invoke-static {v1, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -441,7 +441,7 @@
 .end method
 
 .method public final setSelected(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 87
@@ -451,7 +451,7 @@
 .end method
 
 .method public final setUnsupported(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 85

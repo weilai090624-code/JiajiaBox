@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;IILkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 6
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "startIndex"    # I
     .param p3, "limit"    # I
@@ -125,7 +125,7 @@
 .end method
 
 .method public static final synthetic access$getGetNextMatch$p(Lkotlin/text/DelimitedRangesSequence;)Lkotlin/jvm/functions/Function2;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/text/DelimitedRangesSequence;
 
     .line 1183
@@ -135,7 +135,7 @@
 .end method
 
 .method public static final synthetic access$getInput$p(Lkotlin/text/DelimitedRangesSequence;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/text/DelimitedRangesSequence;
 
     .line 1183
@@ -145,7 +145,7 @@
 .end method
 
 .method public static final synthetic access$getLimit$p(Lkotlin/text/DelimitedRangesSequence;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/text/DelimitedRangesSequence;
 
     .line 1183
@@ -155,7 +155,7 @@
 .end method
 
 .method public static final synthetic access$getStartIndex$p(Lkotlin/text/DelimitedRangesSequence;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/text/DelimitedRangesSequence;
 
     .line 1183
@@ -167,7 +167,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
