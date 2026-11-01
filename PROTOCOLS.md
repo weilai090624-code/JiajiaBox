@@ -30,13 +30,12 @@ Nowhere
 ## 二、插件 / 外部内核协议
 
 ```text
-Naive
-Mieru
 Trojan-Go
-Neko 插件协议（NekoBean）
+Mieru
+Naive
 ```
 
-说明：这些协议依赖对应插件/外部内核，主 `libcore` 未内置注册。SSR、Snell 等未在主解析器/内核中确认，需第三方插件或手动配置。
+说明：这些协议依赖对应插件，主 `libcore` 未内置注册；插件协议通过 `NekoBean` 封装。
 
 ## 三、分组 / 辅助出站
 
@@ -151,7 +150,16 @@ clash://install-config?url=...
 组/订阅：sn://subscription?...（Kryo + zlib + Base64URL）
 ```
 
-## 十二、已移除（455 不再支持）
+## 十二、不支持 / 未内置
+
+```text
+SSR
+Snell
+```
+
+说明：内置 `libcore` 未注册，应用也没有对应插件入口或链接解析，455 不支持。
+
+## 十三、已移除（455 不再支持）
 
 ```text
 mx://

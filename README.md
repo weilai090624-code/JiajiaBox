@@ -47,10 +47,9 @@ Nowhere
 插件/外部内核：
 
 ```text
-Naive
-Mieru
 Trojan-Go
-Neko 插件协议
+Mieru
+Naive
 ```
 
 分组/辅助：
@@ -86,7 +85,7 @@ Base64 / URL-safe Base64（链接列表）
 订阅 URL（http / https）
 ```
 
-说明：SSR、Snell 等未在主解析器/内核中确认，需第三方插件或手动配置。
+说明：Trojan-Go / Mieru / Naive 需对应插件，插件协议通过 NekoBean 封装；SSR、Snell 不支持（内置内核未注册，无插件入口/链接解析）。
 
 完整的传输层、DNS、链接模板与订阅模板清单见 [PROTOCOLS.md](PROTOCOLS.md)。
 
