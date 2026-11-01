@@ -27,17 +27,7 @@ WireGuard
 Nowhere
 ```
 
-## 二、插件 / 外部内核协议
-
-```text
-Trojan-Go
-Mieru
-Naive
-```
-
-说明：这些协议依赖对应插件，主 `libcore` 未内置注册；插件协议通过 `NekoBean` 封装。
-
-## 三、分组 / 辅助出站
+## 二、分组 / 辅助出站
 
 ```text
 Direct（直连）
@@ -47,7 +37,7 @@ Selector（手动选择）
 URLTest（自动选择）
 ```
 
-## 四、入站
+## 三、入站
 
 ```text
 TUN
@@ -59,7 +49,7 @@ Mixed
 Direct
 ```
 
-## 五、传输层
+## 四、传输层
 
 ```text
 TCP
@@ -70,7 +60,7 @@ HTTPUpgrade
 QUIC
 ```
 
-## 六、TLS 相关
+## 五、TLS 相关
 
 ```text
 TLS
@@ -79,7 +69,7 @@ ECH
 uTLS
 ```
 
-## 七、DNS 传输
+## 六、DNS 传输
 
 ```text
 TCP
@@ -93,7 +83,7 @@ FakeIP
 Local
 ```
 
-## 八、支持的导入方式
+## 七、支持的导入方式
 
 ```text
 YAML（Clash / Clash Meta）
@@ -107,13 +97,12 @@ clash://install-config
 WireGuard .conf
 ```
 
-## 九、单节点分享链接模板
+## 八、单节点分享链接模板
 
 ```text
 vmess://
 vless://
 trojan://
-trojan-go://
 ss://
 socks://
 socks4://
@@ -132,7 +121,7 @@ sn://subscription?...
 clash://install-config?url=...
 ```
 
-## 十、订阅模板
+## 九、订阅模板
 
 ```text
 纯文本链接列表
@@ -143,14 +132,14 @@ sn://subscription?...
 clash://install-config?url=...
 ```
 
-## 十一、导出模板
+## 十、导出模板
 
 ```text
 单节点：对应协议分享链接
 组/订阅：sn://subscription?...（Kryo + zlib + Base64URL）
 ```
 
-## 十二、已移除（455 不再支持）
+## 十一、已移除（455 不再支持）
 
 ```text
 mx://

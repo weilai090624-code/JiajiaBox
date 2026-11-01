@@ -44,14 +44,6 @@ WireGuard
 Nowhere
 ```
 
-插件/外部内核：
-
-```text
-Trojan-Go
-Mieru
-Naive
-```
-
 分组/辅助：
 
 ```text
@@ -84,8 +76,6 @@ Base64 / URL-safe Base64（链接列表）
 单节点信息（分享链接或手动填写）
 订阅 URL（http / https）
 ```
-
-说明：Trojan-Go / Mieru / Naive 需对应插件，插件协议通过 NekoBean 封装。
 
 完整的传输层、DNS、链接模板与订阅模板清单见 [PROTOCOLS.md](PROTOCOLS.md)。
 
