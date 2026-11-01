@@ -21,7 +21,7 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 
 ## 支持的协议
 
-内置代理（一行一个）：
+内置代理：
 
 ```text
 VLESS
@@ -44,7 +44,7 @@ WireGuard
 Nowhere
 ```
 
-插件/外部内核（一行一个）：
+插件/外部内核：
 
 ```text
 Naive
@@ -53,7 +53,7 @@ Trojan-Go
 Neko 插件协议
 ```
 
-分组/辅助（一行一个）：
+分组/辅助：
 
 ```text
 Direct
@@ -63,7 +63,7 @@ Selector
 URLTest
 ```
 
-入站（一行一个）：
+入站：
 
 ```text
 TUN
@@ -75,7 +75,7 @@ Mixed
 Direct
 ```
 
-导入方式（一行一个）：
+导入方式：
 
 ```text
 YAML（Clash / Clash Meta）

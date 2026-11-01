@@ -4,7 +4,7 @@
 
 > 去除对 MX 协议的实验性接入，暂不对 MX 协议适配。
 
-## 一、内置代理协议（一行一个）
+## 一、内置代理协议
 
 ```text
 VLESS
@@ -27,7 +27,7 @@ WireGuard
 Nowhere
 ```
 
-## 二、插件 / 外部内核协议（一行一个）
+## 二、插件 / 外部内核协议
 
 ```text
 Naive
@@ -38,7 +38,7 @@ Neko 插件协议（NekoBean）
 
 说明：这些协议依赖对应插件/外部内核，主 `libcore` 未内置注册。SSR、Snell 等未在主解析器/内核中确认，需第三方插件或手动配置。
 
-## 三、分组 / 辅助出站（一行一个）
+## 三、分组 / 辅助出站
 
 ```text
 Direct（直连）
@@ -48,7 +48,7 @@ Selector（手动选择）
 URLTest（自动选择）
 ```
 
-## 四、入站（一行一个）
+## 四、入站
 
 ```text
 TUN
@@ -60,7 +60,7 @@ Mixed
 Direct
 ```
 
-## 五、传输层（一行一个）
+## 五、传输层
 
 ```text
 TCP
@@ -71,7 +71,7 @@ HTTPUpgrade
 QUIC
 ```
 
-## 六、TLS 相关（一行一个）
+## 六、TLS 相关
 
 ```text
 TLS
@@ -80,7 +80,7 @@ ECH
 uTLS
 ```
 
-## 七、DNS 传输（一行一个）
+## 七、DNS 传输
 
 ```text
 TCP
@@ -94,7 +94,7 @@ FakeIP
 Local
 ```
 
-## 八、支持的导入方式（一行一个）
+## 八、支持的导入方式
 
 ```text
 YAML（Clash / Clash Meta）
@@ -108,7 +108,7 @@ clash://install-config
 WireGuard .conf
 ```
 
-## 九、单节点分享链接模板（一行一个）
+## 九、单节点分享链接模板
 
 ```text
 vmess://
@@ -133,7 +133,7 @@ sn://subscription?...
 clash://install-config?url=...
 ```
 
-## 十、订阅模板（一行一个）
+## 十、订阅模板
 
 ```text
 纯文本链接列表
@@ -144,7 +144,7 @@ sn://subscription?...
 clash://install-config?url=...
 ```
 
-## 十一、导出模板（一行一个）
+## 十一、导出模板
 
 ```text
 单节点：对应协议分享链接
