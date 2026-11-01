@@ -150,16 +150,7 @@ clash://install-config?url=...
 组/订阅：sn://subscription?...（Kryo + zlib + Base64URL）
 ```
 
-## 十二、不支持 / 未内置
-
-```text
-SSR
-Snell
-```
-
-说明：内置 `libcore` 未注册，应用也没有对应插件入口或链接解析，455 不支持。
-
-## 十三、已移除（455 不再支持）
+## 十二、已移除（455 不再支持）
 
 ```text
 mx://

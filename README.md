@@ -85,7 +85,7 @@ Base64 / URL-safe Base64（链接列表）
 订阅 URL（http / https）
 ```
 
-说明：Trojan-Go / Mieru / Naive 需对应插件，插件协议通过 NekoBean 封装；SSR、Snell 不支持（内置内核未注册，无插件入口/链接解析）。
+说明：Trojan-Go / Mieru / Naive 需对应插件，插件协议通过 NekoBean 封装。
 
 完整的传输层、DNS、链接模板与订阅模板清单见 [PROTOCOLS.md](PROTOCOLS.md)。
 
