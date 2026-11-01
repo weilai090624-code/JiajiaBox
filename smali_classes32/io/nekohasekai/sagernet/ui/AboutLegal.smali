@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 46
-    const-string v1, "JiajiaBox \u7684\u539f\u521b\u4ee3\u7801\u4e0e\u672c\u9879\u76ee\u4fee\u6539\u90e8\u5206\u57fa\u4e8e MIT License \u5f00\u6e90\uff0c\u7248\u6743\u6240\u6709 \u00a9 2026 weilai090624-code\u3002"
+    const-string v1, "JiajiaBox \u7684\u539f\u521b\u4ee3\u7801\u4e0e\u672c\u9879\u76ee\u4fee\u6539\u90e8\u5206\u57fa\u4e8e GNU GPL v3.0 \u5f00\u6e90\uff0c\u7248\u6743\u6240\u6709 \u00a9 2026 weilai090624-code\u3002"
 
     invoke-static {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/AboutLegal;->paragraph(Landroid/app/Activity;Landroid/widget/LinearLayout;Ljava/lang/String;)V
 
@@ -90,7 +90,7 @@
 
     invoke-direct {v1, p0}, Lio/nekohasekai/sagernet/ui/AboutLegal$1;-><init>(Landroid/app/Activity;)V
 
-    const-string v2, "MIT License \u00b7 \u5b8c\u6574\u6761\u6b3e"
+    const-string v2, "GNU GPL v3.0 \u00b7 \u5b8c\u6574\u6761\u6b3e"
 
     invoke-static {p0, v0, v2, v1}, Lio/nekohasekai/sagernet/ui/AboutLegal;->button(Landroid/app/Activity;Landroid/widget/LinearLayout;Ljava/lang/String;Ljava/lang/Runnable;)V
 
@@ -188,7 +188,7 @@
     move-result-object v0
 
     .line 60
-    const-string v1, "JiajiaBox \u57fa\u4e8e NekoBox for Android / SagerNet \u4fee\u6539\uff0c\u5e76\u4f7f\u7528 sing-box\u3001libcore \u4e0e libneko \u7b49\u4e0a\u6e38\u7ec4\u4ef6\u3002JiajiaBox \u539f\u521b\u4ee3\u7801\u9002\u7528 MIT License\uff1bsing-box \u4e0e libcore \u7684\u76f8\u5173\u90e8\u5206\u9002\u7528 GPL-3.0-or-later\uff0clibneko \u7684\u5177\u4f53\u6761\u4ef6\u4ee5\u5176\u4e0a\u6e38\u53d1\u5e03\u4e3a\u51c6\u3002"
+    const-string v1, "JiajiaBox \u57fa\u4e8e NekoBox for Android / SagerNet \u4fee\u6539\uff0c\u5e76\u4f7f\u7528 sing-box\u3001libcore \u4e0e libneko \u7b49\u4e0a\u6e38\u7ec4\u4ef6\u3002JiajiaBox \u539f\u521b\u4ee3\u7801\u9002\u7528 GNU GPL v3.0\uff1bsing-box \u4e0e libcore \u7684\u76f8\u5173\u90e8\u5206\u9002\u7528 GPL-3.0-or-later\uff0clibneko \u7684\u5177\u4f53\u6761\u4ef6\u4ee5\u5176\u4e0a\u6e38\u53d1\u5e03\u4e3a\u51c6\u3002"
 
     invoke-static {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/AboutLegal;->paragraph(Landroid/app/Activity;Landroid/widget/LinearLayout;Ljava/lang/String;)V
 
@@ -198,7 +198,7 @@
     invoke-static {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/AboutLegal;->paragraph(Landroid/app/Activity;Landroid/widget/LinearLayout;Ljava/lang/String;)V
 
     .line 62
-    const-string v1, "\u518d\u5206\u53d1\u65f6\u8bf7\u540c\u65f6\u4fdd\u7559 JiajiaBox \u7684 MIT \u58f0\u660e\u548c\u5404\u4e0a\u6e38\u7ec4\u4ef6\u7684\u7248\u6743\u3001\u8bb8\u53ef\u8bc1\u53ca\u901a\u77e5\u6587\u4ef6\u3002\u672c\u8f6f\u4ef6\u4e0d\u63d0\u4f9b\u4efb\u4f55\u62c5\u4fdd\uff1b\u5177\u4f53\u6761\u4ef6\u4ee5\u5bf9\u5e94\u8bb8\u53ef\u8bc1\u5168\u6587\u4e3a\u51c6\u3002"
+    const-string v1, "\u518d\u5206\u53d1\u65f6\u8bf7\u540c\u65f6\u4fdd\u7559 JiajiaBox \u7684 GPL-3.0 \u58f0\u660e\u548c\u5404\u4e0a\u6e38\u7ec4\u4ef6\u7684\u7248\u6743\u3001\u8bb8\u53ef\u8bc1\u53ca\u901a\u77e5\u6587\u4ef6\u3002\u672c\u8f6f\u4ef6\u4e0d\u63d0\u4f9b\u4efb\u4f55\u62c5\u4fdd\uff1b\u5177\u4f53\u6761\u4ef6\u4ee5\u5bf9\u5e94\u8bb8\u53ef\u8bc1\u5168\u6587\u4e3a\u51c6\u3002"
 
     invoke-static {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/AboutLegal;->paragraph(Landroid/app/Activity;Landroid/widget/LinearLayout;Ljava/lang/String;)V
 
@@ -641,9 +641,9 @@
     .registers 3
 
     .line 48
-    const-string v0, "JiajiaBox MIT License"
+    const-string v0, "JiajiaBox GPL-3.0 License"
 
-    const-string v1, "JiajiaBox-MIT-LICENSE.txt"
+    const-string v1, "GPL-3.0.txt"
 
     invoke-static {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/AboutLegal;->document(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V
 

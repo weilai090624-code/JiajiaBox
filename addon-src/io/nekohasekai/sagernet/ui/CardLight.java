@@ -1,4 +1,4 @@
-/* Copyright (c) 2026 weilai090624-code. MIT license; see LICENSE. */
+/* Copyright (c) 2026 weilai090624-code. GPL-3.0-or-later; see LICENSE. */
 package io.nekohasekai.sagernet.ui;
 
 import android.graphics.Canvas;

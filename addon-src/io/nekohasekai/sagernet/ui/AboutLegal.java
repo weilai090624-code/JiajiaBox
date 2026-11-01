@@ -1,15 +1,18 @@
 /*
  * Copyright (c) 2026 weilai090624-code
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package io.nekohasekai.sagernet.ui;
@@ -43,9 +46,9 @@ public final class AboutLegal {
  private static void link(Activity a,LinearLayout parent,String name,String role,String url){button(a,parent,name+"  ↗",()->{try{a.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(url)));}catch(android.content.ActivityNotFoundException e){Toast.makeText(a,"没有可打开链接的应用",Toast.LENGTH_SHORT).show();}});paragraph(a,parent,role);}
  public static void append(Activity a,LinearLayout parent){
   LinearLayout project=card(a,parent,"JiajiaBox 开源声明");
-  paragraph(a,project,"JiajiaBox 的原创代码与本项目修改部分基于 MIT License 开源，版权所有 © 2026 weilai090624-code。");
+  paragraph(a,project,"JiajiaBox 的原创代码与本项目修改部分基于 GNU GPL v3.0 开源，版权所有 © 2026 weilai090624-code。");
   paragraph(a,project,"本声明仅适用于 JiajiaBox 的原创代码与修改内容；随应用分发的上游组件仍受其各自许可证约束，原作者、版权和许可条件继续有效。");
-  button(a,project,"MIT License · 完整条款",()->document(a,"JiajiaBox MIT License","JiajiaBox-MIT-LICENSE.txt"));
+  button(a,project,"GNU GPL v3.0 · 完整条款",()->document(a,"JiajiaBox GPL-3.0 License","GPL-3.0.txt"));
   LinearLayout thanks=card(a,parent,"开源鸣谢");
   link(a,thanks,"sing-box","代理核心 · nekohasekai 与贡献者 · GPL-3.0-or-later","https://github.com/SagerNet/sing-box");
   link(a,thanks,"libneko","NekoBox Go 基础库 · GPL-3.0-or-later（具体条件以其上游 LICENSE 为准）","https://github.com/MatsuriDayo/libneko");
@@ -57,9 +60,9 @@ public final class AboutLegal {
   button(a,thanks,"CC BY 4.0 · 地球贴图完整许可",()->document(a,"Creative Commons Attribution 4.0","CC-BY-4.0.txt"));
   button(a,thanks,"全球连接地球 · 实现与数据说明",()->document(a,"全球连接地球","Global-Globe-NOTICE.txt"));
   LinearLayout legal=card(a,parent,"许可证与版权");
-  paragraph(a,legal,"JiajiaBox 基于 NekoBox for Android / SagerNet 修改，并使用 sing-box、libcore 与 libneko 等上游组件。JiajiaBox 原创代码适用 MIT License；sing-box 与 libcore 的相关部分适用 GPL-3.0-or-later，libneko 的具体条件以其上游发布为准。");
+  paragraph(a,legal,"JiajiaBox 基于 NekoBox for Android / SagerNet 修改，并使用 sing-box、libcore 与 libneko 等上游组件。JiajiaBox 原创代码适用 GNU GPL v3.0；sing-box 与 libcore 的相关部分适用 GPL-3.0-or-later，libneko 的具体条件以其上游发布为准。");
   paragraph(a,legal,"Copyright © 2026 weilai090624-code（JiajiaBox 原创代码与修改）\nCopyright © 2023–2024 MatsuriDayo & NekoBox Authors\nCopyright © 2021 nekohasekai（SagerNet / libcore）\nCopyright © 2022 nekohasekai（sing-box）\n原始声明和完整条款可在下方离线阅读。");
-  paragraph(a,legal,"再分发时请同时保留 JiajiaBox 的 MIT 声明和各上游组件的版权、许可证及通知文件。本软件不提供任何担保；具体条件以对应许可证全文为准。");
+  paragraph(a,legal,"再分发时请同时保留 JiajiaBox 的 GPL-3.0 声明和各上游组件的版权、许可证及通知文件。本软件不提供任何担保；具体条件以对应许可证全文为准。");
   button(a,legal,"GNU GPL v3 · 完整条款",()->document(a,"GNU GPL v3","GPL-3.0.txt"));
   button(a,legal,"上游版权与许可声明",()->document(a,"上游版权与许可声明","UPSTREAM-NOTICES.txt"));
   button(a,legal,"上游作者与贡献者",()->document(a,"上游作者与贡献者","AUTHORS.txt"));

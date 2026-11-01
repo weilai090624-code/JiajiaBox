@@ -2,7 +2,7 @@ JiajiaBox · 开源声明与修改说明
 
 JiajiaBox 是基于 NekoBox for Android / SagerNet 的修改版本，使用 sing-box、libcore 与 libneko 提供核心功能。感谢 nekohasekai、MatsuriDayo 及所有上游贡献者。
 
-JiajiaBox 的原创代码与本项目修改部分按 MIT License 发布，版权归 weilai090624-code（2026）所有。随应用分发的上游组件不受本声明重新授权，仍适用其各自的原版权与许可证条件。
+JiajiaBox 的原创代码与本项目修改部分按 GNU GPL v3.0 发布，版权归 weilai090624-code（2026）所有。随应用分发的上游组件不受本声明重新授权，仍适用其各自的原版权与许可证条件。
 
 修改者：weilai090624-code。
 修改说明（2026-10-19）：客户端品牌与界面、抽屉导航及动画、主题配色、订阅与流量显示、连接详情、分流规则、诊断及更新功能。此说明不改变上游版权归属。

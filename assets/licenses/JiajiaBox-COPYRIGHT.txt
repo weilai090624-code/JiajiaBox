@@ -1,3 +1,4 @@
+JiajiaBox original code and modifications are licensed under GNU GPL v3.0.
 Copyright (C) 2026 weilai090624-code (JiajiaBox original code and modifications)
 Copyright (C) 2023-2024 MatsuriDayo & NekoBox Authors
 Copyright (C) 2021 by nekohasekai <contact-sagernet@sekai.icu>
