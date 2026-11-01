@@ -603,6 +603,10 @@
 
     .line 78
     :try_start_0
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/BuiltinDomainRouting;->applyRuntime(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
     invoke-static {}, Lio/nekohasekai/sagernet/ui/RoutingFallback;->sanitizeSaved()V
 
     .line 79
@@ -680,12 +684,12 @@
 
     move-result-object v0
 
-    :goto_44
+    :goto_48
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_8f
+    if-eqz v2, :cond_93
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -716,7 +720,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8e
+    if-eqz v3, :cond_92
 
     .line 87
     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -743,18 +747,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8e
+    if-eqz v3, :cond_92
 
     .line 88
-    if-nez v1, :cond_86
+    if-nez v1, :cond_8a
 
     .line 89
     move-object v1, v2
 
-    goto :goto_8e
+    goto :goto_92
 
     .line 88
-    :cond_86
+    :cond_8a
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "\u5b58\u5728\u91cd\u590d AI \u5206\u6d41\u89c4\u5219\uff0c\u8bf7\u5220\u9664\u91cd\u590d\u89c4\u5219"
@@ -764,13 +768,13 @@
     throw p0
 
     .line 91
-    :cond_8e
-    :goto_8e
-    goto :goto_44
+    :cond_92
+    :goto_92
+    goto :goto_48
 
     .line 92
-    :cond_8f
-    if-nez v1, :cond_97
+    :cond_93
+    if-nez v1, :cond_9b
 
     .line 93
     const-string v0, "AI routing disabled: using ordinary routing; OpenAI/Codex traffic is not pinned to an AI outbound"
@@ -781,7 +785,7 @@
     return-object p0
 
     .line 96
-    :cond_97
+    :cond_9b
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingPriority;->apply(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -810,12 +814,12 @@
     .line 100
     move v3, v4
 
-    :goto_af
+    :goto_b3
     invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
 
     move-result v5
 
-    if-ge v3, v5, :cond_f3
+    if-ge v3, v5, :cond_f7
 
     .line 101
     invoke-virtual {v0, v3}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
@@ -830,12 +834,12 @@
     move-result-object v6
 
     .line 103
-    if-nez v6, :cond_c2
+    if-nez v6, :cond_c6
 
-    goto :goto_f0
+    goto :goto_f4
 
     .line 104
-    :cond_c2
+    :cond_c6
     nop
 
     .line 105
@@ -848,12 +852,12 @@
 
     move v9, v8
 
-    :goto_c7
+    :goto_cb
     invoke-virtual {v6}, Lorg/json/JSONArray;->length()I
 
     move-result v10
 
-    if-ge v7, v10, :cond_e6
+    if-ge v7, v10, :cond_ea
 
     .line 107
     const-string v10, "gemini.google.com"
@@ -884,13 +888,13 @@
     .line 106
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_c7
+    goto :goto_cb
 
     .line 110
-    :cond_e6
-    if-eqz v8, :cond_f0
+    :cond_ea
+    if-eqz v8, :cond_f4
 
-    if-eqz v9, :cond_f0
+    if-eqz v9, :cond_f4
 
     const-string v2, "outbound"
 
@@ -899,19 +903,19 @@
     move-result-object v2
 
     .line 100
-    :cond_f0
-    :goto_f0
+    :cond_f4
+    :goto_f4
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_af
+    goto :goto_b3
 
     .line 112
-    :cond_f3
+    :cond_f7
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_13d
+    if-nez v0, :cond_141
 
     .line 113
     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -985,7 +989,7 @@
     return-object p0
 
     .line 112
-    :cond_13d
+    :cond_141
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "AI \u5206\u6d41\u672a\u8fdb\u5165\u8fd0\u884c\u914d\u7f6e\uff1b\u5b8c\u6574\u81ea\u5b9a\u4e49\u914d\u7f6e\u6216\u914d\u7f6e\u8986\u76d6\u53ef\u80fd\u7ed5\u8fc7\u4e86\u89c4\u5219\u751f\u6210"
@@ -993,11 +997,11 @@
     invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p0
-    :try_end_145
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_145} :catch_145
+    :try_end_149
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_149} :catch_149
 
     .line 119
-    :catch_145
+    :catch_149
     move-exception p0
 
     .line 120

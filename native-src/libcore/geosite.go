@@ -46,8 +46,23 @@ func (g *geosite) Rules(code string) ([]option.HeadlessRule, error) {
 func init() {
 	nekoutils.GetGeoSiteHeadlessRules = func(name string) ([]option.HeadlessRule, error) {
 		g := new(geosite)
-		if err := g.Open(filepath.Join(externalAssetsPath, "geosite.db")); err != nil {
-			return nil, err
+		candidates := []string{
+			filepath.Join(externalAssetsPath, "geosite.db"),
+			filepath.Join(internalAssetsPath, "geosite.db"),
+			"geosite.db",
+		}
+		var lastErr error
+		opened := false
+		for _, path := range candidates {
+			if err := g.Open(path); err == nil {
+				opened = true
+				break
+			} else {
+				lastErr = err
+			}
+		}
+		if !opened {
+			return nil, lastErr
 		}
 		return g.Rules(name)
 	}
