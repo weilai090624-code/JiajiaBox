@@ -1,5 +1,5 @@
 !!brut.androlib.meta.MetaInfo
-apkFileName: JiajiaBox-0.0.5-beta-455-no-mx.apk
+apkFileName: JiajiaBox-0.0.5-beta-456-trojan-go-mieru.apk
 compressionType: false
 doNotCompress:
 - resources.arsc
@@ -24,5 +24,5 @@ usesFramework:
   tag: null
 version: 2.7.0-dirty
 versionInfo:
-  versionCode: '455'
+  versionCode: '456'
   versionName: 0.0.5 beta

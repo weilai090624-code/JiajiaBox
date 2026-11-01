@@ -1,6 +1,6 @@
 # JiajiaBox 455 支持的协议与模板格式
 
-当前成品：`JiajiaBox-0.0.5-beta-455-no-mx.apk`（基于 451 回退包，已移除 MX）。
+当前成品：`JiajiaBox-0.0.5-beta-456-trojan-go-mieru.apk`（已移除 MX，新增 Trojan-Go / Mieru）。
 
 > 去除对 MX 协议的实验性接入，暂不对 MX 协议适配。
 
@@ -25,7 +25,13 @@ Hysteria2（hy2）
 TUIC
 WireGuard
 Nowhere
+Trojan-Go
+Mieru
 ```
+
+说明：
+- Trojan-Go 支持 TLS / WS / GRPC；不支持 trojan-go 特有的 smux、Shadowsocks 加密、plugin。
+- Mieru 链接格式：`mieru://username:password@host:port?protocol=TCP&mtu=1400&multiplexing=low&handshake=standard#name`。
 
 ## 二、分组 / 辅助出站
 
@@ -103,6 +109,8 @@ WireGuard .conf
 vmess://
 vless://
 trojan://
+trojan-go://
+mieru://
 ss://
 socks://
 socks4://

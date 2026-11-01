@@ -14,7 +14,7 @@
 
 .field public static final PRE_VERSION_NAME:Ljava/lang/String; = ""
 
-.field public static final VERSION_CODE:I = 0x1c7
+.field public static final VERSION_CODE:I = 0x1c8
 
 .field public static final VERSION_NAME:Ljava/lang/String; = "0.0.5 beta"
 

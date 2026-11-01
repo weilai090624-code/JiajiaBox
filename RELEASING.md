@@ -1,22 +1,22 @@
 # 源码与成品上传信息
 
-当前发布版本：`0.0.5 beta`，内部版本号 `455`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前发布版本：`0.0.5 beta`，内部版本号 `456`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
 | 项目 | 值 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/weilai090624-code/JiajiaBox |
 | Git HTTPS 地址 | https://github.com/weilai090624-code/JiajiaBox.git |
 | 源码分支 | `main` |
-| 对应版本标签 | `v0.0.5-beta.455` |
-| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.455 |
-| APK | `JiajiaBox-0.0.5-beta-455-no-mx.apk` |
-| APK SHA-256 | `0e77b9810791bb5ea0d1a0ced64af52cb97581c7765556e9d167ab6fc683f831` |
-| 对应源码归档 | `JiajiaBox-v0.0.5-beta.455-source.tar.gz` |
+| 对应版本标签 | `v0.0.5-beta.456` |
+| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.456 |
+| APK | `JiajiaBox-0.0.5-beta-456-trojan-go-mieru.apk` |
+| APK SHA-256 | `5bb0e4be4eb0bc1a0ffae4705faae99871c7074c21157007b4f5e16935b36097` |
+| 对应源码归档 | `JiajiaBox-v0.0.5-beta.456-source.tar.gz` |
 | 校验清单 | `SHA256SUMS.txt`（含 APK 与源码归档） |
 
-本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox-no-mx-455/`；Nowhere 相关源码与脚本位于 `nowhere/`，内核源码位于 `native-src/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 通过 `release/` 与 Releases 附件发布。
+本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox-456-trojan-go-mieru/`；Nowhere 相关源码与脚本位于 `nowhere/`，内核源码位于 `native-src/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 通过 `release/` 与 Releases 附件发布。
 
-本版在 443 Nowhere 测试包基础上修正节点类型标签：`nowhere` / `newhere` 按 `config.net` 显示 `newhere·tcp` 或 `newhere·udp`，其他自定义 sing-box 类型保持原标签；同时让链接导入和订阅拉取兼容 `nowhere://` 与 `newhere://` 两种前缀。447 修正了 446 中 TCP/UDP 标签显示颠倒的问题；448 新增原生 Go MX 客户端出站（`mx://` 导入，TCP/TLS、WS、gRPC、HTTPUpgrade，TCP/UDP）；449 新增 `gvt1-cn.com` / `gvt1.com` 强制走主代理，修复 Google Play 下载重定向域名被 CN 直连的问题。455 基于 451 回退包，移除 MX 全部支持（`mx://`、`jatp://`、`mc1`、`mundordp`、`xhttp/jatp` 桥接、Mundoproxy 伴侣内核与 `:mundo` 进程），保留 Nowhere NW3 与 gvt1 规则。去除对 MX 协议的实验性接入，暂不对 MX 协议适配。内核为 `1.14.3-Jiajia-7`，包含 Nowhere NW3 客户端出站（TCP/TLS、UDP/QUIC、Morph）。
+本版在 443 Nowhere 测试包基础上修正节点类型标签：`nowhere` / `newhere` 按 `config.net` 显示 `newhere·tcp` 或 `newhere·udp`，其他自定义 sing-box 类型保持原标签；同时让链接导入和订阅拉取兼容 `nowhere://` 与 `newhere://` 两种前缀。447 修正了 446 中 TCP/UDP 标签显示颠倒的问题；448 新增原生 Go MX 客户端出站（`mx://` 导入，TCP/TLS、WS、gRPC、HTTPUpgrade，TCP/UDP）；449 新增 `gvt1-cn.com` / `gvt1.com` 强制走主代理，修复 Google Play 下载重定向域名被 CN 直连的问题。455 移除 MX 全部支持；456 新增原生 Trojan-Go（TLS/WS/GRPC）与 Mieru（mieru://）支持，保留 Nowhere NW3 与 gvt1 规则。去除对 MX 协议的实验性接入，暂不对 MX 协议适配。内核为 `1.14.3-Jiajia-7`，包含 Nowhere NW3 客户端出站（TCP/TLS、UDP/QUIC、Morph）。
 
 发布顺序：先提供本地 APK，由用户实测；用户明确同意后，再推送对应源码和成品。应用行为或 APK 有新改动时重新执行此流程。
 
@@ -53,7 +53,7 @@ git push origin main
 为新的内部版本建立独立标签，再推送。已发布标签继续对应原来的源码；后续版本使用新的编号。
 
 ```bash
-tag=v0.0.5-beta.455
+tag=v0.0.5-beta.456
 git tag "$tag"
 git push origin "$tag"
 ```
@@ -72,13 +72,13 @@ git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-
 ```bash
 python3 tools/publish_release.py \
   --repo weilai090624-code/JiajiaBox \
-  --tag v0.0.5-beta.455 \
-  --commit "$(git rev-parse v0.0.5-beta.455^{commit})" \
-  --title "JiajiaBox v0.0.5-beta.455 预发布版" \
+  --tag v0.0.5-beta.456 \
+  --commit "$(git rev-parse v0.0.5-beta.456^{commit})" \
+  --title "JiajiaBox v0.0.5-beta.456 预发布版" \
   --notes-file build/release-upload-450/RELEASE_NOTES.md \
-  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-455-no-mx.apk \
-  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-455-no-mx.apk.sha256 \
-  --asset build/release-upload-450/JiajiaBox-v0.0.5-beta.455-source.tar.gz \
+  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-456-trojan-go-mieru.apk \
+  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-456-trojan-go-mieru.apk.sha256 \
+  --asset build/release-upload-450/JiajiaBox-v0.0.5-beta.456-source.tar.gz \
   --asset build/release-upload-450/SHA256SUMS.txt \
   --output-json build/release-upload-450/github-publish.json
 ```
@@ -95,4 +95,3 @@ python3 tools/publish_release.py \
 
 本机继续覆盖安装所用签名文件为 `/root/.android/debug.keystore`，别名 `androiddebugkey`；须复用相同签名。私钥文件不随源码或 Release 附件上传。
 
-回退包：`JiajiaBox-0.0.5-beta-451-rollback-449.apk`（基于 449，versionCode 451，SHA-256 `c2e64852fb94d885e058873ae90e6135860e7d9643100613f8239b7eef6d2404`），用于 450 伴侣内核版本出现启动/资产问题时的稳定回退。

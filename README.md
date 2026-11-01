@@ -4,11 +4,10 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 
 ## 最新版本
 
-当前源码与成品对应 `0.0.5 beta`，内部版本号 `455`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前源码与成品对应 `0.0.5 beta`，内部版本号 `456`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
-- 成品：`release/JiajiaBox-0.0.5-beta-455-no-mx.apk`
-- SHA-256：`0e77b9810791bb5ea0d1a0ced64af52cb97581c7765556e9d167ab6fc683f831`
-- 基线：451 回退包（449 稳定内容）
+- 成品：`release/JiajiaBox-0.0.5-beta-456-trojan-go-mieru.apk`
+- SHA-256：`5bb0e4be4eb0bc1a0ffae4705faae99871c7074c21157007b4f5e16935b36097`
 - 保留 Nowhere 客户端出站：支持 NW3 TCP/TLS 与 UDP/QUIC（含 Morph）。
 - 保留内置分流：`gvt1-cn.com` / `gvt1.com`（Google Play 下载重定向与 CDN）在 CN 直连规则之前强制走主代理。
 - 链接导入与订阅拉取同时兼容 `nowhere://` 和 `newhere://`。
@@ -42,7 +41,13 @@ Hysteria2（hy2）
 TUIC
 WireGuard
 Nowhere
+Trojan-Go
+Mieru
 ```
+
+说明：
+- Trojan-Go 支持 TLS / WS / GRPC；不支持 trojan-go 特有的 smux、Shadowsocks 加密、plugin。
+- Mieru 链接格式：`mieru://username:password@host:port?protocol=TCP&mtu=1400&multiplexing=low&handshake=standard#name`。
 
 分组/辅助：
 
@@ -88,12 +93,3 @@ Base64 / URL-safe Base64（链接列表）
 - `release/`：对应版本的 APK 与校验文件。
 
 本仓库是 apktool 解包后的 Android 工程，不是完整的原始 Gradle 工程；重新打包使用 apktool，签名使用 apksigner。签名私钥不随仓库上传。
-
-## 稳定回退包
-
-如果需要回退到移除 MX 之前的稳定版本，可使用基于 449 的回退包：
-
-- 版本：`451`（versionCode 451）
-- APK：`release/JiajiaBox-0.0.5-beta-451-rollback-449.apk`
-- SHA-256：`c2e64852fb94d885e058873ae90e6135860e7d9643100613f8239b7eef6d2404`
-- 内容：448 的原生 Go MX + 449 的 gvt1 规则；不包含 450 的 `:mundo` 伴侣内核桥接。
