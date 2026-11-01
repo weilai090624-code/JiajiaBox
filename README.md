@@ -92,8 +92,9 @@ Base64 / URL-safe Base64（链接列表）
 - `addon-src/`：项目附加 Java 源码。
 - `release/`：对应版本的 APK 与校验文件。
 
-本仓库是 apktool 解包后的 Android 工程，不是完整的原始 Gradle 工程；重新打包使用 apktool，签名使用 apksigner。签名私钥不随仓库上传。
 
 ## 许可证
 
 JiajiaBox 原创代码及本项目修改部分采用 GNU General Public License v3.0（GPL-3.0）发布，完整条款见 [LICENSE](LICENSE)。随项目分发的上游组件（sing-box、libcore、libneko、Mieru 等）仍适用其各自许可证；详见 `assets/licenses/`。
+
+这个项目和我一样带着许多偏执
