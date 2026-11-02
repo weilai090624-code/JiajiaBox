@@ -34,7 +34,7 @@
     .line 7
     const-string v0, "CN"
 
-    const-string v1, "\u4e2d\u56fd|\u4e2d\u570b|\u53f0\u6e7e|\u53f0\u7063|\u5927\u9646|\u5927\u9678|\u5317\u4eac|\u4e0a\u6d77|\u5e7f\u5dde|\u6df1\u5733|(?<![A-Za-z])(?:CN|TW|China|Taiwan)(?![A-Za-z])|\ud83c\udde8\ud83c\uddf3|\ud83c\uddf9\ud83c\uddfc"
+    const-string v1, "\u4e2d\u56fd|\u4e2d\u570b|\u5927\u9646|\u5927\u9678|\u5317\u4eac|\u4e0a\u6d77|\u5e7f\u5dde|\u6df1\u5733|(?<![A-Za-z])(?:CN|China)(?![A-Za-z])"
 
     filled-new-array {v0, v1}, [Ljava/lang/String;
 
@@ -418,6 +418,16 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
+    new-instance v7, Lmoe/matsuri/nb4a/ui/NodeRegionFlag$Rule;
+
+    const-string v8, "TW"
+
+    const-string v9, "\u53f0\u6e7e|\u53f0\u7063|\u81fa\u7063|\u53f0\u5317|\u81fa\u5317|\u65b0\u5317|\u6843\u56ed|\u6843\u5712|\u53f0\u4e2d|\u81fa\u4e2d|\u53f0\u5357|\u81fa\u5357|\u9ad8\u96c4|\u57fa\u9686|\u65b0\u7af9|\u82d7\u6817|\u5f70\u5316|\u5357\u6295|\u4e91\u6797|\u96f2\u6797|\u5609\u4e49|\u5609\u7fa9|\u5c4f\u4e1c|\u5c4f\u6771|\u5b9c\u5170|\u5b9c\u862d|\u82b1\u83b2|\u82b1\u84ee|\u53f0\u4e1c|\u81fa\u6771|\u6f8e\u6e56|\u91d1\u95e8|\u91d1\u9580|\u9a6c\u7956|\u99ac\u7956|\u4e2d\u534e\u7535\u4fe1|\u4e2d\u83ef\u96fb\u4fe1|HiNet|\u53f0\u6e7e\u5927\u54e5\u5927|\u53f0\u7063\u5927\u54e5\u5927|\u8fdc\u4f20|\u9060\u50b3|\u53f0\u6e7e\u4e4b\u661f|\u53f0\u7063\u4e4b\u661f|\u4e9a\u592a\u7535\u4fe1|\u4e9e\u592a\u96fb\u4fe1|\u53f0\u6e7e\u56fa\u7f51|\u53f0\u7063\u56fa\u7db2|\u4e2d\u534e\u6c11\u56fd|\u4e2d\u83ef\u6c11\u570b|(?<![A-Za-z])(?:TW|Taiwan|Taipei|ROC|TWN)(?![A-Za-z])"
+
+    invoke-direct {v7, v8, v9}, Lmoe/matsuri/nb4a/ui/NodeRegionFlag$Rule;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
     .line 71
     sget-object v1, Lmoe/matsuri/nb4a/ui/NodeRegionFlag;->REGIONS:[[Ljava/lang/String;
 
@@ -427,8 +437,8 @@
 
     move v4, v3
 
-    :goto_a
-    if-ge v4, v2, :cond_1e
+    :goto_16
+    if-ge v4, v2, :cond_2a
 
     aget-object v5, v1, v4
 
@@ -446,10 +456,10 @@
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_a
+    goto :goto_16
 
     .line 72
-    :cond_1e
+    :cond_2a
     invoke-static {}, Ljava/util/Locale;->getISOCountries()[Ljava/lang/String;
 
     move-result-object v1
@@ -458,8 +468,8 @@
 
     move v4, v3
 
-    :goto_24
-    if-ge v4, v2, :cond_91
+    :goto_30
+    if-ge v4, v2, :cond_93
 
     aget-object v5, v1, v4
 
@@ -550,17 +560,6 @@
     .line 75
     new-instance v7, Lmoe/matsuri/nb4a/ui/NodeRegionFlag$Rule;
 
-    const-string v8, "TW"
-
-    invoke-virtual {v8, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_88
-
-    const-string v5, "CN"
-
-    :cond_88
     invoke-direct {v7, v5, v6}, Lmoe/matsuri/nb4a/ui/NodeRegionFlag$Rule;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -568,10 +567,10 @@
     .line 72
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_24
+    goto :goto_30
 
     .line 77
-    :cond_91
+    :cond_93
     new-array v1, v3, [Lmoe/matsuri/nb4a/ui/NodeRegionFlag$Rule;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -581,6 +580,112 @@
     check-cast v0, [Lmoe/matsuri/nb4a/ui/NodeRegionFlag$Rule;
 
     return-object v0
+.end method
+
+.method public static displayName(Ljava/lang/String;)Ljava/lang/String;
+    .registers 7
+
+    invoke-static {p0}, Lmoe/matsuri/nb4a/ui/NodeRegionFlag;->emblem(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Lmoe/matsuri/nb4a/ui/NodeRegionFlag$Rules;->FLAG:Ljava/util/regex/Pattern;
+
+    invoke-virtual {v1, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/regex/Matcher;->matches()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_67
+
+    sget-object v1, Lmoe/matsuri/nb4a/ui/NodeRegionFlag$Rules;->FLAG:Ljava/util/regex/Pattern;
+
+    invoke-virtual {v1, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/regex/Matcher;->find()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_40
+
+    invoke-virtual {v1}, Ljava/util/regex/Matcher;->start()I
+
+    move-result v2
+
+    invoke-virtual {v1}, Ljava/util/regex/Matcher;->end()I
+
+    move-result v3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p0, v5, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_40
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v2}, Ljava/lang/String;->codePointAt(I)I
+
+    move-result v2
+
+    const v3, 0x1f1e6
+
+    if-lt v2, v3, :cond_67
+
+    const v3, 0x1f1ff
+
+    if-gt v2, v3, :cond_67
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v2}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_67
+    return-object p0
 .end method
 
 .method public static emblem(Ljava/lang/String;)Ljava/lang/String;
@@ -738,6 +843,11 @@
     .line 105
     :cond_2d
     :goto_2d
+    if-nez v3, :cond_30
+
+    goto :goto_47
+
+    :cond_30
     sget-object v0, Lmoe/matsuri/nb4a/ui/NodeRegionFlag$Rules;->FLAG:Ljava/util/regex/Pattern;
 
     invoke-virtual {v0, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -749,13 +859,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4e
+    if-eqz v1, :cond_47
 
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->start()I
 
     move-result v1
 
-    if-ge v1, v2, :cond_4e
+    if-ge v1, v2, :cond_47
 
     .line 107
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
@@ -763,22 +873,12 @@
     move-result-object p0
 
     .line 108
-    const-string v0, "\ud83c\uddf9\ud83c\uddfc"
-
-    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4d
-
-    const-string p0, "\ud83c\udde8\ud83c\uddf3"
-
-    :cond_4d
     return-object p0
 
     .line 110
-    :cond_4e
-    if-eqz v3, :cond_86
+    :cond_47
+    :goto_47
+    if-eqz v3, :cond_7f
 
     new-instance p0, Ljava/lang/StringBuilder;
 
@@ -835,18 +935,18 @@
     return-object p0
 
     .line 111
-    :cond_86
+    :cond_7f
     invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_8f
+    if-eqz v0, :cond_88
 
     const-string p0, "?"
 
-    goto :goto_9d
+    goto :goto_96
 
-    :cond_8f
+    :cond_88
     new-instance v0, Ljava/lang/String;
 
     invoke-virtual {p0, v4}, Ljava/lang/String;->codePointAt(I)I
@@ -861,7 +961,7 @@
 
     move-object p0, v0
 
-    :goto_9d
+    :goto_96
     return-object p0
 .end method
 

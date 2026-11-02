@@ -1,28 +1,28 @@
 # 源码与成品上传信息
 
-当前发布版本：`0.0.5 beta`，内部版本号 `456`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前发布版本：`0.0.5 beta`，内部版本号 `470`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
 | 项目 | 值 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/weilai090624-code/JiajiaBox |
 | Git HTTPS 地址 | https://github.com/weilai090624-code/JiajiaBox.git |
 | 源码分支 | `main` |
-| 对应版本标签 | `v0.0.5-beta.456` |
-| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.456 |
-| APK | `JiajiaBox-0.0.5-beta-456-trojan-go-mieru.apk` |
-| APK SHA-256 | `5bb0e4be4eb0bc1a0ffae4705faae99871c7074c21157007b4f5e16935b36097` |
-| 对应源码归档 | `JiajiaBox-v0.0.5-beta.456-source.tar.gz` |
+| 对应版本标签 | `v0.0.5-beta.470` |
+| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.470 |
+| APK | `JiajiaBox-0.0.5-beta-470-smooth-dialog.apk` |
+| APK SHA-256 | `0b58dafe3c2591f4f2a124bfc04c915da717435501a9147d229caf858af36b6e` |
+| 对应源码归档 | `JiajiaBox-v0.0.5-beta.470-source.tar.gz` |
 | 校验清单 | `SHA256SUMS.txt`（含 APK 与源码归档） |
 
-本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox-456-trojan-go-mieru/`；Nowhere 相关源码与脚本位于 `nowhere/`，内核源码位于 `native-src/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 通过 `release/` 与 Releases 附件发布。
+本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox Claude code/builds/next/`；发布素材位于 `build/release-upload-470/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 作为 Releases 附件发布。
 
-本版在 443 Nowhere 测试包基础上修正节点类型标签：`nowhere` / `newhere` 按 `config.net` 显示 `newhere·tcp` 或 `newhere·udp`，其他自定义 sing-box 类型保持原标签；同时让链接导入和订阅拉取兼容 `nowhere://` 与 `newhere://` 两种前缀。447 修正了 446 中 TCP/UDP 标签显示颠倒的问题；448 新增原生 Go MX 客户端出站（`mx://` 导入，TCP/TLS、WS、gRPC、HTTPUpgrade，TCP/UDP）；449 新增 `gvt1-cn.com` / `gvt1.com` 强制走主代理，修复 Google Play 下载重定向域名被 CN 直连的问题。455 移除 MX 全部支持；456 新增原生 Trojan-Go（TLS/WS/GRPC）与 Mieru（mieru://）支持，保留 Nowhere NW3 与 gvt1 规则。去除对 MX 协议的实验性接入，暂不对 MX 协议适配。内核为 `1.14.3-Jiajia-7`，包含 Nowhere NW3 客户端出站（TCP/TLS、UDP/QUIC、Morph）。
+本版更新应用图标与启动 Logo；台湾地区节点按名称中的地区信息优先判定，支持台湾地名、运营商及 `TW` / `Taiwan` / `Taipei` / `ROC` / `TWN` 等写法，节点名中的旗帜同步显示为台湾旗帜；“关于”页显示内部版本号；AI 分流、Telegram 分流、节点测速、IP 质量四个入口的弹窗统一使用同一套形变动画。协议与内核未改动，与 457 相同（含 Nowhere、Trojan-Go、Mieru）。
 
 发布顺序：先提供本地 APK，由用户实测；用户明确同意后，再推送对应源码和成品。应用行为或 APK 有新改动时重新执行此流程。
 
 支持的协议与模板格式清单见 `PROTOCOLS.md`。
 
-Nowhere 协议与内核说明见 `nowhere/CONTEXT-DETAILED.txt` 和 `native-src/sing-box/protocol/nowhere/`；MX 协议已在 455 移除。
+Nowhere 协议与内核说明见 `nowhere/CONTEXT-DETAILED.txt` 和 `native-src/sing-box/protocol/nowhere/`；MX 协议暂不适配。
 
 ## 认证
 
@@ -53,7 +53,7 @@ git push origin main
 为新的内部版本建立独立标签，再推送。已发布标签继续对应原来的源码；后续版本使用新的编号。
 
 ```bash
-tag=v0.0.5-beta.456
+tag=v0.0.5-beta.470
 git tag "$tag"
 git push origin "$tag"
 ```
@@ -61,8 +61,8 @@ git push origin "$tag"
 生成与标签一致的源码归档：
 
 ```bash
-mkdir -p build/release-upload-450
-git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-450/JiajiaBox-$tag-source.tar.gz" "$tag"
+mkdir -p build/release-upload-470
+git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-470/JiajiaBox-$tag-source.tar.gz" "$tag"
 ```
 
 ## 上传成品
@@ -72,15 +72,15 @@ git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-
 ```bash
 python3 tools/publish_release.py \
   --repo weilai090624-code/JiajiaBox \
-  --tag v0.0.5-beta.456 \
-  --commit "$(git rev-parse v0.0.5-beta.456^{commit})" \
-  --title "JiajiaBox v0.0.5-beta.456 预发布版" \
-  --notes-file build/release-upload-450/RELEASE_NOTES.md \
-  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-456-trojan-go-mieru.apk \
-  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-456-trojan-go-mieru.apk.sha256 \
-  --asset build/release-upload-450/JiajiaBox-v0.0.5-beta.456-source.tar.gz \
-  --asset build/release-upload-450/SHA256SUMS.txt \
-  --output-json build/release-upload-450/github-publish.json
+  --tag v0.0.5-beta.470 \
+  --commit "$(git rev-parse v0.0.5-beta.470^{commit})" \
+  --title "JiajiaBox v0.0.5-beta.470 预发布版" \
+  --notes-file build/release-upload-470/RELEASE_NOTES.md \
+  --asset "/sdcard/Download/JiajiaBox Claude code/builds/next/JiajiaBox-0.0.5-beta-470-smooth-dialog.apk" \
+  --asset "/sdcard/Download/JiajiaBox Claude code/builds/next/JiajiaBox-0.0.5-beta-470-smooth-dialog.apk.sha256" \
+  --asset build/release-upload-470/JiajiaBox-v0.0.5-beta.470-source.tar.gz \
+  --asset build/release-upload-470/SHA256SUMS.txt \
+  --output-json build/release-upload-470/github-publish.json
 ```
 
 脚本先验证标签对应提交，再创建草稿，逐个上传并核对附件大小及服务端 SHA-256，全部成功后发布为预发布版。同名同校验附件会复用，不同内容会停止以避免混淆版本。创建草稿后会立即保存 Release ID；中断后使用同一命令和 `--output-json` 续传，也可指定 `--release-id`，复用已校验附件。发布结果中的 Release ID、附件 ID、下载地址和校验值保存在指定 JSON 中。

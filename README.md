@@ -4,16 +4,17 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 
 ## 最新版本
 
-当前源码与成品对应 `0.0.5 beta`，内部版本号 `456`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前源码与成品对应 `0.0.5 beta`，内部版本号 `470`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
-- 成品：`release/JiajiaBox-0.0.5-beta-456-trojan-go-mieru.apk`
-- SHA-256：`5bb0e4be4eb0bc1a0ffae4705faae99871c7074c21157007b4f5e16935b36097`
-- 保留 Nowhere 客户端出站：支持 NW3 TCP/TLS 与 UDP/QUIC（含 Morph）。
+- 成品：[JiajiaBox-0.0.5-beta-470-smooth-dialog.apk](https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.470)（GitHub Releases 附件）
+- SHA-256：`0b58dafe3c2591f4f2a124bfc04c915da717435501a9147d229caf858af36b6e`
+- 更新应用图标与启动 Logo。
+- 台湾地区节点优先按名称中的地区信息判定，支持台湾地名、运营商及 `TW` / `Taiwan` / `Taipei` / `ROC` / `TWN` 等写法；节点名中的旗帜同步显示为台湾旗帜。
+- “关于”页显示内部版本号，本版为 `0.0.5 beta 470`。
+- AI 分流、Telegram 分流、节点测速、IP 质量四个入口的弹窗统一使用同一套形变动画，展开与关闭保持一致。
+- 协议与内核未改动，与 457 相同（含 Nowhere、Trojan-Go、Mieru）。
 - 保留内置分流：`gvt1-cn.com` / `gvt1.com`（Google Play 下载重定向与 CDN）在 CN 直连规则之前强制走主代理。
-- 链接导入与订阅拉取同时兼容 `nowhere://` 和 `newhere://`。
-- 节点类型标签：`nowhere` / `newhere` 按 `net` 显示 `newhere·tcp` 或 `newhere·udp`，其他自定义 sing-box 类型保持原标签。
-- 已移除 MX 协议：`mx://`、`jatp://`、`mc1`、`mundordp`、`xhttp(jatp)` 桥接、Mundoproxy 伴侣内核与 `:mundo` 进程。
-- 去除对 MX 协议的实验性接入，暂不对 MX 协议适配。
+- 已移除 MX 协议，暂不适配。
 - 内核版本：`1.14.3-Jiajia-7`。
 
 完整的协议与模板格式清单见 [PROTOCOLS.md](PROTOCOLS.md)。

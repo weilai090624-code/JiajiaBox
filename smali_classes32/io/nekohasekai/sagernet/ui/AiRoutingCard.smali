@@ -1255,7 +1255,7 @@
     invoke-virtual {v0, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 296
-    invoke-static {v6}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
+    invoke-static {v6}, Lio/nekohasekai/sagernet/ui/AppMotion;->showMorph(Landroid/app/Dialog;)V
     :try_end_27c
     .catch Ljava/lang/Exception; {:try_start_f6 .. :try_end_27c} :catch_27d
 

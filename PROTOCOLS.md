@@ -1,8 +1,8 @@
-# JiajiaBox 455 支持的协议与模板格式
+# JiajiaBox 470 支持的协议与模板格式
 
-当前成品：`JiajiaBox-0.0.5-beta-456-trojan-go-mieru.apk`（已移除 MX，新增 Trojan-Go / Mieru）。
+当前成品：`JiajiaBox-0.0.5-beta-470-smooth-dialog.apk`（含 Trojan-Go / Mieru，已移除 MX）。
 
-> 去除对 MX 协议的实验性接入，暂不对 MX 协议适配。
+> MX 协议暂不适配。
 
 ## 一、内置代理协议
 

@@ -288,6 +288,10 @@
 
     .line 961
     .local v0, "nodeName":Ljava/lang/String;
+    invoke-static {v0}, Lmoe/matsuri/nb4a/ui/NodeRegionFlag;->displayName(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeHolder;->name:Landroid/widget/TextView;
 
     move-object v2, v0
@@ -337,13 +341,13 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_6d
+    if-ne v2, v3, :cond_71
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getPing()I
 
     move-result v2
 
-    if-lez v2, :cond_6d
+    if-lez v2, :cond_71
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -369,23 +373,23 @@
 
     check-cast v2, Ljava/lang/CharSequence;
 
-    goto :goto_90
+    goto :goto_94
 
     .line 971
-    :cond_6d
+    :cond_71
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/DataStore;->getRunningTest()Z
 
     move-result v2
 
-    if-eqz v2, :cond_8c
+    if-eqz v2, :cond_90
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getStatus()I
 
     move-result v2
 
-    if-nez v2, :cond_8c
+    if-nez v2, :cond_90
 
     .line 972
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeHolder;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -402,48 +406,48 @@
 
     check-cast v2, Ljava/lang/CharSequence;
 
-    goto :goto_90
+    goto :goto_94
 
     .line 973
-    :cond_8c
+    :cond_90
     const-string v2, "\u2014"
 
     check-cast v2, Ljava/lang/CharSequence;
 
     .line 967
-    :goto_90
+    :goto_94
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 976
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeHolder;->check:Landroid/widget/ImageView;
 
-    if-eqz p2, :cond_99
+    if-eqz p2, :cond_9d
 
     const/4 v2, 0x0
 
-    goto :goto_9a
+    goto :goto_9e
 
-    :cond_99
+    :cond_9d
     const/4 v2, 0x4
 
-    :goto_9a
+    :goto_9e
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 977
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeHolder;->itemView:Landroid/view/View;
 
     .line 978
-    if-eqz p2, :cond_a5
+    if-eqz p2, :cond_a9
 
     const v2, 0x7f080090
 
-    goto :goto_a8
+    goto :goto_ac
 
-    :cond_a5
+    :cond_a9
     const v2, 0x7f08008d
 
     .line 977
-    :goto_a8
+    :goto_ac
     nop
 
     .line 981

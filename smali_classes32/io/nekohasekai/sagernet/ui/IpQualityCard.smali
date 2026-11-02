@@ -1794,7 +1794,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2a3
+    if-nez v1, :cond_27d
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/IpQualityCard;->dialog:Landroid/app/Dialog;
 
@@ -1806,7 +1806,7 @@
 
     if-eqz v1, :cond_16
 
-    goto/16 :goto_2a3
+    goto/16 :goto_27d
 
     .line 109
     :cond_16
@@ -2434,50 +2434,12 @@
     .line 223
     invoke-virtual {v4, v1, v7}, Landroid/view/Window;->setLayout(II)V
 
-    :cond_27a
-    const v1, 0x3f570a3d    # 0.84f
-
-    .line 225
-    invoke-virtual {v3, v1}, Landroid/widget/LinearLayout;->setScaleX(F)V
-
-    .line 226
-    invoke-virtual {v3, v1}, Landroid/widget/LinearLayout;->setScaleY(F)V
-
-    const/4 v1, 0x0
-
-    .line 227
-    invoke-virtual {v3, v1}, Landroid/widget/LinearLayout;->setAlpha(F)V
-
     .line 228
-    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
+    :cond_27a
+    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->showMorph(Landroid/app/Dialog;)V
 
-    .line 229
-    invoke-static {v3}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v15}, Landroid/view/ViewPropertyAnimator;->scaleX(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v15}, Landroid/view/ViewPropertyAnimator;->scaleY(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v15}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v1
-
-    const-wide/16 v2, 0xdc
-
-    invoke-virtual {v1, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/ViewPropertyAnimator;->start()V
-
-    :cond_2a3
-    :goto_2a3
+    :cond_27d
+    :goto_27d
     return-void
 .end method
 

@@ -467,6 +467,31 @@
     return-void
 .end method
 
+.method public static showMorph(Landroid/app/Dialog;)V
+    .registers 4
+
+    invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_11
+
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lio/nekohasekai/sagernet/ui/PopupBackdrop;->bind(Landroid/view/View;Landroid/content/Context;)V
+
+    :cond_11
+    invoke-virtual {p0}, Landroid/app/Dialog;->show()V
+
+    return-void
+.end method
+
 .method public static start(Landroid/view/View;Landroid/view/animation/Animation;)V
     .registers 2
 
