@@ -1,0 +1,19 @@
+JiajiaBox
+Copyright (C) 2026 weilai090624-code
+
+JiajiaBox is an independent modified distribution based on NekoBox for
+Android / SagerNet, and includes modified versions of sing-box, libcore and
+libneko. Upstream copyright holders are listed in THIRD_PARTY_NOTICES.md and
+assets/licenses/.
+
+JiajiaBox original code and modifications are licensed under the GNU General
+Public License, version 3 (GPL-3.0). The complete license text is in LICENSE.
+Bundled upstream components remain under their own licenses; see
+THIRD_PARTY_NOTICES.md and assets/licenses/.
+
+This is not an official release of NekoBox, SagerNet or sing-box, and does not
+imply endorsement by any upstream project. The sing-box naming and
+non-association condition is reproduced in assets/licenses/sing-box-NOTICE.txt.
+
+Corresponding source code:
+https://github.com/weilai090624-code/JiajiaBox

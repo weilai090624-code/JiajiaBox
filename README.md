@@ -87,11 +87,19 @@ Base64 / URL-safe Base64（链接列表）
 
 ## 源码结构
 
-- `smali*`、`res/`、`assets/`、`AndroidManifest.xml`、`apktool.yml`：与 455 APK 对应的完整解包源码。
+- `smali*`、`res/`、`assets/`、`AndroidManifest.xml`、`apktool.yml`：与当前发布版 APK 对应的完整解包源码。
 - `native-src/`：sing-box、libcore、libneko 与 JNI 绑定源码，包含 Nowhere NW3。
 - `nowhere/`：Nowhere 链接导入、测试与打包脚本，以及实现说明。
 - `addon-src/`：项目附加 Java 源码。
 - `release/`：对应版本的 APK 与校验文件。
+
+
+## 构建与合规
+
+- 构建说明：[BUILDING.md](BUILDING.md)
+- 修改说明：[MODIFICATIONS.md](MODIFICATIONS.md)
+- 第三方组件与许可证：[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
+- 许可证全文：[LICENSE](LICENSE)
 
 
 ## 许可证

@@ -1,7 +1,7 @@
 {
   "project_license": "GPL-3.0",
   "license_scope": "JiajiaBox original code and modifications: GPL-3.0; bundled upstream components: their respective licenses",
-  "source_url": null,
+  "source_url": "https://github.com/weilai090624-code/JiajiaBox",
   "documents": [
     "Global-Globe-NOTICE.txt",
     "GPL-3.0.txt",
