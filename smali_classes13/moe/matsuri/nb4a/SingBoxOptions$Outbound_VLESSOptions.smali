@@ -23,6 +23,8 @@
 
 .field public domain_strategy:Ljava/lang/String;
 
+.field public encryption:Ljava/lang/String;
+
 .field public fallback_delay:Ljava/lang/Long;
 
 .field public flow:Ljava/lang/String;

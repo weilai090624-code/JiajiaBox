@@ -416,6 +416,20 @@
 
     .line 967
     :goto_94
+    invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getStatus()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getPing()I
+
+    move-result v3
+
+    invoke-static {v0, v3}, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeHolder;->latencyColor(II)I
+
+    move-result v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V
+
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 976
@@ -476,4 +490,40 @@
     invoke-static {v1, p2}, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->row(Landroid/view/View;Z)V
 
     return-void
+.end method
+
+.method private static latencyColor(II)I
+    .registers 3
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_2
+
+    if-lez p1, :cond_1
+
+    const/16 v0, 0x96
+
+    if-gt p1, v0, :cond_0
+
+    const v0, -11751600    # 0xff4caf50 green
+
+    return v0
+
+    :cond_0
+    const v0, -24576    # 0xffffa000 yellow
+
+    return v0
+
+    :cond_2
+    if-nez p0, :cond_3
+
+    :cond_1
+    const v0, -2937041    # 0xffd32f2f red
+
+    return v0
+
+    :cond_3
+    const v0, -7697774    # 0xff8a8a92 gray
+
+    return v0
 .end method

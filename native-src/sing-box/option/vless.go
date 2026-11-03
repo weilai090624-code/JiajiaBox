@@ -17,9 +17,12 @@ type VLESSUser struct {
 type VLESSOutboundOptions struct {
 	DialerOptions
 	ServerOptions
-	UUID    string      `json:"uuid"`
-	Flow    string      `json:"flow,omitempty"`
-	Network NetworkList `json:"network,omitempty"`
+	UUID string `json:"uuid"`
+	Flow string `json:"flow,omitempty"`
+	// Encryption enables the VLESS post-quantum encryption layer
+	// (mlkem768x25519plus). Empty or "none" leaves it disabled.
+	Encryption string      `json:"encryption,omitempty"`
+	Network    NetworkList `json:"network,omitempty"`
 	OutboundTLSOptionsContainer
 	Multiplex      *OutboundMultiplexOptions `json:"multiplex,omitempty"`
 	Transport      *V2RayTransportOptions    `json:"transport,omitempty"`

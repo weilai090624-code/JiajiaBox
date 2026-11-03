@@ -4,16 +4,18 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 
 ## 最新版本
 
-当前源码与成品对应 `0.0.5 beta`，内部版本号 `470`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前源码与成品对应 `0.0.5 beta`，内部版本号 `475`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
-- 成品：[JiajiaBox-0.0.5-beta-470-smooth-dialog.apk](https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.470)（GitHub Releases 附件）
-- SHA-256：`0b58dafe3c2591f4f2a124bfc04c915da717435501a9147d229caf858af36b6e`
+- 成品：[JiajiaBox-0.0.5-beta-475-vless-encryption.apk](https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.475)（GitHub Releases 附件）
+- SHA-256：`2317a6ab615c52d8d010b1d91f8906eabcc8e2ca6c7b697494757cf9d5c616fb`
 - 更新应用图标与启动 Logo。
 - 台湾地区节点优先按名称中的地区信息判定，支持台湾地名、运营商及 `TW` / `Taiwan` / `Taipei` / `ROC` / `TWN` 等写法；节点名中的旗帜同步显示为台湾旗帜。
-- “关于”页显示内部版本号，本版为 `0.0.5 beta 470`。
+- 首页节点列表、配置分组节点行和配置测试弹窗统一按延迟阈值显示：0–150ms 绿色，>150ms 黄色，失败红色。
+- 启用 Clash API 后在 `127.0.0.1:9090` 提供 API 与 Yacd；外部面板支持 Private Network Access，仅放行 Zashboard 与本机来源。
+- 新增 VLESS Encryption（`mlkem768x25519plus`）客户端支持，兼容 Reality + `xtls-rprx-vision`；当前验证 `native.0rtt`。
+- “关于”页显示内部版本号，本版为 `0.0.5 beta 475`。
 - AI 分流、Telegram 分流、节点测速、IP 质量四个入口的弹窗统一使用同一套形变动画，展开与关闭保持一致。
-- 协议与内核未改动，与 457 相同（含 Nowhere、Trojan-Go、Mieru）。
-- 保留内置分流：`gvt1-cn.com` / `gvt1.com`（Google Play 下载重定向与 CDN）在 CN 直连规则之前强制走主代理。
+- 保留 Nowhere、Trojan-Go、Mieru 与内置 `gvt1` 分流；xhttp 仍不在支持范围。
 - 已移除 MX 协议，暂不适配。
 - 内核版本：`1.14.3-Jiajia-7`。
 

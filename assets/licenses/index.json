@@ -18,6 +18,7 @@
   "upstream_projects": {
     "NekoBox for Android": "https://github.com/MatsuriDayo/NekoBoxForAndroid",
     "sing-box": "https://github.com/SagerNet/sing-box",
+    "sing-box-lx": "https://github.com/Leadaxe/sing-box-lx",
     "SagerNet": "https://github.com/SagerNet/SagerNet",
     "shadowsocks-android": "https://github.com/shadowsocks/shadowsocks-android",
     "Yacd-meta": "https://github.com/MetaCubeX/Yacd-meta",

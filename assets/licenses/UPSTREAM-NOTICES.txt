@@ -110,3 +110,18 @@ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
 THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+===== sing-box-lx (VLESS Encryption client) =====
+
+Project: https://github.com/Leadaxe/sing-box-lx
+Branch/commit used for the port: lx / 9c655e3
+License: GNU General Public License v3.0 or later.
+
+JiajiaBox incorporates the client-side VLESS Encryption implementation from
+this fork (protocol/vless/encryption and related wiring), itself derived from
+the sing-box fork at github.com/starifly/sing-box.
+
+Only the client side is included. The upstream implementation states that
+native.0rtt was verified against a live server; xorpub, random and 1rtt modes
+are parsed/constructed but not device-verified.

@@ -15,6 +15,10 @@
 
 
 # instance fields
+.field public access_control_allow_origin:Ljava/util/List;
+
+.field public access_control_allow_private_network:Z
+
 .field public default_mode:Ljava/lang/String;
 
 .field public external_controller:Ljava/lang/String;

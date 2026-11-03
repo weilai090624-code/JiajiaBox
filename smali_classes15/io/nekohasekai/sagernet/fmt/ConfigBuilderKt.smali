@@ -1292,6 +1292,28 @@
 
     iput-object v15, v5, Lmoe/matsuri/nb4a/SingBoxOptions$ClashAPIOptions;->external_ui:Ljava/lang/String;
 
+    new-instance v15, Ljava/util/ArrayList;
+
+    invoke-direct {v15}, Ljava/util/ArrayList;-><init>()V
+
+    const-string v16, "http://board.zash.run.place"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v16, "http://127.0.0.1:9090"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v16, "http://localhost:9090"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iput-object v15, v5, Lmoe/matsuri/nb4a/SingBoxOptions$ClashAPIOptions;->access_control_allow_origin:Ljava/util/List;
+
+    const/4 v15, 0x1
+
+    iput-boolean v15, v5, Lmoe/matsuri/nb4a/SingBoxOptions$ClashAPIOptions;->access_control_allow_private_network:Z
+
     .line 163
     nop
 

@@ -1125,6 +1125,17 @@
 
     const v7, 0x7f060265
 
+    invoke-virtual/range {p1 .. p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getPing()I
+
+    move-result v11
+
+    const/16 v12, 0x96
+
+    if-le v11, v12, :cond_1c7a
+
+    const v7, 0x7f0601c7
+
+    :cond_1c7a
     invoke-static {v6, v7}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getColour(Landroid/content/Context;I)I
 
     move-result v6

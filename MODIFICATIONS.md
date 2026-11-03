@@ -34,6 +34,7 @@ JiajiaBox 基于 NekoBox for Android / SagerNet，并包含修改过的 sing-box
   配置等）
 - Nowhere NW3 客户端出站与相关导入/测试工具
 - Trojan-Go、Mieru 等协议接入
+- VLESS Encryption（`mlkem768x25519plus`）客户端支持，兼容 Reality + Vision
 - 原生库构建脚本与 Android NDK 交叉编译配置
 
 ### 发布与工具

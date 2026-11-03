@@ -99,7 +99,7 @@ aapt dump badging /path/to/JiajiaBox-new.apk | head -1
 ## 5. 生成源码归档与发布
 
 ```bash
-tag=v0.0.5-beta.470
+tag=v0.0.5-beta.475
 git archive --format=tar.gz --prefix="JiajiaBox-$tag/" \
   -o "JiajiaBox-$tag-source.tar.gz" "$tag"
 ```

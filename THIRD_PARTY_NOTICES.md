@@ -9,6 +9,7 @@ sing-box、libcore 与 libneko。上游组件仍适用其各自许可证，本�
 | NekoBox for Android | https://github.com/MatsuriDayo/NekoBoxForAndroid | GPL-3.0-or-later | Copyright (C) 2023-2024 MatsuriDayo & NekoBox Authors |
 | SagerNet / libcore | https://github.com/SagerNet/SagerNet | GPL-3.0-or-later | Copyright (C) 2021 nekohasekai |
 | sing-box | https://github.com/SagerNet/sing-box | GPL-3.0-or-later | Copyright (C) 2022 nekohasekai；另含名称使用/非关联条款 |
+| sing-box-lx（VLESS Encryption 客户端） | https://github.com/Leadaxe/sing-box-lx | GPL-3.0-or-later | 仅客户端实现；native.0rtt 已验证，xorpub/random/1rtt 未验证 |
 | libneko | https://github.com/MatsuriDayo/libneko | GPL-3.0-or-later | 上游版权归 MatsuriDayo |
 | Yacd-meta / 其他随附组件 | 见 `assets/licenses/UPSTREAM-NOTICES.txt` | 各自许可证 | 完整声明随应用分发 |
 

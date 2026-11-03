@@ -1,22 +1,22 @@
 # 源码与成品上传信息
 
-当前发布版本：`0.0.5 beta`，内部版本号 `470`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前发布版本：`0.0.5 beta`，内部版本号 `475`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
 | 项目 | 值 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/weilai090624-code/JiajiaBox |
 | Git HTTPS 地址 | https://github.com/weilai090624-code/JiajiaBox.git |
 | 源码分支 | `main` |
-| 对应版本标签 | `v0.0.5-beta.470` |
-| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.470 |
-| APK | `JiajiaBox-0.0.5-beta-470-smooth-dialog.apk` |
-| APK SHA-256 | `0b58dafe3c2591f4f2a124bfc04c915da717435501a9147d229caf858af36b6e` |
-| 对应源码归档 | `JiajiaBox-v0.0.5-beta.470-source.tar.gz` |
+| 对应版本标签 | `v0.0.5-beta.475` |
+| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.475 |
+| APK | `JiajiaBox-0.0.5-beta-475-vless-encryption.apk` |
+| APK SHA-256 | `2317a6ab615c52d8d010b1d91f8906eabcc8e2ca6c7b697494757cf9d5c616fb` |
+| 对应源码归档 | `JiajiaBox-v0.0.5-beta.475-source.tar.gz` |
 | 校验清单 | `SHA256SUMS.txt`（含 APK 与源码归档） |
 
-本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox Claude code/builds/next/`；发布素材位于 `build/release-upload-470/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 作为 Releases 附件发布。
+本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox Claude code/builds/next/`；发布素材位于 `build/release-upload-475/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 作为 Releases 附件发布。
 
-本版更新应用图标与启动 Logo；台湾地区节点按名称中的地区信息优先判定，支持台湾地名、运营商及 `TW` / `Taiwan` / `Taipei` / `ROC` / `TWN` 等写法，节点名中的旗帜同步显示为台湾旗帜；“关于”页显示内部版本号；AI 分流、Telegram 分流、节点测速、IP 质量四个入口的弹窗统一使用同一套形变动画。协议与内核未改动，与 457 相同（含 Nowhere、Trojan-Go、Mieru）。
+本版统一了首页、配置分组和测试弹窗的延迟颜色阈值；修复 Clash API 在启用后仍无法在 `127.0.0.1:9090` 监听的问题，并为外部面板增加受限的 Private Network Access；新增 VLESS Encryption（`mlkem768x25519plus`）客户端支持，兼容 Reality + Vision。xhttp 仍不在支持范围。
 
 发布顺序：先提供本地 APK，由用户实测；用户明确同意后，再推送对应源码和成品。应用行为或 APK 有新改动时重新执行此流程。
 
@@ -53,7 +53,7 @@ git push origin main
 为新的内部版本建立独立标签，再推送。已发布标签继续对应原来的源码；后续版本使用新的编号。
 
 ```bash
-tag=v0.0.5-beta.470
+tag=v0.0.5-beta.475
 git tag "$tag"
 git push origin "$tag"
 ```
@@ -61,8 +61,8 @@ git push origin "$tag"
 生成与标签一致的源码归档：
 
 ```bash
-mkdir -p build/release-upload-470
-git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-470/JiajiaBox-$tag-source.tar.gz" "$tag"
+mkdir -p build/release-upload-475
+git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-475/JiajiaBox-$tag-source.tar.gz" "$tag"
 ```
 
 ## 上传成品
@@ -72,15 +72,15 @@ git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-
 ```bash
 python3 tools/publish_release.py \
   --repo weilai090624-code/JiajiaBox \
-  --tag v0.0.5-beta.470 \
-  --commit "$(git rev-parse v0.0.5-beta.470^{commit})" \
-  --title "JiajiaBox v0.0.5-beta.470 预发布版" \
-  --notes-file build/release-upload-470/RELEASE_NOTES.md \
-  --asset "/sdcard/Download/JiajiaBox Claude code/builds/next/JiajiaBox-0.0.5-beta-470-smooth-dialog.apk" \
-  --asset "/sdcard/Download/JiajiaBox Claude code/builds/next/JiajiaBox-0.0.5-beta-470-smooth-dialog.apk.sha256" \
-  --asset build/release-upload-470/JiajiaBox-v0.0.5-beta.470-source.tar.gz \
-  --asset build/release-upload-470/SHA256SUMS.txt \
-  --output-json build/release-upload-470/github-publish.json
+  --tag v0.0.5-beta.475 \
+  --commit "$(git rev-parse v0.0.5-beta.475^{commit})" \
+  --title "JiajiaBox v0.0.5-beta.475 预发布版" \
+  --notes-file build/release-upload-475/RELEASE_NOTES.md \
+  --asset "/sdcard/Download/JiajiaBox Claude code/builds/next/JiajiaBox-0.0.5-beta-475-vless-encryption.apk" \
+  --asset "/sdcard/Download/JiajiaBox Claude code/builds/next/JiajiaBox-0.0.5-beta-475-vless-encryption.apk.sha256" \
+  --asset build/release-upload-475/JiajiaBox-v0.0.5-beta.475-source.tar.gz \
+  --asset build/release-upload-475/SHA256SUMS.txt \
+  --output-json build/release-upload-475/github-publish.json
 ```
 
 脚本先验证标签对应提交，再创建草稿，逐个上传并核对附件大小及服务端 SHA-256，全部成功后发布为预发布版。同名同校验附件会复用，不同内容会停止以避免混淆版本。创建草稿后会立即保存 Release ID；中断后使用同一命令和 `--output-json` 续传，也可指定 `--release-id`，复用已校验附件。发布结果中的 Release ID、附件 ID、下载地址和校验值保存在指定 JSON 中。

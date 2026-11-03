@@ -220,6 +220,13 @@
 
     .line 648
     :cond_7e
+    iget-object v9, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->vlessEncryption:Ljava/lang/String;
+
+    if-eqz v9, :cond_7e2
+
+    iput-object v9, v7, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VLESSOptions;->encryption:Ljava/lang/String;
+
+    :cond_7e2
     iget-object v5, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->packetEncoding:Ljava/lang/Integer;
 
     .line 649
@@ -2606,6 +2613,31 @@
 
     .line 239
     :cond_209
+    const-string v0, "encryption"
+
+    invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_209a
+
+    instance-of v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
+
+    if-eqz v1, :cond_209a
+
+    move-object v1, p0
+
+    check-cast v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
+
+    invoke-virtual {v1}, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->isVLESS()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_209a
+
+    iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->vlessEncryption:Ljava/lang/String;
+
+    :cond_209a
     const-string v0, "packetEncoding"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;

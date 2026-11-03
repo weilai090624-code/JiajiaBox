@@ -429,6 +429,19 @@
     .line 672
     const v2, 0x7f060265
 
+    iget-object v5, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->$profile:Lio/nekohasekai/sagernet/database/ProxyEntity;
+
+    invoke-virtual {v5}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getPing()I
+
+    move-result v5
+
+    const/16 v6, 0x96
+
+    if-le v5, v6, :cond_c0
+
+    const v2, 0x7f0601c7
+
+    :cond_c0
     invoke-static {v0, v2}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getColour(Landroid/content/Context;I)I
 
     move-result v4

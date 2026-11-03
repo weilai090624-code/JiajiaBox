@@ -1229,10 +1229,19 @@
 
     .line 84
     :cond_55
+    sget-object v13, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
+
+    invoke-virtual {v13}, Lio/nekohasekai/sagernet/database/DataStore;->getEnableClashAPI()Z
+
+    move-result v13
+
+    if-nez v13, :cond_55a
+
     const-string v13, "external_controller"
 
     invoke-virtual {v9, v13}, Lorg/json/JSONObject;->remove(Ljava/lang/String;)Ljava/lang/Object;
 
+    :cond_55a
     .line 85
     invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 

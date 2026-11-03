@@ -46,6 +46,8 @@
 
 .field public uuid:Ljava/lang/String;
 
+.field public vlessEncryption:Ljava/lang/String;
+
 .field public wsMaxEarlyData:Ljava/lang/Integer;
 
 
@@ -62,7 +64,7 @@
 
 # virtual methods
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .registers 9
+    .registers 10
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -77,6 +79,8 @@
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
 
     move-result v0
+
+    move v7, v0
 
     .line 173
     .local v0, "version":I
@@ -560,6 +564,17 @@
 
     .line 259
     :cond_182
+    const/4 v0, 0x5
+
+    if-lt v7, v0, :cond_182a
+
+    invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->vlessEncryption:Ljava/lang/String;
+
+    :cond_182a
     return-void
 
     nop
@@ -945,7 +960,7 @@
     .end annotation
 
     .line 115
-    const/4 v0, 0x4
+    const/4 v0, 0x5
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeInt(I)V
 
@@ -1251,6 +1266,10 @@
     move-result v0
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeInt(I)V
+
+    iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->vlessEncryption:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
 
     .line 168
     return-void

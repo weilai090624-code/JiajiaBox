@@ -1,6 +1,6 @@
-# JiajiaBox 470 支持的协议与模板格式
+# JiajiaBox 475 支持的协议与模板格式
 
-当前成品：`JiajiaBox-0.0.5-beta-470-smooth-dialog.apk`（含 Trojan-Go / Mieru，已移除 MX）。
+当前成品：`JiajiaBox-0.0.5-beta-475-vless-encryption.apk`（含 Trojan-Go / Mieru / VLESS Encryption，已移除 MX）。
 
 > MX 协议暂不适配。
 
