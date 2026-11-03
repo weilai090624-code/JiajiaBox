@@ -93,7 +93,7 @@ Base64 / URL-safe Base64（链接列表）
 - `native-src/`：sing-box、libcore、libneko 与 JNI 绑定源码，包含 Nowhere NW3。
 - `nowhere/`：Nowhere 链接导入、测试与打包脚本，以及实现说明。
 - `addon-src/`：项目附加 Java 源码。
-- `release/`：对应版本的 APK 与校验文件。
+- `release/`：早期随源码提交的历史 APK 与校验文件；457 及以后版本只作为 GitHub Releases 附件发布，不提交 APK 到 git。
 
 
 ## 构建与合规
