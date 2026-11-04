@@ -4,17 +4,17 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 
 ## 最新版本
 
-当前源码与成品对应 `0.0.5 beta`，内部版本号 `484`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前源码与成品对应 `0.0.5 beta`，内部版本号 `486`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
-- 成品：[JiajiaBox-0.0.5-beta-484-update-check-skip.apk](https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.484)（GitHub Releases 附件）
-- SHA-256：`55c1f6748f3b7a1e148e0ab2f8f319074f93b9b03c32b664869506e65dd910fb`
-- 订阅适配：所有订阅拉取统一使用 `JiajiaBox/Android/0.0.5`；机场可通过 `Subscription-Dns` 响应头下发私有 DoH，说明见 [SUBSCRIPTION-DNS.md](SUBSCRIPTION-DNS.md)。
+- 成品：[JiajiaBox-0.0.5-beta-486-singbox-json-dns.apk](https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.486)（GitHub Releases 附件）
+- SHA-256：`47f8b002c06068ef4cb252ccd26f68fdd549f1708817f5a76374c02489fb8cac`
+- 订阅适配：所有订阅拉取统一使用 `JiajiaBox/Android/0.0.5`；私有 DoH 使用标准 sing-box JSON 的 `dns.servers` / `dns.rules` 下发，客户端现有 `SubscriptionDns` 直接应用，说明见 [SUBSCRIPTION-SINGBOX.md](SUBSCRIPTION-SINGBOX.md)。
 - 版本检查：打开应用后约 300ms 直接检查更新，不依赖节点连接；更新弹窗新增“跳过此版本”。
 - 安全加固：发行包关闭 `debuggable`；默认禁止明文 HTTP，仅放行 `localhost` 与 `127.0.0.1`，保留 Clash API / Yacd。
 - 线程池收敛：9 个界面类各自创建的单线程池合并为进程级 4 线程共享池，静态常驻线程从 9 个降到 4 个。
 - 共享快照轮询：`ConnectionSnapshotCache` 窗口调整为 2 秒，连接卡与地球卡共享同一份 `/connections` 数据；`/globe-egress` 按 4 秒复用结果。
 - 安装兼容：差分打包默认关闭 APK v4 签名旁车文件，避免部分 OEM 安装器把 `.idsig` 误判为签名错误。
-- “关于”页显示内部版本号，本版为 `0.0.5 beta 484`。
+- “关于”页显示内部版本号，本版为 `0.0.5 beta 486`。
 - 保留应用图标与启动动画、台湾地区节点旗帜、延迟颜色阈值、Clash API / Yacd、VLESS Encryption（`mlkem768x25519plus`）等既有改动。
 - 保留 Nowhere、Trojan-Go、Mieru 与内置 `gvt1` 分流；xhttp 仍不在支持范围。
 - 已移除 MX 协议，暂不适配。

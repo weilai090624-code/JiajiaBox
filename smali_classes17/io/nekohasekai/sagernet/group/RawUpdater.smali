@@ -1118,20 +1118,6 @@
     .line 75
     iput-object v7, v6, Lio/nekohasekai/sagernet/database/SubscriptionBean;->subscriptionUserinfo:Ljava/lang/String;
 
-    const-string v9, "Subscription-Dns"
-
-    invoke-interface {v4, v9}, Llibcore/HTTPResponse;->getHeader(Ljava/lang/String;)Llibcore/StringBox;
-
-    move-result-object v9
-
-    sget-object v7, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
-
-    invoke-virtual {v7, v9}, Lmoe/matsuri/nb4a/utils/Util;->getStringBox(Llibcore/StringBox;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v11, v9}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsHeader;->stage(Ljava/lang/Object;Ljava/lang/String;)V
-
     .line 79
     invoke-virtual {v11}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getName()Ljava/lang/String;
 

@@ -20,8 +20,8 @@ JiajiaBox 基于 NekoBox for Android / SagerNet，并包含修改过的 sing-box
 - 主题配色、节点列表与延迟状态显示
 - 订阅导入、流量显示、更新检查与关于页
 - 订阅拉取统一 User-Agent `JiajiaBox/Android/0.0.5`
-- 订阅响应头 `Subscription-Dns` 支持，机场可下发私有 DoH（见
-  [SUBSCRIPTION-DNS.md](SUBSCRIPTION-DNS.md)）
+- 订阅私有 DoH 通过标准 sing-box JSON 的 `dns.servers` / `dns.rules` 下发，
+  使用现有 `SubscriptionDns` 管线（见 [SUBSCRIPTION-SINGBOX.md](SUBSCRIPTION-SINGBOX.md)）
 - 启动更新检查改为打开应用时直连检查，并支持“跳过此版本”
 - Clash API / Yacd 入口与连接详情界面
 

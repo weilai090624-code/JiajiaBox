@@ -1,10 +1,16 @@
-# 订阅私有 DNS 适配说明
+# 订阅私有 DNS 适配说明（已废弃）
+
+> **废弃说明：** 484 的 `Subscription-Dns` 自定义头已被标准 sing-box JSON 取代。
+> 机场请使用 [SUBSCRIPTION-SINGBOX.md](SUBSCRIPTION-SINGBOX.md)，在订阅 JSON 的
+> `dns.servers` / `dns.rules` 里下发私有 DoH，不需要自定义响应头。
 
 本说明面向订阅服务提供方（机场），用于在 `JiajiaBox/Android/0.0.5` 这个
 User-Agent 下，把节点入口域名所需的私有 DoH 一并下发给客户端。
 
 客户端从 483 起支持这个响应头；484 及之后的版本继续支持。**不需要额外请求**：
 客户端只读取订阅响应本身。
+
+以下内容仅保留为 484 的历史记录。
 
 ## 触发条件
 
