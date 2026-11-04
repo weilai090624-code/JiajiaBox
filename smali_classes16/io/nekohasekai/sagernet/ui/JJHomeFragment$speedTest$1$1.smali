@@ -284,7 +284,7 @@
 
     new-instance v14, Ljava/util/ArrayList;
 
-    const/4 v15, 0x4
+    const/4 v15, 0x2
 
     invoke-direct {v14, v15}, Ljava/util/ArrayList;-><init>(I)V
 

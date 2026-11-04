@@ -4908,7 +4908,7 @@
     .registers 1
 
     .line 161
-    const/4 v0, 0x5
+    const/4 v0, 0x2
 
     return v0
 .end method

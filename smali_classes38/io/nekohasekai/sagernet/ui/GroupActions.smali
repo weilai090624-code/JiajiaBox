@@ -1280,6 +1280,131 @@
     return-void
 .end method
 
+.method static synthetic lambda$copy$0(Landroid/app/Dialog;Ljava/lang/Object;Ljava/lang/Object;Landroid/view/View;)V
+    .registers 12
+    .param p0, "$dialog"    # Landroid/app/Dialog;
+    .param p1, "fragment"    # Ljava/lang/Object;
+    .param p2, "$group"    # Ljava/lang/Object;
+    .param p3, "it"    # Landroid/view/View;
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
+
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/GroupActions;->context(Ljava/lang/Object;)Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v3
+
+    const-string v4, "getSubscription"
+
+    const/4 v5, 0x0
+
+    new-array v5, v5, [Ljava/lang/Class;
+
+    invoke-virtual {v3, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    if-eqz v3, :no_link
+
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v4
+
+    const-string v5, "link"
+
+    invoke-virtual {v4, v5}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/String;
+
+    if-eqz v4, :no_link
+
+    invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v5
+
+    if-nez v5, :no_link
+
+    const-string v5, "clipboard"
+
+    invoke-virtual {v2, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/content/ClipboardManager;
+
+    const-string v6, "subscription"
+
+    invoke-static {v6, v4}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
+
+    const-string v5, "已复制订阅链接"
+
+    const-string v6, "Subscription link copied"
+
+    invoke-static {v5, v6}, Lio/nekohasekai/sagernet/ui/GroupActions;->t(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-static {v2, v5, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
+
+    return-void
+
+    :no_link
+    const-string v3, "没有订阅链接"
+
+    const-string v4, "No subscription link"
+
+    invoke-static {v3, v4}, Lio/nekohasekai/sagernet/ui/GroupActions;->t(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-static {v2, v3, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v2
+
+    const-string v3, "GroupActions"
+
+    const-string v4, "copy"
+
+    invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    return-void
+.end method
+
 .method public static show(Ljava/lang/Object;Ljava/lang/Object;)V
     .registers 6
 
@@ -1342,6 +1467,20 @@
     new-instance v3, Lio/nekohasekai/sagernet/ui/GroupActions$1;
 
     invoke-direct {v3, v2, p0, p1}, Lio/nekohasekai/sagernet/ui/GroupActions$1;-><init>(Landroid/app/Dialog;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-static {v0, v1, v3}, Lio/nekohasekai/sagernet/ui/GroupActions;->row(Landroid/widget/LinearLayout;Ljava/lang/String;Landroid/view/View$OnClickListener;)V
+
+    const-string v1, "复制订阅"
+
+    const-string v3, "Copy subscription"
+
+    invoke-static {v1, v3}, Lio/nekohasekai/sagernet/ui/GroupActions;->t(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v3, Lio/nekohasekai/sagernet/ui/GroupActions$9;
+
+    invoke-direct {v3, v2, p0, p1}, Lio/nekohasekai/sagernet/ui/GroupActions$9;-><init>(Landroid/app/Dialog;Ljava/lang/Object;Ljava/lang/Object;)V
 
     invoke-static {v0, v1, v3}, Lio/nekohasekai/sagernet/ui/GroupActions;->row(Landroid/widget/LinearLayout;Ljava/lang/String;Landroid/view/View$OnClickListener;)V
 

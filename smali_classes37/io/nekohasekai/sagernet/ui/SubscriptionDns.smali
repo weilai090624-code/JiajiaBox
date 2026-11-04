@@ -85,17 +85,11 @@
 
     move-result-object p1
 
-    const-string v4, "subscription_dns"
-
-    invoke-virtual {p1, v4, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object p1
-
     invoke-static {v0, v1}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-interface {p1, v0, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->read(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -786,6 +780,15 @@
     move-result p0
 
     if-eqz p0, :cond_65
+
+    # 491: also persist to a cross-process file so the :bg VPN core sees it.
+    invoke-static {}, Lio/nekohasekai/sagernet/ui/SubscriptionDns;->context()Landroid/content/Context;
+
+    move-result-object v0
+
+    iget-object v1, v4, Lio/nekohasekai/sagernet/ui/SubscriptionDns$PendingDns;->dns:Ljava/lang/String;
+
+    invoke-static {v0, v2, v1}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->write(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_64
     return-void
@@ -1907,8 +1910,22 @@
 
     move-result v4
 
-    if-eqz v4, :cond_207
+    if-eqz v4, :cond_1ff
 
+    # 496/497: FlClash-style split DNS. If the subscription carries rules but
+    # no final, use the app's direct public DoH as the default resolver
+    # instead of the first (private, entry-only) server.
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->splitFinal(Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_486
+
+    invoke-virtual {v0, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    goto :goto_246
+
+    :cond_486
     const/4 v4, 0x0
 
     invoke-virtual {v5, v4}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
@@ -1920,12 +1937,12 @@
     move-result-object v3
 
     .line 184
-    :cond_207
+    :cond_1ff
     invoke-interface {v6, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_253
+    if-eqz v4, :cond_24b
 
     .line 185
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1965,13 +1982,13 @@
 
     move-result-object v2
 
-    :cond_234
-    :goto_234
+    :cond_22c
+    :goto_22c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_24e
+    if-eqz v3, :cond_246
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1983,7 +2000,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_234
+    if-eqz v4, :cond_22c
 
     invoke-virtual {v1, v3}, Lorg/json/JSONObject;->get(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1991,10 +2008,11 @@
 
     invoke-virtual {v0, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    goto :goto_234
+    goto :goto_22c
 
     .line 187
-    :cond_24e
+    :cond_246
+    :goto_246
     invoke-virtual/range {v16 .. v16}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -2002,7 +2020,7 @@
     return-object v0
 
     .line 184
-    :cond_253
+    :cond_24b
     new-instance v0, Ljava/lang/Exception;
 
     new-instance v1, Ljava/lang/StringBuilder;

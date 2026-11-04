@@ -1667,7 +1667,7 @@
 
     if-eqz v7, :cond_3e
 
-    const/4 v6, 0x4
+    const/4 v6, 0x2
 
     goto :goto_57
 
@@ -1697,7 +1697,7 @@
 
     if-eqz v6, :cond_56
 
-    const/4 v6, 0x2
+    const/4 v6, 0x4
 
     goto :goto_57
 

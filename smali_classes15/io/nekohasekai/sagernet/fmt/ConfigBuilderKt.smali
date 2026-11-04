@@ -1251,7 +1251,7 @@
 
     .line 159
     .local v51, "$i$a$-apply-ConfigBuilderKt$buildConfig$1":I
-    if-nez p1, :cond_349
+    if-nez p1, :cond_362
 
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -1259,7 +1259,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_349
+    if-eqz v1, :cond_362
 
     new-instance v1, Lmoe/matsuri/nb4a/SingBoxOptions$ExperimentalOptions;
 
@@ -1333,7 +1333,7 @@
     iput-object v1, v6, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->experimental:Lmoe/matsuri/nb4a/SingBoxOptions$ExperimentalOptions;
 
     .line 166
-    :cond_349
+    :cond_362
     new-instance v1, Lmoe/matsuri/nb4a/SingBoxOptions$LogOptions;
 
     invoke-direct {v1}, Lmoe/matsuri/nb4a/SingBoxOptions$LogOptions;-><init>()V
@@ -1353,39 +1353,39 @@
 
     const-string v5, "info"
 
-    packed-switch v4, :pswitch_data_dc6
+    packed-switch v4, :pswitch_data_de0
 
     .line 173
-    goto :goto_368
+    goto :goto_381
 
     .line 172
-    :pswitch_35c
+    :pswitch_375
     const-string v5, "trace"
 
-    goto :goto_368
+    goto :goto_381
 
     .line 171
-    :pswitch_35f
+    :pswitch_378
     const-string v5, "debug"
 
-    goto :goto_368
+    goto :goto_381
 
     .line 170
-    :pswitch_362
-    goto :goto_368
+    :pswitch_37b
+    goto :goto_381
 
     .line 169
-    :pswitch_363
+    :pswitch_37c
     const-string v5, "warn"
 
-    goto :goto_368
+    goto :goto_381
 
     .line 168
-    :pswitch_366
+    :pswitch_37f
     const-string v5, "panic"
 
     .line 167
-    :goto_368
+    :goto_381
     iput-object v5, v2, Lmoe/matsuri/nb4a/SingBoxOptions$LogOptions;->level:Ljava/lang/String;
 
     .line 175
@@ -1458,12 +1458,12 @@
     .line 198
     const-string v5, "tun-in"
 
-    if-nez p1, :cond_459
+    if-nez p1, :cond_472
 
     .line 199
     const-string v1, "mixed"
 
-    if-eqz v42, :cond_41e
+    if-eqz v42, :cond_437
 
     iget-object v2, v6, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->inbounds:Ljava/util/List;
 
@@ -1492,25 +1492,25 @@
 
     move-result v15
 
-    packed-switch v15, :pswitch_data_dd4
+    packed-switch v15, :pswitch_data_dee
 
     .line 205
     move-object v15, v1
 
-    goto :goto_3c4
+    goto :goto_3dd
 
     .line 204
-    :pswitch_3bf
+    :pswitch_3d8
     const-string v15, "system"
 
-    goto :goto_3c4
+    goto :goto_3dd
 
     .line 203
-    :pswitch_3c2
+    :pswitch_3db
     const-string v15, "gvisor"
 
     .line 202
-    :goto_3c4
+    :goto_3dd
     iput-object v15, v4, Lmoe/matsuri/nb4a/SingBoxOptions$Inbound_TunOptions;->stack:Ljava/lang/String;
 
     .line 207
@@ -1567,7 +1567,7 @@
 
     const-string v15, "172.19.0.1/28"
 
-    sparse-switch v8, :sswitch_data_ddc
+    sparse-switch v8, :sswitch_data_df6
 
     .line 222
     invoke-static {v15}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
@@ -1585,10 +1585,10 @@
 
     sget-object v10, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_418
+    goto :goto_431
 
     .line 218
-    :sswitch_407
+    :sswitch_420
     invoke-static {v10}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v10
@@ -1597,10 +1597,10 @@
 
     sget-object v10, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_418
+    goto :goto_431
 
     .line 214
-    :sswitch_410
+    :sswitch_429
     invoke-static {v15}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v10
@@ -1610,7 +1610,7 @@
     sget-object v10, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 226
-    :goto_418
+    :goto_431
     nop
 
     .end local v4    # "$this$buildConfig_u24lambda_u2465_u24lambda_u2414":Lmoe/matsuri/nb4a/SingBoxOptions$Inbound_TunOptions;
@@ -1621,7 +1621,7 @@
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 227
-    :cond_41e
+    :cond_437
     iget-object v2, v6, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->inbounds:Ljava/util/List;
 
     new-instance v3, Lmoe/matsuri/nb4a/SingBoxOptions$Inbound_MixedOptions;
@@ -1696,7 +1696,7 @@
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 238
-    :cond_459
+    :cond_472
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -1754,7 +1754,7 @@
     iput-object v1, v6, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->route:Lmoe/matsuri/nb4a/SingBoxOptions$RouteOptions;
 
     .line 463
-    if-eqz v39, :cond_525
+    if-eqz v39, :cond_53e
 
     .line 464
     invoke-virtual/range {v34 .. v34}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getId()J
@@ -1793,12 +1793,12 @@
 
     move-result-object v4
 
-    :goto_4a0
+    :goto_4b9
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_4dc
+    if-eqz v14, :cond_4f5
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1867,10 +1867,10 @@
     const/4 v11, 0x2
 
     .end local v28    # "element$iv":Ljava/lang/Object;
-    goto :goto_4a0
+    goto :goto_4b9
 
     .line 804
-    :cond_4dc
+    :cond_4f5
     nop
 
     .line 468
@@ -1961,10 +1961,10 @@
 
     const/4 v0, 0x1
 
-    goto :goto_54c
+    goto :goto_565
 
     .line 475
-    :cond_525
+    :cond_53e
     const/4 v10, 0x0
 
     const-wide/16 v14, 0x0
@@ -2022,7 +2022,7 @@
     invoke-static/range {v1 .. v12}, Lio/nekohasekai/sagernet/fmt/ConfigBuilderKt;->buildConfig$lambda$65$buildChain(Ljava/util/ArrayList;Ljava/util/HashMap;Ljava/util/HashSet;ZLmoe/matsuri/nb4a/SingBoxOptions$MyOptions;Ljava/util/HashMap;Ljava/util/ArrayList;ZLjava/util/List;JLio/nekohasekai/sagernet/database/ProxyEntity;)Ljava/lang/String;
 
     .line 478
-    :goto_54c
+    :goto_565
     move-object/from16 v1, v38
 
     .local v1, "$this$forEach$iv":Ljava/util/Map;
@@ -2038,12 +2038,12 @@
 
     move-result-object v3
 
-    :goto_557
+    :goto_570
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_59b
+    if-eqz v4, :cond_5b4
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2121,10 +2121,10 @@
     nop
 
     .end local v4    # "element$iv":Ljava/util/Map$Entry;
-    goto :goto_557
+    goto :goto_570
 
     .line 806
-    :cond_59b
+    :cond_5b4
     nop
 
     .line 483
@@ -2134,7 +2134,7 @@
 
     move-result-object v1
 
-    :goto_5a0
+    :goto_5b9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
@@ -2151,7 +2151,7 @@
 
     const-string v10, "dns-direct"
 
-    if-eqz v2, :cond_9ab
+    if-eqz v2, :cond_9c4
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2171,7 +2171,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_5c9
+    if-nez v11, :cond_5e2
 
     .line 485
     sget-object v11, Lio/nekohasekai/sagernet/utils/PackageCache;->INSTANCE:Lio/nekohasekai/sagernet/utils/PackageCache;
@@ -2179,7 +2179,7 @@
     invoke-virtual {v11}, Lio/nekohasekai/sagernet/utils/PackageCache;->awaitLoadSync()V
 
     .line 487
-    :cond_5c9
+    :cond_5e2
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getPackages()Ljava/util/Set;
 
     move-result-object v11
@@ -2217,12 +2217,12 @@
 
     move-result-object v24
 
-    :goto_5e5
+    :goto_5fe
     invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v25
 
-    if-eqz v25, :cond_658
+    if-eqz v25, :cond_671
 
     invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2239,7 +2239,7 @@
 
     .line 488
     .local v26, "$i$a$-map-ConfigBuilderKt$buildConfig$1$uidList$1":I
-    if-nez v42, :cond_62a
+    if-nez v42, :cond_643
 
     .line 490
     sget-object v27, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -2302,14 +2302,14 @@
     .line 493
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    goto :goto_630
+    goto :goto_649
 
     .line 488
     .end local v30    # "$this$map$iv":Ljava/lang/Iterable;
     .end local v31    # "$i$f$map":I
     .restart local v11    # "$this$map$iv":Ljava/lang/Iterable;
     .restart local v12    # "$i$f$map":I
-    :cond_62a
+    :cond_643
     move-object/from16 v29, v1
 
     move-object/from16 v30, v11
@@ -2321,14 +2321,14 @@
     .end local v12    # "$i$f$map":I
     .restart local v30    # "$this$map$iv":Ljava/lang/Iterable;
     .restart local v31    # "$i$f$map":I
-    :goto_630
+    :goto_649
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->INSTANCE:Lio/nekohasekai/sagernet/utils/PackageCache;
 
     invoke-virtual {v0, v5}, Lio/nekohasekai/sagernet/utils/PackageCache;->get(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v0
 
-    if-eqz v0, :cond_64a
+    if-eqz v0, :cond_663
 
     move-object v1, v0
 
@@ -2346,29 +2346,29 @@
     .local v11, "$i$a$-takeIf-ConfigBuilderKt$buildConfig$1$uidList$1$1":I
     const/16 v12, 0x3e8
 
-    if-lt v1, v12, :cond_646
+    if-lt v1, v12, :cond_65f
 
     const/4 v11, 0x1
 
-    goto :goto_647
+    goto :goto_660
 
-    :cond_646
+    :cond_65f
     const/4 v11, 0x0
 
     .end local v1    # "uid":I
     .end local v11    # "$i$a$-takeIf-ConfigBuilderKt$buildConfig$1$uidList$1$1":I
-    :goto_647
-    if-eqz v11, :cond_64a
+    :goto_660
+    if-eqz v11, :cond_663
 
-    goto :goto_64b
+    goto :goto_664
 
-    :cond_64a
+    :cond_663
     const/4 v0, 0x0
 
     .line 809
     .end local v5    # "it":Ljava/lang/String;
     .end local v26    # "$i$a$-map-ConfigBuilderKt$buildConfig$1$uidList$1":I
-    :goto_64b
+    :goto_664
     invoke-interface {v6, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v1, v29
@@ -2381,7 +2381,7 @@
 
     const/16 v5, 0xa
 
-    goto :goto_5e5
+    goto :goto_5fe
 
     .line 810
     .end local v25    # "item$iv$iv":Ljava/lang/Object;
@@ -2389,7 +2389,7 @@
     .end local v31    # "$i$f$map":I
     .local v11, "$this$map$iv":Ljava/lang/Iterable;
     .restart local v12    # "$i$f$map":I
-    :cond_658
+    :cond_671
     move-object/from16 v29, v1
 
     move-object/from16 v30, v11
@@ -2457,7 +2457,7 @@
 
     move-result v12
 
-    if-nez v12, :cond_68d
+    if-nez v12, :cond_6a6
 
     .line 501
     sget-object v12, Lio/nekohasekai/sagernet/utils/PackageCache;->INSTANCE:Lio/nekohasekai/sagernet/utils/PackageCache;
@@ -2468,7 +2468,7 @@
     iput-object v0, v6, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->user_id:Ljava/util/List;
 
     .line 504
-    :cond_68d
+    :cond_6a6
     new-instance v12, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     invoke-direct {v12}, Lkotlin/jvm/internal/Ref$ObjectRef;-><init>()V
@@ -2485,7 +2485,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_6b3
+    if-nez v15, :cond_6cc
 
     .line 506
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getDomains()Ljava/lang/String;
@@ -2511,18 +2511,18 @@
     .local v23, "$i$a$-apply-ConfigBuilderKt$buildConfig$1$ruleObj$1":I
     invoke-static {v6, v15, v11}, Lmoe/matsuri/nb4a/SingBoxOptionsUtilKt;->makeSingBoxRule(Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;Ljava/util/List;Z)V
 
-    goto :goto_6b5
+    goto :goto_6ce
 
     .line 505
     .end local v23    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$ruleObj$1":I
     .restart local v11    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$ruleObj$1":I
-    :cond_6b3
+    :cond_6cc
     move/from16 v23, v11
 
     .line 509
     .end local v11    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$ruleObj$1":I
     .restart local v23    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$ruleObj$1":I
-    :goto_6b5
+    :goto_6ce
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getIp()Ljava/lang/String;
 
     move-result-object v11
@@ -2533,7 +2533,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_6cd
+    if-nez v11, :cond_6e6
 
     .line 510
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getIp()Ljava/lang/String;
@@ -2549,10 +2549,10 @@
     invoke-static {v6, v11, v15}, Lmoe/matsuri/nb4a/SingBoxOptionsUtilKt;->makeSingBoxRule(Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;Ljava/util/List;Z)V
 
     .line 513
-    :cond_6cd
+    :cond_6e6
     iget-object v11, v6, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->rule_set:Ljava/util/List;
 
-    if-eqz v11, :cond_6d9
+    if-eqz v11, :cond_6f2
 
     iget-object v11, v6, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->rule_set:Ljava/util/List;
 
@@ -2561,7 +2561,7 @@
     invoke-static {v11, v1}, Lmoe/matsuri/nb4a/SingBoxOptionsUtilKt;->generateRuleSet(Ljava/util/List;Ljava/util/List;)V
 
     .line 515
-    :cond_6d9
+    :cond_6f2
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getPort()Ljava/lang/String;
 
     move-result-object v4
@@ -2572,7 +2572,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_78c
+    if-nez v4, :cond_7a5
 
     .line 516
     new-instance v4, Ljava/util/ArrayList;
@@ -2638,12 +2638,12 @@
 
     move-result-object v25
 
-    :goto_718
+    :goto_731
     invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v26
 
-    if-eqz v26, :cond_77b
+    if-eqz v26, :cond_794
 
     invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2700,7 +2700,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_751
+    if-eqz v13, :cond_76a
 
     .line 520
     iget-object v1, v6, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->port_range:Ljava/util/List;
@@ -2713,15 +2713,15 @@
 
     move-result-object v1
 
-    goto :goto_76a
+    goto :goto_783
 
     .line 522
-    :cond_751
+    :cond_76a
     invoke-static {v4}, Lkotlin/text/StringsKt;->toIntOrNull(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v1
 
-    if-eqz v1, :cond_769
+    if-eqz v1, :cond_782
 
     move-object v5, v1
 
@@ -2747,13 +2747,13 @@
 
     .end local v5    # "$this$buildConfig_u24lambda_u2465_u24lambda_u2442_u24lambda_u2433_u24lambda_u2432":I
     .end local v13    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$ruleObj$1$1$1":I
-    goto :goto_76a
+    goto :goto_783
 
-    :cond_769
+    :cond_782
     const/4 v1, 0x0
 
     .line 523
-    :goto_76a
+    :goto_783
     nop
 
     .line 813
@@ -2773,7 +2773,7 @@
 
     move-object/from16 v5, v57
 
-    goto :goto_718
+    goto :goto_731
 
     .line 814
     .end local v26    # "item$iv$iv":Ljava/lang/Object;
@@ -2785,7 +2785,7 @@
     .local v4, "$this$map$iv":Ljava/lang/Iterable;
     .local v13, "$this$mapTo$iv$iv":Ljava/lang/Iterable;
     .restart local v15    # "$i$f$mapTo":I
-    :cond_77b
+    :cond_794
     move-object/from16 v55, v1
 
     move-object/from16 v27, v4
@@ -2814,12 +2814,12 @@
 
     .end local v24    # "$i$f$map":I
     .end local v27    # "$this$map$iv":Ljava/lang/Iterable;
-    goto :goto_792
+    goto :goto_7ab
 
     .line 515
     .end local v55    # "ruleSets":Ljava/util/List;
     .restart local v1    # "ruleSets":Ljava/util/List;
-    :cond_78c
+    :cond_7a5
     move-object/from16 v55, v1
 
     move-object/from16 v57, v5
@@ -2829,7 +2829,7 @@
     .line 526
     .end local v1    # "ruleSets":Ljava/util/List;
     .restart local v55    # "ruleSets":Ljava/util/List;
-    :goto_792
+    :goto_7ab
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getSourcePort()Ljava/lang/String;
 
     move-result-object v1
@@ -2840,7 +2840,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_83b
+    if-nez v1, :cond_854
 
     .line 527
     new-instance v1, Ljava/util/ArrayList;
@@ -2900,12 +2900,12 @@
 
     move-result-object v15
 
-    :goto_7ce
+    :goto_7e7
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v24
 
-    if-eqz v24, :cond_82f
+    if-eqz v24, :cond_848
 
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2960,7 +2960,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_805
+    if-eqz v1, :cond_81e
 
     .line 531
     iget-object v1, v6, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->source_port_range:Ljava/util/List;
@@ -2973,15 +2973,15 @@
 
     move-result-object v1
 
-    goto :goto_81e
+    goto :goto_837
 
     .line 533
-    :cond_805
+    :cond_81e
     invoke-static {v9}, Lkotlin/text/StringsKt;->toIntOrNull(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v1
 
-    if-eqz v1, :cond_81d
+    if-eqz v1, :cond_836
 
     move-object v4, v1
 
@@ -3007,13 +3007,13 @@
 
     .end local v4    # "$this$buildConfig_u24lambda_u2465_u24lambda_u2442_u24lambda_u2435_u24lambda_u2434":I
     .end local v11    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$ruleObj$1$2$1":I
-    goto :goto_81e
+    goto :goto_837
 
-    :cond_81d
+    :cond_836
     const/4 v1, 0x0
 
     .line 534
-    :goto_81e
+    :goto_837
     nop
 
     .line 817
@@ -3033,7 +3033,7 @@
 
     const/16 v9, 0xa
 
-    goto :goto_7ce
+    goto :goto_7e7
 
     .line 818
     .end local v24    # "item$iv$iv":Ljava/lang/Object;
@@ -3045,7 +3045,7 @@
     .local v4, "$i$f$map":I
     .local v11, "$this$mapTo$iv$iv":Ljava/lang/Iterable;
     .restart local v13    # "$i$f$mapTo":I
-    :cond_82f
+    :cond_848
     move-object/from16 v26, v1
 
     move/from16 v30, v4
@@ -3071,7 +3071,7 @@
     .line 537
     .end local v26    # "$this$map$iv":Ljava/lang/Iterable;
     .end local v30    # "$i$f$map":I
-    :cond_83b
+    :cond_854
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getNetwork()Ljava/lang/String;
 
     move-result-object v1
@@ -3082,7 +3082,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_851
+    if-nez v1, :cond_86a
 
     .line 538
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getNetwork()Ljava/lang/String;
@@ -3096,7 +3096,7 @@
     iput-object v1, v6, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->network:Ljava/util/List;
 
     .line 540
-    :cond_851
+    :cond_86a
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getSource()Ljava/lang/String;
 
     move-result-object v1
@@ -3107,7 +3107,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_867
+    if-nez v1, :cond_880
 
     .line 541
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getSource()Ljava/lang/String;
@@ -3121,7 +3121,7 @@
     iput-object v1, v6, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->source_ip_cidr:Ljava/util/List;
 
     .line 543
-    :cond_867
+    :cond_880
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getProtocol()Ljava/lang/String;
 
     move-result-object v1
@@ -3132,7 +3132,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_87d
+    if-nez v1, :cond_896
 
     .line 544
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getProtocol()Ljava/lang/String;
@@ -3146,7 +3146,7 @@
     iput-object v1, v6, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->protocol:Ljava/util/List;
 
     .line 554
-    :cond_87d
+    :cond_896
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getOutbound()J
 
     move-result-wide v4
@@ -3156,7 +3156,7 @@
 
     cmp-long v1, v4, v21
 
-    if-nez v1, :cond_897
+    if-nez v1, :cond_8b0
 
     .line 556
     move-object/from16 v1, v40
@@ -3181,16 +3181,16 @@
     .end local v5    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$ruleObj$1$3":I
     invoke-interface {v1, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_8e1
+    goto :goto_8fa
 
     .line 559
-    :cond_897
+    :cond_8b0
     cmp-long v1, v4, v36
 
-    if-nez v1, :cond_8c4
+    if-nez v1, :cond_8dd
 
     .line 560
-    if-eqz v46, :cond_8b3
+    if-eqz v46, :cond_8cc
 
     move-object/from16 v1, v40
 
@@ -3225,7 +3225,7 @@
     invoke-interface {v1, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 564
-    :cond_8b3
+    :cond_8cc
     move-object/from16 v1, v40
 
     check-cast v1, Ljava/util/Collection;
@@ -3251,15 +3251,15 @@
     .end local v5    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$ruleObj$1$5":I
     invoke-interface {v1, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_8e1
+    goto :goto_8fa
 
     .line 569
-    :cond_8c4
+    :cond_8dd
     const-wide/16 v7, -0x2
 
     cmp-long v1, v4, v7
 
-    if-nez v1, :cond_8e1
+    if-nez v1, :cond_8fa
 
     .line 570
     move-object/from16 v1, v40
@@ -3297,8 +3297,8 @@
     invoke-interface {v1, v4}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 577
-    :cond_8e1
-    :goto_8e1
+    :cond_8fa
+    :goto_8fa
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/RuleEntity;->getOutbound()J
 
     move-result-wide v3
@@ -3307,51 +3307,51 @@
     .local v3, "outId":J
     cmp-long v1, v3, v36
 
-    if-nez v1, :cond_8ec
+    if-nez v1, :cond_905
 
     move-object/from16 v9, v53
 
-    goto :goto_918
+    goto :goto_931
 
     .line 579
-    :cond_8ec
+    :cond_905
     const-wide/16 v21, -0x1
 
     cmp-long v1, v3, v21
 
-    if-nez v1, :cond_8f5
+    if-nez v1, :cond_90e
 
     move-object/from16 v9, v32
 
-    goto :goto_918
+    goto :goto_931
 
     .line 580
-    :cond_8f5
+    :cond_90e
     const-wide/16 v7, -0x2
 
     cmp-long v1, v3, v7
 
-    if-nez v1, :cond_8fe
+    if-nez v1, :cond_917
 
     const-string v9, "block"
 
-    goto :goto_918
+    goto :goto_931
 
     .line 581
-    :cond_8fe
+    :cond_917
     invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getId()J
 
     move-result-wide v7
 
     cmp-long v1, v3, v7
 
-    if-nez v1, :cond_909
+    if-nez v1, :cond_922
 
     move-object/from16 v9, v53
 
-    goto :goto_918
+    goto :goto_931
 
-    :cond_909
+    :cond_922
     invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v1
@@ -3364,14 +3364,14 @@
 
     check-cast v9, Ljava/lang/String;
 
-    if-nez v9, :cond_918
+    if-nez v9, :cond_931
 
     const-string v9, ""
 
     .line 577
     .end local v3    # "outId":J
-    :cond_918
-    :goto_918
+    :cond_931
+    :goto_931
     iput-object v9, v6, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->outbound:Ljava/lang/String;
 
     .line 584
@@ -3396,34 +3396,34 @@
 
     move-result v3
 
-    if-nez v3, :cond_9a2
+    if-nez v3, :cond_9bb
 
     .line 588
     iget-object v3, v1, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->outbound:Ljava/lang/String;
 
     check-cast v3, Ljava/lang/CharSequence;
 
-    if-eqz v3, :cond_938
+    if-eqz v3, :cond_951
 
     invoke-static {v3}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_936
+    if-eqz v3, :cond_94f
 
-    goto :goto_938
+    goto :goto_951
 
-    :cond_936
+    :cond_94f
     const/4 v11, 0x0
 
-    goto :goto_939
+    goto :goto_952
 
-    :cond_938
-    :goto_938
+    :cond_951
+    :goto_951
     const/4 v11, 0x1
 
-    :goto_939
-    if-eqz v11, :cond_970
+    :goto_952
+    if-eqz v11, :cond_989
 
     .line 590
     sget-object v3, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -3482,10 +3482,10 @@
 
     move-object/from16 v5, v54
 
-    goto :goto_999
+    goto :goto_9b2
 
     .line 596
-    :cond_970
+    :cond_989
     iget-object v3, v1, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->outbound:Ljava/lang/String;
 
     const-string v4, "block"
@@ -3494,7 +3494,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_981
+    if-eqz v3, :cond_99a
 
     .line 597
     const/4 v3, 0x0
@@ -3507,7 +3507,7 @@
     iput-object v3, v1, Lmoe/matsuri/nb4a/SingBoxOptions$Rule_DefaultOptions;->action:Ljava/lang/String;
 
     .line 600
-    :cond_981
+    :cond_99a
     move-object/from16 v5, v54
 
     .end local v54    # "$this$buildConfig_u24lambda_u2465":Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;
@@ -3533,7 +3533,7 @@
 
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    :goto_999
+    :goto_9b2
     const/4 v0, 0x1
 
     move-object/from16 v13, p0
@@ -3542,12 +3542,12 @@
 
     move-object/from16 v1, v29
 
-    goto/16 :goto_5a0
+    goto/16 :goto_5b9
 
     .line 587
     .end local v5    # "$this$buildConfig_u24lambda_u2465":Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;
     .restart local v54    # "$this$buildConfig_u24lambda_u2465":Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;
-    :cond_9a2
+    :cond_9bb
     move-object/from16 v5, v54
 
     .end local v54    # "$this$buildConfig_u24lambda_u2465":Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;
@@ -3558,7 +3558,7 @@
 
     move-object/from16 v1, v29
 
-    goto/16 :goto_5a0
+    goto/16 :goto_5b9
 
     .line 607
     .end local v0    # "uidList":Ljava/util/List;
@@ -3567,7 +3567,7 @@
     .end local v5    # "$this$buildConfig_u24lambda_u2465":Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;
     .end local v55    # "ruleSets":Ljava/util/List;
     .restart local v54    # "$this$buildConfig_u24lambda_u2465":Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;
-    :cond_9ab
+    :cond_9c4
     move-object/from16 v32, v9
 
     move-object/from16 v5, v54
@@ -3580,7 +3580,7 @@
 
     iget-object v0, v0, Lmoe/matsuri/nb4a/SingBoxOptions$RouteOptions;->rule_set:Ljava/util/List;
 
-    if-eqz v0, :cond_9f1
+    if-eqz v0, :cond_a0a
 
     .line 608
     iget-object v0, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->route:Lmoe/matsuri/nb4a/SingBoxOptions$RouteOptions;
@@ -3614,13 +3614,13 @@
 
     move-result-object v9
 
-    :cond_9d1
-    :goto_9d1
+    :cond_9ea
+    :goto_9ea
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_9ec
+    if-eqz v11, :cond_a05
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3650,17 +3650,17 @@
 
     move-result v13
 
-    if-eqz v13, :cond_9d1
+    if-eqz v13, :cond_9ea
 
     .line 824
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_9d1
+    goto :goto_9ea
 
     .line 826
     .end local v11    # "e$iv":Ljava/lang/Object;
     .end local v12    # "key$iv":Ljava/lang/Object;
-    :cond_9ec
+    :cond_a05
     move-object v1, v6
 
     check-cast v1, Ljava/util/List;
@@ -3673,7 +3673,7 @@
     iput-object v1, v0, Lmoe/matsuri/nb4a/SingBoxOptions$RouteOptions;->rule_set:Ljava/util/List;
 
     .line 611
-    :cond_9f1
+    :cond_a0a
     const-string v0, "direct"
 
     move-object/from16 v1, v32
@@ -3684,10 +3684,10 @@
 
     const/4 v9, 0x0
 
-    :goto_9fa
+    :goto_a13
     const/4 v4, 0x2
 
-    if-ge v9, v4, :cond_a15
+    if-ge v9, v4, :cond_a2e
 
     aget-object v4, v2, v9
 
@@ -3723,10 +3723,10 @@
     .end local v4    # "freedom":Ljava/lang/String;
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_9fa
+    goto :goto_a13
 
     .line 617
-    :cond_a15
+    :cond_a2e
     move-object/from16 v2, v41
 
     check-cast v2, Ljava/lang/Iterable;
@@ -3740,12 +3740,12 @@
 
     move-result-object v6
 
-    :goto_a1e
+    :goto_a37
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_a96
+    if-eqz v9, :cond_aaf
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3769,7 +3769,7 @@
     .line 620
     instance-of v15, v11, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;
 
-    if-eqz v15, :cond_a60
+    if-eqz v15, :cond_a79
 
     .line 621
     new-instance v15, Ljava/util/LinkedHashMap;
@@ -3817,7 +3817,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_a66
+    if-eqz v4, :cond_a7f
 
     .local v4, "$this$buildConfig_u24lambda_u2465_u24lambda_u2446_u24lambda_u2445":Ljava/lang/Object;
     const/4 v6, 0x0
@@ -3834,14 +3834,14 @@
     .line 623
     .end local v4    # "$this$buildConfig_u24lambda_u2465_u24lambda_u2446_u24lambda_u2445":Ljava/lang/Object;
     .end local v6    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$12$1":I
-    goto :goto_a66
+    goto :goto_a7f
 
     .line 620
     .end local v23    # "$this$forEach$iv":Ljava/lang/Iterable;
     .end local v24    # "$i$f$forEach":I
     .local v2, "$this$forEach$iv":Ljava/lang/Iterable;
     .local v4, "$i$f$forEach":I
-    :cond_a60
+    :cond_a79
     move-object/from16 v23, v2
 
     move/from16 v24, v4
@@ -3853,8 +3853,8 @@
     .end local v4    # "$i$f$forEach":I
     .restart local v23    # "$this$forEach$iv":Ljava/lang/Iterable;
     .restart local v24    # "$i$f$forEach":I
-    :cond_a66
-    :goto_a66
+    :cond_a7f
+    :goto_a7f
     const-string v2, "element"
 
     invoke-static {v13, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -3863,7 +3863,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_a8a
+    if-nez v2, :cond_aa3
 
     .line 629
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3890,18 +3890,18 @@
     .local v4, "domainListDNSDirectForce":Ljava/util/List;
     invoke-interface {v4, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_a8c
+    goto :goto_aa5
 
     .line 628
     .end local v4    # "domainListDNSDirectForce":Ljava/util/List;
     .restart local v18    # "domainListDNSDirectForce":Ljava/util/List;
-    :cond_a8a
+    :cond_aa3
     move-object/from16 v4, v18
 
     .line 631
     .end local v18    # "domainListDNSDirectForce":Ljava/util/List;
     .restart local v4    # "domainListDNSDirectForce":Ljava/util/List;
-    :goto_a8c
+    :goto_aa5
     nop
 
     .line 827
@@ -3917,7 +3917,7 @@
     move-object/from16 v6, v25
 
     .end local v9    # "element$iv":Ljava/lang/Object;
-    goto :goto_a1e
+    goto :goto_a37
 
     .line 828
     .end local v23    # "$this$forEach$iv":Ljava/lang/Iterable;
@@ -3925,7 +3925,7 @@
     .restart local v2    # "$this$forEach$iv":Ljava/lang/Iterable;
     .local v4, "$i$f$forEach":I
     .restart local v18    # "domainListDNSDirectForce":Ljava/util/List;
-    :cond_a96
+    :cond_aaf
     move-object/from16 v23, v2
 
     move/from16 v24, v4
@@ -3949,12 +3949,12 @@
 
     move-result-object v9
 
-    :goto_aa5
+    :goto_abe
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_b20
+    if-eqz v11, :cond_b39
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4012,7 +4012,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_ad6
+    if-eqz v2, :cond_aef
 
     .line 636
     const-string v2, "://"
@@ -4022,7 +4022,7 @@
     move-result-object v15
 
     .line 638
-    :cond_ad6
+    :cond_aef
     sget-object v2, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -4047,7 +4047,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_b18
+    if-eqz v2, :cond_b31
 
     .local v2, "$this$buildConfig_u24lambda_u2465_u24lambda_u2448_u24lambda_u2447":Lokhttp3/HttpUrl;
     const/4 v6, 0x0
@@ -4062,7 +4062,7 @@
 
     move-result v12
 
-    if-nez v12, :cond_b16
+    if-nez v12, :cond_b2f
 
     .line 640
     new-instance v12, Ljava/lang/StringBuilder;
@@ -4090,7 +4090,7 @@
     invoke-interface {v4, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 642
-    :cond_b16
+    :cond_b2f
     nop
 
     .line 638
@@ -4099,7 +4099,7 @@
     nop
 
     .line 643
-    :cond_b18
+    :cond_b31
     nop
 
     .line 829
@@ -4113,14 +4113,14 @@
     move/from16 v6, v24
 
     .end local v25    # "element$iv":Ljava/lang/Object;
-    goto :goto_aa5
+    goto :goto_abe
 
     .line 830
     .end local v18    # "$this$forEach$iv":Ljava/lang/Iterable;
     .end local v24    # "$i$f$forEach":I
     .local v2, "$this$forEach$iv":Ljava/lang/Iterable;
     .local v6, "$i$f$forEach":I
-    :cond_b20
+    :cond_b39
     move-object/from16 v18, v2
 
     move/from16 v24, v6
@@ -4225,7 +4225,7 @@
 
     .line 658
     .local v12, "$i$a$-apply-ConfigBuilderKt$buildConfig$1$16$1":I
-    if-eqz v2, :cond_dbe
+    if-eqz v2, :cond_dd7
 
     iput-object v2, v11, Lmoe/matsuri/nb4a/SingBoxOptions$DNSServerOptions;->address:Ljava/lang/String;
 
@@ -4291,7 +4291,7 @@
 
     .line 668
     .local v2, "$i$a$-let-ConfigBuilderKt$buildConfig$1$17":I
-    if-nez p1, :cond_bcf
+    if-nez p1, :cond_be8
 
     iget-object v3, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->dns:Lmoe/matsuri/nb4a/SingBoxOptions$DNSOptions;
 
@@ -4308,7 +4308,7 @@
 
     .line 669
     .local v11, "$i$a$-apply-ConfigBuilderKt$buildConfig$1$17$1":I
-    if-eqz v0, :cond_bc5
+    if-eqz v0, :cond_bde
 
     iput-object v0, v9, Lmoe/matsuri/nb4a/SingBoxOptions$DNSServerOptions;->address:Ljava/lang/String;
 
@@ -4349,14 +4349,14 @@
     .end local v11    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$17$1":I
     invoke-interface {v3, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_bd1
+    goto :goto_bea
 
     .line 669
     .end local v18    # "it":Ljava/lang/String;
     .restart local v0    # "it":Ljava/lang/String;
     .restart local v9    # "$this$buildConfig_u24lambda_u2465_u24lambda_u2454_u24lambda_u2453":Lmoe/matsuri/nb4a/SingBoxOptions$DNSServerOptions;
     .restart local v11    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$17$1":I
-    :cond_bc5
+    :cond_bde
     move-object/from16 v18, v0
 
     .end local v0    # "it":Ljava/lang/String;
@@ -4374,13 +4374,13 @@
     .end local v11    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$17$1":I
     .end local v18    # "it":Ljava/lang/String;
     .restart local v0    # "it":Ljava/lang/String;
-    :cond_bcf
+    :cond_be8
     move-object/from16 v18, v0
 
     .line 674
     .end local v0    # "it":Ljava/lang/String;
     .restart local v18    # "it":Ljava/lang/String;
-    :goto_bd1
+    :goto_bea
     nop
 
     .end local v2    # "$i$a$-let-ConfigBuilderKt$buildConfig$1$17":I
@@ -4393,15 +4393,15 @@
     .line 676
     iget-object v0, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->dns:Lmoe/matsuri/nb4a/SingBoxOptions$DNSOptions;
 
-    if-eqz p1, :cond_bda
+    if-eqz p1, :cond_bf3
 
     move-object v8, v10
 
-    :cond_bda
+    :cond_bf3
     iput-object v8, v0, Lmoe/matsuri/nb4a/SingBoxOptions$DNSOptions;->final_:Ljava/lang/String;
 
     .line 679
-    if-eqz v45, :cond_c06
+    if-eqz v45, :cond_c1f
 
     .line 680
     move-object/from16 v0, v40
@@ -4417,12 +4417,12 @@
 
     move-result-object v3
 
-    :goto_be7
+    :goto_c00
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_c05
+    if-eqz v6, :cond_c1e
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4442,7 +4442,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_c02
+    if-nez v11, :cond_c1b
 
     iget-object v11, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->dns:Lmoe/matsuri/nb4a/SingBoxOptions$DNSOptions;
 
@@ -4451,7 +4451,7 @@
     invoke-interface {v11, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 682
-    :cond_c02
+    :cond_c1b
     nop
 
     .line 831
@@ -4460,17 +4460,17 @@
     nop
 
     .end local v6    # "element$iv":Ljava/lang/Object;
-    goto :goto_be7
+    goto :goto_c00
 
     .line 832
-    :cond_c05
+    :cond_c1e
     nop
 
     .line 685
     .end local v0    # "$this$forEach$iv":Ljava/lang/Iterable;
     .end local v2    # "$i$f$forEach":I
-    :cond_c06
-    if-eqz p1, :cond_c12
+    :cond_c1f
+    if-eqz p1, :cond_c2b
 
     .line 686
     iget-object v0, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->dns:Lmoe/matsuri/nb4a/SingBoxOptions$DNSOptions;
@@ -4481,10 +4481,10 @@
 
     iput-object v1, v0, Lmoe/matsuri/nb4a/SingBoxOptions$DNSOptions;->rules:Ljava/util/List;
 
-    goto/16 :goto_d4c
+    goto/16 :goto_d65
 
     .line 689
-    :cond_c12
+    :cond_c2b
     iget-object v0, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->route:Lmoe/matsuri/nb4a/SingBoxOptions$RouteOptions;
 
     iget-object v0, v0, Lmoe/matsuri/nb4a/SingBoxOptions$RouteOptions;->rules:Ljava/util/List;
@@ -4577,7 +4577,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c74
+    if-eqz v0, :cond_c8d
 
     .line 698
     iget-object v0, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->route:Lmoe/matsuri/nb4a/SingBoxOptions$RouteOptions;
@@ -4617,7 +4617,7 @@
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 704
-    :cond_c74
+    :cond_c8d
     iget-object v0, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->route:Lmoe/matsuri/nb4a/SingBoxOptions$RouteOptions;
 
     iget-object v0, v0, Lmoe/matsuri/nb4a/SingBoxOptions$RouteOptions;->rules:Ljava/util/List;
@@ -4678,7 +4678,7 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 710
-    if-eqz v46, :cond_cff
+    if-eqz v46, :cond_d18
 
     .line 711
     iget-object v0, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->dns:Lmoe/matsuri/nb4a/SingBoxOptions$DNSOptions;
@@ -4805,7 +4805,7 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 728
-    :cond_cff
+    :cond_d18
     iget-object v0, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->dns:Lmoe/matsuri/nb4a/SingBoxOptions$DNSOptions;
 
     iget-object v0, v0, Lmoe/matsuri/nb4a/SingBoxOptions$DNSOptions;->rules:Ljava/util/List;
@@ -4857,7 +4857,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d4c
+    if-nez v0, :cond_d65
 
     .line 734
     iget-object v0, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->dns:Lmoe/matsuri/nb4a/SingBoxOptions$DNSOptions;
@@ -4907,9 +4907,9 @@
     invoke-interface {v0, v2, v1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     .line 741
-    :cond_d4c
-    :goto_d4c
-    if-nez p1, :cond_d56
+    :cond_d65
+    :goto_d65
+    if-nez p1, :cond_d6f
 
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -4920,7 +4920,7 @@
     iput-object v0, v5, Lmoe/matsuri/nb4a/SingBoxOptions$MyOptions;->_hack_custom_config:Ljava/lang/String;
 
     .line 742
-    :cond_d56
+    :cond_d6f
     nop
 
     .line 158
@@ -4972,15 +4972,25 @@
 
     invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    move/from16 v6, p1
-
-    if-nez v6, :cond_d99
-
     move-object/from16 v6, p0
 
     invoke-static {v5, v6}, Lio/nekohasekai/sagernet/ui/SubscriptionDns;->apply(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v5
+
+    # 506: pin the entry-domain A record for tests and VPN configs so the core
+    # does not need a live TLS connection to the private DoH.
+    move/from16 v6, p2
+
+    xor-int/lit8 v6, v6, 0x1
+
+    invoke-static {v5, v6}, Lio/nekohasekai/sagernet/ui/NativeCoreConfig;->applyDnsPin(Ljava/lang/String;Z)Ljava/lang/String;
+
+    move-result-object v5
+
+    move/from16 v6, p1
+
+    if-nez v6, :cond_db2
 
     invoke-static {v5}, Lmoe/matsuri/nb4a/ui/RequestedUpdates;->routeDomain(Ljava/lang/String;)Ljava/lang/String;
 
@@ -4999,7 +5009,7 @@
     move-result-object v5
 
     .line 747
-    :cond_d99
+    :cond_db2
     move-object/from16 v25, v49
 
     check-cast v25, Ljava/util/List;
@@ -5020,7 +5030,7 @@
     check-cast v29, Ljava/util/Map;
 
     .line 751
-    if-eqz v39, :cond_db2
+    if-eqz v39, :cond_dcb
 
     invoke-virtual/range {v34 .. v34}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getId()J
 
@@ -5028,13 +5038,13 @@
 
     move-wide/from16 v30, v6
 
-    goto :goto_db4
+    goto :goto_dcd
 
-    :cond_db2
+    :cond_dcb
     move-wide/from16 v30, v21
 
     .line 745
-    :goto_db4
+    :goto_dcd
     move-object/from16 v23, v3
 
     move-object/from16 v24, v5
@@ -5062,7 +5072,7 @@
     .restart local v12    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$16$1":I
     .restart local v51    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1":I
     .restart local v52    # "ipv6Mode":I
-    :cond_dbe
+    :cond_dd7
     new-instance v0, Ljava/lang/Exception;
 
     const-string v1, "No direct DNS, check your settings!"
@@ -5071,25 +5081,27 @@
 
     throw v0
 
-    :pswitch_data_dc6
+    nop
+
+    :pswitch_data_de0
     .packed-switch 0x0
-        :pswitch_366
-        :pswitch_363
-        :pswitch_362
-        :pswitch_35f
-        :pswitch_35c
+        :pswitch_37f
+        :pswitch_37c
+        :pswitch_37b
+        :pswitch_378
+        :pswitch_375
     .end packed-switch
 
-    :pswitch_data_dd4
+    :pswitch_data_dee
     .packed-switch 0x0
-        :pswitch_3c2
-        :pswitch_3bf
+        :pswitch_3db
+        :pswitch_3d8
     .end packed-switch
 
-    :sswitch_data_ddc
+    :sswitch_data_df6
     .sparse-switch
-        0x0 -> :sswitch_410
-        0x3 -> :sswitch_407
+        0x0 -> :sswitch_429
+        0x3 -> :sswitch_420
     .end sparse-switch
 .end method
 

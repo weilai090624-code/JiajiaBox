@@ -153,6 +153,10 @@
 
 .field private updating:Z
 
+.field private testJob:Lkotlinx/coroutines/Job;
+
+.field public static testCancelled:Z
+
 
 # direct methods
 .method public static synthetic $r8$lambda$-5anZ6VFeRMMT-A2gtEwCQ29wgc(Landroid/app/Dialog;Lkotlin/jvm/functions/Function0;Landroid/view/View;)V
@@ -2422,14 +2426,47 @@
     .registers 6
 
     .line 801
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testJob:Lkotlinx/coroutines/Job;
+
+    if-eqz v0, :start
+
+    invoke-interface {v0}, Lkotlinx/coroutines/Job;->isActive()Z
+
+    move-result v1
+
+    if-eqz v1, :start
+
+    # 509: a second tap cancels the batch and unblocks the UI immediately
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testJob:Lkotlinx/coroutines/Job;
+
+    if-eqz v0, :no_job
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Lkotlinx/coroutines/Job;->cancel(Ljava/util/concurrent/CancellationException;)V
+
+    const/4 v1, 0x1
+
+    sput-boolean v1, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testCancelled:Z
+
+    :no_job
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
-    invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getRunningTest()Z
+    const/4 v1, 0x0
 
-    move-result v0
+    invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setRunningTest(Z)V
 
-    if-nez v0, :cond_3a
+    sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
+    invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getServiceState()Lio/nekohasekai/sagernet/bg/BaseService$State;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->renderConnection(Lio/nekohasekai/sagernet/bg/BaseService$State;)V
+
+    return-void
+
+    :start
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->updating:Z
 
     if-eqz v0, :cond_d
@@ -2760,6 +2797,23 @@
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/JJHomeFragment;
     .param p1, "it"    # Landroid/view/View;
 
+    # 511: while a speed test is running the button reads "stop test" and
+    # cancels instead of connecting/disconnecting.
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testJob:Lkotlinx/coroutines/Job;
+
+    if-eqz v0, :cond_tap
+
+    invoke-interface {v0}, Lkotlinx/coroutines/Job;->isActive()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_tap
+
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->runSpeedTest()V
+
+    return-void
+
+    :cond_tap
     .line 227
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->hasNodes()Z
 
@@ -4149,16 +4203,12 @@
 
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setRunningTest(Z)V
 
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testCancelled:Z
+
     .line 828
-    const v0, 0x7f130157
-
-    invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "getString(...)"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "\u505c\u6b62\u6d4b\u901f"
 
     invoke-direct {p0, v0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->showBusy(Ljava/lang/String;)V
 
@@ -4203,6 +4253,10 @@
     const/4 v3, 0x0
 
     invoke-static/range {v1 .. v6}, Lkotlinx/coroutines/BuildersKt;->launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testJob:Lkotlinx/coroutines/Job;
 
     .line 875
     return-void

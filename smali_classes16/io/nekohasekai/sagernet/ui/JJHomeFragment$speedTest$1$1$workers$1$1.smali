@@ -340,6 +340,10 @@
 
     if-eqz v5, :cond_da
 
+    sget-boolean v5, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testCancelled:Z
+
+    if-nez v5, :cond_da
+
     .line 837
     iget-object v5, v4, Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;->$queue:Ljava/util/concurrent/ConcurrentLinkedQueue;
 

@@ -1161,6 +1161,10 @@
 
     if-eqz v0, :cond_27
 
+    # 492: migrate staged subscription DNS from SharedPreferences to files so
+    # the :bg VPN process can read it regardless of its prefs cache.
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->migrate(Landroid/content/Context;)V
+
     .line 66
     sget-object v0, Lio/nekohasekai/sagernet/CpuPin;->INSTANCE:Lio/nekohasekai/sagernet/CpuPin;
 

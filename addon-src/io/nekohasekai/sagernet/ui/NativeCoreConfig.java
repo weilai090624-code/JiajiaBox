@@ -21,8 +21,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.*;
 import java.net.URI;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.util.*;
+import javax.net.ssl.HttpsURLConnection;
 
 /** Writes the current sing-box format into the already parsed generated config. */
 public final class NativeCoreConfig {
@@ -141,10 +143,582 @@ public final class NativeCoreConfig {
             if("direct".equals(type)&&out.length()==2)emptyDirect.add(out.optString("tag"));modernOut.put(out);
         }
         root.put("outbounds",modernOut);if(endpoints.length()>0)root.put("endpoints",endpoints);
+        injectDomainResolvers(route,dns,modernOut,endpoints);
         JSONArray rules=route.optJSONArray("rules");rewriteRoutes(rules,dnsTags);if(rules!=null)append(prefix,rules);route.put("rules",prefix);
         if(dns!=null){JSONArray servers=dns.optJSONArray("servers");for(int i=0;servers!=null&&i<servers.length();i++){JSONObject s=servers.getJSONObject(i);if(emptyDirect.contains(s.optString("detour")))s.remove("detour");}}
         ConnectionInspector.configure(root);
         try{externalizeRules(route);}catch(IOException|SecurityException error){android.util.Log.w("NativeCoreConfig","Using inline rules because caching is unavailable",error);}
+    }
+    /** True for IPv4/IPv6 literals, which never need a domain resolver. */
+    private static boolean isIpAddress(String host) {
+        if(host==null||host.isEmpty())return false;
+        if(host.indexOf(':')>=0)return true;
+        String[] parts=host.split("\\.");if(parts.length!=4)return false;
+        for(String part:parts){
+            try{int value=Integer.parseInt(part);if(value<0||value>255)return false;}
+            catch(NumberFormatException error){return false;}
+        }
+        return true;
+    }
+    private static String serverHost(JSONObject object,String key) {
+        if(object==null)return "";
+        String host=object.optString(key);
+        if(host.startsWith("[")){int end=host.indexOf(']');if(end>0)host=host.substring(1,end);}
+        return isIpAddress(host)?"":host;
+    }
+    private static boolean domainMatches(JSONObject rule,String host) {
+        if(rule==null||host.isEmpty())return false;
+        String lower=host.toLowerCase(Locale.ROOT);
+        JSONArray list=rule.optJSONArray("domain");
+        if(list!=null)for(int i=0;i<list.length();i++)if(lower.equals(list.optString(i).toLowerCase(Locale.ROOT)))return true;
+        list=rule.optJSONArray("domain_suffix");
+        if(list!=null)for(int i=0;i<list.length();i++){
+            String suffix=list.optString(i).toLowerCase(Locale.ROOT);
+            if(suffix.startsWith("."))suffix=suffix.substring(1);
+            if(!suffix.isEmpty()&&(lower.equals(suffix)||lower.endsWith("."+suffix)))return true;
+        }
+        list=rule.optJSONArray("domain_keyword");
+        if(list!=null)for(int i=0;i<list.length();i++)if(lower.contains(list.optString(i).toLowerCase(Locale.ROOT)))return true;
+        list=rule.optJSONArray("domain_regex");
+        if(list!=null)for(int i=0;i<list.length();i++){
+            try{if(host.matches(list.optString(i)))return true;}catch(RuntimeException ignored){}
+        }
+        if("logical".equals(rule.optString("type"))){
+            JSONArray nested=rule.optJSONArray("rules");if(nested==null||nested.length()==0)return false;
+            boolean and="and".equals(rule.optString("mode"));
+            for(int i=0;i<nested.length();i++){
+                boolean matched=domainMatches(nested.optJSONObject(i),host);
+                if(and){if(!matched)return false;}else if(matched)return true;
+            }
+            return and;
+        }
+        return false;
+    }
+    /**
+     * Resolve a rule's server tag against the merged server list. Subscription
+     * merges may prefix tags on one side only, so accept both spellings and
+     * return the tag that actually exists.
+     */
+    private static String lookupServerTag(Map<String,JSONObject> servers,String tag) {
+        if(tag.isEmpty())return "";
+        if(servers.containsKey(tag))return tag;
+        if(tag.startsWith("subscription-dns-")){
+            String bare=tag.substring("subscription-dns-".length());
+            if(servers.containsKey(bare))return bare;
+        }
+        String prefixed="subscription-dns-"+tag;
+        if(servers.containsKey(prefixed))return prefixed;
+        return "";
+    }
+    /**
+     * First rule that names a usable resolver for this host. Subscription rules
+     * win over the generator's pinned direct rule, which is inserted at index 0
+     * for proxy-server bootstrap and would otherwise shadow the private DoH.
+     */
+    private static String matchedServer(JSONArray rules,String host,Map<String,JSONObject> servers) {
+        String preferred=matchedServerPass(rules,host,servers,true);
+        return preferred.isEmpty()?matchedServerPass(rules,host,servers,false):preferred;
+    }
+    private static String matchedServerPass(JSONArray rules,String host,Map<String,JSONObject> servers,boolean subscriptionOnly) {
+        if(rules==null)return "";
+        for(int i=0;i<rules.length();i++){
+            JSONObject rule=rules.optJSONObject(i);if(rule==null||!domainMatches(rule,host))continue;
+            String tag=lookupServerTag(servers,rule.optString("server"));if(tag.isEmpty())continue;
+            if(subscriptionOnly&&!tag.startsWith("subscription-dns-"))continue;
+            JSONObject server=servers.get(tag);
+            String type=server==null?"":server.optString("type");
+            if("fakeip".equals(type)||"predefined".equals(type))continue;
+            return tag;
+        }
+        return "";
+    }
+    /**
+     * The generator prepends a "resolve proxy server domains directly" rule and
+     * an "any outbound" fallback before the subscription DNS rules. sing-box
+     * evaluates DNS rules in order, so move subscription-tagged rules in front
+     * of those pinned rules; otherwise entry domains never reach the private DoH.
+     */
+    private static void prioritizeSubscriptionRules(JSONObject dns,Map<String,JSONObject> servers)throws Exception {
+        JSONArray rules=dns.optJSONArray("rules");if(rules==null||rules.length()==0)return;
+        JSONArray first=new JSONArray(),rest=new JSONArray();
+        for(int i=0;i<rules.length();i++){
+            JSONObject rule=rules.optJSONObject(i);
+            if(rule==null)continue;
+            String tag=lookupServerTag(servers,rule.optString("server"));
+            if(!tag.isEmpty()&&tag.startsWith("subscription-dns-"))first.put(rule);else rest.put(rule);
+        }
+        if(first.length()==0)return;
+        append(first,rest);dns.put("rules",first);
+        record("v502 rules prioritized sub="+first.length()+" total="+rules.length());
+    }
+    /**
+     * Bootstrap resolver for core-internal dialing. Must not be the proxied
+     * dns-remote server, otherwise resolving a proxy endpoint recurses through
+     * the proxy it is about to open.
+     */
+    private static String defaultResolver(Map<String,JSONObject> servers) {
+        JSONObject direct=servers.get("dns-direct");
+        if(direct!=null&&!"fakeip".equals(direct.optString("type"))&&!"predefined".equals(direct.optString("type")))return "dns-direct";
+        for(JSONObject server:servers.values()){
+            String tag=server.optString("tag"),type=server.optString("type");
+            if("fakeip".equals(type)||"predefined".equals(type)||"dns-remote".equals(tag))continue;
+            String host=server.optString("server");
+            if(!host.isEmpty()&&isIpAddress(host))return tag;
+        }
+        return "";
+    }
+    private static String alternateResolver(Map<String,JSONObject> servers,String exclude) {
+        for(JSONObject server:servers.values()){
+            String tag=server.optString("tag");if(tag.equals(exclude))continue;
+            String type=server.optString("type");
+            if("fakeip".equals(type)||"predefined".equals(type))continue;
+            String host=server.optString("server");
+            if(!host.isEmpty()&&isIpAddress(host))return tag;
+        }
+        return "";
+    }
+    private static boolean hasSubscriptionServers(JSONObject dns) {
+        JSONArray servers=dns.optJSONArray("servers");if(servers==null)return false;
+        for(int i=0;i<servers.length();i++){
+            JSONObject server=servers.optJSONObject(i);
+            if(server!=null&&server.optString("tag").startsWith("subscription-dns-"))return true;
+        }
+        return false;
+    }
+    private static String readText(File file) {
+        try{
+            long length=file.length();if(length<=0||length>1024*1024)return null;
+            FileInputStream input=new FileInputStream(file);
+            try{
+                byte[] data=new byte[(int)length];int offset=0;
+                while(offset<data.length){
+                    int count=input.read(data,offset,data.length-offset);
+                    if(count<0)break;offset+=count;
+                }
+                return new String(data,0,offset,"UTF-8");
+            }finally{input.close();}
+        }catch(Throwable ignored){return null;}
+    }
+    private static String matchedRuleTag(JSONArray rules,String host) {
+        if(rules==null)return null;
+        for(int i=0;i<rules.length();i++){
+            JSONObject rule=rules.optJSONObject(i);
+            if(rule==null||!domainMatches(rule,host))continue;
+            String server=rule.optString("server");
+            if(!server.isEmpty())return server;
+        }
+        return null;
+    }
+    private static String xmlUnescape(String value) {
+        return value.replace("&lt;","<").replace("&gt;",">").replace("&quot;","\"")
+                .replace("&apos;","'").replace("&#39;","'").replace("&#10;","\n").replace("&amp;","&");
+    }
+    /** Number of outbound server domains covered by this staged DNS record. */
+    private static int stagedScore(JSONObject staged,JSONArray outbounds) {
+        JSONArray rules=staged.optJSONArray("rules");if(rules==null)return -1;
+        int score=0;
+        if(outbounds!=null)for(int i=0;i<outbounds.length();i++){
+            JSONObject out=outbounds.optJSONObject(i);if(out==null)continue;
+            String host=serverHost(out,"server");
+            if(!host.isEmpty()&&matchedRuleTag(rules,host)!=null)score++;
+        }
+        return score;
+    }
+    private static JSONObject stagedDns(String text) {
+        try{
+            JSONObject staged=new JSONObject(text);
+            JSONObject nested=staged.optJSONObject("dns");
+            return nested!=null?nested:staged;
+        }catch(Exception ignored){return null;}
+    }
+    /**
+     * The VPN core runs in a separate process and may fail to read the staged
+     * subscription DNS by group id. Recover it by content: pick the staged
+     * record whose rules cover this config's outbound server domains. This
+     * cannot mix subscriptions, unlike a "latest" fallback.
+     */
+    private static JSONObject loadStagedDns(JSONArray outbounds) {
+        try{
+            android.content.Context app=(android.content.Context)Class.forName("io.nekohasekai.sagernet.ktx.UtilsKt").getMethod("getApp").invoke(null);
+            File dir=new File(app.getFilesDir(),"subscription_dns");
+            File[] files=dir.listFiles();
+            record("v501 scan dir="+dir.getAbsolutePath()+" exists="+dir.exists()+" files="+(files==null?-1:files.length));
+            JSONObject best=null;int bestScore=0;String bestName="";
+            if(files!=null)for(File file:files){
+                if(file==null||!file.isFile())continue;
+                String text=readText(file);
+                if(text==null){record("v501 file "+file.getName()+" unreadable");continue;}
+                JSONObject staged=stagedDns(text);
+                if(staged==null){record("v501 file "+file.getName()+" bad json");continue;}
+                JSONArray rules=staged.optJSONArray("rules");
+                int score=stagedScore(staged,outbounds);
+                record("v501 file "+file.getName()+" bytes="+text.length()+" rules="+(rules==null?0:rules.length())+" matched="+score);
+                if(score>bestScore){best=staged;bestScore=score;bestName="file:"+file.getName();}
+            }
+            // SharedPreferences are written by the UI process; read the XML directly
+            // so a stale per-process cache in :bg cannot hide the staged DNS.
+            File xml=new File(app.getFilesDir().getParentFile(),"shared_prefs/subscription_dns.xml");
+            if(xml.isFile()){
+                String text=readText(xml);
+                if(text==null){record("v501 prefs unreadable "+xml.getAbsolutePath());}
+                else{
+                    java.util.regex.Matcher matches=java.util.regex.Pattern
+                            .compile("<string name=\"([^\"]+)\">(.*?)</string>",java.util.regex.Pattern.DOTALL)
+                            .matcher(text);
+                    int entries=0;
+                    while(matches.find()){
+                        String name=matches.group(1);
+                        JSONObject staged=stagedDns(xmlUnescape(matches.group(2)));
+                        if(staged==null)continue;
+                        JSONArray rules=staged.optJSONArray("rules");
+                        if(rules==null||rules.length()==0)continue;
+                        entries++;
+                        int score=stagedScore(staged,outbounds);
+                        record("v501 prefs "+name+" rules="+rules.length()+" matched="+score);
+                        if(score>bestScore){best=staged;bestScore=score;bestName="prefs:"+name;}
+                    }
+                    record("v501 prefs entries="+entries);
+                }
+            }else{
+                record("v501 prefs missing "+xml.getAbsolutePath());
+            }
+            if(best!=null)record("v500 staged source="+bestName+" matched="+bestScore);
+            else record("v501 staged none");
+            return best;
+        }catch(Throwable error){
+            record("v501 scan error "+error);
+            return null;
+        }
+    }
+    static void mergeStagedDns(JSONObject dns,JSONObject staged)throws Exception {
+        if(dns==null||staged==null)return;
+        JSONArray servers=staged.optJSONArray("servers");if(servers==null||servers.length()==0)return;
+        JSONArray target=dns.optJSONArray("servers");if(target==null){target=new JSONArray();dns.put("servers",target);}
+        java.util.Set<String> bare=new java.util.HashSet<>();
+        JSONArray added=new JSONArray();
+        for(int i=0;i<servers.length();i++){
+            JSONObject server=servers.optJSONObject(i);if(server==null)continue;
+            String tag=server.optString("tag");if(tag.isEmpty())continue;
+            JSONObject copy=new JSONObject(server.toString());
+            String prefixed=tag.startsWith("subscription-dns-")?tag:"subscription-dns-"+tag;
+            copy.put("tag",prefixed);bare.add(tag);added.put(copy);target.put(copy);
+        }
+        for(int i=0;i<added.length();i++){
+            JSONObject copy=added.optJSONObject(i);
+            String resolver=copy.optString("address_resolver");
+            if(!resolver.isEmpty()&&bare.contains(resolver))copy.put("address_resolver","subscription-dns-"+resolver);
+        }
+        JSONArray rules=staged.optJSONArray("rules");
+        if(rules!=null&&rules.length()>0){
+            JSONArray targetRules=dns.optJSONArray("rules");if(targetRules==null){targetRules=new JSONArray();dns.put("rules",targetRules);}
+            for(int i=0;i<rules.length();i++){
+                JSONObject rule=rules.optJSONObject(i);if(rule==null)continue;
+                JSONObject copy=new JSONObject(rule.toString());
+                String server=copy.optString("server");
+                if(bare.contains(server))copy.put("server","subscription-dns-"+server);
+                targetRules.put(copy);
+            }
+        }
+    }
+    private static final Object dohLock = new Object();
+    private static final Map<String,List<String>> dohCache = new HashMap<>();
+    private static final Map<String,Long> dohExpiry = new HashMap<>();
+    private static final String HOSTS_TAG = "subscription-dns-hosts";
+    private static final String HOSTS_PREFS = "subscription_hosts";
+    private static final long HOSTS_TTL_MS = 10*60*1000L;
+    /**
+     * Pin the node's entry domain to a locally cached A record.
+     * Test configs spawn a new core per node, so each test otherwise pays a new
+     * DoH TLS handshake. VPN builds run in :bg and cannot rely on the live DoH
+     * either; reuse the cache written by tests instead. The hosts tag keeps the
+     * subscription-dns- prefix so rule prioritisation and matchedServer() pick
+     * it ahead of the private DoH.
+     */
+    public static String applyDnsPin(String config,boolean enabled) {
+        if(!enabled||config==null||config.isEmpty())return config;
+        try{
+            JSONObject root=new JSONObject(config);
+            JSONObject dns=root.optJSONObject("dns");
+            JSONArray outbounds=root.optJSONArray("outbounds");
+            if(dns==null||outbounds==null)return config;
+            JSONObject target=null;String host="";
+            for(int i=0;i<outbounds.length();i++){
+                JSONObject out=outbounds.optJSONObject(i);if(out==null)continue;
+                String type=out.optString("type");
+                if("direct".equals(type)||"block".equals(type)||"dns".equals(type)||"selector".equals(type)||"urltest".equals(type))continue;
+                String candidate=serverHost(out,"server");
+                if(!candidate.isEmpty()){target=out;host=candidate;break;}
+            }
+            if(target==null)return config;
+            android.content.Context app=(android.content.Context)Class.forName("io.nekohasekai.sagernet.ktx.UtilsKt").getMethod("getApp").invoke(null);
+            String[] ips=cachedIps(app,host);
+            if(ips.length==0){
+                JSONObject staged=loadStagedDns(outbounds);
+                if(staged!=null){
+                    String ruleTag=matchedRuleTag(staged.optJSONArray("rules"),host);
+                    String doh=ruleTag==null?null:dohAddress(staged.optJSONArray("servers"),ruleTag);
+                    if(doh!=null){
+                        ips=resolveCached(host,doh);
+                        if(ips.length>0)persistIps(app,host,ips);
+                    }
+                }
+            }
+            if(ips.length==0)return config;
+            injectHosts(dns,target,host,ips);
+            record("v506 pin "+host+" ip="+ips[0]+" n="+ips.length);
+            return root.toString();
+        }catch(Throwable error){
+            record("v506 pin error "+error);
+            return config;
+        }
+    }
+    private static String[] cachedIps(android.content.Context app,String host) {
+        synchronized(dohLock){
+            Long expiry=dohExpiry.get(host);
+            if(expiry!=null&&expiry.longValue()>System.currentTimeMillis()){
+                List<String> cached=dohCache.get(host);
+                if(cached!=null&&!cached.isEmpty())return cached.toArray(new String[0]);
+            }
+        }
+        String stored=readPrefsValue(app,HOSTS_PREFS,host);
+        if(stored==null)return new String[0];
+        int split=stored.lastIndexOf(';');
+        if(split<=0)return new String[0];
+        try{
+            long expiry=Long.parseLong(stored.substring(split+1));
+            if(expiry<=System.currentTimeMillis())return new String[0];
+            String address=stored.substring(0,split);
+            if(address.isEmpty())return new String[0];
+            synchronized(dohLock){
+                dohCache.put(host,new ArrayList<>(Collections.singletonList(address)));
+                dohExpiry.put(host,Long.valueOf(expiry));
+            }
+            return new String[]{address};
+        }catch(NumberFormatException ignored){
+            return new String[0];
+        }
+    }
+    private static void persistIps(android.content.Context app,String host,String[] ips) {
+        try{
+            long expiry=System.currentTimeMillis()+HOSTS_TTL_MS;
+            Object prefs=app.getClass().getMethod("getSharedPreferences",String.class,int.class).invoke(app,HOSTS_PREFS,Integer.valueOf(0));
+            Object editor=prefs.getClass().getMethod("edit").invoke(prefs);
+            editor.getClass().getMethod("putString",String.class,String.class).invoke(editor,host,ips[0]+";"+expiry);
+            editor.getClass().getMethod("commit").invoke(editor);
+            synchronized(dohLock){
+                dohCache.put(host,new ArrayList<>(Arrays.asList(ips)));
+                dohExpiry.put(host,Long.valueOf(expiry));
+            }
+        }catch(Throwable ignored){}
+    }
+    private static String readPrefsValue(android.content.Context app,String name,String key) {
+        try{
+            File xml=new File(app.getFilesDir().getParentFile(),"shared_prefs/"+name+".xml");
+            String text=readText(xml);if(text==null)return null;
+            java.util.regex.Matcher matcher=java.util.regex.Pattern
+                    .compile("<string name=\""+java.util.regex.Pattern.quote(key)+"\">(.*?)</string>",java.util.regex.Pattern.DOTALL)
+                    .matcher(text);
+            if(matcher.find())return xmlUnescape(matcher.group(1));
+        }catch(Throwable ignored){}
+        return null;
+    }
+    private static void injectHosts(JSONObject dns,JSONObject target,String host,String[] ips)throws Exception {
+        JSONArray servers=dns.optJSONArray("servers");
+        if(servers==null){servers=new JSONArray();dns.put("servers",servers);}
+        JSONArray addresses=new JSONArray();for(String ip:ips)addresses.put(ip);
+        JSONObject predefined=new JSONObject();predefined.put(host,addresses);
+        servers.put(new JSONObject().put("type","hosts").put("tag",HOSTS_TAG).put("predefined",predefined));
+        JSONArray rules=dns.optJSONArray("rules"),ordered=new JSONArray();
+        ordered.put(new JSONObject().put("domain",new JSONArray().put(host)).put("server",HOSTS_TAG));
+        if(rules!=null)for(int i=0;i<rules.length();i++){JSONObject rule=rules.optJSONObject(i);if(rule!=null)ordered.put(rule);}
+        dns.put("rules",ordered);
+        target.put("domain_resolver",new JSONObject().put("server",HOSTS_TAG));
+    }
+    private static String dohAddress(JSONArray servers,String ruleTag) {
+        if(servers==null||ruleTag==null)return null;
+        String prefix="subscription-dns-";
+        String bare=ruleTag.startsWith(prefix)?ruleTag.substring(prefix.length()):ruleTag;
+        for(int i=0;i<servers.length();i++){
+            JSONObject server=servers.optJSONObject(i);if(server==null)continue;
+            String tag=server.optString("tag");
+            String tagBare=tag.startsWith(prefix)?tag.substring(prefix.length()):tag;
+            if(ruleTag.equals(tag)||bare.equals(tagBare)){
+                String address=server.optString("address");
+                if(address.startsWith("https://")||address.startsWith("http://"))return address;
+            }
+        }
+        return null;
+    }
+    private static String[] resolveCached(String host,String doh) {
+        synchronized(dohLock){
+            Long expiry=dohExpiry.get(host);
+            if(expiry!=null&&expiry.longValue()>System.currentTimeMillis()){
+                List<String> cached=dohCache.get(host);
+                if(cached!=null&&!cached.isEmpty())return cached.toArray(new String[0]);
+            }
+            for(int attempt=0;attempt<2;attempt++){
+                List<String> ips=resolveViaDoh(host,doh);
+                if(!ips.isEmpty()){
+                    dohCache.put(host,ips);
+                    dohExpiry.put(host,Long.valueOf(System.currentTimeMillis()+25000L));
+                    return ips.toArray(new String[0]);
+                }
+            }
+            record("v505 doh failed "+host+" via "+doh);
+            return new String[0];
+        }
+    }
+    private static List<String> resolveViaDoh(String host,String doh) {
+        HttpsURLConnection connection=null;
+        try{
+            byte[] query=dnsQuery(host);
+            connection=(HttpsURLConnection)new URL(doh).openConnection();
+            connection.setConnectTimeout(4000);
+            connection.setReadTimeout(5000);
+            connection.setRequestMethod("POST");
+            connection.setDoOutput(true);
+            connection.setRequestProperty("Content-Type","application/dns-message");
+            connection.setRequestProperty("Accept","application/dns-message");
+            connection.setRequestProperty("User-Agent","sing-box/1.14.3");
+            OutputStream output=connection.getOutputStream();
+            try{output.write(query);}finally{output.close();}
+            if(connection.getResponseCode()!=200)return new ArrayList<>();
+            InputStream input=connection.getInputStream();
+            ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+            try{
+                byte[] chunk=new byte[512];int count;
+                while((count=input.read(chunk))!=-1)buffer.write(chunk,0,count);
+            }finally{input.close();}
+            return parseA(buffer.toByteArray());
+        }catch(Throwable ignored){
+            return new ArrayList<>();
+        }finally{
+            if(connection!=null)connection.disconnect();
+        }
+    }
+    private static byte[] dnsQuery(String host)throws Exception {
+        ByteArrayOutputStream out=new ByteArrayOutputStream();
+        int id=(int)(System.nanoTime()&0xffff);
+        out.write((id>>8)&255);out.write(id&255);
+        out.write(1);out.write(0);
+        out.write(0);out.write(1);
+        for(int i=0;i<6;i++)out.write(0);
+        for(String label:host.split("\\.")){
+            byte[] bytes=label.getBytes("UTF-8");
+            if(bytes.length==0||bytes.length>63)throw new IllegalArgumentException("bad label");
+            out.write(bytes.length);out.write(bytes);
+        }
+        out.write(0);
+        out.write(0);out.write(1);
+        out.write(0);out.write(1);
+        return out.toByteArray();
+    }
+    static List<String> parseA(byte[] data) {
+        List<String> result=new ArrayList<>();
+        try{
+            if(data==null||data.length<12)return result;
+            int questions=((data[4]&255)<<8)|(data[5]&255);
+            int answers=((data[6]&255)<<8)|(data[7]&255);
+            int[] pos={12};
+            for(int i=0;i<questions;i++){skipDnsName(data,pos);pos[0]+=4;}
+            for(int i=0;i<answers;i++){
+                skipDnsName(data,pos);
+                if(pos[0]+10>data.length)break;
+                int type=((data[pos[0]]&255)<<8)|(data[pos[0]+1]&255);
+                int length=((data[pos[0]+8]&255)<<8)|(data[pos[0]+9]&255);
+                pos[0]+=10;
+                if(type==1&&length==4&&pos[0]+4<=data.length){
+                    result.add((data[pos[0]]&255)+"."+(data[pos[0]+1]&255)+"."+(data[pos[0]+2]&255)+"."+(data[pos[0]+3]&255));
+                }
+                pos[0]+=length;
+            }
+        }catch(Throwable ignored){}
+        return result;
+    }
+    private static void skipDnsName(byte[] data,int[] pos) {
+        while(pos[0]<data.length){
+            int length=data[pos[0]]&255;
+            if(length==0){pos[0]++;return;}
+            if((length&0xC0)==0xC0){pos[0]+=2;return;}
+            pos[0]+=1+length;
+        }
+    }
+    /**
+     * sing-box 1.12+ resolves outbound server domains with domain_resolver, not
+     * with DNS rules. Keep dns.final for application queries and give each
+     * dial field its own resolver: entry domains use the subscription's private
+     * DoH, everything else uses the direct bootstrap DNS.
+     */
+    private static void injectDomainResolvers(JSONObject route,JSONObject dns,JSONArray outbounds,JSONArray endpoints)throws Exception {
+        if(dns==null){record("v501 dns=null");return;}
+        JSONArray initial=dns.optJSONArray("servers");
+        record("v501 dns servers="+(initial==null?0:initial.length())+" hasSub="+hasSubscriptionServers(dns));
+        if(!hasSubscriptionServers(dns)){
+            JSONObject staged=loadStagedDns(outbounds);
+            if(staged!=null){
+                mergeStagedDns(dns,staged);
+                JSONArray merged=dns.optJSONArray("servers");
+                record("v501 merged servers="+(merged==null?0:merged.length())+" hasSub="+hasSubscriptionServers(dns));
+            }
+        }
+        JSONArray serverList=dns.optJSONArray("servers");if(serverList==null)return;
+        Map<String,JSONObject> servers=new LinkedHashMap<>();
+        for(int i=0;i<serverList.length();i++){
+            JSONObject server=serverList.optJSONObject(i);
+            if(server!=null&&!server.optString("tag").isEmpty())servers.put(server.optString("tag"),server);
+        }
+        if(servers.isEmpty())return;
+        prioritizeSubscriptionRules(dns,servers);
+        String defaultTag=defaultResolver(servers);
+        if(!defaultTag.isEmpty()&&!route.has("default_domain_resolver"))route.put("default_domain_resolver",new JSONObject().put("server",defaultTag));
+        JSONArray rules=dns.optJSONArray("rules");
+        StringBuilder sample=new StringBuilder();
+        if(outbounds!=null)for(int i=0;i<outbounds.length();i++){
+            JSONObject out=outbounds.optJSONObject(i);
+            if(out==null||out.has("domain_resolver"))continue;
+            String type=out.optString("type");
+            if("direct".equals(type)||"block".equals(type)||"dns".equals(type)||"selector".equals(type)||"urltest".equals(type))continue;
+            String host=serverHost(out,"server");if(host.isEmpty())continue;
+            String matched=matchedServer(rules,host,servers);
+            String tag=matched;if(tag.isEmpty())tag=defaultTag;
+            JSONObject existing=out.optJSONObject("domain_resolver");
+            if(!tag.isEmpty()&&(existing==null||(!matched.isEmpty()&&!matched.equals(existing.optString("server")))))
+                out.put("domain_resolver",new JSONObject().put("server",tag));
+            if(sample.length()<360&&(host.startsWith("entry-")||!matched.isEmpty()))
+                sample.append(host).append("->").append(tag).append(matched.isEmpty()?"(default) ": " ");
+        }
+        if(endpoints!=null)for(int i=0;i<endpoints.length();i++){
+            JSONObject endpoint=endpoints.optJSONObject(i);
+            if(endpoint==null||endpoint.has("domain_resolver"))continue;
+            String host="";JSONArray peers=endpoint.optJSONArray("peers");
+            if(peers!=null)for(int j=0;j<peers.length();j++){
+                host=serverHost(peers.optJSONObject(j),"address");if(!host.isEmpty())break;
+            }
+            if(host.isEmpty())continue;
+            String tag=matchedServer(rules,host,servers);if(tag.isEmpty())tag=defaultTag;
+            if(!tag.isEmpty())endpoint.put("domain_resolver",new JSONObject().put("server",tag));
+        }
+        for(JSONObject server:servers.values()){
+            if(server.has("domain_resolver"))continue;
+            String type=server.optString("type");
+            if(!("https".equals(type)||"tls".equals(type)||"quic".equals(type)||"h3".equals(type)||"tcp".equals(type)||"udp".equals(type)))continue;
+            String host=serverHost(server,"server");if(host.isEmpty())continue;
+            String tag=defaultTag;
+            if(tag.isEmpty()||tag.equals(server.optString("tag")))tag=alternateResolver(servers,server.optString("tag"));
+            if(!tag.isEmpty())server.put("domain_resolver",new JSONObject().put("server",tag));
+        }
+        record("v501 default="+defaultTag+" rules="+(rules==null?0:rules.length())+" servers="+servers.size()+" "+sample);
+    }
+    /** Best-effort line for the in-app diagnostic file (android.util.Log is not captured there). */
+    private static void record(String message) {
+        try{
+            android.content.Context app=(android.content.Context)Class.forName("io.nekohasekai.sagernet.ktx.UtilsKt").getMethod("getApp").invoke(null);
+            File cache=app.getCacheDir();
+            if(!new File(cache,"diagnostic-recording").exists())return;
+            FileOutputStream stream=new FileOutputStream(new File(cache,"diagnostic.log"),true);
+            try{stream.write((System.currentTimeMillis()+" [DomainResolver] "+message+"\n").getBytes("UTF-8"));}
+            finally{stream.close();}
+        }catch(Throwable ignored){}
     }
     private static File ruleDirectory() {
         if(ruleCacheDirectory!=null)return ruleCacheDirectory;

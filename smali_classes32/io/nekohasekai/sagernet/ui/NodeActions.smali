@@ -265,7 +265,6 @@
 .method private static export(Landroid/content/Context;Ljava/lang/Object;)V
     .registers 8
 
-    .line 90
     const/4 v0, 0x1
 
     :try_start_1
@@ -293,8 +292,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 91
-    if-eqz v1, :cond_50
+    if-eqz v1, :cond_40
 
     invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
@@ -304,54 +302,37 @@
 
     move-result v2
 
-    if-nez v2, :cond_50
+    if-nez v2, :cond_40
 
-    .line 92
-    new-instance v2, Landroid/content/Intent;
+    const-string v2, "clipboard"
 
-    const-string v3, "android.intent.action.SEND"
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-result-object v2
 
-    const-string v3, "text/plain"
+    check-cast v2, Landroid/content/ClipboardManager;
 
-    invoke-virtual {v2, v3}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
+    const-string v3, "node"
 
-    const-string v3, "android.intent.extra.TEXT"
+    invoke-static {v3, v1}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
 
-    invoke-virtual {v2, v3, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    move-result-object v3
 
-    .line 93
-    const-string v1, "android.intent.extra.SUBJECT"
+    invoke-virtual {v2, v3}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
 
-    const-string v3, "displayName"
+    const-string v1, "\u5df2\u590d\u5236\u8282\u70b9\u94fe\u63a5"
 
-    new-array v5, v4, [Ljava/lang/Class;
+    const/4 v2, 0x0
 
-    new-array v4, v4, [Ljava/lang/Object;
+    invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    invoke-static {p1, v3, v5, v4}, Lio/nekohasekai/sagernet/ui/NodeActions;->call(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object p1
+    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    check-cast p1, Ljava/lang/String;
+    goto :goto_4e
 
-    invoke-virtual {v2, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 94
-    const-string p1, "\u5bfc\u51fa\u8282\u70b9"
-
-    invoke-static {v2, p1}, Landroid/content/Intent;->createChooser(Landroid/content/Intent;Ljava/lang/CharSequence;)Landroid/content/Intent;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    .line 95
-    goto :goto_69
-
-    .line 91
-    :cond_50
+    :cond_40
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string v1, "\u8282\u70b9\u4e0d\u652f\u6301\u94fe\u63a5\u5bfc\u51fa"
@@ -359,29 +340,27 @@
     invoke-direct {p1, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p1
-    :try_end_58
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_58} :catch_58
+    :try_end_44
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_44} :catch_44
 
-    .line 95
-    :catch_58
+    :catch_44
     move-exception p1
 
-    const-string v1, "\u65e0\u6cd5\u5bfc\u51fa\u6b64\u8282\u70b9"
+    const-string v1, "\u65e0\u6cd5\u590d\u5236\u6b64\u8282\u70b9"
 
     invoke-static {p0, v1, v0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object p0
+    move-result-object v2
 
-    invoke-virtual {p0}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
     const-string p0, "NodeActions"
 
-    const-string v0, "Export failed"
+    const-string v0, "Copy failed"
 
     invoke-static {p0, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 96
-    :goto_69
+    :goto_4e
     return-void
 .end method
 
@@ -527,40 +506,9 @@
 .method static synthetic lambda$show$4(Landroid/app/Dialog;Landroid/content/Context;Ljava/lang/String;Ljava/lang/Object;)V
     .registers 5
 
-    .line 48
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
-    new-instance p0, Ljava/lang/StringBuilder;
-
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "\u5bfc\u51fa\u201c"
-
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p0
-
-    const-string p2, "\u201d\u7684\u8282\u70b9\u94fe\u63a5\u5e76\u9009\u62e9\u5206\u4eab\u65b9\u5f0f\uff1f"
-
-    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    new-instance p2, Lio/nekohasekai/sagernet/ui/NodeActions$3;
-
-    invoke-direct {p2, p1, p3}, Lio/nekohasekai/sagernet/ui/NodeActions$3;-><init>(Landroid/content/Context;Ljava/lang/Object;)V
-
-    const-string p3, "\u5bfc\u51fa"
-
-    invoke-static {p1, p3, p0, p2}, Lio/nekohasekai/sagernet/ui/NodeActions;->confirm(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Runnable;)V
+    invoke-static {p1, p3}, Lio/nekohasekai/sagernet/ui/NodeActions;->export(Landroid/content/Context;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -961,7 +909,7 @@
     invoke-static {v0, v1, v2}, Lio/nekohasekai/sagernet/ui/NodeActions;->row(Landroid/widget/LinearLayout;Ljava/lang/String;Ljava/lang/Runnable;)V
 
     .line 48
-    const-string p0, "\u5bfc\u51fa"
+    const-string p0, "\u590d\u5236\u8282\u70b9\u94fe\u63a5"
 
     new-instance p1, Lio/nekohasekai/sagernet/ui/NodeActions$6;
 

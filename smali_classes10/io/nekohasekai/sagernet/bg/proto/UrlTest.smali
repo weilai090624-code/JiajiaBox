@@ -58,7 +58,7 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/bg/proto/UrlTest;->link:Ljava/lang/String;
 
     .line 9
-    const/16 v0, 0x1388
+    const/16 v0, 0x3a98
 
     iput v0, p0, Lio/nekohasekai/sagernet/bg/proto/UrlTest;->timeout:I
 
