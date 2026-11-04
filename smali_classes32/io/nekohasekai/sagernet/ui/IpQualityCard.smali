@@ -66,13 +66,7 @@
     .registers 1
 
     .line 40
-    new-instance v0, Lio/nekohasekai/sagernet/ui/IpQualityCard$6;
-
-    invoke-direct {v0}, Lio/nekohasekai/sagernet/ui/IpQualityCard$6;-><init>()V
-
-    invoke-static {v0}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor(Ljava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ExecutorService;
-
-    move-result-object v0
+    sget-object v0, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->SHARED_EXECUTOR:Ljava/util/concurrent/ExecutorService;
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/IpQualityCard;->WORKER:Ljava/util/concurrent/ExecutorService;
 

@@ -44,7 +44,25 @@
 .end annotation
 
 
+# static fields
+.field public static final SHARED_EXECUTOR:Ljava/util/concurrent/ExecutorService;
+
+
 # direct methods
+.method static constructor <clinit>()V
+    .registers 1
+
+    const/4 v0, 0x4
+
+    invoke-static {v0}, Ljava/util/concurrent/Executors;->newFixedThreadPool(I)Ljava/util/concurrent/ExecutorService;
+
+    move-result-object v0
+
+    sput-object v0, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->SHARED_EXECUTOR:Ljava/util/concurrent/ExecutorService;
+
+    return-void
+.end method
+
 .method public static final block(Lkotlin/jvm/functions/Function2;)Lkotlin/jvm/functions/Function2;
     .registers 2
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;

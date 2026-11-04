@@ -24,9 +24,7 @@
     .registers 1
 
     .line 46
-    invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
-
-    move-result-object v0
+    sget-object v0, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->SHARED_EXECUTOR:Ljava/util/concurrent/ExecutorService;
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->WORKER:Ljava/util/concurrent/ExecutorService;
 

@@ -14,7 +14,7 @@
 # static fields
 .field private static final LOCK:Ljava/lang/Object;
 
-.field private static final TTL_MS:J = 0x4b0L
+.field private static final TTL_MS:J = 0x7d0L
 
 .field private static final WAIT_MS:J = 0xbb8L
 
@@ -100,7 +100,7 @@
 
     sub-long/2addr v0, v4
 
-    const-wide/16 v4, 0x4b0
+    const-wide/16 v4, 0x7d0
 
     cmp-long v6, v0, v4
 

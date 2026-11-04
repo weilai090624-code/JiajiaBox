@@ -15,19 +15,17 @@
 # static fields
 .field static final WORKER:Ljava/util/concurrent/ExecutorService;
 
+.field private static volatile globeCached:Lorg/json/JSONObject;
+
+.field private static volatile globeCachedAt:J
+
 
 # direct methods
 .method static constructor <clinit>()V
     .registers 1
 
     .line 32
-    new-instance v0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$0;
-
-    invoke-direct {v0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$0;-><init>()V
-
-    invoke-static {v0}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor(Ljava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ExecutorService;
-
-    move-result-object v0
+    sget-object v0, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->SHARED_EXECUTOR:Ljava/util/concurrent/ExecutorService;
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->WORKER:Ljava/util/concurrent/ExecutorService;
 
@@ -1733,7 +1731,7 @@
 .end method
 
 .method static request(Landroid/content/Context;Ljava/lang/String;)Lorg/json/JSONObject;
-    .registers 2
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -1741,6 +1739,54 @@
     .end annotation
 
     .line 80
+    const-string v0, "/globe-egress"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_plain
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v0
+
+    sget-object v2, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->globeCached:Lorg/json/JSONObject;
+
+    if-eqz v2, :cond_fetch
+
+    sget-wide v3, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->globeCachedAt:J
+
+    sub-long/2addr v0, v3
+
+    const-wide/16 v3, 0xfa0
+
+    cmp-long v5, v0, v3
+
+    if-gez v5, :cond_fetch
+
+    return-object v2
+
+    :cond_fetch
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->endpoint(Landroid/content/Context;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    invoke-static {v0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->request(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    sput-object v0, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->globeCached:Lorg/json/JSONObject;
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v2
+
+    sput-wide v2, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->globeCachedAt:J
+
+    return-object v0
+
+    :cond_plain
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->endpoint(Landroid/content/Context;)Lorg/json/JSONObject;
 
     move-result-object p0

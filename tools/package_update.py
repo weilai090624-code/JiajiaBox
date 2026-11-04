@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-3.0
-# Copyright (C) 2026 JiajiaBox Authors
 """Build a JiajiaBox update APK by differential packaging.
 
 The project is an apktool-decoded tree whose full resource rebuild currently
@@ -266,8 +264,14 @@ def main() -> int:
     base_certs = cert_sha256(apksigner, base)
     if run(apksigner + ["sign", "--ks", str(args.keystore), "--ks-key-alias", args.ks_alias,
                         "--ks-pass", f"pass:{args.ks_pass}", "--key-pass", f"pass:{args.key_pass}",
+                        "--v4-signing-enabled", "false",
                         "--out", str(output), str(aligned)]).returncode:
         raise SystemExit("apksigner sign failed")
+    # apksigner otherwise writes <apk>.idsig next to the APK. Some OEM
+    # installers treat that sidecar as an extra signature and reject the APK.
+    idsig = Path(str(output) + ".idsig")
+    if idsig.exists():
+        idsig.unlink()
     if run(zipalign + ["-c", "4", str(output)]).returncode:
         raise SystemExit("zipalign check failed")
     new_certs = cert_sha256(apksigner, output)
