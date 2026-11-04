@@ -337,6 +337,8 @@
 
     .line 42
     :cond_1b
+    const-string v0, "JiajiaBox/Android/0.0.5"
+
     new-instance v3, Lio/nekohasekai/sagernet/ui/SubscriptionDownload$Protocols;
 
     invoke-static/range {p1 .. p1}, Lio/nekohasekai/sagernet/ui/SubscriptionDownload;->socketFactory(Z)Ljavax/net/ssl/SSLSocketFactory;

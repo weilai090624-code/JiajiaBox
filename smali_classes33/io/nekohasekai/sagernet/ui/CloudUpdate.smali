@@ -244,9 +244,7 @@
 
     invoke-direct {v0, v1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
-    invoke-static {}, Lio/nekohasekai/sagernet/ui/CloudUpdate;->route()Ljava/net/Proxy;
-
-    move-result-object v1
+    sget-object v1, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
     invoke-virtual {v0, v1}, Ljava/net/URL;->openConnection(Ljava/net/Proxy;)Ljava/net/URLConnection;
 
@@ -863,6 +861,19 @@
 
     sget-object v3, Lio/nekohasekai/sagernet/ui/CloudUpdate;->pending:Lio/nekohasekai/sagernet/ui/CloudUpdate$Release;
 
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/CloudUpdateSkip;->get(Landroid/content/Context;)J
+
+    move-result-wide v4
+
+    iget-wide v6, v3, Lio/nekohasekai/sagernet/ui/CloudUpdate$Release;->code:J
+
+    cmp-long v8, v4, v6
+
+    if-nez v8, :cond_skip_ok
+
+    return-void
+
+    :cond_skip_ok
     .line 88
     :try_start_7c
     invoke-virtual {v0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -1026,6 +1037,22 @@
     invoke-direct {v2, v3}, Lio/nekohasekai/sagernet/ui/CloudUpdate$14;-><init>(Lio/nekohasekai/sagernet/ui/CloudUpdate$Release;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const-string v1, "跳过此版本"
+
+    invoke-static {}, Lio/nekohasekai/sagernet/ui/CloudUpdate;->activity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    iget-wide v9, v3, Lio/nekohasekai/sagernet/ui/CloudUpdate$Release;->code:J
+
+    new-instance v2, Lio/nekohasekai/sagernet/ui/CloudUpdateSkip$Listener;
+
+    invoke-direct {v2, v8, v9, v10}, Lio/nekohasekai/sagernet/ui/CloudUpdateSkip$Listener;-><init>(Landroid/content/Context;J)V
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
@@ -1966,7 +1993,7 @@
 
     invoke-direct {v1, p0}, Lio/nekohasekai/sagernet/ui/CloudUpdate$6;-><init>(Landroid/content/Context;)V
 
-    const-wide/16 v2, 0x708
+    const-wide/16 v2, 0x12c
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 

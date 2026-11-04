@@ -54,8 +54,7 @@ public final class SubscriptionDownload {
  }
  private static HTTPResponse fetch(SubscriptionBean subscription,boolean insecure,boolean tls13,Proxy route)throws Exception {
   URL url=new URL(subscription.link);
-  String ua=subscription.customUserAgent;
-  if(ua==null||ua.trim().isEmpty())ua=DEFAULT_UA;
+  String ua=DEFAULT_UA;
   SSLSocketFactory sockets=new Protocols(socketFactory(insecure),tls13);
   String auth=basicAuth(url);
   long deadline=System.nanoTime()+30_000_000_000L;

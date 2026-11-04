@@ -1,22 +1,22 @@
 # 源码与成品上传信息
 
-当前发布版本：`0.0.5 beta`，内部版本号 `478`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。本次只发布 478；476、477 的改动合并计入 478 的更新日志，不单独发布。
+当前发布版本：`0.0.5 beta`，内部版本号 `484`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。本次只发布 484；483 的订阅 DNS 响应头和 484 的启动检查/跳过版本改动合并计入 484 的更新日志，不单独发布。
 
 | 项目 | 值 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/weilai090624-code/JiajiaBox |
 | Git HTTPS 地址 | https://github.com/weilai090624-code/JiajiaBox.git |
 | 源码分支 | `main` |
-| 对应版本标签 | `v0.0.5-beta.478` |
-| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.478 |
-| APK | `JiajiaBox-0.0.5-beta-478-shared-snapshot.apk` |
-| APK SHA-256 | `0d3f21840cbbf8163d41442c90de417f0b82c17bf6743aaf5e1ea0877f09e048` |
-| 对应源码归档 | `JiajiaBox-v0.0.5-beta.478-source.tar.gz` |
+| 对应版本标签 | `v0.0.5-beta.484` |
+| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.484 |
+| APK | `JiajiaBox-0.0.5-beta-484-update-check-skip.apk` |
+| APK SHA-256 | `55c1f6748f3b7a1e148e0ab2f8f319074f93b9b03c32b664869506e65dd910fb` |
+| 对应源码归档 | `JiajiaBox-v0.0.5-beta.484-source.tar.gz` |
 | 校验清单 | `SHA256SUMS.txt`（含 APK 与源码归档） |
 
-本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox Claude code/builds/next/`；发布素材位于 `build/release-upload-478/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 作为 Releases 附件发布。
+本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox Claude code/builds/next/`；发布素材位于 `build/release-upload-484/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 作为 Releases 附件发布。
 
-本版对应 476–478 三轮已生效改动：发行包关闭 `debuggable` 并把明文 HTTP 限制到 `localhost` / `127.0.0.1`；9 个界面类的静态单线程池合并为进程级 4 线程共享池；`ConnectionSnapshotCache` 窗口调整为 2 秒，连接卡与地球卡共享 `/connections`，`/globe-egress` 按 4 秒复用。差分打包默认关闭 APK v4 签名旁车文件，避免部分 OEM 安装器误判 `.idsig`。xhttp 仍不在支持范围。地球卡 WebView 资源实验（479/480）未生效，已回退，不包含在本版。
+本版在 478 的基础上增加：订阅拉取统一使用 `JiajiaBox/Android/0.0.5`；支持机场通过 `Subscription-Dns` 响应头下发私有 DoH（见 [SUBSCRIPTION-DNS.md](SUBSCRIPTION-DNS.md)）；版本检查改为打开应用后约 300ms 直连检查，不依赖节点连接；更新弹窗新增“跳过此版本”。同时保留 476–478 的安全加固、共享线程池、共享快照和安装兼容改动。xhttp 仍不在支持范围。地球卡 WebView 资源实验（479/480）未生效，已回退，不包含在本版。
 
 发布顺序：先提供本地 APK，由用户实测；用户明确同意后，再推送对应源码和成品。应用行为或 APK 有新改动时重新执行此流程。
 
@@ -53,7 +53,7 @@ git push origin main
 为新的内部版本建立独立标签，再推送。已发布标签继续对应原来的源码；后续版本使用新的编号。
 
 ```bash
-tag=v0.0.5-beta.478
+tag=v0.0.5-beta.484
 git tag "$tag"
 git push origin "$tag"
 ```
@@ -61,9 +61,9 @@ git push origin "$tag"
 生成与标签一致的源码归档：
 
 ```bash
-mkdir -p build/release-upload-478
+mkdir -p build/release-upload-484
 git archive --format=tar.gz --prefix="JiajiaBox-$tag/" \
-  --output="build/release-upload-478/JiajiaBox-$tag-source.tar.gz" \
+  --output="build/release-upload-484/JiajiaBox-$tag-source.tar.gz" \
   "$tag" -- ':(exclude)release/*.apk'
 ```
 
@@ -76,15 +76,15 @@ git archive --format=tar.gz --prefix="JiajiaBox-$tag/" \
 ```bash
 python3 tools/publish_release.py \
   --repo weilai090624-code/JiajiaBox \
-  --tag v0.0.5-beta.478 \
-  --commit "$(git rev-parse v0.0.5-beta.478^{commit})" \
-  --title "JiajiaBox v0.0.5-beta.478 预发布版" \
-  --notes-file build/release-upload-478/RELEASE_NOTES.md \
-  --asset "/sdcard/Download/JiajiaBox Claude code/builds/next/JiajiaBox-0.0.5-beta-478-shared-snapshot.apk" \
-  --asset "/sdcard/Download/JiajiaBox Claude code/builds/next/JiajiaBox-0.0.5-beta-478-shared-snapshot.apk.sha256" \
-  --asset build/release-upload-478/JiajiaBox-v0.0.5-beta.478-source.tar.gz \
-  --asset build/release-upload-478/SHA256SUMS.txt \
-  --output-json build/release-upload-478/github-publish.json
+  --tag v0.0.5-beta.484 \
+  --commit "$(git rev-parse v0.0.5-beta.484^{commit})" \
+  --title "JiajiaBox v0.0.5-beta.484 预发布版" \
+  --notes-file build/release-upload-484/RELEASE_NOTES.md \
+  --asset "/sdcard/Download/JiajiaBox Claude code/builds/next/JiajiaBox-0.0.5-beta-484-update-check-skip.apk" \
+  --asset "/sdcard/Download/JiajiaBox Claude code/builds/next/JiajiaBox-0.0.5-beta-484-update-check-skip.apk.sha256" \
+  --asset build/release-upload-484/JiajiaBox-v0.0.5-beta.484-source.tar.gz \
+  --asset build/release-upload-484/SHA256SUMS.txt \
+  --output-json build/release-upload-484/github-publish.json
 ```
 
 脚本先验证标签对应提交，再创建草稿，逐个上传并核对附件大小及服务端 SHA-256，全部成功后发布为预发布版。同名同校验附件会复用，不同内容会停止以避免混淆版本。创建草稿后会立即保存 Release ID；中断后使用同一命令和 `--output-json` 续传，也可指定 `--release-id`，复用已校验附件。发布结果中的 Release ID、附件 ID、下载地址和校验值保存在指定 JSON 中。
