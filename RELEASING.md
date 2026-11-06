@@ -1,36 +1,35 @@
 # 源码与成品上传信息
 
-当前发布版本：`0.0.5 beta`，内部版本号 `511`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。本次发布 511，覆盖 487–511 的累计改动：订阅私有 DoH 的标准 sing-box JSON DNS 支持与解析修复、VPN 入口域名本地固定、测速 DNS 缓存/并发/超时/取消、分组复制订阅、节点链接复制。
+当前发布版本：`0.0.5 beta`，内部版本号 `530`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。本次发布 530，在 511 基础上加入 MX 协议（Mundo 伴生核心）与相应许可证/分发声明。
 
 | 项目 | 值 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/weilai090624-code/JiajiaBox |
 | Git HTTPS 地址 | https://github.com/weilai090624-code/JiajiaBox.git |
 | 源码分支 | `main` |
-| 对应版本标签 | `v0.0.5-beta.511` |
-| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.511 |
-| APK | `JiajiaBox-0.0.5-beta-511-stop-test.apk` |
-| APK SHA-256 | `b4f05f1f559c01b5048d5f3a469ab4cea8074571316e8a0491cd8a7ddb40157b` |
-| 对应源码归档 | `JiajiaBox-v0.0.5-beta.511-source.tar.gz` |
+| 对应版本标签 | `v0.0.5-beta.530` |
+| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.530 |
+| APK | `JiajiaBox-0.0.5-beta-530-mx-release.apk` |
+| APK SHA-256 | `24494aa7375201e267e6fc1be810dfb8b73c12ac3111cc183718f4972eade7cc` |
+| 对应源码归档 | `JiajiaBox-v0.0.5-beta.530-source.tar.gz` |
 | 校验清单 | `SHA256SUMS.txt`（含 APK 与源码归档） |
 
-本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox Claude code/builds/next/`；发布素材位于 `build/release-upload-511/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 作为 Releases 附件发布。
+本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox Claude code/builds/next/`；发布素材位于 `build/release-upload-530/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 作为 Releases 附件发布。
 
 本版主要变化：
 
-- 订阅拉取统一使用 `JiajiaBox/Android/0.0.5`；
-- 私有 DoH 使用标准 sing-box JSON 的 `dns.servers` / `dns.rules` 下发（见 [SUBSCRIPTION-SINGBOX.md](SUBSCRIPTION-SINGBOX.md)）；
-- 修复订阅 DNS 的 `final` 分支、测试配置合并、跨进程暂存、`domain_resolver` 注入与规则优先级；
-- VPN 与测速使用入口域名 IP 缓存（`hosts` DNS server），避免每次连接都现场请求私有 DoH；
-- 测速超时 15 秒、默认并发降为 2，测速中可点“停止测速”立即取消；
-- 长按分组可复制订阅链接，长按节点可复制节点链接；
-- 保留 476–478 的安全加固、共享线程池、共享快照、启动检查与跳过版本；xhttp 仍不在支持范围。
+- 新增 MX 协议（mc1 / mundordp / jatp）：Mundo 伴生核心 `libmundoproxy.so` + JNI 桥 `libtun2socks.so`，本地 SOCKS 出站；
+- 应用自身排除出 VPN，避免伴生核心连节点的流量被自己的 TUN 捕获；
+- 每次切换节点按空闲端口启动新核心，停旧核后轮询端口释放，避免切几次后失效；
+- MX 节点在列表显示为 MX，导入时记住原始 `mx://` 链接；
+- `libmundoproxy.so` / `libtun2socks.so` 经 Mundo 作者同意（2026-11-06）原样分发，不属于 GPL-3.0；
+- 保留 511 的全部订阅 DNS、测速、UI 修复；xhttp 仍不在支持范围。
 
 发布顺序：先提供本地 APK，由用户实测；用户明确同意后，再推送对应源码和成品。应用行为或 APK 有新改动时重新执行此流程。
 
 支持的协议与模板格式清单见 `PROTOCOLS.md`。
 
-Nowhere 协议与内核说明见 `nowhere/CONTEXT-DETAILED.txt` 和 `native-src/sing-box/protocol/nowhere/`；MX 协议暂不适配。
+Nowhere 协议与内核说明见 `nowhere/CONTEXT-DETAILED.txt` 和 `native-src/sing-box/protocol/nowhere/`；MX 协议通过 Mundo 伴生核心接入，详见 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md) 与 [MUNDO-PERMISSION.md](MUNDO-PERMISSION.md)。
 
 ## 认证
 
