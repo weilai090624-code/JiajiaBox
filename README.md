@@ -18,7 +18,7 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 - “关于”页显示内部版本号，本版为 `0.0.5 beta 486`。
 - 保留应用图标与启动动画、台湾地区节点旗帜、延迟颜色阈值、Clash API / Yacd、VLESS Encryption（`mlkem768x25519plus`）等既有改动。
 - 保留 Nowhere、Trojan-Go、Mieru 与内置 `gvt1` 分流；xhttp 仍不在支持范围。
-- MX 协议通过可选的 Mundo 伴生核心接入（本地实验；公开发行需 Mundo 书面再分发许可，见 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)）。
+- MX 协议通过可选的 Mundo 伴生核心接入；Mundo 作者已同意（2026-11-06）原样分发两个 `.so`，见 [MUNDO-PERMISSION.md](MUNDO-PERMISSION.md) 与 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)。
 - 内核版本：`1.14.3-Jiajia-7`。
 
 完整的协议与模板格式清单见 [PROTOCOLS.md](PROTOCOLS.md)。

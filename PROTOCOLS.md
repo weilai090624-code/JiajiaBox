@@ -2,7 +2,7 @@
 
 当前成品：`JiajiaBox-0.0.5-beta-530-mx-release.apk`（含 MX / Mundo 伴生核心、Trojan-Go / Mieru / VLESS Encryption）。
 
-> MX 协议通过可选的 Mundo 伴生核心接入；`libmundoproxy.so` / `libtun2socks.so` 为闭源组件，公开发行需 Mundo 书面许可，详见 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)。
+> MX 协议通过可选的 Mundo 伴生核心接入；`libmundoproxy.so` / `libtun2socks.so` 为闭源组件，Mundo 作者已同意（2026-11-06）原样分发，详见 [MUNDO-PERMISSION.md](MUNDO-PERMISSION.md) 与 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)。
 
 ## 一、内置代理协议
 
