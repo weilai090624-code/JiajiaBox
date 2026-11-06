@@ -12,7 +12,7 @@ JiajiaBox Nowhere NW3 适配归档详细目录
 1. 增加 Nowhere NW3 出站注册。
 2. 接入 TCP/TLS 与 UDP/QUIC 两种传输。
 3. 接入 Morph 密钥派生和连接生命周期管理。
-4. 增加 nowhere:// 链接解析，读取 server、port、32 位密钥、net、morph 和名称；同时兼容 newhere:// 前缀。
+4. 增加 nowhere:// 链接解析，读取 server、port、32 位密钥、net、morph 和名称；同时兼容旧拼写 newhere:// 前缀（历史笔误，仅作兼容）。
 5. 订阅拉取走 RawUpdater.parseRaw -> FormatsKt.parseProxies -> NowhereImport.add，支持纯文本与 Base64 订阅中的 Nowhere 链接。
 6. 保留原有 APK 的 JNI 导出接口和基线功能。
 7. 修正域名目标转换，确保目标域名与端口不会重复拼接。

@@ -297,12 +297,12 @@
 
     if-eqz v3, :cond_67
 
-    const-string v0, "newhere\u00b7udp"
+    const-string v0, "nowhere\u00b7udp"
 
     return-object v0
 
     :cond_67
-    const-string v0, "newhere\u00b7tcp"
+    const-string v0, "nowhere\u00b7tcp"
 
     return-object v0
 

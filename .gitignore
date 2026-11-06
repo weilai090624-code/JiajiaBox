@@ -37,3 +37,6 @@ aligned.apk
 # Python release tooling bytecode
 __pycache__/
 *.pyc
+
+# Local GitHub token (never commit)
+.gh_token
