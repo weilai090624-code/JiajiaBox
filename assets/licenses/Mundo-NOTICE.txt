@@ -1,0 +1,35 @@
+Mundo 伴生核心（可选组件）声明
+
+本应用包含一个可选的 MX 协议伴生核心接入。该接入使用 Mundo 提供的
+闭源原生库，版权归 Mundo 及其权利人所有，不属于 GNU GPL v3.0 的授权范围。
+
+组件：
+- libmundoproxy.so（Mundo Proxy 1.0.0，arm64-v8a）
+  SHA-256: 52836a67ed26e53fa4facac330da66ba4068aeccf0c03a7cc95ea34e0900c6f3
+- libtun2socks.so（MundoTunnel JNI 桥，arm64-v8a）
+  SHA-256: 195c2d25ecb604f2a0fb8084c15b6b1f0cb3dfd527d40069dcdb3d097ee38398
+
+使用方式：
+- 应用通过运行时 dlopen 加载上述库，经 com.purecheat.ipc.MundoTunnel 的
+  startService / obtainTrafficBytes / CDestroyProcess 接口启动本地 SOCKS；
+- sing-box 仅把选中的 MX 节点出站指向该本地 SOCKS，其余路由、DNS 与 TUN
+  仍由 sing-box 负责；
+- 上述原生库以原样方式使用，JiajiaBox 未修改其二进制，也不声称对其拥有
+  任何版权或再授权权利。
+
+分发状态：
+- Mundo 作者已于 2026-11-06 同意 JiajiaBox 在公开 APK 中原样打包并分发
+  上述 .so（微信确认，记录见仓库 MUNDO-PERMISSION.md）。
+- 该同意不改变版权归属，也不使这些库适用 GPL-3.0；JiajiaBox 仅做原样分发。
+- 作者未指定固定署名格式；本文件与 THIRD_PARTY_NOTICES.md 保留组件声明。
+- 如作者未来撤回同意，将改用“用户自行提供 .so / 从已安装的 Mundo 导入”的方式。
+
+JiajiaBox 侧的接入代码（MundoCore / MundoProbe / MundoEnsure 及 smali 补丁）
+由 weilai090624-code 编写，按 GPL-3.0 发布。
+
+Mundo 项目：
+- https://github.com/Mundo-Connect/FlClash-FOSS
+- 接入方式参考该仓库的 GPL-3.0 桥接代码与配置字段说明；参考不改变
+  libmundoproxy.so 的版权归属。
+
+本组件不提供任何担保。是否可用取决于 Mundo 的授权与版本兼容性。

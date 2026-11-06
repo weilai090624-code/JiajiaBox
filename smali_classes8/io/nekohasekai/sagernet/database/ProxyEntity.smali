@@ -2052,7 +2052,7 @@
 
     const-string v1, "displayType(...)"
 
-    sparse-switch v0, :sswitch_data_b2
+    sparse-switch v0, :sswitch_data_bc
 
     .line 201
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2075,7 +2075,7 @@
 
     move-result-object v0
 
-    goto/16 :goto_b0
+    goto/16 :goto_ba
 
     .line 199
     :sswitch_1e
@@ -2089,7 +2089,7 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto/16 :goto_b0
+    goto/16 :goto_ba
 
     .line 200
     :sswitch_2c
@@ -2103,43 +2103,43 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto/16 :goto_b0
+    goto/16 :goto_ba
 
     .line 197
     :sswitch_3a
     const-string v0, "AnyTLS"
 
-    goto/16 :goto_b0
+    goto/16 :goto_ba
 
     .line 190
     :sswitch_3e
     const-string v0, "Mieru"
 
-    goto/16 :goto_b0
+    goto/16 :goto_ba
 
     .line 195
     :sswitch_42
     const-string v0, "TUIC"
 
-    goto/16 :goto_b0
+    goto/16 :goto_ba
 
     .line 196
     :sswitch_46
     const-string v0, "ShadowTLS"
 
-    goto/16 :goto_b0
+    goto/16 :goto_ba
 
     .line 194
     :sswitch_4a
     const-string v0, "WireGuard"
 
-    goto :goto_b0
+    goto :goto_ba
 
     .line 193
     :sswitch_4d
     const-string v0, "SSH"
 
-    goto :goto_b0
+    goto :goto_ba
 
     .line 192
     :sswitch_50
@@ -2167,13 +2167,13 @@
 
     move-result-object v0
 
-    goto :goto_b0
+    goto :goto_ba
 
     .line 191
     :sswitch_6b
     const-string v0, "Na\u00efve"
 
-    goto :goto_b0
+    goto :goto_ba
 
     .line 198
     :sswitch_6e
@@ -2183,19 +2183,19 @@
 
     move-result-object v0
 
-    goto :goto_b0
+    goto :goto_ba
 
     .line 189
     :sswitch_75
     const-string v0, "Trojan-Go"
 
-    goto :goto_b0
+    goto :goto_ba
 
     .line 188
     :sswitch_78
     const-string v0, "Trojan"
 
-    goto :goto_b0
+    goto :goto_ba
 
     .line 187
     :sswitch_7b
@@ -2203,29 +2203,40 @@
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/MundoCore;->isMXBean(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8a
+
+    const-string v0, "MX"
+
+    goto/16 :goto_ba
+
+    :cond_8a
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->isVLESS()Z
 
     move-result v0
 
-    if-eqz v0, :cond_89
+    if-eqz v0, :cond_93
 
     const-string v0, "VLESS"
 
-    goto :goto_b0
+    goto :goto_ba
 
-    :cond_89
+    :cond_93
     const-string v0, "VMess"
 
-    goto :goto_b0
+    goto :goto_ba
 
     .line 186
-    :sswitch_8c
+    :sswitch_96
     const-string v0, "Shadowsocks"
 
-    goto :goto_b0
+    goto :goto_ba
 
     .line 185
-    :sswitch_8f
+    :sswitch_99
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/ProxyEntity;->httpBean:Lio/nekohasekai/sagernet/fmt/http/HttpBean;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -2236,19 +2247,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9f
+    if-eqz v0, :cond_a9
 
     const-string v0, "HTTPS"
 
-    goto :goto_b0
+    goto :goto_ba
 
-    :cond_9f
+    :cond_a9
     const-string v0, "HTTP"
 
-    goto :goto_b0
+    goto :goto_ba
 
     .line 184
-    :sswitch_a2
+    :sswitch_ac
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/ProxyEntity;->socksBean:Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -2262,16 +2273,16 @@
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 202
-    :goto_b0
+    :goto_ba
     return-object v0
 
     nop
 
-    :sswitch_data_b2
+    :sswitch_data_bc
     .sparse-switch
-        0x0 -> :sswitch_a2
-        0x1 -> :sswitch_8f
-        0x2 -> :sswitch_8c
+        0x0 -> :sswitch_ac
+        0x1 -> :sswitch_99
+        0x2 -> :sswitch_96
         0x4 -> :sswitch_7b
         0x6 -> :sswitch_78
         0x7 -> :sswitch_75

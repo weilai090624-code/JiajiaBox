@@ -17,3 +17,10 @@ non-association condition is reproduced in assets/licenses/sing-box-NOTICE.txt.
 
 Corresponding source code:
 https://github.com/weilai090624-code/JiajiaBox
+
+Optional MX companion core: JiajiaBox can load the proprietary Mundo libraries
+libmundoproxy.so and libtun2socks.so at runtime. These libraries are NOT
+licensed under GPL-3.0 and remain the property of the Mundo project. They are
+used unmodified and are not included in public releases until written
+redistribution permission is obtained. See assets/licenses/Mundo-NOTICE.txt.
+

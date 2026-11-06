@@ -1209,6 +1209,18 @@
 
     .line 131
     .local v6, "packageName":Ljava/lang/String;
+
+    :try_start_excl
+    invoke-virtual {v4, v6}, Landroid/net/VpnService$Builder;->addDisallowedApplication(Ljava/lang/String;)Landroid/net/VpnService$Builder;
+    :try_end_excl
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_excl .. :try_end_excl} :catch_excl
+
+    goto :goto_excl
+
+    :catch_excl
+    move-exception v0
+
+    :goto_excl
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getProxyApps()Z

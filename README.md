@@ -4,10 +4,11 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 
 ## 最新版本
 
-当前源码与成品对应 `0.0.5 beta`，内部版本号 `486`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前源码与成品对应 `0.0.5 beta`，内部版本号 `530`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
-- 成品：[JiajiaBox-0.0.5-beta-486-singbox-json-dns.apk](https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.486)（GitHub Releases 附件）
-- SHA-256：`47f8b002c06068ef4cb252ccd26f68fdd549f1708817f5a76374c02489fb8cac`
+- 成品：[JiajiaBox-0.0.5-beta-530-mx-release.apk](https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.530)（GitHub Releases 附件）
+- SHA-256：`24494aa7375201e267e6fc1be810dfb8b73c12ac3111cc183718f4972eade7cc`
+- 新增 MX 协议支持：Mundo 伴生核心（mc1 / mundordp / jatp），`libmundoproxy.so` / `libtun2socks.so` 经作者同意（2026-11-06）原样分发；详见 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)。
 - 订阅适配：所有订阅拉取统一使用 `JiajiaBox/Android/0.0.5`；私有 DoH 使用标准 sing-box JSON 的 `dns.servers` / `dns.rules` 下发，客户端现有 `SubscriptionDns` 直接应用，说明见 [SUBSCRIPTION-SINGBOX.md](SUBSCRIPTION-SINGBOX.md)。
 - 版本检查：打开应用后约 300ms 直接检查更新，不依赖节点连接；更新弹窗新增“跳过此版本”。
 - 安全加固：发行包关闭 `debuggable`；默认禁止明文 HTTP，仅放行 `localhost` 与 `127.0.0.1`，保留 Clash API / Yacd。
@@ -17,10 +18,29 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 - “关于”页显示内部版本号，本版为 `0.0.5 beta 486`。
 - 保留应用图标与启动动画、台湾地区节点旗帜、延迟颜色阈值、Clash API / Yacd、VLESS Encryption（`mlkem768x25519plus`）等既有改动。
 - 保留 Nowhere、Trojan-Go、Mieru 与内置 `gvt1` 分流；xhttp 仍不在支持范围。
-- 已移除 MX 协议，暂不适配。
+- MX 协议通过可选的 Mundo 伴生核心接入（本地实验；公开发行需 Mundo 书面再分发许可，见 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)）。
 - 内核版本：`1.14.3-Jiajia-7`。
 
 完整的协议与模板格式清单见 [PROTOCOLS.md](PROTOCOLS.md)。
+
+## MX 协议与 Mundo 伴生核心
+
+JiajiaBox 的 MX 支持不是把 MX 私有传输重写进 sing-box，而是：
+
+1. 用官方闭源 `libmundoproxy.so` + `libtun2socks.so` 启动一个本地 SOCKS 伴生核心；
+2. sing-box 只把选中的 MX 节点出站指向该 SOCKS，TUN、路由、DNS 仍由 sing-box 负责；
+3. 应用自身被排除出 VPN，避免伴生核连节点的流量被自己的 TUN 抓走形成回环。
+
+许可证边界：
+
+- `MundoCore` / `MundoProbe` / `MundoEnsure` 与相关 smali 补丁是 JiajiaBox 原创，GPL-3.0；
+- `libmundoproxy.so` / `libtun2socks.so` 是 Mundo 的闭源组件，**不是 GPL-3.0**，原样使用；
+- Mundo 作者已同意（2026-11-06）在公开 APK 中原样打包并分发这两个 `.so`；它们仍不属于 GPL-3.0，详见 [MUNDO-PERMISSION.md](MUNDO-PERMISSION.md)；
+- 接入方式参考了 GPL-3.0 的 [FlClash-FOSS](https://github.com/Mundo-Connect/FlClash-FOSS)。
+
+详见 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)、[MUNDO-PERMISSION.md](MUNDO-PERMISSION.md)、[MUNDO-PERMISSION-REQUEST.md](MUNDO-PERMISSION-REQUEST.md) 和 `assets/licenses/Mundo-NOTICE.txt`。
+
+JiajiaBox 不限制用户使用 Mundo 官方客户端：订阅中的 MX 节点可以导出/导入到官方客户端使用。如果 JiajiaBox 提供订阅链接，只应包含 Mundo 的协议（MX），不混入其他协议。
 
 ## 支持的协议
 
@@ -52,6 +72,14 @@ Mieru
 说明：
 - Trojan-Go 支持 TLS / WS / GRPC；不支持 trojan-go 特有的 smux、Shadowsocks 加密、plugin。
 - Mieru 链接格式：`mieru://username:password@host:port?protocol=TCP&mtu=1400&multiplexing=low&handshake=standard#name`。
+
+MX / Mundo 伴生核心：
+
+```text
+MX（mc1 / mundordp / jatp）
+```
+
+说明：MX 不是内置 Go 出站，而是可选的 Mundo 闭源伴生核心（详见上文“MX 协议与 Mundo 伴生核心”）。
 
 分组/辅助：
 

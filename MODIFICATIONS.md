@@ -40,6 +40,10 @@ JiajiaBox 基于 NekoBox for Android / SagerNet，并包含修改过的 sing-box
 - Trojan-Go、Mieru 等协议接入
 - VLESS Encryption（`mlkem768x25519plus`）客户端支持，兼容 Reality + Vision
 - 原生库构建脚本与 Android NDK 交叉编译配置
+- MX 协议伴生核心接入（可选）：`MundoCore` / `MundoProbe` / `MundoEnsure`，运行时
+  `dlopen` 官方 `libmundoproxy.so`，经 `libtun2socks.so` 启动本地 SOCKS；sing-box
+  仅改写 MX 节点出站；应用自身排除出 VPN 以避免回环。该接入代码按 GPL-3.0 发布，
+  两个闭源 `.so` 不属于 GPL-3.0，详见 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)。
 
 ### 发布与工具
 

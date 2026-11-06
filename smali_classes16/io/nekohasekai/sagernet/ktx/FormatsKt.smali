@@ -1630,7 +1630,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1b1
+    if-eqz v0, :cond_mx
 
     .line 158
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -1725,6 +1725,216 @@
     .line 161
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$10":I
+    goto/16 :goto_478
+
+    .line 157
+    :cond_mx
+    const-string v0, "mx://"
+
+    invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_jatp
+
+    .line 158
+    sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Try parse mx link: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
+
+    .line 159
+    :try_start_mx
+    sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+
+    move-object v0, p0
+
+    .local v0, "$this$parseProxies_u24parseLink_u24lambda_u2450":Ljava/lang/String;
+    const/4 v1, 0x0
+
+    .line 160
+    .local v1, "$i$a$-runCatching-FormatsKt$parseProxies$parseLink$50":I
+    invoke-static {v0}, Lio/nekohasekai/sagernet/fmt/v2ray/V2RayFmtKt;->parseV2Ray(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    .end local v0    # "$this$parseProxies_u24parseLink_u24lambda_u2450":Ljava/lang/String;
+    .end local v1    # "$i$a$-runCatching-FormatsKt$parseProxies$parseLink$50":I
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    .line 159
+    invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+    :try_end_mx
+    .catchall {:try_start_mx .. :try_end_mx} :catchall_mx
+
+    goto :goto_mx
+
+    :catchall_mx
+    move-exception v0
+
+    sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+
+    invoke-static {v0}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    .line 161
+    :goto_mx
+    invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_478
+
+    .local v0, "it":Ljava/lang/Throwable;
+    const/4 v1, 0x0
+
+    .line 162
+    .local v1, "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$51":I
+    sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
+
+    invoke-virtual {v2, v0}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/Throwable;)V
+
+    .line 163
+    nop
+
+    .line 161
+    .end local v0    # "it":Ljava/lang/Throwable;
+    .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$51":I
+    goto/16 :goto_478
+
+    .line 157
+    :cond_jatp
+    const-string v0, "jatp://"
+
+    invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1b1
+
+    .line 158
+    sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Try parse jatp link: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
+
+    .line 159
+    :try_start_jatp
+    sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+
+    move-object v0, p0
+
+    .local v0, "$this$parseProxies_u24parseLink_u24lambda_u2452":Ljava/lang/String;
+    const/4 v1, 0x0
+
+    .line 160
+    .local v1, "$i$a$-runCatching-FormatsKt$parseProxies$parseLink$52":I
+    invoke-static {v0}, Lio/nekohasekai/sagernet/fmt/v2ray/V2RayFmtKt;->parseV2Ray(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    .end local v0    # "$this$parseProxies_u24parseLink_u24lambda_u2452":Ljava/lang/String;
+    .end local v1    # "$i$a$-runCatching-FormatsKt$parseProxies$parseLink$52":I
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    .line 159
+    invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+    :try_end_jatp
+    .catchall {:try_start_jatp .. :try_end_jatp} :catchall_jatp
+
+    goto :goto_jatp
+
+    :catchall_jatp
+    move-exception v0
+
+    sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+
+    invoke-static {v0}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    .line 161
+    :goto_jatp
+    invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_478
+
+    .local v0, "it":Ljava/lang/Throwable;
+    const/4 v1, 0x0
+
+    .line 162
+    .local v1, "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$53":I
+    sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
+
+    invoke-virtual {v2, v0}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/Throwable;)V
+
+    .line 163
+    nop
+
+    .line 161
+    .end local v0    # "it":Ljava/lang/Throwable;
+    .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$53":I
     goto/16 :goto_478
 
     .line 164

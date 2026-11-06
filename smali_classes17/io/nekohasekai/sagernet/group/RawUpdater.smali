@@ -4588,6 +4588,20 @@
 
     goto/16 :goto_a7e
 
+    # Clash YAML "type: mx" (proposed, non-standard): same fields as vless.
+    :sswitch_mx
+    move-object/from16 v17, v7
+
+    const-string v7, "mx"
+
+    invoke-virtual {v15, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_140
+
+    goto :goto_13f
+
     :sswitch_14f
     const-string v1, "tuic"
 
@@ -7634,6 +7648,59 @@
     .line 310
     .end local v15    # "$this$parseRaw_u24lambda_u2418":Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
     .end local v24    # "$i$a$-apply-RawUpdater$parseRaw$bean$1":I
+    check-cast v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
+
+    goto :goto_ae7
+
+    .line 308
+    :sswitch_mx_bean
+    const-string v15, "mx"
+
+    invoke-virtual {v3, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1347
+
+    .line 310
+    new-instance v3, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
+
+    invoke-direct {v3}, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;-><init>()V
+
+    move-object v15, v3
+
+    .local v15, "$this$parseRaw_u24lambda_u2450":Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
+    const/16 v24, 0x0
+
+    .line 311
+    .local v24, "$i$a$-apply-RawUpdater$parseRaw$bean$50":I
+    const/16 v25, -0x1
+
+    move-object/from16 v28, v8
+
+    invoke-static/range {v25 .. v25}, Lkotlin/coroutines/jvm/internal/Boxing;->boxInt(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    iput-object v8, v15, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->alterId:Ljava/lang/Integer;
+
+    .line 312
+    move-object/from16 v25, v7
+
+    const/4 v8, 0x2
+
+    invoke-static {v8}, Lkotlin/coroutines/jvm/internal/Boxing;->boxInt(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    iput-object v7, v15, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->packetEncoding:Ljava/lang/Integer;
+
+    .line 313
+    nop
+
+    .line 310
+    .end local v15    # "$this$parseRaw_u24lambda_u2450":Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
+    .end local v24    # "$i$a$-apply-RawUpdater$parseRaw$bean$50":I
     check-cast v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
     goto :goto_ae7
@@ -12177,6 +12244,7 @@
         -0x3393513a -> :sswitch_a52
         -0x1ba13da5 -> :sswitch_8bb
         -0xe42b49 -> :sswitch_62a
+        0xdab -> :sswitch_mx
         0xe60 -> :sswitch_43f
         0x310888 -> :sswitch_38b
         0x367f5b -> :sswitch_14f
@@ -12237,6 +12305,7 @@
     :sswitch_data_183a
     .sparse-switch
         -0x3393513a -> :sswitch_acf
+        0xdab -> :sswitch_mx_bean
         0x6b1770f -> :sswitch_aa8
         0x6b1eb6e -> :sswitch_a94
     .end sparse-switch

@@ -12,3 +12,9 @@ JiajiaBox 的原创代码与本项目修改部分按 GNU GPL v3.0 发布，版�
 源码说明：GPL 覆盖的可执行版本应提供对应源码和必要构建脚本。本版本对应源码发布地址为：https://github.com/weilai090624-code/JiajiaBox。上游仓库用于溯源，不能替代包含 JiajiaBox 修改的本版本对应源码。
 
 本软件为独立修改版本，不是 NekoBox、SagerNet 或 sing-box 的官方发行版，也不表示上游对本软件的认可或背书。sing-box 随附许可证中的名称使用与关联声明保留于 sing-box-NOTICE.txt。
+
+Mundo 伴生核心（可选）
+JiajiaBox 的 MX 协议使用 Mundo 的闭源 libmundoproxy.so / libtun2socks.so，经作者同意（2026-11-06）在 APK 中原样打包分发。该库不属于 GPL-3.0，版权归 Mundo 所有，JiajiaBox 未修改其二进制。
+JiajiaBox 不限制用户使用 Mundo 官方客户端；订阅中的 MX 节点可以导出并导入官方客户端使用。如 JiajiaBox 提供订阅链接，只包含 Mundo 的协议（MX）。
+完整说明见 assets/licenses/Mundo-NOTICE.txt 与仓库 MUNDO-PERMISSION.md。
+

@@ -33,6 +33,28 @@ assets/licenses/
 本软件是独立修改版本，不是 NekoBox、SagerNet 或 sing-box 的官方发行版，也不表示
 上游对本软件的认可或背书。上游名称与商标归各自权利人所有。
 
+
+## Mundo 伴生核心（可选，闭源，非 GPL）
+
+JiajiaBox 的 MX 协议支持是**可选的伴生核心接入**，不属于 GPL-3.0：
+
+| 组件 | 来源 | 许可证 | 说明 |
+| --- | --- | --- | --- |
+| libmundoproxy.so | Mundo | **闭源 / 专有** | 1.0.0，arm64-v8a，原样使用，不属 GPL-3.0 |
+| libtun2socks.so | Mundo | **闭源 / 专有** | MundoTunnel JNI 桥，arm64-v8a，原样使用 |
+| FlClash-FOSS 接入参考 | https://github.com/Mundo-Connect/FlClash-FOSS | GPL-3.0 | 参考其 `mundo_profile.dart` / `core.cpp` 的接入方式与配置字段；仅参考，未复制闭源核心 |
+
+- 上述 `.so` 通过运行时 `dlopen` 加载，未修改二进制；
+- JiajiaBox 侧的 `MundoCore` / `MundoProbe` / `MundoEnsure` 与 smali 补丁是原创代码，按 GPL-3.0 发布；
+- **Mundo 作者已于 2026-11-06 同意原样打包并公开分发**（微信确认，记录见 [MUNDO-PERMISSION.md](MUNDO-PERMISSION.md)）；
+- 该同意不改变版权归属，也不使这两个 `.so` 适用 GPL-3.0；作者未指定固定署名格式，本项目保留本声明；
+- 完整说明见 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)，许可申请见 [MUNDO-PERMISSION-REQUEST.md](MUNDO-PERMISSION-REQUEST.md)。
+
+```
+libmundoproxy.so SHA-256: 52836a67ed26e53fa4facac330da66ba4068aeccf0c03a7cc95ea34e0900c6f3
+libtun2socks.so  SHA-256: 195c2d25ecb604f2a0fb8084c15b6b1f0cb3dfd527d40069dcdb3d097ee38398
+```
+
 ## 修改说明
 
 对上游代码的修改汇总见 [MODIFICATIONS.md](MODIFICATIONS.md)；逐条变更以 Git

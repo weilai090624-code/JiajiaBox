@@ -1153,16 +1153,14 @@
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/CpuPin;->pinAllCurrentToLittle()Z
 
-    goto :goto_27
+    goto :goto_2a
 
     .line 65
     :cond_19
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/SagerNet;->isMainProcess:Z
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_2a
 
-    # 492: migrate staged subscription DNS from SharedPreferences to files so
-    # the :bg VPN process can read it regardless of its prefs cache.
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->migrate(Landroid/content/Context;)V
 
     .line 66
@@ -1176,20 +1174,20 @@
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/CpuPin;->scheduleRenderThreadPin()V
 
     .line 70
-    :cond_27
-    :goto_27
+    :cond_2a
+    :goto_2a
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/SagerNet;->isMainProcess:Z
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_30
+    if-nez v0, :cond_33
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/SagerNet;->isBgProcess:Z
 
-    if-eqz v0, :cond_c5
+    if-eqz v0, :cond_c8
 
     .line 71
-    :cond_30
+    :cond_33
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/SagerNet;->getExternalAssets()Ljava/io/File;
 
     move-result-object v0
@@ -1299,21 +1297,21 @@
 
     move-result v3
 
-    if-lez v3, :cond_a0
+    if-lez v3, :cond_a3
 
     const/4 v3, 0x1
 
     const/4 v7, 0x1
 
-    goto :goto_a2
+    goto :goto_a5
 
-    :cond_a0
+    :cond_a3
     const/4 v3, 0x0
 
     const/4 v7, 0x0
 
     .line 80
-    :goto_a2
+    :goto_a5
     iget-object v3, p0, Lio/nekohasekai/sagernet/SagerNet;->nativeInterface:Lmoe/matsuri/nb4a/NativeInterface;
 
     move-object v8, v3
@@ -1354,10 +1352,10 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 92
-    :cond_c5
+    :cond_c8
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/SagerNet;->isMainProcess:Z
 
-    if-eqz v0, :cond_e0
+    if-eqz v0, :cond_e3
 
     .line 93
     sget-object v0, Lio/nekohasekai/sagernet/utils/Theme;->INSTANCE:Lio/nekohasekai/sagernet/utils/Theme;
@@ -1383,10 +1381,10 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 104
-    :cond_e0
+    :cond_e3
     sget-boolean v0, Lio/nekohasekai/sagernet/BuildConfig;->DEBUG:Z
 
-    if-eqz v0, :cond_107
+    if-eqz v0, :cond_10a
 
     .line 105
     const-string v0, "kotlinx.coroutines.debug"
@@ -1429,7 +1427,8 @@
     invoke-static {v0}, Landroid/os/StrictMode;->setVmPolicy(Landroid/os/StrictMode$VmPolicy;)V
 
     .line 115
-    :cond_107
+    :cond_10a
+
     return-void
 .end method
 

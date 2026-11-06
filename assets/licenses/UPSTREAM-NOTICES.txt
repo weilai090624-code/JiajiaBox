@@ -125,3 +125,17 @@ the sing-box fork at github.com/starifly/sing-box.
 Only the client side is included. The upstream implementation states that
 native.0rtt was verified against a live server; xorpub, random and 1rtt modes
 are parsed/constructed but not device-verified.
+
+--------------------------------------------------------------------------------
+Mundo companion core (optional, proprietary)
+
+libmundoproxy.so and libtun2socks.so are proprietary components of the Mundo
+project. They are NOT covered by the GNU GPL v3.0. They are loaded at runtime
+via dlopen and used unmodified. See assets/licenses/Mundo-NOTICE.txt for
+details, hashes and distribution status.
+
+The JiajiaBox integration code (MundoCore, MundoProbe, MundoEnsure and the
+related smali patches) is original work by weilai090624-code and is licensed
+under GPL-3.0. The integration approach and configuration fields were informed
+by the GPL-3.0 licensed FlClash-FOSS project:
+https://github.com/Mundo-Connect/FlClash-FOSS
