@@ -56,22 +56,6 @@ public final class GlobeTopology {
         if(edge==null){edge=new JSONObject().put("from",from).put("to",to).put("kind",kind).put("count",0);links.put(key,edge);}
         edge.put("count",edge.optInt("count")+1);
     }
-    private static boolean hasCNToken(String text){
-        if(text==null||text.isEmpty())return false;
-        for(String part:text.split("[^a-z0-9]+")){
-            if("cn".equals(part)||"china".equals(part)||"chinalist".equals(part))return true;
-        }
-        return text.contains("中国大陆")||text.contains("大陆");
-    }
-    private static boolean cnConnection(JSONObject row,JSONObject meta,String type){
-        String host=meta==null?"":meta.optString("host").toLowerCase(Locale.ROOT);
-        String rule=(row.optString("rule")+" "+row.optString("rulePayload")).toLowerCase(Locale.ROOT);
-        if(host.endsWith(".cn")||host.endsWith(".中国")||host.contains(".cn."))return true;
-        // The app's direct/bypass route is the mainland-China split; a direct
-        // domain connection whose target IP is a fake-IP therefore belongs to CN.
-        if("direct".equals(type)&&!host.isEmpty())return true;
-        return hasCNToken(rule);
-    }
     public static JSONObject build(JSONArray rows,JSONObject types,JSONObject locations)throws Exception {
         if(rows==null)rows=new JSONArray();if(types==null)types=new JSONObject();if(locations==null)locations=new JSONObject();
         JSONObject self=locations.optJSONObject("self"),exitIPs=locations.optJSONObject("exits"),targets=locations.optJSONObject("targets");
@@ -84,15 +68,16 @@ public final class GlobeTopology {
             JSONObject row=rows.optJSONObject(i);if(row==null)continue;JSONObject meta=row.optJSONObject("metadata");
             JSONObject targetLocation=targets.optJSONObject(meta==null?"":meta.optString("destinationIP"));
             if(targetLocation!=null){pending|=targetLocation.optBoolean("pending");lookupFailed|=!targetLocation.optString("error").isEmpty();}
-            String type=type(row,types),tag=tag(row,types);
             String target=code(targetLocation);
-            if(target.isEmpty()&&cnConnection(row,meta,type))target="CN";
+            // The globe intentionally omits mainland-China connections.
+            if("CN".equals(target))continue;
             String dest="dest:"+target;JSONObject destination=point(dest,"destination",target);
             if(destination==null){missing++;}else{
                 counts.put(target,counts.containsKey(target)?counts.get(target)+1:1);
                 if(!nodes.containsKey(dest))nodes.put(dest,destination);
                 nodes.get(dest).put("count",nodes.get(dest).optInt("count")+1);
             }
+            String type=type(row,types),tag=tag(row,types);
             if("direct".equals(type)){
                 direct++;if(origin!=null&&destination!=null)link(edges,"self",dest,"direct");continue;
             }
