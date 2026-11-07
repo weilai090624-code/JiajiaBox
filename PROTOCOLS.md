@@ -1,6 +1,6 @@
-# JiajiaBox 532 支持的协议与模板格式
+# JiajiaBox 533 支持的协议与模板格式
 
-当前成品：`JiajiaBox-0.0.5-beta-532-ipquality-proxy.apk`（含 MX / Mundo 伴生核心、Trojan-Go / Mieru / VLESS Encryption）。
+当前成品：`JiajiaBox-0.0.5-beta-533-ipquality-proxy2.apk`（含 MX / Mundo 伴生核心、Trojan-Go / Mieru / VLESS Encryption）。
 
 > MX 协议通过可选的 Mundo 伴生核心接入；`libmundoproxy.so` / `libtun2socks.so` 为闭源组件，Mundo 作者已同意（2026-11-06）原样分发，详见 [MUNDO-PERMISSION.md](MUNDO-PERMISSION.md) 与 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)。
 

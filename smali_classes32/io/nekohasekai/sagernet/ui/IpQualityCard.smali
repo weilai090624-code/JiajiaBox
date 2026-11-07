@@ -1544,41 +1544,30 @@
 
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
-    invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getServiceState()Lio/nekohasekai/sagernet/bg/BaseService$State;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_e
-
-    invoke-virtual {v1}, Lio/nekohasekai/sagernet/bg/BaseService$State;->getConnected()Z
+    invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getMixedPort()I
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-lez v1, :cond_17
 
-    :cond_e
+    new-instance v2, Ljava/net/Proxy;
+
+    sget-object v3, Ljava/net/Proxy$Type;->SOCKS:Ljava/net/Proxy$Type;
+
+    new-instance v4, Ljava/net/InetSocketAddress;
+
+    const-string v0, "127.0.0.1"
+
+    invoke-direct {v4, v0, v1}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
+
+    invoke-direct {v2, v3, v4}, Ljava/net/Proxy;-><init>(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V
+
+    return-object v2
+
+    :cond_17
     sget-object v0, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
     return-object v0
-
-    :cond_11
-    new-instance v1, Ljava/net/Proxy;
-
-    sget-object v2, Ljava/net/Proxy$Type;->SOCKS:Ljava/net/Proxy$Type;
-
-    new-instance v3, Ljava/net/InetSocketAddress;
-
-    const-string v4, "127.0.0.1"
-
-    invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getMixedPort()I
-
-    move-result v0
-
-    invoke-direct {v3, v4, v0}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
-
-    invoke-direct {v1, v2, v3}, Ljava/net/Proxy;-><init>(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V
-
-    return-object v1
 .end method
 
 .method private readBody(Ljava/net/HttpURLConnection;)Ljava/lang/String;
@@ -2639,7 +2628,7 @@
     .line 259
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/IpQualityCard;->status:Landroid/widget/TextView;
 
-    const-string v1, "\u67e5\u8be2\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5"
+    const-string v1, "\u67e5\u8be2\u5931\u8d25\uff0c\u8bf7\u786e\u8ba4 VPN \u5df2\u8fde\u63a5\u540e\u91cd\u8bd5"
 
     invoke-virtual {p1, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 

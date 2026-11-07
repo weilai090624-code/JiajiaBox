@@ -1,20 +1,20 @@
 # 源码与成品上传信息
 
-当前发布版本：`0.0.5 beta`，内部版本号 `532`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。本次发布 532，在 531 基础上让 IP 质量测试通过本机 mixed 端口的 SOCKS 代理查询。
+当前发布版本：`0.0.5 beta`，内部版本号 `533`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。本次发布 533，IP 质量测试固定通过本机 mixed 端口的 SOCKS 代理查询。
 
 | 项目 | 值 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/weilai090624-code/JiajiaBox |
 | Git HTTPS 地址 | https://github.com/weilai090624-code/JiajiaBox.git |
 | 源码分支 | `main` |
-| 对应版本标签 | `v0.0.5-beta.532` |
-| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.532 |
-| APK | `JiajiaBox-0.0.5-beta-532-ipquality-proxy.apk` |
-| APK SHA-256 | `38158f4fcd2f2553ae6be26cf15338f4472a6878a7dfa6fecbe76809f605d3cc` |
-| 对应源码归档 | `JiajiaBox-v0.0.5-beta.532-source.tar.gz` |
+| 对应版本标签 | `v0.0.5-beta.533` |
+| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.533 |
+| APK | `JiajiaBox-0.0.5-beta-533-ipquality-proxy2.apk` |
+| APK SHA-256 | `a838464d253f88469ba87e4205e13f0c9017f975bba01edcd929849b6f32b709` |
+| 对应源码归档 | `JiajiaBox-v0.0.5-beta.533-source.tar.gz` |
 | 校验清单 | `SHA256SUMS.txt`（含 APK 与源码归档） |
 
-本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox Claude code/builds/next/`；发布素材位于 `build/release-upload-532/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 作为 Releases 附件发布。
+本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox Claude code/builds/next/`；发布素材位于 `build/release-upload-533/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 作为 Releases 附件发布。
 
 本版主要变化：
 
