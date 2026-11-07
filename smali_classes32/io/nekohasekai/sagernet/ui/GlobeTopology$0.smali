@@ -6,6 +6,14 @@
 .implements Ljava/util/Comparator;
 
 
+# annotations
+.annotation runtime Lcom/android/tools/r8/annotations/LambdaMethod;
+    holder = "Lio/nekohasekai/sagernet/ui/GlobeTopology;"
+    method = "lambda$build$0"
+    proto = "(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)I"
+.end annotation
+
+
 # instance fields
 .field public final synthetic f$0:Ljava/util/Map;
 

@@ -1,20 +1,20 @@
 # 源码与成品上传信息
 
-当前发布版本：`0.0.5 beta`，内部版本号 `533`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。本次发布 533，IP 质量测试固定通过本机 mixed 端口的 SOCKS 代理查询。
+当前发布版本：`0.0.5 beta`，内部版本号 `534`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。本次发布 534，地球仪补上中国大陆请求（fake-IP/CN 规则回退）。
 
 | 项目 | 值 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/weilai090624-code/JiajiaBox |
 | Git HTTPS 地址 | https://github.com/weilai090624-code/JiajiaBox.git |
 | 源码分支 | `main` |
-| 对应版本标签 | `v0.0.5-beta.533` |
-| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.533 |
-| APK | `JiajiaBox-0.0.5-beta-533-ipquality-proxy2.apk` |
-| APK SHA-256 | `a838464d253f88469ba87e4205e13f0c9017f975bba01edcd929849b6f32b709` |
-| 对应源码归档 | `JiajiaBox-v0.0.5-beta.533-source.tar.gz` |
+| 对应版本标签 | `v0.0.5-beta.534` |
+| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.534 |
+| APK | `JiajiaBox-0.0.5-beta-534-globe-cn.apk` |
+| APK SHA-256 | `caa60eefde3a68cc038786d9b329317bf46e07d861db3c18dba58955a7e59295` |
+| 对应源码归档 | `JiajiaBox-v0.0.5-beta.534-source.tar.gz` |
 | 校验清单 | `SHA256SUMS.txt`（含 APK 与源码归档） |
 
-本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox Claude code/builds/next/`；发布素材位于 `build/release-upload-533/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 作为 Releases 附件发布。
+本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox Claude code/builds/next/`；发布素材位于 `build/release-upload-534/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 作为 Releases 附件发布。
 
 本版主要变化：
 
