@@ -1489,7 +1489,11 @@
 
     invoke-direct {v0, p1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
+    invoke-static {}, Lio/nekohasekai/sagernet/ui/IpQualityCard;->proxy()Ljava/net/Proxy;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/net/URL;->openConnection(Ljava/net/Proxy;)Ljava/net/URLConnection;
 
     move-result-object p1
 
@@ -1533,6 +1537,48 @@
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/IpQualityCard;->connection:Ljava/net/HttpURLConnection;
 
     return-object p1
+.end method
+
+.method private static proxy()Ljava/net/Proxy;
+    .registers 5
+
+    sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
+
+    invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getServiceState()Lio/nekohasekai/sagernet/bg/BaseService$State;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_e
+
+    invoke-virtual {v1}, Lio/nekohasekai/sagernet/bg/BaseService$State;->getConnected()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_11
+
+    :cond_e
+    sget-object v0, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
+
+    return-object v0
+
+    :cond_11
+    new-instance v1, Ljava/net/Proxy;
+
+    sget-object v2, Ljava/net/Proxy$Type;->SOCKS:Ljava/net/Proxy$Type;
+
+    new-instance v3, Ljava/net/InetSocketAddress;
+
+    const-string v4, "127.0.0.1"
+
+    invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getMixedPort()I
+
+    move-result v0
+
+    invoke-direct {v3, v4, v0}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
+
+    invoke-direct {v1, v2, v3}, Ljava/net/Proxy;-><init>(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V
+
+    return-object v1
 .end method
 
 .method private readBody(Ljava/net/HttpURLConnection;)Ljava/lang/String;

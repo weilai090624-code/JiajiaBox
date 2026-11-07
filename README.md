@@ -4,10 +4,11 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 
 ## 最新版本
 
-当前源码与成品对应 `0.0.5 beta`，内部版本号 `531`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前源码与成品对应 `0.0.5 beta`，内部版本号 `532`，包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
-- 成品：[JiajiaBox-0.0.5-beta-531-mx-nowhere.apk](https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.531)（GitHub Releases 附件）
-- SHA-256：`3be1ae16c59c5c5186cbbcc872070e750b447add28df4dc116201e56022365b3`
+- 成品：[JiajiaBox-0.0.5-beta-532-ipquality-proxy.apk](https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.532)（GitHub Releases 附件）
+- SHA-256：`38158f4fcd2f2553ae6be26cf15338f4472a6878a7dfa6fecbe76809f605d3cc`
+- IP 质量测试改为通过本机 mixed 端口的 SOCKS 代理查询；连接 VPN 时显示当前节点的出口 IP，不再使用本机直连 IP。
 - Nowhere 协议显示名修正为 `nowhere·udp` / `nowhere·tcp`；旧的 `newhere://` 链接仍作为兼容别名接受。
 - 新增 MX 协议支持：Mundo 伴生核心（mc1 / mundordp / jatp），`libmundoproxy.so` / `libtun2socks.so` 经作者同意（2026-11-06）原样分发；详见 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)。
 - 订阅适配：所有订阅拉取统一使用 `JiajiaBox/Android/0.0.5`；私有 DoH 使用标准 sing-box JSON 的 `dns.servers` / `dns.rules` 下发，客户端现有 `SubscriptionDns` 直接应用，说明见 [SUBSCRIPTION-SINGBOX.md](SUBSCRIPTION-SINGBOX.md)。
@@ -16,7 +17,7 @@ JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一�
 - 线程池收敛：9 个界面类各自创建的单线程池合并为进程级 4 线程共享池，静态常驻线程从 9 个降到 4 个。
 - 共享快照轮询：`ConnectionSnapshotCache` 窗口调整为 2 秒，连接卡与地球卡共享同一份 `/connections` 数据；`/globe-egress` 按 4 秒复用结果。
 - 安装兼容：差分打包默认关闭 APK v4 签名旁车文件，避免部分 OEM 安装器把 `.idsig` 误判为签名错误。
-- “关于”页显示内部版本号，本版为 `0.0.5 beta 531`。
+- “关于”页显示内部版本号，本版为 `0.0.5 beta 532`。
 - 保留应用图标与启动动画、台湾地区节点旗帜、延迟颜色阈值、Clash API / Yacd、VLESS Encryption（`mlkem768x25519plus`）等既有改动。
 - 保留 Nowhere、Trojan-Go、Mieru 与内置 `gvt1` 分流；xhttp 仍不在支持范围。
 - MX 协议通过可选的 Mundo 伴生核心接入；Mundo 作者已同意（2026-11-06）原样分发两个 `.so`，见 [MUNDO-PERMISSION.md](MUNDO-PERMISSION.md) 与 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)。
