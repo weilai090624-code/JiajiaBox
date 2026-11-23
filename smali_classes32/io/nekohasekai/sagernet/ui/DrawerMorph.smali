@@ -6,8 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lio/nekohasekai/sagernet/ui/DrawerMorph$State;,
-        Lio/nekohasekai/sagernet/ui/DrawerMorph$TouchShield;
+        Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
     }
 .end annotation
 
@@ -24,15 +23,150 @@
 .method public constructor <init>()V
     .registers 1
 
-    .line 19
+    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    return-void
+.end method
+
+.method static synthetic access$000(Landroid/widget/FrameLayout$LayoutParams;IILandroid/view/View;)V
+    .registers 4
+
+    .line 33
+    invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/DrawerMorph;->setPhysicalMargins(Landroid/widget/FrameLayout$LayoutParams;IILandroid/view/View;)V
+
+    return-void
+.end method
+
+.method static synthetic access$100(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
+    .registers 1
+
+    .line 33
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerMorph;->state(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static synthetic access$200(Landroid/view/View;)V
+    .registers 1
+
+    .line 33
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerMorph;->dropPaletteCache(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method static synthetic access$300(Landroid/view/View;)V
+    .registers 1
+
+    .line 33
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerMorph;->resetTransform(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method private static dropCache(Ljava/util/Map;Landroid/view/View;)V
+    .registers 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map<",
+            "**>;",
+            "Landroid/view/View;",
+            ")V"
+        }
+    .end annotation
+
+    .line 201
+    invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 202
+    instance-of v0, p1, Landroid/view/ViewGroup;
+
+    if-eqz v0, :cond_1a
+
+    .line 203
+    check-cast p1, Landroid/view/ViewGroup;
+
+    .line 204
+    const/4 v0, 0x0
+
+    :goto_a
+    invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_1a
+
+    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-static {p0, v1}, Lio/nekohasekai/sagernet/ui/DrawerMorph;->dropCache(Ljava/util/Map;Landroid/view/View;)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_a
+
+    .line 206
+    :cond_1a
+    return-void
+.end method
+
+.method private static dropPaletteCache(Landroid/view/View;)V
+    .registers 3
+
+    .line 194
+    :try_start_0
+    const-class v0, Lio/nekohasekai/sagernet/ui/RosePalette;
+
+    const-string v1, "states"
+
+    invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+
+    move-result-object v0
+
+    .line 195
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+
+    .line 196
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map;
+
+    .line 197
+    if-eqz v0, :cond_1a
+
+    invoke-static {v0, p0}, Lio/nekohasekai/sagernet/ui/DrawerMorph;->dropCache(Ljava/util/Map;Landroid/view/View;)V
+    :try_end_18
+    .catchall {:try_start_0 .. :try_end_18} :catchall_19
+
+    goto :goto_1a
+
+    .line 198
+    :catchall_19
+    move-exception p0
+
+    :cond_1a
+    :goto_1a
+    nop
+
+    .line 199
     return-void
 .end method
 
 .method private static lerp(IIF)I
     .registers 4
 
+    .line 214
     int-to-float v0, p0
 
     sub-int/2addr p1, p0
@@ -43,7 +177,6 @@
 
     add-float/2addr v0, p0
 
-    .line 428
     invoke-static {v0}, Ljava/lang/Math;->round(F)I
 
     move-result p0
@@ -54,7 +187,7 @@
 .method public static reset(Lio/nekohasekai/sagernet/ui/JJGlassCapsule;)V
     .registers 2
 
-    .line 71
+    .line 63
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerMorph;->state(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
 
     move-result-object p0
@@ -63,50 +196,44 @@
 
     const/4 v0, 0x1
 
-    .line 73
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->stop(Z)V
 
     :cond_a
     return-void
 .end method
 
-.method public static resetTransform(Landroid/view/View;)V
+.method private static resetTransform(Landroid/view/View;)V
     .registers 2
 
+    .line 213
     const/high16 v0, 0x3f800000    # 1.0f
 
-    .line 422
     invoke-virtual {p0, v0}, Landroid/view/View;->setAlpha(F)V
 
     const/4 v0, 0x0
 
-    .line 423
     invoke-virtual {p0, v0}, Landroid/view/View;->setTranslationX(F)V
 
-    .line 424
     invoke-virtual {p0, v0}, Landroid/view/View;->setTranslationY(F)V
 
     return-void
 .end method
 
-.method public static setPhysicalMargins(Landroid/widget/FrameLayout$LayoutParams;IILandroid/view/View;)V
+.method private static setPhysicalMargins(Landroid/widget/FrameLayout$LayoutParams;IILandroid/view/View;)V
     .registers 5
 
-    .line 408
+    .line 209
     iput p1, p0, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
 
-    .line 409
     iput p2, p0, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     const/4 p2, 0x0
 
-    .line 410
     iput p2, p0, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I
 
-    .line 411
     iput p2, p0, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
-    .line 412
+    .line 210
     invoke-virtual {p3}, Landroid/view/View;->getLayoutDirection()I
 
     move-result p3
@@ -120,6 +247,7 @@
     :cond_11
     const/4 v0, 0x0
 
+    .line 211
     :goto_12
     if-eqz v0, :cond_16
 
@@ -130,23 +258,25 @@
     :cond_16
     move p3, p1
 
-    .line 413
     :goto_17
     invoke-virtual {p0, p3}, Landroid/widget/FrameLayout$LayoutParams;->setMarginStart(I)V
 
-    if-nez v0, :cond_1d
+    if-eqz v0, :cond_1d
 
+    goto :goto_1e
+
+    :cond_1d
     const/4 p1, 0x0
 
-    .line 417
-    :cond_1d
+    :goto_1e
     invoke-virtual {p0, p1}, Landroid/widget/FrameLayout$LayoutParams;->setMarginEnd(I)V
 
+    .line 212
     return-void
 .end method
 
 .method public static start(Lio/nekohasekai/sagernet/ui/JJGlassCapsule;Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLkotlin/jvm/functions/Function0;)Landroid/animation/ValueAnimator;
-    .registers 23
+    .registers 24
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -163,64 +293,60 @@
         }
     .end annotation
 
+    .line 40
     move-object/from16 v0, p4
 
-    .line 38
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerMorph;->state(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
+    invoke-static/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/DrawerMorph;->state(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
 
     move-result-object v14
 
-    if-eqz p6, :cond_d
+    .line 42
+    if-eqz p6, :cond_c
 
-    if-nez p3, :cond_b
+    if-eqz p3, :cond_c
 
-    goto :goto_d
-
-    :cond_b
     const/4 v1, 0x0
 
-    goto :goto_f
+    goto :goto_e
 
-    :cond_d
-    :goto_d
+    :cond_c
     const/high16 v1, 0x3f800000    # 1.0f
 
-    :goto_f
-    if-nez p3, :cond_13
+    .line 43
+    :goto_e
+    if-nez p3, :cond_12
 
     const/4 v2, -0x1
 
-    goto :goto_19
+    goto :goto_18
 
-    .line 40
-    :cond_13
+    :cond_12
     invoke-virtual/range {p3 .. p3}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v2
 
     iget v2, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    :goto_19
-    if-eqz v14, :cond_3a
+    .line 45
+    :goto_18
+    if-eqz v14, :cond_39
 
-    .line 42
+    .line 46
     new-instance v1, Landroid/graphics/Rect;
 
     iget-object v2, v14, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->current:Landroid/graphics/Rect;
 
     invoke-direct {v1, v2}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
-    .line 43
     iget-object v2, v14, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->page:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getAlpha()F
 
     move-result v2
 
-    .line 44
     iget v3, v14, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->menuWidth:I
 
-    .line 45
+    .line 47
     new-instance v4, Landroid/graphics/Rect;
 
     iget-object v5, v14, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->layout:Landroid/graphics/Rect;
@@ -229,7 +355,6 @@
 
     const/4 v5, 0x0
 
-    .line 46
     invoke-virtual {v14, v5}, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->stop(Z)V
 
     move-object v6, v1
@@ -240,65 +365,66 @@
 
     move-object v8, v4
 
-    goto :goto_6e
+    goto :goto_6c
 
-    .line 51
-    :cond_3a
-    invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    .line 49
+    :cond_39
+    invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
 
     check-cast v3, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 52
-    new-instance v4, Landroid/graphics/Rect;
+    .line 50
+    iget v4, v3, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
 
-    iget v5, v3, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    if-lez v4, :cond_46
 
-    iget v6, v3, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+    iget v4, v3, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
+
+    goto :goto_4a
+
+    :cond_46
+    invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->getWidth()I
+
+    move-result v4
+
+    :goto_4a
+    iget v5, v3, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
+
+    if-lez v5, :cond_51
+
+    iget v5, v3, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
+
+    goto :goto_55
+
+    :cond_51
+    invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->getHeight()I
+
+    move-result v5
+
+    .line 51
+    :goto_55
+    new-instance v6, Landroid/graphics/Rect;
 
     iget v7, v3, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    iget v8, v3, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
-
-    if-lez v8, :cond_4f
-
-    iget v8, v3, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
-
-    goto :goto_53
-
-    :cond_4f
-    invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->getWidth()I
-
-    move-result v8
-
-    :goto_53
-    add-int/2addr v7, v8
-
     iget v8, v3, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    iget v9, v3, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
+    iget v9, v3, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    if-lez v9, :cond_5d
+    add-int/2addr v9, v4
 
-    iget v3, v3, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
+    iget v3, v3, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    goto :goto_61
+    add-int/2addr v3, v5
 
-    :cond_5d
-    invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->getHeight()I
+    invoke-direct {v6, v7, v8, v9, v3}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    move-result v3
-
-    :goto_61
-    add-int/2addr v8, v3
-
-    invoke-direct {v4, v5, v6, v7, v8}, Landroid/graphics/Rect;-><init>(IIII)V
-
-    .line 53
+    .line 52
     new-instance v3, Landroid/graphics/Rect;
 
-    invoke-direct {v3, v4}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+    invoke-direct {v3, v6}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
     move v11, v1
 
@@ -306,14 +432,12 @@
 
     move-object v8, v3
 
-    move-object v6, v4
-
-    .line 58
-    :goto_6e
+    .line 54
+    :goto_6c
     invoke-virtual {v8, v0}, Landroid/graphics/Rect;->union(Landroid/graphics/Rect;)V
 
-    .line 59
-    new-instance v1, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
+    .line 55
+    new-instance v15, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
 
     new-instance v7, Landroid/graphics/Rect;
 
@@ -325,7 +449,9 @@
 
     invoke-direct {v9, v0}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
-    move-object v2, p0
+    move-object v1, v15
+
+    move-object/from16 v2, p0
 
     move-object/from16 v3, p1
 
@@ -339,58 +465,58 @@
 
     invoke-direct/range {v1 .. v14}, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;-><init>(Lio/nekohasekai/sagernet/ui/JJGlassCapsule;Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZFILkotlin/jvm/functions/Function0;Lio/nekohasekai/sagernet/ui/DrawerMorph$State;)V
 
+    .line 57
     const v0, 0x7f0a0f48
 
-    .line 60
-    invoke-virtual {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setTag(ILjava/lang/Object;)V
+    move-object/from16 v1, p0
 
-    .line 62
-    :try_start_93
-    invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->prepare()V
+    invoke-virtual {v1, v0, v15}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setTag(ILjava/lang/Object;)V
 
-    .line 63
-    iget-object p0, v1, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->animator:Landroid/animation/ValueAnimator;
+    .line 58
+    :try_start_95
+    invoke-virtual {v15}, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->prepare()V
     :try_end_98
-    .catch Ljava/lang/RuntimeException; {:try_start_93 .. :try_end_98} :catch_99
+    .catch Ljava/lang/RuntimeException; {:try_start_95 .. :try_end_98} :catch_9b
 
-    return-object p0
+    .line 59
+    iget-object v0, v15, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->animator:Landroid/animation/ValueAnimator;
 
-    :catch_99
+    return-object v0
+
+    .line 58
+    :catch_9b
     move-exception v0
 
-    move-object p0, v0
+    move-object v1, v0
 
     const/4 v0, 0x1
 
-    .line 65
-    invoke-virtual {v1, v0}, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->stop(Z)V
+    invoke-virtual {v15, v0}, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->stop(Z)V
 
-    .line 66
-    throw p0
+    throw v1
 .end method
 
-.method public static state(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
+.method private static state(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
     .registers 2
 
+    .line 36
     const v0, 0x7f0a0f48
 
-    .line 26
     invoke-virtual {p0, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
     move-result-object p0
 
-    .line 27
     instance-of v0, p0, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
 
     if-eqz v0, :cond_e
 
-    .line 28
     check-cast p0, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
 
-    return-object p0
+    goto :goto_f
 
     :cond_e
     const/4 p0, 0x0
 
+    :goto_f
     return-object p0
 .end method

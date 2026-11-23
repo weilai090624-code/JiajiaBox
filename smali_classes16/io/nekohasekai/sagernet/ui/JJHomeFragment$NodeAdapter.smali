@@ -428,6 +428,16 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeAdapter;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
+
+    invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->requireContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0, p1}, Lio/nekohasekai/sagernet/ui/NodeSortHelper;->sortList(Landroid/content/Context;Ljava/util/List;)Ljava/util/List;
+
+    move-result-object p1
+
     .line 920
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/NodeActions;->sort(Ljava/util/List;)Ljava/util/List;
 

@@ -62,6 +62,7 @@ public final class NodeActions {
             row(column,pinned?"取消置顶":"置顶",()->{
                 d.dismiss();confirm(c,pinned?"取消置顶":"置顶",name,()->pin(fragment,node,c,!pinned));
             });
+            row(column,"编辑",()->{d.dismiss();edit(fragment,node,c);});
             row(column,"导出",()->{d.dismiss();confirm(c,"导出", "导出“"+name+"”的节点链接并选择分享方式？",()->export(c,node));});
             row(column,"删除",()->{d.dismiss();deleteConfirm(fragment,node);});
             row(column,"取消",d::dismiss);open(d,column);
@@ -101,6 +102,129 @@ public final class NodeActions {
             call(fragment,"refreshList",new Class<?>[0]);
             Toast.makeText(c,pin?"已置顶":"已取消置顶",Toast.LENGTH_SHORT).show();
         } catch(Exception e){Toast.makeText(c,"置顶操作失败",Toast.LENGTH_LONG).show();android.util.Log.e("NodeActions","Pin failed",e);}
+    }
+    private static void edit(Object fragment,Object node,Context c) {
+        try {
+            Object bean=call(node,"requireBean",new Class<?>[0]);
+            Dialog d=new Dialog(c);LinearLayout column=column(c,"编辑节点");
+
+            EditText name=field(c,column,"备注名",str(getField(bean,"name")));
+            EditText address=field(c,column,"服务器地址",str(getField(bean,"serverAddress")));
+            EditText port=field(c,column,"端口",str(getField(bean,"serverPort")));
+            EditText password=hasField(bean,"password")?field(c,column,"密码",str(getField(bean,"password"))):null;
+
+            LinearLayout actions=UiComponents.actions(c);
+            TextView cancel=new TextView(c);cancel.setText("取消");UiComponents.addAction(actions,cancel);
+            cancel.setOnClickListener(v->d.dismiss());
+            TextView save=new TextView(c);save.setText("保存");UiComponents.addAction(actions,save);
+            save.setOnClickListener(v->{
+                try {
+                    String host=address.getText().toString().trim();
+                    if(host.isEmpty())throw new IllegalStateException("服务器地址不能为空");
+                    int portValue;
+                    try{portValue=Integer.parseInt(port.getText().toString().trim());}
+                    catch(NumberFormatException nfe){throw new IllegalStateException("端口必须是数字");}
+                    if(portValue<1||portValue>65535)throw new IllegalStateException("端口超出范围");
+                    setField(bean,"name",name.getText().toString().trim());
+                    setField(bean,"serverAddress",host);
+                    setField(bean,"serverPort",Integer.valueOf(portValue));
+                    if(password!=null)setField(bean,"password",password.getText().toString());
+                    call(node,"putBean",new Class<?>[]{Class.forName("io.nekohasekai.sagernet.fmt.AbstractBean")},bean);
+                    saveNode(node);
+                    call(fragment,"refreshList",new Class<?>[0]);
+                    d.dismiss();
+                    Toast.makeText(c,"已保存 · 端口 "+lastSavedPort,Toast.LENGTH_SHORT).show();
+                } catch(Exception e){
+                    String reason=e instanceof IllegalStateException?e.getMessage():(e.getCause()!=null?e.getCause().getMessage():e.getMessage());
+                    Toast.makeText(c,"保存失败"+(reason==null?"":"："+reason),Toast.LENGTH_LONG).show();
+                    android.util.Log.e("NodeActions","Save node failed",e);
+                }
+            });
+            column.addView(actions);
+            open(d,column);
+        } catch(Exception e){
+            String reason=e.getCause()!=null?e.getCause().getMessage():e.getMessage();
+            Toast.makeText(c,"无法编辑此节点"+(reason==null?"":"："+reason),Toast.LENGTH_LONG).show();
+            android.util.Log.e("NodeActions","Edit failed",e);
+        }
+    }
+    private static Object getField(Object bean,String name) throws Exception {
+        Class<?> type=bean.getClass();
+        while(type!=null){try{return type.getField(name).get(bean);}catch(NoSuchFieldException ignored){type=type.getSuperclass();}}
+        return null;
+    }
+    private static boolean hasField(Object bean,String name) {
+        Class<?> type=bean.getClass();
+        while(type!=null){try{type.getField(name);return true;}catch(NoSuchFieldException ignored){type=type.getSuperclass();}}
+        return false;
+    }
+    private static void setField(Object bean,String name,Object value) throws Exception {
+        Class<?> type=bean.getClass();
+        while(type!=null){try{type.getField(name).set(bean,value);return;}catch(NoSuchFieldException ignored){type=type.getSuperclass();}}
+        throw new IllegalStateException("字段不可写："+name);
+    }
+    private static String str(Object value) {return value==null?"":String.valueOf(value);}
+    private static EditText field(Context c,LinearLayout column,String label,String value) {
+        TextView caption=new TextView(c);caption.setText(label);UiComponents.secondary(caption);
+        LinearLayout.LayoutParams clp=new LinearLayout.LayoutParams(-1,-2);clp.topMargin=UiComponents.dp(c,10);column.addView(caption,clp);
+        EditText input=new EditText(c);input.setSingleLine(true);input.setText(value);UiComponents.field(input);
+        LinearLayout.LayoutParams ilp=new LinearLayout.LayoutParams(-1,-2);ilp.topMargin=UiComponents.dp(c,4);column.addView(input,ilp);
+        return input;
+    }
+    private static void saveNode(Object node) throws Exception {
+        Class<?> database=Class.forName("io.nekohasekai.sagernet.database.SagerDatabase");
+        Object companion=database.getField("Companion").get(null);
+        Object dao=call(companion,"getProxyDao",new Class<?>[0]);
+        java.lang.reflect.Method single=null,batch=null,array=null;
+        for(java.lang.reflect.Method m:dao.getClass().getMethods()){
+            if(!"updateProxy".equals(m.getName())||m.getParameterCount()!=1)continue;
+            Class<?> param=m.getParameterTypes()[0];
+            if(param==List.class)batch=m;
+            else if(param.isArray())array=m;
+            else single=m;
+        }
+        if(single!=null){single.setAccessible(true);single.invoke(dao,node);}
+        else if(batch!=null){batch.setAccessible(true);batch.invoke(dao,Collections.singletonList(node));}
+        else if(array!=null){
+            Object holder=java.lang.reflect.Array.newInstance(array.getParameterTypes()[0].getComponentType(),1);
+            java.lang.reflect.Array.set(holder,0,node);
+            array.setAccessible(true);array.invoke(dao,holder);
+        }
+        else throw new IllegalStateException("找不到可用的节点更新接口");
+        notifyUpdate(node);
+        Object reloaded=call(dao,"getById",new Class<?>[]{long.class},id(node));
+        if(reloaded==null)throw new IllegalStateException("保存后未能读回节点");
+        Object savedBean=call(reloaded,"requireBean",new Class<?>[0]);
+        Object savedPort=getField(savedBean,"serverPort");
+        if(savedPort==null)throw new IllegalStateException("数据库里端口为空");
+        lastSavedPort=String.valueOf(savedPort);
+    }
+    private static String lastSavedPort="";
+    // ProfileManager.updateProfile 内部同样是 dao.updateProxy + 遍历监听者通知；这里补上通知那段
+    private static void notifyUpdate(Object node) {
+        try {
+            Class<?> pm=Class.forName("io.nekohasekai.sagernet.database.ProfileManager");
+            Object manager=pm.getField("INSTANCE").get(null);
+            Class<?> entity=Class.forName("io.nekohasekai.sagernet.database.ProxyEntity");
+            Class<?> cont=Class.forName("kotlin.coroutines.Continuation");
+            Method up=pm.getMethod("updateProfile",entity,cont);
+            up.setAccessible(true);
+            up.invoke(manager,node,null);
+        } catch(Throwable ignored) {
+            // 协程挂起会抛异常，但 dao.updateProxy 已在前面完成
+        }
+    }
+    private static void methodSet(Method m,boolean accessible) {try{m.setAccessible(accessible);}catch(Exception ignored){}}
+    private static void openSettings(Context c,Object node) {
+        try {
+            Intent intent=(Intent)call(node,"settingIntent",new Class<?>[]{Context.class,boolean.class},c,Boolean.FALSE);
+            if(intent==null)throw new IllegalStateException("该节点没有可编辑的设置页");
+            c.startActivity(intent);
+        } catch(Exception e){
+            String reason=e.getCause()!=null?e.getCause().getMessage():e.getMessage();
+            Toast.makeText(c,"无法打开编辑页面"+(reason==null?"":"："+reason),Toast.LENGTH_LONG).show();
+            android.util.Log.e("NodeActions","Open settings failed",e);
+        }
     }
     private static void export(Context c,Object node) {
         try {

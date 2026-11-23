@@ -1209,18 +1209,17 @@
 
     .line 131
     .local v6, "packageName":Ljava/lang/String;
-
-    :try_start_excl
+    :try_start_e6
     invoke-virtual {v4, v6}, Landroid/net/VpnService$Builder;->addDisallowedApplication(Ljava/lang/String;)Landroid/net/VpnService$Builder;
-    :try_end_excl
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_excl .. :try_end_excl} :catch_excl
+    :try_end_e9
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_e6 .. :try_end_e9} :catch_ea
 
-    goto :goto_excl
+    goto :goto_eb
 
-    :catch_excl
+    :catch_ea
     move-exception v0
 
-    :goto_excl
+    :goto_eb
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getProxyApps()Z
@@ -1276,7 +1275,7 @@
 
     const/4 v13, 0x1
 
-    if-eqz v12, :cond_11e
+    if-eqz v12, :cond_123
 
     move-object v12, v10
 
@@ -1286,24 +1285,24 @@
 
     move-result v12
 
-    if-eqz v12, :cond_11e
+    if-eqz v12, :cond_123
 
     const/4 v2, 0x0
 
-    goto :goto_153
+    goto :goto_158
 
     .line 223
-    :cond_11e
+    :cond_123
     invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v12
 
-    :goto_122
+    :goto_127
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_152
+    if-eqz v14, :cond_157
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1329,73 +1328,73 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_14a
+    if-eqz v2, :cond_14f
 
     iget-object v2, v2, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocol:Ljava/lang/Integer;
 
-    if-nez v2, :cond_142
+    if-nez v2, :cond_147
 
-    goto :goto_14a
+    goto :goto_14f
 
-    :cond_142
+    :cond_147
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
-    if-ne v2, v13, :cond_14a
+    if-ne v2, v13, :cond_14f
 
     const/4 v2, 0x1
 
-    goto :goto_14b
+    goto :goto_150
 
-    :cond_14a
-    :goto_14a
+    :cond_14f
+    :goto_14f
     const/4 v2, 0x0
 
     .line 223
     .end local v15    # "it":Ljava/util/List;
     .end local v16    # "$i$a$-any-VpnService$startVpn$needBypassRootUid$1":I
-    :goto_14b
-    if-eqz v2, :cond_14f
+    :goto_150
+    if-eqz v2, :cond_154
 
     const/4 v2, 0x1
 
-    goto :goto_153
+    goto :goto_158
 
-    :cond_14f
+    :cond_154
     const/16 v2, 0x1d
 
-    goto :goto_122
+    goto :goto_127
 
     .line 224
     .end local v14    # "element$iv":Ljava/lang/Object;
-    :cond_152
+    :cond_157
     const/4 v2, 0x0
 
     .line 134
     .end local v10    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v11    # "$i$f$any":I
-    :goto_153
+    :goto_158
     nop
 
     .line 138
     .local v2, "needBypassRootUid":Z
-    if-nez v8, :cond_15f
+    if-nez v8, :cond_164
 
-    if-eqz v2, :cond_159
+    if-eqz v2, :cond_15e
 
-    goto :goto_15f
+    goto :goto_164
 
-    :cond_159
+    :cond_15e
     move/from16 v16, v2
 
     move/from16 v19, v5
 
-    goto/16 :goto_2b9
+    goto/16 :goto_2be
 
     .line 139
-    :cond_15f
-    :goto_15f
+    :cond_164
+    :goto_164
     new-instance v10, Ljava/util/LinkedHashSet;
 
     invoke-direct {v10}, Ljava/util/LinkedHashSet;-><init>()V
@@ -1414,7 +1413,7 @@
 
     .line 151
     .local v11, "allApps$delegate":Lkotlin/Lazy;
-    if-eqz v8, :cond_1eb
+    if-eqz v8, :cond_1f0
 
     .line 152
     sget-object v12, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1472,12 +1471,12 @@
 
     move-result-object v16
 
-    :goto_19f
+    :goto_1a4
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_1bf
+    if-eqz v17, :cond_1c4
 
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1504,18 +1503,18 @@
     .line 226
     .end local v17    # "it":Ljava/lang/String;
     .end local v18    # "$i$a$-filter-VpnService$startVpn$2":I
-    if-nez v19, :cond_1bc
+    if-nez v19, :cond_1c1
 
     invoke-interface {v13, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    :cond_1bc
+    :cond_1c1
     move-object/from16 v3, p2
 
-    goto :goto_19f
+    goto :goto_1a4
 
     .line 227
     .end local v3    # "element$iv$iv":Ljava/lang/Object;
-    :cond_1bf
+    :cond_1c4
     nop
 
     .end local v13    # "destination$iv$iv":Ljava/util/Collection;
@@ -1536,9 +1535,9 @@
     invoke-interface {v10, v3}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
     .line 153
-    if-eqz v0, :cond_1e9
+    if-eqz v0, :cond_1ee
 
-    if-eqz v2, :cond_1e9
+    if-eqz v2, :cond_1ee
 
     .line 154
     invoke-static {v11}, Lio/nekohasekai/sagernet/bg/VpnService;->startVpn$lambda$6(Lkotlin/Lazy;)Ljava/util/List;
@@ -1575,16 +1574,16 @@
     move v3, v0
 
     .end local v3    # "individualNew":Ljava/util/List;
-    goto :goto_1f6
+    goto :goto_1fb
 
     .line 165
-    :cond_1e9
+    :cond_1ee
     move v3, v0
 
-    goto :goto_1f6
+    goto :goto_1fb
 
     .line 161
-    :cond_1eb
+    :cond_1f0
     invoke-static {v11}, Lio/nekohasekai/sagernet/bg/VpnService;->startVpn$lambda$6(Lkotlin/Lazy;)Ljava/util/List;
 
     move-result-object v3
@@ -1601,7 +1600,7 @@
     .line 165
     .end local v0    # "bypass":Z
     .local v3, "bypass":Z
-    :goto_1f6
+    :goto_1fb
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -1622,14 +1621,14 @@
     invoke-interface {v0, v6}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     .line 170
-    if-nez v3, :cond_20b
+    if-nez v3, :cond_210
 
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     invoke-interface {v0, v6}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 171
-    :cond_20b
+    :cond_210
     nop
 
     .line 167
@@ -1651,12 +1650,12 @@
 
     move-result-object v14
 
-    :goto_215
+    :goto_21a
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_24b
+    if-eqz v0, :cond_250
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1679,32 +1678,32 @@
     nop
 
     .line 173
-    if-eqz v3, :cond_22d
+    if-eqz v3, :cond_232
 
     .line 174
-    :try_start_229
+    :try_start_22e
     invoke-virtual {v4, v2}, Landroid/net/VpnService$Builder;->addDisallowedApplication(Ljava/lang/String;)Landroid/net/VpnService$Builder;
 
-    goto :goto_230
+    goto :goto_235
 
     .line 176
-    :cond_22d
+    :cond_232
     invoke-virtual {v4, v2}, Landroid/net/VpnService$Builder;->addAllowedApplication(Ljava/lang/String;)Landroid/net/VpnService$Builder;
 
     .line 178
-    :goto_230
+    :goto_235
     invoke-interface {v7, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_233
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_229 .. :try_end_233} :catch_238
+    :try_end_238
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_22e .. :try_end_238} :catch_23d
 
     move-object/from16 v18, v2
 
     move/from16 v19, v5
 
-    goto :goto_245
+    goto :goto_24a
 
     .line 179
-    :catch_238
+    :catch_23d
     move-exception v0
 
     .line 180
@@ -1727,7 +1726,7 @@
 
     .line 182
     .end local v0    # "ex":Landroid/content/pm/PackageManager$NameNotFoundException;
-    :goto_245
+    :goto_24a
     nop
 
     .line 228
@@ -1738,14 +1737,14 @@
     move/from16 v5, v19
 
     .end local v15    # "element$iv":Ljava/lang/Object;
-    goto :goto_215
+    goto :goto_21a
 
     .line 229
     .end local v16    # "needBypassRootUid":Z
     .end local v19    # "ipv6Mode":I
     .local v2, "needBypassRootUid":Z
     .restart local v5    # "ipv6Mode":I
-    :cond_24b
+    :cond_250
     move/from16 v16, v2
 
     move/from16 v19, v5
@@ -1759,7 +1758,7 @@
     .restart local v19    # "ipv6Mode":I
     const-string v0, ", "
 
-    if-eqz v3, :cond_286
+    if-eqz v3, :cond_28b
 
     .line 185
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -1810,10 +1809,10 @@
 
     invoke-virtual {v2, v0}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
-    goto :goto_2b8
+    goto :goto_2bd
 
     .line 187
-    :cond_286
+    :cond_28b
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1866,17 +1865,17 @@
     .end local v7    # "added":Ljava/util/List;
     .end local v10    # "individual":Ljava/util/Set;
     .end local v11    # "allApps$delegate":Lkotlin/Lazy;
-    :goto_2b8
+    :goto_2bd
     move v0, v3
 
     .end local v3    # "bypass":Z
     .local v0, "bypass":Z
-    :goto_2b9
+    :goto_2be
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x1d
 
-    if-lt v2, v3, :cond_2d6
+    if-lt v2, v3, :cond_2db
 
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -1884,7 +1883,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2d6
+    if-eqz v2, :cond_2db
 
     .line 192
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1902,7 +1901,7 @@
     invoke-virtual {v4, v2}, Landroid/net/VpnService$Builder;->setHttpProxy(Landroid/net/ProxyInfo;)Landroid/net/VpnService$Builder;
 
     .line 195
-    :cond_2d6
+    :cond_2db
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/DataStore;->getMeteredNetwork()Z
@@ -1916,19 +1915,19 @@
 
     const/16 v3, 0x1d
 
-    if-lt v2, v3, :cond_2e9
+    if-lt v2, v3, :cond_2ee
 
     iget-boolean v2, v1, Lio/nekohasekai/sagernet/bg/VpnService;->metered:Z
 
     invoke-virtual {v4, v2}, Landroid/net/VpnService$Builder;->setMetered(Z)Landroid/net/VpnService$Builder;
 
     .line 197
-    :cond_2e9
+    :cond_2ee
     invoke-virtual {v4}, Landroid/net/VpnService$Builder;->establish()Landroid/os/ParcelFileDescriptor;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2fb
+    if-eqz v2, :cond_300
 
     iput-object v2, v1, Lio/nekohasekai/sagernet/bg/VpnService;->conn:Landroid/os/ParcelFileDescriptor;
 
@@ -1944,7 +1943,7 @@
     return v2
 
     .line 197
-    :cond_2fb
+    :cond_300
     new-instance v2, Lio/nekohasekai/sagernet/bg/VpnService$NullConnectionException;
 
     invoke-direct {v2, v1}, Lio/nekohasekai/sagernet/bg/VpnService$NullConnectionException;-><init>(Lio/nekohasekai/sagernet/bg/VpnService;)V

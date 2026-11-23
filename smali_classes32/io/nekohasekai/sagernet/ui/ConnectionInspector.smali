@@ -1745,7 +1745,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_plain
+    if-eqz v0, :cond_2b
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
@@ -1753,7 +1753,7 @@
 
     sget-object v2, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->globeCached:Lorg/json/JSONObject;
 
-    if-eqz v2, :cond_fetch
+    if-eqz v2, :cond_1a
 
     sget-wide v3, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->globeCachedAt:J
 
@@ -1763,11 +1763,11 @@
 
     cmp-long v5, v0, v3
 
-    if-gez v5, :cond_fetch
+    if-gez v5, :cond_1a
 
     return-object v2
 
-    :cond_fetch
+    :cond_1a
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->endpoint(Landroid/content/Context;)Lorg/json/JSONObject;
 
     move-result-object v0
@@ -1786,7 +1786,7 @@
 
     return-object v0
 
-    :cond_plain
+    :cond_2b
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->endpoint(Landroid/content/Context;)Lorg/json/JSONObject;
 
     move-result-object p0

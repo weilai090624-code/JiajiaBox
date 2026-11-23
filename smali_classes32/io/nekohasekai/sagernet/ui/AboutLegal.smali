@@ -62,7 +62,28 @@
 .method public static append(Landroid/app/Activity;Landroid/widget/LinearLayout;)V
     .registers 6
 
+    .line 44
+    const-string v0, "\u5b98\u65b9\u7f51\u7ad9"
+
+    invoke-static {p0, p1, v0}, Lio/nekohasekai/sagernet/ui/AboutLegal;->card(Landroid/app/Activity;Landroid/widget/LinearLayout;Ljava/lang/String;)Landroid/widget/LinearLayout;
+
+    move-result-object v0
+
     .line 45
+    const-string v1, "JiajiaBox \u5b98\u65b9\u7ad9\u70b9 \u00b7 \u53d1\u5e03\u4e0e\u66f4\u65b0\u5165\u53e3"
+
+    const-string v2, "https://linjiajia.org"
+
+    const-string v3, "linjiajia.org"
+
+    invoke-static {p0, v0, v3, v1, v2}, Lio/nekohasekai/sagernet/ui/AboutLegal;->link(Landroid/app/Activity;Landroid/widget/LinearLayout;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 46
+    const-string v1, "\u6b22\u8fce\u8bbf\u95ee linjiajia.org \u83b7\u53d6\u6700\u65b0\u7248\u672c\u3001\u516c\u544a\u4e0e\u4f7f\u7528\u8bf4\u660e\u3002"
+
+    invoke-static {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/AboutLegal;->paragraph(Landroid/app/Activity;Landroid/widget/LinearLayout;Ljava/lang/String;)V
+
+    .line 47
     const-string v0, "JiajiaBox \u5f00\u6e90\u58f0\u660e"
 
     invoke-static {p0, p1, v0}, Lio/nekohasekai/sagernet/ui/AboutLegal;->card(Landroid/app/Activity;Landroid/widget/LinearLayout;Ljava/lang/String;)Landroid/widget/LinearLayout;

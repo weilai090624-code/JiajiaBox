@@ -180,7 +180,7 @@
     .line 642
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->label:I
 
-    packed-switch v0, :pswitch_data_184
+    packed-switch v0, :pswitch_data_190
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -327,9 +327,9 @@
 
     const v8, 0x1010038
 
-    packed-switch v6, :pswitch_data_18a
+    packed-switch v6, :pswitch_data_196
 
-    goto :goto_e4
+    goto :goto_f1
 
     .line 681
     :pswitch_77
@@ -385,7 +385,7 @@
 
     move-result v4
 
-    goto :goto_e4
+    goto :goto_f1
 
     .line 676
     :pswitch_a2
@@ -400,7 +400,7 @@
 
     move-result v4
 
-    goto :goto_e4
+    goto :goto_f1
 
     .line 671
     :pswitch_ad
@@ -437,19 +437,19 @@
 
     const/16 v6, 0x96
 
-    if-le v5, v6, :cond_c0
+    if-le v5, v6, :cond_d4
 
     const v2, 0x7f0601c7
 
-    :cond_c0
+    :cond_d4
     invoke-static {v0, v2}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getColour(Landroid/content/Context;I)I
 
     move-result v4
 
-    goto :goto_e4
+    goto :goto_f1
 
     .line 666
-    :pswitch_cc
+    :pswitch_d9
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     const v5, 0x7f1300af
@@ -463,10 +463,10 @@
 
     move-result v4
 
-    goto :goto_e4
+    goto :goto_f1
 
     .line 661
-    :pswitch_da
+    :pswitch_e7
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->$profile:Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getError()Ljava/lang/String;
@@ -479,7 +479,7 @@
     move-result v4
 
     .line 688
-    :goto_e4
+    :goto_f1
     new-instance v2, Landroid/text/SpannableStringBuilder;
 
     invoke-direct {v2}, Landroid/text/SpannableStringBuilder;-><init>()V
@@ -662,17 +662,15 @@
 
     return-object v5
 
-    nop
-
-    :pswitch_data_184
+    :pswitch_data_190
     .packed-switch 0x0
         :pswitch_10
     .end packed-switch
 
-    :pswitch_data_18a
+    :pswitch_data_196
     .packed-switch -0x1
-        :pswitch_da
-        :pswitch_cc
+        :pswitch_e7
+        :pswitch_d9
         :pswitch_ad
         :pswitch_a2
         :pswitch_77

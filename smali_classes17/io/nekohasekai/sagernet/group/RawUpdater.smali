@@ -332,7 +332,7 @@
 
     const/4 v7, 0x0
 
-    packed-switch v3, :pswitch_data_870
+    packed-switch v3, :pswitch_data_872
 
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v12    # "$result":Ljava/lang/Object;
@@ -351,7 +351,7 @@
 
     move-object/from16 v24, v12
 
-    goto/16 :goto_853
+    goto/16 :goto_855
 
     :pswitch_40
     iget v3, v1, Lio/nekohasekai/sagernet/group/RawUpdater$doUpdate$1;->I$0:I
@@ -404,7 +404,7 @@
 
     move-object v3, v11
 
-    goto/16 :goto_82d
+    goto/16 :goto_82f
 
     .end local v3    # "changed":I
     .end local v4    # "byUser":Z
@@ -440,7 +440,7 @@
     .local v9, "proxyGroup":Lio/nekohasekai/sagernet/database/ProxyGroup;
     invoke-static {v12}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_342
+    goto/16 :goto_344
 
     .end local v3    # "byUser":Z
     .end local v4    # "proxies":Ljava/util/List;
@@ -484,7 +484,7 @@
 
     const/4 v0, 0x2
 
-    goto/16 :goto_21f
+    goto/16 :goto_221
 
     .end local v3    # "byUser":Z
     .end local v4    # "response":Llibcore/HTTPResponse;
@@ -775,7 +775,7 @@
     const/4 v15, 0x0
 
     .local v0, "proxies":Ljava/util/List;
-    goto/16 :goto_270
+    goto/16 :goto_272
 
     .end local v10    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
     .local v0, "contentText":Ljava/lang/String;
@@ -1067,13 +1067,13 @@
 
     move-result-object v3
 
-    if-ne v3, v13, :cond_218
+    if-ne v3, v13, :cond_21a
 
     .line 40
     return-object v13
 
     .line 72
-    :cond_218
+    :cond_21a
     move-object v8, v11
 
     move-object v5, v15
@@ -1093,10 +1093,10 @@
     .local v6, "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
     .local v8, "this":Lio/nekohasekai/sagernet/group/RawUpdater;
     .local v11, "proxyGroup":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :goto_21f
+    :goto_221
     check-cast v3, Ljava/util/List;
 
-    if-eqz v3, :cond_857
+    if-eqz v3, :cond_859
 
     .line 75
     .local v3, "proxies":Ljava/util/List;
@@ -1123,7 +1123,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_245
+    if-eqz v7, :cond_247
 
     const-string v9, "Subscription #"
 
@@ -1137,24 +1137,24 @@
 
     const/4 v7, 0x1
 
-    if-ne v0, v7, :cond_248
+    if-ne v0, v7, :cond_24a
 
     const/4 v0, 0x1
 
-    goto :goto_249
+    goto :goto_24b
 
-    :cond_245
+    :cond_247
     const/4 v7, 0x1
 
     const/4 v10, 0x0
 
     const/4 v15, 0x0
 
-    :cond_248
+    :cond_24a
     const/4 v0, 0x0
 
-    :goto_249
-    if-eqz v0, :cond_26c
+    :goto_24b
+    if-eqz v0, :cond_26e
 
     .line 80
     sget-object v0, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
@@ -1174,7 +1174,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_26c
+    if-nez v4, :cond_26e
 
     .line 82
     sget-object v4, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
@@ -1192,14 +1192,14 @@
 
     move-result v4
 
-    if-nez v4, :cond_26c
+    if-nez v4, :cond_26e
 
     .line 84
     invoke-virtual {v11, v0}, Lio/nekohasekai/sagernet/database/ProxyGroup;->setName(Ljava/lang/String;)V
 
     .line 90
     .end local v0    # "remoteName":Ljava/lang/String;
-    :cond_26c
+    :cond_26e
     move-object v0, v3
 
     move-object v9, v11
@@ -1211,7 +1211,7 @@
     .local v0, "proxies":Ljava/util/List;
     .local v3, "byUser":Z
     .restart local v9    # "proxyGroup":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :goto_270
+    :goto_272
     new-instance v4, Ljava/util/LinkedHashMap;
 
     invoke-direct {v4}, Ljava/util/LinkedHashMap;-><init>()V
@@ -1223,12 +1223,12 @@
     move-result-object v11
 
     .end local v0    # "proxies":Ljava/util/List;
-    :goto_279
+    :goto_27b
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_30c
+    if-eqz v0, :cond_30e
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1250,12 +1250,12 @@
 
     .line 94
     .local v7, "name":Ljava/lang/String;
-    :goto_28d
+    :goto_28f
     invoke-virtual {v4, v7}, Ljava/util/LinkedHashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v18
 
-    if-eqz v18, :cond_2fb
+    if-eqz v18, :cond_2fd
 
     .line 95
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1368,12 +1368,12 @@
 
     const/4 v15, 0x0
 
-    goto :goto_28d
+    goto :goto_28f
 
     .line 101
     .end local v10    # "index":I
     .restart local v17    # "index":I
-    :cond_2fb
+    :cond_2fd
     move-object v2, v4
 
     check-cast v2, Ljava/util/Map;
@@ -1392,13 +1392,13 @@
 
     const/4 v15, 0x0
 
-    goto/16 :goto_279
+    goto/16 :goto_27b
 
     .line 103
     .end local v0    # "proxy":Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .end local v7    # "name":Ljava/lang/String;
     .end local v17    # "index":I
-    :cond_30c
+    :cond_30e
     invoke-virtual {v4}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
 
     move-result-object v0
@@ -1422,7 +1422,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_343
+    if-eqz v0, :cond_345
 
     invoke-virtual {v9}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getId()J
 
@@ -1455,17 +1455,17 @@
     move-result-object v0
 
     .end local v8    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
-    if-ne v0, v13, :cond_342
+    if-ne v0, v13, :cond_344
 
     .line 40
     return-object v13
 
     .line 107
-    :cond_342
-    :goto_342
+    :cond_344
+    :goto_344
     nop
 
-    :cond_343
+    :cond_345
     sget-object v0, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getProxyDao()Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
@@ -1496,7 +1496,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4ab
+    if-eqz v2, :cond_4ad
 
     .line 110
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -1543,12 +1543,12 @@
     move-result-object v11
 
     .end local v4    # "proxies":Ljava/util/List;
-    :goto_389
+    :goto_38b
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_461
+    if-eqz v4, :cond_463
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1584,7 +1584,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_44b
+    if-nez v11, :cond_44d
 
     .line 116
     move-object v11, v2
@@ -1601,7 +1601,7 @@
 
     move-result v15
 
-    if-eqz v15, :cond_422
+    if-eqz v15, :cond_424
 
     .line 118
     invoke-virtual {v8, v7}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1662,7 +1662,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_41f
+    if-nez v15, :cond_421
 
     .line 120
     new-instance v15, Ljava/lang/StringBuilder;
@@ -1707,29 +1707,29 @@
 
     invoke-interface {v12, v7, v15}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_424
+    goto :goto_426
 
     .line 119
     .restart local v12    # "name":Ljava/lang/String;
-    :cond_41f
+    :cond_421
     move-object/from16 v18, v12
 
     .end local v12    # "name":Ljava/lang/String;
     .restart local v18    # "name":Ljava/lang/String;
-    goto :goto_424
+    goto :goto_426
 
     .line 117
     .end local v18    # "name":Ljava/lang/String;
     .end local v24    # "$result":Ljava/lang/Object;
     .local v12, "$result":Ljava/lang/Object;
-    :cond_422
+    :cond_424
     move-object/from16 v24, v12
 
     .line 124
     .end local v7    # "proxy":Lmoe/matsuri/nb4a/Protocols$Deduplication;
     .end local v12    # "$result":Ljava/lang/Object;
     .restart local v24    # "$result":Ljava/lang/Object;
-    :goto_424
+    :goto_426
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1768,14 +1768,14 @@
     .end local v11    # "index":I
     invoke-static {v4}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
-    goto :goto_45b
+    goto :goto_45d
 
     .line 126
     .end local v24    # "$result":Ljava/lang/Object;
     .restart local v4    # "_proxy":Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .restart local v7    # "proxy":Lmoe/matsuri/nb4a/Protocols$Deduplication;
     .restart local v12    # "$result":Ljava/lang/Object;
-    :cond_44b
+    :cond_44d
     move-object/from16 v24, v12
 
     const/16 v12, 0x29
@@ -1796,17 +1796,17 @@
 
     .end local v4    # "_proxy":Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .end local v7    # "proxy":Lmoe/matsuri/nb4a/Protocols$Deduplication;
-    :goto_45b
+    :goto_45d
     move-object/from16 v11, v17
 
     move-object/from16 v12, v24
 
-    goto/16 :goto_389
+    goto/16 :goto_38b
 
     .line 129
     .end local v24    # "$result":Ljava/lang/Object;
     .restart local v12    # "$result":Ljava/lang/Object;
-    :cond_461
+    :cond_463
     move-object/from16 v24, v12
 
     .end local v12    # "$result":Ljava/lang/Object;
@@ -1865,12 +1865,12 @@
     move-result-object v11
 
     .end local v2    # "$this$mapTo$iv$iv":Ljava/lang/Iterable;
-    :goto_48e
+    :goto_490
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4a4
+    if-eqz v2, :cond_4a6
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1896,11 +1896,11 @@
     .end local v14    # "$i$a$-map-RawUpdater$doUpdate$3":I
     invoke-interface {v7, v12}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_48e
+    goto :goto_490
 
     .line 817
     .end local v2    # "item$iv$iv":Ljava/lang/Object;
-    :cond_4a4
+    :cond_4a6
     nop
 
     .end local v7    # "destination$iv$iv":Ljava/util/Collection;
@@ -1917,18 +1917,18 @@
     move-object v4, v2
 
     .local v4, "proxies":Ljava/util/List;
-    goto :goto_4ad
+    goto :goto_4af
 
     .line 109
     .end local v24    # "$result":Ljava/lang/Object;
     .local v12, "$result":Ljava/lang/Object;
-    :cond_4ab
+    :cond_4ad
     move-object/from16 v24, v12
 
     .line 133
     .end local v12    # "$result":Ljava/lang/Object;
     .restart local v24    # "$result":Ljava/lang/Object;
-    :goto_4ad
+    :goto_4af
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -2002,12 +2002,12 @@
     move-result-object v12
 
     .end local v2    # "$this$associateByTo$iv$iv":Ljava/lang/Iterable;
-    :goto_4ea
+    :goto_4ec
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_500
+    if-eqz v2, :cond_502
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2033,11 +2033,11 @@
     .end local v15    # "$i$a$-associateBy-RawUpdater$doUpdate$nameMap$1":I
     invoke-interface {v8, v14, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_4ea
+    goto :goto_4ec
 
     .line 823
     .end local v2    # "element$iv$iv":Ljava/lang/Object;
-    :cond_500
+    :cond_502
     nop
 
     .line 819
@@ -2115,12 +2115,12 @@
     move-result-object v15
 
     .end local v0    # "$this$forEach$iv$iv$iv":Ljava/lang/Iterable;
-    :goto_535
+    :goto_537
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_569
+    if-eqz v0, :cond_56b
 
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2152,16 +2152,16 @@
 
     move-result v19
 
-    if-eqz v19, :cond_556
+    if-eqz v19, :cond_558
 
     invoke-static {v8, v0}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
 
     move-result-object v19
 
-    goto :goto_55d
+    goto :goto_55f
 
     .end local v8    # "name":Ljava/lang/String;
-    :cond_556
+    :cond_558
     const/4 v8, 0x0
 
     .line 145
@@ -2177,12 +2177,12 @@
     const/16 v19, 0x0
 
     .line 147
-    :goto_55d
+    :goto_55f
     nop
 
     .line 832
     .end local v17    # "$i$a$-mapNotNull-RawUpdater$doUpdate$toReplace$1":I
-    if-eqz v19, :cond_566
+    if-eqz v19, :cond_568
 
     move-object/from16 v0, v19
 
@@ -2198,15 +2198,15 @@
     .end local v0    # "it$iv$iv":Ljava/lang/Object;
     .end local v8    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
     .end local v16    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
-    :cond_566
+    :cond_568
     move/from16 v8, v18
 
-    goto :goto_535
+    goto :goto_537
 
     .line 835
     .end local v18    # "$i$f$mapNotNull":I
     .local v8, "$i$f$mapNotNull":I
-    :cond_569
+    :cond_56b
     move/from16 v18, v8
 
     .line 836
@@ -2353,12 +2353,12 @@
     move-result-object v18
 
     .end local v14    # "$this$mapTo$iv$iv":Ljava/lang/Iterable;
-    :goto_5dd
+    :goto_5df
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_5f7
+    if-eqz v14, :cond_5f9
 
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2388,11 +2388,11 @@
     .end local v20    # "$i$a$-map-RawUpdater$doUpdate$deleted$1":I
     invoke-interface {v13, v14}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_5dd
+    goto :goto_5df
 
     .line 840
     .end local p4    # "item$iv$iv":Ljava/lang/Object;
-    :cond_5f7
+    :cond_5f9
     nop
 
     .end local v13    # "destination$iv$iv":Ljava/util/Collection;
@@ -2430,12 +2430,12 @@
 
     .end local v16    # "changed":I
     .local v2, "changed":I
-    :goto_60c
+    :goto_60e
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v16
 
-    if-eqz v16, :cond_74f
+    if-eqz v16, :cond_751
 
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2474,7 +2474,7 @@
 
     move-result v16
 
-    if-eqz v16, :cond_6c4
+    if-eqz v16, :cond_6c6
 
     .line 162
     invoke-interface {v0, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2525,7 +2525,7 @@
     move-result v5
 
     .end local v10    # "existsBean":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    if-nez v5, :cond_67f
+    if-nez v5, :cond_681
 
     .line 169
     add-int/lit8 v2, v2, 0x1
@@ -2568,19 +2568,19 @@
 
     invoke-virtual {v0, v5}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
-    goto/16 :goto_73e
+    goto/16 :goto_740
 
     .line 177
     .restart local v0    # "entity":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .restart local v13    # "bean":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    :cond_67f
+    :cond_681
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getUserOrder()J
 
     move-result-wide v22
 
     cmp-long v5, v22, v14
 
-    if-eqz v5, :cond_6aa
+    if-eqz v5, :cond_6ac
 
     .line 178
     invoke-virtual {v0, v13}, Lio/nekohasekai/sagernet/database/ProxyEntity;->putBean(Lio/nekohasekai/sagernet/fmt/AbstractBean;)Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -2616,10 +2616,10 @@
 
     invoke-virtual {v0, v5}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
-    goto/16 :goto_73e
+    goto/16 :goto_740
 
     .line 186
-    :cond_6aa
+    :cond_6ac
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -2643,7 +2643,7 @@
     invoke-virtual {v0, v5}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .end local v3    # "name":Ljava/lang/String;
-    goto/16 :goto_73e
+    goto/16 :goto_740
 
     .line 190
     .end local v16    # "duplicate":Ljava/util/ArrayList;
@@ -2654,7 +2654,7 @@
     .restart local v5    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
     .local v10, "duplicate":Ljava/util/ArrayList;
     .restart local v13    # "bean":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    :cond_6c4
+    :cond_6c6
     move-object/from16 v19, v0
 
     move-object/from16 v21, v5
@@ -2801,7 +2801,7 @@
 
     .line 200
     .end local v3    # "name":Ljava/lang/String;
-    :goto_73e
+    :goto_740
     nop
 
     .end local v14    # "userOrder":J
@@ -2820,7 +2820,7 @@
     move-object/from16 v5, v21
 
     .restart local v14    # "userOrder":J
-    goto/16 :goto_60c
+    goto/16 :goto_60e
 
     .line 160
     .end local v16    # "duplicate":Ljava/util/ArrayList;
@@ -2833,7 +2833,7 @@
     .restart local v5    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
     .local v10, "duplicate":Ljava/util/ArrayList;
     .local v13, "deleted":Ljava/util/List;
-    :cond_74f
+    :cond_751
     move-object/from16 v19, v0
 
     move/from16 v20, v3
@@ -2979,7 +2979,7 @@
 
     move-result v3
 
-    if-eq v0, v3, :cond_7e4
+    if-eq v0, v3, :cond_7e6
 
     .line 214
     sget-object v3, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -3021,7 +3021,7 @@
     .line 217
     .end local v0    # "existCount":I
     .end local v4    # "proxies":Ljava/util/List;
-    :cond_7e4
+    :cond_7e6
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v3
@@ -3097,13 +3097,13 @@
 
     move-object/from16 v13, v17
 
-    if-ne v0, v13, :cond_825
+    if-ne v0, v13, :cond_827
 
     .line 40
     return-object v13
 
     .line 219
-    :cond_825
+    :cond_827
     move-object v10, v3
 
     move-object v8, v4
@@ -3133,10 +3133,10 @@
     .local v8, "deleted":Ljava/util/List;
     .restart local v10    # "duplicate":Ljava/util/ArrayList;
     .local v14, "proxyGroup":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :goto_82d
+    :goto_82f
     invoke-static {v14, v6, v7, v8, v4}, Lio/nekohasekai/sagernet/ui/SubscriptionUpdates;->success(Ljava/lang/Object;Ljava/util/List;Ljava/util/Map;Ljava/util/List;Z)V
 
-    if-eqz v3, :cond_856
+    if-eqz v3, :cond_858
 
     .line 222
     .end local v3    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
@@ -3144,13 +3144,13 @@
 
     check-cast v9, Ljava/util/List;
 
-    if-eqz v4, :cond_839
+    if-eqz v4, :cond_83b
 
     const/4 v10, 0x1
 
-    goto :goto_83a
+    goto :goto_83c
 
-    :cond_839
+    :cond_83b
     const/4 v10, 0x0
 
     .line 221
@@ -3161,7 +3161,7 @@
     .end local v8    # "deleted":Ljava/util/List;
     .end local v10    # "duplicate":Ljava/util/ArrayList;
     .end local v14    # "proxyGroup":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :goto_83a
+    :goto_83c
     const/4 v0, 0x0
 
     iput-object v0, v1, Lio/nekohasekai/sagernet/group/RawUpdater$doUpdate$1;->L$0:Ljava/lang/Object;
@@ -3188,26 +3188,26 @@
 
     move-result-object v0
 
-    if-ne v0, v13, :cond_853
+    if-ne v0, v13, :cond_855
 
     .line 40
     return-object v13
 
     .line 224
-    :cond_853
-    :goto_853
+    :cond_855
+    :goto_855
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 221
-    :cond_856
-    goto :goto_853
+    :cond_858
+    goto :goto_855
 
     .line 73
     .end local v24    # "$result":Ljava/lang/Object;
     .local v12, "$result":Ljava/lang/Object;
-    :cond_857
+    :cond_859
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
     move-result-object v0
@@ -3232,7 +3232,7 @@
 
     nop
 
-    :pswitch_data_870
+    :pswitch_data_872
     .packed-switch 0x0
         :pswitch_b7
         :pswitch_9e
@@ -4179,7 +4179,7 @@
 
     const/4 v11, 0x0
 
-    packed-switch v7, :pswitch_data_1768
+    packed-switch v7, :pswitch_data_179a
 
     .end local v3    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v5    # "$result":Ljava/lang/Object;
@@ -4206,7 +4206,7 @@
 
     const/4 v4, 0x1
 
-    goto/16 :goto_173b
+    goto/16 :goto_176d
 
     .line 709
     :catch_40
@@ -4214,7 +4214,7 @@
 
     move-object/from16 v18, v5
 
-    goto/16 :goto_1764
+    goto/16 :goto_1796
 
     .line 707
     :catch_45
@@ -4224,7 +4224,7 @@
 
     move-object/from16 v18, v5
 
-    goto/16 :goto_1766
+    goto/16 :goto_1798
 
     .line 226
     :pswitch_4b
@@ -4246,7 +4246,7 @@
 
     const/4 v4, 0x1
 
-    goto/16 :goto_16ec
+    goto/16 :goto_171e
 
     .line 701
     :catch_59
@@ -4260,7 +4260,7 @@
 
     const/4 v4, 0x1
 
-    goto/16 :goto_1724
+    goto/16 :goto_1756
 
     .line 226
     .end local v2    # "text":Ljava/lang/String;
@@ -4299,7 +4299,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1649
+    if-eqz v9, :cond_167b
 
     .line 235
     .end local v12    # "fileName":Ljava/lang/String;
@@ -4358,7 +4358,7 @@
 
     move-result-object v9
     :try_end_a8
-    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_81 .. :try_end_a8} :catch_162e
+    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_81 .. :try_end_a8} :catch_1660
 
     const-string v10, ""
 
@@ -4393,7 +4393,7 @@
 
     move-object/from16 p2, v13
 
-    goto/16 :goto_163a
+    goto/16 :goto_166c
 
     .line 241
     .restart local v8    # "yaml":Ljava/util/Map;
@@ -4415,7 +4415,7 @@
     .end local v8    # "yaml":Ljava/util/Map;
     instance-of v8, v11, Ljava/util/List;
     :try_end_ca
-    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_c2 .. :try_end_ca} :catch_162e
+    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_c2 .. :try_end_ca} :catch_1660
 
     if-eqz v8, :cond_d0
 
@@ -4432,7 +4432,7 @@
     const/4 v8, 0x0
 
     :goto_d1
-    if-eqz v8, :cond_1605
+    if-eqz v8, :cond_1637
 
     :try_start_d3
     invoke-interface {v8}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -4444,11 +4444,11 @@
 
     move-result v11
     :try_end_db
-    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_d3 .. :try_end_db} :catch_162e
+    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_d3 .. :try_end_db} :catch_1660
 
     const-string v12, "host"
 
-    if-eqz v11, :cond_1534
+    if-eqz v11, :cond_1566
 
     :try_start_df
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -4473,7 +4473,7 @@
 
     move-result v17
     :try_end_f4
-    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_df .. :try_end_f4} :catch_162e
+    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_df .. :try_end_f4} :catch_1660
 
     const-string v1, "http"
 
@@ -4531,7 +4531,7 @@
 
     const-string v12, "true"
 
-    sparse-switch v17, :sswitch_data_1772
+    sparse-switch v17, :sswitch_data_17a4
 
     move-object/from16 v27, v10
 
@@ -4539,7 +4539,7 @@
 
     .end local v14    # "proxies":Ljava/util/List;
     .local v7, "proxies":Ljava/util/List;
-    goto/16 :goto_151d
+    goto/16 :goto_154f
 
     .end local v7    # "proxies":Ljava/util/List;
     .restart local v14    # "proxies":Ljava/util/List;
@@ -4569,7 +4569,7 @@
     if-nez v7, :cond_140
 
     :goto_13f
-    goto :goto_157
+    goto :goto_162
 
     :cond_140
     move-object v7, v9
@@ -4586,10 +4586,9 @@
 
     move-object/from16 v14, v25
 
-    goto/16 :goto_a7e
+    goto/16 :goto_a89
 
-    # Clash YAML "type: mx" (proposed, non-standard): same fields as vless.
-    :sswitch_mx
+    :sswitch_14f
     move-object/from16 v17, v7
 
     const-string v7, "mx"
@@ -4602,16 +4601,16 @@
 
     goto :goto_13f
 
-    :sswitch_14f
+    :sswitch_15a
     const-string v1, "tuic"
 
     invoke-virtual {v15, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_16b
+    if-nez v1, :cond_176
 
-    :goto_157
+    :goto_162
     move-object/from16 v4, p0
 
     move-object/from16 v8, p1
@@ -4633,7 +4632,7 @@
     goto/16 :goto_d7
 
     .line 607
-    :cond_16b
+    :cond_176
     new-instance v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;
 
     invoke-direct {v1}, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;-><init>()V
@@ -4653,12 +4652,12 @@
     move-result-object v15
 
     .end local v11    # "proxy":Ljava/util/Map;
-    :goto_179
+    :goto_184
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_343
+    if-eqz v11, :cond_34e
 
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4672,7 +4671,7 @@
 
     move-result-object v17
 
-    if-eqz v17, :cond_339
+    if-eqz v17, :cond_344
 
     .line 611
     invoke-interface {v11}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -4703,25 +4702,25 @@
 
     move-result v24
 
-    sparse-switch v24, :sswitch_data_179c
+    sparse-switch v24, :sswitch_data_17d2
 
     move-object/from16 v27, v10
 
-    goto/16 :goto_338
+    goto/16 :goto_343
 
-    :sswitch_1ae
+    :sswitch_1b9
     invoke-virtual {v15, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v15
 
-    if-nez v15, :cond_1b8
+    if-nez v15, :cond_1c3
 
     move-object/from16 v27, v10
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 626
-    :cond_1b8
+    :cond_1c3
     nop
 
     .line 627
@@ -4747,11 +4746,11 @@
 
     move-object/from16 v27, v10
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 611
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_1cf
+    :sswitch_1da
     move-object/from16 v27, v10
 
     const-string v10, "congestion-controller"
@@ -4760,12 +4759,12 @@
 
     move-result v10
 
-    if-nez v10, :cond_1db
+    if-nez v10, :cond_1e6
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 642
-    :cond_1db
+    :cond_1e6
     nop
 
     .line 643
@@ -4781,11 +4780,11 @@
     .end local v11    # "opt":Ljava/util/Map$Entry;
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->congestionController:Ljava/lang/String;
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 611
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_1e8
+    :sswitch_1f3
     move-object/from16 v27, v10
 
     const-string v10, "disable-sni"
@@ -4794,12 +4793,12 @@
 
     move-result v10
 
-    if-nez v10, :cond_1f4
+    if-nez v10, :cond_1ff
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 629
-    :cond_1f4
+    :cond_1ff
     nop
 
     .line 630
@@ -4823,23 +4822,23 @@
     .end local v11    # "opt":Ljava/util/Map$Entry;
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->disableSNI:Ljava/lang/Boolean;
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 611
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_209
+    :sswitch_214
     move-object/from16 v27, v10
 
     invoke-virtual {v15, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-nez v10, :cond_213
+    if-nez v10, :cond_21e
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 624
-    :cond_213
+    :cond_21e
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -4850,10 +4849,10 @@
 
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->token:Ljava/lang/String;
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 611
-    :sswitch_21f
+    :sswitch_22a
     move-object/from16 v27, v10
 
     const-string v10, "token"
@@ -4862,12 +4861,12 @@
 
     move-result v10
 
-    if-nez v10, :cond_22b
+    if-nez v10, :cond_236
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 618
-    :cond_22b
+    :cond_236
     const/4 v10, 0x4
 
     invoke-static {v10}, Lkotlin/coroutines/jvm/internal/Boxing;->boxInt(I)Ljava/lang/Integer;
@@ -4887,10 +4886,10 @@
 
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->token:Ljava/lang/String;
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 611
-    :sswitch_23e
+    :sswitch_249
     move-object/from16 v27, v10
 
     const-string v10, "uuid"
@@ -4899,12 +4898,12 @@
 
     move-result v10
 
-    if-nez v10, :cond_24a
+    if-nez v10, :cond_255
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 622
-    :cond_24a
+    :cond_255
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -4915,22 +4914,22 @@
 
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->uuid:Ljava/lang/String;
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 611
-    :sswitch_256
+    :sswitch_261
     move-object/from16 v27, v10
 
     invoke-virtual {v15, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-nez v10, :cond_260
+    if-nez v10, :cond_26b
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 615
-    :cond_260
+    :cond_26b
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -4950,18 +4949,18 @@
 
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->serverPort:Ljava/lang/Integer;
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 611
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_274
+    :sswitch_27f
     move-object/from16 v27, v10
 
     invoke-virtual {v15, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_33d
+    if-eqz v10, :cond_348
 
     .line 612
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -4974,22 +4973,22 @@
 
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->name:Ljava/lang/String;
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 611
-    :sswitch_288
+    :sswitch_293
     move-object/from16 v27, v10
 
     invoke-virtual {v15, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-nez v10, :cond_292
+    if-nez v10, :cond_29d
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 638
-    :cond_292
+    :cond_29d
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -4997,19 +4996,19 @@
     .end local v11    # "opt":Ljava/util/Map$Entry;
     instance-of v11, v10, Ljava/util/List;
 
-    if-eqz v11, :cond_29d
+    if-eqz v11, :cond_2a8
 
     check-cast v10, Ljava/util/List;
 
-    goto :goto_29e
+    goto :goto_2a9
 
-    :cond_29d
+    :cond_2a8
     const/4 v10, 0x0
 
     .line 639
     .local v10, "alpn":Ljava/util/List;
-    :goto_29e
-    if-eqz v10, :cond_2bb
+    :goto_2a9
+    if-eqz v10, :cond_2c6
 
     move-object/from16 v28, v10
 
@@ -5037,32 +5036,32 @@
 
     move-result-object v11
 
-    goto :goto_2bc
+    goto :goto_2c7
 
     .end local v10    # "alpn":Ljava/util/List;
-    :cond_2bb
+    :cond_2c6
     const/4 v11, 0x0
 
-    :goto_2bc
+    :goto_2c7
     iput-object v11, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->alpn:Ljava/lang/String;
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 611
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_2c0
+    :sswitch_2cb
     move-object/from16 v27, v10
 
     invoke-virtual {v15, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-nez v10, :cond_2ca
+    if-nez v10, :cond_2d5
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 635
-    :cond_2ca
+    :cond_2d5
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -5073,10 +5072,10 @@
 
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->sni:Ljava/lang/String;
 
-    goto/16 :goto_33d
+    goto/16 :goto_348
 
     .line 611
-    :sswitch_2d6
+    :sswitch_2e1
     move-object/from16 v27, v10
 
     const-string v10, "ip"
@@ -5085,13 +5084,13 @@
 
     move-result v10
 
-    if-nez v10, :cond_2e1
+    if-nez v10, :cond_2ec
 
-    goto :goto_33d
+    goto :goto_348
 
     .line 614
     .end local v7    # "ip":Ljava/lang/String;
-    :cond_2e1
+    :cond_2ec
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v7
@@ -5106,11 +5105,11 @@
 
     .end local v11    # "opt":Ljava/util/Map$Entry;
     .restart local v7    # "ip":Ljava/lang/String;
-    goto/16 :goto_179
+    goto/16 :goto_184
 
     .line 611
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_2ef
+    :sswitch_2fa
     move-object/from16 v27, v10
 
     const-string v10, "udp-relay-mode"
@@ -5119,12 +5118,12 @@
 
     move-result v10
 
-    if-nez v10, :cond_2fa
+    if-nez v10, :cond_305
 
-    goto :goto_33d
+    goto :goto_348
 
     .line 645
-    :cond_2fa
+    :cond_305
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -5135,22 +5134,22 @@
 
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->udpRelayMode:Ljava/lang/String;
 
-    goto :goto_338
+    goto :goto_343
 
     .line 611
-    :sswitch_305
+    :sswitch_310
     move-object/from16 v27, v10
 
     invoke-virtual {v15, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-nez v10, :cond_30e
+    if-nez v10, :cond_319
 
-    goto :goto_33d
+    goto :goto_348
 
     .line 613
-    :cond_30e
+    :cond_319
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -5161,10 +5160,10 @@
 
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->serverAddress:Ljava/lang/String;
 
-    goto :goto_33d
+    goto :goto_348
 
     .line 611
-    :sswitch_319
+    :sswitch_324
     move-object/from16 v27, v10
 
     const-string v10, "reduce-rtt"
@@ -5173,12 +5172,12 @@
 
     move-result v10
 
-    if-nez v10, :cond_324
+    if-nez v10, :cond_32f
 
-    goto :goto_33d
+    goto :goto_348
 
     .line 632
-    :cond_324
+    :cond_32f
     nop
 
     .line 633
@@ -5202,31 +5201,31 @@
     .end local v11    # "opt":Ljava/util/Map$Entry;
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->reduceRTT:Ljava/lang/Boolean;
 
-    goto :goto_33d
+    goto :goto_348
 
     .line 645
-    :goto_338
-    goto :goto_33d
+    :goto_343
+    goto :goto_348
 
     .line 610
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :cond_339
+    :cond_344
     move-object/from16 v27, v10
 
     move-object/from16 v17, v15
 
     .line 609
     .end local v11    # "opt":Ljava/util/Map$Entry;
-    :cond_33d
-    :goto_33d
+    :cond_348
+    :goto_348
     move-object/from16 v15, v17
 
     move-object/from16 v10, v27
 
-    goto/16 :goto_179
+    goto/16 :goto_184
 
     .line 649
-    :cond_343
+    :cond_34e
     move-object/from16 v27, v10
 
     move-object v3, v7
@@ -5237,7 +5236,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_385
+    if-nez v3, :cond_390
 
     .line 650
     iput-object v7, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->serverAddress:Ljava/lang/String;
@@ -5248,53 +5247,53 @@
 
     check-cast v3, Ljava/lang/CharSequence;
 
-    if-eqz v3, :cond_35f
+    if-eqz v3, :cond_36a
 
     invoke-static {v3}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_35d
+    if-eqz v3, :cond_368
 
-    goto :goto_35f
+    goto :goto_36a
 
-    :cond_35d
+    :cond_368
     const/4 v3, 0x0
 
-    goto :goto_360
+    goto :goto_36b
 
-    :cond_35f
-    :goto_35f
+    :cond_36a
+    :goto_36a
     const/4 v3, 0x1
 
-    :goto_360
-    if-eqz v3, :cond_385
+    :goto_36b
+    if-eqz v3, :cond_390
 
     iget-object v3, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->serverAddress:Ljava/lang/String;
 
     check-cast v3, Ljava/lang/CharSequence;
 
-    if-eqz v3, :cond_371
+    if-eqz v3, :cond_37c
 
     invoke-static {v3}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_36f
+    if-eqz v3, :cond_37a
 
-    goto :goto_371
+    goto :goto_37c
 
-    :cond_36f
+    :cond_37a
     const/4 v3, 0x0
 
-    goto :goto_372
+    goto :goto_37d
 
-    :cond_371
-    :goto_371
+    :cond_37c
+    :goto_37c
     const/4 v3, 0x1
 
-    :goto_372
-    if-nez v3, :cond_385
+    :goto_37d
+    if-nez v3, :cond_390
 
     iget-object v3, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->serverAddress:Ljava/lang/String;
 
@@ -5306,7 +5305,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_385
+    if-nez v3, :cond_390
 
     .line 652
     iget-object v3, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->serverAddress:Ljava/lang/String;
@@ -5314,17 +5313,17 @@
     iput-object v3, v1, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->sni:Ljava/lang/String;
 
     .line 655
-    :cond_385
+    :cond_390
     invoke-interface {v14, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     move-object v7, v14
 
     .end local v1    # "bean":Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;
-    goto/16 :goto_151d
+    goto/16 :goto_154f
 
     .line 248
     .local v11, "proxy":Ljava/util/Map;
-    :sswitch_38b
+    :sswitch_396
     move-object/from16 v17, v7
 
     move-object/from16 v27, v10
@@ -5333,12 +5332,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_397
+    if-nez v1, :cond_3a2
 
-    goto/16 :goto_44a
+    goto/16 :goto_455
 
     .line 260
-    :cond_397
+    :cond_3a2
     new-instance v1, Lio/nekohasekai/sagernet/fmt/http/HttpBean;
 
     invoke-direct {v1}, Lio/nekohasekai/sagernet/fmt/http/HttpBean;-><init>()V
@@ -5386,18 +5385,18 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_3c8
+    if-eqz v4, :cond_3d3
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_3c9
+    goto :goto_3d4
 
-    :cond_3c8
+    :cond_3d3
     const/4 v4, 0x0
 
-    :goto_3c9
+    :goto_3d4
     iput-object v4, v7, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->username:Ljava/lang/String;
 
     .line 264
@@ -5405,18 +5404,18 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_3d6
+    if-eqz v4, :cond_3e1
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_3d7
+    goto :goto_3e2
 
-    :cond_3d6
+    :cond_3e1
     const/4 v4, 0x0
 
-    :goto_3d7
+    :goto_3e2
     iput-object v4, v7, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->password:Ljava/lang/String;
 
     .line 265
@@ -5430,18 +5429,18 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_3e9
+    if-eqz v5, :cond_3f4
 
     invoke-virtual {v5}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    goto :goto_3ea
+    goto :goto_3f5
 
-    :cond_3e9
+    :cond_3f4
     const/4 v5, 0x0
 
-    :goto_3ea
+    :goto_3f5
     invoke-static {v5, v12}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v5
@@ -5453,18 +5452,18 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_3fc
+    if-eqz v3, :cond_407
 
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_3fd
+    goto :goto_408
 
-    :cond_3fc
+    :cond_407
     const/4 v3, 0x0
 
-    :goto_3fd
+    :goto_408
     iput-object v3, v7, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->sni:Ljava/lang/String;
 
     .line 267
@@ -5472,18 +5471,18 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_40a
+    if-eqz v3, :cond_415
 
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_40b
+    goto :goto_416
 
-    :cond_40a
+    :cond_415
     const/4 v3, 0x0
 
-    :goto_40b
+    :goto_416
     iput-object v3, v7, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->name:Ljava/lang/String;
 
     .line 268
@@ -5491,20 +5490,20 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_418
+    if-eqz v3, :cond_423
 
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_419
+    goto :goto_424
 
     .end local v7    # "$this$parseRaw_u24lambda_u2414":Lio/nekohasekai/sagernet/fmt/http/HttpBean;
     .end local v11    # "proxy":Ljava/util/Map;
-    :cond_418
+    :cond_423
     const/4 v3, 0x0
 
-    :goto_419
+    :goto_424
     invoke-static {v3, v12}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
@@ -5548,7 +5547,7 @@
 
     .line 248
     .restart local v11    # "proxy":Ljava/util/Map;
-    :sswitch_43f
+    :sswitch_44a
     move-object/from16 v27, v10
 
     move-object v10, v7
@@ -5559,9 +5558,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_460
+    if-nez v1, :cond_46b
 
-    :goto_44a
+    :goto_455
     move-object/from16 v4, p0
 
     move-object/from16 v8, p1
@@ -5585,7 +5584,7 @@
     goto/16 :goto_d7
 
     .line 273
-    :cond_460
+    :cond_46b
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -5600,7 +5599,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_598
+    if-eqz v3, :cond_5a3
 
     .line 275
     const-string v3, "plugin-opts"
@@ -5629,12 +5628,12 @@
     invoke-static {v6, v7}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
-    :try_end_488
-    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_12c .. :try_end_488} :catch_162b
+    :try_end_493
+    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_12c .. :try_end_493} :catch_165d
 
     const-string v8, "mode"
 
-    if-eqz v7, :cond_4e2
+    if-eqz v7, :cond_4ed
 
     .line 278
     move-object v6, v1
@@ -5644,7 +5643,7 @@
 
     .line 279
     .local v7, "$i$a$-apply-RawUpdater$parseRaw$4":I
-    :try_start_48e
+    :try_start_499
     const-string v10, "obfs-local"
 
     invoke-interface {v6, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -5664,18 +5663,18 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_4aa
+    if-eqz v8, :cond_4b5
 
     invoke-virtual {v8}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v8
 
-    if-nez v8, :cond_4ac
+    if-nez v8, :cond_4b7
 
-    :cond_4aa
+    :cond_4b5
     move-object/from16 v8, v27
 
-    :cond_4ac
+    :cond_4b7
     invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
@@ -5703,20 +5702,20 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_4d0
+    if-eqz v10, :cond_4db
 
     invoke-virtual {v10}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v10
 
-    if-nez v10, :cond_4d2
+    if-nez v10, :cond_4dd
 
     .end local v3    # "opts":Ljava/util/Map;
     .end local v6    # "$this$parseRaw_u24lambda_u2415":Ljava/util/List;
-    :cond_4d0
+    :cond_4db
     move-object/from16 v10, v27
 
-    :cond_4d2
+    :cond_4dd
     invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -5734,11 +5733,11 @@
     .end local v7    # "$i$a$-apply-RawUpdater$parseRaw$4":I
     move-object/from16 v26, v14
 
-    goto/16 :goto_59a
+    goto/16 :goto_5a5
 
     .line 285
     .restart local v3    # "opts":Ljava/util/Map;
-    :cond_4e2
+    :cond_4ed
     move-object/from16 v15, v26
 
     const-string v7, "v2ray-plugin"
@@ -5747,7 +5746,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_595
+    if-eqz v6, :cond_5a0
 
     .line 286
     move-object v6, v1
@@ -5784,18 +5783,18 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_50e
+    if-eqz v14, :cond_519
 
     invoke-virtual {v14}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v14
 
-    if-nez v14, :cond_510
+    if-nez v14, :cond_51b
 
-    :cond_50e
+    :cond_519
     move-object/from16 v14, v27
 
-    :cond_510
+    :cond_51b
     invoke-virtual {v7, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -5811,28 +5810,28 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_526
+    if-eqz v7, :cond_531
 
     invoke-virtual {v7}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v7
 
-    goto :goto_527
+    goto :goto_532
 
-    :cond_526
+    :cond_531
     const/4 v7, 0x0
 
-    :goto_527
+    :goto_532
     invoke-static {v7, v12}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_530
+    if-eqz v7, :cond_53b
 
     invoke-interface {v6, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 290
-    :cond_530
+    :cond_53b
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -5847,18 +5846,18 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_547
+    if-eqz v8, :cond_552
 
     invoke-virtual {v8}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v8
 
-    if-nez v8, :cond_549
+    if-nez v8, :cond_554
 
-    :cond_547
+    :cond_552
     move-object/from16 v8, v27
 
-    :cond_549
+    :cond_554
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -5886,18 +5885,18 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_56d
+    if-eqz v8, :cond_578
 
     invoke-virtual {v8}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v8
 
-    if-nez v8, :cond_56f
+    if-nez v8, :cond_57a
 
-    :cond_56d
+    :cond_578
     move-object/from16 v8, v27
 
-    :cond_56f
+    :cond_57a
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -5915,24 +5914,24 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_587
+    if-eqz v7, :cond_592
 
     invoke-virtual {v7}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v7
 
-    goto :goto_588
+    goto :goto_593
 
     .end local v3    # "opts":Ljava/util/Map;
-    :cond_587
+    :cond_592
     const/4 v7, 0x0
 
-    :goto_588
+    :goto_593
     invoke-static {v7, v12}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_593
+    if-eqz v3, :cond_59e
 
     const-string v3, "mux=8"
 
@@ -5940,35 +5939,35 @@
 
     .line 293
     .end local v6    # "$this$parseRaw_u24lambda_u2416":Ljava/util/List;
-    :cond_593
+    :cond_59e
     nop
 
     .line 286
     .end local v17    # "$i$a$-apply-RawUpdater$parseRaw$5":I
-    goto :goto_59a
+    goto :goto_5a5
 
     .line 285
     .end local v26    # "proxies":Ljava/util/List;
     .restart local v3    # "opts":Ljava/util/Map;
     .restart local v14    # "proxies":Ljava/util/List;
-    :cond_595
+    :cond_5a0
     move-object/from16 v26, v14
 
     .end local v14    # "proxies":Ljava/util/List;
     .restart local v26    # "proxies":Ljava/util/List;
-    goto :goto_59a
+    goto :goto_5a5
 
     .line 274
     .end local v3    # "opts":Ljava/util/Map;
     .end local v26    # "proxies":Ljava/util/List;
     .restart local v14    # "proxies":Ljava/util/List;
-    :cond_598
+    :cond_5a3
     move-object/from16 v26, v14
 
     .line 297
     .end local v14    # "proxies":Ljava/util/List;
     .restart local v26    # "proxies":Ljava/util/List;
-    :goto_59a
+    :goto_5a5
     new-instance v3, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
 
     invoke-direct {v3}, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;-><init>()V
@@ -6014,18 +6013,18 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_5c9
+    if-eqz v4, :cond_5d4
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_5ca
+    goto :goto_5d5
 
-    :cond_5c9
+    :cond_5d4
     const/4 v4, 0x0
 
-    :goto_5ca
+    :goto_5d5
     iput-object v4, v6, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->password:Ljava/lang/String;
 
     .line 301
@@ -6084,20 +6083,20 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_608
+    if-eqz v1, :cond_613
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_609
+    goto :goto_614
 
     .end local v6    # "$this$parseRaw_u24lambda_u2417":Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;
     .end local v11    # "proxy":Ljava/util/Map;
-    :cond_608
+    :cond_613
     const/4 v1, 0x0
 
-    :goto_609
+    :goto_614
     iput-object v1, v6, Lio/nekohasekai/sagernet/fmt/shadowsocks/ShadowsocksBean;->name:Ljava/lang/String;
 
     .line 304
@@ -6141,7 +6140,7 @@
     .end local v7    # "proxies":Ljava/util/List;
     .restart local v11    # "proxy":Ljava/util/Map;
     .restart local v14    # "proxies":Ljava/util/List;
-    :sswitch_62a
+    :sswitch_635
     move-object/from16 v27, v10
 
     move-object v7, v14
@@ -6154,12 +6153,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_637
+    if-nez v1, :cond_642
 
-    goto/16 :goto_13da
+    goto/16 :goto_140c
 
     .line 520
-    :cond_637
+    :cond_642
     new-instance v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
 
     invoke-direct {v1}, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;-><init>()V
@@ -6188,12 +6187,12 @@
     move-result-object v13
 
     .end local v11    # "proxy":Ljava/util/Map;
-    :goto_64d
+    :goto_658
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_896
+    if-eqz v11, :cond_8a1
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -6207,7 +6206,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_888
+    if-eqz v14, :cond_893
 
     .line 525
     invoke-interface {v11}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -6236,7 +6235,7 @@
 
     move-result v15
 
-    sparse-switch v15, :sswitch_data_17d6
+    sparse-switch v15, :sswitch_data_180c
 
     move-object/from16 v17, v13
 
@@ -6244,19 +6243,19 @@
 
     move-object/from16 v24, v9
 
-    goto/16 :goto_887
+    goto/16 :goto_892
 
-    :sswitch_684
+    :sswitch_68f
     invoke-virtual {v14, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_68c
+    if-nez v14, :cond_697
 
-    goto/16 :goto_70b
+    goto/16 :goto_716
 
     .line 540
-    :cond_68c
+    :cond_697
     nop
 
     .line 541
@@ -6286,23 +6285,23 @@
 
     move-object/from16 v24, v9
 
-    goto/16 :goto_88e
+    goto/16 :goto_899
 
     .line 525
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_6a7
+    :sswitch_6b2
     const-string v15, "auth-str"
 
     invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_6b1
+    if-nez v14, :cond_6bc
 
-    goto/16 :goto_73f
+    goto/16 :goto_74a
 
     .line 534
-    :cond_6b1
+    :cond_6bc
     const/4 v14, 0x1
 
     invoke-static {v14}, Lkotlin/coroutines/jvm/internal/Boxing;->boxInt(I)Ljava/lang/Integer;
@@ -6328,23 +6327,23 @@
 
     move-object/from16 v24, v9
 
-    goto/16 :goto_88e
+    goto/16 :goto_899
 
     .line 525
-    :sswitch_6ca
+    :sswitch_6d5
     const-string v15, "ports"
 
     invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_6d4
+    if-nez v14, :cond_6df
 
-    goto/16 :goto_75a
+    goto/16 :goto_765
 
     .line 529
     .end local v10    # "hopPorts":Ljava/lang/String;
-    :cond_6d4
+    :cond_6df
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -6355,23 +6354,23 @@
 
     .end local v11    # "opt":Ljava/util/Map$Entry;
     .restart local v10    # "hopPorts":Ljava/lang/String;
-    goto/16 :goto_64d
+    goto/16 :goto_658
 
     .line 525
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_6de
+    :sswitch_6e9
     const-string v15, "recv-window"
 
     invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_6e7
+    if-nez v14, :cond_6f2
 
-    goto :goto_73f
+    goto :goto_74a
 
     .line 554
-    :cond_6e7
+    :cond_6f2
     nop
 
     .line 555
@@ -6388,7 +6387,7 @@
     move-result-object v14
 
     .end local v11    # "opt":Ljava/util/Map$Entry;
-    if-nez v14, :cond_6fb
+    if-nez v14, :cond_706
 
     const/4 v11, 0x0
 
@@ -6397,7 +6396,7 @@
     move-result-object v14
 
     .line 554
-    :cond_6fb
+    :cond_706
     iput-object v14, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->streamReceiveWindow:Ljava/lang/Integer;
 
     move-object/from16 v17, v13
@@ -6406,22 +6405,22 @@
 
     move-object/from16 v24, v9
 
-    goto/16 :goto_88e
+    goto/16 :goto_899
 
     .line 525
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_705
+    :sswitch_710
     invoke-virtual {v14, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_70c
+    if-nez v14, :cond_717
 
-    :goto_70b
-    goto :goto_75a
+    :goto_716
+    goto :goto_765
 
     .line 528
-    :cond_70c
+    :cond_717
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -6438,22 +6437,22 @@
 
     move-object/from16 v24, v9
 
-    goto/16 :goto_88e
+    goto/16 :goto_899
 
     .line 525
-    :sswitch_71e
+    :sswitch_729
     const-string v15, "obfs"
 
     invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_727
+    if-nez v14, :cond_732
 
-    goto :goto_73f
+    goto :goto_74a
 
     .line 531
-    :cond_727
+    :cond_732
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -6470,21 +6469,21 @@
 
     move-object/from16 v24, v9
 
-    goto/16 :goto_88e
+    goto/16 :goto_899
 
     .line 525
-    :sswitch_739
+    :sswitch_744
     invoke-virtual {v14, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_740
+    if-nez v14, :cond_74b
 
-    :goto_73f
-    goto :goto_75a
+    :goto_74a
+    goto :goto_765
 
     .line 526
-    :cond_740
+    :cond_74b
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -6501,29 +6500,29 @@
 
     move-object/from16 v24, v9
 
-    goto/16 :goto_88e
+    goto/16 :goto_899
 
     .line 525
-    :sswitch_752
+    :sswitch_75d
     const-string v15, "down"
 
     invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_762
+    if-nez v14, :cond_76d
 
-    :goto_75a
+    :goto_765
     move-object/from16 v17, v13
 
     move-object/from16 v15, v24
 
     move-object/from16 v24, v9
 
-    goto/16 :goto_88e
+    goto/16 :goto_899
 
     .line 547
-    :cond_762
+    :cond_76d
     nop
 
     .line 548
@@ -6554,7 +6553,7 @@
     move-result-object v9
 
     .end local v11    # "opt":Ljava/util/Map$Entry;
-    if-nez v9, :cond_783
+    if-nez v9, :cond_78e
 
     .line 549
     const/16 v9, 0x64
@@ -6564,14 +6563,14 @@
     move-result-object v9
 
     .line 547
-    :cond_783
+    :cond_78e
     iput-object v9, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->downloadMbps:Ljava/lang/Integer;
 
-    goto/16 :goto_88e
+    goto/16 :goto_899
 
     .line 525
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_787
+    :sswitch_792
     move-object/from16 v17, v13
 
     move-object/from16 v15, v24
@@ -6582,12 +6581,12 @@
 
     move-result v9
 
-    if-nez v9, :cond_795
+    if-nez v9, :cond_7a0
 
-    goto/16 :goto_87a
+    goto/16 :goto_885
 
     .line 561
-    :cond_795
+    :cond_7a0
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v9
@@ -6595,19 +6594,19 @@
     .end local v11    # "opt":Ljava/util/Map$Entry;
     instance-of v11, v9, Ljava/util/List;
 
-    if-eqz v11, :cond_7a0
+    if-eqz v11, :cond_7ab
 
     check-cast v9, Ljava/util/List;
 
-    goto :goto_7a1
+    goto :goto_7ac
 
-    :cond_7a0
+    :cond_7ab
     const/4 v9, 0x0
 
     .line 562
     .local v9, "alpn":Ljava/util/List;
-    :goto_7a1
-    if-eqz v9, :cond_7bf
+    :goto_7ac
+    if-eqz v9, :cond_7ca
 
     move-object/from16 v28, v9
 
@@ -6636,19 +6635,19 @@
     move-result-object v11
 
     .end local v9    # "alpn":Ljava/util/List;
-    if-nez v11, :cond_7c1
+    if-nez v11, :cond_7cc
 
-    :cond_7bf
+    :cond_7ca
     const-string v11, "h3"
 
-    :cond_7c1
+    :cond_7cc
     iput-object v11, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->alpn:Ljava/lang/String;
 
-    goto/16 :goto_887
+    goto/16 :goto_892
 
     .line 525
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_7c5
+    :sswitch_7d0
     move-object/from16 v17, v13
 
     move-object/from16 v15, v24
@@ -6659,12 +6658,12 @@
 
     move-result v9
 
-    if-nez v9, :cond_7d3
+    if-nez v9, :cond_7de
 
-    goto/16 :goto_87a
+    goto/16 :goto_885
 
     .line 538
-    :cond_7d3
+    :cond_7de
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v9
@@ -6675,10 +6674,10 @@
 
     iput-object v9, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
 
-    goto/16 :goto_88e
+    goto/16 :goto_899
 
     .line 525
-    :sswitch_7df
+    :sswitch_7ea
     move-object/from16 v17, v13
 
     move-object/from16 v15, v24
@@ -6691,12 +6690,12 @@
 
     move-result v9
 
-    if-nez v9, :cond_7ef
+    if-nez v9, :cond_7fa
 
-    goto/16 :goto_87a
+    goto/16 :goto_885
 
     .line 543
-    :cond_7ef
+    :cond_7fa
     nop
 
     .line 544
@@ -6721,7 +6720,7 @@
     move-result-object v9
 
     .end local v11    # "opt":Ljava/util/Map$Entry;
-    if-nez v9, :cond_80a
+    if-nez v9, :cond_815
 
     .line 545
     const/16 v9, 0x64
@@ -6731,14 +6730,14 @@
     move-result-object v9
 
     .line 543
-    :cond_80a
+    :cond_815
     iput-object v9, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->uploadMbps:Ljava/lang/Integer;
 
-    goto/16 :goto_88e
+    goto/16 :goto_899
 
     .line 525
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_80e
+    :sswitch_819
     move-object/from16 v17, v13
 
     move-object/from16 v15, v24
@@ -6751,12 +6750,12 @@
 
     move-result v9
 
-    if-nez v9, :cond_81d
+    if-nez v9, :cond_828
 
-    goto :goto_87a
+    goto :goto_885
 
     .line 557
-    :cond_81d
+    :cond_828
     nop
 
     .line 558
@@ -6772,7 +6771,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_83f
+    if-nez v9, :cond_84a
 
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -6788,21 +6787,21 @@
 
     move-result v9
 
-    if-eqz v9, :cond_83d
+    if-eqz v9, :cond_848
 
-    goto :goto_83f
+    goto :goto_84a
 
-    :cond_83d
+    :cond_848
     const/4 v9, 0x0
 
     .end local v11    # "opt":Ljava/util/Map$Entry;
-    goto :goto_840
+    goto :goto_84b
 
-    :cond_83f
-    :goto_83f
+    :cond_84a
+    :goto_84a
     const/4 v9, 0x1
 
-    :goto_840
+    :goto_84b
     invoke-static {v9}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
     move-result-object v9
@@ -6810,11 +6809,11 @@
     .line 557
     iput-object v9, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->disableMtuDiscovery:Ljava/lang/Boolean;
 
-    goto :goto_88e
+    goto :goto_899
 
     .line 525
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_847
+    :sswitch_852
     move-object/from16 v17, v13
 
     move-object/from16 v15, v24
@@ -6827,12 +6826,12 @@
 
     move-result v9
 
-    if-nez v9, :cond_856
+    if-nez v9, :cond_861
 
-    goto :goto_87a
+    goto :goto_885
 
     .line 551
-    :cond_856
+    :cond_861
     nop
 
     .line 552
@@ -6849,7 +6848,7 @@
     move-result-object v9
 
     .end local v11    # "opt":Ljava/util/Map$Entry;
-    if-nez v9, :cond_86b
+    if-nez v9, :cond_876
 
     const/4 v9, 0x0
 
@@ -6860,14 +6859,14 @@
     move-object v9, v11
 
     .line 551
-    :cond_86b
+    :cond_876
     iput-object v9, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->connectionReceiveWindow:Ljava/lang/Integer;
 
-    goto :goto_88e
+    goto :goto_899
 
     .line 525
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_86e
+    :sswitch_879
     move-object/from16 v17, v13
 
     move-object/from16 v15, v24
@@ -6878,13 +6877,13 @@
 
     move-result v9
 
-    if-nez v9, :cond_87b
+    if-nez v9, :cond_886
 
-    :goto_87a
-    goto :goto_88e
+    :goto_885
+    goto :goto_899
 
     .line 527
-    :cond_87b
+    :cond_886
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v9
@@ -6896,15 +6895,15 @@
 
     iput-object v9, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverAddress:Ljava/lang/String;
 
-    goto :goto_88e
+    goto :goto_899
 
     .line 562
-    :goto_887
-    goto :goto_88e
+    :goto_892
+    goto :goto_899
 
     .line 524
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :cond_888
+    :cond_893
     move-object/from16 v17, v13
 
     move-object/from16 v15, v24
@@ -6913,17 +6912,17 @@
 
     .line 523
     .end local v11    # "opt":Ljava/util/Map$Entry;
-    :goto_88e
+    :goto_899
     move-object/from16 v13, v17
 
     move-object/from16 v9, v24
 
     move-object/from16 v24, v15
 
-    goto/16 :goto_64d
+    goto/16 :goto_658
 
     .line 566
-    :cond_896
+    :cond_8a1
     move-object v3, v10
 
     check-cast v3, Ljava/lang/CharSequence;
@@ -6932,14 +6931,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_8a1
+    if-nez v3, :cond_8ac
 
     .line 567
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverPorts:Ljava/lang/String;
 
     .line 569
     .end local v10    # "hopPorts":Ljava/lang/String;
-    :cond_8a1
+    :cond_8ac
     invoke-interface {v7, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v4, p0
@@ -6971,7 +6970,7 @@
     .end local v7    # "proxies":Ljava/util/List;
     .local v11, "proxy":Ljava/util/Map;
     .restart local v14    # "proxies":Ljava/util/List;
-    :sswitch_8bb
+    :sswitch_8c6
     move-object/from16 v27, v10
 
     move-object v7, v14
@@ -6988,12 +6987,12 @@
 
     move-result v8
 
-    if-nez v8, :cond_8cc
+    if-nez v8, :cond_8d7
 
-    goto/16 :goto_13da
+    goto/16 :goto_140c
 
     .line 573
-    :cond_8cc
+    :cond_8d7
     new-instance v8, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
 
     invoke-direct {v8}, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;-><init>()V
@@ -7022,12 +7021,12 @@
     move-result-object v10
 
     .end local v11    # "proxy":Ljava/util/Map;
-    :goto_8e2
+    :goto_8ed
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_a2d
+    if-eqz v11, :cond_a38
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7041,7 +7040,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_a27
+    if-eqz v14, :cond_a32
 
     .line 578
     invoke-interface {v11}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -7070,23 +7069,23 @@
 
     move-result v15
 
-    sparse-switch v15, :sswitch_data_1810
+    sparse-switch v15, :sswitch_data_1846
 
     move-object/from16 v17, v10
 
-    goto/16 :goto_a26
+    goto/16 :goto_a31
 
-    :sswitch_915
+    :sswitch_920
     invoke-virtual {v14, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_91c
+    if-nez v14, :cond_927
 
-    goto :goto_960
+    goto :goto_96b
 
     .line 590
-    :cond_91c
+    :cond_927
     nop
 
     .line 591
@@ -7112,21 +7111,21 @@
 
     move-object/from16 v17, v10
 
-    goto/16 :goto_a29
+    goto/16 :goto_a34
 
     .line 578
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_933
+    :sswitch_93e
     invoke-virtual {v14, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_93a
+    if-nez v14, :cond_945
 
-    goto :goto_960
+    goto :goto_96b
 
     .line 586
-    :cond_93a
+    :cond_945
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -7139,23 +7138,23 @@
 
     move-object/from16 v17, v10
 
-    goto/16 :goto_a29
+    goto/16 :goto_a34
 
     .line 578
-    :sswitch_948
+    :sswitch_953
     const-string v15, "ports"
 
     invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_951
+    if-nez v14, :cond_95c
 
-    goto :goto_960
+    goto :goto_96b
 
     .line 582
     .end local v9    # "hopPorts":Ljava/lang/String;
-    :cond_951
+    :cond_95c
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v9
@@ -7166,24 +7165,24 @@
 
     .end local v11    # "opt":Ljava/util/Map$Entry;
     .restart local v9    # "hopPorts":Ljava/lang/String;
-    goto :goto_8e2
+    goto :goto_8ed
 
     .line 578
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_95a
+    :sswitch_965
     invoke-virtual {v14, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_964
+    if-nez v14, :cond_96f
 
-    :goto_960
+    :goto_96b
     move-object/from16 v17, v10
 
-    goto/16 :goto_a29
+    goto/16 :goto_a34
 
     .line 581
-    :cond_964
+    :cond_96f
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -7196,24 +7195,24 @@
 
     move-object/from16 v17, v10
 
-    goto/16 :goto_a29
+    goto/16 :goto_a34
 
     .line 578
-    :sswitch_972
+    :sswitch_97d
     move-object/from16 v15, v24
 
     invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_97d
+    if-nez v14, :cond_988
 
     move-object/from16 v17, v10
 
-    goto :goto_999
+    goto :goto_9a4
 
     .line 579
-    :cond_97d
+    :cond_988
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -7228,10 +7227,10 @@
 
     move-object/from16 v24, v15
 
-    goto/16 :goto_a29
+    goto/16 :goto_a34
 
     .line 578
-    :sswitch_98d
+    :sswitch_998
     move-object/from16 v15, v24
 
     move-object/from16 v17, v10
@@ -7242,15 +7241,15 @@
 
     move-result v10
 
-    if-nez v10, :cond_99d
+    if-nez v10, :cond_9a8
 
-    :goto_999
+    :goto_9a4
     move-object/from16 v24, v15
 
-    goto/16 :goto_a29
+    goto/16 :goto_a34
 
     .line 596
-    :cond_99d
+    :cond_9a8
     nop
 
     .line 597
@@ -7277,7 +7276,7 @@
     move-result-object v10
 
     .end local v11    # "opt":Ljava/util/Map$Entry;
-    if-nez v10, :cond_9ba
+    if-nez v10, :cond_9c5
 
     const/4 v10, 0x0
 
@@ -7288,26 +7287,26 @@
     move-object v10, v11
 
     .line 596
-    :cond_9ba
+    :cond_9c5
     iput-object v10, v8, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->downloadMbps:Ljava/lang/Integer;
 
-    goto/16 :goto_a26
+    goto/16 :goto_a31
 
     .line 578
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_9be
+    :sswitch_9c9
     move-object/from16 v17, v10
 
     invoke-virtual {v14, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-nez v10, :cond_9c7
+    if-nez v10, :cond_9d2
 
-    goto :goto_a1a
+    goto :goto_a25
 
     .line 588
-    :cond_9c7
+    :cond_9d2
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -7318,10 +7317,10 @@
 
     iput-object v10, v8, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
 
-    goto :goto_a29
+    goto :goto_a34
 
     .line 578
-    :sswitch_9d2
+    :sswitch_9dd
     move-object/from16 v17, v10
 
     const-string v10, "up"
@@ -7330,12 +7329,12 @@
 
     move-result v10
 
-    if-nez v10, :cond_9dd
+    if-nez v10, :cond_9e8
 
-    goto :goto_a1a
+    goto :goto_a25
 
     .line 593
-    :cond_9dd
+    :cond_9e8
     nop
 
     .line 594
@@ -7360,7 +7359,7 @@
     move-result-object v10
 
     .end local v11    # "opt":Ljava/util/Map$Entry;
-    if-nez v10, :cond_9f8
+    if-nez v10, :cond_a03
 
     const/4 v10, 0x0
 
@@ -7371,26 +7370,26 @@
     move-object v10, v11
 
     .line 593
-    :cond_9f8
+    :cond_a03
     iput-object v10, v8, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->uploadMbps:Ljava/lang/Integer;
 
-    goto :goto_a29
+    goto :goto_a34
 
     .line 578
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_9fb
+    :sswitch_a06
     move-object/from16 v17, v10
 
     invoke-virtual {v14, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-nez v10, :cond_a04
+    if-nez v10, :cond_a0f
 
-    goto :goto_a1a
+    goto :goto_a25
 
     .line 580
-    :cond_a04
+    :cond_a0f
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -7402,11 +7401,11 @@
 
     iput-object v10, v8, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverAddress:Ljava/lang/String;
 
-    goto :goto_a29
+    goto :goto_a34
 
     .line 578
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_a10
+    :sswitch_a1b
     move-object/from16 v17, v10
 
     const-string v10, "obfs-password"
@@ -7415,13 +7414,13 @@
 
     move-result v10
 
-    if-nez v10, :cond_a1b
+    if-nez v10, :cond_a26
 
-    :goto_a1a
-    goto :goto_a29
+    :goto_a25
+    goto :goto_a34
 
     .line 584
-    :cond_a1b
+    :cond_a26
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -7432,27 +7431,27 @@
 
     iput-object v10, v8, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->obfuscation:Ljava/lang/String;
 
-    goto :goto_a29
+    goto :goto_a34
 
     .line 596
     .end local v11    # "opt":Ljava/util/Map$Entry;
-    :goto_a26
-    goto :goto_a29
+    :goto_a31
+    goto :goto_a34
 
     .line 577
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :cond_a27
+    :cond_a32
     move-object/from16 v17, v10
 
     .line 576
     .end local v11    # "opt":Ljava/util/Map$Entry;
-    :goto_a29
+    :goto_a34
     move-object/from16 v10, v17
 
-    goto/16 :goto_8e2
+    goto/16 :goto_8ed
 
     .line 600
-    :cond_a2d
+    :cond_a38
     move-object v1, v9
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -7461,14 +7460,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_a38
+    if-nez v1, :cond_a43
 
     .line 601
     iput-object v9, v8, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverPorts:Ljava/lang/String;
 
     .line 603
     .end local v9    # "hopPorts":Ljava/lang/String;
-    :cond_a38
+    :cond_a43
     invoke-interface {v7, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v4, p0
@@ -7500,7 +7499,7 @@
     .end local v7    # "proxies":Ljava/util/List;
     .local v11, "proxy":Ljava/util/Map;
     .restart local v14    # "proxies":Ljava/util/List;
-    :sswitch_a52
+    :sswitch_a5d
     move-object/from16 v27, v10
 
     move-object v10, v7
@@ -7523,7 +7522,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_a7e
+    if-nez v3, :cond_a89
 
     move-object/from16 v4, p0
 
@@ -7550,8 +7549,8 @@
     goto/16 :goto_d7
 
     .line 308
-    :cond_a7e
-    :goto_a7e
+    :cond_a89
+    :goto_a89
     const-string v3, "type"
 
     invoke-interface {v11, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -7566,25 +7565,25 @@
 
     move-result v15
 
-    sparse-switch v15, :sswitch_data_183a
+    sparse-switch v15, :sswitch_data_1870
 
-    :cond_a90
+    :cond_a9b
     move-object/from16 v7, v26
 
     .end local v26    # "proxies":Ljava/util/List;
     .restart local v7    # "proxies":Ljava/util/List;
-    goto/16 :goto_1347
+    goto/16 :goto_1379
 
     .end local v7    # "proxies":Ljava/util/List;
     .restart local v26    # "proxies":Ljava/util/List;
-    :sswitch_a94
+    :sswitch_a9f
     const-string v15, "vmess"
 
     invoke-virtual {v3, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1347
+    if-eqz v3, :cond_1379
 
     .line 309
     new-instance v3, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
@@ -7597,17 +7596,17 @@
 
     move-object/from16 v28, v8
 
-    goto :goto_ae7
+    goto :goto_b19
 
     .line 308
-    :sswitch_aa8
+    :sswitch_ab3
     const-string v15, "vless"
 
     invoke-virtual {v3, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1347
+    if-eqz v3, :cond_1379
 
     .line 310
     new-instance v3, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
@@ -7650,17 +7649,17 @@
     .end local v24    # "$i$a$-apply-RawUpdater$parseRaw$bean$1":I
     check-cast v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
-    goto :goto_ae7
+    goto :goto_b19
 
     .line 308
-    :sswitch_mx_bean
+    :sswitch_ada
     const-string v15, "mx"
 
     invoke-virtual {v3, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1347
+    if-eqz v3, :cond_1379
 
     .line 310
     new-instance v3, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
@@ -7703,10 +7702,10 @@
     .end local v24    # "$i$a$-apply-RawUpdater$parseRaw$bean$50":I
     check-cast v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
-    goto :goto_ae7
+    goto :goto_b19
 
     .line 308
-    :sswitch_acf
+    :sswitch_b01
     move-object/from16 v25, v7
 
     move-object/from16 v28, v8
@@ -7717,7 +7716,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_a90
+    if-eqz v3, :cond_a9b
 
     .line 315
     new-instance v3, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
@@ -7742,7 +7741,7 @@
     check-cast v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
     .line 308
-    :goto_ae7
+    :goto_b19
     nop
 
     .line 322
@@ -7751,19 +7750,19 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_132e
+    if-eqz v4, :cond_1360
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    if-nez v4, :cond_af8
+    if-nez v4, :cond_b2a
 
     move-object/from16 v7, v26
 
-    goto/16 :goto_1330
+    goto/16 :goto_1362
 
-    :cond_af8
+    :cond_b2a
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->serverAddress:Ljava/lang/String;
 
     .line 323
@@ -7771,25 +7770,25 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_1315
+    if-eqz v4, :cond_1347
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_1315
+    if-eqz v4, :cond_1347
 
     invoke-static {v4}, Lkotlin/text/StringsKt;->toIntOrNull(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v4
 
-    if-nez v4, :cond_b10
+    if-nez v4, :cond_b42
 
     move-object/from16 v7, v26
 
-    goto/16 :goto_1317
+    goto/16 :goto_1349
 
-    :cond_b10
+    :cond_b42
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->serverPort:Ljava/lang/Integer;
 
     .line 325
@@ -7802,13 +7801,13 @@
     move-result-object v4
 
     .end local v11    # "proxy":Ljava/util/Map;
-    :cond_b1a
-    :goto_b1a
+    :cond_b4c
+    :goto_b4c
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_12f9
+    if-eqz v5, :cond_132b
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7828,7 +7827,7 @@
 
     move-result v8
 
-    sparse-switch v8, :sswitch_data_1848
+    sparse-switch v8, :sswitch_data_1882
 
     move-object/from16 v30, v1
 
@@ -7838,21 +7837,21 @@
 
     move-object/from16 v8, v28
 
-    goto/16 :goto_12ef
+    goto/16 :goto_1321
 
-    :sswitch_b3d
+    :sswitch_b6f
     const-string v8, "network"
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_b46
+    if-nez v7, :cond_b78
 
-    goto :goto_ba6
+    goto :goto_bd8
 
     .line 387
-    :cond_b46
+    :cond_b78
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v7
@@ -7864,25 +7863,25 @@
 
     move-result v8
 
-    if-nez v8, :cond_b75
+    if-nez v8, :cond_ba7
 
     invoke-static {v7, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_b59
+    if-eqz v8, :cond_b8b
 
-    goto :goto_b75
+    goto :goto_ba7
 
     .line 389
-    :cond_b59
+    :cond_b8b
     const-string v8, "ws"
 
     invoke-static {v7, v8}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-nez v8, :cond_b69
+    if-nez v8, :cond_b9b
 
     const-string v8, "grpc"
 
@@ -7890,9 +7889,9 @@
 
     move-result v7
 
-    if-eqz v7, :cond_b1a
+    if-eqz v7, :cond_b4c
 
-    :cond_b69
+    :cond_b9b
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v7
@@ -7904,28 +7903,28 @@
 
     iput-object v7, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
-    goto :goto_b1a
+    goto :goto_b4c
 
     .line 388
-    :cond_b75
-    :goto_b75
+    :cond_ba7
+    :goto_ba7
     iput-object v1, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
-    goto :goto_b1a
+    goto :goto_b4c
 
     .line 326
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :sswitch_b78
+    :sswitch_baa
     invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_b7f
+    if-nez v7, :cond_bb1
 
-    goto :goto_ba6
+    goto :goto_bd8
 
     .line 366
-    :cond_b7f
+    :cond_bb1
     nop
 
     .line 367
@@ -7936,18 +7935,18 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v5, v7, Ljava/lang/Boolean;
 
-    if-eqz v5, :cond_b8c
+    if-eqz v5, :cond_bbe
 
     move-object v5, v7
 
     check-cast v5, Ljava/lang/Boolean;
 
-    goto :goto_b8d
+    goto :goto_bbf
 
-    :cond_b8c
+    :cond_bbe
     const/4 v5, 0x0
 
-    :goto_b8d
+    :goto_bbf
     const/4 v7, 0x1
 
     invoke-static {v7}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
@@ -7965,24 +7964,24 @@
     .line 366
     iput-object v5, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->allowInsecure:Ljava/lang/Boolean;
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :sswitch_b9e
+    :sswitch_bd0
     const-string v8, "ws-opts"
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_ba8
+    if-nez v7, :cond_bda
 
-    :goto_ba6
-    goto/16 :goto_b1a
+    :goto_bd8
+    goto/16 :goto_b4c
 
     .line 393
-    :cond_ba8
+    :cond_bda
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v7
@@ -7990,19 +7989,19 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v5, v7, Ljava/util/Map;
 
-    if-eqz v5, :cond_bb4
+    if-eqz v5, :cond_be6
 
     move-object v5, v7
 
     check-cast v5, Ljava/util/Map;
 
-    goto :goto_bb5
+    goto :goto_be7
 
-    :cond_bb4
+    :cond_be6
     const/4 v5, 0x0
 
-    :goto_bb5
-    if-eqz v5, :cond_ce6
+    :goto_be7
+    if-eqz v5, :cond_d18
 
     .local v5, "it":Ljava/util/Map;
     const/4 v7, 0x0
@@ -8018,12 +8017,12 @@
     move-result-object v8
 
     .end local v5    # "it":Ljava/util/Map;
-    :goto_bc0
+    :goto_bf2
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_ce1
+    if-eqz v5, :cond_d13
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8043,27 +8042,27 @@
 
     move-result v15
 
-    sparse-switch v15, :sswitch_data_189e
+    sparse-switch v15, :sswitch_data_18d8
 
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
 
-    goto/16 :goto_cdb
+    goto/16 :goto_d0d
 
-    :sswitch_bdf
+    :sswitch_c11
     const-string v15, "early-data-header-name"
 
     invoke-virtual {v11, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-nez v11, :cond_be8
+    if-nez v11, :cond_c1a
 
-    goto :goto_c00
+    goto :goto_c32
 
     .line 414
-    :cond_be8
+    :cond_c1a
     nop
 
     .line 415
@@ -8071,40 +8070,40 @@
 
     move-result-object v11
 
-    if-eqz v11, :cond_bf4
+    if-eqz v11, :cond_c26
 
     invoke-virtual {v11}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v11
 
-    goto :goto_bf5
+    goto :goto_c27
 
     .end local v5    # "wsOpt":Ljava/util/Map$Entry;
-    :cond_bf4
+    :cond_c26
     const/4 v11, 0x0
 
     .line 414
-    :goto_bf5
+    :goto_c27
     iput-object v11, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->earlyDataHeaderName:Ljava/lang/String;
 
-    goto :goto_bc0
+    goto :goto_bf2
 
     .line 395
     .restart local v5    # "wsOpt":Ljava/util/Map$Entry;
-    :sswitch_bf8
+    :sswitch_c2a
     const-string v15, "max-early-data"
 
     invoke-virtual {v11, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-nez v11, :cond_c01
+    if-nez v11, :cond_c33
 
-    :goto_c00
-    goto :goto_c1f
+    :goto_c32
+    goto :goto_c51
 
     .line 409
-    :cond_c01
+    :cond_c33
     nop
 
     .line 410
@@ -8112,64 +8111,64 @@
 
     move-result-object v11
 
-    if-eqz v11, :cond_c13
+    if-eqz v11, :cond_c45
 
     invoke-virtual {v11}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v11
 
-    if-eqz v11, :cond_c13
+    if-eqz v11, :cond_c45
 
     invoke-static {v11}, Lkotlin/text/StringsKt;->toIntOrNull(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v11
 
-    goto :goto_c14
+    goto :goto_c46
 
     .end local v5    # "wsOpt":Ljava/util/Map$Entry;
-    :cond_c13
+    :cond_c45
     const/4 v11, 0x0
 
     .line 409
-    :goto_c14
+    :goto_c46
     iput-object v11, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->wsMaxEarlyData:Ljava/lang/Integer;
 
-    goto :goto_bc0
+    goto :goto_bf2
 
     .line 395
     .restart local v5    # "wsOpt":Ljava/util/Map$Entry;
-    :sswitch_c17
+    :sswitch_c49
     const-string v15, "headers"
 
     invoke-virtual {v11, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-nez v11, :cond_c20
+    if-nez v11, :cond_c52
 
-    :goto_c1f
-    goto :goto_bc0
+    :goto_c51
+    goto :goto_bf2
 
     .line 396
-    :cond_c20
+    :cond_c52
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v11
 
     instance-of v15, v11, Ljava/util/Map;
 
-    if-eqz v15, :cond_c2b
+    if-eqz v15, :cond_c5d
 
     check-cast v11, Ljava/util/Map;
 
-    goto :goto_c2c
+    goto :goto_c5e
 
-    :cond_c2b
+    :cond_c5d
     const/4 v11, 0x0
 
     .end local v5    # "wsOpt":Ljava/util/Map$Entry;
-    :goto_c2c
-    if-eqz v11, :cond_c7e
+    :goto_c5e
+    if-eqz v11, :cond_cb0
 
     move-object v5, v11
 
@@ -8187,12 +8186,12 @@
     move-result-object v15
 
     .end local v5    # "$this$forEach$iv":Ljava/util/Map;
-    :goto_c38
+    :goto_c6a
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_c77
+    if-eqz v5, :cond_ca9
 
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8241,26 +8240,26 @@
 
     move-result v1
 
-    if-eqz v1, :cond_c71
+    if-eqz v1, :cond_ca3
 
     .line 399
-    if-eqz v5, :cond_c6e
+    if-eqz v5, :cond_ca0
 
     invoke-virtual {v5}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_c6f
+    goto :goto_ca1
 
     .end local v5    # "value":Ljava/lang/Object;
-    :cond_c6e
+    :cond_ca0
     const/4 v1, 0x0
 
-    :goto_c6f
+    :goto_ca1
     iput-object v1, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->host:Ljava/lang/String;
 
     .line 402
-    :cond_c71
+    :cond_ca3
     nop
 
     .line 841
@@ -8269,10 +8268,10 @@
 
     move-object/from16 v4, v31
 
-    goto :goto_c38
+    goto :goto_c6a
 
     .line 842
-    :cond_c77
+    :cond_ca9
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -8280,24 +8279,24 @@
     .end local v11    # "$i$f$forEach":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_c82
+    goto :goto_cb4
 
     .line 396
-    :cond_c7e
+    :cond_cb0
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
 
-    :goto_c82
+    :goto_cb4
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_bc0
+    goto/16 :goto_bf2
 
     .line 395
     .local v5, "wsOpt":Ljava/util/Map$Entry;
-    :sswitch_c88
+    :sswitch_cba
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -8306,40 +8305,40 @@
 
     move-result v1
 
-    if-nez v1, :cond_c93
+    if-nez v1, :cond_cc5
 
-    goto :goto_cb3
+    goto :goto_ce5
 
     .line 405
-    :cond_c93
+    :cond_cc5
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-eqz v1, :cond_c9e
+    if-eqz v1, :cond_cd0
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_c9f
+    goto :goto_cd1
 
     .end local v5    # "wsOpt":Ljava/util/Map$Entry;
-    :cond_c9e
+    :cond_cd0
     const/4 v1, 0x0
 
-    :goto_c9f
+    :goto_cd1
     iput-object v1, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_bc0
+    goto/16 :goto_bf2
 
     .line 395
     .restart local v5    # "wsOpt":Ljava/util/Map$Entry;
-    :sswitch_ca7
+    :sswitch_cd9
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -8350,34 +8349,34 @@
 
     move-result v1
 
-    if-nez v1, :cond_cb9
+    if-nez v1, :cond_ceb
 
-    :goto_cb3
+    :goto_ce5
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_bc0
+    goto/16 :goto_bf2
 
     .line 419
-    :cond_cb9
+    :cond_ceb
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
     instance-of v4, v1, Ljava/lang/Boolean;
 
-    if-eqz v4, :cond_cc4
+    if-eqz v4, :cond_cf6
 
     check-cast v1, Ljava/lang/Boolean;
 
-    goto :goto_cc5
+    goto :goto_cf7
 
     .end local v5    # "wsOpt":Ljava/util/Map$Entry;
-    :cond_cc4
+    :cond_cf6
     const/4 v1, 0x0
 
-    :goto_cc5
+    :goto_cf7
     const/4 v4, 0x1
 
     invoke-static {v4}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
@@ -8388,56 +8387,56 @@
 
     move-result v1
 
-    if-eqz v1, :cond_cd5
+    if-eqz v1, :cond_d07
 
     .line 420
     const-string v1, "httpupgrade"
 
     iput-object v1, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
-    goto :goto_cdb
+    goto :goto_d0d
 
     .line 419
-    :cond_cd5
+    :cond_d07
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_bc0
+    goto/16 :goto_bf2
 
     .line 420
-    :goto_cdb
+    :goto_d0d
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_bc0
+    goto/16 :goto_bf2
 
     .line 425
-    :cond_ce1
+    :cond_d13
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
 
     .end local v7    # "$i$a$-also-RawUpdater$parseRaw$9":I
-    goto :goto_cea
+    goto :goto_d1c
 
     .line 393
-    :cond_ce6
+    :cond_d18
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
 
-    :goto_cea
+    :goto_d1c
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
     .local v5, "opt":Ljava/util/Map$Entry;
-    :sswitch_cf0
+    :sswitch_d22
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -8446,15 +8445,15 @@
 
     move-result v1
 
-    if-nez v1, :cond_cfc
+    if-nez v1, :cond_d2e
 
-    goto/16 :goto_f0d
+    goto/16 :goto_f3f
 
     .line 328
-    :cond_cfc
+    :cond_d2e
     instance-of v1, v3, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
 
-    if-eqz v1, :cond_d17
+    if-eqz v1, :cond_d49
 
     move-object v1, v3
 
@@ -8466,37 +8465,37 @@
     move-result-object v4
 
     .end local v5    # "opt":Ljava/util/Map$Entry;
-    if-eqz v4, :cond_d0e
+    if-eqz v4, :cond_d40
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_d0f
+    goto :goto_d41
 
-    :cond_d0e
+    :cond_d40
     const/4 v4, 0x0
 
     .line 328
-    :goto_d0f
+    :goto_d41
     iput-object v4, v1, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->password:Ljava/lang/String;
 
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :cond_d17
+    :cond_d49
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
-    :sswitch_d1d
+    :sswitch_d4f
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -8507,15 +8506,15 @@
 
     move-result v1
 
-    if-nez v1, :cond_d2b
+    if-nez v1, :cond_d5d
 
-    goto/16 :goto_f0d
+    goto/16 :goto_f3f
 
     .line 348
-    :cond_d2b
+    :cond_d5d
     instance-of v1, v3, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
-    if-eqz v1, :cond_d5c
+    if-eqz v1, :cond_d8e
 
     .line 349
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -8525,48 +8524,48 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v4, v1, Ljava/lang/String;
 
-    if-eqz v4, :cond_d3a
+    if-eqz v4, :cond_d6c
 
     check-cast v1, Ljava/lang/String;
 
-    goto :goto_d3b
+    goto :goto_d6d
 
-    :cond_d3a
+    :cond_d6c
     const/4 v1, 0x0
 
     .line 350
-    :goto_d3b
+    :goto_d6d
     const-string v4, "packetaddr"
 
     invoke-static {v1, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_d45
+    if-eqz v4, :cond_d77
 
     const/4 v1, 0x1
 
-    goto :goto_d50
+    goto :goto_d82
 
     .line 351
-    :cond_d45
+    :cond_d77
     const-string v4, "xudp"
 
     invoke-static {v1, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_d4f
+    if-eqz v1, :cond_d81
 
     const/4 v1, 0x2
 
-    goto :goto_d50
+    goto :goto_d82
 
     .line 352
-    :cond_d4f
+    :cond_d81
     const/4 v1, 0x0
 
-    :goto_d50
+    :goto_d82
     invoke-static {v1}, Lkotlin/coroutines/jvm/internal/Boxing;->boxInt(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -8578,19 +8577,19 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 348
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :cond_d5c
+    :cond_d8e
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
-    :sswitch_d62
+    :sswitch_d94
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -8601,12 +8600,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_d70
+    if-nez v1, :cond_da2
 
-    goto/16 :goto_f0d
+    goto/16 :goto_f3f
 
     .line 369
-    :cond_d70
+    :cond_da2
     nop
 
     .line 370
@@ -8626,11 +8625,11 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :sswitch_d82
+    :sswitch_db4
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -8641,12 +8640,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_d90
+    if-nez v1, :cond_dc2
 
-    goto/16 :goto_f0d
+    goto/16 :goto_f3f
 
     .line 481
-    :cond_d90
+    :cond_dc2
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
@@ -8654,17 +8653,17 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v4, v1, Ljava/util/Map;
 
-    if-eqz v4, :cond_d9b
+    if-eqz v4, :cond_dcd
 
     check-cast v1, Ljava/util/Map;
 
-    goto :goto_d9c
+    goto :goto_dce
 
-    :cond_d9b
+    :cond_dcd
     const/4 v1, 0x0
 
-    :goto_d9c
-    if-eqz v1, :cond_dd5
+    :goto_dce
+    if-eqz v1, :cond_e07
 
     .local v1, "it":Ljava/util/Map;
     const/4 v4, 0x0
@@ -8680,13 +8679,13 @@
     move-result-object v5
 
     .end local v1    # "it":Ljava/util/Map;
-    :cond_da7
-    :goto_da7
+    :cond_dd9
+    :goto_dd9
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_dd4
+    if-eqz v1, :cond_e06
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8709,7 +8708,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_da7
+    if-eqz v7, :cond_dd9
 
     .line 485
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -8732,24 +8731,24 @@
     iput-object v7, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->enableECH:Ljava/lang/Boolean;
 
     .end local v1    # "echOpt":Ljava/util/Map$Entry;
-    goto :goto_da7
+    goto :goto_dd9
 
     .line 488
-    :cond_dd4
+    :cond_e06
     nop
 
     .line 481
     .end local v4    # "$i$a$-also-RawUpdater$parseRaw$14":I
-    :cond_dd5
+    :cond_e07
     move-object/from16 v1, v25
 
     move-object/from16 v8, v28
 
-    goto/16 :goto_12ef
+    goto/16 :goto_1321
 
     .line 326
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :sswitch_ddb
+    :sswitch_e0d
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -8760,12 +8759,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_de9
+    if-nez v1, :cond_e1b
 
-    goto/16 :goto_f0d
+    goto/16 :goto_f3f
 
     .line 438
-    :cond_de9
+    :cond_e1b
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
@@ -8773,17 +8772,17 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v4, v1, Ljava/util/Map;
 
-    if-eqz v4, :cond_df4
+    if-eqz v4, :cond_e26
 
     check-cast v1, Ljava/util/Map;
 
-    goto :goto_df5
+    goto :goto_e27
 
-    :cond_df4
+    :cond_e26
     const/4 v1, 0x0
 
-    :goto_df5
-    if-eqz v1, :cond_ed0
+    :goto_e27
+    if-eqz v1, :cond_f02
 
     .local v1, "it":Ljava/util/Map;
     const/4 v4, 0x0
@@ -8799,12 +8798,12 @@
     move-result-object v5
 
     .end local v1    # "it":Ljava/util/Map;
-    :goto_e00
+    :goto_e32
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_ece
+    if-eqz v1, :cond_f00
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8825,7 +8824,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_e45
+    if-eqz v8, :cond_e77
 
     .line 442
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -8834,18 +8833,18 @@
 
     instance-of v8, v7, Ljava/util/List;
 
-    if-eqz v8, :cond_e23
+    if-eqz v8, :cond_e55
 
     check-cast v7, Ljava/util/List;
 
-    goto :goto_e24
+    goto :goto_e56
 
-    :cond_e23
+    :cond_e55
     const/4 v7, 0x0
 
     .end local v1    # "httpOpt":Ljava/util/Map$Entry;
-    :goto_e24
-    if-eqz v7, :cond_e41
+    :goto_e56
+    if-eqz v7, :cond_e73
 
     move-object/from16 v32, v7
 
@@ -8873,27 +8872,27 @@
 
     move-result-object v1
 
-    goto :goto_e42
+    goto :goto_e74
 
-    :cond_e41
+    :cond_e73
     const/4 v1, 0x0
 
     .line 441
-    :goto_e42
+    :goto_e74
     iput-object v1, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
-    goto :goto_e00
+    goto :goto_e32
 
     .line 444
     .restart local v1    # "httpOpt":Ljava/util/Map$Entry;
-    :cond_e45
+    :cond_e77
     const-string v8, "headers"
 
     invoke-static {v7, v8}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_ec8
+    if-eqz v7, :cond_efa
 
     .line 445
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -8902,18 +8901,18 @@
 
     instance-of v8, v7, Ljava/util/Map;
 
-    if-eqz v8, :cond_e58
+    if-eqz v8, :cond_e8a
 
     check-cast v7, Ljava/util/Map;
 
-    goto :goto_e59
+    goto :goto_e8b
 
-    :cond_e58
+    :cond_e8a
     const/4 v7, 0x0
 
     .end local v1    # "httpOpt":Ljava/util/Map$Entry;
-    :goto_e59
-    if-eqz v7, :cond_ebe
+    :goto_e8b
+    if-eqz v7, :cond_ef0
 
     move-object v1, v7
 
@@ -8931,12 +8930,12 @@
     move-result-object v8
 
     .end local v1    # "$this$forEach$iv":Ljava/util/Map;
-    :goto_e65
+    :goto_e97
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_eb7
+    if-eqz v1, :cond_ee9
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8989,7 +8988,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_eb1
+    if-eqz v4, :cond_ee3
 
     .line 448
     move-object/from16 v32, v1
@@ -9022,7 +9021,7 @@
 
     .line 451
     .end local v1    # "value":Ljava/util/List;
-    :cond_eb1
+    :cond_ee3
     nop
 
     .line 843
@@ -9031,12 +9030,12 @@
 
     move-object/from16 v5, v29
 
-    goto :goto_e65
+    goto :goto_e97
 
     .line 844
     .end local v24    # "$i$a$-also-RawUpdater$parseRaw$11":I
     .restart local v4    # "$i$a$-also-RawUpdater$parseRaw$11":I
-    :cond_eb7
+    :cond_ee9
     move/from16 v24, v4
 
     move-object/from16 v29, v5
@@ -9046,57 +9045,57 @@
     .restart local v24    # "$i$a$-also-RawUpdater$parseRaw$11":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_ec2
+    goto :goto_ef4
 
     .line 445
     .end local v24    # "$i$a$-also-RawUpdater$parseRaw$11":I
     .restart local v4    # "$i$a$-also-RawUpdater$parseRaw$11":I
-    :cond_ebe
+    :cond_ef0
     move/from16 v24, v4
 
     move-object/from16 v29, v5
 
     .end local v4    # "$i$a$-also-RawUpdater$parseRaw$11":I
     .restart local v24    # "$i$a$-also-RawUpdater$parseRaw$11":I
-    :goto_ec2
+    :goto_ef4
     move/from16 v4, v24
 
     move-object/from16 v5, v29
 
-    goto/16 :goto_e00
+    goto/16 :goto_e32
 
     .line 444
     .end local v24    # "$i$a$-also-RawUpdater$parseRaw$11":I
     .local v1, "httpOpt":Ljava/util/Map$Entry;
     .restart local v4    # "$i$a$-also-RawUpdater$parseRaw$11":I
-    :cond_ec8
+    :cond_efa
     move/from16 v24, v4
 
     move-object/from16 v29, v5
 
     .end local v4    # "$i$a$-also-RawUpdater$parseRaw$11":I
     .restart local v24    # "$i$a$-also-RawUpdater$parseRaw$11":I
-    goto/16 :goto_e00
+    goto/16 :goto_e32
 
     .line 455
     .end local v1    # "httpOpt":Ljava/util/Map$Entry;
     .end local v24    # "$i$a$-also-RawUpdater$parseRaw$11":I
     .restart local v4    # "$i$a$-also-RawUpdater$parseRaw$11":I
-    :cond_ece
+    :cond_f00
     move/from16 v24, v4
 
     .line 438
     .end local v4    # "$i$a$-also-RawUpdater$parseRaw$11":I
-    :cond_ed0
+    :cond_f02
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :sswitch_ed6
+    :sswitch_f08
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -9107,15 +9106,15 @@
 
     move-result v1
 
-    if-nez v1, :cond_ee3
+    if-nez v1, :cond_f15
 
-    goto :goto_f0d
+    goto :goto_f3f
 
     .line 331
-    :cond_ee3
+    :cond_f15
     instance-of v1, v3, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
-    if-eqz v1, :cond_efb
+    if-eqz v1, :cond_f2d
 
     .line 332
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -9123,37 +9122,37 @@
     move-result-object v1
 
     .end local v5    # "opt":Ljava/util/Map$Entry;
-    if-eqz v1, :cond_ef2
+    if-eqz v1, :cond_f24
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_ef3
+    goto :goto_f25
 
-    :cond_ef2
+    :cond_f24
     const/4 v1, 0x0
 
     .line 331
-    :goto_ef3
+    :goto_f25
     iput-object v1, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->uuid:Ljava/lang/String;
 
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :cond_efb
+    :cond_f2d
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
-    :sswitch_f01
+    :sswitch_f33
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -9164,13 +9163,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_f0f
+    if-nez v1, :cond_f41
 
-    :goto_f0d
-    goto/16 :goto_12d1
+    :goto_f3f
+    goto/16 :goto_1303
 
     .line 466
-    :cond_f0f
+    :cond_f41
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
@@ -9178,17 +9177,17 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v4, v1, Ljava/util/Map;
 
-    if-eqz v4, :cond_f1a
+    if-eqz v4, :cond_f4c
 
     check-cast v1, Ljava/util/Map;
 
-    goto :goto_f1b
+    goto :goto_f4d
 
-    :cond_f1a
+    :cond_f4c
     const/4 v1, 0x0
 
-    :goto_f1b
-    if-eqz v1, :cond_f98
+    :goto_f4d
+    if-eqz v1, :cond_fca
 
     .local v1, "it":Ljava/util/Map;
     const/4 v4, 0x0
@@ -9204,13 +9203,13 @@
     move-result-object v5
 
     .end local v1    # "it":Ljava/util/Map;
-    :cond_f26
-    :goto_f26
+    :cond_f58
+    :goto_f58
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_f97
+    if-eqz v1, :cond_fc9
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9230,23 +9229,23 @@
 
     move-result v8
 
-    sparse-switch v8, :sswitch_data_18b4
+    sparse-switch v8, :sswitch_data_18ee
 
-    goto :goto_f96
+    goto :goto_fc8
 
-    :sswitch_f40
+    :sswitch_f72
     const-string v8, "max-streams"
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_f49
+    if-nez v7, :cond_f7b
 
-    goto :goto_f26
+    goto :goto_f58
 
     .line 472
-    :cond_f49
+    :cond_f7b
     nop
 
     .line 473
@@ -9269,22 +9268,22 @@
     .line 472
     iput-object v7, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->muxConcurrency:Ljava/lang/Integer;
 
-    goto :goto_f26
+    goto :goto_f58
 
     .line 468
-    :sswitch_f5d
+    :sswitch_f8f
     const-string v8, "padding"
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_f66
+    if-nez v7, :cond_f98
 
-    goto :goto_f26
+    goto :goto_f58
 
     .line 475
-    :cond_f66
+    :cond_f98
     nop
 
     .line 476
@@ -9307,17 +9306,17 @@
     .line 475
     iput-object v7, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->muxPadding:Ljava/lang/Boolean;
 
-    goto :goto_f96
+    goto :goto_fc8
 
     .line 468
-    :sswitch_f7a
+    :sswitch_fac
     const-string v8, "enabled"
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_f26
+    if-eqz v7, :cond_f58
 
     .line 469
     nop
@@ -9342,29 +9341,29 @@
     .line 469
     iput-object v7, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->enableMux:Ljava/lang/Boolean;
 
-    goto :goto_f26
+    goto :goto_f58
 
     .line 475
     .end local v1    # "smuxOpt":Ljava/util/Map$Entry;
-    :goto_f96
-    goto :goto_f26
+    :goto_fc8
+    goto :goto_f58
 
     .line 479
-    :cond_f97
+    :cond_fc9
     nop
 
     .line 466
     .end local v4    # "$i$a$-also-RawUpdater$parseRaw$13":I
-    :cond_f98
+    :cond_fca
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :sswitch_f9e
+    :sswitch_fd0
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -9375,29 +9374,29 @@
 
     move-result v4
 
-    if-nez v4, :cond_fab
+    if-nez v4, :cond_fdd
 
-    goto :goto_fcf
+    goto :goto_1001
 
     .line 327
-    :cond_fab
+    :cond_fdd
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v4
 
     .end local v5    # "opt":Ljava/util/Map$Entry;
-    if-eqz v4, :cond_fb6
+    if-eqz v4, :cond_fe8
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_fb7
+    goto :goto_fe9
 
-    :cond_fb6
+    :cond_fe8
     const/4 v4, 0x0
 
-    :goto_fb7
+    :goto_fe9
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->name:Ljava/lang/String;
 
     move-object/from16 v25, v1
@@ -9406,11 +9405,11 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :sswitch_fc1
+    :sswitch_ff3
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -9423,18 +9422,18 @@
 
     move-result v4
 
-    if-nez v4, :cond_fd3
+    if-nez v4, :cond_1005
 
-    :goto_fcf
+    :goto_1001
     move-object/from16 v25, v1
 
-    goto/16 :goto_12d1
+    goto/16 :goto_1303
 
     .line 340
-    :cond_fd3
+    :cond_1005
     instance-of v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
-    if-eqz v4, :cond_1010
+    if-eqz v4, :cond_1042
 
     move-object v4, v3
 
@@ -9444,7 +9443,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1010
+    if-eqz v4, :cond_1042
 
     .line 341
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -9454,17 +9453,17 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v5, v4, Ljava/lang/String;
 
-    if-eqz v5, :cond_feb
+    if-eqz v5, :cond_101d
 
     check-cast v4, Ljava/lang/String;
 
-    goto :goto_fec
+    goto :goto_101e
 
-    :cond_feb
+    :cond_101d
     const/4 v4, 0x0
 
-    :goto_fec
-    if-eqz v4, :cond_1008
+    :goto_101e
+    if-eqz v4, :cond_103a
 
     .local v4, "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -9493,7 +9492,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1005
+    if-eqz v7, :cond_1037
 
     .line 343
     .end local v24    # "it":Ljava/lang/String;
@@ -9502,35 +9501,35 @@
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->encryption:Ljava/lang/String;
 
     .line 345
-    :cond_1005
+    :cond_1037
     nop
 
     .line 341
     .end local v5    # "$i$a$-let-RawUpdater$parseRaw$7":I
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    :cond_1008
+    :cond_103a
     move-object/from16 v25, v1
 
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 340
     .local v5, "opt":Ljava/util/Map$Entry;
-    :cond_1010
+    :cond_1042
     move-object/from16 v25, v1
 
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
-    :sswitch_1018
+    :sswitch_104a
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -9543,12 +9542,12 @@
 
     move-result v4
 
-    if-nez v4, :cond_1028
+    if-nez v4, :cond_105a
 
-    goto/16 :goto_12cd
+    goto/16 :goto_12ff
 
     .line 363
-    :cond_1028
+    :cond_105a
     nop
 
     .line 364
@@ -9559,17 +9558,17 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v5, v4, Ljava/util/List;
 
-    if-eqz v5, :cond_1034
+    if-eqz v5, :cond_1066
 
     check-cast v4, Ljava/util/List;
 
-    goto :goto_1035
+    goto :goto_1067
 
-    :cond_1034
+    :cond_1066
     const/4 v4, 0x0
 
-    :goto_1035
-    if-eqz v4, :cond_1052
+    :goto_1067
+    if-eqz v4, :cond_1084
 
     move-object/from16 v32, v4
 
@@ -9597,13 +9596,13 @@
 
     move-result-object v4
 
-    goto :goto_1053
+    goto :goto_1085
 
-    :cond_1052
+    :cond_1084
     const/4 v4, 0x0
 
     .line 363
-    :goto_1053
+    :goto_1085
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->alpn:Ljava/lang/String;
 
     move-object/from16 v25, v1
@@ -9614,11 +9613,11 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :sswitch_105f
+    :sswitch_1091
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -9631,15 +9630,15 @@
 
     move-result v4
 
-    if-nez v4, :cond_106f
+    if-nez v4, :cond_10a1
 
-    goto/16 :goto_12cd
+    goto/16 :goto_12ff
 
     .line 356
-    :cond_106f
+    :cond_10a1
     instance-of v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
-    if-eqz v4, :cond_109b
+    if-eqz v4, :cond_10cd
 
     .line 357
     nop
@@ -9652,16 +9651,16 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v5, v4, Ljava/lang/Boolean;
 
-    if-eqz v5, :cond_107f
+    if-eqz v5, :cond_10b1
 
     check-cast v4, Ljava/lang/Boolean;
 
-    goto :goto_1080
+    goto :goto_10b2
 
-    :cond_107f
+    :cond_10b1
     const/4 v4, 0x0
 
-    :goto_1080
+    :goto_10b2
     const/4 v5, 0x1
 
     invoke-static {v5}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
@@ -9672,17 +9671,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_108d
+    if-eqz v4, :cond_10bf
 
     move-object v4, v10
 
-    goto :goto_108f
+    goto :goto_10c1
 
-    :cond_108d
+    :cond_10bf
     move-object/from16 v4, v27
 
     .line 357
-    :goto_108f
+    :goto_10c1
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
 
     move-object/from16 v25, v1
@@ -9693,11 +9692,11 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 356
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :cond_109b
+    :cond_10cd
     move-object/from16 v25, v1
 
     move-object/from16 v28, v8
@@ -9706,10 +9705,10 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
-    :sswitch_10a5
+    :sswitch_10d7
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -9724,16 +9723,16 @@
 
     move-result v7
 
-    if-nez v7, :cond_10b6
+    if-nez v7, :cond_10e8
 
-    goto :goto_10cc
+    goto :goto_10fe
 
-    :cond_10b6
+    :cond_10e8
     move-object/from16 v17, v4
 
-    goto/16 :goto_12d7
+    goto/16 :goto_1309
 
-    :sswitch_10ba
+    :sswitch_10ec
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -9750,17 +9749,17 @@
 
     move-result v7
 
-    if-nez v7, :cond_10d2
+    if-nez v7, :cond_1104
 
-    :goto_10cc
+    :goto_10fe
     move-object/from16 v25, v1
 
     move-object/from16 v17, v4
 
-    goto/16 :goto_12cf
+    goto/16 :goto_1301
 
     .line 427
-    :cond_10d2
+    :cond_1104
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v7
@@ -9768,19 +9767,19 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v5, v7, Ljava/util/Map;
 
-    if-eqz v5, :cond_10de
+    if-eqz v5, :cond_1110
 
     move-object v5, v7
 
     check-cast v5, Ljava/util/Map;
 
-    goto :goto_10df
+    goto :goto_1111
 
-    :cond_10de
+    :cond_1110
     const/4 v5, 0x0
 
-    :goto_10df
-    if-eqz v5, :cond_1153
+    :goto_1111
+    if-eqz v5, :cond_1185
 
     .local v5, "it":Ljava/util/Map;
     const/4 v7, 0x0
@@ -9796,12 +9795,12 @@
     move-result-object v11
 
     .end local v5    # "it":Ljava/util/Map;
-    :goto_10ea
+    :goto_111c
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1150
+    if-eqz v5, :cond_1182
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9822,7 +9821,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_1134
+    if-eqz v17, :cond_1166
 
     .line 431
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -9833,20 +9832,20 @@
 
     instance-of v4, v15, Ljava/util/List;
 
-    if-eqz v4, :cond_1110
+    if-eqz v4, :cond_1142
 
     move-object v4, v15
 
     check-cast v4, Ljava/util/List;
 
-    goto :goto_1111
+    goto :goto_1143
 
-    :cond_1110
+    :cond_1142
     const/4 v4, 0x0
 
     .end local v5    # "h2Opt":Ljava/util/Map$Entry;
-    :goto_1111
-    if-eqz v4, :cond_112e
+    :goto_1143
+    if-eqz v4, :cond_1160
 
     move-object/from16 v32, v4
 
@@ -9874,72 +9873,72 @@
 
     move-result-object v4
 
-    goto :goto_112f
+    goto :goto_1161
 
-    :cond_112e
+    :cond_1160
     const/4 v4, 0x0
 
     .line 430
-    :goto_112f
+    :goto_1161
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->host:Ljava/lang/String;
 
     move-object/from16 v4, v17
 
-    goto :goto_10ea
+    goto :goto_111c
 
     .line 433
     .restart local v5    # "h2Opt":Ljava/util/Map$Entry;
-    :cond_1134
+    :cond_1166
     move-object/from16 v17, v4
 
     invoke-static {v15, v14}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_114d
+    if-eqz v4, :cond_117f
 
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v4
 
-    if-eqz v4, :cond_1147
+    if-eqz v4, :cond_1179
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_1148
+    goto :goto_117a
 
     .end local v5    # "h2Opt":Ljava/util/Map$Entry;
-    :cond_1147
+    :cond_1179
     const/4 v4, 0x0
 
-    :goto_1148
+    :goto_117a
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     move-object/from16 v4, v17
 
-    goto :goto_10ea
+    goto :goto_111c
 
     .restart local v5    # "h2Opt":Ljava/util/Map$Entry;
-    :cond_114d
+    :cond_117f
     move-object/from16 v4, v17
 
-    goto :goto_10ea
+    goto :goto_111c
 
     .line 436
     .end local v5    # "h2Opt":Ljava/util/Map$Entry;
-    :cond_1150
+    :cond_1182
     move-object/from16 v17, v4
 
     .end local v7    # "$i$a$-also-RawUpdater$parseRaw$10":I
-    goto :goto_1155
+    goto :goto_1187
 
     .line 427
-    :cond_1153
+    :cond_1185
     move-object/from16 v17, v4
 
-    :goto_1155
+    :goto_1187
     move-object/from16 v25, v1
 
     move-object/from16 v28, v8
@@ -9948,11 +9947,11 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
     .local v5, "opt":Ljava/util/Map$Entry;
-    :sswitch_115f
+    :sswitch_1191
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -9967,15 +9966,15 @@
 
     move-result v4
 
-    if-nez v4, :cond_1171
+    if-nez v4, :cond_11a3
 
-    goto/16 :goto_12cd
+    goto/16 :goto_12ff
 
     .line 334
-    :cond_1171
+    :cond_11a3
     instance-of v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
-    if-eqz v4, :cond_119f
+    if-eqz v4, :cond_11d1
 
     move-object v4, v3
 
@@ -9985,7 +9984,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_119f
+    if-nez v4, :cond_11d1
 
     move-object v4, v3
 
@@ -9997,25 +9996,25 @@
     move-result-object v7
 
     .end local v5    # "opt":Ljava/util/Map$Entry;
-    if-eqz v7, :cond_1192
+    if-eqz v7, :cond_11c4
 
     invoke-virtual {v7}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_1192
+    if-eqz v5, :cond_11c4
 
     invoke-static {v5}, Lkotlin/text/StringsKt;->toIntOrNull(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v5
 
-    goto :goto_1193
+    goto :goto_11c5
 
-    :cond_1192
+    :cond_11c4
     const/4 v5, 0x0
 
     .line 334
-    :goto_1193
+    :goto_11c5
     iput-object v5, v4, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->alterId:Ljava/lang/Integer;
 
     move-object/from16 v25, v1
@@ -10026,10 +10025,10 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :cond_119f
+    :cond_11d1
     move-object/from16 v25, v1
 
     move-object/from16 v28, v8
@@ -10038,10 +10037,10 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
-    :sswitch_11a9
+    :sswitch_11db
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -10056,12 +10055,12 @@
 
     move-result v4
 
-    if-nez v4, :cond_11bb
+    if-nez v4, :cond_11ed
 
-    goto/16 :goto_12cd
+    goto/16 :goto_12ff
 
     .line 457
-    :cond_11bb
+    :cond_11ed
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v4
@@ -10069,17 +10068,17 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v5, v4, Ljava/util/Map;
 
-    if-eqz v5, :cond_11c6
+    if-eqz v5, :cond_11f8
 
     check-cast v4, Ljava/util/Map;
 
-    goto :goto_11c7
+    goto :goto_11f9
 
-    :cond_11c6
+    :cond_11f8
     const/4 v4, 0x0
 
-    :goto_11c7
-    if-eqz v4, :cond_11fc
+    :goto_11f9
+    if-eqz v4, :cond_122e
 
     .local v4, "it":Ljava/util/Map;
     const/4 v5, 0x0
@@ -10095,13 +10094,13 @@
     move-result-object v7
 
     .end local v4    # "it":Ljava/util/Map;
-    :cond_11d2
-    :goto_11d2
+    :cond_1204
+    :goto_1204
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_11fb
+    if-eqz v4, :cond_122d
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -10124,38 +10123,38 @@
 
     move-result v11
 
-    if-eqz v11, :cond_11d2
+    if-eqz v11, :cond_1204
 
     .line 461
     invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v11
 
-    if-eqz v11, :cond_11f7
+    if-eqz v11, :cond_1229
 
     invoke-virtual {v11}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v11
 
-    goto :goto_11f8
+    goto :goto_122a
 
     .end local v4    # "grpcOpt":Ljava/util/Map$Entry;
-    :cond_11f7
+    :cond_1229
     const/4 v11, 0x0
 
     .line 460
-    :goto_11f8
+    :goto_122a
     iput-object v11, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
-    goto :goto_11d2
+    goto :goto_1204
 
     .line 464
-    :cond_11fb
+    :cond_122d
     nop
 
     .line 457
     .end local v5    # "$i$a$-also-RawUpdater$parseRaw$12":I
-    :cond_11fc
+    :cond_122e
     move-object/from16 v25, v1
 
     move-object/from16 v28, v8
@@ -10164,11 +10163,11 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
     .local v5, "opt":Ljava/util/Map$Entry;
-    :sswitch_1206
+    :sswitch_1238
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -10183,15 +10182,15 @@
 
     move-result v4
 
-    if-nez v4, :cond_1218
+    if-nez v4, :cond_124a
 
-    goto/16 :goto_12cd
+    goto/16 :goto_12ff
 
     .line 337
-    :cond_1218
+    :cond_124a
     instance-of v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
-    if-eqz v4, :cond_123d
+    if-eqz v4, :cond_126f
 
     move-object v4, v3
 
@@ -10201,7 +10200,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_123d
+    if-nez v4, :cond_126f
 
     .line 338
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -10211,17 +10210,17 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v5, v4, Ljava/lang/String;
 
-    if-eqz v5, :cond_1230
+    if-eqz v5, :cond_1262
 
     check-cast v4, Ljava/lang/String;
 
-    goto :goto_1231
+    goto :goto_1263
 
-    :cond_1230
+    :cond_1262
     const/4 v4, 0x0
 
     .line 337
-    :goto_1231
+    :goto_1263
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->encryption:Ljava/lang/String;
 
     move-object/from16 v25, v1
@@ -10232,10 +10231,10 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .restart local v5    # "opt":Ljava/util/Map$Entry;
-    :cond_123d
+    :cond_126f
     move-object/from16 v25, v1
 
     move-object/from16 v28, v8
@@ -10244,10 +10243,10 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
-    :sswitch_1247
+    :sswitch_1279
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -10262,12 +10261,12 @@
 
     move-result v4
 
-    if-nez v4, :cond_1259
+    if-nez v4, :cond_128b
 
-    goto/16 :goto_12cd
+    goto/16 :goto_12ff
 
     .line 372
-    :cond_1259
+    :cond_128b
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v4
@@ -10275,17 +10274,17 @@
     .end local v5    # "opt":Ljava/util/Map$Entry;
     instance-of v5, v4, Ljava/util/Map;
 
-    if-eqz v5, :cond_1264
+    if-eqz v5, :cond_1296
 
     check-cast v4, Ljava/util/Map;
 
-    goto :goto_1265
+    goto :goto_1297
 
-    :cond_1264
+    :cond_1296
     const/4 v4, 0x0
 
-    :goto_1265
-    if-eqz v4, :cond_12b3
+    :goto_1297
+    if-eqz v4, :cond_12e5
 
     .local v4, "it":Ljava/util/Map;
     const/4 v5, 0x0
@@ -10301,13 +10300,13 @@
     move-result-object v7
 
     .end local v4    # "it":Ljava/util/Map;
-    :cond_1270
-    :goto_1270
+    :cond_12a2
+    :goto_12a2
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_12b2
+    if-eqz v4, :cond_12e4
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -10333,72 +10332,72 @@
 
     move-result v15
 
-    if-eqz v15, :cond_129b
+    if-eqz v15, :cond_12cd
 
     .line 378
     invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v11
 
-    if-eqz v11, :cond_1297
+    if-eqz v11, :cond_12c9
 
     invoke-virtual {v11}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v11
 
-    goto :goto_1298
+    goto :goto_12ca
 
     .end local v4    # "realityOpt":Ljava/util/Map$Entry;
-    :cond_1297
+    :cond_12c9
     const/4 v11, 0x0
 
     .line 377
-    :goto_1298
+    :goto_12ca
     iput-object v11, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->realityPubKey:Ljava/lang/String;
 
-    goto :goto_1270
+    goto :goto_12a2
 
     .line 380
     .restart local v4    # "realityOpt":Ljava/util/Map$Entry;
-    :cond_129b
+    :cond_12cd
     const-string v15, "short-id"
 
     invoke-static {v11, v15}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-eqz v11, :cond_1270
+    if-eqz v11, :cond_12a2
 
     .line 381
     invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v11
 
-    if-eqz v11, :cond_12ae
+    if-eqz v11, :cond_12e0
 
     invoke-virtual {v11}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v11
 
-    goto :goto_12af
+    goto :goto_12e1
 
     .end local v4    # "realityOpt":Ljava/util/Map$Entry;
-    :cond_12ae
+    :cond_12e0
     const/4 v11, 0x0
 
     .line 380
-    :goto_12af
+    :goto_12e1
     iput-object v11, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->realityShortId:Ljava/lang/String;
 
-    goto :goto_1270
+    goto :goto_12a2
 
     .line 384
-    :cond_12b2
+    :cond_12e4
     nop
 
     .line 372
     .end local v5    # "$i$a$-also-RawUpdater$parseRaw$8":I
-    :cond_12b3
+    :cond_12e5
     move-object/from16 v25, v1
 
     move-object/from16 v28, v8
@@ -10407,11 +10406,11 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 326
     .local v5, "opt":Ljava/util/Map$Entry;
-    :sswitch_12bd
+    :sswitch_12ef
     move-object/from16 v30, v1
 
     move-object/from16 v31, v4
@@ -10426,41 +10425,41 @@
 
     move-result v4
 
-    if-nez v4, :cond_12d7
+    if-nez v4, :cond_1309
 
-    :goto_12cd
+    :goto_12ff
     move-object/from16 v25, v1
 
-    :goto_12cf
+    :goto_1301
     move-object/from16 v28, v8
 
-    :goto_12d1
+    :goto_1303
     move-object/from16 v1, v30
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 361
-    :cond_12d7
-    :goto_12d7
+    :cond_1309
+    :goto_1309
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v4
 
     .end local v5    # "opt":Ljava/util/Map$Entry;
-    if-eqz v4, :cond_12e2
+    if-eqz v4, :cond_1314
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_12e3
+    goto :goto_1315
 
-    :cond_12e2
+    :cond_1314
     const/4 v4, 0x0
 
-    :goto_12e3
+    :goto_1315
     iput-object v4, v3, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->sni:Ljava/lang/String;
 
     move-object/from16 v25, v1
@@ -10471,10 +10470,10 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 481
-    :goto_12ef
+    :goto_1321
     move-object/from16 v25, v1
 
     move-object/from16 v28, v8
@@ -10483,10 +10482,10 @@
 
     move-object/from16 v4, v31
 
-    goto/16 :goto_b1a
+    goto/16 :goto_b4c
 
     .line 491
-    :cond_12f9
+    :cond_132b
     move-object/from16 v7, v26
 
     .end local v26    # "proxies":Ljava/util/List;
@@ -10523,14 +10522,14 @@
     .restart local v3    # "bean":Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
     .local v11, "proxy":Ljava/util/Map;
     .restart local v26    # "proxies":Ljava/util/List;
-    :cond_1315
+    :cond_1347
     move-object/from16 v7, v26
 
     .end local v3    # "bean":Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
     .end local v11    # "proxy":Ljava/util/Map;
     .end local v26    # "proxies":Ljava/util/List;
     .restart local v7    # "proxies":Ljava/util/List;
-    :goto_1317
+    :goto_1349
     move-object/from16 v4, p0
 
     move-object/from16 v8, p1
@@ -10560,14 +10559,14 @@
     .restart local v3    # "bean":Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
     .restart local v11    # "proxy":Ljava/util/Map;
     .restart local v26    # "proxies":Ljava/util/List;
-    :cond_132e
+    :cond_1360
     move-object/from16 v7, v26
 
     .end local v3    # "bean":Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
     .end local v11    # "proxy":Ljava/util/Map;
     .end local v26    # "proxies":Ljava/util/List;
     .restart local v7    # "proxies":Ljava/util/List;
-    :goto_1330
+    :goto_1362
     move-object/from16 v4, p0
 
     move-object/from16 v8, p1
@@ -10595,8 +10594,8 @@
     .line 315
     .end local v7    # "proxies":Ljava/util/List;
     .end local v23    # "globalClientFingerprint":Ljava/lang/String;
-    :cond_1347
-    :goto_1347
+    :cond_1379
+    :goto_1379
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 319
@@ -10624,7 +10623,7 @@
     .restart local v23    # "globalClientFingerprint":Ljava/lang/String;
     .restart local p2    # "text":Ljava/lang/String;
     .restart local p3    # "$completion":Lkotlin/coroutines/Continuation;
-    :sswitch_1353
+    :sswitch_1385
     move-object v1, v9
 
     move-object/from16 v27, v10
@@ -10639,12 +10638,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_1361
+    if-nez v3, :cond_1393
 
-    goto/16 :goto_13da
+    goto/16 :goto_140c
 
     .line 250
-    :cond_1361
+    :cond_1393
     new-instance v3, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
 
     invoke-direct {v3}, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;-><init>()V
@@ -10692,18 +10691,18 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_1392
+    if-eqz v4, :cond_13c4
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_1393
+    goto :goto_13c5
 
-    :cond_1392
+    :cond_13c4
     const/4 v4, 0x0
 
-    :goto_1393
+    :goto_13c5
     iput-object v4, v6, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->username:Ljava/lang/String;
 
     .line 254
@@ -10711,18 +10710,18 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_13a0
+    if-eqz v4, :cond_13d2
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_13a1
+    goto :goto_13d3
 
-    :cond_13a0
+    :cond_13d2
     const/4 v4, 0x0
 
-    :goto_13a1
+    :goto_13d3
     iput-object v4, v6, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->password:Ljava/lang/String;
 
     .line 255
@@ -10730,20 +10729,20 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_13ae
+    if-eqz v1, :cond_13e0
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_13af
+    goto :goto_13e1
 
     .end local v6    # "$this$parseRaw_u24lambda_u2413":Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
     .end local v11    # "proxy":Ljava/util/Map;
-    :cond_13ae
+    :cond_13e0
     const/4 v1, 0x0
 
-    :goto_13af
+    :goto_13e1
     iput-object v1, v6, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->name:Ljava/lang/String;
 
     .line 256
@@ -10783,7 +10782,7 @@
     .end local v7    # "proxies":Ljava/util/List;
     .restart local v11    # "proxy":Ljava/util/Map;
     .restart local v14    # "proxies":Ljava/util/List;
-    :sswitch_13ce
+    :sswitch_1400
     move-object v1, v9
 
     move-object/from16 v27, v10
@@ -10798,9 +10797,9 @@
 
     move-result v9
 
-    if-nez v9, :cond_13f1
+    if-nez v9, :cond_1423
 
-    :goto_13da
+    :goto_140c
     move-object/from16 v4, p0
 
     move-object/from16 v8, p1
@@ -10826,7 +10825,7 @@
     goto/16 :goto_d7
 
     .line 495
-    :cond_13f1
+    :cond_1423
     new-instance v9, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;
 
     invoke-direct {v9}, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;-><init>()V
@@ -10842,13 +10841,13 @@
     move-result-object v10
 
     .end local v11    # "proxy":Ljava/util/Map;
-    :cond_13fe
-    :goto_13fe
+    :cond_1430
+    :goto_1430
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_1503
+    if-eqz v11, :cond_1535
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -10862,7 +10861,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_13fe
+    if-eqz v14, :cond_1430
 
     .line 498
     invoke-interface {v11}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -10891,21 +10890,21 @@
 
     move-result v15
 
-    sparse-switch v15, :sswitch_data_18c2
+    sparse-switch v15, :sswitch_data_18fc
 
-    goto/16 :goto_1501
+    goto/16 :goto_1533
 
-    :sswitch_142f
+    :sswitch_1461
     invoke-virtual {v14, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_1437
+    if-nez v14, :cond_1469
 
-    goto/16 :goto_14f2
+    goto/16 :goto_1524
 
     .line 507
-    :cond_1437
+    :cond_1469
     nop
 
     .line 508
@@ -10929,21 +10928,21 @@
     .end local v11    # "opt":Ljava/util/Map$Entry;
     iput-object v14, v9, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->allowInsecure:Ljava/lang/Boolean;
 
-    goto :goto_13fe
+    goto :goto_1430
 
     .line 498
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_144b
+    :sswitch_147d
     invoke-virtual {v14, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_1453
+    if-nez v14, :cond_1485
 
-    goto/16 :goto_14f2
+    goto/16 :goto_1524
 
     .line 502
-    :cond_1453
+    :cond_1485
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -10954,22 +10953,22 @@
 
     iput-object v14, v9, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->password:Ljava/lang/String;
 
-    goto :goto_13fe
+    goto :goto_1430
 
     .line 498
-    :sswitch_145e
+    :sswitch_1490
     const-string v15, "client-fingerprint"
 
     invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_1468
+    if-nez v14, :cond_149a
 
-    goto/16 :goto_14f2
+    goto/16 :goto_1524
 
     .line 503
-    :cond_1468
+    :cond_149a
     nop
 
     .line 504
@@ -10985,21 +10984,21 @@
     .line 503
     iput-object v14, v9, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->utlsFingerprint:Ljava/lang/String;
 
-    goto :goto_13fe
+    goto :goto_1430
 
     .line 498
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_1475
+    :sswitch_14a7
     invoke-virtual {v14, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_147d
+    if-nez v14, :cond_14af
 
-    goto/16 :goto_14f2
+    goto/16 :goto_1524
 
     .line 501
-    :cond_147d
+    :cond_14af
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -11019,21 +11018,21 @@
 
     iput-object v11, v9, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->serverPort:Ljava/lang/Integer;
 
-    goto/16 :goto_13fe
+    goto/16 :goto_1430
 
     .line 498
     .restart local v11    # "opt":Ljava/util/Map$Entry;
-    :sswitch_1491
+    :sswitch_14c3
     invoke-virtual {v14, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_1498
+    if-nez v14, :cond_14ca
 
-    goto :goto_14f2
+    goto :goto_1524
 
     .line 499
-    :cond_1498
+    :cond_14ca
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -11044,20 +11043,20 @@
 
     iput-object v14, v9, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->name:Ljava/lang/String;
 
-    goto/16 :goto_13fe
+    goto/16 :goto_1430
 
     .line 498
-    :sswitch_14a4
+    :sswitch_14d6
     invoke-virtual {v14, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_14ab
+    if-nez v14, :cond_14dd
 
-    goto :goto_14f2
+    goto :goto_1524
 
     .line 511
-    :cond_14ab
+    :cond_14dd
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -11065,21 +11064,21 @@
     .end local v11    # "opt":Ljava/util/Map$Entry;
     instance-of v11, v14, Ljava/util/List;
 
-    if-eqz v11, :cond_14b7
+    if-eqz v11, :cond_14e9
 
     move-object v11, v14
 
     check-cast v11, Ljava/util/List;
 
-    goto :goto_14b8
+    goto :goto_14ea
 
-    :cond_14b7
+    :cond_14e9
     const/4 v11, 0x0
 
     .line 512
     .local v11, "alpn":Ljava/util/List;
-    :goto_14b8
-    if-eqz v11, :cond_14d5
+    :goto_14ea
+    if-eqz v11, :cond_1507
 
     move-object/from16 v28, v11
 
@@ -11107,30 +11106,30 @@
 
     move-result-object v14
 
-    goto :goto_14d6
+    goto :goto_1508
 
     .end local v11    # "alpn":Ljava/util/List;
-    :cond_14d5
+    :cond_1507
     const/4 v14, 0x0
 
-    :goto_14d6
+    :goto_1508
     iput-object v14, v9, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->alpn:Ljava/lang/String;
 
-    goto :goto_1501
+    goto :goto_1533
 
     .line 498
     .local v11, "opt":Ljava/util/Map$Entry;
-    :sswitch_14d9
+    :sswitch_150b
     invoke-virtual {v14, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_14e0
+    if-nez v14, :cond_1512
 
-    goto :goto_14f2
+    goto :goto_1524
 
     .line 506
-    :cond_14e0
+    :cond_1512
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -11141,21 +11140,21 @@
 
     iput-object v14, v9, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->sni:Ljava/lang/String;
 
-    goto/16 :goto_13fe
+    goto/16 :goto_1430
 
     .line 498
-    :sswitch_14ec
+    :sswitch_151e
     invoke-virtual {v14, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_14f4
+    if-nez v14, :cond_1526
 
-    :goto_14f2
-    goto/16 :goto_13fe
+    :goto_1524
+    goto/16 :goto_1430
 
     .line 500
-    :cond_14f4
+    :cond_1526
     invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v14
@@ -11167,14 +11166,14 @@
 
     iput-object v14, v9, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->serverAddress:Ljava/lang/String;
 
-    goto/16 :goto_13fe
+    goto/16 :goto_1430
 
     .line 512
-    :goto_1501
-    goto/16 :goto_13fe
+    :goto_1533
+    goto/16 :goto_1430
 
     .line 516
-    :cond_1503
+    :cond_1535
     invoke-interface {v7, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v4, p0
@@ -11203,7 +11202,7 @@
     goto/16 :goto_d7
 
     .line 655
-    :goto_151d
+    :goto_154f
     move-object/from16 v4, p0
 
     move-object/from16 v8, p1
@@ -11240,7 +11239,7 @@
     .local v9, "globalClientFingerprint":Ljava/lang/String;
     .restart local v13    # "text":Ljava/lang/String;
     .restart local v14    # "proxies":Ljava/util/List;
-    :cond_1534
+    :cond_1566
     move-object/from16 v20, v3
 
     move-object/from16 v18, v5
@@ -11282,12 +11281,12 @@
     move-result-object v3
 
     .end local v1    # "$this$forEach$iv":Ljava/lang/Iterable;
-    :goto_154a
+    :goto_157c
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1603
+    if-eqz v1, :cond_1635
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -11310,7 +11309,7 @@
     .line 663
     instance-of v5, v1, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
-    if-eqz v5, :cond_15fc
+    if-eqz v5, :cond_162e
 
     .line 665
     move-object v5, v1
@@ -11321,7 +11320,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_15ab
+    if-eqz v5, :cond_15dd
 
     move-object v5, v1
 
@@ -11331,27 +11330,27 @@
 
     check-cast v5, Ljava/lang/CharSequence;
 
-    if-eqz v5, :cond_157b
+    if-eqz v5, :cond_15ad
 
     invoke-static {v5}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1579
+    if-eqz v5, :cond_15ab
 
-    goto :goto_157b
+    goto :goto_15ad
 
-    :cond_1579
+    :cond_15ab
     const/4 v10, 0x0
 
-    goto :goto_157c
+    goto :goto_15ae
 
-    :cond_157b
-    :goto_157b
+    :cond_15ad
+    :goto_15ad
     const/4 v10, 0x1
 
-    :goto_157c
-    if-eqz v10, :cond_15ab
+    :goto_15ae
+    if-eqz v10, :cond_15dd
 
     move-object v5, v1
 
@@ -11361,27 +11360,27 @@
 
     check-cast v5, Ljava/lang/CharSequence;
 
-    if-eqz v5, :cond_1590
+    if-eqz v5, :cond_15c2
 
     invoke-static {v5}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_158e
+    if-eqz v5, :cond_15c0
 
-    goto :goto_1590
+    goto :goto_15c2
 
-    :cond_158e
+    :cond_15c0
     const/4 v10, 0x0
 
-    goto :goto_1591
+    goto :goto_15c3
 
-    :cond_1590
-    :goto_1590
+    :cond_15c2
+    :goto_15c2
     const/4 v10, 0x1
 
-    :goto_1591
-    if-nez v10, :cond_15ab
+    :goto_15c3
+    if-nez v10, :cond_15dd
 
     move-object v5, v1
 
@@ -11395,7 +11394,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_15ab
+    if-nez v5, :cond_15dd
 
     .line 666
     move-object v5, v1
@@ -11411,7 +11410,7 @@
     iput-object v6, v5, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->sni:Ljava/lang/String;
 
     .line 669
-    :cond_15ab
+    :cond_15dd
     move-object v5, v1
 
     check-cast v5, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
@@ -11420,27 +11419,27 @@
 
     check-cast v5, Ljava/lang/CharSequence;
 
-    if-eqz v5, :cond_15bd
+    if-eqz v5, :cond_15ef
 
     invoke-static {v5}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_15bb
+    if-eqz v5, :cond_15ed
 
-    goto :goto_15bd
+    goto :goto_15ef
 
-    :cond_15bb
+    :cond_15ed
     const/4 v10, 0x0
 
-    goto :goto_15be
+    goto :goto_15f0
 
-    :cond_15bd
-    :goto_15bd
+    :cond_15ef
+    :goto_15ef
     const/4 v10, 0x1
 
-    :goto_15be
-    if-nez v10, :cond_15f9
+    :goto_15f0
+    if-nez v10, :cond_162b
 
     move-object v5, v1
 
@@ -11450,27 +11449,27 @@
 
     check-cast v5, Ljava/lang/CharSequence;
 
-    if-eqz v5, :cond_15d2
+    if-eqz v5, :cond_1604
 
     invoke-static {v5}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_15d0
+    if-eqz v5, :cond_1602
 
-    goto :goto_15d2
+    goto :goto_1604
 
-    :cond_15d0
+    :cond_1602
     const/4 v10, 0x0
 
-    goto :goto_15d3
+    goto :goto_1605
 
-    :cond_15d2
-    :goto_15d2
+    :cond_1604
+    :goto_1604
     const/4 v10, 0x1
 
-    :goto_15d3
-    if-eqz v10, :cond_15f9
+    :goto_1605
+    if-eqz v10, :cond_162b
 
     .line 670
     move-object v5, v1
@@ -11492,27 +11491,27 @@
 
     check-cast v5, Ljava/lang/CharSequence;
 
-    if-eqz v5, :cond_15ee
+    if-eqz v5, :cond_1620
 
     invoke-static {v5}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_15ec
+    if-eqz v5, :cond_161e
 
-    goto :goto_15ee
+    goto :goto_1620
 
-    :cond_15ec
+    :cond_161e
     const/4 v10, 0x0
 
-    goto :goto_15ef
+    goto :goto_1621
 
-    :cond_15ee
-    :goto_15ee
+    :cond_1620
+    :goto_1620
     const/4 v10, 0x1
 
-    :goto_15ef
-    if-eqz v10, :cond_15fe
+    :goto_1621
+    if-eqz v10, :cond_1630
 
     move-object v5, v1
 
@@ -11522,42 +11521,42 @@
 
     iput-object v8, v5, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->utlsFingerprint:Ljava/lang/String;
 
-    goto :goto_15fe
+    goto :goto_1630
 
     .line 669
     .end local v6    # "globalClientFingerprint":Ljava/lang/String;
     .restart local v23    # "globalClientFingerprint":Ljava/lang/String;
-    :cond_15f9
+    :cond_162b
     move-object/from16 v6, v23
 
     .end local v23    # "globalClientFingerprint":Ljava/lang/String;
     .restart local v6    # "globalClientFingerprint":Ljava/lang/String;
-    goto :goto_15fe
+    goto :goto_1630
 
     .line 663
     .end local v6    # "globalClientFingerprint":Ljava/lang/String;
     .restart local v23    # "globalClientFingerprint":Ljava/lang/String;
-    :cond_15fc
+    :cond_162e
     move-object/from16 v6, v23
 
     .line 674
     .end local v1    # "it":Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .end local v23    # "globalClientFingerprint":Ljava/lang/String;
     .restart local v6    # "globalClientFingerprint":Ljava/lang/String;
-    :cond_15fe
-    :goto_15fe
+    :cond_1630
+    :goto_1630
     nop
 
     .line 845
     .end local v4    # "$i$a$-forEach-RawUpdater$parseRaw$15":I
     move-object/from16 v23, v6
 
-    goto/16 :goto_154a
+    goto/16 :goto_157c
 
     .line 846
     .end local v6    # "globalClientFingerprint":Ljava/lang/String;
     .restart local v23    # "globalClientFingerprint":Ljava/lang/String;
-    :cond_1603
+    :cond_1635
     nop
 
     .line 675
@@ -11576,7 +11575,7 @@
     .restart local v9    # "globalClientFingerprint":Ljava/lang/String;
     .restart local v13    # "text":Ljava/lang/String;
     .restart local v14    # "proxies":Ljava/util/List;
-    :cond_1605
+    :cond_1637
     move-object/from16 v20, v3
 
     move-object/from16 v18, v5
@@ -11631,8 +11630,8 @@
     .end local p2    # "text":Ljava/lang/String;
     .end local p3    # "$completion":Lkotlin/coroutines/Continuation;
     throw v2
-    :try_end_162b
-    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_48e .. :try_end_162b} :catch_162b
+    :try_end_165d
+    .catch Lorg/yaml/snakeyaml/error/YAMLException; {:try_start_499 .. :try_end_165d} :catch_165d
 
     .line 676
     .restart local v18    # "$result":Ljava/lang/Object;
@@ -11640,12 +11639,12 @@
     .restart local v21    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
     .restart local p2    # "text":Ljava/lang/String;
     .restart local p3    # "$completion":Lkotlin/coroutines/Continuation;
-    :catch_162b
+    :catch_165d
     move-exception v0
 
     move-object v1, v0
 
-    goto :goto_163a
+    goto :goto_166c
 
     .end local v18    # "$result":Ljava/lang/Object;
     .end local v20    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -11655,7 +11654,7 @@
     .restart local v5    # "$result":Ljava/lang/Object;
     .restart local v7    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
     .restart local v13    # "text":Ljava/lang/String;
-    :catch_162e
+    :catch_1660
     move-exception v0
 
     move-object/from16 v20, v3
@@ -11680,7 +11679,7 @@
     .restart local v20    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v21    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
     .restart local p2    # "text":Ljava/lang/String;
-    :goto_163a
+    :goto_166c
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v3, v1
@@ -11696,7 +11695,7 @@
     const/4 v10, 0x0
 
     .end local v1    # "e":Lorg/yaml/snakeyaml/error/YAMLException;
-    goto/16 :goto_16c4
+    goto/16 :goto_16f6
 
     .line 679
     .end local v18    # "$result":Ljava/lang/Object;
@@ -11709,7 +11708,7 @@
     .local v12, "fileName":Ljava/lang/String;
     .restart local v13    # "text":Ljava/lang/String;
     .restart local v14    # "proxies":Ljava/util/List;
-    :cond_1649
+    :cond_167b
     move-object/from16 v20, v3
 
     move-object/from16 v18, v5
@@ -11749,7 +11748,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_16c0
+    if-eqz v1, :cond_16f2
 
     .line 681
     nop
@@ -11763,7 +11762,7 @@
     .end local p2    # "text":Ljava/lang/String;
     .local v1, "this":Lio/nekohasekai/sagernet/group/RawUpdater;
     .local v2, "text":Ljava/lang/String;
-    :try_start_166a
+    :try_start_169c
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/group/RawUpdater;->parseWireGuard(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v3
@@ -11798,12 +11797,12 @@
     move-result-object v8
 
     .end local v3    # "$this$mapTo$iv$iv":Ljava/lang/Iterable;
-    :goto_1683
+    :goto_16b5
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_16aa
+    if-eqz v3, :cond_16dc
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -11831,7 +11830,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_16a5
+    if-nez v11, :cond_16d7
 
     const-string v11, ".conf"
 
@@ -11844,7 +11843,7 @@
     iput-object v11, v3, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;->name:Ljava/lang/String;
 
     .line 684
-    :cond_16a5
+    :cond_16d7
     nop
 
     .line 849
@@ -11852,11 +11851,11 @@
     .end local v9    # "$i$a$-map-RawUpdater$parseRaw$16":I
     invoke-interface {v5, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1683
+    goto :goto_16b5
 
     .line 850
     .end local v12    # "fileName":Ljava/lang/String;
-    :cond_16aa
+    :cond_16dc
     nop
 
     .end local v5    # "destination$iv$iv":Ljava/util/Collection;
@@ -11873,15 +11872,15 @@
 
     .line 682
     invoke-interface {v7, v3}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-    :try_end_16b4
-    .catch Ljava/lang/Exception; {:try_start_166a .. :try_end_16b4} :catch_16b5
+    :try_end_16e6
+    .catch Ljava/lang/Exception; {:try_start_169c .. :try_end_16e6} :catch_16e7
 
     .line 686
     return-object v7
 
     .line 687
     .end local v7    # "proxies":Ljava/util/List;
-    :catch_16b5
+    :catch_16e7
     move-exception v0
 
     move-object v3, v0
@@ -11896,7 +11895,7 @@
 
     invoke-virtual {v4, v5}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/Throwable;)V
 
-    goto :goto_16c4
+    goto :goto_16f6
 
     .line 679
     .end local v1    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
@@ -11906,7 +11905,7 @@
     .restart local v12    # "fileName":Ljava/lang/String;
     .restart local v21    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
     .restart local p2    # "text":Ljava/lang/String;
-    :cond_16c0
+    :cond_16f2
     move-object/from16 v2, p2
 
     move-object/from16 v1, v21
@@ -11918,11 +11917,11 @@
     .end local p2    # "text":Ljava/lang/String;
     .restart local v1    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
     .restart local v2    # "text":Ljava/lang/String;
-    :goto_16c4
+    :goto_16f6
     nop
 
     .line 693
-    :try_start_16c5
+    :try_start_16f7
     new-instance v3, Lorg/json/JSONTokener;
 
     invoke-direct {v3, v2}, Lorg/json/JSONTokener;-><init>(Ljava/lang/String;)V
@@ -11938,58 +11937,58 @@
     invoke-virtual {v1, v3}, Lio/nekohasekai/sagernet/group/RawUpdater;->parseJSON(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v4
-    :try_end_16d5
-    .catch Ljava/lang/Exception; {:try_start_16c5 .. :try_end_16d5} :catch_16d6
+    :try_end_1707
+    .catch Ljava/lang/Exception; {:try_start_16f7 .. :try_end_1707} :catch_1708
 
     return-object v4
 
     .line 695
     .end local v1    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
     .end local v3    # "json":Ljava/lang/Object;
-    :catch_16d6
+    :catch_1708
     move-exception v0
 
     .line 698
     nop
 
     .line 699
-    :try_start_16d8
+    :try_start_170a
     invoke-static {v2}, Lio/nekohasekai/sagernet/ktx/FormatsKt;->decodeBase64UrlSafe(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
-    :try_end_16dc
-    .catch Ljava/lang/Exception; {:try_start_16d8 .. :try_end_16dc} :catch_171d
+    :try_end_170e
+    .catch Ljava/lang/Exception; {:try_start_170a .. :try_end_170e} :catch_174f
 
     move-object/from16 v3, v20
 
     .end local v20    # "$continuation":Lkotlin/coroutines/Continuation;
     .local v3, "$continuation":Lkotlin/coroutines/Continuation;
-    :try_start_16de
+    :try_start_1710
     iput-object v2, v3, Lio/nekohasekai/sagernet/group/RawUpdater$parseRaw$1;->L$0:Ljava/lang/Object;
-    :try_end_16e0
-    .catch Ljava/lang/Exception; {:try_start_16de .. :try_end_16e0} :catch_1718
+    :try_end_1712
+    .catch Ljava/lang/Exception; {:try_start_1710 .. :try_end_1712} :catch_174a
 
     const/4 v4, 0x1
 
-    :try_start_16e1
+    :try_start_1713
     iput v4, v3, Lio/nekohasekai/sagernet/group/RawUpdater$parseRaw$1;->label:I
 
     invoke-static {v1, v3}, Lio/nekohasekai/sagernet/ktx/FormatsKt;->parseProxies(Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_16e7
-    .catch Ljava/lang/Exception; {:try_start_16e1 .. :try_end_16e7} :catch_1714
+    :try_end_1719
+    .catch Ljava/lang/Exception; {:try_start_1713 .. :try_end_1719} :catch_1746
 
     move-object/from16 v5, v19
 
-    if-ne v1, v5, :cond_16ec
+    if-ne v1, v5, :cond_171e
 
     .line 226
     return-object v5
 
-    :cond_16ec
-    :goto_16ec
-    :try_start_16ec
+    :cond_171e
+    :goto_171e
+    :try_start_171e
     move-object v6, v1
 
     check-cast v6, Ljava/util/List;
@@ -12008,33 +12007,33 @@
 
     move-result v8
 
-    if-nez v8, :cond_16fb
+    if-nez v8, :cond_172d
 
     const/4 v6, 0x1
 
-    goto :goto_16fc
+    goto :goto_172e
 
-    :cond_16fb
+    :cond_172d
     const/4 v6, 0x0
 
     .end local v6    # "it":Ljava/util/List;
     .end local v7    # "$i$a$-takeIf-RawUpdater$parseRaw$17":I
-    :goto_16fc
-    if-eqz v6, :cond_16ff
+    :goto_172e
+    if-eqz v6, :cond_1731
 
-    goto :goto_1700
+    goto :goto_1732
 
-    :cond_16ff
+    :cond_1731
     const/4 v1, 0x0
 
-    :goto_1700
+    :goto_1732
     check-cast v1, Ljava/util/List;
 
-    if-eqz v1, :cond_1705
+    if-eqz v1, :cond_1737
 
     return-object v1
 
-    :cond_1705
+    :cond_1737
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 700
@@ -12051,41 +12050,41 @@
     .end local v18    # "$result":Ljava/lang/Object;
     .end local p3    # "$completion":Lkotlin/coroutines/Continuation;
     throw v1
-    :try_end_1711
-    .catch Ljava/lang/Exception; {:try_start_16ec .. :try_end_1711} :catch_1711
+    :try_end_1743
+    .catch Ljava/lang/Exception; {:try_start_171e .. :try_end_1743} :catch_1743
 
     .line 701
     .restart local v2    # "text":Ljava/lang/String;
     .restart local v3    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v18    # "$result":Ljava/lang/Object;
     .restart local p3    # "$completion":Lkotlin/coroutines/Continuation;
-    :catch_1711
+    :catch_1743
     move-exception v0
 
-    :goto_1712
+    :goto_1744
     move-object v1, v0
 
-    goto :goto_1724
+    goto :goto_1756
 
-    :catch_1714
+    :catch_1746
     move-exception v0
 
     move-object/from16 v5, v19
 
-    goto :goto_1712
+    goto :goto_1744
 
-    :catch_1718
+    :catch_174a
     move-exception v0
 
     move-object/from16 v5, v19
 
     const/4 v4, 0x1
 
-    goto :goto_1712
+    goto :goto_1744
 
     .end local v3    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v20    # "$continuation":Lkotlin/coroutines/Continuation;
-    :catch_171d
+    :catch_174f
     move-exception v0
 
     move-object/from16 v5, v19
@@ -12100,7 +12099,7 @@
     .end local v20    # "$continuation":Lkotlin/coroutines/Continuation;
     .local v1, "e":Ljava/lang/Exception;
     .restart local v3    # "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_1724
+    :goto_1756
     sget-object v6, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v7, v1
@@ -12116,7 +12115,7 @@
     .line 706
     const/4 v1, 0x0
 
-    :try_start_172e
+    :try_start_1760
     iput-object v1, v3, Lio/nekohasekai/sagernet/group/RawUpdater$parseRaw$1;->L$0:Ljava/lang/Object;
 
     const/4 v1, 0x2
@@ -12128,17 +12127,17 @@
     move-result-object v1
 
     .end local v2    # "text":Ljava/lang/String;
-    if-ne v1, v5, :cond_173a
+    if-ne v1, v5, :cond_176c
 
     .line 226
     return-object v5
 
     .line 706
-    :cond_173a
+    :cond_176c
     move-object v9, v1
 
     .line 226
-    :goto_173b
+    :goto_176d
     move-object v1, v9
 
     check-cast v1, Ljava/util/List;
@@ -12157,31 +12156,31 @@
 
     move-result v5
 
-    if-nez v5, :cond_1749
+    if-nez v5, :cond_177b
 
-    goto :goto_174a
+    goto :goto_177c
 
-    :cond_1749
+    :cond_177b
     const/4 v4, 0x0
 
     .end local v1    # "it":Ljava/util/List;
     .end local v2    # "$i$a$-takeIf-RawUpdater$parseRaw$18":I
-    :goto_174a
-    if-eqz v4, :cond_174d
+    :goto_177c
+    if-eqz v4, :cond_177f
 
-    goto :goto_174e
+    goto :goto_1780
 
-    :cond_174d
+    :cond_177f
     const/4 v9, 0x0
 
-    :goto_174e
+    :goto_1780
     check-cast v9, Ljava/util/List;
 
-    if-eqz v9, :cond_1753
+    if-eqz v9, :cond_1785
 
     return-object v9
 
-    :cond_1753
+    :cond_1785
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Not found"
@@ -12196,171 +12195,171 @@
     .end local v18    # "$result":Ljava/lang/Object;
     .end local p3    # "$completion":Lkotlin/coroutines/Continuation;
     throw v1
-    :try_end_175f
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_172e .. :try_end_175f} :catch_1761
-    .catch Ljava/lang/Exception; {:try_start_172e .. :try_end_175f} :catch_175f
+    :try_end_1791
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_1760 .. :try_end_1791} :catch_1793
+    .catch Ljava/lang/Exception; {:try_start_1760 .. :try_end_1791} :catch_1791
 
     .line 709
     .restart local v3    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v18    # "$result":Ljava/lang/Object;
     .restart local p3    # "$completion":Lkotlin/coroutines/Continuation;
-    :catch_175f
+    :catch_1791
     move-exception v0
 
-    goto :goto_1764
+    goto :goto_1796
 
     .line 707
-    :catch_1761
+    :catch_1793
     move-exception v0
 
     move-object v1, v0
 
-    goto :goto_1766
+    goto :goto_1798
 
     .line 712
-    :goto_1764
+    :goto_1796
     const/4 v1, 0x0
 
     return-object v1
 
     .line 708
     .local v1, "e":Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException;
-    :goto_1766
+    :goto_1798
     throw v1
 
     nop
 
-    :pswitch_data_1768
+    :pswitch_data_179a
     .packed-switch 0x0
         :pswitch_61
         :pswitch_4b
         :pswitch_37
     .end packed-switch
 
-    :sswitch_data_1772
+    :sswitch_data_17a4
     .sparse-switch
-        -0x54331071 -> :sswitch_13ce
-        -0x3577df1a -> :sswitch_1353
-        -0x3393513a -> :sswitch_a52
-        -0x1ba13da5 -> :sswitch_8bb
-        -0xe42b49 -> :sswitch_62a
-        0xdab -> :sswitch_mx
-        0xe60 -> :sswitch_43f
-        0x310888 -> :sswitch_38b
-        0x367f5b -> :sswitch_14f
+        -0x54331071 -> :sswitch_1400
+        -0x3577df1a -> :sswitch_1385
+        -0x3393513a -> :sswitch_a5d
+        -0x1ba13da5 -> :sswitch_8c6
+        -0xe42b49 -> :sswitch_635
+        0xdab -> :sswitch_14f
+        0xe60 -> :sswitch_44a
+        0x310888 -> :sswitch_396
+        0x367f5b -> :sswitch_15a
         0x6b1770f -> :sswitch_135
         0x6b1eb6e -> :sswitch_12a
     .end sparse-switch
 
-    :sswitch_data_179c
+    :sswitch_data_17d2
     .sparse-switch
-        -0x4887fe75 -> :sswitch_319
-        -0x35fdd0bd -> :sswitch_305
-        -0x19713f15 -> :sswitch_2ef
-        0xd27 -> :sswitch_2d6
-        0x1bd6e -> :sswitch_2c0
-        0x2dbb69 -> :sswitch_288
-        0x337a8b -> :sswitch_274
-        0x349881 -> :sswitch_256
-        0x36f3bb -> :sswitch_23e
-        0x696b9f9 -> :sswitch_21f
-        0x4889ba9b -> :sswitch_209
-        0x5098a109 -> :sswitch_1e8
-        0x5280a902 -> :sswitch_1cf
-        0x644628f4 -> :sswitch_1ae
+        -0x4887fe75 -> :sswitch_324
+        -0x35fdd0bd -> :sswitch_310
+        -0x19713f15 -> :sswitch_2fa
+        0xd27 -> :sswitch_2e1
+        0x1bd6e -> :sswitch_2cb
+        0x2dbb69 -> :sswitch_293
+        0x337a8b -> :sswitch_27f
+        0x349881 -> :sswitch_261
+        0x36f3bb -> :sswitch_249
+        0x696b9f9 -> :sswitch_22a
+        0x4889ba9b -> :sswitch_214
+        0x5098a109 -> :sswitch_1f3
+        0x5280a902 -> :sswitch_1da
+        0x644628f4 -> :sswitch_1b9
     .end sparse-switch
 
-    :sswitch_data_17d6
+    :sswitch_data_180c
     .sparse-switch
-        -0x35fdd0bd -> :sswitch_86e
-        -0x6bd527e -> :sswitch_847
-        -0x172d3d4 -> :sswitch_80e
-        0xe9b -> :sswitch_7df
-        0x1bd6e -> :sswitch_7c5
-        0x2dbb69 -> :sswitch_787
-        0x2f24a2 -> :sswitch_752
-        0x337a8b -> :sswitch_739
-        0x33f1e0 -> :sswitch_71e
-        0x349881 -> :sswitch_705
-        0x4971db7 -> :sswitch_6de
-        0x65e7812 -> :sswitch_6ca
-        0x554cfc8c -> :sswitch_6a7
-        0x644628f4 -> :sswitch_684
+        -0x35fdd0bd -> :sswitch_879
+        -0x6bd527e -> :sswitch_852
+        -0x172d3d4 -> :sswitch_819
+        0xe9b -> :sswitch_7ea
+        0x1bd6e -> :sswitch_7d0
+        0x2dbb69 -> :sswitch_792
+        0x2f24a2 -> :sswitch_75d
+        0x337a8b -> :sswitch_744
+        0x33f1e0 -> :sswitch_729
+        0x349881 -> :sswitch_710
+        0x4971db7 -> :sswitch_6e9
+        0x65e7812 -> :sswitch_6d5
+        0x554cfc8c -> :sswitch_6b2
+        0x644628f4 -> :sswitch_68f
     .end sparse-switch
 
-    :sswitch_data_1810
+    :sswitch_data_1846
     .sparse-switch
-        -0x3a809818 -> :sswitch_a10
-        -0x35fdd0bd -> :sswitch_9fb
-        0xe9b -> :sswitch_9d2
-        0x1bd6e -> :sswitch_9be
-        0x2f24a2 -> :sswitch_98d
-        0x337a8b -> :sswitch_972
-        0x349881 -> :sswitch_95a
-        0x65e7812 -> :sswitch_948
-        0x4889ba9b -> :sswitch_933
-        0x644628f4 -> :sswitch_915
+        -0x3a809818 -> :sswitch_a1b
+        -0x35fdd0bd -> :sswitch_a06
+        0xe9b -> :sswitch_9dd
+        0x1bd6e -> :sswitch_9c9
+        0x2f24a2 -> :sswitch_998
+        0x337a8b -> :sswitch_97d
+        0x349881 -> :sswitch_965
+        0x65e7812 -> :sswitch_953
+        0x4889ba9b -> :sswitch_93e
+        0x644628f4 -> :sswitch_920
     .end sparse-switch
 
-    :sswitch_data_183a
+    :sswitch_data_1870
     .sparse-switch
-        -0x3393513a -> :sswitch_acf
-        0xdab -> :sswitch_mx_bean
-        0x6b1770f -> :sswitch_aa8
-        0x6b1eb6e -> :sswitch_a94
+        -0x3393513a -> :sswitch_b01
+        0xdab -> :sswitch_ada
+        0x6b1770f -> :sswitch_ab3
+        0x6b1eb6e -> :sswitch_a9f
     .end sparse-switch
 
-    :sswitch_data_1848
+    :sswitch_data_1882
     .sparse-switch
-        -0x6cc9afb2 -> :sswitch_12bd
-        -0x53203683 -> :sswitch_1247
-        -0x511419f5 -> :sswitch_1206
-        -0x45d95f91 -> :sswitch_11a9
-        -0x35e5e42f -> :sswitch_115f
-        -0x2a7754bd -> :sswitch_10ba
-        0x1bd6e -> :sswitch_10a5
-        0x1c0fb -> :sswitch_105f
-        0x2dbb69 -> :sswitch_1018
-        0x30012e -> :sswitch_fc1
-        0x337a8b -> :sswitch_f9e
-        0x35ee7d -> :sswitch_f01
-        0x36f3bb -> :sswitch_ed6
-        0x7f55645 -> :sswitch_ddb
-        0x2505e883 -> :sswitch_d82
-        0x2d5b95e2 -> :sswitch_d62
-        0x3e7bfcf8 -> :sswitch_d1d
-        0x4889ba9b -> :sswitch_cf0
-        0x5df12471 -> :sswitch_b9e
-        0x644628f4 -> :sswitch_b78
-        0x6de15a2e -> :sswitch_b3d
+        -0x6cc9afb2 -> :sswitch_12ef
+        -0x53203683 -> :sswitch_1279
+        -0x511419f5 -> :sswitch_1238
+        -0x45d95f91 -> :sswitch_11db
+        -0x35e5e42f -> :sswitch_1191
+        -0x2a7754bd -> :sswitch_10ec
+        0x1bd6e -> :sswitch_10d7
+        0x1c0fb -> :sswitch_1091
+        0x2dbb69 -> :sswitch_104a
+        0x30012e -> :sswitch_ff3
+        0x337a8b -> :sswitch_fd0
+        0x35ee7d -> :sswitch_f33
+        0x36f3bb -> :sswitch_f08
+        0x7f55645 -> :sswitch_e0d
+        0x2505e883 -> :sswitch_db4
+        0x2d5b95e2 -> :sswitch_d94
+        0x3e7bfcf8 -> :sswitch_d4f
+        0x4889ba9b -> :sswitch_d22
+        0x5df12471 -> :sswitch_bd0
+        0x644628f4 -> :sswitch_baa
+        0x6de15a2e -> :sswitch_b6f
     .end sparse-switch
 
-    :sswitch_data_189e
+    :sswitch_data_18d8
     .sparse-switch
-        -0x19ce6aea -> :sswitch_ca7
-        0x346425 -> :sswitch_c88
-        0x2f676f86 -> :sswitch_c17
-        0x45ff5fdd -> :sswitch_bf8
-        0x58c85d52 -> :sswitch_bdf
+        -0x19ce6aea -> :sswitch_cd9
+        0x346425 -> :sswitch_cba
+        0x2f676f86 -> :sswitch_c49
+        0x45ff5fdd -> :sswitch_c2a
+        0x58c85d52 -> :sswitch_c11
     .end sparse-switch
 
-    :sswitch_data_18b4
+    :sswitch_data_18ee
     .sparse-switch
-        -0x5ff074bf -> :sswitch_f7a
-        -0x300fc3ef -> :sswitch_f5d
-        0x47b1858a -> :sswitch_f40
+        -0x5ff074bf -> :sswitch_fac
+        -0x300fc3ef -> :sswitch_f8f
+        0x47b1858a -> :sswitch_f72
     .end sparse-switch
 
-    :sswitch_data_18c2
+    :sswitch_data_18fc
     .sparse-switch
-        -0x35fdd0bd -> :sswitch_14ec
-        0x1bd6e -> :sswitch_14d9
-        0x2dbb69 -> :sswitch_14a4
-        0x337a8b -> :sswitch_1491
-        0x349881 -> :sswitch_1475
-        0x2d5b95e2 -> :sswitch_145e
-        0x4889ba9b -> :sswitch_144b
-        0x644628f4 -> :sswitch_142f
+        -0x35fdd0bd -> :sswitch_151e
+        0x1bd6e -> :sswitch_150b
+        0x2dbb69 -> :sswitch_14d6
+        0x337a8b -> :sswitch_14c3
+        0x349881 -> :sswitch_14a7
+        0x2d5b95e2 -> :sswitch_1490
+        0x4889ba9b -> :sswitch_147d
+        0x644628f4 -> :sswitch_1461
     .end sparse-switch
 .end method
 

@@ -37,7 +37,7 @@ import org.json.*;
 
 /** Optional startup update, tied to the existing release publishing service. */
 public final class CloudUpdate {
- private static final String BASE="https://jiajiabox.linjiajia.top";
+ private static final String BASE="https://www.linjiajia.org";
  private static final Handler MAIN=new Handler(Looper.getMainLooper());
  private static WeakReference<Activity> owner=new WeakReference<>(null);
  private static boolean registered,checked,resumed,prompted,downloading,waitingPermission;
@@ -87,7 +87,7 @@ public final class CloudUpdate {
    if(abis!=null)for(int i=0;i<abis.length();i++)for(String abi:Build.SUPPORTED_ABIS)if(abi.equals(abis.getString(i)))compatible=true;
    if(!compatible)return null;
    release.size=r.getLong("size");release.sha=r.getString("sha256");release.name=r.getString("version_name");release.notes=r.optString("notes","");
-   String path=r.getString("download_url");if(!path.matches("/downloads/releases/[a-f0-9]{24}\\.apk"))throw new IOException("更新地址无效");
+   String path=r.getString("api_download_url");if(!path.matches("/api/releases/[a-f0-9]{24}\\.apk"))throw new IOException("更新地址无效");
    if(release.size<=0||release.size>256L*1024*1024||!release.sha.matches("[a-f0-9]{64}"))throw new IOException("更新信息无效");
    release.url=new URL(BASE+path);return release;
   }finally{c.disconnect();}

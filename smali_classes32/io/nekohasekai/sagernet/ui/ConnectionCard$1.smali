@@ -3,12 +3,12 @@
 .source "ConnectionCard.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/text/TextWatcher;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lio/nekohasekai/sagernet/ui/ConnectionCard;->request()V
+    value = Lio/nekohasekai/sagernet/ui/ConnectionCard;-><init>(Landroid/content/Context;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,63 +20,21 @@
 # instance fields
 .field final synthetic this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
-.field final synthetic val$generation:I
-
-.field final synthetic val$problem:Ljava/lang/String;
-
-.field final synthetic val$resolved:Ljava/util/Map;
-
-.field final synthetic val$resultRows:Lio/nekohasekai/sagernet/ui/ConnectionRows;
-
-.field final synthetic val$resultTypes:Lorg/json/JSONObject;
-
-.field final synthetic val$signature:J
-
 
 # direct methods
-.method constructor <init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;J)V
-    .registers 9
+.method constructor <init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
-            0x8010,
-            0x1010,
-            0x1010,
-            0x1010,
-            0x1010,
-            0x1010,
-            0x1010
+            0x8010
         }
         names = {
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
             null
         }
     .end annotation
 
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
-
-    .line 84
+    .line 55
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    iput p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$generation:I
-
-    iput-object p3, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$resultRows:Lio/nekohasekai/sagernet/ui/ConnectionRows;
-
-    iput-object p4, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$resultTypes:Lorg/json/JSONObject;
-
-    iput-object p5, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$resolved:Ljava/util/Map;
-
-    iput-object p6, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$problem:Ljava/lang/String;
-
-    iput-wide p7, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$signature:J
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -85,117 +43,28 @@
 
 
 # virtual methods
-.method public run()V
+.method public afterTextChanged(Landroid/text/Editable;)V
+    .registers 2
+
+    .line 55
+    return-void
+.end method
+
+.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
     .registers 5
 
-    .line 85
-    iget v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$generation:I
+    .line 55
+    return-void
+.end method
 
-    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
+.method public onTextChanged(Ljava/lang/CharSequence;III)V
+    .registers 5
 
-    # getter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->epoch:I
-    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$800(Lio/nekohasekai/sagernet/ui/ConnectionCard;)I
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    if-ne v0, v1, :cond_53
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    # invokes: Lio/nekohasekai/sagernet/ui/ConnectionCard;->active()Z
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$900(Lio/nekohasekai/sagernet/ui/ConnectionCard;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_15
-
-    goto :goto_53
-
-    .line 86
-    :cond_15
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->publication:Ljava/lang/Runnable;
-    invoke-static {v0, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1002(Lio/nekohasekai/sagernet/ui/ConnectionCard;Ljava/lang/Runnable;)Ljava/lang/Runnable;
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    # getter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->loading:Ljava/util/concurrent/atomic/AtomicBoolean;
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1100(Lio/nekohasekai/sagernet/ui/ConnectionCard;)Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$resultRows:Lio/nekohasekai/sagernet/ui/ConnectionRows;
-
-    # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->data:Lio/nekohasekai/sagernet/ui/ConnectionRows;
-    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$102(Lio/nekohasekai/sagernet/ui/ConnectionCard;Lio/nekohasekai/sagernet/ui/ConnectionRows;)Lio/nekohasekai/sagernet/ui/ConnectionRows;
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$resultTypes:Lorg/json/JSONObject;
-
-    if-nez v1, :cond_35
-
-    new-instance v1, Lorg/json/JSONObject;
-
-    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
-
-    :cond_35
-    # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->types:Lorg/json/JSONObject;
-    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$702(Lio/nekohasekai/sagernet/ui/ConnectionCard;Lorg/json/JSONObject;)Lorg/json/JSONObject;
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$resolved:Ljava/util/Map;
-
-    # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->labels:Ljava/util/Map;
-    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$502(Lio/nekohasekai/sagernet/ui/ConnectionCard;Ljava/util/Map;)Ljava/util/Map;
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$problem:Ljava/lang/String;
-
-    # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->error:Ljava/lang/String;
-    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1202(Lio/nekohasekai/sagernet/ui/ConnectionCard;Ljava/lang/String;)Ljava/lang/String;
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    iget-wide v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$signature:J
-
-    # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->dataSignature:J
-    invoke-static {v0, v1, v2}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1302(Lio/nekohasekai/sagernet/ui/ConnectionCard;J)J
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
+    .line 55
+    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     # invokes: Lio/nekohasekai/sagernet/ui/ConnectionCard;->render()V
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1400(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
-
-    return-void
-
-    .line 85
-    :cond_53
-    :goto_53
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->publication:Ljava/lang/Runnable;
-    invoke-static {v0, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1002(Lio/nekohasekai/sagernet/ui/ConnectionCard;Ljava/lang/Runnable;)Ljava/lang/Runnable;
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    # getter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->loading:Ljava/util/concurrent/atomic/AtomicBoolean;
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1100(Lio/nekohasekai/sagernet/ui/ConnectionCard;)Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$100(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
 
     return-void
 .end method

@@ -220,7 +220,7 @@
 
     move-object v5, v0
 
-    goto/16 :goto_b6
+    goto/16 :goto_b7
 
     .end local v1    # "$result":Ljava/lang/Object;
     :pswitch_1c
@@ -243,7 +243,7 @@
 
     move-object v6, v0
 
-    goto/16 :goto_9d
+    goto/16 :goto_9e
 
     .end local v2    # "$result":Ljava/lang/Object;
     .end local v4    # "$i$f$forEach":I
@@ -284,7 +284,7 @@
 
     new-instance v14, Ljava/util/ArrayList;
 
-    const/4 v15, 0x2
+    const/16 v15, 0x10
 
     invoke-direct {v14, v15}, Ljava/util/ArrayList;-><init>(I)V
 
@@ -292,8 +292,8 @@
 
     const/4 v10, 0x0
 
-    :goto_4e
-    if-ge v10, v15, :cond_75
+    :goto_4f
+    if-ge v10, v15, :cond_76
 
     const/16 v16, 0x0
 
@@ -340,12 +340,12 @@
 
     add-int/lit8 v10, v18, 0x1
 
-    goto :goto_4e
+    goto :goto_4f
 
     .end local v4    # "$this$withContext":Lkotlinx/coroutines/CoroutineScope;
     .end local v11    # "queue":Ljava/util/concurrent/ConcurrentLinkedQueue;
     .end local v12    # "urlTest":Lio/nekohasekai/sagernet/bg/proto/UrlTest;
-    :cond_75
+    :cond_76
     move-object v4, v14
 
     check-cast v4, Ljava/util/List;
@@ -370,12 +370,12 @@
     .end local p0    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1;
     .local v4, "$i$f$forEach":I
     .local v5, "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1;
-    :goto_81
+    :goto_82
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_a1
+    if-eqz v7, :cond_a2
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -400,13 +400,13 @@
     move-result-object v7
 
     .end local v7    # "it":Lkotlinx/coroutines/Job;
-    if-ne v7, v1, :cond_9a
+    if-ne v7, v1, :cond_9b
 
     .line 831
     return-object v1
 
     .line 851
-    :cond_9a
+    :cond_9b
     move-object v7, v6
 
     move-object v6, v5
@@ -416,7 +416,7 @@
     .end local v8    # "$i$a$-forEach-JJHomeFragment$speedTest$1$1$1":I
     .local v5, "$i$a$-forEach-JJHomeFragment$speedTest$1$1$1":I
     .local v6, "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1;
-    :goto_9d
+    :goto_9e
     nop
 
     .line 1014
@@ -425,12 +425,12 @@
 
     move-object v6, v7
 
-    goto :goto_81
+    goto :goto_82
 
     .line 1015
     .end local v6    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1;
     .local v5, "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1;
-    :cond_a1
+    :cond_a2
     nop
 
     .line 852
@@ -453,24 +453,22 @@
 
     move-result-object v3
 
-    if-ne v3, v1, :cond_b5
+    if-ne v3, v1, :cond_b6
 
     .line 831
     return-object v1
 
     .line 852
-    :cond_b5
+    :cond_b6
     move-object v1, v2
 
     .line 853
     .end local v2    # "$result":Ljava/lang/Object;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :goto_b6
+    :goto_b7
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
-
-    nop
 
     :pswitch_data_ba
     .packed-switch 0x0

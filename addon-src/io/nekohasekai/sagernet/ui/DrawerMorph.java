@@ -106,6 +106,7 @@ public final class DrawerMorph {
             });
         }
         void prepare(){
+            capsule.setSamplingPaused(true);
             motionLease=DrawerWorkGate.begin(capsule);
             outline=DrawerOutline.acquire(capsule);
             RosePalette.prepareForDisplay(page);if(menu!=null)RosePalette.prepareForDisplay(menu);
@@ -127,6 +128,15 @@ public final class DrawerMorph {
             if(stopped||state(capsule)!=this)return true;
             // Wait until the destination hierarchy has been measured at its full size.
             pageLayer=DrawerLayers.acquire(page);menuLayer=DrawerLayers.acquire(menu);
+            // RecyclerView 的列表项此时还没 inflate，先按现有树着色，等布局稳定再补一次。
+            dropPaletteCache(page);RosePalette.prepare(page);
+            if(menu!=null){dropPaletteCache(menu);RosePalette.prepare(menu);}
+            page.postOnAnimation(() -> {
+                page.postDelayed(() -> {
+                    dropPaletteCache(page);RosePalette.prepare(page);
+                    if(menu!=null){dropPaletteCache(menu);RosePalette.prepare(menu);}
+                }, 120);
+            });
             animator.start();return true;
         }
         void removePreDraw(){if(observer!=null&&observer.isAlive())observer.removeOnPreDrawListener(this);observer=null;}
@@ -137,13 +147,19 @@ public final class DrawerMorph {
                         Math.round(right.at(eased)),Math.round(bottom.at(eased)));
             clip.set(current);clip.offset(-layout.left,-layout.top);capsule.setMorphClip(clip);
             float x=current.left-layout.left,y=current.top-layout.top;
-            page.setTranslationX(x);page.setTranslationY(y+pageOffset.at(eased));
-            float alpha=Math.max(0f,Math.min(1f,opacity.at(eased)));page.setAlpha(alpha);
-            if(menu!=null){menu.setTranslationX(x);menu.setTranslationY(y+menuOffset.at(eased));menu.setAlpha(1f-alpha);}
+            // 内容延后进场：容器先扩展到位，文字随后从下方带上，全程不缩放。
+            float appear=expanding?AppMotion.ease(Math.max(0f,(progress-0.30f)/0.70f))
+                                  :AppMotion.ease(Math.max(0f,1f-progress/0.45f));
+            float density=capsule.getResources().getDisplayMetrics().density;
+            page.setTranslationX(x);
+            page.setTranslationY(y+pageOffset.at(eased)+(1f-appear)*20f*density);
+            page.setAlpha(appear);
+            if(menu!=null){menu.setTranslationX(x);menu.setTranslationY(y+menuOffset.at(eased));menu.setAlpha(1f-appear);}
         }
 
         void finish(){
             if(finished||stopped)return;finished=true;frame(1f);
+            capsule.setSamplingPaused(false);
             removePreDraw();capsule.removeOnAttachStateChangeListener(this);overlay.removeView(shield);
             capsule.setTag(STATE_TAG,null);capsule.setMorphClip(null);
             resetTransform(page);if(menu!=null){restoreMenuWidth();resetTransform(menu);}
@@ -156,6 +172,7 @@ public final class DrawerMorph {
         }
         void stop(boolean reset){
             if(finished)return;
+            capsule.setSamplingPaused(false);
             if(!stopped){stopped=true;removePreDraw();capsule.removeOnAttachStateChangeListener(this);
                 overlay.removeView(shield);animator.cancel();releaseMotion();}
             if(reset){capsule.setTag(STATE_TAG,null);capsule.setMorphClip(null);resetTransform(page);
@@ -172,6 +189,22 @@ public final class DrawerMorph {
         @Override public void onViewAttachedToWindow(View view){}
         @Override public void onViewDetachedFromWindow(View view){stop(true);}
     }
+    private static void dropPaletteCache(View root){
+        try{
+            java.lang.reflect.Field field=RosePalette.class.getDeclaredField("states");
+            field.setAccessible(true);
+            java.util.Map<?,?> map=(java.util.Map<?,?>)field.get(null);
+            if(map!=null)dropCache(map,root);
+        }catch(Throwable ignored){}
+    }
+    private static void dropCache(java.util.Map<?,?> map,View view){
+        map.remove(view);
+        if(view instanceof ViewGroup){
+            ViewGroup group=(ViewGroup)view;
+            for(int i=0;i<group.getChildCount();i++)dropCache(map,group.getChildAt(i));
+        }
+    }
+
     private static void setPhysicalMargins(FrameLayout.LayoutParams lp,int left,int top,View view){
         lp.leftMargin=left;lp.topMargin=top;lp.rightMargin=lp.bottomMargin=0;
         boolean rtl=view.getLayoutDirection()==View.LAYOUT_DIRECTION_RTL;

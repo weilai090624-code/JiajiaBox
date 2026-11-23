@@ -1065,7 +1065,7 @@
 
     invoke-virtual {v6, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_1ee
+    goto :goto_202
 
     .line 1592
     :cond_188
@@ -1075,7 +1075,7 @@
 
     invoke-virtual {v6, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_1ee
+    goto :goto_202
 
     .line 1594
     :cond_190
@@ -1083,7 +1083,7 @@
 
     move-result v5
 
-    if-ne v5, v3, :cond_1c8
+    if-ne v5, v3, :cond_1dc
 
     .line 1595
     iget-object v5, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;->profileStatus:Landroid/widget/TextView;
@@ -1131,21 +1131,33 @@
 
     const/16 v12, 0x96
 
-    if-le v11, v12, :cond_1c7a
+    if-gt v11, v12, :cond_1c9
 
-    const v7, 0x7f0601c7
+    goto :goto_1d4
 
-    :cond_1c7a
+    :cond_1c9
+    const/16 v12, 0x12c
+
+    if-gt v11, v12, :cond_1d1
+
+    const v7, 0x7f0601d3
+
+    goto :goto_1d4
+
+    :cond_1d1
+    const v7, 0x7f06030a
+
+    :goto_1d4
     invoke-static {v6, v7}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getColour(Landroid/content/Context;I)I
 
     move-result v6
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setTextColor(I)V
 
-    goto :goto_1ee
+    goto :goto_202
 
     .line 1598
-    :cond_1c8
+    :cond_1dc
     iget-object v5, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;->profileStatus:Landroid/widget/TextView;
 
     iget-object v6, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
@@ -1169,7 +1181,7 @@
 
     move-result v5
 
-    if-ne v5, v11, :cond_1ee
+    if-ne v5, v11, :cond_202
 
     .line 1600
     iget-object v5, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;->profileStatus:Landroid/widget/TextView;
@@ -1183,28 +1195,28 @@
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 1604
-    :cond_1ee
-    :goto_1ee
+    :cond_202
+    :goto_202
     invoke-virtual/range {p1 .. p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getStatus()I
 
     move-result v5
 
     const/4 v6, 0x3
 
-    if-ne v5, v6, :cond_22f
+    if-ne v5, v6, :cond_243
 
     .line 1605
     invoke-virtual/range {p1 .. p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getError()Ljava/lang/String;
 
     move-result-object v5
 
-    if-nez v5, :cond_1fd
+    if-nez v5, :cond_211
 
     const-string v5, "<?>"
 
     .line 1606
     .local v5, "err":Ljava/lang/String;
-    :cond_1fd
+    :cond_211
     sget-object v6, Lmoe/matsuri/nb4a/Protocols;->INSTANCE:Lmoe/matsuri/nb4a/Protocols;
 
     invoke-virtual {v6, v5}, Lmoe/matsuri/nb4a/Protocols;->genFriendlyMsg(Ljava/lang/String;)Ljava/lang/String;
@@ -1219,15 +1231,15 @@
 
     move-result v11
 
-    if-nez v11, :cond_20f
+    if-nez v11, :cond_223
 
     move-object v11, v6
 
     check-cast v11, Ljava/lang/CharSequence;
 
-    goto :goto_21f
+    goto :goto_233
 
-    :cond_20f
+    :cond_223
     iget-object v11, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
     const v12, 0x7f1302be
@@ -1242,7 +1254,7 @@
 
     check-cast v11, Ljava/lang/CharSequence;
 
-    :goto_21f
+    :goto_233
     invoke-virtual {v7, v11}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 1608
@@ -1258,10 +1270,10 @@
 
     .end local v5    # "err":Ljava/lang/String;
     .end local v6    # "msg":Ljava/lang/String;
-    goto :goto_235
+    goto :goto_249
 
     .line 1612
-    :cond_22f
+    :cond_243
     iget-object v5, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;->profileStatus:Landroid/widget/TextView;
 
     const/4 v6, 0x0
@@ -1269,7 +1281,7 @@
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 1615
-    :goto_235
+    :goto_249
     iget-object v5, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;->editButton:Landroid/widget/ImageView;
 
     iget-object v6, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
@@ -1298,7 +1310,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_25f
+    if-nez v5, :cond_273
 
     invoke-virtual/range {p1 .. p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getType()I
 
@@ -1306,17 +1318,17 @@
 
     const/16 v6, 0x8
 
-    if-ne v5, v6, :cond_25e
+    if-ne v5, v6, :cond_272
 
-    goto :goto_25f
+    goto :goto_273
 
-    :cond_25e
+    :cond_272
     const/4 v3, 0x0
 
     .line 1632
     .local v3, "selectOrChain":Z
-    :cond_25f
-    :goto_25f
+    :cond_273
+    :goto_273
     iget-object v5, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;->shareLayout:Landroid/widget/LinearLayout;
 
     check-cast v5, Landroid/view/View;
@@ -1326,16 +1338,16 @@
 
     .line 1769
     .local v6, "$i$f$setGone":I
-    if-eqz v3, :cond_269
+    if-eqz v3, :cond_27d
 
     const/16 v7, 0x8
 
-    goto :goto_26a
+    goto :goto_27e
 
-    :cond_269
+    :cond_27d
     const/4 v7, 0x0
 
-    :goto_26a
+    :goto_27e
     invoke-virtual {v5, v7}, Landroid/view/View;->setVisibility(I)V
 
     .line 1770
@@ -1360,16 +1372,16 @@
 
     .line 1771
     .local v7, "$i$f$setGone":I
-    if-eqz v6, :cond_27e
+    if-eqz v6, :cond_292
 
     const/16 v11, 0x8
 
-    goto :goto_27f
+    goto :goto_293
 
-    :cond_27e
+    :cond_292
     const/4 v11, 0x0
 
-    :goto_27f
+    :goto_293
     invoke-virtual {v5, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 1772
@@ -1395,11 +1407,11 @@
 
     .line 1773
     .restart local v7    # "$i$f$setGone":I
-    if-eqz v6, :cond_292
+    if-eqz v6, :cond_2a6
 
     const/16 v14, 0x8
 
-    :cond_292
+    :cond_2a6
     invoke-virtual {v5, v14}, Landroid/view/View;->setVisibility(I)V
 
     .line 1774
@@ -1413,7 +1425,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_2ab
+    if-eqz v5, :cond_2bf
 
     .local v5, "$this$bind_u24lambda_u246":Lmoe/matsuri/nb4a/proxy/neko/NekoBean;
     const/4 v6, 0x0
@@ -1451,7 +1463,7 @@
     nop
 
     .line 1640
-    :cond_2ab
+    :cond_2bf
     new-instance v5, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder$bind$7;
 
     iget-object v6, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;

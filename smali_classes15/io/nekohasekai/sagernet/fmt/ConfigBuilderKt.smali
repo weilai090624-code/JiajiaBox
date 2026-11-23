@@ -1353,7 +1353,7 @@
 
     const-string v5, "info"
 
-    packed-switch v4, :pswitch_data_de0
+    packed-switch v4, :pswitch_data_de8
 
     .line 173
     goto :goto_381
@@ -1492,7 +1492,7 @@
 
     move-result v15
 
-    packed-switch v15, :pswitch_data_dee
+    packed-switch v15, :pswitch_data_df6
 
     .line 205
     move-object v15, v1
@@ -1567,7 +1567,7 @@
 
     const-string v15, "172.19.0.1/28"
 
-    sparse-switch v8, :sswitch_data_df6
+    sparse-switch v8, :sswitch_data_dfe
 
     .line 222
     invoke-static {v15}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
@@ -4225,7 +4225,7 @@
 
     .line 658
     .local v12, "$i$a$-apply-ConfigBuilderKt$buildConfig$1$16$1":I
-    if-eqz v2, :cond_dd7
+    if-eqz v2, :cond_ddf
 
     iput-object v2, v11, Lmoe/matsuri/nb4a/SingBoxOptions$DNSServerOptions;->address:Ljava/lang/String;
 
@@ -4978,8 +4978,6 @@
 
     move-result-object v5
 
-    # 506: pin the entry-domain A record for tests and VPN configs so the core
-    # does not need a live TLS connection to the private DoH.
     move/from16 v6, p2
 
     xor-int/lit8 v6, v6, 0x1
@@ -4990,7 +4988,7 @@
 
     move/from16 v6, p1
 
-    if-nez v6, :cond_db2
+    if-nez v6, :cond_dba
 
     invoke-static {v5}, Lmoe/matsuri/nb4a/ui/RequestedUpdates;->routeDomain(Ljava/lang/String;)Ljava/lang/String;
 
@@ -5009,7 +5007,7 @@
     move-result-object v5
 
     .line 747
-    :cond_db2
+    :cond_dba
     move-object/from16 v25, v49
 
     check-cast v25, Ljava/util/List;
@@ -5030,7 +5028,7 @@
     check-cast v29, Ljava/util/Map;
 
     .line 751
-    if-eqz v39, :cond_dcb
+    if-eqz v39, :cond_dd3
 
     invoke-virtual/range {v34 .. v34}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getId()J
 
@@ -5038,13 +5036,13 @@
 
     move-wide/from16 v30, v6
 
-    goto :goto_dcd
+    goto :goto_dd5
 
-    :cond_dcb
+    :cond_dd3
     move-wide/from16 v30, v21
 
     .line 745
-    :goto_dcd
+    :goto_dd5
     move-object/from16 v23, v3
 
     move-object/from16 v24, v5
@@ -5072,7 +5070,7 @@
     .restart local v12    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1$16$1":I
     .restart local v51    # "$i$a$-apply-ConfigBuilderKt$buildConfig$1":I
     .restart local v52    # "ipv6Mode":I
-    :cond_dd7
+    :cond_ddf
     new-instance v0, Ljava/lang/Exception;
 
     const-string v1, "No direct DNS, check your settings!"
@@ -5083,7 +5081,7 @@
 
     nop
 
-    :pswitch_data_de0
+    :pswitch_data_de8
     .packed-switch 0x0
         :pswitch_37f
         :pswitch_37c
@@ -5092,13 +5090,13 @@
         :pswitch_375
     .end packed-switch
 
-    :pswitch_data_dee
+    :pswitch_data_df6
     .packed-switch 0x0
         :pswitch_3db
         :pswitch_3d8
     .end packed-switch
 
-    :sswitch_data_df6
+    :sswitch_data_dfe
     .sparse-switch
         0x0 -> :sswitch_429
         0x3 -> :sswitch_420

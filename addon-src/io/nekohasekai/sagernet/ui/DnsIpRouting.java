@@ -70,7 +70,8 @@ public final class DnsIpRouting {
         for(int i=0;i<servers.length();i++){
             JSONObject server=servers.getJSONObject(i);String tag=server.optString("tag");
             if(tag.isEmpty()||!realServer(server))continue;
-            int rank="dns-remote".equals(tag)?4:tag.equals(dns.optString("final"))?3:"dns-direct".equals(tag)?2:1;
+            // dns-proxy 走加密远程解析，优先选它，避免国内 DNS 返回污染结果。
+            int rank="dns-proxy".equals(tag)?5:"dns-remote".equals(tag)?4:tag.equals(dns.optString("final"))?3:"dns-direct".equals(tag)?2:1;
             if(rank>score){best=server;score=rank;}
         }
         if(best==null)return null;
@@ -131,7 +132,12 @@ public final class DnsIpRouting {
         if(definitions!=null)for(int i=0;i<definitions.length();i++){JSONObject set=definitions.getJSONObject(i);sets.put(set.optString("tag"),set);}
         int firstIp=-1;for(int i=0;i<explicit.size();i++)if(destinationIp(explicit.get(i),sets,new HashSet<>())){firstIp=i;break;}
         if(firstIp<0)return false; // No destination-IP rules: no added lookups or changes.
-        explicit.add(firstIp,resolve);
+        // 国内域名用本地 DNS 解析：节点故障时国内站点仍能打开。
+        JSONObject localResolve=new JSONObject().put("action","resolve").put("server","dns-direct");
+        JSONArray cnSets=new JSONArray();cnSets.put("geosite:cn");
+        localResolve.put("rule_set",cnSets);
+        explicit.add(firstIp,localResolve);
+        explicit.add(firstIp+1,resolve);
         JSONArray ordered=new JSONArray();for(JSONObject rule:explicit)ordered.put(rule);route.put("rules",ordered);
         JSONArray inbounds=root.optJSONArray("inbounds");if(inbounds!=null)for(int i=0;i<inbounds.length();i++){
             JSONObject inbound=inbounds.getJSONObject(i);String type=inbound.optString("type");

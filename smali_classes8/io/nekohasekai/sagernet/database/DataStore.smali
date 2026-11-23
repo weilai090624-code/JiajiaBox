@@ -5039,7 +5039,7 @@
     .registers 1
 
     .line 107
-    const/16 v0, 0x2328
+    const/16 v0, 0x5dc
 
     return v0
 .end method

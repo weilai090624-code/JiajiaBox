@@ -925,6 +925,16 @@
     return-object v0
 .end method
 
+.method public static buildSinglePub(Ljava/util/Map;Ljava/lang/String;I)Ljava/lang/String;
+    .registers 4
+
+    invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/MundoCore;->buildSingle(Ljava/util/Map;Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method private static call(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
     .registers 4
     .annotation system Ldalvik/annotation/Throws;
@@ -1025,54 +1035,6 @@
     :catchall_33
     :goto_33
     return-void
-.end method
-
-.method public static lock()Ljava/lang/Object;
-    .registers 1
-
-    sget-object v0, Lio/nekohasekai/sagernet/ui/MundoCore;->LOCK:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method public static portOpenPub(I)Z
-    .registers 1
-
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/MundoCore;->portOpen(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static buildSinglePub(Ljava/util/Map;Ljava/lang/String;I)Ljava/lang/String;
-    .registers 4
-
-    invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/MundoCore;->buildSingle(Ljava/util/Map;Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static startPub(Ljava/lang/String;)Z
-    .registers 2
-
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/MundoCore;->start(Ljava/lang/String;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static waitPortPub(IJ)Z
-    .registers 4
-
-    invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/MundoCore;->waitPort(IJ)Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public static diag(Ljava/lang/String;)V
@@ -1645,6 +1607,14 @@
     return-object v0
 .end method
 
+.method public static lock()Ljava/lang/Object;
+    .registers 1
+
+    sget-object v0, Lio/nekohasekai/sagernet/ui/MundoCore;->LOCK:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
 .method private static outbound(Ljava/lang/String;ILorg/json/JSONObject;)Lorg/json/JSONObject;
     .registers 7
     .annotation system Ldalvik/annotation/Throws;
@@ -1822,6 +1792,16 @@
     .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/MundoProbe;->open(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static portOpenPub(I)Z
+    .registers 1
+
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/MundoCore;->portOpen(I)Z
 
     move-result p0
 
@@ -3360,6 +3340,16 @@
     return v3
 .end method
 
+.method public static startPub(Ljava/lang/String;)Z
+    .registers 2
+
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/MundoCore;->start(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method private static streamSettings(Ljava/lang/String;Z)Lorg/json/JSONObject;
     .registers 24
     .annotation system Ldalvik/annotation/Throws;
@@ -4107,6 +4097,16 @@
     const/4 p0, 0x0
 
     return p0
+.end method
+
+.method public static waitPortPub(IJ)Z
+    .registers 4
+
+    invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/MundoCore;->waitPort(IJ)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private static xmlUnescape(Ljava/lang/String;)Ljava/lang/String;

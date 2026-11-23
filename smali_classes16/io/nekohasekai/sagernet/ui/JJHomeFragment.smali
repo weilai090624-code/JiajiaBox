@@ -128,6 +128,10 @@
 .end annotation
 
 
+# static fields
+.field public static testCancelled:Z
+
+
 # instance fields
 .field private adapter:Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeAdapter;
 
@@ -151,11 +155,9 @@
 
 .field private stateView:Landroid/view/View;
 
-.field private updating:Z
-
 .field private testJob:Lkotlinx/coroutines/Job;
 
-.field public static testCancelled:Z
+.field private updating:Z
 
 
 # direct methods
@@ -2428,18 +2430,17 @@
     .line 801
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testJob:Lkotlinx/coroutines/Job;
 
-    if-eqz v0, :start
+    if-eqz v0, :cond_25
 
     invoke-interface {v0}, Lkotlinx/coroutines/Job;->isActive()Z
 
     move-result v1
 
-    if-eqz v1, :start
+    if-eqz v1, :cond_25
 
-    # 509: a second tap cancels the batch and unblocks the UI immediately
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testJob:Lkotlinx/coroutines/Job;
 
-    if-eqz v0, :no_job
+    if-eqz v0, :cond_15
 
     const/4 v1, 0x0
 
@@ -2449,7 +2450,7 @@
 
     sput-boolean v1, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testCancelled:Z
 
-    :no_job
+    :cond_15
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     const/4 v1, 0x0
@@ -2466,65 +2467,65 @@
 
     return-void
 
-    :start
+    :cond_25
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->updating:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_2a
 
-    goto :goto_3a
+    goto :goto_57
 
     .line 802
-    :cond_d
+    :cond_2a
     iget-wide v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->currentGroupId:J
 
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_36
+    if-eqz v4, :cond_53
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->adapter:Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeAdapter;
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_3b
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeAdapter;->getList()Ljava/util/List;
 
     move-result-object v0
 
-    goto :goto_1f
+    goto :goto_3c
 
-    :cond_1e
+    :cond_3b
     const/4 v0, 0x0
 
-    :goto_1f
+    :goto_3c
     check-cast v0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_49
 
     invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_47
 
-    goto :goto_2c
+    goto :goto_49
 
-    :cond_2a
+    :cond_47
     const/4 v0, 0x0
 
-    goto :goto_2d
+    goto :goto_4a
 
-    :cond_2c
-    :goto_2c
+    :cond_49
+    :goto_49
     const/4 v0, 0x1
 
-    :goto_2d
-    if-eqz v0, :cond_30
+    :goto_4a
+    if-eqz v0, :cond_4d
 
-    goto :goto_36
+    goto :goto_53
 
     .line 806
-    :cond_30
+    :cond_4d
     iget-wide v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->currentGroupId:J
 
     invoke-direct {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testGroup(J)V
@@ -2533,16 +2534,15 @@
     return-void
 
     .line 803
-    :cond_36
-    :goto_36
+    :cond_53
+    :goto_53
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->updateSubscription()V
 
     .line 804
     return-void
 
     .line 801
-    :cond_3a
-    :goto_3a
+    :goto_57
     return-void
 .end method
 
@@ -2797,29 +2797,27 @@
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/JJHomeFragment;
     .param p1, "it"    # Landroid/view/View;
 
-    # 511: while a speed test is running the button reads "stop test" and
-    # cancels instead of connecting/disconnecting.
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->testJob:Lkotlinx/coroutines/Job;
 
-    if-eqz v0, :cond_tap
+    if-eqz v0, :cond_e
 
     invoke-interface {v0}, Lkotlinx/coroutines/Job;->isActive()Z
 
     move-result v1
 
-    if-eqz v1, :cond_tap
+    if-eqz v1, :cond_e
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->runSpeedTest()V
 
     return-void
 
-    :cond_tap
     .line 227
+    :cond_e
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->hasNodes()Z
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_18
 
     .line 228
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->updateSubscription()V
@@ -2828,30 +2826,30 @@
     return-void
 
     .line 231
-    :cond_a
+    :cond_18
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v0
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_23
 
     check-cast v0, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    goto :goto_16
+    goto :goto_24
 
-    :cond_15
+    :cond_23
     const/4 v0, 0x0
 
-    :goto_16
-    if-nez v0, :cond_19
+    :goto_24
+    if-nez v0, :cond_27
 
     return-void
 
     .line 232
     .local v0, "activity":Lio/nekohasekai/sagernet/ui/MainActivity;
-    :cond_19
+    :cond_27
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/DataStore;->getServiceState()Lio/nekohasekai/sagernet/bg/BaseService$State;
@@ -2862,19 +2860,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_29
+    if-eqz v1, :cond_37
 
     .line 233
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/MainActivity;->stopVpn()V
 
-    goto :goto_2c
+    goto :goto_3a
 
     .line 235
-    :cond_29
+    :cond_37
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/MainActivity;->requestVpn()V
 
     .line 237
-    :goto_2c
+    :goto_3a
     return-void
 .end method
 
@@ -4215,7 +4213,7 @@
     .line 829
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->scope:Lkotlinx/coroutines/CoroutineScope;
 
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_18
 
     const-string v0, "scope"
 
@@ -4223,7 +4221,7 @@
 
     const/4 v0, 0x0
 
-    :cond_1f
+    :cond_18
     move-object v1, v0
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1;

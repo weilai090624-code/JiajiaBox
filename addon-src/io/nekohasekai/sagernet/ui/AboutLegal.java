@@ -45,6 +45,9 @@ public final class AboutLegal {
  private static void button(Activity a,LinearLayout parent,String title,Runnable action){TextView t=text(a,title,14,false);UiComponents.action(t);t.setSingleLine(false);t.setGravity(Gravity.START|Gravity.CENTER_VERTICAL);t.setPadding(dp(a,14),dp(a,10),dp(a,14),dp(a,10));t.setOnClickListener(v->action.run());LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(-1,-2);p.topMargin=dp(a,8);parent.addView(t,p);}
  private static void link(Activity a,LinearLayout parent,String name,String role,String url){button(a,parent,name+"  ↗",()->{try{a.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(url)));}catch(android.content.ActivityNotFoundException e){Toast.makeText(a,"没有可打开链接的应用",Toast.LENGTH_SHORT).show();}});paragraph(a,parent,role);}
  public static void append(Activity a,LinearLayout parent){
+  LinearLayout site=card(a,parent,"官方网站");
+  link(a,site,"linjiajia.org","JiajiaBox 官方站点 · 发布与更新入口","https://linjiajia.org");
+  paragraph(a,site,"欢迎访问 linjiajia.org 获取最新版本、公告与使用说明。");
   LinearLayout project=card(a,parent,"JiajiaBox 开源声明");
   paragraph(a,project,"JiajiaBox 的原创代码与本项目修改部分基于 GNU GPL v3.0 开源，版权所有 © 2026 weilai090624-code。");
   paragraph(a,project,"本声明仅适用于 JiajiaBox 的原创代码与修改内容；随应用分发的上游组件仍受其各自许可证约束，原作者、版权和许可条件继续有效。");

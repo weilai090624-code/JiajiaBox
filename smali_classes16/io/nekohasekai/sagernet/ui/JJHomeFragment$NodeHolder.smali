@@ -245,6 +245,51 @@
     return v0
 .end method
 
+.method private static latencyColor(II)I
+    .registers 3
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_19
+
+    if-lez p1, :cond_1b
+
+    const/16 v0, 0x96
+
+    if-gt p1, v0, :cond_d
+
+    const v0, -0xb350b0
+
+    return v0
+
+    :cond_d
+    const/16 v0, 0x12c
+
+    if-gt p1, v0, :cond_15
+
+    const v0, -0xde690d
+
+    return v0
+
+    :cond_15
+    const v0, -0x2cd0d1
+
+    return v0
+
+    :cond_19
+    if-nez p0, :cond_1f
+
+    :cond_1b
+    const v0, -0x2cd0d1
+
+    return v0
+
+    :cond_1f
+    const v0, -0x75756e
+
+    return v0
+.end method
+
 
 # virtual methods
 .method public final bind(Lio/nekohasekai/sagernet/database/ProxyEntity;Z)V
@@ -255,6 +300,16 @@
     const-string v0, "entity"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeHolder;->ping:Landroid/widget/TextView;
+
+    new-instance v1, Lio/nekohasekai/sagernet/ui/NodeLatencyClick;
+
+    iget-object v2, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeHolder;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
+
+    invoke-direct {v1, v2, p1}, Lio/nekohasekai/sagernet/ui/NodeLatencyClick;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 960
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->displayName()Ljava/lang/String;
@@ -269,7 +324,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1b
+    if-eqz v2, :cond_27
 
     .line 1014
     const/4 v0, 0x0
@@ -283,7 +338,7 @@
     move-result-object v0
 
     .end local v0    # "$i$a$-ifBlank-JJHomeFragment$NodeHolder$bind$nodeName$1":I
-    :cond_1b
+    :cond_27
     check-cast v0, Ljava/lang/String;
 
     .line 961
@@ -341,13 +396,13 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_71
+    if-ne v2, v3, :cond_7d
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getPing()I
 
     move-result v2
 
-    if-lez v2, :cond_71
+    if-lez v2, :cond_7d
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -373,23 +428,23 @@
 
     check-cast v2, Ljava/lang/CharSequence;
 
-    goto :goto_94
+    goto :goto_a0
 
     .line 971
-    :cond_71
+    :cond_7d
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/DataStore;->getRunningTest()Z
 
     move-result v2
 
-    if-eqz v2, :cond_90
+    if-eqz v2, :cond_9c
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getStatus()I
 
     move-result v2
 
-    if-nez v2, :cond_90
+    if-nez v2, :cond_9c
 
     .line 972
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeHolder;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -406,16 +461,16 @@
 
     check-cast v2, Ljava/lang/CharSequence;
 
-    goto :goto_94
+    goto :goto_a0
 
     .line 973
-    :cond_90
+    :cond_9c
     const-string v2, "\u2014"
 
     check-cast v2, Ljava/lang/CharSequence;
 
     .line 967
-    :goto_94
+    :goto_a0
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getStatus()I
 
     move-result v0
@@ -435,33 +490,33 @@
     .line 976
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeHolder;->check:Landroid/widget/ImageView;
 
-    if-eqz p2, :cond_9d
+    if-eqz p2, :cond_b8
 
     const/4 v2, 0x0
 
-    goto :goto_9e
+    goto :goto_b9
 
-    :cond_9d
+    :cond_b8
     const/4 v2, 0x4
 
-    :goto_9e
+    :goto_b9
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 977
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$NodeHolder;->itemView:Landroid/view/View;
 
     .line 978
-    if-eqz p2, :cond_a9
+    if-eqz p2, :cond_c4
 
     const v2, 0x7f080090
 
-    goto :goto_ac
+    goto :goto_c7
 
-    :cond_a9
+    :cond_c4
     const v2, 0x7f08008d
 
     .line 977
-    :goto_ac
+    :goto_c7
     nop
 
     .line 981
@@ -490,40 +545,4 @@
     invoke-static {v1, p2}, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->row(Landroid/view/View;Z)V
 
     return-void
-.end method
-
-.method private static latencyColor(II)I
-    .registers 3
-
-    const/4 v0, 0x1
-
-    if-ne p0, v0, :cond_2
-
-    if-lez p1, :cond_1
-
-    const/16 v0, 0x96
-
-    if-gt p1, v0, :cond_0
-
-    const v0, -11751600    # 0xff4caf50 green
-
-    return v0
-
-    :cond_0
-    const v0, -24576    # 0xffffa000 yellow
-
-    return v0
-
-    :cond_2
-    if-nez p0, :cond_3
-
-    :cond_1
-    const v0, -2937041    # 0xffd32f2f red
-
-    return v0
-
-    :cond_3
-    const v0, -7697774    # 0xff8a8a92 gray
-
-    return v0
 .end method

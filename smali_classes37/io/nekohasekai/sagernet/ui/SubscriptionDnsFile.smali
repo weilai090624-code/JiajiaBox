@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -13,7 +13,7 @@
 .end method
 
 .method private static dir(Landroid/content/Context;)Ljava/io/File;
-    .locals 3
+    .registers 4
 
     new-instance v0, Ljava/io/File;
 
@@ -28,120 +28,8 @@
     return-object v0
 .end method
 
-.method private static readFile(Ljava/io/File;)Ljava/lang/String;
-    .locals 5
-
-    :try_start_0
-    invoke-virtual {p0}, Ljava/io/File;->isFile()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return-object v0
-
-    :cond_0
-    invoke-virtual {p0}, Ljava/io/File;->length()J
-
-    move-result-wide v0
-
-    long-to-int v0, v0
-
-    if-gtz v0, :cond_1
-
-    const/4 v0, 0x0
-
-    return-object v0
-
-    :cond_1
-    new-instance v1, Ljava/io/FileInputStream;
-
-    invoke-direct {v1, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-
-    new-array v2, v0, [B
-
-    invoke-virtual {v1, v2}, Ljava/io/FileInputStream;->read([B)I
-
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-
-    new-instance v1, Ljava/lang/String;
-
-    sget-object v3, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
-
-    invoke-direct {v1, v2, v3}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object v1
-
-    :catch_0
-    move-exception v0
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method private static writeFile(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
-
-    :try_start_0
-    invoke-virtual {p0}, Ljava/io/File;->mkdirs()Z
-
-    new-instance v0, Ljava/io/File;
-
-    invoke-direct {v0, p0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, ".tmp"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/io/File;
-
-    invoke-direct {v2, p0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    new-instance v1, Ljava/io/FileOutputStream;
-
-    invoke-direct {v1, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
-
-    sget-object v3, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
-
-    invoke-virtual {p2, v3}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Ljava/io/FileOutputStream;->write([B)V
-
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->flush()V
-
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
-
-    invoke-virtual {v2, v0}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    return-void
-.end method
-
 .method public static migrate(Landroid/content/Context;)V
-    .locals 6
+    .registers 7
 
     :try_start_0
     const-string v0, "subscription_dns"
@@ -164,12 +52,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_13
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3d
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -189,87 +77,183 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2e
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_2e
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
 
     instance-of v4, v3, Ljava/lang/String;
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_37
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_2
+    :cond_37
     check-cast v3, Ljava/lang/String;
 
     invoke-static {p0, v2, v3}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->write(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    goto :goto_13
+    :try_end_3d
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_3d} :catch_3e
 
-    :cond_3
+    :cond_3d
     return-void
 
-    :catch_0
+    :catch_3e
     move-exception v0
 
     return-void
 .end method
 
-.method private static unescape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+.method public static read(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    .registers 9
 
-    const-string v0, "&quot;"
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->dir(Landroid/content/Context;)Ljava/io/File;
 
-    const-string v1, "\""
+    move-result-object v0
 
-    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    new-instance v1, Ljava/io/File;
 
-    move-result-object p0
+    invoke-direct {v1, v0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    const-string v0, "&apos;"
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->readFile(Ljava/io/File;)Ljava/lang/String;
 
-    const-string v1, "'"
+    move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    if-eqz v1, :cond_11
 
-    move-result-object p0
+    const/4 v2, 0x1
 
-    const-string v0, "&lt;"
+    goto :goto_2a
 
-    const-string v1, "<"
+    :cond_11
+    invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->readPrefsXml(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object p0
+    if-eqz v1, :cond_19
 
-    const-string v0, "&gt;"
+    const/4 v2, 0x2
 
-    const-string v1, ">"
+    goto :goto_2a
 
-    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    :cond_19
+    const-string v3, "subscription_dns"
 
-    move-result-object p0
+    const/4 v4, 0x0
 
-    const-string v0, "&amp;"
+    invoke-virtual {p0, v3, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    const-string v1, "&"
+    move-result-object v3
 
-    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    const/4 v4, 0x0
 
-    move-result-object p0
+    invoke-interface {v3, p1, v4}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    return-object p0
+    move-result-object v1
+
+    if-eqz v1, :cond_29
+
+    const/4 v2, 0x3
+
+    goto :goto_2a
+
+    :cond_29
+    const/4 v2, 0x0
+
+    :goto_2a
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "v495 read id="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, " src="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "SubDnsFile"
+
+    invoke-static {v4, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {p0, v3}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->record(Landroid/content/Context;Ljava/lang/String;)V
+
+    return-object v1
+.end method
+
+.method private static readFile(Ljava/io/File;)Ljava/lang/String;
+    .registers 6
+
+    :try_start_0
+    invoke-virtual {p0}, Ljava/io/File;->isFile()Z
+
+    move-result v0
+
+    if-nez v0, :cond_8
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :cond_8
+    invoke-virtual {p0}, Ljava/io/File;->length()J
+
+    move-result-wide v0
+
+    long-to-int v0, v0
+
+    if-gtz v0, :cond_11
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :cond_11
+    new-instance v1, Ljava/io/FileInputStream;
+
+    invoke-direct {v1, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    new-array v2, v0, [B
+
+    invoke-virtual {v1, v2}, Ljava/io/FileInputStream;->read([B)I
+
+    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+
+    new-instance v1, Ljava/lang/String;
+
+    sget-object v3, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+
+    invoke-direct {v1, v2, v3}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
+    :try_end_25
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_25} :catch_26
+
+    return-object v1
+
+    :catch_26
+    move-exception v0
+
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method private static readPrefsXml(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-    .locals 12
+    .registers 14
 
     :try_start_0
     new-instance v0, Ljava/lang/StringBuilder;
@@ -300,23 +284,23 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_24
 
     const/4 v0, 0x0
 
     return-object v0
 
-    :cond_0
+    :cond_24
     const-string v2, "<string name=\""
 
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_27
     invoke-virtual {v0, v2, v3}, Ljava/lang/String;->indexOf(Ljava/lang/String;I)I
 
     move-result v4
 
-    if-gez v4, :goto_end
+    if-gez v4, :cond_5a
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
@@ -330,7 +314,7 @@
 
     move-result v6
 
-    if-gez v6, :goto_end
+    if-gez v6, :cond_5a
 
     invoke-virtual {v0, v5, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -344,7 +328,7 @@
 
     move-result v8
 
-    if-gez v8, :goto_end
+    if-gez v8, :cond_5a
 
     invoke-virtual {v0, v5, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -354,7 +338,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_57
 
     invoke-static {v9}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->unescape(Ljava/lang/String;)Ljava/lang/String;
 
@@ -362,20 +346,19 @@
 
     return-object v9
 
-    :cond_1
+    :cond_57
     add-int/lit8 v3, v8, 0x1
 
-    goto :goto_0
+    goto :goto_27
+    :try_end_5a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5a} :catch_5c
 
-    :goto_end
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
+    :cond_5a
     const/4 v0, 0x0
 
     return-object v0
 
-    :catch_0
+    :catch_5c
     move-exception v0
 
     const/4 v0, 0x0
@@ -384,7 +367,7 @@
 .end method
 
 .method private static record(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 5
+    .registers 7
 
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
@@ -401,7 +384,7 @@
 
     move-result v1
 
-    if-nez v1, :return
+    if-nez v1, :cond_47
 
     new-instance v1, Ljava/io/File;
 
@@ -448,112 +431,99 @@
     invoke-virtual {v0, v1}, Ljava/io/FileOutputStream;->write([B)V
 
     invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_47
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_47} :catch_48
 
-    :return
+    :cond_47
     return-void
 
-    :catch_0
+    :catch_48
     move-exception v0
 
     return-void
 .end method
 
-.method public static read(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+.method public static splitFinal(Lorg/json/JSONObject;)Ljava/lang/String;
+    .registers 3
 
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->dir(Landroid/content/Context;)Ljava/io/File;
+    const-string v0, "rules"
+
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v0
 
-    new-instance v1, Ljava/io/File;
+    if-eqz v0, :cond_11
 
-    invoke-direct {v1, v0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
 
-    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->readFile(Ljava/io/File;)Ljava/lang/String;
+    move-result v1
 
-    move-result-object v1
+    if-lez v1, :cond_11
 
-    if-eqz v1, :cond_0
+    const-string v0, "dns-direct"
 
-    const/4 v2, 0x1
+    return-object v0
 
-    goto :done
+    :cond_11
+    const/4 v0, 0x0
 
-    :cond_0
-    invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->readPrefsXml(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    return-object v0
+.end method
 
-    move-result-object v1
+.method private static unescape(Ljava/lang/String;)Ljava/lang/String;
+    .registers 3
 
-    if-eqz v1, :cond_1
+    const-string v0, "&quot;"
 
-    const/4 v2, 0x2
+    const-string v1, "\""
 
-    goto :done
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    :cond_1
-    const-string v3, "subscription_dns"
+    move-result-object p0
 
-    const/4 v4, 0x0
+    const-string v0, "&apos;"
 
-    invoke-virtual {p0, v3, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    const-string v1, "\'"
 
-    move-result-object v3
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    const/4 v4, 0x0
+    move-result-object p0
 
-    invoke-interface {v3, p1, v4}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string v0, "&lt;"
 
-    move-result-object v1
+    const-string v1, "<"
 
-    if-eqz v1, :cond_2
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    const/4 v2, 0x3
+    move-result-object p0
 
-    goto :done
+    const-string v0, "&gt;"
 
-    :cond_2
-    const/4 v2, 0x0
+    const-string v1, ">"
 
-    :done
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object p0
 
-    const-string v4, "v495 read id="
+    const-string v0, "&amp;"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "&"
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    const-string v4, " src="
+    move-result-object p0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "SubDnsFile"
-
-    invoke-static {v4, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {p0, v3}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->record(Landroid/content/Context;Ljava/lang/String;)V
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public static write(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->dir(Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_f
 
     new-instance v1, Ljava/io/File;
 
@@ -563,35 +533,64 @@
 
     return-void
 
-    :cond_0
+    :cond_f
     invoke-static {v0, p1, p2}, Lio/nekohasekai/sagernet/ui/SubscriptionDnsFile;->writeFile(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public static splitFinal(Lorg/json/JSONObject;)Ljava/lang/String;
-    .locals 2
+.method private static writeFile(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)V
+    .registers 7
 
-    const-string v0, "rules"
+    :try_start_0
+    invoke-virtual {p0}, Ljava/io/File;->mkdirs()Z
 
-    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    new-instance v0, Ljava/io/File;
 
-    move-result-object v0
+    invoke-direct {v0, p0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    if-eqz v0, :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v1
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-lez v1, :cond_0
+    const-string v2, ".tmp"
 
-    const-string v0, "dns-direct"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-object v0
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_0
-    const/4 v0, 0x0
+    move-result-object v1
 
-    return-object v0
+    new-instance v2, Ljava/io/File;
+
+    invoke-direct {v2, p0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    new-instance v1, Ljava/io/FileOutputStream;
+
+    invoke-direct {v1, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+
+    sget-object v3, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/io/FileOutputStream;->write([B)V
+
+    invoke-virtual {v1}, Ljava/io/FileOutputStream;->flush()V
+
+    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+
+    invoke-virtual {v2, v0}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+    :try_end_35
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_35} :catch_36
+
+    return-void
+
+    :catch_36
+    move-exception v0
+
+    return-void
 .end method

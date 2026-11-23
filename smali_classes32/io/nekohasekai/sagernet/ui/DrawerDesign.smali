@@ -975,6 +975,88 @@
 
     .line 201
     :cond_21e
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/NodeSortHelper;->title(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v3
+
+    const/16 v6, 0xf
+
+    invoke-static {v0, v3, v6, v5}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->label(Landroid/content/Context;Ljava/lang/CharSequence;IZ)Landroid/widget/TextView;
+
+    move-result-object v3
+
+    new-instance v7, Lio/nekohasekai/sagernet/ui/DrawerDesign$Row;
+
+    const/4 v8, 0x5
+
+    invoke-direct {v7, v0, v3, v8}, Lio/nekohasekai/sagernet/ui/DrawerDesign$Row;-><init>(Landroid/content/Context;Landroid/widget/TextView;I)V
+
+    new-instance v8, Landroid/widget/FrameLayout;
+
+    invoke-direct {v8, v0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+
+    const v9, 0x7f0a0f79
+
+    invoke-virtual {v8, v9, v7}, Landroid/widget/FrameLayout;->setTag(ILjava/lang/Object;)V
+
+    new-instance v9, Landroid/widget/FrameLayout$LayoutParams;
+
+    const/4 v10, -0x1
+
+    invoke-direct {v9, v10, v10}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v8, v7, v9}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v8, v9, v9, v9, v9}, Landroid/widget/FrameLayout;->setPadding(IIII)V
+
+    invoke-virtual {v8, v9}, Landroid/widget/FrameLayout;->setMinimumWidth(I)V
+
+    new-instance v9, Lio/nekohasekai/sagernet/ui/SortRowClick;
+
+    invoke-direct {v9, v0, v3}, Lio/nekohasekai/sagernet/ui/SortRowClick;-><init>(Landroid/app/Activity;Landroid/widget/TextView;)V
+
+    invoke-virtual {v8, v9}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    invoke-virtual {v7, v9}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v7, v10}, Landroid/widget/LinearLayout;->setClickable(Z)V
+
+    const/high16 v10, 0x42680000    # 58.0f
+
+    invoke-static {v0, v10}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->dp(Landroid/content/Context;F)I
+
+    move-result v10
+
+    new-instance v11, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 v12, -0x1
+
+    invoke-direct {v11, v12, v10}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    const/high16 v10, 0x40800000    # 4.0f
+
+    invoke-static {v0, v10}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->dp(Landroid/content/Context;F)I
+
+    move-result v10
+
+    iput v10, v11, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
+
+    iget-object v10, v4, Lio/nekohasekai/sagernet/ui/DrawerDesign$Menu;->list:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v10, v8, v11}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v10, v4, Lio/nekohasekai/sagernet/ui/DrawerDesign$Menu;->rows:Ljava/util/List;
+
+    invoke-interface {v10, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v7, v10}, Lio/nekohasekai/sagernet/ui/DrawerDesign$Row;->paint(Z)V
+
     const-string v3, "\u57fa\u4e8e NekoBox \u00b7 \u4e3a\u7b80\u5355\u800c\u751f"
 
     const/16 v6, 0xc
@@ -1026,8 +1108,28 @@
     .line 206
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->refresh(Landroid/view/View;)V
 
+    iget-object v3, v4, Lio/nekohasekai/sagernet/ui/DrawerDesign$Menu;->rows:Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    add-int/lit8 v5, v5, -0x1
+
+    invoke-interface {v3, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/view/View;
+
+    move-object/from16 v6, p0
+
+    invoke-static {v6}, Lio/nekohasekai/sagernet/ui/NodeSortHelper;->restore(Landroid/app/Activity;)V
+
     .line 207
     invoke-static {v2}, Lio/nekohasekai/sagernet/ui/DrawerLayers;->bind(Landroid/view/View;)V
+
+    invoke-static {v3}, Lio/nekohasekai/sagernet/ui/SortRowStyle;->apply(Landroid/view/View;)V
 
     return-void
 .end method

@@ -19,7 +19,7 @@ package io.nekohasekai.sagernet.ui;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.*;
-import android.text.TextUtils;
+import android.text.*;
 import android.view.*;
 import android.widget.*;
 import org.json.*;
@@ -31,9 +31,11 @@ public final class ConnectionCard extends LinearLayout {
  private final Handler main=new Handler(Looper.getMainLooper());
  private final AtomicBoolean loading=new AtomicBoolean();
  private final TextView title,caption,empty;
+ private final EditText search;
  private final ListView list;
  private final Rows adapter=new Rows();
  private ConnectionRows data;
+ private List<JSONObject> visible=Collections.emptyList();
  private JSONObject types=new JSONObject();
  private Map<String,String> labels=Collections.emptyMap();
  private int filter,epoch;
@@ -44,15 +46,20 @@ public final class ConnectionCard extends LinearLayout {
  public ConnectionCard(Context c){
   super(c);setOrientation(VERTICAL);UiComponents.routingCard(this);setPadding(dp(16),dp(14),dp(16),dp(14));
   LinearLayout header=new LinearLayout(c);header.setGravity(Gravity.CENTER_VERTICAL);
-  title=text("连接详情",14,true);caption=text("全部 · 0 ▾",10,false);caption.setGravity(Gravity.RIGHT|Gravity.CENTER_VERTICAL);UiComponents.secondary(caption);caption.setContentDescription("切换连接筛选");caption.setOnClickListener(v->{filter=(filter+1)%filters.length;render();});
-  header.addView(title,new LayoutParams(0,headerHeight(),1));header.addView(caption,new LayoutParams(-2,headerHeight()));addView(header,new LayoutParams(-1,headerHeight()));
+  title=text("连接详情",14,true);title.setGravity(Gravity.CENTER_VERTICAL);
+  search=new EditText(c);search.setSingleLine(true);search.setGravity(Gravity.CENTER_VERTICAL|Gravity.START);search.setHint("搜索应用、域名或 IP");search.setInputType(android.text.InputType.TYPE_CLASS_TEXT);search.setTextSize(11);UiComponents.field(search);search.setMinimumHeight(dp(30));search.setPaddingRelative(dp(10),0,dp(10),0);
+  caption=text("全部 · 0 ▾",10,false);caption.setGravity(Gravity.RIGHT|Gravity.CENTER_VERTICAL);UiComponents.secondary(caption);caption.setContentDescription("切换连接筛选");caption.setOnClickListener(v->{filter=(filter+1)%filters.length;render();});
+  header.addView(title,new LayoutParams(-2,headerHeight()));
+  LayoutParams slip=new LayoutParams(0,headerHeight(),1);slip.leftMargin=dp(8);slip.rightMargin=dp(6);header.addView(search,slip);
+  header.addView(caption,new LayoutParams(-2,headerHeight()));addView(header,new LayoutParams(-1,headerHeight()));
+  search.addTextChangedListener(new TextWatcher(){public void beforeTextChanged(CharSequence s,int a,int b,int d){}public void onTextChanged(CharSequence s,int a,int b,int d){render();}public void afterTextChanged(Editable e){}});
   FrameLayout body=new FrameLayout(c);LayoutParams bp=new LayoutParams(-1,0,1);bp.topMargin=dp(6);addView(body,bp);
   list=new LocalList(c);list.setDivider(null);list.setDividerHeight(0);list.setCacheColorHint(0);list.setAdapter(adapter);body.addView(list,new FrameLayout.LayoutParams(-1,-1));
   empty=text(error,12,false);empty.setSingleLine(false);empty.setGravity(Gravity.CENTER);UiComponents.secondary(empty);body.addView(empty,new FrameLayout.LayoutParams(-1,-1));list.setEmptyView(empty);
  }
  private TextView text(String value,int size,boolean bold){TextView t=new TextView(getContext());t.setText(value);t.setTextSize(size);t.setSingleLine(true);t.setEllipsize(TextUtils.TruncateAt.END);t.setIncludeFontPadding(false);if(bold)t.setTypeface(Typeface.create("sans-serif-medium",Typeface.NORMAL));UiComponents.text(t);return t;}
  private int dp(float n){return UiComponents.dp(getContext(),n);}
- private int headerHeight(){return dp(22*Math.max(1,getResources().getConfiguration().fontScale));}
+ private int headerHeight(){return dp(36*Math.max(1,getResources().getConfiguration().fontScale));}
  public int preferredHeight(){return dp(26)+headerHeight()+5*dp(28*Math.max(1,getResources().getConfiguration().fontScale));}
  private boolean active(){return isAttachedToWindow()&&isShown()&&getWindowVisibility()==VISIBLE;}
  private void reconcile(){
@@ -91,12 +98,26 @@ public final class ConnectionCard extends LinearLayout {
   });
  }
  private void render(){
-  int count=data==null?0:data.counts[filter];set(caption,filters[filter]+" · "+count+(count>ConnectionRows.LIMIT?"（前150）":"")+" ▾");
-  set(empty,error!=null?error:"暂无匹配的当前连接");adapter.notifyDataSetChanged();
+  rebuild();String q=search.getText().toString().trim();int count=visible.size();int total=data==null?0:data.counts[filter];
+  set(caption,filters[filter]+" · "+count+(!q.isEmpty()?" 匹配":total>ConnectionRows.LIMIT?"（前150）":"")+" ▾");
+  set(empty,error!=null?error:q.isEmpty()?"暂无匹配的当前连接":"没有匹配「"+q+"」的连接");
+  adapter.notifyDataSetChanged();
+ }
+ private void rebuild(){
+  String q=search.getText().toString().trim().toLowerCase(Locale.ROOT);
+  if(data==null){visible=Collections.emptyList();return;}
+  if(q.isEmpty()){visible=data.pages[filter];return;}
+  List<JSONObject> out=new ArrayList<>();for(JSONObject row:data.pages[filter])if(match(row,q))out.add(row);visible=out;
+ }
+ private boolean match(JSONObject row,String q){
+  JSONObject m=row.optJSONObject("metadata");if(m==null)m=new JSONObject();
+  String pkg=m.optString("processPath");String name=labels.get(pkg);
+  String hay=pkg+" "+(name==null?"":name)+" "+m.optString("host")+" "+m.optString("destinationIP")+" "+m.optString("destinationPort")+" "+row.optString("rule")+" "+row.optString("chains");
+  return hay.toLowerCase(Locale.ROOT).contains(q);
  }
  private final class Rows extends BaseAdapter {
-  public int getCount(){return data==null?0:data.pages[filter].size();}
-  public JSONObject getItem(int position){return data.pages[filter].get(position);}
+  public int getCount(){return visible.size();}
+  public JSONObject getItem(int position){return visible.get(position);}
   public long getItemId(int position){return position;}
   public View getView(int position,View recycled,ViewGroup parent){Row row=recycled instanceof Row?(Row)recycled:new Row();row.bind(getItem(position));return row;}
  }
