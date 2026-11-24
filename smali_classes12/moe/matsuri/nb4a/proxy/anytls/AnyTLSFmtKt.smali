@@ -99,36 +99,27 @@
     iput-object v7, v4, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->server_name:Ljava/lang/String;
 
     .line 21
-    iget-object v7, p0, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->allowInsecure:Ljava/lang/Boolean;
-
-    invoke-virtual {v7}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_3c
-
     iput-object v6, v4, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->insecure:Ljava/lang/Boolean;
 
     .line 22
-    :cond_3c
     iget-object v7, p0, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->alpn:Ljava/lang/String;
 
     invoke-static {v7}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->blankAsNull(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    if-eqz v7, :cond_49
+    if-eqz v7, :cond_41
 
     invoke-static {v7}, Lmoe/matsuri/nb4a/utils/KotlinUtilKt;->listByLineOrComma(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v7
 
-    goto :goto_4a
+    goto :goto_42
 
-    :cond_49
+    :cond_41
     const/4 v7, 0x0
 
-    :goto_4a
+    :goto_42
     iput-object v7, v4, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->alpn:Ljava/util/List;
 
     .line 23
@@ -138,7 +129,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_59
+    if-eqz v7, :cond_51
 
     .local v7, "it":Ljava/lang/String;
     const/4 v8, 0x0
@@ -156,14 +147,14 @@
     nop
 
     .line 26
-    :cond_59
+    :cond_51
     iget-object v7, p0, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->utlsFingerprint:Ljava/lang/String;
 
     invoke-static {v7}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->blankAsNull(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    if-eqz v7, :cond_72
+    if-eqz v7, :cond_6a
 
     .restart local v7    # "it":Ljava/lang/String;
     const/4 v8, 0x0
@@ -203,14 +194,14 @@
     nop
 
     .line 32
-    :cond_72
+    :cond_6a
     iget-object v7, p0, Lmoe/matsuri/nb4a/proxy/anytls/AnyTLSBean;->echConfig:Ljava/lang/String;
 
     invoke-static {v7}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->blankAsNull(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    if-eqz v7, :cond_8f
+    if-eqz v7, :cond_87
 
     .restart local v7    # "it":Ljava/lang/String;
     const/4 v8, 0x0
@@ -254,7 +245,7 @@
     nop
 
     .line 39
-    :cond_8f
+    :cond_87
     nop
 
     .line 18

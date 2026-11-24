@@ -1,13 +1,13 @@
 # 源码与成品上传信息
 
-当前发布版本：`0.0.5 beta`，内部版本号 `653`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。本次发布 653，节点排序、单节点测速与 DNS 污染修复。
+当前发布版本：`0.0.5 beta`，内部版本号 `655`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。本次发布 655，修复 anytls 自签证书导致的节点不可用。
 
 | 项目 | 值 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/weilai090624-code/JiajiaBox |
 | Git HTTPS 地址 | https://github.com/weilai090624-code/JiajiaBox.git |
 | 源码分支 | `main` |
-| 对应版本标签 | `v0.0.5-beta.653` |
+| 对应版本标签 | `v0.0.5-beta.655` |
 | 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.653 |
 | APK | `JiajiaBox-0.0.5-beta-535-globe-nocn.apk` |
 | APK SHA-256 | `384c9100162878834b5ee7dab6423186efbf1e09e8ca88e9e91d976363e5d389` |
@@ -18,10 +18,8 @@
 
 本版主要变化：
 
-- 抽屉新增「节点排序」行，可在订阅顺序与延迟排序间切换，选择持久化；点节点行尾延迟数字可单独测该节点；
-- 修复 DNS 污染：新增 `dns-proxy`（DoH + `detour: proxy`），连接建立时的 `resolve` 一并改道，`DnsIpRouting` 优先选它；国内域名保留本地解析，节点故障时不影响国内站点；
-- `com.twitter.android` / `com.x.android` / `ai.x.grok` 整包强制走代理；
-- 抽屉动画缩短进场延迟、连接详情支持搜索、节点浮窗编辑、延迟三档颜色、测速并发 16、默认 MTU 1500、CNIP 规则补全。
+- 修复 anytls 节点显示不可用：部分机场用自签证书伪装域名，mihomo 靠 `fingerprint` 跳过证书链校验，NekoBox 不解析该字段导致 `x509: certificate signed by unknown authority`；改为 anytls 出站不校验证书；
+- 延续 653 的节点排序、单节点测速、DNS 污染修复、X/Grok 强制走代理等改动。
 
 发布顺序：先提供本地 APK，由用户实测；用户明确同意后，再推送对应源码和成品。应用行为或 APK 有新改动时重新执行此流程。
 
