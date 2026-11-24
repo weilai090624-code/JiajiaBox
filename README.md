@@ -1,5 +1,5 @@
 # JiajiaBox
-JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一款真正适合小白的代理客户端。没法满足所有人的需求与喜好，尽可能做最简单、最容易上手、最不需要折腾的代理客户端，尽可能把易上手做到极致。继承了NekoBox的极简风格与极强的兼容性，它是真正的真•开袋即食、开箱即用。它有什么优点？默认开启多源补全的 CNIP、CN 域名分流而非分应用分流，根据 IP、域名直接分流，绝大多数场景无需再做国内外分流，真正做到了开袋即食，后续也会做出更多的功能或分流的优化或扩展。有任何问题或建议请随时反馈。
+JiajiaBox起源于一个高中生发现代理客户端五花八门却没有一款真正适合小白的代理客户端。没法满足所有人的需求与喜好，尽可能做最简单、最容易上手、最不需要折腾的代理客户端，尽可能把易上手做到极致。继承了NekoBox的极简风格与极强的兼容性，它是真正的真•开袋即食、开箱即用。它有什么优点？默认开启多源补全的 CNIP、CN 域名分流而非分应用分流，根据 IP、域名直接分流，绝大多数场景无需再做国内外分流，真正做到了开袋即食，后续也会做出更多的功能或分流的优化或扩展。有任何问题或建议请随时反馈。项目本身带着偏执，不打算也没办法讨好所有人，不喜欢的人选择自己喜欢的即可
          
 网站： www.linjiajia.org
 
@@ -43,8 +43,6 @@ JiajiaBox 的 MX 支持不是把 MX 私有传输重写进 sing-box，而是：
 - 接入方式参考了 GPL-3.0 的 [FlClash-FOSS](https://github.com/Mundo-Connect/FlClash-FOSS)。
 
 详见 [MUNDO-INTEGRATION.md](MUNDO-INTEGRATION.md)、[MUNDO-PERMISSION.md](MUNDO-PERMISSION.md)、[MUNDO-PERMISSION-REQUEST.md](MUNDO-PERMISSION-REQUEST.md) 和 `assets/licenses/Mundo-NOTICE.txt`。
-
-JiajiaBox 不限制用户使用 Mundo 官方客户端：订阅中的 MX 节点可以导出/导入到官方客户端使用。如果 JiajiaBox 提供订阅链接，只应包含 Mundo 的协议（MX），不混入其他协议。
 
 ## 支持的协议
 
@@ -140,5 +138,3 @@ Base64 / URL-safe Base64（链接列表）
 ## 许可证
 
 JiajiaBox 原创代码及本项目修改部分采用 GNU General Public License v3.0（GPL-3.0）发布，完整条款见 [LICENSE](LICENSE)。随项目分发的上游组件（sing-box、libcore、libneko、Mieru 等）仍适用其各自许可证；详见 `assets/licenses/`。
-
-这个项目和我一样带着许多偏执
